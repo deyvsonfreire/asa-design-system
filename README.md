@@ -78,3 +78,4 @@ Estão documentadas em detalhe nas páginas correspondentes, mas resumidas aqui 
 O nível de verificação exigido no pagamento da caução depende do gateway/adquirente escolhido — se ele já impuser 3D Secure, o segundo fator do produto vira redundante. Detalhes em `09-seguranca.html`.
 
 E os textos de consentimento LGPD, embora aprovados para seguir adiante, precisam de parecer jurídico antes de qualquer publicação.
+# asa-design-system
