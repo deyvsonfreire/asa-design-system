@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>09 · Segurança e privacidade — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html" aria-current="page">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="intro">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">09 · Segurança e privacidade</span>
+    <h2>Aqui parte do conteúdo não é critério de design. É obrigação legal.</h2>
+    <p class="asa-doc-section__lead">A Asa coleta CPF, número de CNH e dados de cartão para bloquear caução. Isso tira estes dois temas — segundo fator e consentimento — da categoria de "avançado" e os coloca na de requisito. A diferença prática: nas outras seções, uma decisão bem argumentada substitui a regra. Aqui, não.</p>
+
+    <div class="asa-alert asa-alert--error" style="margin-top:32px;max-width:820px">
+      <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div class="asa-alert__body">
+        <span class="asa-alert__title">Isto é orientação de design, não parecer jurídico</span>
+        <span class="asa-alert__text">O mecanismo e a redação propostos aqui seguem boas práticas de UX ligadas à LGPD, e foram aprovados para seguir adiante. A validação jurídica continua pendente e precisa acontecer antes de qualquer tela de consentimento ir ao ar.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="segundo-fator">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Segundo fator</span>
+    <h2>Não em todo acesso. Só onde o estrago seria grande.</h2>
+    <p class="asa-doc-section__lead">Pedir segundo fator em todo login adiciona atrito nas 99% das vezes em que não há nada de suspeito — e derruba a taxa de login concluído. A pergunta que decide é outra: se esta ação for feita por alguém que não é o dono da conta, qual é o estrago?</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--yes">Exige segundo fator</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Confirmar caução no cartão</span><span class="asa-doc-spec__value">movimenta dinheiro</span></div>
+          <div class="asa-doc-spec"><span>Login em dispositivo novo</span><span class="asa-doc-spec__value">acesso ao histórico</span></div>
+          <div class="asa-doc-spec"><span>Trocar senha ou WhatsApp</span><span class="asa-doc-spec__value">altera o acesso</span></div>
+          <div class="asa-doc-spec"><span>Trocar o cartão salvo</span><span class="asa-doc-spec__value">dado de pagamento</span></div>
+        </div>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Não exige</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Ver a reserva ativa</span><span class="asa-doc-spec__value">leitura, reversível</span></div>
+          <div class="asa-doc-spec"><span>Consultar histórico</span><span class="asa-doc-spec__value">leitura</span></div>
+          <div class="asa-doc-spec"><span>Buscar carros</span><span class="asa-doc-spec__value">nem exige conta</span></div>
+          <div class="asa-doc-spec"><span>Login em dispositivo conhecido</span><span class="asa-doc-spec__value">risco já avaliado</span></div>
+        </div>
+      </div>
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Pendência aberta</span>
+        <span class="asa-doc-card__title">Qual gateway, qual verificação</span>
+        <p class="asa-doc-gloss">Se o adquirente escolhido já impuser 3D Secure na cobrança da caução, o segundo fator do produto vira redundante — e redundância em fluxo de pagamento é atrito puro, não segurança extra. A decisão fica em aberto até a escolha do gateway; nada mais do sistema depende dela.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">A tela de código</span>
+      <div class="asa-doc-cards asa-doc-cards--wide">
+        <div class="asa-frame">
+          <div class="asa-frame__bar"><span class="asa-frame__url">asalocadora.com.br/reserva/verificacao?r=rec-4821</span></div>
+          <div style="padding:26px 22px;background:var(--asa-bg-elevated);display:flex;flex-direction:column;gap:16px">
+            <span class="asa-label-mono">Confirmação de segurança</span>
+            <h3 style="font:italic 900 26px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">Só pra ter certeza que é você</h3>
+            <p style="font:400 14px/1.55 var(--asa-font);max-width:44ch">Mandei um código de 6 dígitos no WhatsApp (81) 99999-0000. É o último passo antes de bloquear a caução.</p>
+            <div class="asa-field" style="max-width:260px">
+              <label class="asa-field__label" for="otp">Código</label>
+              <input class="asa-input" id="otp" value="4 8 2 1 0 3" inputmode="numeric" style="letter-spacing:.4em;font-size:18px">
+              <span class="asa-field__help">O código expira em 1:00.</span>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Confirmar</span></button>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Reenviar por SMS</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="asa-doc-card">
+          <span class="asa-doc-block__title" style="margin:0">O que essa tela resolve</span>
+          <div class="asa-doc-specs">
+            <div class="asa-doc-spec"><span>Validade visível</span><span class="asa-doc-spec__value">"expira em 1:00"</span></div>
+            <div class="asa-doc-spec"><span>Canal alternativo</span><span class="asa-doc-spec__value">SMS se o WhatsApp falhar</span></div>
+            <div class="asa-doc-spec"><span>Registro de voz</span><span class="asa-doc-spec__value">balcão, caixa baixa</span></div>
+          </div>
+          <p class="asa-doc-gloss">Um código sem prazo visível gera insegurança sobre se ainda vale, especialmente se a pessoa demorar a checar a mensagem. E oferecer mais de um canal existe porque nem todo mundo tem acesso confiável aos dois ao mesmo tempo — sem isso, uma troca de número tranca a pessoa fora da própria reserva.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">Recuperação: códigos de backup no momento da ativação</span>
+        <p class="asa-doc-gloss" style="max-width:780px">Com conta persistente, quem ativar segundo fator precisa receber os códigos de backup <i>ali</i>, não depois — depois já é tarde. Um sistema de 2FA sem plano de recuperação transforma um mecanismo de segurança em risco de exclusão: a pessoa perde acesso à própria conta de forma permanente, o que é dano para ela e custo de suporte para a operação. Além dos códigos, existe o caminho de recuperação assistida com verificação manual de identidade, pelo mesmo balcão que já atende presencialmente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="consentimento">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Consentimento</span>
+    <h2>É aqui que "sem letra miúda" deixa de ser slogan.</h2>
+    <p class="asa-doc-section__lead">A marca vende ausência de pegadinha. O momento em que essa promessa é testada de verdade é a tela de consentimento — se ela vier em juridiquês, a promessa vira propaganda. Por isso o texto de consentimento é obrigatoriamente Registro 2: caixa baixa, primeira pessoa, sem exclamação.</p>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Errado</span>
+        <fieldset class="asa-fieldset" style="background:var(--asa-bg);padding:16px;border-radius:8px">
+          <label class="asa-choice"><input class="asa-choice__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Declaro ciência e concordância com os Termos de Uso, a Política de Privacidade e autorizo o tratamento dos meus dados pessoais para as finalidades ali descritas, incluindo comunicações comerciais.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Três problemas de uma vez: nasce marcada, mistura o essencial com marketing num aceite só, e está escrita num registro que a marca não usa em lugar nenhum. Um consentimento pré-marcado não é consentimento válido — a pessoa precisa tomar a ação de marcar, não a de desmarcar.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--yes">Certo</span>
+        <fieldset class="asa-fieldset" style="background:var(--asa-bg-elevated);padding:16px;border:1.5px solid var(--asa-line);border-radius:8px">
+          <label class="asa-choice"><input class="asa-choice__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Li e concordo com os termos da locação</span><span class="asa-choice__note">Obrigatório para alugar. São duas páginas, em português claro — precisamos do seu nome, CPF e CNH para entregar o carro.</span></span></label>
+          <label class="asa-choice asa-choice--optional"><input class="asa-choice__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Quero receber ofertas por WhatsApp</span><span class="asa-choice__note">Opcional. Não muda nada na sua reserva, e você desativa quando quiser.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Duas decisões separadas, com pesos visuais diferentes. A opcional nasce desmarcada e diz explicitamente que recusá-la não afeta o serviço — que é justamente o que dá à pessoa a escolha real.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Granularidade</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Nome, CPF, CNH</span><span class="asa-doc-spec__value">essencial · o carro não sai sem</span></div>
+          <div class="asa-doc-spec"><span>Cartão</span><span class="asa-doc-spec__value">essencial · caução</span></div>
+          <div class="asa-doc-spec"><span>WhatsApp para avisos da reserva</span><span class="asa-doc-spec__value">essencial</span></div>
+          <div class="asa-doc-spec"><span>WhatsApp para ofertas</span><span class="asa-doc-spec__value">opcional · consentimento à parte</span></div>
+          <div class="asa-doc-spec"><span>Histórico salvo para recorrência</span><span class="asa-doc-spec__value">opcional · criar conta</span></div>
+        </div>
+        <p class="asa-doc-gloss">O teste para cada dado é um só: o serviço funciona sem ele? Se funciona, ele pertence a um consentimento separado, não ao aceite obrigatório.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Posição no fluxo</span>
+        <p style="max-width:none">O consentimento essencial fica colado ao botão "Confirmar e pagar". O de marketing aparece logo abaixo, visivelmente separado.</p>
+        <p class="asa-doc-gloss">Nunca escondido atrás de um link genérico de "termos" no rodapé, e nunca disperso num texto no começo do formulário que ninguém lê. Perto da ação real é o único lugar onde ele é efetivamente lido.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Meus dados, self-service</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Ver o que está guardado</span><span class="asa-doc-spec__value">na área da conta</span></div>
+          <div class="asa-doc-spec"><span>Baixar uma cópia</span><span class="asa-doc-spec__value">na área da conta</span></div>
+          <div class="asa-doc-spec"><span>Excluir conta e histórico</span><span class="asa-doc-spec__value">solicitação self-service</span></div>
+        </div>
+        <p class="asa-doc-gloss">Com conta persistente, isso deixa de ser opcional. O processamento da exclusão pode acontecer manualmente por trás, mas a <i>solicitação</i> precisa ser self-service — senão cada pedido vira um processo de suporte, mais lento para a pessoa e mais caro para a operação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="08-fluxo-reserva.html"><span>Anterior</span><b>← 08 · Fluxo de reserva</b></a>
+  <a class="asa-doc-next__link" href="10-tokens.html" style="text-align:right"><span>Próxima seção</span><b>10 · Tokens →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

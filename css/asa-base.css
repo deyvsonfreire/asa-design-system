@@ -1,0 +1,207 @@
+/* ==========================================================================
+   ASA RENT A CAR — BASE
+   Reset mínimo + defaults de elemento. HTML semântico já nasce na marca:
+   h1 é display, h2 é título, p é corpo, small é etiqueta. Quem escrever
+   markup correto acerta a tipografia sem consultar tabela nenhuma.
+   Carregar DEPOIS de asa-tokens.css.
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Fundo padrão da página: branco, não creme. A implementação original usava
+   --asa-bg (creme) como o canvas de toda tela — mas o token de cor já
+   documenta o creme como uma fatia de 15% da composição, não a base inteira.
+   Usá-lo como fundo global de body fazia o creme aparecer bem mais que
+   15% na prática (feedback de revisão). Branco vira o neutro-padrão;
+   creme continua existindo como token e aparece onde for composição
+   deliberada — seção específica, hero, formulário — não como pano de fundo
+   automático de tudo. */
+body {
+  margin: 0;
+  background: var(--asa-bg-elevated);
+  color: var(--asa-ink);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body);
+  line-height: var(--asa-lh-body);
+  font-weight: var(--asa-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   OS 5 DEGRAUS
+   Registro 1 (Anúncio): caixa alta, itálico, Black, entreletras negativa.
+   Mesmo corte do wordmark. Só título, preço e número — nunca corpo de texto,
+   nunca para falar com uma pessoa.
+   -------------------------------------------------------------------------- */
+
+h1,
+.asa-display {
+  font-size: var(--asa-fs-display-fluid);
+  line-height: .94;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: var(--asa-tracking-display);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h2,
+.asa-title {
+  font-size: var(--asa-fs-title-fluid);
+  line-height: 1.125;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: var(--asa-tracking-display);
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* Registro 2 (Balcão) começa aqui: caixa baixa, sem itálico, sem exclamação.
+   É a voz de quem atende. Vive no campo claro. */
+
+h3,
+.asa-highlight {
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  letter-spacing: 0;
+  margin: 0;
+}
+
+p,
+.asa-body {
+  font-size: var(--asa-fs-body);
+  line-height: var(--asa-lh-body);
+  font-weight: var(--asa-weight-regular);
+  margin: 0;
+  max-width: var(--asa-measure);
+  text-wrap: pretty;
+}
+
+small,
+.asa-label {
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  font-weight: var(--asa-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--asa-tracking-label);
+  display: inline-block;
+}
+
+/* Rótulo mono de seção. A cor muda com o fundo — é a única "cor de rótulo"
+   do sistema: vermelho escuro sobre claro, amarelo sobre preto, verde para
+   marcar o que já existe e não se toca. */
+.asa-label-mono {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-mono);
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-action-hover);
+  display: inline-block;
+}
+
+.asa-label-mono--on-dark   { color: var(--asa-surface); }
+.asa-label-mono--on-yellow { color: var(--asa-ink); }
+.asa-label-mono--ok        { color: var(--asa-ok); }
+
+a {
+  color: var(--asa-action-hover);
+  text-decoration: none;
+  transition: color var(--asa-dur-fast) var(--asa-ease);
+}
+
+a:hover {
+  color: var(--asa-action);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   FOCO
+   A marca proíbe sombra em qualquer lugar, então elevação e foco não podem
+   usar box-shadow. outline resolve os dois — e não é sombra.
+   -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--asa-action-hover);
+  outline-offset: 2px;
+  border-radius: var(--asa-radius);
+}
+
+/* Só remove o anel de quem não navega por teclado. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT
+   -------------------------------------------------------------------------- */
+
+/* container-type habilita as unidades cqi/cqw: é o que faz a tipografia
+   fluida e o corte de 8° responderem à largura real do container, não à
+   do viewport. */
+.asa-container {
+  width: 100%;
+  max-width: var(--asa-container-max);
+  margin-inline: auto;
+  padding-inline: var(--asa-section-pad-x);
+  container-type: inline-size;
+}
+
+.asa-container--wide {
+  max-width: 1500px;
+}
+
+.asa-container--flush {
+  padding-inline: 0;
+}
+
+.asa-section {
+  padding-block: var(--asa-section-pad-y);
+}
+
+/* Grade de 12 colunas, gutter 24px. Colapsa para 4 no mobile — o que precisa
+   sobreviver ao colapso é a hierarquia, não o número de colunas. */
+.asa-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--asa-columns), minmax(0, 1fr));
+  gap: var(--asa-gutter);
+}
+
+@media (max-width: 767px) {
+  .asa-grid { --asa-columns: 4; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .asa-grid { --asa-columns: 8; }
+}
+
+/* Âncoras não podem parar embaixo da navbar sticky de 54px. */
+[id] {
+  scroll-margin-top: 70px;
+}
+
+.asa-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+}

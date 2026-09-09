@@ -1,0 +1,636 @@
+/* ==========================================================================
+   ASA RENT A CAR — GRAMÁTICA DA DOCUMENTAÇÃO
+
+   Só o chrome do documento: capa, navegação, seção, card, glosa, vitrine.
+   Nada aqui é componente de produto — o produto está em asa-components.css.
+   A gramática (rótulo mono → título display → lead → grid de cards com
+   glosa na base) é herdada do arquivo de referência do handoff.
+   ========================================================================== */
+
+/* ==========================================================================
+   NAVEGAÇÃO
+   ========================================================================== */
+
+.asa-doc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(255, 247, 227, .94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--asa-line);
+}
+
+.asa-doc-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 22px);
+  height: 54px;
+  padding-inline: clamp(16px, 4vw, 44px);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.asa-doc-nav__logo {
+  height: 19px;
+  width: auto;
+  flex: none;
+  margin-right: var(--asa-space-2);
+}
+
+/* Altura cheia da barra: o link precisa ser um alvo de 44px+, não só o
+   texto de 13px. Como a barra tem 54px, ocupar 100% resolve os dois. */
+.asa-doc-nav a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-height: var(--asa-touch-min);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+
+.asa-doc-nav a:hover { color: var(--asa-ink); }
+
+.asa-doc-nav a[aria-current="page"] {
+  color: var(--asa-action-hover);
+  border-bottom-color: var(--asa-action-hover);
+}
+
+/* ==========================================================================
+   CAPA
+   ========================================================================== */
+
+.asa-doc-cover {
+  position: relative;
+  min-height: 94vh;
+  background: var(--asa-surface);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(28px, 4vw, 56px);
+  container-type: inline-size;
+}
+
+.asa-doc-cover__watermark {
+  right: -8%;
+  top: -12%;
+  width: 62%;
+  max-width: 820px;
+}
+
+.asa-doc-cover__top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--asa-space-6);
+  flex-wrap: wrap;
+}
+
+.asa-doc-cover__lockup { width: min(38vw, 230px); }
+
+.asa-doc-cover__stamp {
+  font-family: var(--asa-font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .08em;
+  color: var(--asa-ink);
+  text-align: right;
+}
+
+.asa-doc-cover__middle {
+  position: relative;
+  max-width: 1200px;
+  padding-block: clamp(30px, 5vw, 64px);
+}
+
+.asa-doc-cover h1 {
+  font-size: clamp(40px, 7.6cqi, 108px);
+  line-height: .94;
+}
+
+.asa-doc-cover__lead {
+  font-size: clamp(17px, 1.8cqi, 23px);
+  line-height: 1.5;
+  color: var(--asa-ink);
+  max-width: 660px;
+  margin-top: clamp(22px, 3vw, 34px);
+}
+
+.asa-doc-cover__stats {
+  position: relative;
+  display: flex;
+  gap: clamp(20px, 4vw, 56px);
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(20, 21, 23, .3);
+  padding-top: var(--asa-space-5);
+}
+
+.asa-doc-cover__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-1);
+}
+
+.asa-doc-cover__stat b {
+  font-size: 26px;
+  line-height: 1;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  color: var(--asa-ink);
+}
+
+.asa-doc-cover__stat span {
+  font-size: var(--asa-fs-label);
+  line-height: 1.4;
+  color: var(--asa-ink);
+}
+
+/* Marca de destaque: o bloco vermelho que envolve uma linha do título.
+   É a única área cheia de vermelho permitida numa capa amarela. */
+.asa-mark {
+  display: inline-block;
+  background: var(--asa-action);
+  color: var(--asa-on-action);
+  padding: .02em .14em .12em;
+  margin-top: .10em;
+}
+
+/* ==========================================================================
+   SEÇÃO
+   Ritmo de fundo alternado creme → branco → creme, com a seção escura
+   reservada para o momento de maior peso do documento.
+   ========================================================================== */
+
+.asa-doc-section {
+  padding: var(--asa-section-pad-y) var(--asa-section-pad-x);
+  border-top: 1px solid var(--asa-line-soft);
+}
+
+.asa-doc-section--cream { background: var(--asa-bg); }
+.asa-doc-section--white { background: var(--asa-bg-elevated); }
+.asa-doc-section--dense { background: var(--asa-bg-dense); color: var(--asa-ink-inverse); border-top-color: transparent; }
+.asa-doc-section--yellow{ background: var(--asa-surface); }
+
+.asa-doc-section__inner {
+  max-width: 1500px;
+  margin-inline: auto;
+  container-type: inline-size;
+}
+
+.asa-doc-section__label {
+  font-size: var(--asa-fs-label);
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--asa-action-hover);
+  display: block;
+  margin-bottom: 18px;
+}
+
+.asa-doc-section--dense .asa-doc-section__label { color: var(--asa-surface); }
+.asa-doc-section--yellow .asa-doc-section__label { color: var(--asa-ink); }
+
+.asa-doc-section h2 {
+  font-size: clamp(30px, 4.6cqi, 62px);
+  line-height: .98;
+  max-width: 1000px;
+}
+
+.asa-doc-section__lead {
+  font-size: clamp(16px, 1.4cqi, 19px);
+  line-height: 1.6;
+  color: var(--asa-ink-2);
+  max-width: 700px;
+  margin-top: 22px;
+}
+
+.asa-doc-section--dense .asa-doc-section__lead { color: var(--asa-ink-inverse-2); }
+
+.asa-doc-block { margin-top: clamp(36px, 5vw, 64px); }
+
+.asa-doc-block__title {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-mono);
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-action-hover);
+  display: block;
+  margin-bottom: var(--asa-space-4);
+}
+
+.asa-doc-section--dense .asa-doc-block__title { color: var(--asa-surface); }
+.asa-doc-section--yellow .asa-doc-block__title { color: var(--asa-ink); }
+
+/* ==========================================================================
+   CARDS DE DOCUMENTAÇÃO
+   ========================================================================== */
+
+.asa-doc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  margin-top: clamp(36px, 5vw, 64px);
+}
+
+.asa-doc-cards--tight { grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); }
+.asa-doc-cards--wide  { grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); }
+
+.asa-doc-card {
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  padding: clamp(20px, 2.6vw, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+  container-type: inline-size;
+}
+
+.asa-doc-card--dense  { background: var(--asa-bg-dense); border-color: transparent; color: var(--asa-ink-inverse); }
+.asa-doc-card--yellow { background: var(--asa-surface); border-color: transparent; }
+.asa-doc-card--cream  { background: var(--asa-bg); }
+.asa-doc-card--flush  { padding: 0; overflow: hidden; }
+
+/* A glosa gruda na base do card. É o que alinha o racional entre cards de
+   alturas diferentes na mesma linha. */
+.asa-doc-gloss {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--asa-ink-3);
+  margin-top: auto;
+  max-width: none;
+}
+
+.asa-doc-card--dense .asa-doc-gloss  { color: var(--asa-gray-dark-1); }
+.asa-doc-card--yellow .asa-doc-gloss { color: #4A3A10; }
+
+.asa-doc-card__title {
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: var(--asa-weight-bold);
+  color: inherit;
+}
+
+/* ==========================================================================
+   LINHA DE ESPECIFICAÇÃO
+   Valor em mono à direita, alinhado pela linha de base. Sem tabela.
+   ========================================================================== */
+
+.asa-doc-spec {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--asa-space-4);
+  border-bottom: 1px solid var(--asa-line-soft);
+  padding: 12px 0;
+}
+
+.asa-doc-spec:last-child { border-bottom: 0; }
+
+.asa-doc-section--dense .asa-doc-spec,
+.asa-doc-card--dense .asa-doc-spec { border-bottom-color: var(--asa-line-inverse); }
+
+.asa-doc-spec__value {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-mono);
+  line-height: 1.4;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+  text-align: right;
+  flex: none;
+}
+
+.asa-doc-card--dense .asa-doc-spec__value { color: var(--asa-gray-dark-1); }
+
+.asa-doc-specs { display: flex; flex-direction: column; }
+
+/* ==========================================================================
+   SWATCH DE COR
+   ========================================================================== */
+
+.asa-swatch {
+  border: var(--asa-border-width) solid var(--asa-line);
+  display: flex;
+  flex-direction: column;
+}
+
+.asa-swatch__chip { height: 140px; }
+
+.asa-swatch__info {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--asa-bg-elevated);
+}
+
+.asa-swatch__name {
+  font-size: 15px;
+  line-height: 1.1;
+  font-weight: var(--asa-weight-bold);
+}
+
+.asa-swatch__hex {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-mono);
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-action-hover);
+}
+
+.asa-swatch__use {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--asa-ink-3);
+}
+
+/* ==========================================================================
+   VITRINE DE COMPONENTE
+   O fundo da vitrine é escolhido para provar a regra de contraste que o
+   componente documenta — não é decoração.
+   ========================================================================== */
+
+.asa-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--asa-space-5);
+  padding: clamp(20px, 2.4vw, 32px);
+  background: var(--asa-bg);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  container-type: inline-size;
+}
+
+.asa-demo--white  { background: var(--asa-bg-elevated); }
+.asa-demo--yellow { background: var(--asa-surface); border-color: transparent; }
+.asa-demo--dense  { background: var(--asa-bg-dense); border-color: transparent; color: var(--asa-ink-inverse); }
+.asa-demo--stack  { flex-direction: column; }
+.asa-demo--grid   { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+
+.asa-demo__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-3);
+  min-width: 0;
+}
+
+.asa-demo__caption {
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-demo--dense .asa-demo__caption { color: var(--asa-gray-dark-1); }
+
+/* Par certo/errado, para hierarquia visual e regras de uso. */
+.asa-verdict {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.asa-verdict--yes { color: var(--asa-ok); }
+.asa-verdict--no  { color: var(--asa-action-hover); }
+
+/* ==========================================================================
+   MOLDURAS — navegador e celular
+   Usadas para apresentar telas inteiras dentro da documentação.
+   ========================================================================== */
+
+.asa-frame {
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  overflow: hidden;
+  background: var(--asa-bg-elevated);
+  container-type: inline-size;
+}
+
+.asa-frame__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-2);
+  height: 34px;
+  padding-inline: 12px;
+  background: var(--asa-disabled-bg);
+  border-bottom: 1px solid var(--asa-line);
+}
+
+.asa-frame__url {
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  letter-spacing: .04em;
+  color: var(--asa-ink-3);
+  background: var(--asa-bg-elevated);
+  border-radius: 3px;
+  padding: 4px 8px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.asa-frame__body { padding: 0; }
+
+/* Celular: 375×812 com as áreas reservadas do iOS com notch. */
+.asa-phone {
+  width: 375px;
+  max-width: 100%;
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--asa-bg-elevated);
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+
+.asa-phone__status {
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-family: var(--asa-font-mono);
+  font-size: 11px;
+  font-weight: var(--asa-weight-medium);
+  color: inherit;
+}
+
+.asa-phone__screen {
+  flex: 1;
+  min-height: 560px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+}
+
+.asa-phone__home {
+  height: 34px;
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+
+.asa-phone__home::after {
+  content: "";
+  width: 134px;
+  height: 5px;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: .3;
+}
+
+.asa-phone__tabbar {
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--asa-line);
+  padding-top: 8px;
+}
+
+.asa-phone__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: var(--asa-touch-min);
+  font-size: 10px;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+}
+
+/* Mockup, não navegação real: os itens são spans ilustrativos, então o
+   estado ativo não usa aria-current — senão o leitor de tela anunciaria
+   várias "páginas atuais" na mesma página de documentação. */
+.asa-phone__tab[data-active] { color: var(--asa-action-hover); }
+
+/* ==========================================================================
+   RODAPÉ E NAVEGAÇÃO LINEAR
+   ========================================================================== */
+
+.asa-doc-next {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--asa-space-6);
+  flex-wrap: wrap;
+  padding: var(--asa-space-9) var(--asa-section-pad-x);
+  background: var(--asa-bg);
+  border-top: 1px solid var(--asa-line);
+}
+
+.asa-doc-next__link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asa-doc-next__link span {
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-doc-next__link b {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: var(--asa-tracking-display);
+  color: var(--asa-action-hover);
+}
+
+.asa-doc-foot {
+  background: var(--asa-action);
+  color: var(--asa-on-action);
+  padding: var(--asa-space-8) var(--asa-section-pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-6);
+  flex-wrap: wrap;
+}
+
+.asa-doc-foot img { width: 150px; }
+
+.asa-doc-foot p {
+  color: var(--asa-on-action);
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 460px;
+}
+
+/* ==========================================================================
+   TABELA (só na documentação — o produto não usa tabela)
+   ========================================================================== */
+
+.asa-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.asa-doc-table th,
+.asa-doc-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--asa-line-soft);
+  vertical-align: top;
+}
+
+.asa-doc-table th {
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+  white-space: nowrap;
+}
+
+.asa-doc-table code,
+.asa-doc-code {
+  font-family: var(--asa-font-mono);
+  font-size: 12px;
+  color: var(--asa-action-hover);
+}
+
+.asa-doc-pre {
+  font-family: var(--asa-font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  background: var(--asa-bg-dense);
+  color: var(--asa-ink-inverse);
+  padding: var(--asa-space-5);
+  border-radius: var(--asa-radius);
+  overflow-x: auto;
+  margin: 0;
+}
+
+.asa-doc-pre .c { color: var(--asa-gray-dark-1); }
+.asa-doc-pre .k { color: var(--asa-surface); }
+
+.asa-doc-scroll { overflow-x: auto; }

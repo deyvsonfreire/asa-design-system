@@ -1,0 +1,249 @@
+/* ==========================================================================
+   ASA RENT A CAR — TOKENS
+   Sistema de Identidade v3.2 (B2C, amarelo dominante)
+
+   Camada 1: primitivos  — a escala bruta. NUNCA usar direto em componente.
+   Camada 2: semânticos  — o papel na interface. É o que componente consome.
+
+   Trocar a v3.2 pela v3.1 (B2B, vermelho dominante) = trocar só a camada 2.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   TIPOGRAFIA — BR Omny
+   5 faces das 14 instaladas. Thin/Light/SemiBold e os demais itálicos não têm
+   uso especificado no sistema; carregá-los seria peso morto.
+   A face Black normal existe como defesa: sem ela, um font-weight:900 sem
+   itálico cairia no Bold e ninguém perceberia.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* block, não swap: um flash de Helvetica Bold Italic em display de 64px caixa
+   alta é dano de marca visível. Em corpo de 16px, não é. */
+@font-face {
+  font-family: 'BR Omny';
+  src: url('../assets/fonts/BROmny-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: block;
+}
+
+:root {
+
+  /* ========================================================================
+     CAMADA 1 — PRIMITIVOS
+     ======================================================================== */
+
+  /* Cor da marca */
+  --asa-yellow:        #FEC42B;
+  --asa-black:         #141517;
+  --asa-red:           #E80911;
+  /* Tom clareado a partir do #FFF7E3 original (feedback de revisão: o
+     creme precisava ser bem mais leve — não mais escuro, correção de uma
+     tentativa anterior que foi na direção errada). Luminância relativa sobe
+     de 0.933 para 0.965 — mais próximo do branco, ainda com um leve calor.
+     Efeito colateral bom: por estar mais afastado dos tons escuros de texto,
+     todo contraste contra ele melhora, sem mudar categoria WCAG nenhuma
+     (ver 03-cor.html). A frequência de uso — não só o tom — também foi
+     reduzida: ver comentário em asa-base.css sobre o fundo padrão de tela. */
+  --asa-cream:         #FFFBF0;
+  --asa-red-dark:      #C4070E;
+  --asa-green:         #065F46;
+  --asa-black-deep:    #0D0D0E;
+  --asa-white:         #FFFFFF;
+
+  /* Cinzas de texto. Os dois últimos só existem sobre fundo escuro. */
+  --asa-gray-body:     #4A4C50;
+  --asa-gray-caption:  #5A5C60;
+  --asa-gray-dark-1:   #8A8C90;
+  --asa-gray-dark-2:   #A8AAAE;
+
+  /* Estados e superfícies auxiliares */
+  --asa-disabled-bg:   #F2F2F0;
+  --asa-disabled-text: #A8AAAE;
+  --asa-placeholder:   #E4E0DA;
+
+  /* Famílias */
+  --asa-font: 'BR Omny', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --asa-font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ========================================================================
+     CAMADA 2 — SEMÂNTICOS
+     A regra "vermelho é só ação" só é executável se o componente escrever
+     var(--asa-action). Escrevendo var(--asa-red), a regra vira folclore.
+     ======================================================================== */
+
+  --asa-surface:        var(--asa-yellow);      /* superfície principal da marca */
+  --asa-bg:             var(--asa-cream);       /* accent de composição — NAO é fundo padrão de body, ver asa-base.css */
+  --asa-bg-elevated:    var(--asa-white);       /* card, superfície elevada     */
+  --asa-bg-deep:        var(--asa-black-deep);  /* peça noturna, rodapé, vídeo  */
+  --asa-bg-dense:       var(--asa-black);       /* bloco de informação densa    */
+
+  --asa-action:         var(--asa-red);         /* SOMENTE ação                 */
+  --asa-action-hover:   var(--asa-red-dark);    /* hover, pressionado, foco, erro */
+  --asa-on-action:      var(--asa-white);       /* texto sobre vermelho: só puro */
+
+  --asa-ink:            var(--asa-black);       /* todo texto principal          */
+  --asa-ink-2:          var(--asa-gray-body);   /* corpo secundário sobre claro  */
+  --asa-ink-3:          var(--asa-gray-caption);/* legenda sobre claro           */
+  --asa-ink-inverse:    var(--asa-white);       /* texto sobre escuro            */
+  --asa-ink-inverse-2:  var(--asa-gray-dark-2); /* apoio sobre escuro            */
+
+  --asa-ok:             var(--asa-green);       /* reserva feita, pagamento ok   */
+
+  --asa-line:           rgba(20, 21, 23, .14);   /* borda sobre claro            */
+  --asa-line-soft:      rgba(20, 21, 23, .12);   /* divisor interno de card      */
+  --asa-line-inverse:   rgba(255, 255, 255, .16);/* borda sobre escuro           */
+
+  /* ========================================================================
+     TIPOGRAFIA — 5 degraus, base 8. Nada entre eles.
+     ======================================================================== */
+
+  --asa-fs-display:     64px;   --asa-lh-display:   60px;
+  --asa-fs-title:       32px;   --asa-lh-title:     36px;
+  --asa-fs-highlight:   20px;   --asa-lh-highlight: 28px;
+  --asa-fs-body:        16px;   --asa-lh-body:      26px;
+  --asa-fs-label:       12px;   --asa-lh-label:     16px;
+  --asa-fs-mono:        11px;
+
+  /* Versões fluidas de display e título. Ancoradas em cqi, não em vw: dentro
+     de um container travado em 1200px, vw continua crescendo e o display
+     descola da medida de linha acima de ~1400px. Sem container ancestral,
+     cqi cai no viewport pequeno e o comportamento é o de vw. */
+  --asa-fs-display-fluid: clamp(38px, 6.4cqi, 64px);
+  --asa-fs-title-fluid:   clamp(24px, 3.2cqi, 32px);
+
+  --asa-tracking-display: -.03em;   /* display e título          */
+  --asa-tracking-number:  -.05em;   /* placa de número           */
+  --asa-tracking-price:   -.04em;   /* preço                     */
+  --asa-tracking-label:   .2em;     /* etiqueta caixa alta       */
+  --asa-tracking-mono:    .14em;    /* rótulo mono de seção      */
+
+  --asa-weight-regular:   400;
+  --asa-weight-medium:    500;
+  --asa-weight-bold:      700;
+  --asa-weight-black:     900;
+
+  /* Largura máxima de bloco de texto: ~65 caracteres em 16px/26.
+     Acima disso o olho perde a linha ao voltar. */
+  --asa-measure: 640px;
+
+  /* ========================================================================
+     ESPAÇAMENTO — nomeado por índice, não por pixel: o índice é estável,
+     o valor por trás dele pode evoluir sem renomear token.
+     ======================================================================== */
+
+  --asa-space-1:  4px;
+  --asa-space-2:  8px;
+  --asa-space-3:  12px;
+  --asa-space-4:  16px;
+  --asa-space-5:  20px;
+  --asa-space-6:  24px;
+  --asa-space-7:  32px;
+  --asa-space-8:  40px;
+  --asa-space-9:  56px;
+  --asa-space-10: 64px;
+  --asa-space-11: 90px;
+
+  /* ========================================================================
+     GRID E LAYOUT
+     ======================================================================== */
+
+  --asa-container-max: 1200px;
+  --asa-columns:       12;
+  --asa-gutter:        24px;
+  --asa-safe-fold:     680px;   /* altura útil da primeira dobra */
+
+  /* Breakpoints. Custom property não funciona dentro de @media — estes
+     existem para leitura e para JS; as media queries repetem o valor. */
+  --asa-bp-tablet:  768px;
+  --asa-bp-desktop: 1024px;
+
+  --asa-section-pad-y: clamp(56px, 8vw, 120px);
+  --asa-section-pad-x: clamp(20px, 6vw, 90px);
+
+  /* ========================================================================
+     FORMA
+     radius 8px em botão, card e campo — ajustado a partir dos 4px originais
+     do handoff (feedback de revisão: arredondamento levemente mais suave).
+     50% só em avatar. Etiqueta de benefício continua com radius zero, de
+     propósito — é o que a diferencia de um botão à primeira vista. Nada
+     mais é arredondado. Nenhuma sombra em lugar nenhum — a marca é chapada;
+     elevação se resolve com borda e contraste de fundo.
+     ======================================================================== */
+
+  --asa-radius:        8px;
+  --asa-radius-full:   50%;
+  --asa-border-width:  1.5px;
+
+  --asa-control-h:     48px;   /* altura de botão e campo */
+  --asa-touch-min:     44px;   /* alvo de toque mínimo    */
+
+  --asa-icon-inline:   24px;
+  --asa-icon-feature:  48px;
+  --asa-icon-stroke:   1.5;    /* mesma espessura da borda de card */
+
+  /* ========================================================================
+     GEOMETRIA PROPRIETÁRIA — a regra dos 8°
+     O ângulo do logo, subindo para a direita. É o único ângulo do sistema.
+     A subida é expressa em unidade de LARGURA (cqw) porque tan(8°) relaciona
+     altura a largura: com porcentagem de altura o ângulo mudaria a cada
+     proporção de caixa. tan(8°) = 0.14054.
+     ======================================================================== */
+
+  --asa-angle: 8deg;
+  --asa-rise:  14.05cqw;
+
+  /* ========================================================================
+     MOVIMENTO
+     Teto absoluto de 400ms. Sem bounce, sem elástico, sem rotação.
+     Números nunca sobem em contador — aparecem inteiros, de uma vez.
+     ======================================================================== */
+
+  --asa-dur-fast:    200ms;   /* entrada do logo, por opacidade */
+  --asa-dur-default: 240ms;   /* entrada de texto no eixo de 8° */
+  --asa-dur-scene:   320ms;   /* wipe de transição de cena      */
+  --asa-dur-max:     400ms;   /* limite geral                    */
+  --asa-ease:        ease-out;
+}
+
+/* Respeitar quem pediu menos movimento. Declarado junto dos tokens, não no
+   fim da implementação, para que nenhum componente nasça fora da regra. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --asa-dur-fast:    1ms;
+    --asa-dur-default: 1ms;
+    --asa-dur-scene:   1ms;
+    --asa-dur-max:     1ms;
+  }
+}

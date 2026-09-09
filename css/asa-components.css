@@ -1,0 +1,734 @@
+/* ==========================================================================
+   ASA RENT A CAR — COMPONENTES
+
+   Nomenclatura: BEM com prefixo asa-.
+   Estados de runtime NÃO viram classe modificadora — usam o atributo nativo
+   (:disabled, [aria-invalid], [data-state], [aria-current]). É o que o
+   framework já emite, e vem com acessibilidade junto.
+
+   Carregar depois de asa-base.css e antes de asa-utilities.css.
+   ========================================================================== */
+
+/* ==========================================================================
+   BOTÃO
+
+   REGRA DURA: um único botão vermelho por peça. É o único elemento que
+   carrega cor cheia numa peça amarela. Se a tela tem dois botões vermelhos,
+   nenhum deles comunica prioridade — e o orçamento de 20% de vermelho estoura.
+   ========================================================================== */
+
+.asa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--asa-space-2);
+  min-height: var(--asa-touch-min);
+  padding: 15px 22px;
+  border: none;
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: var(--asa-weight-bold);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--asa-dur-fast) var(--asa-ease),
+              color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-btn--primary {
+  background: var(--asa-action);
+  color: var(--asa-on-action);
+}
+
+.asa-btn--primary:hover:not(:disabled) {
+  background: var(--asa-action-hover);
+  color: var(--asa-on-action);
+}
+
+/* Amarelo. Usado para WhatsApp e ações de suporte — nunca para a ação
+   principal, que é sempre a vermelha. */
+.asa-btn--secondary {
+  background: var(--asa-surface);
+  color: var(--asa-ink);
+}
+
+.asa-btn--secondary:hover:not(:disabled) {
+  background: #EAB227;
+  color: var(--asa-ink);
+}
+
+/* Terciário: só contorno. Para "voltar", "cancelar" e ações de saída. */
+.asa-btn--outline {
+  background: transparent;
+  color: var(--asa-ink);
+  border: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-btn--outline:hover:not(:disabled) {
+  border-color: var(--asa-ink);
+  color: var(--asa-ink);
+}
+
+.asa-btn--block { display: flex; width: 100%; }
+
+/* Compacto, para o rodapé do card de veículo. Encolhe o texto e o padding
+   lateral — nunca a altura: o alvo de toque continua em 44px. */
+.asa-btn--sm {
+  padding: 11px 14px;
+  font-size: 12px;
+}
+
+/* Desabilitado usa token literal, nunca opacity: a marca proíbe texto com
+   alpha, e opacity num nó de texto é exatamente isso. */
+.asa-btn:disabled {
+  background: var(--asa-disabled-bg);
+  color: var(--asa-disabled-text);
+  border-color: transparent;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   BOTÃO CARREGANDO
+   Não é detalhe estético: um botão que não muda durante uma requisição
+   convida o segundo clique — e o segundo clique aqui é uma segunda cobrança
+   de caução no cartão.
+   O sistema proíbe rotação, então nada de spinner. Três pontos em fade, cada
+   um com 400ms (o teto do sistema), defasados para formar a onda.
+   -------------------------------------------------------------------------- */
+
+.asa-btn[data-state="loading"] {
+  pointer-events: none;
+}
+
+.asa-btn[data-state="loading"] .asa-btn__label {
+  display: none;
+}
+
+.asa-btn__loader {
+  display: none;
+  align-items: center;
+  gap: 5px;
+}
+
+.asa-btn[data-state="loading"] .asa-btn__loader {
+  display: inline-flex;
+}
+
+.asa-btn__loader span {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--asa-radius-full);
+  background: currentColor;
+  animation: asa-dot var(--asa-dur-max) var(--asa-ease) infinite alternate;
+}
+
+.asa-btn__loader span:nth-child(2) { animation-delay: 130ms; }
+.asa-btn__loader span:nth-child(3) { animation-delay: 260ms; }
+
+@keyframes asa-dot {
+  from { opacity: .25; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asa-btn__loader span { animation: none; opacity: .6; }
+}
+
+/* ==========================================================================
+   ETIQUETA DE BENEFÍCIO
+   Sem radius — é o único componente retangular do sistema, e é isso que a
+   separa de um botão à primeira vista.
+   ========================================================================== */
+
+.asa-tag {
+  display: inline-block;
+  padding: 7px 10px;
+  background: var(--asa-action);
+  color: var(--asa-on-action);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.asa-tag--ok    { background: var(--asa-ok); }
+.asa-tag--ink   { background: var(--asa-ink); color: var(--asa-ink-inverse); }
+
+/* ==========================================================================
+   PREÇO
+   A única ocasião em que vermelho e amarelo se encostam em texto — e só
+   neste corpo. O valor é grande e negrito o bastante para o contraste de
+   4,39:1 do vermelho sobre creme atender ao mínimo de texto grande do WCAG.
+   ========================================================================== */
+
+.asa-price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-1);
+}
+
+.asa-price__label {
+  font-size: var(--asa-fs-label);
+  line-height: 1.2;
+  font-weight: var(--asa-weight-regular);
+  color: var(--asa-ink);
+}
+
+.asa-price__value {
+  font-size: clamp(38px, 4.4vw, 58px);
+  line-height: .9;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  letter-spacing: var(--asa-tracking-price);
+  color: var(--asa-action);
+}
+
+.asa-price__note {
+  font-size: var(--asa-fs-label);
+  line-height: 1.4;
+  font-weight: var(--asa-weight-regular);
+  color: var(--asa-ink);
+}
+
+/* ==========================================================================
+   PLACA DE NÚMERO — prova social
+   O componente mais usado do sistema. Números canônicos: 4,7 (Google) e
+   9,4 (Reclame Aqui). Sempre em vírgula decimal, formato pt-BR, e sempre
+   inteiros de uma vez — nunca contador animado, que remete a dashboard de
+   software e não a reputação de gente.
+   ========================================================================== */
+
+.asa-numberplate {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-3);
+  padding: clamp(20px, 2.6vw, 32px);
+  background: var(--asa-bg-dense);
+}
+
+.asa-numberplate__value {
+  font-size: clamp(58px, 8vw, 104px);
+  line-height: .8;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  letter-spacing: var(--asa-tracking-number);
+  color: var(--asa-surface);
+}
+
+.asa-numberplate__source {
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.3;
+  color: var(--asa-ink-inverse);
+  max-width: none;
+}
+
+/* ==========================================================================
+   CARD
+   Elevação sem sombra: borda de 1.5px e contraste de fundo. É a única
+   forma permitida.
+   ========================================================================== */
+
+.asa-card {
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  overflow: hidden;
+}
+
+.asa-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-2);
+  padding: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   CARD DE VEÍCULO
+   O título fala da viagem, não da ficha técnica: "Ideal para Jericoacoara e
+   Canoa Quebrada", não "1.6 16V flex".
+   -------------------------------------------------------------------------- */
+
+.asa-card-vehicle { }
+
+.asa-card-vehicle__category {
+  font-family: var(--asa-font-mono);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-action-hover);
+}
+
+.asa-card-vehicle__title {
+  font-size: 17px;
+  line-height: 1.2;
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  margin: 0;
+}
+
+.asa-card-vehicle__specs {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--asa-ink-3);
+  margin: 0;
+  max-width: none;
+}
+
+.asa-card-vehicle__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-3);
+  border-top: 1px solid var(--asa-line-soft);
+  padding-top: 10px;
+  margin-top: var(--asa-space-1);
+}
+
+.asa-card-vehicle__price {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: var(--asa-weight-black);
+  font-style: italic;
+  letter-spacing: var(--asa-tracking-display);
+  color: var(--asa-action);
+}
+
+/* ==========================================================================
+   ÍCONE DE PERFIL
+   Único uso de vermelho cheio preservado da v3.1: é o que garante
+   reconhecimento no círculo de 40px da busca do Google.
+   ========================================================================== */
+
+.asa-avatar {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  width: 64px;
+  border-radius: var(--asa-radius-full);
+  background: var(--asa-action) url('../assets/img/w-atual-branco.png') center / 66% no-repeat;
+}
+
+.asa-avatar--on-cover {
+  border: 4px solid var(--asa-white);
+}
+
+/* ==========================================================================
+   ÍCONE
+   Biblioteca única (Feather), traço de 1.5px — a mesma espessura da borda
+   de card, para que ícone e componente compartilhem a linha do sistema.
+   ========================================================================== */
+
+.asa-icon {
+  width: var(--asa-icon-inline);
+  height: var(--asa-icon-inline);
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--asa-icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.asa-icon--feature {
+  width: var(--asa-icon-feature);
+  height: var(--asa-icon-feature);
+}
+
+/* ==========================================================================
+   CAMPO DE FORMULÁRIO
+
+   Variante outline (borda visível sobre branco), não fill: o checkout tem
+   mais de doze campos, e caixas preenchidas em sequência cansam a vista.
+
+   NOTA DE DIVERGÊNCIA DO HANDOFF: o handoff especifica o label do campo em
+   9px. A regra dura do mesmo documento diz que nenhum texto fica abaixo de
+   12px em tela, e a escala tem cinco degraus "nada entre eles" — o degrau
+   Etiqueta (12px/500/caixa alta) existe exatamente para este papel. A regra
+   geral prevalece sobre a spec do componente: label a 12px.
+   ========================================================================== */
+
+.asa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.asa-field__label {
+  font-size: var(--asa-fs-label);
+  line-height: 1.2;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-field__control,
+.asa-input,
+.asa-select {
+  width: 100%;
+  min-height: var(--asa-control-h);
+  padding: 14px;
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+  transition: border-color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-input::placeholder {
+  color: var(--asa-ink-3);
+  font-weight: var(--asa-weight-regular);
+}
+
+.asa-input:hover:not(:disabled):not([aria-invalid="true"]) {
+  border-color: rgba(20, 21, 23, .3);
+}
+
+.asa-input:focus,
+.asa-select:focus {
+  border-color: var(--asa-action-hover);
+  outline: 2px solid var(--asa-action-hover);
+  outline-offset: 2px;
+}
+
+/* Preenchido: o valor em peso 500 já distingue de vazio (placeholder em 400).
+   A borda escurece um passo para marcar que o campo tem conteúdo. */
+.asa-input:not(:placeholder-shown) {
+  border-color: rgba(20, 21, 23, .28);
+}
+
+.asa-input[aria-invalid="true"],
+.asa-select[aria-invalid="true"] {
+  border-color: var(--asa-action-hover);
+  border-width: var(--asa-border-width);
+}
+
+.asa-input:disabled,
+.asa-select:disabled {
+  background: var(--asa-disabled-bg);
+  border-color: transparent;
+  color: var(--asa-disabled-text);
+  cursor: not-allowed;
+}
+
+/* Ajuda persistente: fica visível mesmo com o campo preenchido. Tudo que a
+   pessoa precisa consultar ENQUANTO preenche não pode viver no placeholder,
+   que some no primeiro caractere digitado. */
+.asa-field__help {
+  font-size: var(--asa-fs-label);
+  line-height: 1.4;
+  color: var(--asa-ink-3);
+  max-width: none;
+}
+
+/* Erro colado ao campo que falhou — nunca num banner genérico no topo do
+   formulário: no momento do erro a atenção já está neste campo. */
+.asa-field__error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--asa-fs-label);
+  line-height: 1.4;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-action-hover);
+  max-width: none;
+}
+
+.asa-field__error .asa-icon { width: 14px; height: 14px; }
+
+/* Campo com adorno à direita (bandeira do cartão, ícone de calendário).
+   O adorno é decorativo e não recebe foco. */
+.asa-field--adorned { position: relative; }
+
+.asa-field--adorned .asa-input { padding-right: 56px; }
+
+.asa-field__adornment {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+  color: var(--asa-ink-3);
+}
+
+/* Par validade + CVV lado a lado: espelha o layout físico do cartão e reduz
+   o esforço de tradução mental de quem está com ele na mão. */
+.asa-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--asa-space-3);
+}
+
+.asa-fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================================================
+   SELEÇÃO — radio, checkbox, switch
+
+   Radio: uma opção entre várias mutuamente exclusivas (forma de pagamento).
+   Checkbox: opções independentes, de zero a todas (consentimento).
+   Switch: configuração binária que vale na hora, sem passo de salvar.
+
+   O estado marcado usa PRETO, não vermelho. O vermelho é o orçamento da
+   ação principal da tela; um formulário com cinco caixas marcadas em
+   vermelho faria a marca perder a assinatura e o CTA perder a prioridade.
+   ========================================================================== */
+
+.asa-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--asa-space-3);
+  min-height: var(--asa-touch-min);
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.asa-choice__input {
+  appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 2px 0 0;
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: border-color var(--asa-dur-fast) var(--asa-ease),
+              background-color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-choice__input[type="checkbox"] { border-radius: var(--asa-radius); }
+.asa-choice__input[type="radio"]    { border-radius: var(--asa-radius-full); }
+
+.asa-choice__input:hover:not(:disabled) { border-color: var(--asa-ink); }
+
+.asa-choice__input[type="checkbox"]:checked {
+  background: var(--asa-ink);
+  border-color: var(--asa-ink);
+}
+
+.asa-choice__input[type="checkbox"]:checked::after {
+  content: "";
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid var(--asa-white);
+  border-bottom: 2px solid var(--asa-white);
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+.asa-choice__input[type="radio"]:checked {
+  border-color: var(--asa-ink);
+  border-width: 6px;
+}
+
+.asa-choice__input:disabled {
+  background: var(--asa-disabled-bg);
+  border-color: var(--asa-disabled-bg);
+  cursor: not-allowed;
+}
+
+.asa-choice__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.asa-choice__title {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+}
+
+.asa-choice__note {
+  font-size: var(--asa-fs-label);
+  line-height: 1.45;
+  color: var(--asa-ink-3);
+  max-width: none;
+}
+
+/* Consentimento opcional não deve competir visualmente com o obrigatório —
+   pesos diferentes deixam claro que não são a mesma decisão. */
+.asa-choice--optional .asa-choice__title { font-weight: var(--asa-weight-regular); }
+
+.asa-switch__input {
+  appearance: none;
+  flex: none;
+  width: 44px;
+  height: 24px;
+  margin: 0;
+  border-radius: 12px;
+  background: var(--asa-disabled-bg);
+  border: var(--asa-border-width) solid var(--asa-line);
+  position: relative;
+  cursor: pointer;
+  transition: background-color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-switch__input::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 17px;
+  height: 17px;
+  border-radius: var(--asa-radius-full);
+  background: var(--asa-white);
+  border: 1px solid var(--asa-line);
+  transition: transform var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-switch__input:checked {
+  background: var(--asa-ink);
+  border-color: var(--asa-ink);
+}
+
+.asa-switch__input:checked::after {
+  transform: translateX(20px);
+  border-color: transparent;
+}
+
+/* ==========================================================================
+   STEPPER
+   Um formulário longo dividido em etapas reduz o esforço percebido, e o
+   indicador comunica que existe um fim conhecido — a incerteza de "quanto
+   ainda falta" é uma das maiores causas de abandono.
+   ========================================================================== */
+
+.asa-stepper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--asa-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.asa-stepper__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 2px solid var(--asa-line);
+  font-size: var(--asa-fs-label);
+  line-height: 1.3;
+  color: var(--asa-ink-3);
+}
+
+.asa-stepper__item[data-state="done"] {
+  border-top-color: var(--asa-ok);
+  color: var(--asa-ok);
+}
+
+.asa-stepper__item[aria-current="step"] {
+  border-top-color: var(--asa-ink);
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+}
+
+.asa-stepper__index {
+  font-family: var(--asa-font-mono);
+  font-size: 11px;
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+}
+
+.asa-stepper__label {
+  font-size: 14px;
+  line-height: 1.25;
+  font-weight: inherit;
+}
+
+/* ==========================================================================
+   BUSCA DE VEÍCULO
+   O componente central de uma locadora: local e datas de retirada e
+   devolução. Fica sobre branco, dentro do campo claro do vão.
+   ========================================================================== */
+
+.asa-search {
+  display: grid;
+  gap: var(--asa-space-3);
+  padding: var(--asa-space-4);
+  background: var(--asa-bg-elevated);
+  border-radius: var(--asa-radius);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .asa-search {
+    grid-template-columns: 1.4fr 1fr 1fr auto;
+    align-items: end;
+  }
+}
+
+.asa-search .asa-btn { min-height: var(--asa-control-h); }
+
+/* ==========================================================================
+   ALERTA
+   Sem sombra e sem ícone colorido de fundo: borda de 1.5px e um rótulo mono.
+   ========================================================================== */
+
+.asa-alert {
+  display: flex;
+  gap: var(--asa-space-3);
+  padding: var(--asa-space-4);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-left-width: 4px;
+  border-radius: var(--asa-radius);
+}
+
+.asa-alert--ok    { border-left-color: var(--asa-ok); }
+.asa-alert--error { border-left-color: var(--asa-action-hover); }
+.asa-alert--info  { border-left-color: var(--asa-ink); }
+
+.asa-alert__body { display: flex; flex-direction: column; gap: 4px; }
+
+.asa-alert__title {
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-alert__text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--asa-ink-2);
+  max-width: none;
+}
+
+/* ==========================================================================
+   SKELETON
+   No formato do conteúdo final, não um spinner: a pessoa já entende a
+   estrutura da tela antes dos dados chegarem, e lê isso como "quase pronto".
+   Estático de propósito — um brilho em loop contínuo violaria o teto de
+   400ms e a regra de que nada no sistema pulsa.
+   ========================================================================== */
+
+.asa-skeleton {
+  background: var(--asa-disabled-bg);
+  border-radius: var(--asa-radius);
+}
+
+.asa-skeleton--text  { height: 12px; }
+.asa-skeleton--title { height: 18px; }
+.asa-skeleton--media { aspect-ratio: 16 / 9; border-radius: 0; }

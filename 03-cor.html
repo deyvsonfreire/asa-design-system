@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 · Cor — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  .ratio { font-family:var(--asa-font-mono); font-size:12px; font-weight:500; white-space:nowrap; }
+  .verd  { font-family:var(--asa-font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+  .verd--aaa  { color:var(--asa-ok); }
+  .verd--aa   { color:var(--asa-ok); }
+  .verd--big  { color:#8A6300; }
+  .verd--fail { color:var(--asa-action-hover); font-weight:700; }
+  .pair { width:120px; height:38px; display:grid; place-items:center; border:1px solid var(--asa-line); font-weight:700; font-size:14px; }
+</style>
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html" aria-current="page">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="paleta">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">03 · Cor</span>
+    <h2>Amarelo é o ambiente. Vermelho é o que pede resposta.</h2>
+    <p class="asa-doc-section__lead">As duas cores são as mesmas de sempre, com os pesos trocados. O amarelo assume o fundo das peças; o vermelho passa a aparecer só onde há uma ação, um preço ou a assinatura. Cada cor aqui tem função escrita — não existe cor disponível "para usar quando precisar".</p>
+
+    <div class="asa-doc-cards asa-doc-cards--tight">
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#FEC42B"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Amarelo Asa</span>
+          <span class="asa-swatch__hex">#FEC42B · 40%</span>
+          <span class="asa-swatch__use">Superfície principal: fundo de peça, hero, capa, bloco de anúncio. Texto sobre ela é sempre #141517.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#141517"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Preto Asa</span>
+          <span class="asa-swatch__hex">#141517 · 25%</span>
+          <span class="asa-swatch__use">Todo o texto. Blocos de informação densa. Campo da prova social.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#E80911"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Vermelho Asa</span>
+          <span class="asa-swatch__hex">#E80911 · 20%</span>
+          <span class="asa-swatch__use">Somente ação: botão primário, preço, etiqueta de benefício, assinatura. Área cheia apenas no rodapé e no ícone de perfil.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#FFFBF0"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Creme</span>
+          <span class="asa-swatch__hex">#FFFBF0 · 15%</span>
+          <span class="asa-swatch__use">Fundo padrão de tela e de formulário.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#C4070E"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Vermelho escuro</span>
+          <span class="asa-swatch__hex">#C4070E</span>
+          <span class="asa-swatch__use">Estados: hover, pressionado, foco e erro de campo. Também é o vermelho de rótulo pequeno sobre fundo claro.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#065F46"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Verde</span>
+          <span class="asa-swatch__hex">#065F46</span>
+          <span class="asa-swatch__use">Confirmação: reserva feita, pagamento aprovado, caução estornado. Nunca decorativo.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#0D0D0E"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Preto profundo</span>
+          <span class="asa-swatch__hex">#0D0D0E</span>
+          <span class="asa-swatch__use">Fundo de peça noturna, vídeo e rodapé. Um uso por composição.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#FFFFFF"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Branco</span>
+          <span class="asa-swatch__hex">#FFFFFF</span>
+          <span class="asa-swatch__use">Cards, superfícies elevadas e o único texto permitido sobre vermelho.</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Proporção alvo por peça</span>
+      <div style="display:flex;height:56px;border:var(--asa-border-width) solid var(--asa-line)">
+        <div style="flex:40;background:#FEC42B;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">40%</div>
+        <div style="flex:25;background:#141517;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">25%</div>
+        <div style="flex:20;background:#E80911;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">20%</div>
+        <div style="flex:15;background:#FFFBF0;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">É a lógica do 60-30-10 adaptada a quatro papéis. O princípio é o mesmo: uma cor domina a superfície e cria um fundo de descanso, uma segunda estrutura o texto, e a de maior impacto aparece na menor área — exatamente onde importa que o olho vá primeiro.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="contraste">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Contraste</span>
+    <h2>Testado, não presumido.</h2>
+    <p class="asa-doc-section__lead">Escolher um cinza escuro em vez de preto puro é uma decisão de conforto visual — mas ela só vale se o contraste resultante continuar suficiente para leitura. Todos os pares abaixo foram calculados, não estimados. O mínimo AA é 4,5:1 para texto normal e 3:1 para texto grande (≥18,66px em negrito, ou ≥24px).</p>
+
+    <div class="asa-doc-block asa-doc-scroll">
+      <table class="asa-doc-table">
+        <thead>
+          <tr><th>Par</th><th>Amostra</th><th>Razão</th><th>Veredito</th><th>Onde o sistema usa</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Branco sobre <code>--asa-red</code></td>
+            <td><div class="pair" style="background:#E80911;color:#fff">Reservar</div></td>
+            <td class="ratio">4,68:1</td>
+            <td><span class="verd verd--aa">AA texto normal</span></td>
+            <td>Botão primário, etiqueta de benefício, rodapé</td>
+          </tr>
+          <tr>
+            <td>Preto sobre <code>--asa-yellow</code></td>
+            <td><div class="pair" style="background:#FEC42B;color:#141517">Promessa</div></td>
+            <td class="ratio">11,45:1</td>
+            <td><span class="verd verd--aaa">AAA</span></td>
+            <td>Todo texto sobre a superfície amarela</td>
+          </tr>
+          <tr>
+            <td>Amarelo sobre <code>--asa-black</code></td>
+            <td><div class="pair" style="background:#141517;color:#FEC42B">4,7</div></td>
+            <td class="ratio">11,45:1</td>
+            <td><span class="verd verd--aaa">AAA</span></td>
+            <td>Placa de número, prova social</td>
+          </tr>
+          <tr>
+            <td>Preto sobre creme</td>
+            <td><div class="pair" style="background:#FFFBF0;color:#141517">Corpo</div></td>
+            <td class="ratio">17,66:1</td>
+            <td><span class="verd verd--aaa">AAA</span></td>
+            <td>Texto padrão de tela</td>
+          </tr>
+          <tr>
+            <td>Branco sobre <code>--asa-green</code></td>
+            <td><div class="pair" style="background:#065F46;color:#fff">Confirmado</div></td>
+            <td class="ratio">7,68:1</td>
+            <td><span class="verd verd--aaa">AAA</span></td>
+            <td>Etiqueta de confirmação de reserva</td>
+          </tr>
+          <tr>
+            <td><code>#4A4C50</code> sobre creme</td>
+            <td><div class="pair" style="background:#FFFBF0;color:#4A4C50">Secundário</div></td>
+            <td class="ratio">8,32:1</td>
+            <td><span class="verd verd--aaa">AAA</span></td>
+            <td>Corpo secundário, lead de seção</td>
+          </tr>
+          <tr>
+            <td><code>#5A5C60</code> sobre creme</td>
+            <td><div class="pair" style="background:#FFFBF0;color:#5A5C60">Legenda</div></td>
+            <td class="ratio">6,48:1</td>
+            <td><span class="verd verd--aa">AA</span></td>
+            <td>Legenda, glosa, specs do card</td>
+          </tr>
+          <tr>
+            <td><code>--asa-red-dark</code> sobre creme</td>
+            <td><div class="pair" style="background:#FFFBF0;color:#C4070E">RÓTULO</div></td>
+            <td class="ratio">6,00:1</td>
+            <td><span class="verd verd--aa">AA texto normal</span></td>
+            <td>Rótulo mono, mensagem de erro, foco</td>
+          </tr>
+          <tr>
+            <td><code>--asa-red</code> sobre creme</td>
+            <td><div class="pair" style="background:#FFFBF0;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
+            <td class="ratio">4,53:1</td>
+            <td><span class="verd verd--big">Só texto grande</span></td>
+            <td>Preço e número em display — nunca em legenda</td>
+          </tr>
+          <tr>
+            <td><code>--asa-red</code> sobre <code>--asa-yellow</code></td>
+            <td><div class="pair" style="background:#FEC42B;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
+            <td class="ratio">2,94:1</td>
+            <td><span class="verd verd--fail">Reprovado</span></td>
+            <td>Não usar — ver a nota abaixo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Correção de acessibilidade</span>
+        <span class="asa-doc-card__title">Vermelho nunca vai como texto direto sobre amarelo</span>
+        <p style="max-width:none">O handoff permitia vermelho sobre amarelo "a partir do corpo de destaque". Medido, o par dá <b>2,94:1</b> — abaixo até do mínimo de 3:1 para texto grande. É o único par da paleta que reprova.</p>
+        <p class="asa-doc-gloss">A correção não muda nada na estrutura, porque o sistema já resolvia isso sozinho: o vão põe promessa no campo amarelo e preço no campo claro. O preço vive sobre creme (4,53:1, aprovado em texto grande) ou sobre branco (4,68:1, aprovado em texto normal). O que muda é que agora isso é regra, não coincidência de composição.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Sobre o botão vermelho em peça amarela</span>
+        <p style="max-width:none">Ele continua válido. O que a pessoa lê é o rótulo branco sobre o vermelho do próprio botão — 4,68:1, aprovado.</p>
+        <p class="asa-doc-gloss">A ressalva é a fronteira entre o botão e o fundo amarelo, que fica em 2,94:1. Como o botão é identificado pelo rótulo e pela forma preenchida, e não pela borda, isso não impede o uso — mas não coloque um botão vermelho <i>vazado</i> sobre amarelo, porque aí a fronteira passa a ser a única pista.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Dois vermelhos, dois papéis</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">#E80911</code> texto grande</span><span class="asa-doc-spec__value">4,53:1 sobre creme</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">#C4070E</code> texto pequeno</span><span class="asa-doc-spec__value">6,00:1 sobre creme</span></div>
+        </div>
+        <p class="asa-doc-gloss">O handoff já mandava usar o vermelho escuro em rótulo pequeno sobre fundo claro. O cálculo mostra por quê: é a diferença entre reprovar e passar em AA. A intuição estava certa; agora ela tem número.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="regras">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Regras não negociáveis</span>
+    <h2>Seis regras. Quebrar qualquer uma reverte a marca ao estado anterior.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">01</span>
+        <span class="asa-doc-card__title">Um amarelo só</span>
+        <p class="asa-doc-gloss">#FEC42B é o único amarelo do sistema. O #FFCA00 do manual antigo foi descontinuado e não deve aparecer em nenhuma peça nova.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">02</span>
+        <span class="asa-doc-card__title">Teto de 20% de vermelho</span>
+        <p class="asa-doc-gloss">Nenhuma peça passa de aproximadamente 20% de área vermelha. Passar disso devolve a marca ao estado que a v3.2 existe para corrigir.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--yes">03</span>
+        <span class="asa-doc-card__title">Piso de um vermelho</span>
+        <p class="asa-doc-gloss">Uma peça sem nenhum vermelho perde a assinatura. Sempre existe pelo menos um elemento vermelho — normalmente o único botão de ação.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">04</span>
+        <span class="asa-doc-card__title">Nunca texto com alpha</span>
+        <p class="asa-doc-gloss">Nada de <code class="asa-doc-code" style="color:var(--asa-surface)">opacity</code> ou <code class="asa-doc-code" style="color:var(--asa-surface)">color-mix</code> em texto sobre fundo colorido — tinta cheia sempre. Estado desabilitado usa token literal, não transparência.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">05</span>
+        <span class="asa-doc-card__title">Sobre vermelho, só branco puro</span>
+        <p class="asa-doc-gloss">Nenhum creme, nenhum cinza claro, nenhum amarelo. Só #FFFFFF — é o que sustenta os 4,68:1 medidos.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">06</span>
+        <span class="asa-doc-card__title">Sem gradiente, sem sombra</span>
+        <p class="asa-doc-gloss">Nenhum gradiente, nenhuma forma orgânica de fundo, nenhum blur decorativo e nenhuma sombra em lugar nenhum. Elevação se resolve com borda de 1,5px e contraste de fundo.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Sobre o preto não ser preto</span>
+      <p style="color:var(--asa-ink-inverse-2);max-width:700px">O preto da marca é <code class="asa-doc-code" style="color:var(--asa-surface)">#141517</code>, não <code class="asa-doc-code" style="color:var(--asa-surface)">#000000</code>. Preto puro sobre branco puro cria o contraste máximo possível, o que em tela tende a cansar a vista em leitura longa e a gerar uma leve vibração nas bordas do texto, especialmente em OLED. O #141517 mantém 17,66:1 sobre creme — folga de sobra sobre o mínimo — com leitura mais confortável.</p>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="02-grid.html"><span>Anterior</span><b>← 02 · Grid</b></a>
+  <a class="asa-doc-next__link" href="04-tipografia.html" style="text-align:right"><span>Próxima seção</span><b>04 · Tipografia →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

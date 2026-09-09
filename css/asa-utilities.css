@@ -1,0 +1,160 @@
+/* ==========================================================================
+   ASA RENT A CAR — UTILITÁRIOS
+   O corte de 8°, a hachura de placeholder e a marca d'água.
+   Carregar por ÚLTIMO: sem build, a ordem de origem na cascata é o que
+   dispensa !important.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   O VÃO — corte a 8°
+
+   O ângulo sai do próprio logo: é a inclinação da asa e do wordmark, sempre
+   subindo para a direita. É o ÚNICO ângulo do sistema.
+
+   Por que cqw e não porcentagem: numa porcentagem, a coordenada Y de um
+   polygon é relativa à ALTURA da caixa. Como tan(8°) relaciona altura a
+   largura, a mesma porcentagem produz ângulos diferentes em proporções
+   diferentes — o card de veículo em 16:9 com "100% 86%" corta a 4,5°, não a
+   8°. Expressando a subida em unidade de largura (cqw), o ângulo fica
+   correto em qualquer proporção. tan(8°) = 0.14054.
+
+   REGRA DURA: nunca aplicar clip-path num container interativo. O triângulo
+   removido leva junto o botão, o link e o anel de foco que estiverem ali.
+   O corte vai sempre numa camada decorativa ou de mídia; o conteúdo fica
+   acima, sem clip.
+   -------------------------------------------------------------------------- */
+
+/* O wrapper é quem estabelece o container — cqw resolve contra ele, então
+   a subida passa a ser relativa à largura DESTE bloco, não do viewport. */
+.asa-cut {
+  container-type: inline-size;
+  position: relative;
+}
+
+/* Trava de segurança: em blocos muito largos e baixos, 14.05cqw estouraria
+   a altura e o polígono degeneraria. */
+.asa-cut > * {
+  --asa-rise-safe: min(var(--asa-rise), 45%);
+}
+
+/* Campo superior saindo por cima: a base sobe para a direita.
+   É também o corte padrão de toda fotografia do sistema. */
+.asa-cut__over,
+.asa-cut__media {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--asa-rise-safe)), 0 100%);
+}
+
+/* Campo inferior entrando por baixo: o topo sobe para a direita. */
+.asa-cut__under {
+  clip-path: polygon(0 var(--asa-rise-safe), 100% 0, 100% 100%, 0 100%);
+}
+
+/* Camada decorativa chapada, para quando o bloco tem conteúdo interativo:
+   o corte fica no ::before e o conteúdo passa por cima, intacto. */
+.asa-cut__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--asa-cut-color, var(--asa-bg-dense));
+  z-index: 0;
+}
+
+.asa-cut__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   PLACEHOLDER DE FOTOGRAFIA
+   Nenhuma foto do sistema existe ainda. Até existirem, este hachurado — e
+   nunca foto de banco de imagem, que quebraria a direção de fotografia.
+   A hachura corre a 8°, o mesmo ângulo do vão.
+   -------------------------------------------------------------------------- */
+
+.asa-photo {
+  background-color: var(--asa-placeholder);
+  background-image: repeating-linear-gradient(
+    -8deg,
+    rgba(20, 21, 23, .12) 0 1px,
+    transparent 1px 11px
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* Em telas de alta densidade a linha de 1px com período de 11px num ângulo
+   raso produz moiré. Engrossa a linha e abre o período. */
+@media (min-resolution: 2dppx) {
+  .asa-photo {
+    background-image: repeating-linear-gradient(
+      -8deg,
+      rgba(20, 21, 23, .12) 0 1.5px,
+      transparent 1.5px 16px
+    );
+  }
+}
+
+/* Legenda do placeholder. Fica acima do corte da base para não ser fatiada. */
+.asa-photo__caption {
+  position: absolute;
+  left: var(--asa-space-3);
+  bottom: 22px;
+  font-family: var(--asa-font-mono);
+  font-size: 10px;
+  line-height: 1.35;
+  font-weight: var(--asa-weight-medium);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-photo--16x9 { aspect-ratio: 16 / 9; }
+.asa-photo--1x1  { aspect-ratio: 1 / 1; }
+.asa-photo--4x5  { aspect-ratio: 4 / 5; }
+.asa-photo--16x10{ aspect-ratio: 16 / 10; }
+
+/* --------------------------------------------------------------------------
+   MARCA D'ÁGUA
+   A asa sozinha, sem wordmark, só existe em dois lugares: marca d'água a 13%
+   sobre amarelo, e dentro do recorte circular do ícone de perfil.
+   -------------------------------------------------------------------------- */
+
+.asa-watermark {
+  position: absolute;
+  pointer-events: none;
+  opacity: .13;
+  background: url('../assets/img/w-atual-red.png') center / contain no-repeat;
+  aspect-ratio: 806 / 511;
+}
+
+.asa-watermark--light {
+  background-image: url('../assets/img/w-atual-branco.png');
+}
+
+/* --------------------------------------------------------------------------
+   AUXILIARES
+   -------------------------------------------------------------------------- */
+
+.asa-measure     { max-width: var(--asa-measure); }
+.asa-measure-off { max-width: none; }
+
+.asa-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.asa-on-dark      { color: var(--asa-ink-inverse); }
+.asa-on-dark p    { color: var(--asa-ink-inverse-2); }
+
+/* Fundos de superfície, para compor os dois campos do vão. */
+.asa-bg-surface   { background: var(--asa-surface); color: var(--asa-ink); }
+.asa-bg-cream     { background: var(--asa-bg); }
+.asa-bg-white     { background: var(--asa-bg-elevated); }
+.asa-bg-dense     { background: var(--asa-bg-dense); color: var(--asa-ink-inverse); }
+.asa-bg-deep      { background: var(--asa-bg-deep); color: var(--asa-ink-inverse); }

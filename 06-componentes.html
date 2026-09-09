@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 · Componentes — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html" aria-current="page">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="botoes">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">06 · Componentes</span>
+    <h2>As peças que aparecem em toda comunicação, desenhadas uma vez.</h2>
+    <p class="asa-doc-section__lead">O handoff especificava a aparência de repouso de sete componentes. Faltavam os estados — e são os estados que efetivamente comunicam o que está acontecendo. Se só o estado padrão existir, cada pessoa que implementa adivinha o resto, e a consistência entre formulários se perde na segunda tela.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Botão · hierarquia</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Reservar agora</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+          <span class="asa-demo__caption">Primário · a única ação da tela</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--secondary"><span class="asa-btn__label">Falar no WhatsApp</span></button>
+          <span class="asa-demo__caption">Secundário · suporte</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--outline"><span class="asa-btn__label">Voltar</span></button>
+          <span class="asa-demo__caption">Contorno · saída</span>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">Um único botão vermelho por peça. Se toda ação da tela for um botão sólido vermelho, nenhuma comunica prioridade — e o orçamento de 20% de área vermelha estoura na primeira composição.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Botão · estados</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Repouso · #E80911</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" style="background:#C4070E"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Hover e pressionado · #C4070E</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" style="outline:2px solid #C4070E;outline-offset:2px"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Foco · outline, nunca sombra</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" data-state="loading"><span class="asa-btn__label">Reservar agora</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+          <span class="asa-demo__caption">Carregando</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" disabled><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Desabilitado</span>
+        </div>
+      </div>
+      <div class="asa-doc-cards" style="margin-top:24px">
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">O carregando não é enfeite</span>
+          <p class="asa-doc-gloss">Um botão que não muda durante a requisição convida o segundo clique — e o segundo clique aqui é uma segunda cobrança de caução no cartão. Todo botão que dispara ação assíncrona precisa do estado, e fica não-clicável enquanto ele durar.</p>
+        </div>
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">Por que não um spinner</span>
+          <p class="asa-doc-gloss">O sistema proíbe rotação em qualquer elemento. O carregando é feito de três pontos em fade, cada um com 400ms — o teto de duração do sistema — defasados para formar a onda. Com <code class="asa-doc-code">prefers-reduced-motion</code>, os pontos ficam estáticos.</p>
+        </div>
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">Desabilitado sem opacidade</span>
+          <p class="asa-doc-gloss">A marca proíbe texto com alpha, e <code class="asa-doc-code">opacity</code> num nó que contém texto é exatamente isso. O estado usa dois tokens literais: fundo <code class="asa-doc-code">#F2F2F0</code> e texto <code class="asa-doc-code">#A8AAAE</code>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="marca">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Componentes de marca</span>
+    <h2>Etiqueta, preço e a placa de número.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Etiqueta de benefício</span>
+        <div class="asa-demo asa-demo--yellow">
+          <span class="asa-tag">Retirada em 8 min</span>
+          <span class="asa-tag asa-tag--ok">Reserva confirmada</span>
+          <span class="asa-tag asa-tag--ink">Sem taxa de aeroporto</span>
+        </div>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Métrica</span><span class="asa-doc-spec__value">11px · 500 · 0.1em</span></div>
+          <div class="asa-doc-spec"><span>Padding</span><span class="asa-doc-spec__value">7px 10px</span></div>
+          <div class="asa-doc-spec"><span>Radius</span><span class="asa-doc-spec__value">0 — nenhum</span></div>
+        </div>
+        <p class="asa-doc-gloss">É o único componente retangular do sistema, e é isso que o separa de um botão à primeira vista. A variante verde marca confirmação; a preta, um fato operacional neutro.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Preço</span>
+        <div class="asa-demo">
+          <div class="asa-price">
+            <span class="asa-price__label">diária a partir de</span>
+            <span class="asa-price__value">R$ 189</span>
+            <span class="asa-price__note">para retirada em Recife, 3 diárias</span>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">O valor é display itálico 900 em vermelho, com tracking em -0.04em e entrelinha 0.9. Vive sobre creme ou branco — nunca sobre amarelo, onde o par cai para 2,94:1 e reprova em contraste.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--flush">
+        <div class="asa-numberplate">
+          <span class="asa-numberplate__value">4,7</span>
+          <span class="asa-numberplate__source">no Google, com mais de 4.500 avaliações</span>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+          <span class="asa-doc-block__title" style="margin:0">Placa de número</span>
+          <p class="asa-doc-gloss" style="margin:0">O componente mais usado do sistema. Números canônicos: 4,7 no Google e 9,4 no Reclame Aqui, acima das três maiores. Sempre em vírgula decimal, formato pt-BR — e sempre inteiros de uma vez. Contador animado remete a dashboard de software, não a reputação de gente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Card de veículo · e o mesmo card carregando</span>
+      <div class="asa-doc-cards asa-doc-cards--tight">
+
+        <article class="asa-card asa-card-vehicle">
+          <div class="asa-cut">
+            <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · SUV no pátio ]</span></div>
+          </div>
+          <div class="asa-card__body">
+            <span class="asa-card-vehicle__category">Grupo H · SUV automático</span>
+            <h3 class="asa-card-vehicle__title">Ideal para Jericoacoara e Canoa Quebrada</h3>
+            <p class="asa-card-vehicle__specs">5 pessoas · 3 malas grandes · altura livre para estrada de areia</p>
+            <div class="asa-card-vehicle__footer">
+              <span class="asa-card-vehicle__price">R$ 189</span>
+              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="asa-card asa-card-vehicle">
+          <div class="asa-cut">
+            <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · sedã na orla ]</span></div>
+          </div>
+          <div class="asa-card__body">
+            <span class="asa-card-vehicle__category">Grupo D · sedã automático</span>
+            <h3 class="asa-card-vehicle__title">Confortável para Porto de Galinhas com a família</h3>
+            <p class="asa-card-vehicle__specs">5 pessoas · 2 malas grandes · porta-malas fechado</p>
+            <div class="asa-card-vehicle__footer">
+              <span class="asa-card-vehicle__price">R$ 142</span>
+              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="asa-card" aria-busy="true">
+          <div class="asa-skeleton asa-skeleton--media"></div>
+          <div class="asa-card__body" style="gap:10px">
+            <div class="asa-skeleton asa-skeleton--text" style="width:45%"></div>
+            <div class="asa-skeleton asa-skeleton--title" style="width:90%"></div>
+            <div class="asa-skeleton asa-skeleton--title" style="width:60%"></div>
+            <div class="asa-skeleton asa-skeleton--text" style="width:75%"></div>
+            <div class="asa-card-vehicle__footer">
+              <div class="asa-skeleton asa-skeleton--title" style="width:72px"></div>
+              <div class="asa-skeleton" style="width:86px;height:40px"></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">O esqueleto tem o formato do conteúdo final, não um indicador genérico: a pessoa já entende a estrutura da tela antes dos dados chegarem, e lê isso como "quase pronto" em vez de "travado". É estático de propósito — um brilho em loop contínuo violaria o teto de 400ms e a regra de que nada no sistema pulsa.</p>
+    </div>
+  </div>
+</section>
+
+<section  id="campos">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Formulário</span>
+    <h2>Cinco estados por campo. O handoff desenhava um.</h2>
+    <p class="asa-doc-section__lead">Um campo não é uma imagem estática: é um componente com estados, e são eles que respondem às perguntas que a pessoa faz enquanto preenche. Meu preenchimento foi aceito? Onde está o erro? Qual campo está em foco agora?</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-demo asa-demo--white asa-demo--grid">
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f1">Local de retirada</label>
+          <input class="asa-input" id="f1" placeholder="Aeroporto de Recife (REC)">
+          <span class="asa-demo__caption">Vazio · placeholder em 400</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f2">Local de retirada</label>
+          <input class="asa-input" id="f2" value="Aeroporto de Recife (REC)" style="border-color:#C4070E;outline:2px solid #C4070E;outline-offset:2px">
+          <span class="asa-demo__caption">Foco · borda e anel #C4070E</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f3">Local de retirada</label>
+          <input class="asa-input" id="f3" value="Aeroporto de Recife (REC)">
+          <span class="asa-demo__caption">Preenchido · valor em 500</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f4">CPF do condutor</label>
+          <input class="asa-input" id="f4" value="123.456.789-0" aria-invalid="true" aria-describedby="f4e">
+          <span class="asa-field__error" id="f4e">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Faltou um dígito no CPF.
+          </span>
+          <span class="asa-demo__caption">Erro · mensagem colada ao campo</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f5">Local de devolução</label>
+          <input class="asa-input" id="f5" value="Mesmo local da retirada" disabled>
+          <span class="asa-demo__caption">Desabilitado · sem opacidade</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f6">Senha</label>
+          <input class="asa-input" id="f6" type="password" value="123456789" aria-describedby="f6h">
+          <span class="asa-field__help" id="f6h">Oito caracteres ou mais. Você usa essa senha para ver suas reservas depois.</span>
+          <span class="asa-demo__caption">Com ajuda persistente</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Ajuda não vive no placeholder</span>
+        <p class="asa-doc-gloss">O placeholder some no primeiro caractere digitado. Qualquer coisa que a pessoa precise consultar <i>enquanto</i> preenche — formato de senha, onde fica o CVV — precisa de texto de ajuda persistente, visível com o campo já preenchido.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Erro cola no campo, não no topo</span>
+        <p class="asa-doc-gloss">No momento do erro a atenção já está naquele campo específico. Um banner genérico no topo do formulário obriga a pessoa a subir, ler e voltar procurando qual campo falhou.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Divergência do handoff</span>
+        <p style="max-width:none">O handoff pedia o rótulo do campo em <b>9px</b>. Aqui ele está em <b>12px</b>.</p>
+        <p class="asa-doc-gloss">A regra dura do mesmo documento diz que nenhum texto fica abaixo de 12px em tela, e a escala tem cinco degraus "nada entre eles" — o degrau Etiqueta existe exatamente para este papel. Manter 9px significaria violar a regra geral e inventar um sexto degrau para conseguir isso. A regra geral prevalece.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Contorno, não preenchido</span>
+        <p class="asa-doc-gloss">O checkout tem mais de doze campos, e caixas preenchidas em sequência cansam a vista. Campo preenchido só faria sentido se o formulário estivesse sobre foto ou fundo colorido — que não é o caso: ele vive no campo claro do vão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="selecao">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Seleção</span>
+    <h2>Rádio, caixa e chave resolvem problemas diferentes.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Rádio · escolha exclusiva</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg" checked><span class="asa-choice__text"><span class="asa-choice__title">Cartão de crédito</span><span class="asa-choice__note">Caução bloqueada, não cobrada. Liberada em até 5 dias após a devolução.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg"><span class="asa-choice__text"><span class="asa-choice__title">Cartão de débito</span><span class="asa-choice__note">Sujeito a análise no balcão.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg" disabled><span class="asa-choice__text"><span class="asa-choice__title">Pix</span><span class="asa-choice__note">Indisponível para reservas com caução.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Uma opção entre várias que não podem coexistir. A forma de pagamento escolhida muda quais campos aparecem depois — boleto não pede número, validade nem CVV.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Caixa · escolhas independentes</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Concordo com os termos da locação</span><span class="asa-choice__note">Obrigatório para concluir a reserva.</span></span></label>
+          <label class="asa-choice asa-choice--optional"><input class="asa-choice__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Quero receber ofertas por WhatsApp</span><span class="asa-choice__note">Opcional. Você pode desativar quando quiser.</span></span></label>
+          <label class="asa-choice asa-choice--optional"><input class="asa-choice__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Salvar meus dados para a próxima reserva</span><span class="asa-choice__note">Deixa a segunda reserva mais rápida que a primeira.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">De zero a todas. A caixa opcional nasce sempre desmarcada e tem peso visual menor que a obrigatória — não são a mesma decisão, e não devem parecer a mesma.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Chave · efeito imediato</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Avisar quando o carro estiver pronto</span><span class="asa-choice__note">Notificação no WhatsApp, na hora da retirada.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Lembrete de devolução</span><span class="asa-choice__note">Três horas antes do fim da diária de 27 horas.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Só para configuração binária que vale na hora, sem passo de salvar. Usar chave para algo que só é aplicado depois de um "salvar" deixa a pessoa em dúvida sobre se ainda precisa confirmar.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">Por que o marcado é preto e não vermelho</span>
+        <p class="asa-doc-gloss" style="max-width:760px">O vermelho é o orçamento da ação principal da tela. Um checkout com cinco caixas marcadas em vermelho estouraria o teto de 20% de área e faria o botão de confirmar deixar de ser o elemento de maior contraste — que é justamente o que a hierarquia depende. Marcado usa preto; o vermelho fica reservado ao único CTA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="compostos">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Compostos</span>
+    <h2>Busca, etapas e pagamento.</h2>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Busca de veículo · o componente central da locadora</span>
+      <div class="asa-demo asa-demo--yellow asa-demo--stack">
+        <form class="asa-search" style="width:100%">
+          <div class="asa-field">
+            <label class="asa-field__label" for="s1">Retirada</label>
+            <input class="asa-input" id="s1" value="Aeroporto de Recife (REC)">
+          </div>
+          <div class="asa-field">
+            <label class="asa-field__label" for="s2">Data e hora de retirada</label>
+            <input class="asa-input" id="s2" type="datetime-local" value="2026-10-02T10:00">
+          </div>
+          <div class="asa-field">
+            <label class="asa-field__label" for="s3">Data e hora de devolução</label>
+            <input class="asa-input" id="s3" type="datetime-local" value="2026-10-05T13:00">
+          </div>
+          <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
+        </form>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Fica sobre branco, dentro do campo claro do vão, com o amarelo em volta. O botão é o único vermelho da composição. Em telas abaixo de 768px os quatro blocos empilham — a busca nunca comprime a ponto de o alvo de toque cair abaixo de 44px.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Etapas do checkout</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack">
+        <ol class="asa-stepper" style="width:100%">
+          <li class="asa-stepper__item" data-state="done">
+            <span class="asa-stepper__index">Passo 1 · concluído</span>
+            <span class="asa-stepper__label">Dados do condutor</span>
+          </li>
+          <li class="asa-stepper__item" aria-current="step">
+            <span class="asa-stepper__index">Passo 2 · agora</span>
+            <span class="asa-stepper__label">Pagamento e caução</span>
+          </li>
+          <li class="asa-stepper__item">
+            <span class="asa-stepper__index">Passo 3</span>
+            <span class="asa-stepper__label">Confirmação</span>
+          </li>
+        </ol>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Dividir um formulário de doze campos em três telas reduz o esforço percebido a cada momento, mesmo que o trabalho total seja idêntico. E o indicador comunica que existe um fim conhecido: a incerteza de "quanto ainda falta" é uma das maiores causas de abandono. Voltar uma etapa nunca apaga o que já foi preenchido.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Campos de pagamento</span>
+      <div class="asa-doc-cards asa-doc-cards--wide">
+        <div class="asa-doc-card">
+          <fieldset class="asa-fieldset">
+            <div class="asa-field asa-field--adorned">
+              <label class="asa-field__label" for="cc">Número do cartão</label>
+              <input class="asa-input" id="cc" value="5432 1098 7654 3210" inputmode="numeric">
+              <span class="asa-field__adornment">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </span>
+            </div>
+            <div class="asa-field-row">
+              <div class="asa-field">
+                <label class="asa-field__label" for="val">Validade</label>
+                <input class="asa-input" id="val" value="09/29" inputmode="numeric">
+              </div>
+              <div class="asa-field">
+                <label class="asa-field__label" for="cvv">CVV</label>
+                <input class="asa-input" id="cvv" value="123" inputmode="numeric" aria-describedby="cvvh">
+                <span class="asa-field__help" id="cvvh">3 dígitos no verso</span>
+              </div>
+            </div>
+          </fieldset>
+          <p class="asa-doc-gloss">Validade e CVV lado a lado espelham o layout físico do cartão, que a pessoa provavelmente tem na mão. A bandeira reconhecida aparece dentro do próprio campo, confirmando visualmente que o sistema entendeu o número digitado.</p>
+        </div>
+
+        <div class="asa-doc-card">
+          <div class="asa-alert asa-alert--info">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">Caução de R$ 2.000 bloqueada, não cobrada</span>
+              <span class="asa-alert__text">O valor fica reservado no limite do cartão e é liberado em até 5 dias úteis depois da devolução. Sem letra miúda: não há desconto nem tarifa sobre esse valor.</span>
+            </div>
+          </div>
+          <div class="asa-alert asa-alert--ok">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">Reserva confirmada</span>
+              <span class="asa-alert__text">Código REC-4821. Enviamos tudo no seu WhatsApp.</span>
+            </div>
+          </div>
+          <div class="asa-alert asa-alert--error">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">O banco não autorizou</span>
+              <span class="asa-alert__text">Nada foi cobrado. Tente outro cartão, ou me chame no WhatsApp que eu resolvo com você.</span>
+            </div>
+          </div>
+          <p class="asa-doc-gloss">O alerta usa borda de 4px à esquerda e nenhuma sombra. O texto segue o Registro 2 — caixa baixa, conversacional, sem exclamação. É onde a promessa de "sem letra miúda" é testada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Total sempre junto do botão</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack" style="max-width:460px">
+        <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">3 diárias de 27h</span><span style="font-size:14px;font-weight:500">R$ 567,00</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Proteção básica</span><span style="font-size:14px;font-weight:500">R$ 89,00</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Taxa de aeroporto</span><span style="font-size:14px;font-weight:500;color:var(--asa-ok)">Não cobramos</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--asa-line);padding-top:10px">
+            <span style="font-size:14px;font-weight:700">Total</span>
+            <span style="font:italic 900 28px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action)">R$ 656,00</span>
+          </div>
+          <button class="asa-btn asa-btn--primary asa-btn--block" style="margin-top:6px"><span class="asa-btn__label">Confirmar e pagar</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Mostrar o valor total imediatamente acima do botão reduz a ansiedade de clicar em pagar sem uma confirmação final do que será cobrado. "Não cobramos" em verde transforma uma ausência de taxa em um benefício visível — é o mesmo fato operacional que a marca já usa na comunicação.</p>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="05-icones.html"><span>Anterior</span><b>← 05 · Ícones</b></a>
+  <a class="asa-doc-next__link" href="07-hierarquia.html" style="text-align:right"><span>Próxima seção</span><b>07 · Hierarquia →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

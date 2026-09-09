@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 · Tokens — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  .chip { width:22px; height:22px; border:1px solid var(--asa-line); flex:none; display:inline-block; vertical-align:middle; }
+</style>
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html" aria-current="page">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="arquitetura">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">10 · Mapa de variáveis</span>
+    <h2>Duas camadas. Componente só enxerga a de cima.</h2>
+    <p class="asa-doc-section__lead">Primitivos são a escala bruta de valores possíveis e não carregam significado de uso. Semânticos são apelidos nomeados pelo papel que cumprem na interface. Separar os dois é o que permite trocar a aparência inteira do produto sem reabrir um único componente.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Por que não bastam os primitivos</span>
+        <p style="max-width:none">A marca tem oito cores fixas e nenhum modo escuro previsto. Ainda assim a camada semântica vale — por dois motivos concretos.</p>
+        <p class="asa-doc-gloss"><b>Primeiro:</b> a regra "vermelho é só ação" só é executável se o componente escrever <code class="asa-doc-code">var(--asa-action)</code>. Escrevendo <code class="asa-doc-code">var(--asa-red)</code>, a regra continua sendo folclore que alguém precisa lembrar. <b>Segundo:</b> a v3.1 troca vermelho e amarelo de papel. Isso é literalmente um tema — e sem apelido seria reescrever todo componente para produzir a variante B2B.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Os quatro arquivos</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">asa-tokens.css</code></span><span class="asa-doc-spec__value">@font-face + as duas camadas</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">asa-base.css</code></span><span class="asa-doc-spec__value">reset, elementos, layout, foco</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">asa-components.css</code></span><span class="asa-doc-spec__value">a biblioteca inteira</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">asa-utilities.css</code></span><span class="asa-doc-spec__value">corte 8°, hachura, auxiliares</span></div>
+        </div>
+        <p class="asa-doc-gloss">Nesta ordem. Sem build, é a cascata por ordem de origem que dispensa <code class="asa-doc-code">!important</code> — utilitário por último para poder vencer componente quando precisar.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Convenção</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Bloco</span><span class="asa-doc-spec__value">.asa-btn</span></div>
+          <div class="asa-doc-spec"><span>Elemento</span><span class="asa-doc-spec__value">.asa-card__price</span></div>
+          <div class="asa-doc-spec"><span>Modificador</span><span class="asa-doc-spec__value">.asa-btn--primary</span></div>
+          <div class="asa-doc-spec"><span>Estado</span><span class="asa-doc-spec__value">atributo nativo</span></div>
+        </div>
+        <p class="asa-doc-gloss">Estado de runtime nunca vira classe: <code class="asa-doc-code">:disabled</code>, <code class="asa-doc-code">[aria-invalid]</code>, <code class="asa-doc-code">[data-state="loading"]</code>, <code class="asa-doc-code">[aria-current="step"]</code>. É o que o framework já emite, e traz acessibilidade junto de graça.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="cor">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Coleção · Cor</span>
+    <h2>Oito primitivos, quatorze apelidos.</h2>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Primitivos — nunca use em componente</span>
+        <div class="asa-doc-scroll">
+          <table class="asa-doc-table">
+            <tbody>
+              <tr><td><span class="chip" style="background:#FEC42B"></span></td><td><code>--asa-yellow</code></td><td>#FEC42B</td></tr>
+              <tr><td><span class="chip" style="background:#141517"></span></td><td><code>--asa-black</code></td><td>#141517</td></tr>
+              <tr><td><span class="chip" style="background:#E80911"></span></td><td><code>--asa-red</code></td><td>#E80911</td></tr>
+              <tr><td><span class="chip" style="background:#FFFBF0"></span></td><td><code>--asa-cream</code></td><td>#FFFBF0</td></tr>
+              <tr><td><span class="chip" style="background:#C4070E"></span></td><td><code>--asa-red-dark</code></td><td>#C4070E</td></tr>
+              <tr><td><span class="chip" style="background:#065F46"></span></td><td><code>--asa-green</code></td><td>#065F46</td></tr>
+              <tr><td><span class="chip" style="background:#0D0D0E"></span></td><td><code>--asa-black-deep</code></td><td>#0D0D0E</td></tr>
+              <tr><td><span class="chip" style="background:#FFFFFF"></span></td><td><code>--asa-white</code></td><td>#FFFFFF</td></tr>
+              <tr><td><span class="chip" style="background:#4A4C50"></span></td><td><code>--asa-gray-body</code></td><td>#4A4C50</td></tr>
+              <tr><td><span class="chip" style="background:#5A5C60"></span></td><td><code>--asa-gray-caption</code></td><td>#5A5C60</td></tr>
+              <tr><td><span class="chip" style="background:#8A8C90"></span></td><td><code>--asa-gray-dark-1</code></td><td>#8A8C90 · só sobre escuro</td></tr>
+              <tr><td><span class="chip" style="background:#A8AAAE"></span></td><td><code>--asa-gray-dark-2</code></td><td>#A8AAAE · só sobre escuro</td></tr>
+              <tr><td><span class="chip" style="background:#F2F2F0"></span></td><td><code>--asa-disabled-bg</code></td><td>#F2F2F0</td></tr>
+              <tr><td><span class="chip" style="background:#E4E0DA"></span></td><td><code>--asa-placeholder</code></td><td>#E4E0DA · hachura</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Semânticos — é o que componente consome</span>
+        <div class="asa-doc-scroll">
+          <table class="asa-doc-table">
+            <thead><tr><th>Apelido</th><th>Aponta para</th><th>Papel</th></tr></thead>
+            <tbody>
+              <tr><td><code>--asa-surface</code></td><td>yellow</td><td>superfície principal da marca</td></tr>
+              <tr><td><code>--asa-bg</code></td><td>cream</td><td>fundo de tela e formulário</td></tr>
+              <tr><td><code>--asa-bg-elevated</code></td><td>white</td><td>card, superfície elevada</td></tr>
+              <tr><td><code>--asa-bg-dense</code></td><td>black</td><td>bloco de informação densa</td></tr>
+              <tr><td><code>--asa-bg-deep</code></td><td>black-deep</td><td>peça noturna, rodapé</td></tr>
+              <tr><td><code>--asa-action</code></td><td>red</td><td>somente ação</td></tr>
+              <tr><td><code>--asa-action-hover</code></td><td>red-dark</td><td>hover, foco, erro</td></tr>
+              <tr><td><code>--asa-on-action</code></td><td>white</td><td>texto sobre vermelho</td></tr>
+              <tr><td><code>--asa-ink</code></td><td>black</td><td>texto principal</td></tr>
+              <tr><td><code>--asa-ink-2</code></td><td>gray-body</td><td>corpo secundário</td></tr>
+              <tr><td><code>--asa-ink-3</code></td><td>gray-caption</td><td>legenda</td></tr>
+              <tr><td><code>--asa-ink-inverse</code></td><td>white</td><td>texto sobre escuro</td></tr>
+              <tr><td><code>--asa-ok</code></td><td>green</td><td>confirmação</td></tr>
+              <tr><td><code>--asa-line</code></td><td>rgba(20,21,23,.14)</td><td>borda sobre claro</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">A variante B2B em nove linhas</span>
+      <div class="asa-doc-pre"><span class="c">/* asa-tokens-v31.css — carregar DEPOIS de asa-tokens.css.
+   Nenhum componente muda. Nenhuma classe muda. Só o papel das cores. */</span>
+:root {
+  <span class="k">--asa-surface</span>:      var(--asa-red);      <span class="c">/* vermelho vira ambiente  */</span>
+  <span class="k">--asa-bg</span>:           #FFF2F2;             <span class="c">/* creme frio da v3.1      */</span>
+  <span class="k">--asa-action</span>:       var(--asa-yellow);   <span class="c">/* amarelo vira ação       */</span>
+  <span class="k">--asa-on-action</span>:    var(--asa-black);    <span class="c">/* sobre amarelo, só preto */</span>
+  <span class="k">--asa-action-hover</span>: #EAB227;
+}</div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Esta é a prova de que a camada semântica não é cerimônia. Com ela, a variante B2B é um arquivo de cinco declarações. Sem ela, seria uma caça manual a cada lugar do produto onde <code class="asa-doc-code">#E80911</code> foi escrito direto.</p>
+    </div>
+  </div>
+</section>
+
+<section  id="demais">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Demais coleções</span>
+    <h2>Tipografia, espaço, forma, ícone e movimento.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Tipografia</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-font</code></span><span class="asa-doc-spec__value">BR Omny + fallback</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-display</code></span><span class="asa-doc-spec__value">64px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-title</code></span><span class="asa-doc-spec__value">32px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-highlight</code></span><span class="asa-doc-spec__value">20px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body</code></span><span class="asa-doc-spec__value">16px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-label</code></span><span class="asa-doc-spec__value">12px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-measure</code></span><span class="asa-doc-spec__value">640px</span></div>
+        </div>
+        <p class="asa-doc-gloss">Não existe token composto de tipografia. O atalho <code class="asa-doc-code">font</code> não carrega <code class="asa-doc-code">letter-spacing</code> nem <code class="asa-doc-code">text-transform</code>, e quatro dos cinco degraus dependem de um ou de outro — um token composto reintroduziria a chance de erro exatamente onde o sistema é mais frágil.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Espaço e grade</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-1…11</code></span><span class="asa-doc-spec__value">4 a 90px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-container-max</code></span><span class="asa-doc-spec__value">1200px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-gutter</code></span><span class="asa-doc-spec__value">24px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-columns</code></span><span class="asa-doc-spec__value">12 / 8 / 4</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-safe-fold</code></span><span class="asa-doc-spec__value">680px</span></div>
+        </div>
+        <p class="asa-doc-gloss">Breakpoints existem como token para leitura e para JS, mas as media queries repetem o valor literal: custom property não funciona dentro de <code class="asa-doc-code">@media</code>.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Forma e tamanho</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-radius</code></span><span class="asa-doc-spec__value">4px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-radius-full</code></span><span class="asa-doc-spec__value">50% · só avatar</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-border-width</code></span><span class="asa-doc-spec__value">1.5px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-control-h</code></span><span class="asa-doc-spec__value">48px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-touch-min</code></span><span class="asa-doc-spec__value">44px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-icon-inline</code></span><span class="asa-doc-spec__value">24px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-icon-stroke</code></span><span class="asa-doc-spec__value">1.5</span></div>
+        </div>
+        <p class="asa-doc-gloss">Só dois valores de raio, e é de propósito: uma escala sm/md/lg convidaria alguém a escolher entre eles. O sistema não oferece essa escolha.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--dense">
+        <span class="asa-doc-block__title" style="margin:0">Coleção que não existe</span>
+        <span class="asa-doc-card__title">Sombra</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Não há <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-shadow-*</code>. Isso é decisão registrada, não lacuna.</p>
+        <p class="asa-doc-gloss">A marca é chapada: elevação se resolve com borda de 1,5px e contraste de fundo, e foco se resolve com <code class="asa-doc-code" style="color:var(--asa-surface)">outline</code>. Se um dia alguém precisar de <code class="asa-doc-code" style="color:var(--asa-surface)">box-shadow</code>, o problema é o layout, não a falta do token.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Geometria e movimento</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-angle</code></span><span class="asa-doc-spec__value">8deg</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-rise</code></span><span class="asa-doc-spec__value">14.05cqw</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-fast</code></span><span class="asa-doc-spec__value">200ms</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-default</code></span><span class="asa-doc-spec__value">240ms</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-scene</code></span><span class="asa-doc-spec__value">320ms</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-max</code></span><span class="asa-doc-spec__value">400ms</span></div>
+        </div>
+        <p class="asa-doc-gloss">Sob <code class="asa-doc-code">prefers-reduced-motion</code>, as quatro durações caem para 1ms na própria camada de tokens — nenhum componente precisa lembrar disso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="consumir">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Como consumir</span>
+    <h2>Cole os quatro arquivos. Não há build, não há dependência.</h2>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">HTML puro, WordPress, qualquer coisa</span>
+        <div class="asa-doc-pre">&lt;link rel=<span class="k">"stylesheet"</span> href=<span class="k">"css/asa-tokens.css"</span>&gt;
+&lt;link rel=<span class="k">"stylesheet"</span> href=<span class="k">"css/asa-base.css"</span>&gt;
+&lt;link rel=<span class="k">"stylesheet"</span> href=<span class="k">"css/asa-components.css"</span>&gt;
+&lt;link rel=<span class="k">"stylesheet"</span> href=<span class="k">"css/asa-utilities.css"</span>&gt;
+
+<span class="c">&lt;!-- e o markup já nasce na marca --&gt;</span>
+&lt;h1&gt;Seu carro já tá te esperando&lt;/h1&gt;
+&lt;button class=<span class="k">"asa-btn asa-btn--primary"</span>&gt;
+  &lt;span class=<span class="k">"asa-btn__label"</span>&gt;Ver carros&lt;/span&gt;
+&lt;/button&gt;</div>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">React, Vue, Svelte</span>
+        <div class="asa-doc-pre"><span class="c">// importe uma vez, na raiz</span>
+import <span class="k">'./css/asa-tokens.css'</span>
+import <span class="k">'./css/asa-base.css'</span>
+import <span class="k">'./css/asa-components.css'</span>
+import <span class="k">'./css/asa-utilities.css'</span>
+
+<span class="c">// o estado é atributo, não classe — nada de
+// className={loading ? 'btn--loading' : ''}</span>
+&lt;button
+  className=<span class="k">"asa-btn asa-btn--primary"</span>
+  data-state={loading ? <span class="k">'loading'</span> : undefined}
+  disabled={loading}
+&gt;</div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-card__title">Migrando para CSS Modules, Tailwind ou styled-components</span>
+        <p class="asa-doc-gloss" style="max-width:800px">A camada de tokens vai inteira, sem tradução: são custom properties, e todo sistema de estilo lê custom property. O que muda é só a camada de componente. Se o destino for Tailwind, mapeie os tokens no <code class="asa-doc-code">theme.extend</code> apontando para as mesmas variáveis — não copie os valores hexadecimais para lá, senão as duas fontes de verdade divergem na primeira mudança de marca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="09-seguranca.html"><span>Anterior</span><b>← 09 · Segurança</b></a>
+  <a class="asa-doc-next__link" href="11-movimento.html" style="text-align:right"><span>Próxima seção</span><b>11 · Movimento →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

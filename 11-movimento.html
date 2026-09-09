@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11 · Movimento — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  /* Demonstrações de movimento. Todas dentro do teto de 400ms. */
+  @keyframes slide8 {
+    from { opacity:0; transform:translate(-28px, 4px); }
+    to   { opacity:1; transform:translate(0, 0); }
+  }
+  @keyframes fadeLogo { from { opacity:0; } to { opacity:1; } }
+  @keyframes wipe8 {
+    from { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    to   { clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%); }
+  }
+  .play [data-anim="slide"] { animation: slide8 var(--asa-dur-default) var(--asa-ease) both; }
+  .play [data-anim="logo"]  { animation: fadeLogo var(--asa-dur-fast) var(--asa-ease) both; }
+  .play [data-anim="wipe"]  { animation: wipe8 var(--asa-dur-scene) var(--asa-ease) both; }
+  .stage { background:var(--asa-surface); padding:22px; min-height:150px; display:flex; flex-direction:column; justify-content:center; gap:10px; overflow:hidden; }
+  .timeline { display:flex; height:34px; border:var(--asa-border-width) solid var(--asa-line); }
+  .timeline span { display:grid; place-items:center; font:500 10px/1 var(--asa-font-mono); letter-spacing:.08em; text-transform:uppercase; border-right:1px solid var(--asa-line); }
+  .timeline span:last-child { border-right:0; }
+</style>
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html" aria-current="page">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="regras">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">11 · Movimento</span>
+    <h2>Quatro durações, um easing, e uma lista do que nunca se move.</h2>
+    <p class="asa-doc-section__lead">O movimento do sistema é curto e sempre no mesmo eixo. Não existe animação "de transição suave" genérica: ou o elemento entra pelo eixo de 8°, ou aparece inteiro. O teto absoluto é 400ms — acima disso, a interface deixa de parecer rápida e passa a parecer lenta com estilo.</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-scroll">
+        <table class="asa-doc-table">
+          <thead><tr><th>Elemento</th><th>Regra</th><th>Duração</th><th>Token</th></tr></thead>
+          <tbody>
+            <tr><td>Entrada de texto</td><td>Desliza pelo eixo de 8°, de baixo-esquerda para cima-direita. Deslocamento de 40px. Sai pelo mesmo eixo.</td><td>240ms</td><td><code>--asa-dur-default</code></td></tr>
+            <tr><td>Transição de cena</td><td>Wipe pela diagonal de 8°, subindo para a direita.</td><td>320ms</td><td><code>--asa-dur-scene</code></td></tr>
+            <tr><td>Logo</td><td>Entra por opacidade e permanece. Nada além disso.</td><td>200ms</td><td><code>--asa-dur-fast</code></td></tr>
+            <tr><td>Hover e foco</td><td>Só mudança de cor. Sem deslocamento, sem escala.</td><td>200ms</td><td><code>--asa-dur-fast</code></td></tr>
+            <tr><td>Números</td><td>Aparecem inteiros, de uma vez.</td><td>—</td><td>sem animação</td></tr>
+            <tr><td>Qualquer coisa</td><td>Teto absoluto do sistema.</td><td>400ms</td><td><code>--asa-dur-max</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">As três animações do sistema · recarregue para ver de novo</span>
+      <div class="asa-doc-cards play">
+        <div class="asa-doc-card asa-doc-card--flush">
+          <div class="stage">
+            <span class="asa-label-mono asa-label-mono--on-yellow" data-anim="slide">Entrada de texto</span>
+            <div data-anim="slide" style="font:italic 900 26px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;animation-delay:80ms">Seu carro já tá te esperando.</div>
+          </div>
+          <div style="padding:18px">
+            <span class="asa-doc-card__title">240ms · ease-out</span>
+            <p class="asa-doc-gloss" style="margin-top:8px">O deslocamento é no eixo de 8°, não na horizontal pura: 28px para a direita e 4px para cima. É o mesmo trajeto da asa. Nada de fade isolado — o texto sempre chega andando pelo eixo.</p>
+          </div>
+        </div>
+
+        <div class="asa-doc-card asa-doc-card--flush">
+          <div class="stage" style="background:var(--asa-bg-dense)">
+            <div data-anim="wipe" style="background:var(--asa-surface);padding:16px;font:italic 900 22px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">R$ 189</div>
+          </div>
+          <div style="padding:18px">
+            <span class="asa-doc-card__title">320ms · wipe a 8°</span>
+            <p class="asa-doc-gloss" style="margin-top:8px">A troca de cena não é um corte nem um fade: é o próprio vão passando pela tela. A borda que varre tem a mesma inclinação de todo recorte do sistema.</p>
+          </div>
+        </div>
+
+        <div class="asa-doc-card asa-doc-card--flush">
+          <div class="stage" style="align-items:flex-start">
+            <img data-anim="logo" src="assets/img/lockup.png" alt="Asa Rent a Car" style="width:min(60%,170px);animation-delay:200ms">
+          </div>
+          <div style="padding:18px">
+            <span class="asa-doc-card__title">200ms · só opacidade</span>
+            <p class="asa-doc-gloss" style="margin-top:8px">O logo entra por opacidade e fica. Não gira, não desliza, não se monta traço por traço, não pulsa e não muda de escala. É o elemento mais protegido do sistema.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="nunca">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Proibições</span>
+    <h2>O que o sistema nunca faz.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Rotação</span>
+        <p class="asa-doc-gloss">Nenhum elemento gira, em nenhuma circunstância. É por isso que o botão carregando usa três pontos em fade e não um spinner: o spinner é o padrão mais comum da web e também a violação mais fácil de deixar passar.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Contador de número</span>
+        <p class="asa-doc-gloss">4,7 e 9,4 aparecem inteiros. Um número subindo remete a dashboard de software; a prova social da Asa é reputação de gente, e reputação não é uma métrica que sobe na frente de quem olha.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Bounce, elástico, pulso</span>
+        <p class="asa-doc-gloss">Nada de curva com overshoot, nada de escala que respira, nada de brilho em loop. O skeleton de carregamento é estático pelo mesmo motivo — um shimmer contínuo é um pulso disfarçado.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Fade isolado</span>
+        <p class="asa-doc-gloss">Texto que só aparece, sem percorrer o eixo de 8°, perde a assinatura de movimento da marca. A exceção única é o logo — e é exceção justamente porque ele não pode se mover.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Quem pediu menos movimento</span>
+      <div class="asa-doc-pre"><span class="c">/* declarado na camada de tokens, não no fim da implementação:
+   nenhum componente precisa lembrar de respeitar isso */</span>
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    <span class="k">--asa-dur-fast</span>: 1ms;  <span class="k">--asa-dur-default</span>: 1ms;
+    <span class="k">--asa-dur-scene</span>: 1ms; <span class="k">--asa-dur-max</span>: 1ms;
+  }
+}</div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Como toda duração do sistema sai de token, zerar as quatro na raiz desliga o movimento inteiro de uma vez. O botão carregando tem uma regra própria a mais: os pontos param de piscar e ficam em opacidade fixa, porque um indicador de carregamento não pode simplesmente sumir.</p>
+    </div>
+  </div>
+</section>
+
+<section  id="peca">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Vídeo e mídia paga</span>
+    <h2>O ritmo de uma peça de 8 segundos.</h2>
+    <p class="asa-doc-section__lead">Peça de vídeo não é a soma de animações soltas: é uma estrutura de tempo fixa, a mesma em toda campanha. É o equivalente temporal do vão — promessa primeiro, entrega depois, assinatura por último.</p>
+
+    <div class="asa-doc-block">
+      <div class="timeline">
+        <span style="flex:1.5;background:var(--asa-bg-elevated)">0 – 1,5s · cena limpa</span>
+        <span style="flex:3;background:var(--asa-surface)">1,5 – 4,5s · promessa</span>
+        <span style="flex:.5;background:var(--asa-action);color:#fff">wipe</span>
+        <span style="flex:3;background:var(--asa-bg-dense);color:#fff">5 – 8s · preço, prova e ação</span>
+      </div>
+      <div class="asa-doc-cards" style="margin-top:24px">
+        <div class="asa-doc-card"><span class="asa-doc-card__title">0 a 1,5s</span><p class="asa-doc-gloss">Cena limpa. Nenhum texto ainda — é a foto, o saguão, a pessoa recebendo a chave.</p></div>
+        <div class="asa-doc-card asa-doc-card--yellow"><span class="asa-doc-card__title">1,5 a 4,5s</span><p class="asa-doc-gloss">A promessa entra pelo eixo de 8°, em display itálico. Campo amarelo: é o que a Asa promete.</p></div>
+        <div class="asa-doc-card"><span class="asa-doc-card__title">4,5s</span><p class="asa-doc-gloss">O wipe a 8° atravessa a tela subindo para a direita, em 320ms. É a virada de campo.</p></div>
+        <div class="asa-doc-card asa-doc-card--dense"><span class="asa-doc-card__title">5 a 8s</span><p class="asa-doc-gloss">Preço, prova e ação no campo escuro — o que o cliente recebe. O logo entra por último, por opacidade, e permanece até o fim.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="10-tokens.html"><span>Anterior</span><b>← 10 · Tokens</b></a>
+  <a class="asa-doc-next__link" href="12-app-nativo.html" style="text-align:right"><span>Próxima seção</span><b>12 · App nativo →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

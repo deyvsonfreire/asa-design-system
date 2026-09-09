@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>07 · Hierarquia — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  .pair-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px, 100%), 1fr)); gap:clamp(16px,2vw,28px); }
+  .sample { background:var(--asa-bg-elevated); border:var(--asa-border-width) solid var(--asa-line); padding:24px; min-height:210px; display:flex; flex-direction:column; }
+  .sample--bad { border-color:rgba(196,7,14,.35); }
+  .sample--good { border-color:rgba(6,95,70,.35); }
+</style>
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html" aria-current="page">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="intro">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">07 · Hierarquia visual</span>
+    <h2>Cinco ferramentas para transformar "está feio" em um diagnóstico.</h2>
+    <p class="asa-doc-section__lead">Hierarquia é a ordem em que o olho processa a tela, antes de qualquer leitura consciente. Sem hierarquia deliberada, a pessoa precisa trabalhar para descobrir o que importa — e o resultado mais comum é simplesmente não notar a ação principal. Cada ferramenta abaixo vem com o par certo/errado, porque apontar <i>qual</i> princípio está fraco é uma habilidade muito mais transferível do que dizer "deixa mais bonito".</p>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="escala">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">01 · Escala</span>
+    <h2>As pessoas leem as coisas grandes primeiro.</h2>
+    <p class="asa-doc-section__lead">Tamanho é processado antes da leitura consciente começar. Mas escala só funciona de forma relativa: hierarquia é sempre a razão entre elementos, nunca um tamanho absoluto. Se tudo na tela é grande, nada se destaca — o efeito de gritar se anula quando todo mundo grita junto.</p>
+
+    <div class="asa-doc-block pair-grid">
+      <div>
+        <div class="sample sample--bad">
+          <span class="asa-verdict asa-verdict--no" style="margin-bottom:16px">Errado</span>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <span style="font:700 20px/1.2 var(--asa-font)">Grupo H · SUV automático</span>
+            <span style="font:700 20px/1.2 var(--asa-font)">Ideal para Jericoacoara</span>
+            <span style="font:700 20px/1.2 var(--asa-font)">5 pessoas · 3 malas</span>
+            <span style="font:700 20px/1.2 var(--asa-font)">R$ 189 a diária</span>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro informações no mesmo peso. O olho não sabe por onde entrar, e o preço — que é o que decide a compra — some no meio da lista.</p>
+      </div>
+      <div>
+        <div class="sample sample--good">
+          <span class="asa-verdict asa-verdict--yes" style="margin-bottom:16px">Certo</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span class="asa-card-vehicle__category">Grupo H · SUV automático</span>
+            <span style="font:700 17px/1.2 var(--asa-font)">Ideal para Jericoacoara</span>
+            <span style="font:400 13px/1.45 var(--asa-font);color:var(--asa-ink-3)">5 pessoas · 3 malas grandes</span>
+            <span style="font:italic 900 32px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action);margin-top:6px">R$ 189</span>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro degraus distintos da escala. O preço é o maior elemento e o único colorido — o olho chega nele primeiro sem precisar procurar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="proximidade">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">02 · Proximidade</span>
+    <h2>O cérebro agrupa o que está perto, antes de ler o que está escrito.</h2>
+    <p class="asa-doc-section__lead">Se dois elementos são relacionados, o espaço entre eles precisa ser visivelmente menor que o espaço até o próximo grupo. O erro mais comum é o espaçamento democrático — a mesma distância entre tudo —, que destrói o agrupamento: se o espaço entre um rótulo e seu campo é igual ao espaço até o campo seguinte, ninguém consegue dizer onde um grupo termina.</p>
+
+    <div class="asa-doc-block pair-grid">
+      <div>
+        <div class="sample sample--bad">
+          <span class="asa-verdict asa-verdict--no" style="margin-bottom:16px">Errado · tudo a 16px</span>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <span class="asa-field__label">Local de retirada</span>
+            <input class="asa-input" value="Aeroporto de Recife">
+            <span class="asa-field__label">Data de retirada</span>
+            <input class="asa-input" value="02/10/2026">
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">O rótulo flutua entre dois campos. À primeira vista não dá para saber se "Data de retirada" descreve o campo acima ou o de baixo.</p>
+      </div>
+      <div>
+        <div class="sample sample--good">
+          <span class="asa-verdict asa-verdict--yes" style="margin-bottom:16px">Certo · 6px dentro, 16px entre</span>
+          <div style="display:flex;flex-direction:column;gap:16px">
+            <div class="asa-field">
+              <span class="asa-field__label">Local de retirada</span>
+              <input class="asa-input" value="Aeroporto de Recife">
+            </div>
+            <div class="asa-field">
+              <span class="asa-field__label">Data de retirada</span>
+              <input class="asa-input" value="02/10/2026">
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Rótulo e campo colados formam uma unidade; o respiro maior separa as unidades. A regra do sistema: 6 a 8px dentro do grupo, 16px ou mais entre grupos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="respiro">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">03 · Espaço em branco</span>
+    <h2>Um elemento isolado ganha atenção por subtração.</h2>
+    <p class="asa-doc-section__lead">Diferente da proximidade, que aproxima o que é relacionado, o respiro generoso em volta de um bloco inteiro sinaliza uma fronteira e reduz a densidade que o olho precisa processar de uma vez. Espaço em branco não é sobra: é ferramenta ativa.</p>
+
+    <div class="asa-doc-block pair-grid">
+      <div>
+        <div class="sample sample--bad" style="padding:10px">
+          <span class="asa-verdict asa-verdict--no" style="margin-bottom:10px">Errado</span>
+          <div style="background:var(--asa-surface);padding:10px;display:flex;flex-direction:column;gap:6px">
+            <span style="font:italic 900 22px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">Seu carro já tá te esperando</span>
+            <span style="font:400 12px/1.4 var(--asa-font)">Retirada em 8 minutos, no saguão do aeroporto</span>
+            <div style="background:#fff;padding:6px;display:flex;gap:4px">
+              <span style="flex:1;font:500 10px/1.6 var(--asa-font-mono);background:var(--asa-bg);padding:4px">RETIRADA</span>
+              <span style="flex:1;font:500 10px/1.6 var(--asa-font-mono);background:var(--asa-bg);padding:4px">DEVOLUÇÃO</span>
+              <span class="asa-tag" style="padding:4px 6px">Ver carros</span>
+            </div>
+            <span style="font:400 10px/1.3 var(--asa-font)">Diária de 27h · sem taxa · sem transfer · 4,7 no Google · 9,4 no Reclame Aqui</span>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Cabe mais coisa. Mas nada respira, a densidade é uniforme e a busca — que é a ação real da tela — não se distingue do restante.</p>
+      </div>
+      <div>
+        <div class="sample sample--good" style="padding:10px">
+          <span class="asa-verdict asa-verdict--yes" style="margin-bottom:10px">Certo</span>
+          <div style="background:var(--asa-surface);padding:24px 18px;display:flex;flex-direction:column;gap:20px">
+            <span style="font:italic 900 22px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">Seu carro já tá te esperando</span>
+            <div style="background:#fff;padding:12px;display:flex;gap:8px;align-items:center">
+              <span style="flex:1;font:500 10px/1.6 var(--asa-font-mono);color:var(--asa-ink-3)">RETIRADA</span>
+              <span class="asa-tag">Ver carros</span>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">O respiro maior fica em volta do elemento que mais importa. Cortar espaço em branco para caber mais é um pedido comum — e quase sempre reduz a hierarquia percebida e a sensação de qualidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="alinhamento">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">04 · Alinhamento e balanço</span>
+    <h2>Na Asa, o eixo de alinhamento é o próprio 8°.</h2>
+    <p class="asa-doc-section__lead">O cérebro reconhece padrões: quando elementos se alinham a linhas invisíveis, ele percebe estrutura mesmo sem grade visível. Um desalinhamento de poucos pixels é algo que quase ninguém nomeia conscientemente, mas todo mundo sente como "algo está errado".</p>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse);padding:0;overflow:hidden">
+        <div class="asa-cut" style="width:100%">
+          <div class="asa-cut__fill" style="background:var(--asa-surface)"></div>
+          <div class="asa-cut__under asa-cut__content" style="background:var(--asa-bg-dense);margin-top:60px;padding:40px 24px 24px">
+            <span class="asa-doc-block__title" style="margin:0">O que o cliente recebe</span>
+            <div style="font:italic 900 30px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-surface);margin-top:10px">R$ 189</div>
+          </div>
+        </div>
+        <div style="padding:24px">
+          <span class="asa-doc-card__title">Balanço assimétrico, de propósito</span>
+          <p class="asa-doc-gloss" style="margin-top:10px">Balanço simétrico transmite formalidade e calma. Assimétrico transmite dinamismo — e é mais difícil de acertar, porque exige pesar ativamente elementos de tamanho e cor diferentes. A Asa usa o assimétrico porque a promessa é "retirada em 8 minutos": simetria comunicaria o oposto do que a marca vende.</p>
+        </div>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-doc-block__title" style="margin:0">O que compartilha eixo</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Blocos de texto</span><span class="asa-doc-spec__value">borda esquerda</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Ícone e rótulo</span><span class="asa-doc-spec__value">centro vertical</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Preço e botão no card</span><span class="asa-doc-spec__value">linha de base</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Divisórias e recortes</span><span class="asa-doc-spec__value">8°, subindo à direita</span></div>
+        </div>
+        <p class="asa-doc-gloss">Alinhamento não é "alinhar tudo à esquerda" — é ser consistente sobre <i>qual</i> borda ou eixo os elementos compartilham. No sistema Asa existe um eixo a mais que na maioria dos projetos: o de 8°, que atravessa a peça inteira e amarra os dois campos do vão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="contraste">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">05 · Cor e contraste</span>
+    <h2>Se tudo compete com cor saturada, nenhum elemento vence.</h2>
+    <p class="asa-doc-section__lead">Cor é um dos sinais mais rápidos que o sistema visual detecta — e por isso o mais fácil de estragar por excesso. A regra "um único botão vermelho por peça" não é estilo: é essa ferramenta de hierarquia escrita como regra de marca.</p>
+
+    <div class="asa-doc-block pair-grid">
+      <div>
+        <div class="sample sample--bad">
+          <span class="asa-verdict asa-verdict--no" style="margin-bottom:16px">Errado · quatro vermelhos</span>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span class="asa-tag">Oferta</span>
+            <span style="font:italic 900 24px/1 var(--asa-font);color:var(--asa-action);text-transform:uppercase;letter-spacing:-.03em">Reserve agora</span>
+            <div style="display:flex;gap:8px">
+              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Ver detalhes</span></button>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro elementos disputando o mesmo canal. Qual é a ação principal? A etiqueta, o título, ou um dos dois botões? A cor deixou de significar "aqui" e virou papel de parede.</p>
+      </div>
+      <div>
+        <div class="sample sample--good">
+          <span class="asa-verdict asa-verdict--yes" style="margin-bottom:16px">Certo · um vermelho</span>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <span class="asa-tag asa-tag--ink">Oferta</span>
+            <span style="font:italic 900 24px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">Reserve agora</span>
+            <div style="display:flex;gap:8px">
+              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Ver detalhes</span></button>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Um só elemento carrega o contraste máximo. As outras ações continuam disponíveis, mas param de competir — e a assinatura da marca se mantém, porque o vermelho não desapareceu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="combinacao">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Como as ferramentas se combinam</span>
+    <h2>O botão certo empilha três sinais ao mesmo tempo.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">1 · Cor</span>
+        <p class="asa-doc-gloss">É o único elemento vermelho da composição. Contraste máximo, usado uma vez só.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">2 · Isolamento</span>
+        <p class="asa-doc-gloss">Tem espaço em branco próprio em volta, mais generoso que o de qualquer outro elemento da tela.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">3 · Posição</span>
+        <p class="asa-doc-gloss">Fica sempre no campo de baixo do vão — o campo do "o que o cliente recebe". A posição é previsível de peça em peça.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-card__title">Por que três e não um</span>
+        <p class="asa-doc-gloss">Cada sinal comunica prioridade por um canal perceptivo independente. Isso é robustez, e também é acessibilidade: se a única pista de que um botão é importante fosse a cor, uma pessoa com daltonismo perderia esse sinal por completo. Com tamanho, isolamento e posição também codificando a prioridade, a mensagem sobrevive à falha de qualquer um dos canais.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Checklist de diagnóstico</span>
+      <div class="asa-doc-scroll">
+        <table class="asa-doc-table">
+          <thead><tr><th>Princípio</th><th>Pergunta</th><th>Sinal de falha</th></tr></thead>
+          <tbody>
+            <tr><td>Escala</td><td>O elemento mais importante é também o visualmente mais pesado?</td><td>Tudo do mesmo tamanho — nada se destaca</td></tr>
+            <tr><td>Proximidade</td><td>O que é relacionado está mais perto entre si do que do resto?</td><td>Espaçamento uniforme mascarando os grupos</td></tr>
+            <tr><td>Espaço em branco</td><td>O elemento principal tem espaço próprio em volta?</td><td>Densidade uniforme — nada respira</td></tr>
+            <tr><td>Alinhamento</td><td>Os elementos compartilham bordas ou eixos entre si?</td><td>Desalinhamentos pequenos que incomodam sem explicação</td></tr>
+            <tr><td>Cor</td><td>Só um elemento da tela usa o contraste máximo?</td><td>Vários vermelhos competindo ao mesmo tempo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="06-componentes.html"><span>Anterior</span><b>← 06 · Componentes</b></a>
+  <a class="asa-doc-next__link" href="08-fluxo-reserva.html" style="text-align:right"><span>Próxima seção</span><b>08 · Fluxo de reserva →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

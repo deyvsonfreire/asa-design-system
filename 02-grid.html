@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · Grid — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  .grid-demo { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:24px; }
+  .grid-demo > i { display:block; height:96px; background:rgba(232,9,17,.14); border:1px solid rgba(232,9,17,.3); }
+  .space-bar { background:var(--asa-action); height:16px; }
+</style>
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html" aria-current="page">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="grade">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">02 · Grid</span>
+    <h2>Doze colunas, goteira de 24. E uma decisão sobre onde parar de crescer.</h2>
+    <p class="asa-doc-section__lead">A grade não aparece na tela — mas é ela que faz um layout parecer organizado sem que a pessoa saiba dizer por quê. Elementos de linhas diferentes acabam se alinhando verticalmente porque todos estão ancorados no mesmo sistema de colunas, não porque alguém alinhou par a par.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Grade de 12 colunas · desktop</span>
+      <div class="grid-demo">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Anatomia</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Coluna</span><span class="asa-doc-spec__value">onde o conteúdo pode existir</span></div>
+          <div class="asa-doc-spec"><span>Goteira (gutter)</span><span class="asa-doc-spec__value">24px</span></div>
+          <div class="asa-doc-spec"><span>Margem lateral</span><span class="asa-doc-spec__value">clamp(20px, 6vw, 90px)</span></div>
+        </div>
+        <p class="asa-doc-gloss">Confundir goteira com margem é o erro mais comum. O sintoma: conteúdo grudado na borda da tela mas com bastante espaço entre os elementos internos — ou o contrário.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Container fixo, não fluido</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Largura máxima</span><span class="asa-doc-spec__value">1200px</span></div>
+          <div class="asa-doc-spec"><span>Documentação (exceção)</span><span class="asa-doc-spec__value">1500px</span></div>
+        </div>
+        <p class="asa-doc-gloss">O site da Asa é conteúdo comercial, não painel de dados. Um container fluido deixaria uma linha de texto esticar até 3000px num monitor grande. Grid fluido resolve dashboard; aqui ele produziria linhas ilegíveis.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Colunas por breakpoint</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Desktop · acima de 1024px</span><span class="asa-doc-spec__value">12 colunas</span></div>
+          <div class="asa-doc-spec"><span>Tablet · 768 a 1023px</span><span class="asa-doc-spec__value">8 colunas</span></div>
+          <div class="asa-doc-spec"><span>Mobile · abaixo de 768px</span><span class="asa-doc-spec__value">4 colunas</span></div>
+        </div>
+        <p class="asa-doc-gloss">O que precisa sobreviver ao colapso é a hierarquia, não o número de colunas. Três cards lado a lado viram cards empilhados sem que se perca a noção do que é mais importante na tela.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="dobra">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Área segura</span>
+    <h2>A primeira dobra tem 680px para convencer.</h2>
+    <p class="asa-doc-section__lead">Grande parte do tráfego chega frio — busca, anúncio, link compartilhado — sem o compromisso prévio que alguém demonstra ao instalar um app. Isso dá à primeira dobra uma dupla responsabilidade: dizer do que se trata e apresentar a próxima ação, antes de qualquer rolagem.</p>
+
+    <div class="asa-doc-block">
+      <div style="border:var(--asa-border-width) solid var(--asa-line);position:relative;background:var(--asa-surface);height:340px;overflow:hidden">
+        <div style="position:absolute;inset:0 0 auto 0;height:34px;background:var(--asa-bg-elevated);border-bottom:1px solid var(--asa-line);display:flex;align-items:center;padding:0 14px">
+          <span class="asa-doc-spec__value" style="text-align:left">header fixo · 80px em escala real</span>
+        </div>
+        <div style="padding:56px 32px 0">
+          <span class="asa-doc-block__title" style="color:var(--asa-ink)">Dentro da dobra</span>
+          <div style="font:italic 900 32px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;max-width:520px">Seu carro já tá te esperando.</div>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <span style="background:var(--asa-white);border-radius:8px;padding:12px 16px;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--asa-ink-3)">Retirada</span>
+            <span style="background:var(--asa-white);border-radius:8px;padding:12px 16px;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--asa-ink-3)">Devolução</span>
+            <span class="asa-btn asa-btn--primary" style="min-height:40px;padding:12px 18px">Ver carros</span>
+          </div>
+        </div>
+        <div style="position:absolute;left:0;right:0;top:280px;border-top:2px dashed var(--asa-action-hover);display:flex;justify-content:flex-end">
+          <span style="background:var(--asa-action-hover);color:#fff;font:500 10px/1 var(--asa-font-mono);letter-spacing:.12em;padding:5px 8px">LIMITE DA DOBRA · 680PX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-verdict asa-verdict--yes">Dentro da dobra</span>
+        <span class="asa-doc-card__title">Proposta de valor e busca</span>
+        <p class="asa-doc-gloss">A promessa em display, o formulário de busca completo e o único botão vermelho da tela. Cada rolagem extra antes disso é uma chance a mais de a pessoa desistir.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-verdict asa-verdict--no">Fora da dobra</span>
+        <span class="asa-doc-card__title">Prova social, frota e institucional</span>
+        <p class="asa-doc-gloss">As placas de 4,7 e 9,4, os cards de veículo e o texto de balcão vêm depois. Eles sustentam a decisão, mas não são o que faz a pessoa ficar nos primeiros segundos.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Tela de carregamento com logo</span>
+        <p class="asa-doc-gloss">Splash é padrão de app, onde a pessoa já demonstrou intenção ao instalar. Na web, bloquear a página atrás de uma tela de marca é lido como lentidão — e ainda derruba a métrica de performance que afeta busca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="espacamento">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Espaçamento</span>
+    <h2>Escala linear de base 8. Nunca um valor escolhido no olho.</h2>
+    <p class="asa-doc-section__lead">Espaçamento usa incremento fixo, diferente da tipografia, que usa salto proporcional. São dois tipos de escala resolvendo dois problemas: um gap de 8px entre ícones e um respiro de 90px entre seções precisam da mesma previsibilidade de passo.</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card">
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-1</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:4px"></div><span class="asa-doc-spec__value">4px · meio-passo</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-2</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:8px"></div><span class="asa-doc-spec__value">8px · label para campo</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-3</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:12px"></div><span class="asa-doc-spec__value">12px</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-4</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:16px"></div><span class="asa-doc-spec__value">16px · campo para campo</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-5</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:20px"></div><span class="asa-doc-spec__value">20px</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-6</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:24px"></div><span class="asa-doc-spec__value">24px · goteira da grade</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-7</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:32px"></div><span class="asa-doc-spec__value">32px</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-8</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:40px"></div><span class="asa-doc-spec__value">40px</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-9</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:56px"></div><span class="asa-doc-spec__value">56px · piso da seção</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-10</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:64px"></div><span class="asa-doc-spec__value">64px</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-11</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:90px"></div><span class="asa-doc-spec__value">90px · margem lateral máxima</span></div></div>
+        </div>
+        <p class="asa-doc-gloss">Os tokens são nomeados por índice, não por pixel: o índice é estável, o valor por trás dele pode evoluir sem renomear nada no produto inteiro.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Nota de herança</span>
+        <p style="max-width:none">A escala herdada do handoff tem quatro valores que não são múltiplos de 8: <b>12, 20, 56 e 90</b>. Eles foram mantidos como estão.</p>
+        <p class="asa-doc-gloss">São valores que já circulam nas peças aprovadas — 12px é o padding interno do card de veículo, 90px é a margem lateral máxima da seção. Corrigi-los para 16, 24, 64 e 96 mudaria composições já validadas para ganhar uma pureza que ninguém percebe na tela. A escala real vence a escala teórica.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Padding de seção</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Vertical</span><span class="asa-doc-spec__value">clamp(56px, 8vw, 120px)</span></div>
+          <div class="asa-doc-spec"><span>Horizontal</span><span class="asa-doc-spec__value">clamp(20px, 6vw, 90px)</span></div>
+        </div>
+        <p class="asa-doc-gloss">Cortar espaço em branco para caber mais conteúdo é um pedido comum de quem não trabalha com design — e normalmente reduz a hierarquia percebida e a sensação de qualidade. O respiro é ferramenta, não sobra.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Grade também no componente</span>
+        <p style="max-width:none">A mesma lógica de colunas vale dentro do card, do formulário e da busca — não só no layout da página.</p>
+        <p class="asa-doc-gloss">É essa disciplina que faz o rodapé de um card de veículo alinhar com o de outro card na linha de baixo, sem que ninguém tenha planejado esse alinhamento elemento por elemento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="01-fundamentos.html"><span>Anterior</span><b>← 01 · Fundamentos</b></a>
+  <a class="asa-doc-next__link" href="03-cor.html" style="text-align:right"><span>Próxima seção</span><b>03 · Cor →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>

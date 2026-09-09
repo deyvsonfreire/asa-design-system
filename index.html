@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sistema de Design Asa Rent a Car · v3.2</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+</head>
+<body>
+
+<header class="asa-doc-cover">
+  <div class="asa-watermark asa-doc-cover__watermark"></div>
+
+  <div class="asa-doc-cover__top">
+    <img class="asa-doc-cover__lockup" src="assets/img/lockup.png" alt="Asa Rent a Car">
+    <span class="asa-doc-cover__stamp">SISTEMA DE DESIGN<br>v3.2 · B2C · 2026</span>
+  </div>
+
+  <div class="asa-doc-cover__middle">
+    <span class="asa-doc-section__label" style="color:var(--asa-ink)">Documentação de implementação</span>
+    <h1>O sistema saiu do PDF.<br><span class="asa-mark">Agora ele é código.</span></h1>
+    <p class="asa-doc-cover__lead">O handoff definiu a identidade: escala, proporção de cor, geometria, componentes e voz. Esta documentação é o mesmo sistema escrito em CSS, com a tipografia real, todos os estados que faltavam e as telas de produto compostas a partir dos componentes. O teste continua sendo o mesmo: duas pessoas diferentes montam a mesma peça.</p>
+  </div>
+
+  <div class="asa-doc-cover__stats">
+    <div class="asa-doc-cover__stat"><b>0</b><span>traços alterados no logo</span></div>
+    <div class="asa-doc-cover__stat"><b>8°</b><span>o único ângulo do sistema</span></div>
+    <div class="asa-doc-cover__stat"><b>5</b><span>degraus tipográficos, nada entre eles</span></div>
+    <div class="asa-doc-cover__stat"><b>20%</b><span>teto de área vermelha por peça</span></div>
+  </div>
+</header>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html" aria-current="page">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--dense">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Como usar esta documentação</span>
+    <h2>Leia na ordem. Cada seção depende da anterior.</h2>
+    <p class="asa-doc-section__lead">A ordem não é editorial, é de dependência real de construção: não dá para decidir componente antes de ter cor e tipografia, nem tokenizar antes de ter as decisões que os tokens representam.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--dense">
+        <span class="asa-doc-block__title" style="margin:0">Para quem implementa</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Comece em <a href="10-tokens.html" style="color:var(--asa-surface)">10 Tokens</a>. São quatro arquivos CSS sem build, sem dependência e sem framework — dá para colar em React, WordPress ou HTML puro do mesmo jeito.</p>
+        <p class="asa-doc-gloss">Os arquivos são <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tokens</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-base</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-components</code> e <code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilities</code>, nesta ordem. A ordem importa: sem build, é a cascata por origem que dispensa !important.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense">
+        <span class="asa-doc-block__title" style="margin:0">Para quem desenha</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Comece em <a href="03-cor.html" style="color:var(--asa-surface)">03 Cor</a> e <a href="04-tipografia.html" style="color:var(--asa-surface)">04 Tipografia</a>. São as duas seções que carregam as regras não negociáveis — o resto do sistema é consequência delas.</p>
+        <p class="asa-doc-gloss">Se você só tem cinco minutos, leia a regra dos 8° em 01 Fundamentos e o teto de 20% de vermelho em 03 Cor. São as duas coisas que, sozinhas, fazem uma peça parecer ou não parecer da Asa.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--dense">
+        <span class="asa-doc-block__title" style="margin:0">Para quem decide</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Vá direto a <a href="08-fluxo-reserva.html" style="color:var(--asa-surface)">08 Fluxo de reserva</a> e <a href="12-app-nativo.html" style="color:var(--asa-surface)">12 App nativo</a>. São as telas de produto e as decisões de fluxo que ainda dependem de definição de negócio.</p>
+        <p class="asa-doc-gloss">Uma pendência segue aberta: o nível de verificação exigido no pagamento da caução, que depende do gateway escolhido. Está registrada em 09 Segurança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Índice</span>
+    <h2>Doze seções, da marca ao app.</h2>
+
+    <div class="asa-doc-cards">
+
+      <a class="asa-doc-card" href="01-fundamentos.html">
+        <span class="asa-doc-block__title" style="margin:0">01 · Fundamentos</span>
+        <span class="asa-doc-card__title">A marca, as duas variantes e a regra dos 8°</span>
+        <p class="asa-doc-gloss">O que já estava aprovado e não se toca, o que a v3.2 mudou em relação à v3.1, e a geometria proprietária que transforma uma imagem qualquer em imagem da Asa.</p>
+      </a>
+
+      <a class="asa-doc-card" href="02-grid.html">
+        <span class="asa-doc-block__title" style="margin:0">02 · Grid</span>
+        <span class="asa-doc-card__title">12 colunas, gutter 24, e a primeira dobra</span>
+        <p class="asa-doc-gloss">Container, breakpoints, escala de espaçamento e a altura segura de 680px onde a proposta de valor e o CTA precisam caber sem rolagem.</p>
+      </a>
+
+      <a class="asa-doc-card" href="03-cor.html">
+        <span class="asa-doc-block__title" style="margin:0">03 · Cor</span>
+        <span class="asa-doc-card__title">Amarelo é ambiente. Vermelho pede resposta.</span>
+        <p class="asa-doc-gloss">Oito cores com função escrita, a proporção 40-25-20-15, a matriz de contraste calculada e os pares que o sistema proíbe.</p>
+      </a>
+
+      <a class="asa-doc-card" href="04-tipografia.html">
+        <span class="asa-doc-block__title" style="margin:0">04 · Tipografia</span>
+        <span class="asa-doc-card__title">BR Omny real, cinco degraus, dois registros</span>
+        <p class="asa-doc-gloss">A fonte da marca renderizando de verdade — não mais o placeholder em Helvetica dos protótipos. Inclui a largura máxima de bloco de texto que faltava.</p>
+      </a>
+
+      <a class="asa-doc-card" href="05-icones.html">
+        <span class="asa-doc-block__title" style="margin:0">05 · Ícones</span>
+        <span class="asa-doc-card__title">Uma biblioteca só, traço de 1.5px</span>
+        <p class="asa-doc-gloss">A camada que o handoff nunca definiu. Traço alinhado à borda de card, e o ícone de perfil como única exceção de marca.</p>
+      </a>
+
+      <a class="asa-doc-card" href="06-componentes.html">
+        <span class="asa-doc-block__title" style="margin:0">06 · Componentes</span>
+        <span class="asa-doc-card__title">Tudo, com todos os estados</span>
+        <p class="asa-doc-gloss">A maior seção. Os componentes que já existiam mais os que faltavam: campo com cinco estados, botão carregando, seleção, stepper e os campos de pagamento.</p>
+      </a>
+
+      <a class="asa-doc-card" href="07-hierarquia.html">
+        <span class="asa-doc-block__title" style="margin:0">07 · Hierarquia</span>
+        <span class="asa-doc-card__title">Cinco ferramentas, lado a lado com o erro</span>
+        <p class="asa-doc-gloss">Escala, proximidade, espaço em branco, alinhamento e cor — cada uma com o par certo/errado, para virar checklist em vez de julgamento estético.</p>
+      </a>
+
+      <a class="asa-doc-card" href="08-fluxo-reserva.html">
+        <span class="asa-doc-block__title" style="margin:0">08 · Fluxo de reserva</span>
+        <span class="asa-doc-card__title">Oito telas, da busca ao "minha reserva"</span>
+        <p class="asa-doc-gloss">As telas de produto compostas a partir dos componentes, com a decisão de fluxo anotada em cada uma: estado na URL, modal ou página, e onde a conta é criada.</p>
+      </a>
+
+      <a class="asa-doc-card" href="09-seguranca.html">
+        <span class="asa-doc-block__title" style="margin:0">09 · Segurança</span>
+        <span class="asa-doc-card__title">Caução, step-up e consentimento LGPD</span>
+        <p class="asa-doc-gloss">Onde pedir o segundo fator, como separar o consentimento essencial do de marketing, e por que esses textos são o teste real da promessa de "sem letra miúda".</p>
+      </a>
+
+      <a class="asa-doc-card" href="10-tokens.html">
+        <span class="asa-doc-block__title" style="margin:0">10 · Tokens</span>
+        <span class="asa-doc-card__title">Primitivo, semântico e como consumir</span>
+        <p class="asa-doc-gloss">O mapa completo de variáveis e o motivo de existir uma camada semântica: é o que permite a variante B2B trocar de tema sem reabrir um único componente.</p>
+      </a>
+
+      <a class="asa-doc-card" href="11-movimento.html">
+        <span class="asa-doc-block__title" style="margin:0">11 · Movimento</span>
+        <span class="asa-doc-card__title">Teto de 400ms e o que nunca anima</span>
+        <p class="asa-doc-gloss">Quatro durações, um easing, e a lista curta do que o sistema proíbe: rotação, bounce, contador de número e qualquer pulso.</p>
+      </a>
+
+      <a class="asa-doc-card" href="12-app-nativo.html">
+        <span class="asa-doc-block__title" style="margin:0">12 · App nativo</span>
+        <span class="asa-doc-card__title">O que muda quando sai do navegador</span>
+        <p class="asa-doc-gloss">O app ainda não existe. As decisões de fluxo mobile estão tomadas — inclusive a de não ter gamificação — para que ele nasça reaproveitando o sistema, não duplicando-o.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Antes de começar</span>
+    <h2>Três coisas que mudam o resultado.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">A fonte é real agora</span>
+        <p style="max-width:none">Os protótipos do handoff renderizavam em Helvetica porque a BR Omny não tinha versão web naqueles arquivos. Aqui ela é carregada de verdade, em cinco pesos.</p>
+        <p class="asa-doc-gloss">Cinco das catorze faces instaladas: Regular, Medium, Bold, Black e Black Italic. As outras nove não têm uso especificado no sistema — carregá-las seria peso morto na página.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">O 8° virou verificável</span>
+        <p style="max-width:none">As porcentagens de recorte do handoff não produziam 8° de fato — em 16:9, o card de veículo cortava a 4,5°. Agora uma fórmula única entrega 8° em qualquer proporção.</p>
+        <p class="asa-doc-gloss">A subida passou a ser medida em unidade de largura, não de altura. Oito porcentagens diferentes colapsaram em uma variável, e o ângulo pode ser conferido com régua na tela.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Precisa de servidor</span>
+        <p style="max-width:none">Fonte via <code class="asa-doc-code">@font-face</code> é bloqueada em <code class="asa-doc-code">file://</code>. Abrir os arquivos com duplo clique faz a página cair no fallback e perder a marca.</p>
+        <div class="asa-doc-pre"><span class="c"># na pasta asa-design-system</span>
+python3 -m http.server 8765</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <span></span>
+  <a class="asa-doc-next__link" href="01-fundamentos.html" style="text-align:right">
+    <span>Próxima seção</span>
+    <b>01 · Fundamentos →</b>
+  </a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação. Balcão dentro do saguão de Recife e Fortaleza, 24 horas. Retirada em 8 minutos.</p>
+</footer>
+
+</body>
+</html>

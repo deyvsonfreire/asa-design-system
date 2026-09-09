@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 · Fundamentos — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+</head>
+<body>
+
+<nav class="asa-doc-nav">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html" aria-current="page">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Segurança</a>
+    <a href="10-tokens.html">10 Tokens</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+  </div>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="diagnostico">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">01 · Fundamentos</span>
+    <h2>Três ativos aprovados. Nove decisões nunca tomadas.</h2>
+    <p class="asa-doc-section__lead">O manual anterior resolvia o logo: versão, respiro, monocromia, redução. Ele parava exatamente onde uma identidade começa. Por isso duas peças da Asa feitas por pessoas diferentes não se pareciam — não havia sistema a seguir, só um arquivo de marca.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title asa-label-mono--ok" style="margin:0;color:var(--asa-ok)">Já existe e não se toca</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Símbolo da asa e wordmark</span><span class="asa-doc-spec__value">intocado</span></div>
+          <div class="asa-doc-spec"><span>Vermelho #E80911 e Amarelo #FEC42B</span><span class="asa-doc-spec__value">intocado</span></div>
+          <div class="asa-doc-spec"><span>BR Omny como família única</span><span class="asa-doc-spec__value">intocado</span></div>
+        </div>
+        <p class="asa-doc-gloss">São os três ativos de reconhecimento da marca. Nenhum foi alterado — inverter a proporção entre as cores não mexe em um traço do logo. Se for preciso vetor, peça os originais ao cliente: não vetorize a partir dos PNGs.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--dense">
+        <span class="asa-doc-block__title" style="margin:0">Faltava, e é o que o sistema entrega</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Escala tipográfica e hierarquia</span><span class="asa-doc-spec__value">04</span></div>
+          <div class="asa-doc-spec"><span>Proporção e função de cada cor</span><span class="asa-doc-spec__value">03</span></div>
+          <div class="asa-doc-spec"><span>Grade, densidade e respiro</span><span class="asa-doc-spec__value">02</span></div>
+          <div class="asa-doc-spec"><span>Ângulo e recorte proprietários</span><span class="asa-doc-spec__value">01</span></div>
+          <div class="asa-doc-spec"><span>Componentes com todos os estados</span><span class="asa-doc-spec__value">06</span></div>
+          <div class="asa-doc-spec"><span>Telas de produto e fluxo de reserva</span><span class="asa-doc-spec__value">08</span></div>
+          <div class="asa-doc-spec"><span>Tokens prontos para implementar</span><span class="asa-doc-spec__value">10</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="variantes">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">As duas variantes</span>
+    <h2>Mesmo sistema. A única diferença é quem manda na superfície.</h2>
+    <p class="asa-doc-section__lead">v3.1 e v3.2 são idênticas em escala, grade, geometria e componentes. Elas divergem em uma coisa só: a proporção de cor. É por isso que trocar de variante, na implementação, significa trocar a camada semântica de tokens — e nenhum componente.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">v3.1 · B2B</span>
+        <div style="display:flex;height:64px;border:var(--asa-border-width) solid var(--asa-line)">
+          <div style="flex:40;background:#E80911"></div>
+          <div style="flex:25;background:#141517"></div>
+          <div style="flex:20;background:#FEC42B"></div>
+          <div style="flex:15;background:#FFF2F2"></div>
+        </div>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Superfície dominante</span><span class="asa-doc-spec__value">vermelho 40%</span></div>
+          <div class="asa-doc-spec"><span>Cor de ação</span><span class="asa-doc-spec__value">amarelo</span></div>
+          <div class="asa-doc-spec"><span>Fundo claro</span><span class="asa-doc-spec__value">#FFF2F2</span></div>
+          <div class="asa-doc-spec"><span>Prova social</span><span class="asa-doc-spec__value">bloco amarelo</span></div>
+        </div>
+        <p class="asa-doc-gloss">Reservada a materiais B2B: propostas de frota, contratos corporativos, apresentações comerciais. Não é a variante de nenhum produto digital.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">v3.2 · B2C — canônica</span>
+        <div style="display:flex;height:64px;border:var(--asa-border-width) solid rgba(20,21,23,.3)">
+          <div style="flex:40;background:#FEC42B"></div>
+          <div style="flex:25;background:#141517"></div>
+          <div style="flex:20;background:#E80911"></div>
+          <div style="flex:15;background:#FFFBF0"></div>
+        </div>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Superfície dominante</span><span class="asa-doc-spec__value">amarelo 40%</span></div>
+          <div class="asa-doc-spec"><span>Cor de ação</span><span class="asa-doc-spec__value">vermelho 20%</span></div>
+          <div class="asa-doc-spec"><span>Fundo claro</span><span class="asa-doc-spec__value">#FFFBF0</span></div>
+          <div class="asa-doc-spec"><span>Prova social</span><span class="asa-doc-spec__value">bloco preto</span></div>
+        </div>
+        <p class="asa-doc-gloss">É a variante de todo produto voltado ao consumidor: site, mídia paga, WhatsApp, Instagram e perfil do Google. Também é a que corresponde à loja física real, que já é amarela.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Por que a inversão</span>
+      <div class="asa-doc-cards asa-doc-cards--tight">
+        <div class="asa-doc-card asa-doc-card--cream">
+          <span class="asa-doc-card__title">Vermelho em área cheia cansa</span>
+          <p class="asa-doc-gloss">Usado como papel de parede, o vermelho perde exatamente a força que precisa ter quando marca um preço ou um botão. Reduzi-lo a 20% devolve a ele o peso de sinal.</p>
+        </div>
+        <div class="asa-doc-card asa-doc-card--cream">
+          <span class="asa-doc-card__title">Amarelo é a temperatura do atendimento</span>
+          <p class="asa-doc-gloss">O balcão real da Asa é amarelo: parede, bancada, prateleira e uniforme. A v3.2 alinha o digital ao que o cliente encontra quando desembarca.</p>
+        </div>
+        <div class="asa-doc-card asa-doc-card--cream">
+          <span class="asa-doc-card__title">A assinatura não se perde</span>
+          <p class="asa-doc-gloss">Uma peça sem nenhum vermelho perde a marca. Por isso sempre existe pelo menos um elemento vermelho — normalmente o único botão de ação da composição.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="geometria">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Geometria proprietária</span>
+    <h2>O ângulo e o vão saem de dentro do próprio logo.</h2>
+    <p class="asa-doc-section__lead">São os dois sinais que fazem uma imagem qualquer virar imagem da Asa, sem depender do logo estar presente. O ângulo é a inclinação da asa e do wordmark. O vão é o espaço entre as lâminas — que vira o corte que divide toda peça em dois campos.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-doc-block__title" style="margin:0">O ângulo · 8°</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Sempre subindo para a direita. É o único ângulo do sistema: recorte, divisória, seta, itálico. Nada a 45°, nada arredondado.</p>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Valor</span><span class="asa-doc-spec__value">8deg · tan = 0,14054</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Direção</span><span class="asa-doc-spec__value">sobe à direita</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Token</span><span class="asa-doc-spec__value">--asa-rise: 14.05cqw</span></div>
+        </div>
+        <p class="asa-doc-gloss">A subida é medida em unidade de largura, não de altura. É o que garante 8° reais em qualquer proporção de caixa — a demonstração está logo abaixo.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
+        <span class="asa-doc-block__title" style="margin:0">O vão · dois campos</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">O corte não é decorativo. Ele carrega significado fixo, e inverter esse significado quebra o sistema mesmo com o ângulo certo.</p>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Campo de cima (amarelo)</span><span class="asa-doc-spec__value">o que a Asa promete</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Campo de baixo (escuro/claro)</span><span class="asa-doc-spec__value">o que o cliente recebe</span></div>
+        </div>
+        <p class="asa-doc-gloss">Headline, benefício e promessa de tempo em cima. Preço, prova, condição e ação embaixo. É a mesma estrutura em todas as proporções de peça — é template, não arte nova por campanha.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Prova do ângulo · a mesma classe em três proporções</span>
+      <div class="asa-doc-cards asa-doc-cards--tight">
+        <div class="asa-doc-card asa-doc-card--dense" style="padding:0;gap:0">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--1x1"><span class="asa-photo__caption">[ 1:1 ]</span></div></div>
+          <div style="padding:14px"><span class="asa-doc-spec__value" style="text-align:left">quadrado · 8,00°</span></div>
+        </div>
+        <div class="asa-doc-card asa-doc-card--dense" style="padding:0;gap:0">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ 16:9 ]</span></div></div>
+          <div style="padding:14px"><span class="asa-doc-spec__value" style="text-align:left">paisagem · 8,00°</span></div>
+        </div>
+        <div class="asa-doc-card asa-doc-card--dense" style="padding:0;gap:0">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--4x5"><span class="asa-photo__caption">[ 4:5 ]</span></div></div>
+          <div style="padding:14px"><span class="asa-doc-spec__value" style="text-align:left">retrato · 8,00°</span></div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:700px">Nas três, a mesma classe <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-cut__media</code>. Se a subida fosse uma porcentagem de altura — como nos protótipos originais — o quadrado cortaria a 8°, a paisagem a 4,5° e o retrato a 11°, e ninguém conseguiria auditar isso a olho.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Como usar</span>
+      <div class="asa-doc-pre"><span class="c">&lt;!-- o wrapper estabelece o container: é dele que sai a largura --&gt;</span>
+&lt;div class=<span class="k">"asa-cut"</span>&gt;
+  &lt;div class=<span class="k">"asa-cut__media asa-photo asa-photo--16x9"</span>&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+<span class="c">/* as três receitas, todas derivadas da mesma variável */</span>
+.asa-cut__over  <span class="c">/* base sobe à direita — toda fotografia   */</span>
+.asa-cut__under <span class="c">/* topo sobe à direita — campo escuro      */</span>
+.asa-cut__fill  <span class="c">/* camada decorativa sob conteúdo clicável */</span></div>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:700px">Regra dura: nunca aplique o recorte num container que tenha botão, link ou campo dentro. O triângulo removido leva junto o conteúdo e o anel de foco. Quando o bloco é interativo, o corte vai em <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-cut__fill</code> e o conteúdo passa por cima, intacto.</p>
+    </div>
+  </div>
+</section>
+
+<section  id="nao-inclina">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Limites</span>
+    <h2>O 8° é do recorte e do trajeto. Nunca do elemento.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Texto com transform: rotate</span>
+        <p class="asa-doc-gloss">A inclinação do texto já vem do itálico da própria BR Omny — é o mesmo corte do wordmark. Girar o elemento por cima disso duplica a inclinação e desalinha a linha de base.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Bloco de cor girado</span>
+        <p class="asa-doc-gloss">O ângulo entra pelo recorte da forma, não pela rotação da caixa. Um bloco girado deixa cantos vazados e quebra o alinhamento com a grade de 12 colunas.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Nunca</span>
+        <span class="asa-doc-card__title">Logo animado, girado ou remontado</span>
+        <p class="asa-doc-gloss">O logo entra por opacidade em 200ms e permanece. Não gira, não se monta traço por traço, não pulsa, e nenhum traço dele pode ser alterado.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--yes">Sempre</span>
+        <span class="asa-doc-card__title">A asa sozinha em dois lugares só</span>
+        <p class="asa-doc-gloss">Marca d'água a 13% de opacidade sobre amarelo, ou dentro do recorte circular do ícone de perfil. Fora isso, a assinatura é sempre o lockup completo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="index.html"><span>Anterior</span><b>← 00 · Início</b></a>
+  <a class="asa-doc-next__link" href="02-grid.html" style="text-align:right"><span>Próxima seção</span><b>02 · Grid →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>
