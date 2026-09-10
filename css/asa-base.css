@@ -223,3 +223,20 @@ img {
   flex-direction: column;
   gap: var(--asa-space-4);
 }
+
+/* Layout de duas colunas — Lacuna 8. Sidebar de filtro + vitrine é o único
+   lugar do sistema que precisa disto; abaixo de 1024px a sidebar empilha
+   acima do conteúdo, nunca vira sheet automaticamente — isso é decisão de
+   quem monta a tela, não do layout. */
+.asa-layout-2col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--asa-space-6);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .asa-layout-2col {
+    grid-template-columns: var(--asa-sidebar-w) 1fr;
+  }
+}

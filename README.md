@@ -107,7 +107,19 @@ Fechando a fundação de F1: a navegação de produto que não existia (`asa-doc
 
 Os 7 primitivos flutuantes da rodada anterior, a navegação e o motor de busca agora estão catalogados visualmente em `06-componentes.html` (seções **Camada flutuante**, **Navegação**, **Motor de busca**); os tokens de fundação, em `10-tokens.html` (seção **Fundação de F1**). De brinde: corrigido um `font-size: 10px` (abaixo do piso de 12px) que a própria auditoria de T9 tinha introduzido em `13-roadmap.html`.
 
-**Ainda não feito:** vitrine (`asa-filters`, `asa-card-vehicle` completo, `asa-rating`), funil, pós-venda e confiança — os quatro elos restantes da fundação de F1. A tabela de preços (RMS, dependência de negócio) e a convenção de hooks de medição do GA4 (Lacuna 15) também seguem pendentes.
+### Fundação de F1 completa — vitrine, funil, pós-venda e confiança (10/09/2026, mesmo dia)
+
+Os quatro elos finais, fechando os sete no total.
+
+**Vitrine** — `asa-filters` (`__group`/`__option`/`__count`; contagem zero desabilita o input, nunca esconde a opção), `asa-resultbar`, `asa-speclist`, `asa-rating` (sem estrela por padrão — T12: o amarelo não pode virar cor de avaliação) e `asa-emptystate`. Extensões: `asa-card-vehicle` ganhou `__badge`, `__policy`, `__actions` (dois CTAs), `[data-state="soldout"]` e `--horizontal`; `asa-price` ganhou `__daily`/`__installment`/`__pix`; `asa-choice--card` (bloco selecionável com borda inteira via `:has(:checked)`). Token novo: `--asa-sidebar-w` e `.asa-layout-2col` em `asa-base.css` (Lacuna 8), que empilha abaixo de 1024px.
+
+**Funil** — `asa-summary` (`--sticky`/`--bar` convivem no mesmo markup, a troca é só CSS por breakpoint), `asa-upsell`, `asa-comparison` (`--asa-comparison-cols` para número de planos — `auto-fit` não serve aqui, o número de colunas é decisão de quem monta a tela, não do espaço disponível), `asa-pricebreakdown` (reaproveita `asa-summary__row` dentro de um `asa-disclosure`) e `asa-paymethod` (Pix turquesa isolado — T11, único lugar do sistema com cor de terceiro).
+
+**Pós-venda e confiança** — `asa-card-booking`, `asa-tasklist`, `asa-reassurance`, `asa-consent` (`__banner`/`__prefs`), `asa-stickybar` e `asa-figure` (o modo "foto real" ao lado de `asa-photo`).
+
+Todos catalogados visualmente em `06-componentes.html` (seções **Vitrine**, **Funil**, **Pós-venda e confiança**). Verificado nas 14 páginas em 375/768/1440 sem regressão; dois bugs pegos na própria verificação e corrigidos antes do commit: `asa-comparison__row` usava `repeat(auto-fit, ...)` misturado com uma coluna `1.4fr`, que colapsava para 1 coluna em vez de grade — virou `repeat(var(--asa-comparison-cols, 3), ...)`; e duas instâncias de `.asa-summary__row--total` esqueceram a classe base `.asa-summary__row`, perdendo o `display:flex`.
+
+**Fundação de F1 concluída** — os sete elos (tokens, camada flutuante, navegação, motor de busca, vitrine, funil, pós-venda/confiança) estão todos construídos e documentados. Ainda pendentes, fora do design system: a tabela de preços (RMS, dependência de negócio) e a convenção de hooks de medição do GA4 (Lacuna 15). Para além de F1: os componentes de F2/F3 do mapa (`asa-footer`, `asa-breadcrumb`, `asa-tabs`, `asa-shelf`, quatro `asa-card-*` de conteúdo, `asa-prose`, `asa-accordion`, `asa-testimonial`, `asa-upload`, `asa-codeinput`, `asa-tabbar`, `asa-card-plan`) e um catálogo formal dos ícones novos usados inline nesta rodada (ainda não cadastrados em `05-icones.html`).
 
 ## Dívida técnica registrada
 

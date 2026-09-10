@@ -231,6 +231,11 @@
   --asa-gutter:        24px;
   --asa-safe-fold:     680px;   /* altura útil da primeira dobra */
 
+  /* Lacuna 8 — layout de duas colunas. 1200px de container menos padding
+     deixa ~1020px: sidebar (280) + 3 cards de vitrine fica apertado sem
+     este token existir para a régua toda concordar no mesmo valor. */
+  --asa-sidebar-w: 280px;
+
   /* Breakpoints. Custom property não funciona dentro de @media — estes
      existem para leitura e para JS; as media queries repetem o valor. */
   --asa-bp-tablet:  768px;
