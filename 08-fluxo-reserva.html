@@ -92,19 +92,21 @@
               <div style="font:italic 900 clamp(26px,5.4cqi,44px)/0.96 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;margin-top:12px;max-width:15ch">Seu carro já tá te esperando.</div>
               <p style="font:400 15px/1.5 var(--asa-font);margin-top:12px;max-width:42ch">Balcão dentro do saguão. Retirada em 8 minutos, sem transfer e sem taxa de aeroporto.</p>
               <form class="asa-search" style="margin-top:22px">
-                <div class="asa-field">
-                  <label class="asa-field__label" for="b1">Retirada</label>
-                  <input class="asa-input" id="b1" value="Aeroporto de Recife (REC)">
+                <div class="asa-search__row">
+                  <div class="asa-field">
+                    <label class="asa-field__label" for="b1">Retirada</label>
+                    <input class="asa-input" id="b1" value="Aeroporto de Recife (REC)">
+                  </div>
+                  <div class="asa-field">
+                    <label class="asa-field__label" for="b2">Retirada em</label>
+                    <input class="asa-input" id="b2" value="02/10 · 10:00">
+                  </div>
+                  <div class="asa-field">
+                    <label class="asa-field__label" for="b3">Devolução em</label>
+                    <input class="asa-input" id="b3" value="05/10 · 13:00">
+                  </div>
+                  <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
                 </div>
-                <div class="asa-field">
-                  <label class="asa-field__label" for="b2">Retirada em</label>
-                  <input class="asa-input" id="b2" value="02/10 · 10:00">
-                </div>
-                <div class="asa-field">
-                  <label class="asa-field__label" for="b3">Devolução em</label>
-                  <input class="asa-input" id="b3" value="05/10 · 13:00">
-                </div>
-                <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
               </form>
             </div>
           </div>
@@ -618,10 +620,12 @@
               <div style="font:italic 900 clamp(26px,5cqi,42px)/0.96 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;margin-top:12px;max-width:18ch">Essa página saiu de circulação.</div>
               <p style="font:400 15px/1.5 var(--asa-font);margin-top:12px;max-width:44ch">Mas o carro continua aqui. Me diz quando você chega que eu procuro pra você.</p>
               <form class="asa-search" style="margin-top:20px">
-                <div class="asa-field"><label class="asa-field__label" for="e1">Retirada</label><input class="asa-input" id="e1" placeholder="Recife ou Fortaleza"></div>
-                <div class="asa-field"><label class="asa-field__label" for="e2">Retirada em</label><input class="asa-input" id="e2" placeholder="dd/mm · hh:mm"></div>
-                <div class="asa-field"><label class="asa-field__label" for="e3">Devolução em</label><input class="asa-input" id="e3" placeholder="dd/mm · hh:mm"></div>
-                <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
+                <div class="asa-search__row">
+                  <div class="asa-field"><label class="asa-field__label" for="e1">Retirada</label><input class="asa-input" id="e1" placeholder="Recife ou Fortaleza"></div>
+                  <div class="asa-field"><label class="asa-field__label" for="e2">Retirada em</label><input class="asa-input" id="e2" placeholder="dd/mm · hh:mm"></div>
+                  <div class="asa-field"><label class="asa-field__label" for="e3">Devolução em</label><input class="asa-input" id="e3" placeholder="dd/mm · hh:mm"></div>
+                  <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
+                </div>
               </form>
             </div>
           </div>

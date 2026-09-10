@@ -712,25 +712,310 @@
    BUSCA DE VEÍCULO
    O componente central de uma locadora: local e datas de retirada e
    devolução. Fica sobre branco, dentro do campo claro do vão.
+
+   Extensão (10/09/2026, ver MAPA-COMPONENTES §4): o grid de 4 colunas
+   original só sobrevivia a três campos e um botão. O motor completo do
+   estudo tem 7 controles — abas de linha de negócio, local com
+   autocomplete, dois pares data+hora, chips secundários e "Minha reserva".
+   __row herda o grid antigo; __tabs, __chips e __aside são novos. Quem só
+   precisa dos 3 campos simples continua funcionando — basta usar __row
+   sozinho dentro de .asa-search, como nos exemplos deste arquivo.
    ========================================================================== */
 
 .asa-search {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--asa-space-3);
   padding: var(--asa-space-4);
   background: var(--asa-bg-elevated);
   border-radius: var(--asa-radius);
+}
+
+.asa-search__tabs {
+  display: flex;
+  gap: var(--asa-space-1);
+}
+
+.asa-search__tab {
+  padding: 10px var(--asa-space-4);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+  cursor: pointer;
+}
+
+.asa-search__tab[aria-selected="true"] {
+  color: var(--asa-ink);
+  border-bottom-color: var(--asa-action);
+}
+
+.asa-search__row {
+  display: grid;
+  gap: var(--asa-space-3);
   grid-template-columns: 1fr;
 }
 
 @media (min-width: 768px) {
-  .asa-search {
+  .asa-search__row {
     grid-template-columns: 1.4fr 1fr 1fr auto;
     align-items: end;
   }
 }
 
-.asa-search .asa-btn { min-height: var(--asa-control-h); }
+.asa-search__row .asa-btn { min-height: var(--asa-control-h); }
+
+.asa-search__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-2);
+}
+
+.asa-search__aside {
+  padding-top: var(--asa-space-3);
+  border-top: var(--asa-border-width) solid var(--asa-line-soft);
+}
+
+/* --------------------------------------------------------------------------
+   COMBOBOX — local com autocomplete, quatro tipos de lugar (aeroporto,
+   cidade, bairro, destino) mais o código IATA. A lista mora dentro de um
+   .asa-popover já existente; aqui só o conteúdo.
+   -------------------------------------------------------------------------- */
+.asa-combobox { position: relative; }
+
+.asa-combobox__list {
+  list-style: none;
+  margin: 0;
+  padding: var(--asa-space-1) 0;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.asa-combobox__option {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-2);
+  min-height: var(--asa-touch-min);
+  padding: 0 var(--asa-space-3);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+  cursor: pointer;
+}
+
+.asa-combobox__option:hover,
+.asa-combobox__option[aria-selected="true"] {
+  background: var(--asa-surface-hover);
+}
+
+.asa-combobox__option-type {
+  flex: none;
+  width: var(--asa-icon-dense);
+  height: var(--asa-icon-dense);
+  color: var(--asa-ink-3);
+}
+
+.asa-combobox__label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.asa-combobox__name {
+  font-weight: var(--asa-weight-medium);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.asa-combobox__hint {
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+}
+
+.asa-combobox__iata {
+  margin-left: auto;
+  flex: none;
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-label);
+  letter-spacing: var(--asa-tracking-mono);
+  color: var(--asa-ink-3);
+}
+
+.asa-combobox__empty {
+  padding: var(--asa-space-5) var(--asa-space-3);
+  text-align: center;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-3);
+}
+
+/* --------------------------------------------------------------------------
+   DATEPICKER — calendário de intervalo dentro de um .asa-popover. A diária
+   de 27h só é vendável se a hora entrar na busca — ver .asa-timeselect,
+   sempre ao lado, nunca sozinho.
+   -------------------------------------------------------------------------- */
+.asa-datepicker__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--asa-space-3);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-datepicker__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.asa-datepicker__weekday {
+  padding: 4px 0;
+  text-align: center;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+}
+
+.asa-datepicker__day {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: var(--asa-radius);
+  background: none;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+  cursor: pointer;
+}
+
+.asa-datepicker__day:hover:not(:disabled) { background: var(--asa-surface-hover); }
+
+/* Intervalo selecionado: o miolo usa a mesma opacidade baixíssima de
+   --asa-surface-selected (Lacuna 3) que o menu usa para item marcado —
+   consistência de linguagem entre as duas superfícies flutuantes. */
+.asa-datepicker__day[data-state="in-range"] { background: var(--asa-surface-selected); }
+
+.asa-datepicker__day[data-state="start"],
+.asa-datepicker__day[data-state="end"] {
+  background: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+}
+
+.asa-datepicker__day:disabled {
+  color: var(--asa-disabled-text);
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   TIMESELECT — select nativo, sem popover próprio: a lista de horários é
+   curta e estática, e o nativo já resolve teclado e leitor de tela sem
+   reimplementar nada.
+   -------------------------------------------------------------------------- */
+.asa-timeselect {
+  width: 100%;
+  min-height: var(--asa-control-h);
+  padding: 0 var(--asa-space-3);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+}
+
+/* --------------------------------------------------------------------------
+   CHIP — quatro usos do estudo: secundário do motor (idade, país da CNH,
+   cupom), de intenção, de sazonalidade e de filtro rápido da vitrine.
+   Radius 8px, nunca pill — a regra de forma da marca não abre exceção
+   para chip (ver FORMA em asa-tokens.css: "nada mais é arredondado").
+   -------------------------------------------------------------------------- */
+.asa-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--asa-touch-min);
+  padding: 0 14px;
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+  cursor: pointer;
+  transition: background-color var(--asa-dur-fast) var(--asa-ease),
+              border-color var(--asa-dur-fast) var(--asa-ease),
+              color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-chip:hover:not(:disabled) { border-color: var(--asa-ink); }
+
+.asa-chip[aria-pressed="true"] {
+  background: var(--asa-ink);
+  border-color: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+}
+
+.asa-chip:disabled {
+  color: var(--asa-disabled-text);
+  border-color: var(--asa-disabled-bg);
+  cursor: not-allowed;
+}
+
+.asa-chip__icon { width: 14px; height: 14px; }
+
+/* --------------------------------------------------------------------------
+   BOOKING LOOKUP — MUST #2: o mesmo bloco em três lugares — dentro de um
+   popover no header, no widget da home e em /minha-reserva. --plain tira
+   a moldura própria para os contextos que já têm uma (o popover, o cartão
+   da tela) por baixo.
+   -------------------------------------------------------------------------- */
+.asa-booking-lookup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-3);
+  padding: var(--asa-space-4);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+}
+
+.asa-booking-lookup--plain {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.asa-booking-lookup__title {
+  margin: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-booking-lookup__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-3);
+}
+
+@media (min-width: 560px) {
+  .asa-booking-lookup__row {
+    flex-direction: row;
+    align-items: end;
+  }
+  .asa-booking-lookup__row .asa-field { flex: 1; }
+}
 
 /* ==========================================================================
    ALERTA
@@ -1112,3 +1397,193 @@
 .asa-skiplink:focus {
   top: var(--asa-space-3);
 }
+
+/* ==========================================================================
+   NAVEGAÇÃO DE PRODUTO
+   asa-doc-nav (em asa-docs.css) é chrome desta documentação — o README já
+   diz que não vai para produção. Estes três são o menu real do portal:
+   pré-requisito de MUST #6, "a Budget mostra a melhor solução: duas
+   camadas" (§5.8).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   UTILITY BAR — a camada de cima. Não é sticky de propósito: rola para
+   fora, e é assim que o navbar abaixo assume sozinho o offset de
+   --asa-header-h quando gruda no topo — sem precisar somar duas alturas.
+   -------------------------------------------------------------------------- */
+/* Some abaixo de 768px: telefone, cidade e idioma cabem no navdrawer, que
+   já leva "Minha reserva" — não vale disputar 36px de altura com texto que
+   quebra em duas linhas e estoura a barra. */
+.asa-utilitybar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-4);
+  height: 36px;
+  padding: 0 var(--asa-space-6);
+  background: var(--asa-bg-dense);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-inverse-2);
+}
+
+@media (min-width: 768px) {
+  .asa-utilitybar { display: flex; }
+}
+
+.asa-utilitybar__group {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-4);
+  height: 100%;
+}
+
+.asa-utilitybar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.asa-utilitybar__link:hover { color: var(--asa-ink-inverse); }
+
+.asa-utilitybar__link .asa-icon { width: 14px; height: 14px; }
+
+/* --------------------------------------------------------------------------
+   NAVBAR — a camada de baixo, sticky. É esta altura que --asa-header-h
+   mede (Lacuna 9): o link ocupa 100% da altura do header, não só a do seu
+   próprio texto, para que o alvo de toque seja o header inteiro, não uma
+   faixa de 20px dentro dele — o mesmo princípio já aplicado em asa-doc-nav.
+   -------------------------------------------------------------------------- */
+.asa-navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--asa-z-sticky);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--asa-space-4);
+  height: var(--asa-header-h);
+  padding: 0 var(--asa-space-6);
+  background: var(--asa-bg-elevated);
+  border-bottom: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-navbar__brand {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.asa-navbar__brand img { height: 26px; width: auto; }
+
+.asa-navbar__nav {
+  display: none;
+  align-items: stretch;
+  gap: var(--asa-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .asa-navbar__nav { display: flex; }
+}
+
+.asa-navbar__link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-2);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.asa-navbar__link:hover { color: var(--asa-ink); }
+
+.asa-navbar__link[aria-current="page"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-bold);
+  border-bottom-color: var(--asa-action);
+}
+
+.asa-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-3);
+  flex: none;
+}
+
+.asa-navbar__toggle { display: inline-flex; }
+
+@media (min-width: 1024px) {
+  .asa-navbar__toggle { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   NAVDRAWER — substituto mobile do menu horizontal. Mesmo par overlay +
+   painel do modal e do sheet; muda só a direção de entrada (lateral).
+   -------------------------------------------------------------------------- */
+.asa-navdrawer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--asa-z-modal);
+  display: flex;
+  pointer-events: none;
+}
+
+.asa-navdrawer[data-state="open"] { pointer-events: auto; }
+
+.asa-navdrawer__surface {
+  width: min(320px, 86vw);
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+  background: var(--asa-surface-float);
+  border-right: var(--asa-border-width) solid var(--asa-line-strong);
+  padding: var(--asa-space-4);
+  transform: translateX(-100%);
+  transition: transform var(--asa-dur-scene) var(--asa-ease);
+}
+
+.asa-navdrawer[data-state="open"] .asa-navdrawer__surface { transform: none; }
+
+.asa-navdrawer[data-state="closing"] .asa-navdrawer__surface {
+  transition-duration: var(--asa-dur-fast);
+  transition-timing-function: var(--asa-ease-in);
+}
+
+.asa-navdrawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asa-navdrawer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.asa-navdrawer__link {
+  display: flex;
+  align-items: center;
+  min-height: var(--asa-touch-min);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  text-decoration: none;
+  border-bottom: var(--asa-border-width) solid var(--asa-line-soft);
+}
+
+.asa-navdrawer__link[aria-current="page"] { color: var(--asa-action); }

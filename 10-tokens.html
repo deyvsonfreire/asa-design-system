@@ -164,6 +164,16 @@
       </div>
 
       <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Escala de UI <span style="font-weight:400;color:var(--asa-ink-3)">· T9, 10/09/2026</span></span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-subtitle</code></span><span class="asa-doc-spec__value">17px · título de card</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body-dense</code></span><span class="asa-doc-spec__value">14px · botão, choice, chip</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-price-card</code></span><span class="asa-doc-spec__value">24px · registro de numeral</span></div>
+        </div>
+        <p class="asa-doc-gloss">Degrau paralelo à escala de conteúdo acima, com o mesmo piso de 12px. Nasceu porque os componentes já rodavam uma escala não nomeada (10/11/13/14/17/24px) — os usos em 11px (<code class="asa-doc-code">asa-tag</code>, categoria do card) subiram para <code class="asa-doc-code">--asa-fs-label</code> em vez de virar exceção. Ver <a href="13-roadmap.html#tensoes">13 · Roadmap</a>.</p>
+      </div>
+
+      <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Espaço e grade</span>
         <div class="asa-doc-specs">
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-1…11</code></span><span class="asa-doc-spec__value">4 a 90px</span></div>
@@ -178,15 +188,16 @@
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Forma e tamanho</span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-radius</code></span><span class="asa-doc-spec__value">4px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-radius</code></span><span class="asa-doc-spec__value">8px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-radius-full</code></span><span class="asa-doc-spec__value">50% · só avatar</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-border-width</code></span><span class="asa-doc-spec__value">1.5px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-control-h</code></span><span class="asa-doc-spec__value">48px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-touch-min</code></span><span class="asa-doc-spec__value">44px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-icon-inline</code></span><span class="asa-doc-spec__value">24px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-icon-dense</code></span><span class="asa-doc-spec__value">16px · card e chip</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-icon-stroke</code></span><span class="asa-doc-spec__value">1.5</span></div>
         </div>
-        <p class="asa-doc-gloss">Só dois valores de raio, e é de propósito: uma escala sm/md/lg convidaria alguém a escolher entre eles. O sistema não oferece essa escolha.</p>
+        <p class="asa-doc-gloss">Só dois valores de raio, e é de propósito: uma escala sm/md/lg convidaria alguém a escolher entre eles. O sistema não oferece essa escolha. 8px é o valor ajustado do handoff (4px original) por feedback de revisão — ver divergência #4 no README.</p>
       </div>
 
       <div class="asa-doc-card asa-doc-card--dense">
@@ -205,8 +216,61 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-default</code></span><span class="asa-doc-spec__value">240ms</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-scene</code></span><span class="asa-doc-spec__value">320ms</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-dur-max</code></span><span class="asa-doc-spec__value">400ms</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-ease-in</code></span><span class="asa-doc-spec__value">saída · Lacuna 12</span></div>
         </div>
-        <p class="asa-doc-gloss">Sob <code class="asa-doc-code">prefers-reduced-motion</code>, as quatro durações caem para 1ms na própria camada de tokens — nenhum componente precisa lembrar disso.</p>
+        <p class="asa-doc-gloss">Sob <code class="asa-doc-code">prefers-reduced-motion</code>, as quatro durações caem para 1ms na própria camada de tokens — nenhum componente precisa lembrar disso. <code class="asa-doc-code">--asa-ease-in</code> é só para saída de overlay, modal, sheet e popover — a entrada continua em <code class="asa-doc-code">--asa-ease</code>; sair mais rápido do que se entra é o que faz o overlay parecer deliberado, não travado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="fundacao-f1">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Fundação de F1 · 10/09/2026</span>
+    <h2>Camada, atenção e superfície de interação. Nada disso existia.</h2>
+    <p class="asa-doc-section__lead">Tokens que fecham as Lacunas 1–3, 9 e 12 do mapa de componentes — pré-requisito da camada flutuante e da navegação de produto documentadas em <a href="06-componentes.html#flutuante">06 · Componentes</a>.</p>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Canal de atenção <span style="font-weight:400;color:var(--asa-ink-3)">· Lacuna 2</span></span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-warn</code></span><span class="asa-doc-spec__value">#B65C00 · 4.52:1 sobre branco</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-warn-bg</code></span><span class="asa-doc-spec__value">#FDF1E4</span></div>
+        </div>
+        <p class="asa-doc-gloss">Antes disto, "esgotado", "restam 2", "documento recusado" e "campo inválido" competiam todos pelo mesmo vermelho que é o orçamento do CTA. <code class="asa-doc-code">--asa-warn</code> nunca é ação — não leva <code class="asa-doc-code">onClick</code>.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Camada e sobreposição <span style="font-weight:400;color:var(--asa-ink-3)">· Lacuna 1</span></span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-sticky</code></span><span class="asa-doc-spec__value">1000</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-dropdown</code></span><span class="asa-doc-spec__value">1010</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-overlay</code></span><span class="asa-doc-spec__value">1200</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-modal</code></span><span class="asa-doc-spec__value">1210</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-popover</code></span><span class="asa-doc-spec__value">1220</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-toast</code></span><span class="asa-doc-spec__value">1300</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-scrim</code></span><span class="asa-doc-spec__value">rgba(13,13,14,.56)</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-surface-float</code></span><span class="asa-doc-spec__value">= creme · T3</span></div>
+        </div>
+        <p class="asa-doc-gloss">Escala de 10 em 10, com vão para inserção sem renumerar tudo. <code class="asa-doc-code">--asa-z-dropdown</code> vence <code class="asa-doc-code">--asa-z-sticky</code> de propósito: um combobox aberto sob um header fixo precisa aparecer por cima dele.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Superfícies de interação <span style="font-weight:400;color:var(--asa-ink-3)">· Lacuna 3</span></span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-surface-hover</code></span><span class="asa-doc-spec__value">rgba(20,21,23,.04)</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-surface-selected</code></span><span class="asa-doc-spec__value">amarelo a 12%</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-line-strong</code></span><span class="asa-doc-spec__value">rgba(20,21,23,.30)</span></div>
+        </div>
+        <p class="asa-doc-gloss">Os dois primeiros eram hardcoded dentro de <code class="asa-doc-code">.asa-input</code>. Agora servem também o <code class="asa-doc-code">asa-menu</code>, o <code class="asa-doc-code">asa-datepicker</code> e a aresta de contato de qualquer superfície sticky (T13).</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Offset de header <span style="font-weight:400;color:var(--asa-ink-3)">· Lacuna 9</span></span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-header-h</code></span><span class="asa-doc-spec__value">70px</span></div>
+        </div>
+        <p class="asa-doc-gloss">Um único token faz dois trabalhos: é a altura real de <code class="asa-doc-code">asa-navbar</code> (ver <a href="06-componentes.html#navegacao">Navegação</a>) <i>e</i> o <code class="asa-doc-code">scroll-margin-top</code> de toda âncora do site. A utility bar não entra na conta — ela não é sticky, rola para fora antes do navbar grudar no topo.</p>
       </div>
     </div>
   </div>

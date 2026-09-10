@@ -11,10 +11,11 @@
 <link rel="stylesheet" href="css/asa-docs.css">
 <style>
   .comp { font-family:var(--asa-font-mono); font-size:12px; color:var(--asa-action-hover); white-space:nowrap; }
-  .fase { font-family:var(--asa-font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+  .fase { font-family:var(--asa-font-mono); font-size:var(--asa-fs-label); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
   .fase--1 { color:var(--asa-action-hover); font-weight:700; }
   .fase--2 { color:var(--asa-ink-3); }
   .fase--3 { color:var(--asa-gray-dark-1); }
+  .fase--done { color:var(--asa-ok); font-weight:700; }
   .placar { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr)); gap:var(--asa-space-4); }
   .placar div { background:var(--asa-bg-elevated); border:var(--asa-border-width) solid var(--asa-line); border-radius:var(--asa-radius); padding:var(--asa-space-5); }
   .placar b { display:block; font:italic 900 clamp(30px,4cqi,44px)/0.9 var(--asa-font); letter-spacing:var(--asa-tracking-price); color:var(--asa-ink); }
@@ -57,20 +58,22 @@
     </div>
 
     <div class="asa-doc-cards">
-      <div class="asa-doc-card asa-doc-card--dense">
-        <span class="asa-doc-block__title" style="margin:0">Não existe camada flutuante</span>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Construído em 10/09/2026</span>
+        <span class="asa-doc-block__title" style="margin:0">Não existia camada flutuante</span>
         <p style="color:var(--asa-ink-inverse);max-width:none">Sem modal, popover, dropdown, sheet, scrim ou z-index. Nenhum.</p>
-        <p class="asa-doc-gloss">Não é "um componente faltando" — é uma camada inteira da arquitetura ausente, e ela é pré-requisito de seis itens MUST do estudo: autocomplete, calendário, menu, minha reserva, filtros no mobile e consentimento.</p>
+        <p class="asa-doc-gloss">Não era "um componente faltando" — era uma camada inteira da arquitetura ausente, pré-requisito de seis itens MUST: autocomplete, calendário, menu, minha reserva, filtros no mobile e consentimento. Os 7 primitivos estão documentados em <a href="06-componentes.html#flutuante" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--dense">
-        <span class="asa-doc-block__title" style="margin:0">Não existe navegação de produto</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">O que existe é <code class="asa-doc-code" style="color:var(--asa-surface)">asa-doc-nav</code> — chrome desta documentação.</p>
-        <p class="asa-doc-gloss">O próprio README diz que <code class="asa-doc-code" style="color:var(--asa-surface)">asa-docs.css</code> não vai para produção. O menu horizontal de duas camadas que o estudo pede parte do zero absoluto.</p>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Construído em 10/09/2026</span>
+        <span class="asa-doc-block__title" style="margin:0">Não existia navegação de produto</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">O que existia era <code class="asa-doc-code" style="color:var(--asa-surface)">asa-doc-nav</code> — chrome desta documentação.</p>
+        <p class="asa-doc-gloss">O próprio README diz que <code class="asa-doc-code" style="color:var(--asa-surface)">asa-docs.css</code> não vai para produção. <code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilitybar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navbar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navdrawer</code> são o menu real, em <a href="06-componentes.html#navegacao" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--dense">
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-block__title" style="margin:0">Existe uma densidade só</span>
         <p style="color:var(--asa-ink-inverse);max-width:none">E ela é generosa: padding de seção até 120px, alvo de 44px, respiro largo.</p>
-        <p class="asa-doc-gloss">Uma sidebar de filtros com 30 linhas e um card com nove informações não cabem nessa régua. Falta um escopo de densidade para vitrine e funil.</p>
+        <p class="asa-doc-gloss">Uma sidebar de filtros com 30 linhas e um card com nove informações não cabem nessa régua. <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-dense</code> já existe em <code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilities.css</code> — falta só a vitrine para exercitá-lo.</p>
       </div>
     </div>
   </div>
@@ -88,13 +91,13 @@
         <table class="asa-doc-table">
           <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
-            <tr><td><span class="comp">asa-overlay</span></td><td>Primitivo de modal, sheet e consentimento</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-modal</span></td><td>§6.1 <code>/minha-reserva</code>; ver, alterar e cancelar sem sair da página</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-sheet</span></td><td>§6.3 filtros no mobile — a tela 3 do app já mostra o botão "Filtrar" sem destino</td><td>Mobile</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-popover</span></td><td>Superfície do autocomplete, do menu e do calendário</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-menu</span></td><td>§5.8 menu de 2 camadas; "Minha reserva ▸" com submenu</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-disclosure</span></td><td>Cupom colapsado — 7 referências, MUST #9; "⊕ Devolver em outro local"</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-skiplink</span></td><td>MUST #10 — acessibilidade</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
+            <tr><td><span class="comp">asa-overlay</span></td><td>Primitivo de modal, sheet e consentimento</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-modal</span></td><td>§6.1 <code>/minha-reserva</code>; ver, alterar e cancelar sem sair da página</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-sheet</span></td><td>§6.3 filtros no mobile — a tela 3 do app já mostra o botão "Filtrar" sem destino</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-popover</span></td><td>Superfície do autocomplete, do menu e do calendário</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-menu</span></td><td>§5.8 menu de 2 camadas; "Minha reserva ▸" com submenu</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-disclosure</span></td><td>Cupom colapsado — 7 referências, MUST #9; "⊕ Devolver em outro local"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-skiplink</span></td><td>MUST #10 — acessibilidade</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -106,13 +109,13 @@
         <table class="asa-doc-table">
           <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
-            <tr><td><span class="comp">asa-utilitybar</span></td><td>§5.8 a barra utilitária do Budget; MUST #6</td><td>Web</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-navbar</span></td><td>MUST #6 menu visível; §3 #1 Minha reserva no header</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-navdrawer</span></td><td>Substituto mobile do menu horizontal</td><td>Mobile</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-combobox</span></td><td>§5.1 os quatro tipos de lugar da Booking: aeroporto+IATA, cidade, bairro, destino. MUST #4</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>§6.2 — a diária de 27h só é vendável se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-chip</span></td><td>Quatro usos: chips do motor, de intenção, de sazonalidade, de filtro rápido</td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
-            <tr><td><span class="comp">asa-booking-lookup</span></td><td>MUST #2 — aparece no header, no widget e em <code>/minha-reserva</code></td><td>Ambos</td><td><span class="fase fase--1">F1</span></td></tr>
+            <tr><td><span class="comp">asa-utilitybar</span></td><td>§5.8 a barra utilitária do Budget; MUST #6</td><td>Web</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-navbar</span></td><td>MUST #6 menu visível; §3 #1 Minha reserva no header</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-navdrawer</span></td><td>Substituto mobile do menu horizontal</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-combobox</span></td><td>§5.1 os quatro tipos de lugar da Booking: aeroporto+IATA, cidade, bairro, destino. MUST #4</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>§6.2 — a diária de 27h só é vendável se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-chip</span></td><td>Quatro usos: chips do motor, de intenção, de sazonalidade, de filtro rápido</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-booking-lookup</span></td><td>MUST #2 — aparece no header, no widget e em <code>/minha-reserva</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-tabs</span></td><td>§5.6 abas de linha de negócio — 8 referências, cada aba troca o formulário</td><td>Ambos</td><td><span class="fase fase--2">F2</span></td></tr>
             <tr><td><span class="comp">asa-footer</span></td><td>§5.7 hub de links; rodapé com abas Aeroportos/Cidades/Destinos</td><td>Ambos</td><td><span class="fase fase--2">F2</span></td></tr>
             <tr><td><span class="comp">asa-breadcrumb</span></td><td>Inferido — IA de ~70 páginas em 4 níveis + <code>BreadcrumbList</code></td><td>Ambos</td><td><span class="fase fase--2">F2</span></td></tr>
@@ -334,9 +337,10 @@
         <span class="asa-doc-block__title" style="margin:0">2 · Corrigir a tabela de preços</span>
         <p class="asa-doc-gloss">Antes de entregar ordenação por preço. É dependência de negócio bloqueando entrega de design.</p>
       </div>
-      <div class="asa-doc-card">
-        <span class="asa-doc-block__title" style="margin:0">3 · Construir a fundação de F1</span>
-        <p class="asa-doc-gloss">Nesta ordem: tokens de sobreposição, atenção e densidade → primitivos flutuantes → navegação → motor de busca → vitrine → funil → pós-venda → confiança. <b>Os dois primeiros elos já existem</b> em <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tokens.css</code> e <code class="asa-doc-code" style="color:var(--asa-surface)">asa-components.css</code> (overlay, modal, sheet, popover, menu, disclosure, skiplink) — navegação e motor de busca seguem pendentes.</p>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">4 de 7 elos concluídos · 10/09/2026</span>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink-inverse)">3 · Construir a fundação de F1</span>
+        <p class="asa-doc-gloss">Nesta ordem: tokens → primitivos flutuantes → navegação → motor de busca → vitrine → funil → pós-venda → confiança. Os quatro primeiros elos existem: tokens, camada flutuante, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navbar</code>/<code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilitybar</code>/<code class="asa-doc-code" style="color:var(--asa-surface)">asa-navdrawer</code> e <code class="asa-doc-code" style="color:var(--asa-surface)">asa-combobox</code>/<code class="asa-doc-code" style="color:var(--asa-surface)">asa-datepicker</code>/<code class="asa-doc-code" style="color:var(--asa-surface)">asa-chip</code>/<code class="asa-doc-code" style="color:var(--asa-surface)">asa-booking-lookup</code> — todos em <a href="06-componentes.html" style="color:var(--asa-surface)">06 · Componentes</a>. Vitrine, funil, pós-venda e confiança seguem pendentes.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">4 · Definir os hooks de medição</span>

@@ -97,7 +97,17 @@ Sete componentes novos em `asa-components.css` — a camada flutuante que não e
 
 Extensões: `asa-tag` ganhou `--outline`/`--neutral`/`--warn`; `asa-btn` ganhou `--icon`/`--link`; `asa-alert` ganhou `--warn`/`--compact`.
 
-**Ainda não feito:** `06-componentes.html` e `10-tokens.html` não catalogam visualmente os 7 componentes novos nem os tokens de fundação — só `asa-tag` e o card de veículo foram atualizados como exemplo do T1. Falta também a tabela de preços (RMS, dependência de negócio) e a convenção de hooks de medição do GA4 (Lacuna 15).
+### Navegação e motor de busca construídos (10/09/2026, mesmo dia)
+
+Fechando a fundação de F1: a navegação de produto que não existia (`asa-doc-nav` é chrome desta documentação, não vai para produção) e o motor de busca completo.
+
+**Navegação** — `asa-utilitybar` (camada superior, não sticky, escondida abaixo de 768px — telefone e idioma cabem no navdrawer), `asa-navbar` (sticky, é ela quem `--asa-header-h` mede) e `asa-navdrawer` (substituto mobile, mesmo par overlay+painel do modal).
+
+**Motor de busca** — `asa-combobox` (quatro tipos de lugar com ícone + código IATA, dentro de um `asa-popover`), `asa-datepicker` + `asa-timeselect` (calendário de intervalo; a diária de 27h só é vendável se a hora entrar na busca), `asa-chip` (`[aria-pressed]`, radius 8px — nunca pill, a regra de forma não abre exceção) e `asa-booking-lookup` (o mesmo bloco no header, no widget e em `/minha-reserva`, com variante `--plain` para quando já mora dentro de outra moldura). `asa-search` ganhou `__tabs`/`__row`/`__chips`/`__aside` — o grid de 4 colunas virou `__row`, e as 3 instâncias existentes (`06-componentes.html`, `08-fluxo-reserva.html` ×2) foram migradas sem mudança visual.
+
+Os 7 primitivos flutuantes da rodada anterior, a navegação e o motor de busca agora estão catalogados visualmente em `06-componentes.html` (seções **Camada flutuante**, **Navegação**, **Motor de busca**); os tokens de fundação, em `10-tokens.html` (seção **Fundação de F1**). De brinde: corrigido um `font-size: 10px` (abaixo do piso de 12px) que a própria auditoria de T9 tinha introduzido em `13-roadmap.html`.
+
+**Ainda não feito:** vitrine (`asa-filters`, `asa-card-vehicle` completo, `asa-rating`), funil, pós-venda e confiança — os quatro elos restantes da fundação de F1. A tabela de preços (RMS, dependência de negócio) e a convenção de hooks de medição do GA4 (Lacuna 15) também seguem pendentes.
 
 ## Dívida técnica registrada
 
