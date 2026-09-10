@@ -17,6 +17,15 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+/* O bloco de reduced-motion em asa-tokens.css zera as quatro durações, mas
+   não alcança isto: scroll-behavior é propriedade de elemento, não custom
+   property, então precisa da própria regra. Sem ela, quem pediu menos
+   movimento continuava levando scroll animado em toda âncora — e o sistema
+   passa a ter muitas (FAQ, landing de destino, hub de links do rodapé). */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 /* Fundo padrão da página: branco, não creme. A implementação original usava
    --asa-bg (creme) como o canvas de toda tela — mas o token de cor já
    documenta o creme como uma fatia de 15% da composição, não a base inteira.

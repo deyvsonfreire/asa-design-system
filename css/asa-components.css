@@ -405,10 +405,19 @@
   border-color: rgba(20, 21, 23, .28);
 }
 
+/* Erro NÃO pode depender só da cor da borda: o foco usa exatamente a mesma
+   cor (--asa-action-hover, logo acima), então num campo focado E inválido —
+   que é o estado normal de quem acabou de errar e voltou para corrigir — o
+   sinal de erro sumiria. A paleta é fechada e não tem canal de atenção, então
+   o segundo canal é a ESPESSURA: 2px contra os 1.5px de todos os outros
+   estados. O sinal primário continua sendo a mensagem .asa-field__error, com
+   ícone, ligada por aria-describedby.
+   É o mesmo princípio de redundância de sinais que o botão primário já usa
+   (cor + isolamento + posição) — ver 07-hierarquia.html. */
 .asa-input[aria-invalid="true"],
 .asa-select[aria-invalid="true"] {
   border-color: var(--asa-action-hover);
-  border-width: var(--asa-border-width);
+  border-width: 2px;
 }
 
 .asa-input:disabled,

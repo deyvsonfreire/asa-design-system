@@ -93,13 +93,16 @@
   }
 }
 
-/* Legenda do placeholder. Fica acima do corte da base para não ser fatiada. */
+/* Legenda do placeholder. Fica acima do corte da base para não ser fatiada.
+   12px, não 10px: o piso de "nenhum texto abaixo de 12px em tela" é regra
+   dura da marca e vence a conveniência de caber mais texto — a mesma decisão
+   que subiu o label de campo de 9px para 12px (ver divergência #2 no README). */
 .asa-photo__caption {
   position: absolute;
   left: var(--asa-space-3);
   bottom: 22px;
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label);
   line-height: 1.35;
   font-weight: var(--asa-weight-medium);
   letter-spacing: .1em;

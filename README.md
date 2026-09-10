@@ -32,6 +32,7 @@ asa-design-system/
 ├── 10-tokens.html          mapa de variáveis e como consumir
 ├── 11-movimento.html       durações e o que nunca anima
 ├── 12-app-nativo.html      o que muda fora do navegador
+├── 13-roadmap.html         o que falta para o portal (derivado do benchmark)
 ├── css/
 │   ├── asa-tokens.css      @font-face + primitivos + semânticos
 │   ├── asa-base.css        reset, defaults de elemento, layout, foco
@@ -67,6 +68,18 @@ Estão documentadas em detalhe nas páginas correspondentes, mas resumidas aqui 
 | 3 | Vermelho sobre amarelo a partir do corpo de destaque | Nunca vermelho como texto sobre amarelo | Medido, o par dá 2,94:1 — reprova até no mínimo de 3:1 para texto grande. O preço já vivia no campo claro do vão; agora isso é regra, não coincidência. |
 | 4 | `--asa-radius: 4px` em botão, card e campo | `--asa-radius: 8px` | Feedback de revisão do usuário, depois de ver o sistema implementado nas 13 páginas: pediu um arredondamento levemente mais suave. Token único — cascata automática para todos os componentes que o consomem. Etiqueta de benefício continua com radius zero, e avatar com 50%; nenhum dos dois usa esse token. |
 | 5 | `--asa-cream: #FFF7E3` como tom, e como fundo padrão de toda tela (`body`) | `--asa-cream: #FFFBF0`, e deixa de ser o fundo padrão de `body` | Dois ajustes do mesmo feedback. **Tom:** mais claro, não mais escuro — luminância relativa sobe de 0,933 para 0,965 (correção de uma tentativa anterior que tinha ido na direção errada). **Frequência:** o creme era literalmente o canvas de toda página (`body` + a maioria dos mockups de tela), bem além dos 15% que o próprio token documenta como proporção-alvo. Branco (`--asa-bg-elevated`) virou o fundo padrão; creme passou a aparecer só em composição deliberada (uma seção por página na documentação, campo de busca e placa de número nas telas de produto). Todos os pares de contraste contra ele foram recalculados em `03-cor.html` — nenhum veredito WCAG mudou, e a maioria melhorou por estar mais afastada dos tons escuros de texto. |
+
+## Defeitos corrigidos após auditoria (10/09/2026)
+
+Uma derivação independente do CSS, feita ao cruzar o sistema com o estudo de benchmark de 24 sites, encontrou três violações de regras que o próprio sistema declara. Todas verificadas linha a linha antes de corrigir:
+
+1. **Foco e erro de campo usavam a mesma cor.** `.asa-input:focus` e `.asa-input[aria-invalid="true"]` pintavam a borda com `--asa-action-hover`. Num campo focado *e* inválido — o estado normal de quem errou e voltou para corrigir — o sinal de erro sumia. Como a paleta é fechada e não tem canal de atenção, o erro ganhou um segundo canal não-cromático: `border-width: 2px` contra os 1.5px dos demais estados.
+2. **Legenda de foto em 10px**, abaixo do piso de 12px que a marca declara como regra dura — a mesma regra que já tinha subido o label de campo de 9px para 12px. Agora usa `--asa-fs-label`.
+3. **`scroll-behavior: smooth` ignorava `prefers-reduced-motion`.** O bloco de reduced-motion em `asa-tokens.css` zera as quatro durações, mas não alcança propriedade de elemento. Ganhou regra própria em `asa-base.css`.
+
+**Dois riscos registrados, ainda não corrigidos** (a correção depende do header de produto existir):
+- `body { overflow-x: hidden }` é causa conhecida de quebra em `position: sticky`, e o portal novo depende de sticky em cinco lugares. Correção de uma linha: `overflow-x: clip`.
+- `scroll-margin-top: 70px` está calibrado para a navbar desta documentação (54px). O header de produto terá ~110px e precisa virar `--asa-header-h`.
 
 ## Dívida técnica registrada
 
