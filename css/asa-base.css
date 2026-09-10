@@ -44,7 +44,13 @@ body {
   font-weight: var(--asa-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* clip, não hidden (Lacuna 10, corrigida nesta rodada): overflow-x: hidden
+     no body cria um novo contexto de rolagem, e isso é causa documentada de
+     quebra em position: sticky em qualquer descendente — o portal passa a
+     depender de sticky em cinco lugares (resumo, cupom, header, CTA mobile,
+     filtros). clip contém o mesmo estouro horizontal sem criar esse
+     contexto. */
+  overflow-x: clip;
 }
 
 /* --------------------------------------------------------------------------
@@ -204,9 +210,12 @@ img {
   .asa-grid { --asa-columns: 8; }
 }
 
-/* Âncoras não podem parar embaixo da navbar sticky de 54px. */
+/* Âncoras não podem parar embaixo do header fixo. --asa-header-h (Lacuna 9)
+   está calibrado para a navbar de 54px desta documentação; o header de
+   produto (duas camadas, ~100–110px) só precisa mudar o token — nenhuma
+   âncora do site precisa ser tocada de novo. */
 [id] {
-  scroll-margin-top: 70px;
+  scroll-margin-top: var(--asa-header-h);
 }
 
 .asa-stack {

@@ -161,3 +161,53 @@
 .asa-bg-white     { background: var(--asa-bg-elevated); }
 .asa-bg-dense     { background: var(--asa-bg-dense); color: var(--asa-ink-inverse); }
 .asa-bg-deep      { background: var(--asa-bg-deep); color: var(--asa-ink-inverse); }
+
+/* REGRA DURA (T5): preço nunca sobre amarelo — 2.94:1, reprova até o mínimo
+   de texto grande (ver 03-cor.html). Não é mais só orientação de composição:
+   nenhum componente que exiba preço pode ser instanciado dentro de
+   .asa-bg-surface. Verificável — candidato a regra de lint. */
+
+/* --------------------------------------------------------------------------
+   DENSIDADE — Lacuna 6 (T4)
+   Filtro e vitrine têm listas mais longas do que a peça publicitária previu
+   (30 linhas de filtro × 44px de alvo de toque = 1.320px só de sidebar).
+   .asa-dense desloca o espaçamento vertical um degrau para dentro do escopo,
+   sem duplicar componente — quem está dentro lê --asa-space-* normalmente.
+   Os 44px continuam sendo ÁREA DE TOQUE, nunca altura visual: a linha pode
+   ser mais baixa por dentro, com padding que devolve os 44px ao alvo.
+   -------------------------------------------------------------------------- */
+.asa-dense {
+  --asa-space-3: var(--asa-space-2);   /* 12px → 8px  */
+  --asa-space-4: var(--asa-space-3);   /* 16px → 12px */
+  --asa-space-6: var(--asa-space-4);   /* 24px → 16px */
+  --asa-space-7: var(--asa-space-6);   /* 32px → 24px */
+}
+
+/* --------------------------------------------------------------------------
+   ORÇAMENTO DE COR POR ARQUÉTIPO DE PÁGINA — T2 (decidida 10/09/2026)
+   A proporção 40/25/20/15 foi calibrada para peça publicitária e para um
+   funil de 8 telas; aplicada às 70 páginas do portal sem distinção, o
+   amarelo perde função em página institucional/jurídica e polui página
+   transacional (mais cor decorativa = mais ruído contra a tarefa — o oposto
+   do que checkout precisa). Passa a variar por arquétipo, declarado no
+   <body>. Cada modo aqui é o TETO de uso do amarelo como composição — não
+   afeta o header, que é chrome fixo de marca em qualquer página.
+   -------------------------------------------------------------------------- */
+[data-page-mode="marketing"] {
+  /* ~40/25/20/15 — o padrão já documentado em 03-cor.html. Nenhuma mudança. */
+}
+
+[data-page-mode="transactional"] {
+  /* Modo foco: motor de busca, vitrine, funil, checkout. O amarelo cai para
+     uso estritamente funcional — estado ativo, um único destaque de CTA, a
+     marca no header. Composição em --asa-bg-surface fica reservada a, no
+     máximo, um bloco por tela (ex.: faixa do Clube Asa). */
+  --asa-yellow-budget: functional-only;
+}
+
+[data-page-mode="informational"] {
+  /* Quase neutro: regras de locação, proteções e taxas, prevenção a
+     fraudes, acessibilidade, blog. Amarelo só no header/logo e em link —
+     página jurídica que parece anúncio perde credibilidade, não ganha. */
+  --asa-yellow-budget: chrome-only;
+}

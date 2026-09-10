@@ -206,26 +206,26 @@
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Tensões</span>
     <h2>Onde o estudo colide com as regras duras da marca.</h2>
-    <p class="asa-doc-section__lead">Treze colisões reais. Nove se resolvem por critério de design. Três precisam de decisão de marca — e travam a construção, porque definem propriedades do componente mais repetido do site.</p>
+    <p class="asa-doc-section__lead">Treze colisões reais. Todas já resolvidas por critério — as três mais duras foram decididas em 10/09/2026, com um princípio único: melhor prática de UX/CRO acima de preservar o status quo, mesmo quando isso reescreve uma página já publicada do próprio sistema.</p>
 
     <div class="asa-doc-cards asa-doc-cards--wide">
-      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-action)">
-        <span class="asa-verdict asa-verdict--no">Bloqueia F1 · decisão de marca</span>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Decidido · preço continua vermelho</span>
         <span class="asa-doc-card__title">T1 · O preço vermelho numa vitrine de 32 cards</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">São quatro fontes de vermelho por card — preço, selo, CTA e rótulo de categoria — vezes 32, mais o CTA do header e a barra de cupom.</p>
-        <p class="asa-doc-gloss">Parte é resolvível por critério: definir que a "peça" é a composição visível e escrever a lei de precedência. Mas a cor do preço não é: <b>07 · Hierarquia</b> ensina hoje que "o preço é o maior elemento <i>e o único colorido</i>", usando exatamente o card de veículo como exemplo canônico. Não dá para rebaixar o preço sem reescrever aquela página.</p>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Eram quatro fontes de vermelho por card — preço, selo, CTA e rótulo de categoria — vezes 32.</p>
+        <p class="asa-doc-gloss">O efeito von Restorff (um sinal só funciona enquanto for raro) confirma o que <b>07 · Hierarquia</b> já ensinava: "o preço é o maior elemento <i>e o único colorido</i>". Lei de precedência: preço mantém <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-action</code>; selo vira <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag--outline</code>; CTA de listagem vira <code class="asa-doc-code" style="color:var(--asa-surface)">asa-btn--outline</code> (vermelho cheio só na tela de instância única); rótulo de categoria vira <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-ink-3</code>.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-action)">
-        <span class="asa-verdict asa-verdict--no">Bloqueia F1 · decisão de marca</span>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Decidido · proporção por arquétipo</span>
         <span class="asa-doc-card__title">T2 · A proporção 40/25/20/15 num site de 70 páginas</span>
         <p style="color:var(--asa-ink-inverse);max-width:none">Foi calibrada para peça publicitária e um funil de 8 telas.</p>
-        <p class="asa-doc-gloss">Em <code class="asa-doc-code" style="color:var(--asa-surface)">/protecoes-e-taxas</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">/regras-de-locacao</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">/prevencao-a-fraudes</code> e no blog, o amarelo não tem função. Ou a unidade da proporção passa a ser o <b>módulo de composição</b> em vez da página, ou metade do site novo deixa de parecer Asa.</p>
+        <p class="asa-doc-gloss">Passa a variar por <code class="asa-doc-code" style="color:var(--asa-surface)">&lt;body data-page-mode&gt;</code>: <b>marketing</b> mantém ~40/25/20/15; <b>transactional</b> (motor, vitrine, funil, checkout) cai para modo foco — menos cor decorativa é o achado mais replicado de CRO em conversão; <b>informational</b> (regras, taxas, fraude, blog) fica quase neutro, porque página jurídica que parece anúncio perde credibilidade.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-action)">
-        <span class="asa-verdict asa-verdict--no">Bloqueia F1 · decisão de marca</span>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Decidido · escala de UI nomeada</span>
         <span class="asa-doc-card__title">T9 · Os cinco degraus já foram furados</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">O código roda uma escala paralela não nomeada: 11, 13, 14, 17 e 24px espalhados pelos componentes.</p>
-        <p class="asa-doc-gloss">A regra dos cinco degraus vale para conteúdo; os componentes sempre correram por fora. O estudo multiplica exatamente esse tipo de texto — contagem de filtro, atributos, rótulo de preço final repetido 32 vezes. Decisão binária: <b>nomear a escala de UI</b>, tornando-a legítima, ou <b>puxar tudo para 12/16</b> e aceitar perder densidade. Fingir que a regra está sendo cumprida não é opção.</p>
+        <p style="color:var(--asa-ink-inverse);max-width:none">O código rodava uma escala paralela não nomeada: 11, 13, 14, 17 e 24px espalhados pelos componentes.</p>
+        <p class="asa-doc-gloss">A escala de conteúdo fica intocada. Nasce ao lado uma escala de <b>UI</b> com piso de 12px inegociável: <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-subtitle</code> (17px) e <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-body-dense</code> (14px) viram degraus legítimos; os usos em 11px (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">__category</code>) <b>sobem</b> para 12px em vez de virar exceção.</p>
       </div>
     </div>
 
@@ -257,7 +257,7 @@
           <p class="asa-doc-gloss">32 retângulos cinzas parados por 1,5s parecem página quebrada. O sistema já resolveu isso uma vez, no botão: três pontos em fade a 400ms. Basta promover ao nível de lista. Zero regra quebrada.</p>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Faltam T4 (densidade contra alvo de 44px), T10 (microcópia em caixa alta fica 40% mais larga) e T13 (cinco superfícies sticky sem sombra) — todas resolvíveis por critério, detalhadas no Markdown. E T8, que era um defeito e já foi corrigido.</p>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Faltam T4 (densidade contra alvo de 44px), T10 (microcópia em caixa alta fica 40% mais larga) e T13 (cinco superfícies sticky sem sombra) — todas resolvíveis por critério, detalhadas no Markdown. T8 era um defeito e já foi corrigido; T1, T2 e T9 estão decididas acima.</p>
     </div>
   </div>
 </section>
@@ -325,9 +325,10 @@
     <h2>A ordem importa, e é dependência real.</h2>
 
     <div class="asa-doc-cards">
-      <div class="asa-doc-card asa-doc-card--yellow">
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">1 · Decidir T1, T2 e T9</span>
-        <p class="asa-doc-gloss">As três definem propriedades do componente mais repetido do site. Decidir depois de construir significa refazer.</p>
+      <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+        <span class="asa-verdict asa-verdict--yes">Concluído em 10/09/2026</span>
+        <span class="asa-doc-card__title">1 · Decidir T1, T2 e T9</span>
+        <p class="asa-doc-gloss">Preço continua vermelho e único no card; proporção de cor passa a variar por <code class="asa-doc-code" style="color:var(--asa-surface)">data-page-mode</code>; escala de UI ganha dois degraus nomeados com piso de 12px mantido. Detalhe em <a href="#tensoes" style="color:var(--asa-surface)">Tensões</a>.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">2 · Corrigir a tabela de preços</span>
@@ -335,7 +336,7 @@
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">3 · Construir a fundação de F1</span>
-        <p class="asa-doc-gloss">Nesta ordem: tokens de sobreposição, atenção e densidade → primitivos flutuantes → navegação → motor de busca → vitrine → funil → pós-venda → confiança.</p>
+        <p class="asa-doc-gloss">Nesta ordem: tokens de sobreposição, atenção e densidade → primitivos flutuantes → navegação → motor de busca → vitrine → funil → pós-venda → confiança. <b>Os dois primeiros elos já existem</b> em <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tokens.css</code> e <code class="asa-doc-code" style="color:var(--asa-surface)">asa-components.css</code> (overlay, modal, sheet, popover, menu, disclosure, skiplink) — navegação e motor de busca seguem pendentes.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">4 · Definir os hooks de medição</span>

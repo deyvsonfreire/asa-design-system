@@ -124,6 +124,35 @@
   --asa-line:           rgba(20, 21, 23, .14);   /* borda sobre claro            */
   --asa-line-soft:      rgba(20, 21, 23, .12);   /* divisor interno de card      */
   --asa-line-inverse:   rgba(255, 255, 255, .16);/* borda sobre escuro           */
+  --asa-line-strong:    rgba(20, 21, 23, .30);   /* aresta de contato de sticky — Lacuna 3, T13 */
+
+  /* Canal de atenção — Lacuna 2. Sem isto, "esgotado", "restam 2",
+     "documento recusado" e "campo inválido" competiam pelo mesmo vermelho
+     que é o orçamento do CTA. --asa-warn nunca é ação: não leva onClick. */
+  --asa-warn:           #B65C00;                /* laranja escuro — 4.52:1 sobre branco, AA para texto normal */
+  --asa-warn-bg:        #FDF1E4;                /* fundo do alerta de atenção    */
+
+  /* Superfícies de interação — Lacuna 3. Antes hardcoded dentro de .asa-input. */
+  --asa-surface-hover:    rgba(20, 21, 23, .04);
+  --asa-surface-selected: rgba(254, 196, 43, .12);  /* amarelo em baixíssima opacidade, nunca sólido em área grande */
+
+  /* Camada e sobreposição — Lacuna 1. Pré-requisito dos 7 componentes
+     flutuantes (asa-overlay, asa-modal, asa-sheet, asa-popover, asa-menu).
+     Escala de 10 em 10 para deixar vão de inserção sem renumerar tudo. */
+  --asa-z-sticky:    1000;
+  --asa-z-dropdown:  1010;   /* combobox, date picker — precisa vencer o header sticky embaixo dele */
+  --asa-z-overlay:   1200;
+  --asa-z-modal:     1210;
+  --asa-z-popover:   1220;   /* pode abrir por cima de um modal (ex.: tooltip dentro de um formulário) */
+  --asa-z-toast:     1300;
+  --asa-scrim:          rgba(13, 13, 14, .56);  /* --asa-black-deep em opacidade — nunca puro preto */
+  --asa-surface-float:  var(--asa-cream);       /* T3 — o creme vira a superfície flutuante do sistema */
+
+  /* Offset de header — Lacuna 9. 70px calibrado para a navbar de 54px desta
+     documentação; o header de produto (duas camadas) recalcula este valor. */
+  --asa-header-h:       70px;
+
+  --asa-icon-dense:     16px;   /* Lacuna 7 — ícone dentro de card e chip, abaixo do --asa-icon-inline de 24px */
 
   /* ========================================================================
      TIPOGRAFIA — 5 degraus, base 8. Nada entre eles.
@@ -135,6 +164,24 @@
   --asa-fs-body:        16px;   --asa-lh-body:      26px;
   --asa-fs-label:       12px;   --asa-lh-label:     16px;
   --asa-fs-mono:        11px;
+
+  /* Escala de UI — decisão T9 (10/09/2026). A escala acima é de CONTEÚDO,
+     "nada entre eles". Componente de produto tem densidade que o conteúdo
+     não tem (título de card, botão, contagem de filtro), e forçar os dois
+     na mesma régua foi o que produziu 10/11/13/14/17/24px soltos no código.
+     Nasce uma escala paralela, nomeada, com o MESMO piso de 12px: os usos em
+     11px que existiam (asa-tag, __category) SOBEM para --asa-fs-label —
+     o piso venceu, não virou exceção. --asa-fs-mono continua sendo o único
+     valor abaixo de 12px, e só para o rótulo mono decorativo de seção; texto
+     de produto (tag, contagem, atributo) nunca deve usar --asa-fs-mono. */
+  --asa-fs-subtitle:    17px;   --asa-lh-subtitle:    24px;  /* título de card       */
+  --asa-fs-body-dense:  14px;   --asa-lh-body-dense:  20px;  /* botão, choice, denso */
+
+  /* Registro de NUMERAL — preço e nota, não conteúdo nem UI de chrome. Já
+     existia como precedente não nomeado (.asa-price__value, .asa-numberplate
+     usam clamp() fluido próprio); este é o mesmo registro na densidade de
+     card, onde o valor precisa ser fixo, não fluido. */
+  --asa-fs-price-card:  24px;
 
   /* Versões fluidas de display e título. Ancoradas em cqi, não em vw: dentro
      de um container travado em 1200px, vw continua crescendo e o display
@@ -235,6 +282,7 @@
   --asa-dur-scene:   320ms;   /* wipe de transição de cena      */
   --asa-dur-max:     400ms;   /* limite geral                    */
   --asa-ease:        ease-out;
+  --asa-ease-in:     ease-in;  /* Lacuna 12 — saída de overlay, sheet e drawer; entrada continua --asa-ease */
 }
 
 /* Respeitar quem pediu menos movimento. Declarado junto dos tokens, não no

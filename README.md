@@ -77,9 +77,27 @@ Uma derivação independente do CSS, feita ao cruzar o sistema com o estudo de b
 2. **Legenda de foto em 10px**, abaixo do piso de 12px que a marca declara como regra dura — a mesma regra que já tinha subido o label de campo de 9px para 12px. Agora usa `--asa-fs-label`.
 3. **`scroll-behavior: smooth` ignorava `prefers-reduced-motion`.** O bloco de reduced-motion em `asa-tokens.css` zera as quatro durações, mas não alcança propriedade de elemento. Ganhou regra própria em `asa-base.css`.
 
-**Dois riscos registrados, ainda não corrigidos** (a correção depende do header de produto existir):
-- `body { overflow-x: hidden }` é causa conhecida de quebra em `position: sticky`, e o portal novo depende de sticky em cinco lugares. Correção de uma linha: `overflow-x: clip`.
-- `scroll-margin-top: 70px` está calibrado para a navbar desta documentação (54px). O header de produto terá ~110px e precisa virar `--asa-header-h`.
+Os dois riscos que ficaram registrados nessa mesma auditoria — `overflow-x: hidden` no body e `scroll-margin-top` fixo em pixel — foram corrigidos na rodada seguinte, abaixo.
+
+## Mapa de componentes para o portal (10/09/2026)
+
+Dois estudos de benchmark (24 sites concorrentes) foram cruzados com o CSS atual. O resultado — **17 → ~57 componentes**, 15 lacunas de token e 13 tensões entre o que o estudo pede e as regras duras da marca — está em [`13-roadmap.html`](13-roadmap.html) e, em mais detalhe, em `MAPA-COMPONENTES_DESIGN-SYSTEM.md` (pasta acima).
+
+Três das tensões travavam a construção porque definiam propriedades do componente mais repetido do site. Foram decididas com um critério único, fixado pelo usuário: **melhor prática de UX/CRO acima de preservar o status quo**, mesmo quando isso reescreve uma leitura anterior do próprio sistema.
+
+- **T1 — o preço vermelho numa vitrine de 32 cards.** Decidido: o preço continua vermelho, e passa a ser o único que continua. Selo de prova social vira `asa-tag--outline`; CTA de listagem vira `asa-btn--outline` (vermelho cheio só na tela de carro único); rótulo de categoria vira `--asa-ink-3`.
+- **T2 — a proporção 40/25/20/15 num site de 70 páginas.** Decidido: passa a variar por `<body data-page-mode="marketing|transactional|informational">` — menos amarelo em página transacional (menos ruído decorativo = mais conversão) e quase nenhum em página institucional/jurídica.
+- **T9 — a escala tipográfica já estava furada.** Decidido: nasce uma escala de **UI** de 8 degraus ao lado da escala de conteúdo, com o mesmo piso de 12px — `--asa-fs-subtitle` (17px) e `--asa-fs-body-dense` (14px) viram degraus legítimos; os usos que estavam em 11px sobem para 12px em vez de virar exceção.
+
+### Fundação de F1 construída nesta rodada
+
+Tokens novos em `asa-tokens.css`: canal de atenção (`--asa-warn`, `--asa-warn-bg`), camada e sobreposição (`--asa-z-*`, `--asa-scrim`, `--asa-surface-float`), superfícies de interação (`--asa-surface-hover`, `--asa-surface-selected`, `--asa-line-strong`), offset de header (`--asa-header-h`), ícone denso (`--asa-icon-dense`) e easing de saída (`--asa-ease-in`). Densidade (`.asa-dense`) e o orçamento de amarelo por arquétipo de página (T2) em `asa-utilities.css`.
+
+Sete componentes novos em `asa-components.css` — a camada flutuante que não existia (Lacuna 1): `asa-overlay`, `asa-modal`, `asa-sheet`, `asa-popover`, `asa-menu`, `asa-disclosure`, `asa-skiplink`. Todos sobre `--asa-surface-float` (creme, por decisão de T3 — branco sobre branco seria invisível), nenhuma sombra, nenhuma rotação (o disclosure troca de ícone, não gira), saída mais rápida que a entrada.
+
+Extensões: `asa-tag` ganhou `--outline`/`--neutral`/`--warn`; `asa-btn` ganhou `--icon`/`--link`; `asa-alert` ganhou `--warn`/`--compact`.
+
+**Ainda não feito:** `06-componentes.html` e `10-tokens.html` não catalogam visualmente os 7 componentes novos nem os tokens de fundação — só `asa-tag` e o card de veículo foram atualizados como exemplo do T1. Falta também a tabela de preços (RMS, dependência de negócio) e a convenção de hooks de medição do GA4 (Lacuna 15).
 
 ## Dívida técnica registrada
 

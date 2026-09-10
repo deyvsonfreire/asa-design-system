@@ -111,13 +111,16 @@
           <span class="asa-tag">Retirada em 8 min</span>
           <span class="asa-tag asa-tag--ok">Reserva confirmada</span>
           <span class="asa-tag asa-tag--ink">Sem taxa de aeroporto</span>
+          <span class="asa-tag asa-tag--warn">Restam 2 unidades</span>
+          <span class="asa-tag asa-tag--outline">Preferido do público</span>
+          <span class="asa-tag asa-tag--neutral">SUV</span>
         </div>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span>Métrica</span><span class="asa-doc-spec__value">11px · 500 · 0.1em</span></div>
+          <div class="asa-doc-spec"><span>Métrica</span><span class="asa-doc-spec__value">12px · 500 · 0.1em</span></div>
           <div class="asa-doc-spec"><span>Padding</span><span class="asa-doc-spec__value">7px 10px</span></div>
           <div class="asa-doc-spec"><span>Radius</span><span class="asa-doc-spec__value">0 — nenhum</span></div>
         </div>
-        <p class="asa-doc-gloss">É o único componente retangular do sistema, e é isso que o separa de um botão à primeira vista. A variante verde marca confirmação; a preta, um fato operacional neutro.</p>
+        <p class="asa-doc-gloss">É o único componente retangular do sistema, e é isso que o separa de um botão à primeira vista. A variante verde marca confirmação; a preta, um fato operacional neutro; <code class="asa-doc-code">--warn</code> é atenção sem ser erro (Lacuna 2). <code class="asa-doc-code">--outline</code> e <code class="asa-doc-code">--neutral</code> nasceram da decisão de T1 (ver <a href="13-roadmap.html#tensoes">13 · Roadmap</a>): numa vitrine de 32 cards, só o preço continua vermelho — selo de prova social não compete mais por esse sinal.</p>
       </div>
 
       <div class="asa-doc-card">
@@ -158,7 +161,7 @@
             <p class="asa-card-vehicle__specs">5 pessoas · 3 malas grandes · altura livre para estrada de areia</p>
             <div class="asa-card-vehicle__footer">
               <span class="asa-card-vehicle__price">R$ 189</span>
-              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
             </div>
           </div>
         </article>
@@ -173,7 +176,7 @@
             <p class="asa-card-vehicle__specs">5 pessoas · 2 malas grandes · porta-malas fechado</p>
             <div class="asa-card-vehicle__footer">
               <span class="asa-card-vehicle__price">R$ 142</span>
-              <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
             </div>
           </div>
         </article>
@@ -194,6 +197,7 @@
 
       </div>
       <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">O esqueleto tem o formato do conteúdo final, não um indicador genérico: a pessoa já entende a estrutura da tela antes dos dados chegarem, e lê isso como "quase pronto" em vez de "travado". É estático de propósito — um brilho em loop contínuo violaria o teto de 400ms e a regra de que nada no sistema pulsa.</p>
+      <p class="asa-doc-gloss" style="margin-top:8px;max-width:760px">O CTA aqui é <code class="asa-doc-code">--outline</code>, não <code class="asa-doc-code">--primary</code> — decisão de T1 (<a href="13-roadmap.html#tensoes">13 · Roadmap</a>): numa vitrine com múltiplos cards lado a lado, o vermelho cheio fica reservado para o preço; a ação de listagem sai de contorno, e volta a ser cheia só na tela de um carro único.</p>
     </div>
   </div>
 </section>

@@ -27,7 +27,7 @@
   border: none;
   border-radius: var(--asa-radius);
   font-family: var(--asa-font);
-  font-size: 14px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1;
   font-weight: var(--asa-weight-bold);
   text-align: center;
@@ -71,6 +71,32 @@
 }
 
 .asa-btn--block { display: flex; width: 100%; }
+
+/* Terciário sem contorno nenhum: ação de apoio dentro de um bloco de texto
+   (ver mais, editar). Vermelho aqui espalharia a cor por um site de 70
+   páginas — usa --asa-ink e só sublinha para não perder a affordance. */
+.asa-btn--link {
+  display: inline-flex;
+  min-height: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--asa-ink);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.asa-btn--link:hover:not(:disabled) { color: var(--asa-action-hover); }
+
+/* Quadrado, só ícone: fechar modal, dispensar barra, favoritar, navegar
+   prateleira. 44px é o alvo de toque mínimo, não um valor arbitrário. */
+.asa-btn--icon {
+  width: var(--asa-touch-min);
+  height: var(--asa-touch-min);
+  padding: 0;
+  flex: none;
+}
 
 /* Compacto, para o rodapé do card de veículo. Encolhe o texto e o padding
    lateral — nunca a altura: o alvo de toque continua em 44px. */
@@ -139,6 +165,12 @@
    ETIQUETA DE BENEFÍCIO
    Sem radius — é o único componente retangular do sistema, e é isso que a
    separa de um botão à primeira vista.
+
+   T1 (10/09/2026): a etiqueta nasce vermelha, e numa vitrine de 32 cards
+   isso soma um segundo vermelho ao lado do preço — o sinal deixa de ser
+   raro. --outline vira o padrão de prova social ("Preferido do público");
+   vermelho cheio fica reservado para o que ainda é ação (--ok, --ink já
+   cobriam estado; --warn cobre atenção, ver Lacuna 2).
    ========================================================================== */
 
 .asa-tag {
@@ -146,15 +178,23 @@
   padding: 7px 10px;
   background: var(--asa-action);
   color: var(--asa-on-action);
-  font-size: 11px;
+  font-size: var(--asa-fs-label);
   line-height: 1;
   font-weight: var(--asa-weight-medium);
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 
-.asa-tag--ok    { background: var(--asa-ok); }
-.asa-tag--ink   { background: var(--asa-ink); color: var(--asa-ink-inverse); }
+.asa-tag--ok      { background: var(--asa-ok); }
+.asa-tag--ink     { background: var(--asa-ink); color: var(--asa-ink-inverse); }
+.asa-tag--warn    { background: var(--asa-warn-bg); color: var(--asa-warn); }
+.asa-tag--outline {
+  background: transparent;
+  color: var(--asa-ink);
+  border: var(--asa-border-width) solid var(--asa-line);
+  padding: 6px 9px;   /* compensa a borda: mantém a mesma caixa externa da sólida */
+}
+.asa-tag--neutral { background: var(--asa-disabled-bg); color: var(--asa-ink-2); }
 
 /* ==========================================================================
    PREÇO
@@ -252,18 +292,20 @@
 
 .asa-card-vehicle { }
 
+/* T1 (10/09/2026): era --asa-action-hover — um terceiro vermelho no card,
+   ao lado do preço e do CTA. É metadado de classificação, não ação. */
 .asa-card-vehicle__category {
   font-family: var(--asa-font-mono);
-  font-size: 11px;
+  font-size: var(--asa-fs-label);
   line-height: 1;
   font-weight: var(--asa-weight-medium);
   letter-spacing: var(--asa-tracking-mono);
   text-transform: uppercase;
-  color: var(--asa-action-hover);
+  color: var(--asa-ink-3);
 }
 
 .asa-card-vehicle__title {
-  font-size: 17px;
+  font-size: var(--asa-fs-subtitle);
   line-height: 1.2;
   font-weight: var(--asa-weight-bold);
   color: var(--asa-ink);
@@ -271,7 +313,7 @@
 }
 
 .asa-card-vehicle__specs {
-  font-size: 13px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.45;
   color: var(--asa-ink-3);
   margin: 0;
@@ -289,7 +331,7 @@
 }
 
 .asa-card-vehicle__price {
-  font-size: 24px;
+  font-size: var(--asa-fs-price-card);
   line-height: 1;
   font-weight: var(--asa-weight-black);
   font-style: italic;
@@ -376,7 +418,7 @@
   border: var(--asa-border-width) solid var(--asa-line);
   border-radius: var(--asa-radius);
   font-family: var(--asa-font);
-  font-size: 14px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.2;
   font-weight: var(--asa-weight-medium);
   color: var(--asa-ink);
@@ -560,7 +602,7 @@
 }
 
 .asa-choice__title {
-  font-size: 14px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.35;
   font-weight: var(--asa-weight-medium);
   color: var(--asa-ink);
@@ -655,13 +697,13 @@
 
 .asa-stepper__index {
   font-family: var(--asa-font-mono);
-  font-size: 11px;
+  font-size: var(--asa-fs-label);
   letter-spacing: var(--asa-tracking-mono);
   text-transform: uppercase;
 }
 
 .asa-stepper__label {
-  font-size: 14px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.25;
   font-weight: inherit;
 }
@@ -693,6 +735,11 @@
 /* ==========================================================================
    ALERTA
    Sem sombra e sem ícone colorido de fundo: borda de 1.5px e um rótulo mono.
+
+   --warn (Lacuna 2, 10/09/2026): antes disto, "esgotado", "documento
+   recusado" e "campo inválido" competiam todos pelo mesmo vermelho que é o
+   orçamento do CTA. Usar --warn explica a caução com valor exato antes de
+   pedir o cartão — é atenção, não é erro nem é ação.
    ========================================================================== */
 
 .asa-alert {
@@ -708,18 +755,25 @@
 .asa-alert--ok    { border-left-color: var(--asa-ok); }
 .asa-alert--error { border-left-color: var(--asa-action-hover); }
 .asa-alert--info  { border-left-color: var(--asa-ink); }
+.asa-alert--warn  { border-left-color: var(--asa-warn); background: var(--asa-warn-bg); }
+
+/* Compacta: cabe numa barra de resumo, sem o corpo de duas linhas. */
+.asa-alert--compact {
+  align-items: center;
+  padding: var(--asa-space-3);
+}
 
 .asa-alert__body { display: flex; flex-direction: column; gap: 4px; }
 
 .asa-alert__title {
-  font-size: 14px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.3;
   font-weight: var(--asa-weight-bold);
   color: var(--asa-ink);
 }
 
 .asa-alert__text {
-  font-size: 13px;
+  font-size: var(--asa-fs-body-dense);
   line-height: 1.5;
   color: var(--asa-ink-2);
   max-width: none;
@@ -741,3 +795,320 @@
 .asa-skeleton--text  { height: 12px; }
 .asa-skeleton--title { height: 18px; }
 .asa-skeleton--media { aspect-ratio: 16 / 9; border-radius: 0; }
+
+/* ==========================================================================
+   CAMADA FLUTUANTE — overlay, modal, sheet, popover, menu, disclosure
+   Lacuna 1: até esta rodada, o sistema não tinha NENHUMA superfície fora do
+   fluxo do documento — nem um dropdown. Pré-requisito de MUST #2 (filtro),
+   #3 (busca), #4 (comparação), #5 (checkout) e #7 (conta).
+
+   Por que sobre creme, não branco: com o body branco (divergência #5), um
+   popover branco separado do fundo branco por 14% de borda é praticamente
+   invisível. T3 resolve promovendo --asa-cream a --asa-surface-float — dá
+   ao creme um trabalho funcional, mas reatribui parte da cota de 15%.
+
+   Estado por [data-state], nunca classe modificadora — é o padrão do resto
+   do sistema (:disabled, [aria-invalid], [aria-current]).
+
+   Movimento: entrada usa --asa-ease / --asa-dur-scene, igual ao resto do
+   sistema. Saída (Lacuna 12) usa --asa-ease-in e a duração mais curta
+   --asa-dur-fast — overlay que demora tanto para sair quanto para entrar
+   parece travado, não deliberado. Nenhuma rotação em lugar nenhum: o
+   indicador de disclosure troca de ícone, não gira.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   OVERLAY — o véu por trás de modal e sheet. Sozinho, sem superfície: quem
+   usa monta modal ou sheet dentro dele.
+   -------------------------------------------------------------------------- */
+.asa-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--asa-z-overlay);
+  background: var(--asa-scrim);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--asa-dur-scene) var(--asa-ease);
+}
+
+.asa-overlay[data-state="open"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.asa-overlay[data-state="closing"] {
+  transition-duration: var(--asa-dur-fast);
+  transition-timing-function: var(--asa-ease-in);
+}
+
+/* --------------------------------------------------------------------------
+   MODAL — diálogo centrado. Uso: confirmar cancelamento, explicar a
+   caução com valor exato, comparar dois carros lado a lado no mobile.
+   -------------------------------------------------------------------------- */
+.asa-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--asa-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--asa-space-4);
+  pointer-events: none;
+}
+
+.asa-modal[data-state="open"] { pointer-events: auto; }
+
+.asa-modal__surface {
+  width: 100%;
+  max-width: 480px;
+  max-height: min(88vh, 720px);
+  overflow-y: auto;
+  background: var(--asa-surface-float);
+  border: var(--asa-border-width) solid var(--asa-line-strong);
+  border-radius: var(--asa-radius);
+  padding: var(--asa-space-6);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity var(--asa-dur-scene) var(--asa-ease),
+              transform var(--asa-dur-scene) var(--asa-ease);
+}
+
+.asa-modal[data-state="open"] .asa-modal__surface {
+  opacity: 1;
+  transform: none;
+}
+
+.asa-modal[data-state="closing"] .asa-modal__surface {
+  transition-duration: var(--asa-dur-fast);
+  transition-timing-function: var(--asa-ease-in);
+}
+
+.asa-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--asa-space-3);
+  margin-bottom: var(--asa-space-4);
+}
+
+.asa-modal__title {
+  font-size: var(--asa-fs-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  margin: 0;
+}
+
+.asa-modal__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-3);
+}
+
+.asa-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--asa-space-3);
+  margin-top: var(--asa-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   SHEET — a mesma função do modal, ancorada embaixo. Padrão mobile: filtro
+   da vitrine, seleção de proteção, disclosure de devolução no motor.
+   -------------------------------------------------------------------------- */
+.asa-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: var(--asa-z-modal);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.asa-sheet[data-state="open"] { pointer-events: auto; }
+
+.asa-sheet__surface {
+  width: 100%;
+  max-width: 560px;
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--asa-surface-float);
+  border: var(--asa-border-width) solid var(--asa-line-strong);
+  border-bottom: none;
+  border-radius: var(--asa-radius) var(--asa-radius) 0 0;
+  padding: var(--asa-space-3) var(--asa-space-6) var(--asa-space-6);
+  transform: translateY(100%);
+  transition: transform var(--asa-dur-scene) var(--asa-ease);
+}
+
+.asa-sheet[data-state="open"] .asa-sheet__surface { transform: none; }
+
+.asa-sheet[data-state="closing"] .asa-sheet__surface {
+  transition-duration: var(--asa-dur-fast);
+  transition-timing-function: var(--asa-ease-in);
+}
+
+/* Puxador — sinaliza "isto arrasta" sem precisar de instrução escrita. */
+.asa-sheet__handle {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--asa-radius-full);
+  background: var(--asa-line-strong);
+  margin: 0 auto var(--asa-space-4);
+}
+
+/* --------------------------------------------------------------------------
+   POPOVER — ancorado a um elemento, sem véu por trás. Uso: sugestão do
+   autocomplete de local, calendário do date picker, tooltip de ajuda.
+   Posicionar com JS (getBoundingClientRect do gatilho) — o CSS só cobre a
+   superfície e a transição, não o cálculo de posição.
+   -------------------------------------------------------------------------- */
+.asa-popover {
+  position: absolute;
+  z-index: var(--asa-z-popover);
+  min-width: 220px;
+  background: var(--asa-surface-float);
+  border: var(--asa-border-width) solid var(--asa-line-strong);
+  border-radius: var(--asa-radius);
+  padding: var(--asa-space-3);
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity var(--asa-dur-fast) var(--asa-ease),
+              transform var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-popover[data-state="open"] {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.asa-popover[data-state="closing"] {
+  transition-timing-function: var(--asa-ease-in);
+}
+
+/* --------------------------------------------------------------------------
+   MENU — lista de ações dentro de uma superfície flutuante (conta,
+   idioma, ações do card salvo). Vive dentro de um .asa-popover.
+   -------------------------------------------------------------------------- */
+.asa-menu {
+  list-style: none;
+  margin: 0;
+  padding: var(--asa-space-2) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.asa-menu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-2);
+  min-height: var(--asa-touch-min);
+  padding: 0 var(--asa-space-3);
+  background: none;
+  border: none;
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-menu__item:hover:not(:disabled),
+.asa-menu__item:focus-visible {
+  background: var(--asa-surface-hover);
+}
+
+.asa-menu__item[data-state="selected"] {
+  background: var(--asa-surface-selected);
+  font-weight: var(--asa-weight-medium);
+}
+
+.asa-menu__item--danger { color: var(--asa-action-hover); }
+
+.asa-menu__item:disabled {
+  color: var(--asa-disabled-text);
+  cursor: not-allowed;
+}
+
+.asa-menu__divider {
+  height: var(--asa-border-width);
+  background: var(--asa-line-soft);
+  border: none;
+  margin: var(--asa-space-2) 0;
+}
+
+/* --------------------------------------------------------------------------
+   DISCLOSURE — expandir/recolher inline, não flutuante. Uso: FAQ,
+   detalhamento de proteção, "o que muda se eu cancelar".
+   O indicador TROCA de ícone — nunca gira. É regra dura do sistema
+   (11-movimento.html): nada gira, nada pulsa, nada tem bounce.
+   -------------------------------------------------------------------------- */
+.asa-disclosure { border-bottom: var(--asa-border-width) solid var(--asa-line); }
+
+.asa-disclosure__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-3);
+  width: 100%;
+  min-height: var(--asa-touch-min);
+  padding: var(--asa-space-3) 0;
+  background: none;
+  border: none;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.asa-disclosure__icon--open  { display: none; }
+.asa-disclosure__icon--closed { display: block; }
+
+.asa-disclosure[data-state="open"] .asa-disclosure__icon--open  { display: block; }
+.asa-disclosure[data-state="open"] .asa-disclosure__icon--closed { display: none; }
+
+.asa-disclosure__panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height var(--asa-dur-scene) var(--asa-ease);
+}
+
+.asa-disclosure[data-state="open"] .asa-disclosure__panel {
+  max-height: var(--asa-disclosure-h, 480px);
+}
+
+.asa-disclosure__body {
+  padding-bottom: var(--asa-space-4);
+  color: var(--asa-ink-2);
+}
+
+/* --------------------------------------------------------------------------
+   SKIP LINK — MUST de acessibilidade que nenhuma das 13 páginas de
+   documentação precisa (a navbar é curta), mas o portal de 70 páginas com
+   header de duas camadas, sim. Invisível até ganhar foco de teclado.
+   -------------------------------------------------------------------------- */
+.asa-skiplink {
+  position: fixed;
+  top: -100%;
+  left: var(--asa-space-3);
+  z-index: var(--asa-z-toast);
+  padding: 12px 20px;
+  background: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  text-decoration: none;
+  transition: top var(--asa-dur-fast) var(--asa-ease);
+}
+
+.asa-skiplink:focus {
+  top: var(--asa-space-3);
+}
