@@ -2334,3 +2334,616 @@
 .asa-figure--16x9  { aspect-ratio: 16 / 9; }
 .asa-figure--4x5   { aspect-ratio: 4 / 5; }
 .asa-figure--16x10 { aspect-ratio: 16 / 10; }
+
+/* ==========================================================================
+   NAVEGAÇÃO ESTENDIDA — F2/F3
+   Rodapé, trilha de localização, alternância de contexto e a barra de abas
+   nativa promovida de chrome de documentação a componente de produto.
+   ========================================================================== */
+
+/* Rodapé — hub de links por abas (Aeroportos/Cidades/Destinos, §6.2). É a
+   única superfície do sistema, além do vídeo, em --asa-bg-deep: aqui não
+   há flutuação a resolver, é chão de página, não T3. */
+.asa-footer {
+  background: var(--asa-bg-deep);
+  color: var(--asa-ink-inverse-2);
+  padding: var(--asa-space-9) var(--asa-space-4) var(--asa-space-6);
+}
+
+.asa-footer__inner {
+  max-width: var(--asa-container-max);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-7);
+}
+
+.asa-footer__brand img { height: 28px; width: auto; }
+
+.asa-footer__tabs {
+  display: flex;
+  gap: var(--asa-space-1);
+  border-bottom: var(--asa-border-width) solid var(--asa-line-inverse);
+}
+
+.asa-footer__tab {
+  padding: var(--asa-space-2) var(--asa-space-1) var(--asa-space-3);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1.5px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-inverse-2);
+  cursor: pointer;
+}
+
+.asa-footer__tab[aria-selected="true"] {
+  color: var(--asa-ink-inverse);
+  border-bottom-color: var(--asa-yellow);
+}
+
+.asa-footer__linkhub {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--asa-space-3) var(--asa-space-6);
+}
+
+@media (min-width: 768px) {
+  .asa-footer__linkhub { grid-template-columns: repeat(4, 1fr); }
+}
+
+.asa-footer__group { display: flex; flex-direction: column; }
+
+.asa-footer__group-title {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-label);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-gray-dark-1);
+  margin: 0 0 var(--asa-space-2);
+}
+
+.asa-footer__link {
+  display: block;
+  padding: 4px 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-inverse-2);
+  text-decoration: none;
+}
+
+.asa-footer__link:hover { color: var(--asa-ink-inverse); }
+
+.asa-footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-3);
+  padding-top: var(--asa-space-6);
+  border-top: var(--asa-border-width) solid var(--asa-line-inverse);
+}
+
+.asa-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-gray-dark-1);
+}
+
+.asa-footer__legal a { color: inherit; text-decoration: none; }
+.asa-footer__legal a:hover { color: var(--asa-ink-inverse); }
+
+.asa-footer__social { display: flex; gap: var(--asa-space-3); }
+.asa-footer__social .asa-icon { width: 18px; height: 18px; color: var(--asa-ink-inverse-2); }
+.asa-footer__social a:hover .asa-icon { color: var(--asa-ink-inverse); }
+
+/* Breadcrumb — trilha de IA de ~70 páginas em até 4 níveis (§6.1). O último
+   item é a página atual e não é link, mesmo padrão de aria-current do
+   navbar e do navdrawer. */
+.asa-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+}
+
+.asa-breadcrumb__item { display: flex; align-items: center; gap: 6px; }
+
+.asa-breadcrumb__link { color: var(--asa-ink-3); text-decoration: none; }
+.asa-breadcrumb__link:hover { color: var(--asa-ink); text-decoration: underline; }
+
+.asa-breadcrumb__item[aria-current="page"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+}
+
+.asa-breadcrumb__sep { width: 12px; height: 12px; color: var(--asa-ink-3); }
+
+/* Tabs — variante de linha para trocar categoria de conteúdo/linha de
+   negócio (§3 #6), e --segmented para alternância binária de contexto
+   (Alugar | Comprar, SHOULD #17). O padrão de linha já existia preso a
+   asa-search__tab; isto o libera para uso fora do motor de busca. */
+.asa-tabs {
+  display: flex;
+  gap: var(--asa-space-1);
+  border-bottom: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-tabs__tab {
+  padding: 10px var(--asa-space-4);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1.5px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+  cursor: pointer;
+}
+
+.asa-tabs__tab[aria-selected="true"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-bold);
+  border-bottom-color: var(--asa-action);
+}
+
+/* Segmentado — os dois lados têm peso igual, por isso um traço de fundo
+   neutro em vez de um preenchimento vermelho: preenchido leria como um
+   terceiro botão na tela, disputando com o CTA (T1). */
+.asa-tabs--segmented {
+  display: inline-flex;
+  width: fit-content;
+  gap: var(--asa-space-1);
+  border: none;
+  padding: 3px;
+  background: var(--asa-disabled-bg);
+  border-radius: var(--asa-radius);
+}
+
+.asa-tabs--segmented .asa-tabs__tab {
+  border-bottom: none;
+  margin-bottom: 0;
+  border-radius: calc(var(--asa-radius) - 3px);
+  padding: 8px var(--asa-space-4);
+  color: var(--asa-ink-2);
+}
+
+.asa-tabs--segmented .asa-tabs__tab[aria-selected="true"] {
+  background: var(--asa-bg-elevated);
+  color: var(--asa-ink);
+}
+
+/* Tab bar de app — promovida de chrome de documentação (asa-phone__tabbar
+   em asa-docs.css) a componente de produto de verdade. O estado ativo usa
+   o mesmo sinal do link de navbar: cor + peso + traço vermelho como
+   indicador de posição — não é uma segunda ação, é a mesma linguagem de
+   "onde eu estou" que o navbar já usa. */
+.asa-tabbar {
+  display: flex;
+  align-items: stretch;
+  background: var(--asa-bg-elevated);
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-tabbar__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: var(--asa-space-2) 0;
+  border-top: 2px solid transparent;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+  text-decoration: none;
+}
+
+.asa-tabbar__item[aria-current="page"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+  border-top-color: var(--asa-action);
+}
+
+/* ==========================================================================
+   VITRINE ESTENDIDA — F2
+   Prateleiras contextuais e os quatro cartões de conteúdo/local que a home
+   e os hubs de página precisam além do card de veículo.
+   ========================================================================== */
+
+/* Prateleira — rolagem nativa, sem JS de carrossel e sem indicador de
+   página: "nada gira" também vale para bolinhas de paginação que piscam. */
+.asa-shelf { display: flex; flex-direction: column; }
+
+.asa-shelf__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--asa-space-3);
+  margin-bottom: var(--asa-space-4);
+}
+
+.asa-shelf__title {
+  font-size: var(--asa-fs-subtitle);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  margin: 0;
+}
+
+.asa-shelf__link {
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-action-hover);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.asa-shelf__track {
+  display: flex;
+  gap: var(--asa-space-4);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  padding-bottom: var(--asa-space-2);
+  margin-bottom: calc(var(--asa-space-2) * -1);
+}
+
+.asa-shelf__track > * {
+  flex: 0 0 auto;
+  width: 260px;
+  scroll-snap-align: start;
+}
+
+.asa-card-destination { display: block; text-decoration: none; color: inherit; }
+
+.asa-card-destination__title {
+  margin: var(--asa-space-2) 0 2px;
+  font-size: var(--asa-fs-subtitle);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-card-destination__note {
+  margin: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+}
+
+/* Oferta — o único card da vitrine, além do de veículo, com permissão para
+   um selo cheio (SHOULD #15): é a própria promoção, não um veículo com
+   etiqueta anexada, então não disputa a cota de vermelho único de T1. */
+.asa-card-offer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-2);
+  padding: var(--asa-space-4);
+}
+
+.asa-card-offer__title {
+  margin: 0;
+  font-size: var(--asa-fs-subtitle);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-card-offer__text {
+  margin: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.asa-card-store {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--asa-space-4);
+}
+
+.asa-card-store__title {
+  margin: 0 0 2px;
+  font-size: var(--asa-fs-subtitle);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-card-store__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.asa-card-store__row .asa-icon {
+  width: var(--asa-icon-dense);
+  height: var(--asa-icon-dense);
+  color: var(--asa-ink-3);
+  margin-top: 2px;
+}
+
+.asa-card-store__link { font-weight: var(--asa-weight-medium); color: var(--asa-action-hover); }
+
+.asa-card-article {
+  display: flex;
+  flex-direction: column;
+  padding: var(--asa-space-4);
+}
+
+.asa-card-article__category {
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-label);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-card-article__title {
+  margin: 6px 0 0;
+  font-size: var(--asa-fs-subtitle);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-card-article__excerpt {
+  margin: 4px 0 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.asa-card-article__meta {
+  margin-top: var(--asa-space-2);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+}
+
+/* Paginação — inferida do blog maduro (~120 páginas). Página atual em
+   preenchimento ink, nunca vermelho: é posição, não ação. */
+.asa-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--asa-space-1);
+}
+
+.asa-pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--asa-touch-min);
+  height: var(--asa-touch-min);
+  padding: 0 4px;
+  border: none;
+  background: none;
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-2);
+  text-decoration: none;
+}
+
+.asa-pagination__item:hover { background: var(--asa-surface-hover); }
+
+.asa-pagination__item[aria-current="page"] {
+  background: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+}
+
+.asa-pagination__item:disabled,
+.asa-pagination__item[aria-disabled="true"] {
+  color: var(--asa-disabled-text);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CONTEÚDO EDITORIAL — F2
+   O sistema definia h1/h2/h3/p/small; ~70 páginas de blog, dúvidas e
+   institucional precisam do bloco de texto corrido, do agrupador de FAQ e
+   da prova social em formato de depoimento.
+   ========================================================================== */
+
+.asa-prose {
+  max-width: var(--asa-measure);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body);
+  line-height: var(--asa-lh-body);
+  color: var(--asa-ink-2);
+}
+
+.asa-prose h2 {
+  font-size: var(--asa-fs-title);
+  line-height: var(--asa-lh-title);
+  font-weight: var(--asa-weight-black);
+  color: var(--asa-ink);
+  margin: var(--asa-space-8) 0 var(--asa-space-3);
+}
+
+.asa-prose h2:first-child { margin-top: 0; }
+
+.asa-prose h3 {
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  margin: var(--asa-space-6) 0 var(--asa-space-2);
+}
+
+.asa-prose p,
+.asa-prose ul,
+.asa-prose ol { margin: 0 0 var(--asa-space-4); }
+
+.asa-prose ul,
+.asa-prose ol { padding-left: 1.2em; }
+
+.asa-prose a { color: var(--asa-action-hover); text-decoration: underline; }
+.asa-prose strong { color: var(--asa-ink); font-weight: var(--asa-weight-bold); }
+
+/* Accordion — agrupador de asa-disclosure para FAQ (§5.7 item 6); o
+   disclosure já resolve o item individual, isto só fecha a borda superior
+   do grupo — reuso, não um quarto padrão de expansível. */
+.asa-accordion { border-top: var(--asa-border-width) solid var(--asa-line); }
+
+.asa-testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-4);
+  padding: var(--asa-space-6);
+}
+
+.asa-testimonial__quote {
+  margin: 0;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+}
+
+.asa-testimonial__quote::before { content: '"'; }
+.asa-testimonial__quote::after  { content: '"'; }
+
+.asa-testimonial__footer { display: flex; align-items: center; gap: var(--asa-space-3); }
+
+.asa-testimonial__name {
+  display: block;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-testimonial__source {
+  display: block;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-label);
+  color: var(--asa-ink-3);
+}
+
+/* ==========================================================================
+   CONTA — F2/F3
+   Upload de documento (Asa Express), código de verificação e o cartão de
+   plano de assinatura: os três elos que faltavam para pós-venda e conta.
+   ========================================================================== */
+
+/* Dropzone — "a maior oportunidade de coerência entre promessa e produto"
+   (§5.5): mesmo tratamento de superfície de asa-field, para não parecer um
+   componente de terceiro dentro do formulário. */
+.asa-upload__dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--asa-space-2);
+  text-align: center;
+  padding: var(--asa-space-7) var(--asa-space-4);
+  border: var(--asa-border-width) dashed var(--asa-line-strong);
+  border-radius: var(--asa-radius);
+  background: var(--asa-bg-elevated);
+}
+
+.asa-upload__dropzone .asa-icon--feature { color: var(--asa-ink-3); }
+
+.asa-upload__text { margin: 0; font-family: var(--asa-font); font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.asa-upload__hint { margin: 0; font-family: var(--asa-font); font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+
+.asa-upload[data-state="dragover"] .asa-upload__dropzone {
+  border-color: var(--asa-ink);
+  background: var(--asa-surface-hover);
+}
+
+.asa-upload[data-state="error"] .asa-upload__dropzone {
+  border-style: solid;
+  border-color: var(--asa-action-hover);
+}
+
+.asa-upload[data-state="done"] .asa-upload__dropzone {
+  border-style: solid;
+  border-color: var(--asa-ok);
+}
+
+.asa-upload__file {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-2);
+  padding: var(--asa-space-3);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink);
+}
+
+.asa-upload__file .asa-icon { color: var(--asa-ok); }
+
+/* Código de verificação — a decisão de "código digitado" já existia em
+   12-app-nativo.html sem componente correspondente. Cada dígito É um
+   .asa-input: herda foco, inválido e desabilitado de graça, em vez de
+   reabrir a discussão de redundância de sinal que o campo já resolveu. */
+.asa-codeinput { display: flex; gap: var(--asa-space-2); }
+
+.asa-codeinput__digit {
+  width: 44px;
+  padding: 14px 0;
+  text-align: center;
+  font-size: var(--asa-fs-title);
+  font-weight: var(--asa-weight-bold);
+}
+
+/* Plano — cartão de assinatura (COULD #23). Reaproveita asa-card + asa-price
+   (o preço segue vermelho, mesmo sinal único de T1) em vez de inventar uma
+   quarta variação de cartão de preço. */
+.asa-card-plan { display: flex; flex-direction: column; gap: var(--asa-space-4); padding: var(--asa-space-6); }
+
+.asa-card-plan--featured { border-width: 2px; border-color: var(--asa-ink); }
+
+.asa-card-plan__name {
+  margin: 0;
+  font-family: var(--asa-font-mono);
+  font-size: var(--asa-fs-label);
+  letter-spacing: var(--asa-tracking-mono);
+  text-transform: uppercase;
+  color: var(--asa-ink-3);
+}
+
+.asa-card-plan__benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--asa-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.asa-card-plan__benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.asa-card-plan__benefits .asa-icon {
+  width: var(--asa-icon-dense);
+  height: var(--asa-icon-dense);
+  color: var(--asa-ok);
+  margin-top: 2px;
+}
