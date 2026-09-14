@@ -12,10 +12,12 @@
 </head>
 <body>
 
-<nav class="asa-doc-nav">
+<a class="asa-skiplink" href="#botoes">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
   <div class="asa-doc-nav__inner">
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
-    <a href="index.html">00 Início</a>
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
     <a href="01-fundamentos.html">01 Fundamentos</a>
     <a href="02-grid.html">02 Grid</a>
     <a href="03-cor.html">03 Cor</a>
@@ -29,7 +31,10 @@
     <a href="11-movimento.html">11 Movimento</a>
     <a href="12-app-nativo.html">12 App nativo</a>
     <a href="13-roadmap.html">13 Roadmap</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
 <section class="asa-doc-section asa-doc-section--cream" id="botoes">
@@ -456,9 +461,9 @@
       <div class="asa-demo asa-demo--white" style="position:relative;min-height:300px;padding:0;overflow:hidden">
         <div class="asa-modal" data-state="open" style="position:absolute;inset:0">
           <div class="asa-overlay" data-state="open" style="position:absolute"></div>
-          <div class="asa-modal__surface" style="position:relative;max-width:380px">
+          <div class="asa-modal__surface" role="dialog" aria-modal="true" aria-labelledby="modal-title-demo" style="position:relative;max-width:380px">
             <div class="asa-modal__header">
-              <h3 class="asa-modal__title">Confirmar cancelamento?</h3>
+              <h3 class="asa-modal__title" id="modal-title-demo">Confirmar cancelamento?</h3>
               <button class="asa-btn asa-btn--icon asa-btn--outline" aria-label="Fechar">
                 <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
@@ -491,11 +496,11 @@
         <span class="asa-doc-card__title">Popover + menu</span>
         <div class="asa-demo asa-demo--white" style="position:relative;height:190px">
           <div class="asa-popover" data-state="open" style="position:absolute;top:0;left:0;min-width:200px">
-            <ul class="asa-menu">
-              <li><button class="asa-menu__item" data-state="selected">Português</button></li>
-              <li><button class="asa-menu__item">English</button></li>
-              <hr class="asa-menu__divider">
-              <li><button class="asa-menu__item asa-menu__item--danger">Sair</button></li>
+            <ul class="asa-menu" role="menu">
+              <li role="presentation"><button class="asa-menu__item" role="menuitem" data-state="selected">Português</button></li>
+              <li role="presentation"><button class="asa-menu__item" role="menuitem">English</button></li>
+              <hr class="asa-menu__divider" role="separator">
+              <li role="presentation"><button class="asa-menu__item asa-menu__item--danger" role="menuitem">Sair</button></li>
             </ul>
           </div>
         </div>
@@ -504,13 +509,13 @@
       <div class="asa-doc-card">
         <span class="asa-doc-card__title">Disclosure — troca de ícone, nunca gira</span>
         <div class="asa-disclosure" data-state="closed">
-          <button class="asa-disclosure__trigger">O que muda se eu cancelar?
+          <button class="asa-disclosure__trigger" aria-expanded="false">O que muda se eu cancelar?
             <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
           </button>
         </div>
         <div class="asa-disclosure" data-state="open">
-          <button class="asa-disclosure__trigger">O que muda se eu cancelar?
+          <button class="asa-disclosure__trigger" aria-expanded="true">O que muda se eu cancelar?
             <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
           </button>
@@ -644,21 +649,21 @@
         <span class="asa-doc-card__title">Combobox — quatro tipos de lugar</span>
         <div class="asa-demo asa-demo--white" style="position:relative;padding:0;overflow:hidden;min-height:230px">
           <div class="asa-popover" data-state="open" style="position:absolute;inset:8px;min-width:0">
-            <ul class="asa-combobox__list">
-              <li class="asa-combobox__option" aria-selected="true">
+            <ul class="asa-combobox__list" role="listbox" aria-label="Sugestões de lugar">
+              <li class="asa-combobox__option" role="option" aria-selected="true">
                 <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
                 <span class="asa-combobox__label"><span class="asa-combobox__name">Aeroporto de Recife</span><span class="asa-combobox__hint">Aeroporto</span></span>
                 <span class="asa-combobox__iata">REC</span>
               </li>
-              <li class="asa-combobox__option">
+              <li class="asa-combobox__option" role="option" aria-selected="false">
                 <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
                 <span class="asa-combobox__label"><span class="asa-combobox__name">Recife — Centro</span><span class="asa-combobox__hint">Cidade</span></span>
               </li>
-              <li class="asa-combobox__option">
+              <li class="asa-combobox__option" role="option" aria-selected="false">
                 <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 <span class="asa-combobox__label"><span class="asa-combobox__name">Boa Viagem</span><span class="asa-combobox__hint">Bairro · Recife</span></span>
               </li>
-              <li class="asa-combobox__option">
+              <li class="asa-combobox__option" role="option" aria-selected="false">
                 <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
                 <span class="asa-combobox__label"><span class="asa-combobox__name">Porto de Galinhas</span><span class="asa-combobox__hint">Destino</span></span>
               </li>
@@ -970,7 +975,7 @@
       <div class="asa-doc-card">
         <span class="asa-doc-card__title">Price breakdown — dentro de um disclosure</span>
         <div class="asa-disclosure" data-state="open">
-          <button class="asa-disclosure__trigger">Como chegamos em R$ 656,00?
+          <button class="asa-disclosure__trigger" aria-expanded="true">Como chegamos em R$ 656,00?
             <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
           </button>
@@ -1389,7 +1394,7 @@
       <span class="asa-doc-block__title">Código de verificação</span>
       <div class="asa-demo asa-demo--white">
         <div class="asa-codeinput">
-          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" value="4">
+          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" autocomplete="one-time-code" value="4">
           <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" value="7">
           <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" value="2">
           <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1">

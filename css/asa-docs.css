@@ -15,7 +15,12 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 247, 227, .94);
+  /* rgba(255,255,255,.94) sobre var(--asa-bg-elevated): translúcido correto
+     para o branco que é o fundo padrão do sistema (era rgba(255,247,227,.94)
+     — o creme ANTIGO, de antes da correção para #FFFBF0 — nunca atualizado
+     quando o resto do sistema corrigiu o tom; ficou um amarelo mais
+     saturado que qualquer superfície viva do sistema atual). */
+  background: rgba(255, 255, 255, .94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--asa-line);
 }
@@ -57,6 +62,119 @@
 .asa-doc-nav a[aria-current="page"] {
   color: var(--asa-action-hover);
   border-bottom-color: var(--asa-action-hover);
+}
+
+/* --------------------------------------------------------------------------
+   DRAWER MOBILE — revisão de 12/09/2026
+   Antes disto, abaixo de 1024px a barra inteira virava uma faixa de
+   rolagem horizontal indescobrível: a maioria das 14 páginas ficava
+   invisível sem um swipe por sorte — e contradizia a própria especificação
+   de Navegação do sistema (asa-navdrawer, já construído e documentado em
+   06-componentes.html#flutuante). Aqui, sem JS (mesma restrição de sempre):
+   um checkbox real faz o papel do botão, estilizado como hambúrguer via
+   ::before/::after, e :has() no ancestral — já um precedente do próprio
+   sistema em .asa-choice--card:has(.asa-choice__input:checked) — dispensa
+   qualquer amarração de irmão-adjacente entre o checkbox e o painel.
+   -------------------------------------------------------------------------- */
+
+.asa-doc-nav__list {
+  display: contents; /* no desktop, os links continuam filhos diretos do flex de .asa-doc-nav__inner — zero mudança visual */
+}
+
+.asa-doc-nav__toggle {
+  display: none;
+}
+
+.asa-doc-nav__scrim {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .asa-doc-nav__inner {
+    justify-content: space-between;
+  }
+
+  .asa-doc-nav__toggle {
+    display: flex;
+    flex: none;
+    appearance: none;
+    -webkit-appearance: none;
+    width: var(--asa-touch-min);
+    height: var(--asa-touch-min);
+    margin: 0;
+    border: none;
+    border-radius: var(--asa-radius);
+    background: none;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .asa-doc-nav__toggle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 22px;
+    height: 2px;
+    background: var(--asa-ink);
+    box-shadow: 0 -7px 0 var(--asa-ink), 0 7px 0 var(--asa-ink);
+  }
+
+  .asa-doc-nav__toggle:focus-visible {
+    outline: 2px solid var(--asa-action-hover);
+    outline-offset: 2px;
+  }
+
+  .asa-doc-nav__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: var(--asa-scrim);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--asa-dur-scene) var(--asa-ease);
+    z-index: var(--asa-z-overlay);
+  }
+
+  .asa-doc-nav__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--asa-space-1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 86vw);
+    background: var(--asa-mist);
+    border-left: var(--asa-border-width) solid var(--asa-line);
+    padding: var(--asa-space-9) var(--asa-space-4) var(--asa-space-4);
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform var(--asa-dur-scene) var(--asa-ease);
+    z-index: var(--asa-z-modal);
+  }
+
+  .asa-doc-nav__list a {
+    height: auto;
+    min-height: var(--asa-touch-min);
+    border-bottom: 1px solid var(--asa-line);
+  }
+
+  .asa-doc-nav:has(.asa-doc-nav__toggle:checked) .asa-doc-nav__scrim {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .asa-doc-nav:has(.asa-doc-nav__toggle:checked) .asa-doc-nav__list {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asa-doc-nav__list,
+  .asa-doc-nav__scrim {
+    transition: none;
+  }
 }
 
 /* ==========================================================================
@@ -255,6 +373,17 @@
 }
 
 .asa-doc-card--dense  { background: var(--asa-bg-dense); border-color: transparent; color: var(--asa-ink-inverse); }
+
+/* Achado pelo scanner em quase toda página: um <a> de conteúdo dentro de
+   seção/card --dense herda o global a:hover (--asa-action, #E80911) — 3,9:1
+   sobre #141517, reprova AA. O estado normal (--asa-action-hover) já passa;
+   só o hover mais claro falha. Mesmo precedente de --asa-label-mono--on-dark
+   e da placa de número: amarelo é o acento que este sistema já usa sobre
+   fundo escuro — 11,45:1, AAA. */
+.asa-doc-section--dense a:hover,
+.asa-doc-card--dense a:hover {
+  color: var(--asa-surface);
+}
 .asa-doc-card--yellow { background: var(--asa-surface); border-color: transparent; }
 .asa-doc-card--cream  { background: var(--asa-bg); }
 .asa-doc-card--flush  { padding: 0; overflow: hidden; }
@@ -268,6 +397,15 @@
   margin-top: auto;
   max-width: none;
 }
+
+/* Bug real, achado pelo detector: um .asa-doc-block "solto" (sem classe de
+   card) dentro de .asa-doc-section--dense herdava --asa-ink-3 (feito para
+   fundo claro) sobre fundo preto — 2,7:1, reprova AA. As duas regras abaixo
+   já cobriam o caso "dentro de um card --dense/--yellow"; esta cobre o caso
+   "dentro da seção escura, mas sem card". Ordem importa: como vem ANTES das
+   regras de card por classe (mesma especificidade), um card --dense/--yellow
+   aninhado numa seção escura continua vencendo pela ordem de origem. */
+.asa-doc-section--dense .asa-doc-gloss { color: var(--asa-gray-dark-1); }
 
 .asa-doc-card--dense .asa-doc-gloss  { color: var(--asa-gray-dark-1); }
 .asa-doc-card--yellow .asa-doc-gloss { color: #4A3A10; }
@@ -385,7 +523,7 @@
 
 .asa-demo__caption {
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label); /* era 10px — já apontado como real na Fase B do critique */
   line-height: 1.4;
   font-weight: var(--asa-weight-medium);
   letter-spacing: .12em;
@@ -401,7 +539,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label); /* era 10px — mesmo piso do achado em .asa-doc-table th */
   font-weight: var(--asa-weight-medium);
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -546,7 +684,7 @@
 
 .asa-doc-next__link span {
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label); /* era 10px — abaixo do piso de 12px, achado pelo detector; é link real, não rótulo decorativo */
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--asa-ink-3);
@@ -603,7 +741,7 @@
 
 .asa-doc-table th {
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label); /* era 10px — abaixo do piso de 12px; cabeçalho de tabela é texto funcional, não rótulo decorativo */
   font-weight: var(--asa-weight-medium);
   letter-spacing: .12em;
   text-transform: uppercase;

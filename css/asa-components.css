@@ -54,7 +54,7 @@
 }
 
 .asa-btn--secondary:hover:not(:disabled) {
-  background: #EAB227;
+  background: var(--asa-yellow-hover);
   color: var(--asa-ink);
 }
 
@@ -1213,10 +1213,12 @@
    fluxo do documento — nem um dropdown. Pré-requisito de MUST #2 (filtro),
    #3 (busca), #4 (comparação), #5 (checkout) e #7 (conta).
 
-   Por que sobre creme, não branco: com o body branco (divergência #5), um
-   popover branco separado do fundo branco por 14% de borda é praticamente
-   invisível. T3 resolve promovendo --asa-cream a --asa-surface-float — dá
-   ao creme um trabalho funcional, mas reatribui parte da cota de 15%.
+   Por que não sobre branco: com o body branco (divergência #5), um popover
+   branco separado do fundo branco por 14% de borda é praticamente invisível.
+   T3 resolve com --asa-surface-float, uma segunda superfície neutra —
+   originalmente o creme, revisado em 12/09/2026 para --asa-mist (cinza
+   ultraclaro sem viés de matiz), porque o creme lia como amarelo diluído
+   em toda superfície flutuante do sistema.
 
    Estado por [data-state], nunca classe modificadora — é o padrão do resto
    do sistema (:disabled, [aria-invalid], [aria-current]).

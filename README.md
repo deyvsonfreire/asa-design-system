@@ -135,6 +135,14 @@ Todos catalogados visualmente em `06-componentes.html` (seções **Navegação e
 
 **A biblioteca de componentes do portal está completa** (F1 + F2/F3). Seguem fora do design system: a tabela de preços (RMS), a convenção de hooks de medição do GA4 (Lacuna 15) e um catálogo formal dos ícones novos usados inline (ainda não cadastrados em `05-icones.html`). Seguem como dívida dentro do sistema, sem bloquear nada: as 14 extensões menores do mapa que não pertenciam a F1 nem F2/F3 (`asa-stepper` com "Editar" por etapa, `asa-numberplate--inline`, `asa-field` com cupom inline, `asa-skeleton`/`asa-avatar` de forma).
 
+## Revisão de cor — creme sai de circulação (12/09/2026)
+
+Feedback de revisão: mesmo corrigido (`#FFF7E3` → `#FFFBF0`, ver divergência #5), o creme ainda lia como "amarelo diluído" em toda superfície que o usava — seção de composição, vitrine de componente na documentação, e a camada flutuante inteira do produto (modal, sheet, popover, menu, navdrawer). Nasce `--asa-mist` (`#F4F4F3`), um cinza ultraclaro sem viés de matiz, que assume os dois papéis que o creme cumpria (`--asa-bg` e `--asa-surface-float`). `--asa-cream` continua existindo como primitivo — histórico, documentado em `10-tokens.html` — mas nenhuma superfície viva do sistema o consome mais. Amarelo cheio (`--asa-yellow`) fica intocado: continua reservado a acento deliberado (capa, badge, assinatura).
+
+De brinde, o scan determinístico rodado durante esta correção achou um bug anterior e não relacionado: `.asa-doc-nav` usava um `rgba(255, 247, 227, .94)` hardcoded — o creme **antigo**, de antes da correção de tom de 2026, nunca atualizado quando o resto do sistema migrou. Virou `rgba(255, 255, 255, .94)`. E um segundo, em `01-fundamentos.html`: um `.asa-doc-block` solto dentro de `.asa-doc-section--dense` herdava `--asa-ink-3` (cor de legenda para fundo claro) sobre fundo preto — 2,7:1, reprovando AA. Corrigido em `asa-docs.css` com uma regra de seção que cobre qualquer glosa "solta" numa seção escura, sem tocar nos cards que já tinham tratamento próprio.
+
+Todos os pares de contraste que citavam creme foram recalculados contra `--asa-mist` em `03-cor.html` — nenhum veredito WCAG mudou.
+
 ## Dívida técnica registrada
 
 - **Fontes em `.otf`** (~75KB por face). Para produção, converter para `woff2` e subsetar para latim + diacríticos pt-BR leva a ~25KB por face. As ferramentas de conversão (`fontTools`, `brotli`, `woff2_compress`) não estavam disponíveis na máquina onde este pacote foi montado — por isso ficou como dívida, não pré-requisito. `.otf` funciona em todos os navegadores atuais.

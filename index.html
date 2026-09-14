@@ -34,10 +34,12 @@
   </div>
 </header>
 
-<nav class="asa-doc-nav">
+<a class="asa-skiplink" href="#main">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
   <div class="asa-doc-nav__inner">
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
-    <a href="index.html" aria-current="page">00 Início</a>
+    <div class="asa-doc-nav__list">
+      <a href="index.html" aria-current="page">00 Início</a>
     <a href="01-fundamentos.html">01 Fundamentos</a>
     <a href="02-grid.html">02 Grid</a>
     <a href="03-cor.html">03 Cor</a>
@@ -51,10 +53,13 @@
     <a href="11-movimento.html">11 Movimento</a>
     <a href="12-app-nativo.html">12 App nativo</a>
     <a href="13-roadmap.html">13 Roadmap</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--dense">
+<section id="main" class="asa-doc-section asa-doc-section--dense">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Como usar esta documentação</span>
     <h2>Leia na ordem. Cada seção depende da anterior.</h2>
@@ -190,6 +195,7 @@
         <p style="max-width:none">Fonte via <code class="asa-doc-code">@font-face</code> é bloqueada em <code class="asa-doc-code">file://</code>. Abrir os arquivos com duplo clique faz a página cair no fallback e perder a marca.</p>
         <div class="asa-doc-pre"><span class="c"># na pasta asa-design-system</span>
 python3 -m http.server 8765</div>
+        <p class="asa-doc-gloss">Não trabalha com código? Peça para alguém do time técnico rodar o comando acima uma vez — depois disso é só abrir o link no navegador, como qualquer site. Sem servidor, dá para ler o conteúdo mesmo assim (a página cai para uma fonte padrão do sistema), só a tipografia real da marca que não aparece.</p>
       </div>
     </div>
   </div>

@@ -66,6 +66,7 @@
 
   /* Cor da marca */
   --asa-yellow:        #FEC42B;
+  --asa-yellow-hover:  #EAB227;                 /* hover do amarelo — era hex avulso só no botão secundário, nomeado em 12/09/2026 */
   --asa-black:         #141517;
   --asa-red:           #E80911;
   /* Tom clareado a partir do #FFF7E3 original (feedback de revisão: o
@@ -77,6 +78,15 @@
      (ver 03-cor.html). A frequência de uso — não só o tom — também foi
      reduzida: ver comentário em asa-base.css sobre o fundo padrão de tela. */
   --asa-cream:         #FFFBF0;
+  /* Cinza ultraclaro neutro, sem viés de matiz — substitui o creme como
+     superfície de composição e camada flutuante (revisão de 12/09/2026):
+     o creme, mesmo corrigido, ainda lia como "amarelo diluído" em toda
+     seção/demo/painel que o usava, e o objetivo passou a ser reservar
+     qualquer tom de amarelo só para acento deliberado (capa, badge,
+     assinatura). --asa-cream continua existindo como primitivo de
+     referência (ver 10-tokens.html), mas nenhuma superfície viva o consome
+     mais — ver --asa-bg e --asa-surface-float abaixo. */
+  --asa-mist:          #F4F4F3;
   --asa-red-dark:      #C4070E;
   --asa-green:         #065F46;
   --asa-black-deep:    #0D0D0E;
@@ -104,7 +114,7 @@
      ======================================================================== */
 
   --asa-surface:        var(--asa-yellow);      /* superfície principal da marca */
-  --asa-bg:             var(--asa-cream);       /* accent de composição — NAO é fundo padrão de body, ver asa-base.css */
+  --asa-bg:             var(--asa-mist);        /* accent de composição — NAO é fundo padrão de body, ver asa-base.css */
   --asa-bg-elevated:    var(--asa-white);       /* card, superfície elevada     */
   --asa-bg-deep:        var(--asa-black-deep);  /* peça noturna, rodapé, vídeo  */
   --asa-bg-dense:       var(--asa-black);       /* bloco de informação densa    */
@@ -129,7 +139,13 @@
   /* Canal de atenção — Lacuna 2. Sem isto, "esgotado", "restam 2",
      "documento recusado" e "campo inválido" competiam pelo mesmo vermelho
      que é o orçamento do CTA. --asa-warn nunca é ação: não leva onClick. */
-  --asa-warn:           #B65C00;                /* laranja escuro — 4.52:1 sobre branco, AA para texto normal */
+  /* Revisão de 12/09/2026: o tom original (#B65C00) só tinha sido testado
+     contra branco (4,52:1). Contra o próprio --asa-warn-bg pareado, dava
+     4,2:1 — reprova o mínimo de 4,5:1 para texto normal, achado pelo scanner
+     determinístico. Escurecido para fechar 5,02:1 sobre --asa-warn-bg e
+     5,58:1 sobre branco — os dois pares onde o canal de atenção realmente
+     aparece (tag, alerta). */
+  --asa-warn:           #A35200;                /* laranja escuro — 5,58:1 sobre branco, 5,02:1 sobre --asa-warn-bg */
   --asa-warn-bg:        #FDF1E4;                /* fundo do alerta de atenção    */
 
   /* Superfícies de interação — Lacuna 3. Antes hardcoded dentro de .asa-input. */
@@ -146,7 +162,7 @@
   --asa-z-popover:   1220;   /* pode abrir por cima de um modal (ex.: tooltip dentro de um formulário) */
   --asa-z-toast:     1300;
   --asa-scrim:          rgba(13, 13, 14, .56);  /* --asa-black-deep em opacidade — nunca puro preto */
-  --asa-surface-float:  var(--asa-cream);       /* T3 — o creme vira a superfície flutuante do sistema */
+  --asa-surface-float:  var(--asa-mist);        /* T3 revisado 12/09 — cinza ultraclaro vira a superfície flutuante do sistema, no lugar do creme */
 
   /* Offset de header — Lacuna 9. 70px calibrado para a navbar de 54px desta
      documentação; o header de produto (duas camadas) recalcula este valor. */

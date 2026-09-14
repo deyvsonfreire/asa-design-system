@@ -15,10 +15,12 @@
 </head>
 <body>
 
-<nav class="asa-doc-nav">
+<a class="asa-skiplink" href="#arquitetura">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
   <div class="asa-doc-nav__inner">
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
-    <a href="index.html">00 Início</a>
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
     <a href="01-fundamentos.html">01 Fundamentos</a>
     <a href="02-grid.html">02 Grid</a>
     <a href="03-cor.html">03 Cor</a>
@@ -32,7 +34,10 @@
     <a href="11-movimento.html">11 Movimento</a>
     <a href="12-app-nativo.html">12 App nativo</a>
     <a href="13-roadmap.html">13 Roadmap</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
 <section class="asa-doc-section asa-doc-section--cream" id="arquitetura">
@@ -234,7 +239,7 @@
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Canal de atenção <span style="font-weight:400;color:var(--asa-ink-3)">· Lacuna 2</span></span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-warn</code></span><span class="asa-doc-spec__value">#B65C00 · 4.52:1 sobre branco</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-warn</code></span><span class="asa-doc-spec__value">#A35200 · 5,58:1 sobre branco, 5,02:1 sobre --asa-warn-bg</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-warn-bg</code></span><span class="asa-doc-spec__value">#FDF1E4</span></div>
         </div>
         <p class="asa-doc-gloss">Antes disto, "esgotado", "restam 2", "documento recusado" e "campo inválido" competiam todos pelo mesmo vermelho que é o orçamento do CTA. <code class="asa-doc-code">--asa-warn</code> nunca é ação — não leva <code class="asa-doc-code">onClick</code>.</p>

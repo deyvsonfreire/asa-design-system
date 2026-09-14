@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/asa-docs.css">
 <style>
   .ratio { font-family:var(--asa-font-mono); font-size:12px; font-weight:500; white-space:nowrap; }
-  .verd  { font-family:var(--asa-font-mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+  .verd  { font-family:var(--asa-font-mono); font-size:var(--asa-fs-label); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
   .verd--aaa  { color:var(--asa-ok); }
   .verd--aa   { color:var(--asa-ok); }
   .verd--big  { color:#8A6300; }
@@ -21,10 +21,12 @@
 </head>
 <body>
 
-<nav class="asa-doc-nav">
+<a class="asa-skiplink" href="#paleta">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
   <div class="asa-doc-nav__inner">
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
-    <a href="index.html">00 Início</a>
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
     <a href="01-fundamentos.html">01 Fundamentos</a>
     <a href="02-grid.html">02 Grid</a>
     <a href="03-cor.html" aria-current="page">03 Cor</a>
@@ -38,7 +40,10 @@
     <a href="11-movimento.html">11 Movimento</a>
     <a href="12-app-nativo.html">12 App nativo</a>
     <a href="13-roadmap.html">13 Roadmap</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
 <section class="asa-doc-section asa-doc-section--cream" id="paleta">
@@ -77,11 +82,20 @@
       </div>
 
       <div class="asa-swatch">
+        <div class="asa-swatch__chip" style="background:#F4F4F3"></div>
+        <div class="asa-swatch__info">
+          <span class="asa-swatch__name">Cinza Mist</span>
+          <span class="asa-swatch__hex">#F4F4F3 · 15%</span>
+          <span class="asa-swatch__use">Superfície de composição e camada flutuante (modal, popover, menu, navdrawer). Nunca fundo padrão de <code>body</code> — isso é branco.</span>
+        </div>
+      </div>
+
+      <div class="asa-swatch">
         <div class="asa-swatch__chip" style="background:#FFFBF0"></div>
         <div class="asa-swatch__info">
-          <span class="asa-swatch__name">Creme</span>
-          <span class="asa-swatch__hex">#FFFBF0 · 15%</span>
-          <span class="asa-swatch__use">Fundo padrão de tela e de formulário.</span>
+          <span class="asa-swatch__name">Creme <span style="font-weight:400;text-transform:none;letter-spacing:0">(retirado, ver revisão abaixo)</span></span>
+          <span class="asa-swatch__hex">#FFFBF0</span>
+          <span class="asa-swatch__use">Primitivo de referência histórica. Nenhuma superfície viva do sistema o consome desde 12/09/2026 — substituído por Cinza Mist em toda composição e camada flutuante.</span>
         </div>
       </div>
 
@@ -129,9 +143,9 @@
         <div style="flex:40;background:#FEC42B;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">40%</div>
         <div style="flex:25;background:#141517;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">25%</div>
         <div style="flex:20;background:#E80911;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">20%</div>
-        <div style="flex:15;background:#FFFBF0;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
+        <div style="flex:15;background:#F4F4F3;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">É a lógica do 60-30-10 adaptada a quatro papéis. O princípio é o mesmo: uma cor domina a superfície e cria um fundo de descanso, uma segunda estrutura o texto, e a de maior impacto aparece na menor área — exatamente onde importa que o olho vá primeiro.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">É a lógica do 60-30-10 adaptada a quatro papéis. O princípio é o mesmo: uma cor domina a superfície e cria um fundo de descanso, uma segunda estrutura o texto, e a de maior impacto aparece na menor área — exatamente onde importa que o olho vá primeiro. Revisão de 12/09/2026: a fatia de 15% era creme (<code>#FFFBF0</code>) e passou a ser cinza mist (<code>#F4F4F3</code>) — mesma proporção, mesmo papel de composição, sem viés de matiz amarelo.</p>
     </div>
   </div>
 </section>
@@ -170,11 +184,11 @@
             <td>Placa de número, prova social</td>
           </tr>
           <tr>
-            <td>Preto sobre creme</td>
-            <td><div class="pair" style="background:#FFFBF0;color:#141517">Corpo</div></td>
-            <td class="ratio">17,66:1</td>
+            <td>Preto sobre cinza mist</td>
+            <td><div class="pair" style="background:#F4F4F3;color:#141517">Corpo</div></td>
+            <td class="ratio">16,60:1</td>
             <td><span class="verd verd--aaa">AAA</span></td>
-            <td>Texto padrão de tela</td>
+            <td>Composição e camada flutuante (era creme até 12/09/2026)</td>
           </tr>
           <tr>
             <td>Branco sobre <code>--asa-green</code></td>
@@ -184,30 +198,30 @@
             <td>Etiqueta de confirmação de reserva</td>
           </tr>
           <tr>
-            <td><code>#4A4C50</code> sobre creme</td>
-            <td><div class="pair" style="background:#FFFBF0;color:#4A4C50">Secundário</div></td>
-            <td class="ratio">8,32:1</td>
+            <td><code>#4A4C50</code> sobre cinza mist</td>
+            <td><div class="pair" style="background:#F4F4F3;color:#4A4C50">Secundário</div></td>
+            <td class="ratio">7,82:1</td>
             <td><span class="verd verd--aaa">AAA</span></td>
             <td>Corpo secundário, lead de seção</td>
           </tr>
           <tr>
-            <td><code>#5A5C60</code> sobre creme</td>
-            <td><div class="pair" style="background:#FFFBF0;color:#5A5C60">Legenda</div></td>
-            <td class="ratio">6,48:1</td>
+            <td><code>#5A5C60</code> sobre cinza mist</td>
+            <td><div class="pair" style="background:#F4F4F3;color:#5A5C60">Legenda</div></td>
+            <td class="ratio">6,09:1</td>
             <td><span class="verd verd--aa">AA</span></td>
             <td>Legenda, glosa, specs do card</td>
           </tr>
           <tr>
-            <td><code>--asa-red-dark</code> sobre creme</td>
-            <td><div class="pair" style="background:#FFFBF0;color:#C4070E">RÓTULO</div></td>
-            <td class="ratio">6,00:1</td>
+            <td><code>--asa-red-dark</code> sobre cinza mist</td>
+            <td><div class="pair" style="background:#F4F4F3;color:#C4070E">RÓTULO</div></td>
+            <td class="ratio">5,64:1</td>
             <td><span class="verd verd--aa">AA texto normal</span></td>
             <td>Rótulo mono, mensagem de erro, foco</td>
           </tr>
           <tr>
-            <td><code>--asa-red</code> sobre creme</td>
-            <td><div class="pair" style="background:#FFFBF0;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
-            <td class="ratio">4,53:1</td>
+            <td><code>--asa-red</code> sobre cinza mist</td>
+            <td><div class="pair" style="background:#F4F4F3;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
+            <td class="ratio">4,26:1</td>
             <td><span class="verd verd--big">Só texto grande</span></td>
             <td>Preço e número em display — nunca em legenda</td>
           </tr>
@@ -227,7 +241,7 @@
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Correção de acessibilidade</span>
         <span class="asa-doc-card__title">Vermelho nunca vai como texto direto sobre amarelo</span>
         <p style="max-width:none">O handoff permitia vermelho sobre amarelo "a partir do corpo de destaque". Medido, o par dá <b>2,94:1</b> — abaixo até do mínimo de 3:1 para texto grande. É o único par da paleta que reprova.</p>
-        <p class="asa-doc-gloss">A correção não muda nada na estrutura, porque o sistema já resolvia isso sozinho: o vão põe promessa no campo amarelo e preço no campo claro. O preço vive sobre creme (4,53:1, aprovado em texto grande) ou sobre branco (4,68:1, aprovado em texto normal). O que muda é que agora isso é regra, não coincidência de composição.</p>
+        <p class="asa-doc-gloss">A correção não muda nada na estrutura, porque o sistema já resolvia isso sozinho: o vão põe promessa no campo amarelo e preço no campo claro. O preço vive sobre cinza mist (4,26:1, aprovado em texto grande) ou sobre branco (4,68:1, aprovado em texto normal). O que muda é que agora isso é regra, não coincidência de composição.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Sobre o botão vermelho em peça amarela</span>
@@ -237,8 +251,8 @@
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Dois vermelhos, dois papéis</span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">#E80911</code> texto grande</span><span class="asa-doc-spec__value">4,53:1 sobre creme</span></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">#C4070E</code> texto pequeno</span><span class="asa-doc-spec__value">6,00:1 sobre creme</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">#E80911</code> texto grande</span><span class="asa-doc-spec__value">4,26:1 sobre cinza mist</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">#C4070E</code> texto pequeno</span><span class="asa-doc-spec__value">5,64:1 sobre cinza mist</span></div>
         </div>
         <p class="asa-doc-gloss">O handoff já mandava usar o vermelho escuro em rótulo pequeno sobre fundo claro. O cálculo mostra por quê: é a diferença entre reprovar e passar em AA. A intuição estava certa; agora ela tem número.</p>
       </div>
@@ -286,7 +300,7 @@
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Sobre o preto não ser preto</span>
-      <p style="color:var(--asa-ink-inverse-2);max-width:700px">O preto da marca é <code class="asa-doc-code" style="color:var(--asa-surface)">#141517</code>, não <code class="asa-doc-code" style="color:var(--asa-surface)">#000000</code>. Preto puro sobre branco puro cria o contraste máximo possível, o que em tela tende a cansar a vista em leitura longa e a gerar uma leve vibração nas bordas do texto, especialmente em OLED. O #141517 mantém 17,66:1 sobre creme — folga de sobra sobre o mínimo — com leitura mais confortável.</p>
+      <p style="color:var(--asa-ink-inverse-2);max-width:700px">O preto da marca é <code class="asa-doc-code" style="color:var(--asa-surface)">#141517</code>, não <code class="asa-doc-code" style="color:var(--asa-surface)">#000000</code>. Preto puro sobre branco puro cria o contraste máximo possível, o que em tela tende a cansar a vista em leitura longa e a gerar uma leve vibração nas bordas do texto, especialmente em OLED. O #141517 mantém 16,60:1 sobre cinza mist — folga de sobra sobre o mínimo — com leitura mais confortável.</p>
     </div>
   </div>
 </section>
