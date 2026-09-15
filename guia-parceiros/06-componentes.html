@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 · Componentes — Guia de Marca Asa · Parceiros</title>
+<link rel="stylesheet" href="../css/asa-tokens.css">
+<link rel="stylesheet" href="../css/asa-base.css">
+<link rel="stylesheet" href="../css/asa-components.css">
+<link rel="stylesheet" href="../css/asa-utilities.css">
+<link rel="stylesheet" href="../css/asa-docs.css">
+<link rel="stylesheet" href="guia.css">
+</head>
+<body>
+
+<a class="asa-skiplink" href="#botoes">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="../assets/img/lockup.png" alt="">
+    <span class="asa-guia-badge">Guia para parceiros</span>
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html" aria-current="page">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Confiança</a>
+    <a href="10-tokens.html">10 Referência</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html">12 App nativo</a>
+    
+    <a href="14-downloads.html">14 Downloads</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
+  </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="botoes">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">06 · Componentes</span>
+    <h2>As peças que aparecem em toda comunicação, desenhadas uma vez.</h2>
+    <p class="asa-doc-section__lead">Cada componente do produto tem mais de uma aparência: um botão muda quando é tocado, quando está carregando ou quando está desabilitado; um campo muda quando está vazio, preenchido ou com erro. É esse conjunto completo de estados que mantém qualquer peça nova com a mesma cara do produto real.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Botão · hierarquia</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Reservar agora</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+          <span class="asa-demo__caption">Primário · a única ação da tela</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--secondary"><span class="asa-btn__label">Falar no WhatsApp</span></button>
+          <span class="asa-demo__caption">Secundário · suporte</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--outline"><span class="asa-btn__label">Voltar</span></button>
+          <span class="asa-demo__caption">Contorno · saída</span>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">Um único botão vermelho por peça. Se toda ação da tela for um botão sólido vermelho, nenhuma comunica prioridade — e o orçamento de 20% de área vermelha estoura na primeira composição.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Botão · estados</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Repouso · #E80911</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" style="background:#C4070E"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Hover e pressionado · #C4070E</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" style="outline:2px solid #C4070E;outline-offset:2px"><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Foco · outline, nunca sombra</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" data-state="loading"><span class="asa-btn__label">Reservar agora</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+          <span class="asa-demo__caption">Carregando</span>
+        </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--primary" disabled><span class="asa-btn__label">Reservar agora</span></button>
+          <span class="asa-demo__caption">Desabilitado</span>
+        </div>
+      </div>
+      <div class="asa-doc-cards" style="margin-top:24px">
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">O carregando não é enfeite</span>
+          <p class="asa-doc-gloss">Um botão que não muda durante a requisição convida o segundo clique — e o segundo clique aqui é uma segunda cobrança de caução no cartão. Todo botão que dispara ação assíncrona precisa do estado, e fica não-clicável enquanto ele durar.</p>
+        </div>
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">Por que não um spinner</span>
+          <p class="asa-doc-gloss">A marca não usa elementos girando. O carregando é feito de três pontos que acendem em sequência, formando uma onda suave — nunca um círculo giratório.</p>
+        </div>
+        <div class="asa-doc-card">
+          <span class="asa-doc-card__title">Desabilitado sem opacidade</span>
+          <p class="asa-doc-gloss">A marca não usa texto "apagado" por transparência — o estado desabilitado tem sua própria cor de fundo (<code class="asa-doc-code">#F2F2F0</code>) e de texto (<code class="asa-doc-code">#A8AAAE</code>), sempre legíveis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="marca">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Componentes de marca</span>
+    <h2>Etiqueta, preço e a placa de número.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Etiqueta de benefício</span>
+        <div class="asa-demo asa-demo--yellow">
+          <span class="asa-tag">Retirada em 8 min</span>
+          <span class="asa-tag asa-tag--ok">Reserva confirmada</span>
+          <span class="asa-tag asa-tag--ink">Sem taxa de aeroporto</span>
+          <span class="asa-tag asa-tag--warn">Restam 2 unidades</span>
+          <span class="asa-tag asa-tag--outline">Preferido do público</span>
+          <span class="asa-tag asa-tag--neutral">SUV</span>
+        </div>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Métrica</span><span class="asa-doc-spec__value">12px · 500 · 0.1em</span></div>
+          <div class="asa-doc-spec"><span>Padding</span><span class="asa-doc-spec__value">7px 10px</span></div>
+          <div class="asa-doc-spec"><span>Radius</span><span class="asa-doc-spec__value">0 — nenhum</span></div>
+        </div>
+        <p class="asa-doc-gloss">É o único componente retangular do sistema — o que já o separa de um botão à primeira vista. A variante verde marca confirmação; a preta, uma informação neutra; a amarela chama atenção sem parecer um erro. Numa vitrine cheia de carros, só o preço continua vermelho — os selos de categoria e prova social usam as outras cores, para não competir com esse sinal.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Preço</span>
+        <div class="asa-demo">
+          <div class="asa-price">
+            <span class="asa-price__label">diária a partir de</span>
+            <span class="asa-price__value">R$ 189</span>
+            <span class="asa-price__note">para retirada em Recife, 3 diárias</span>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">O valor é sempre em itálico e vermelho, no peso mais forte da fonte. Vive sobre fundo creme ou branco — nunca sobre amarelo, combinação que prejudica a leitura.</p>
+      </div>
+
+      <div class="asa-doc-card asa-doc-card--flush">
+        <div class="asa-numberplate">
+          <span class="asa-numberplate__value">4,7</span>
+          <span class="asa-numberplate__source">no Google, com mais de 4.500 avaliações</span>
+        </div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
+          <span class="asa-doc-block__title" style="margin:0">Placa de número</span>
+          <p class="asa-doc-gloss" style="margin:0">O componente mais usado do sistema. Números canônicos: 4,7 no Google e 9,4 no Reclame Aqui, acima das três maiores. Sempre em vírgula decimal, formato pt-BR — e sempre inteiros de uma vez. Contador animado remete a dashboard de software, não a reputação de gente.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Card de veículo · e o mesmo card carregando</span>
+      <div class="asa-doc-cards asa-doc-cards--tight">
+
+        <article class="asa-card asa-card-vehicle">
+          <div class="asa-cut">
+            <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · SUV no pátio ]</span></div>
+          </div>
+          <div class="asa-card__body">
+            <span class="asa-card-vehicle__category">Grupo H · SUV automático</span>
+            <h3 class="asa-card-vehicle__title">Ideal para Jericoacoara e Canoa Quebrada</h3>
+            <p class="asa-card-vehicle__specs">5 pessoas · 3 malas grandes · altura livre para estrada de areia</p>
+            <div class="asa-card-vehicle__footer">
+              <span class="asa-card-vehicle__price">R$ 189</span>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="asa-card asa-card-vehicle">
+          <div class="asa-cut">
+            <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · sedã na orla ]</span></div>
+          </div>
+          <div class="asa-card__body">
+            <span class="asa-card-vehicle__category">Grupo D · sedã automático</span>
+            <h3 class="asa-card-vehicle__title">Confortável para Porto de Galinhas com a família</h3>
+            <p class="asa-card-vehicle__specs">5 pessoas · 2 malas grandes · porta-malas fechado</p>
+            <div class="asa-card-vehicle__footer">
+              <span class="asa-card-vehicle__price">R$ 142</span>
+              <button class="asa-btn asa-btn--outline asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="asa-card" aria-busy="true">
+          <div class="asa-skeleton asa-skeleton--media"></div>
+          <div class="asa-card__body" style="gap:10px">
+            <div class="asa-skeleton asa-skeleton--text" style="width:45%"></div>
+            <div class="asa-skeleton asa-skeleton--title" style="width:90%"></div>
+            <div class="asa-skeleton asa-skeleton--title" style="width:60%"></div>
+            <div class="asa-skeleton asa-skeleton--text" style="width:75%"></div>
+            <div class="asa-card-vehicle__footer">
+              <div class="asa-skeleton asa-skeleton--title" style="width:72px"></div>
+              <div class="asa-skeleton" style="width:86px;height:40px"></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">O esqueleto tem o formato do conteúdo final, não um indicador genérico: a pessoa já entende a estrutura da tela antes dos dados chegarem, e lê isso como "quase pronto" em vez de "travado". É estático de propósito — um brilho em loop contínuo violaria o teto de 400ms e a regra de que nada no sistema pulsa.</p>
+      <p class="asa-doc-gloss" style="margin-top:8px;max-width:760px">Repare que o botão "Reservar" aqui é de contorno, não vermelho cheio: numa vitrine com vários carros lado a lado, o vermelho cheio fica reservado para o preço. A ação volta a ser um botão cheio só na tela de um carro único.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="campos">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Formulário</span>
+    <h2>Cinco estados por campo, do vazio ao erro.</h2>
+    <p class="asa-doc-section__lead">Um campo não é uma imagem estática: é um componente com estados, e são eles que respondem às perguntas que a pessoa faz enquanto preenche. Meu preenchimento foi aceito? Onde está o erro? Qual campo está em foco agora?</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-demo asa-demo--white asa-demo--grid">
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f1">Local de retirada</label>
+          <input class="asa-input" id="f1" placeholder="Aeroporto de Recife (REC)">
+          <span class="asa-demo__caption">Vazio · placeholder em 400</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f2">Local de retirada</label>
+          <input class="asa-input" id="f2" value="Aeroporto de Recife (REC)" style="border-color:#C4070E;outline:2px solid #C4070E;outline-offset:2px">
+          <span class="asa-demo__caption">Foco · borda e anel #C4070E</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f3">Local de retirada</label>
+          <input class="asa-input" id="f3" value="Aeroporto de Recife (REC)">
+          <span class="asa-demo__caption">Preenchido · valor em 500</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f4">CPF do condutor</label>
+          <input class="asa-input" id="f4" value="123.456.789-0" aria-invalid="true" aria-describedby="f4e">
+          <span class="asa-field__error" id="f4e">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            Faltou um dígito no CPF.
+          </span>
+          <span class="asa-demo__caption">Erro · mensagem colada ao campo</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f5">Local de devolução</label>
+          <input class="asa-input" id="f5" value="Mesmo local da retirada" disabled>
+          <span class="asa-demo__caption">Desabilitado · sem opacidade</span>
+        </div>
+
+        <div class="asa-field">
+          <label class="asa-field__label" for="f6">Senha</label>
+          <input class="asa-input" id="f6" type="password" value="123456789" aria-describedby="f6h">
+          <span class="asa-field__help" id="f6h">Oito caracteres ou mais. Você usa essa senha para ver suas reservas depois.</span>
+          <span class="asa-demo__caption">Com ajuda persistente</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Ajuda não vive no placeholder</span>
+        <p class="asa-doc-gloss">O placeholder some no primeiro caractere digitado. Qualquer coisa que a pessoa precise consultar <i>enquanto</i> preenche — formato de senha, onde fica o CVV — precisa de texto de ajuda persistente, visível com o campo já preenchido.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Erro cola no campo, não no topo</span>
+        <p class="asa-doc-gloss">No momento do erro a atenção já está naquele campo específico. Um banner genérico no topo do formulário obriga a pessoa a subir, ler e voltar procurando qual campo falhou.</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Nenhum texto abaixo de 12px</span>
+        <p style="max-width:none">Regra dura da marca: nenhum texto aparece em tela abaixo de 12px, nem o rótulo de um campo pequeno.</p>
+        <p class="asa-doc-gloss">A escala tipográfica tem cinco tamanhos, e o menor deles — a Etiqueta — já cobre o rótulo do campo sem quebrar essa regra.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Contorno, não preenchido</span>
+        <p class="asa-doc-gloss">O checkout tem mais de doze campos, e caixas preenchidas em sequência cansam a vista. Campo preenchido só faria sentido se o formulário estivesse sobre foto ou fundo colorido — que não é o caso: ele vive no campo claro do vão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="selecao">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Seleção</span>
+    <h2>Rádio, caixa e chave resolvem problemas diferentes.</h2>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Rádio · escolha exclusiva</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg" checked><span class="asa-choice__text"><span class="asa-choice__title">Cartão de crédito</span><span class="asa-choice__note">Caução bloqueada, não cobrada. Liberada em até 5 dias após a devolução.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg"><span class="asa-choice__text"><span class="asa-choice__title">Cartão de débito</span><span class="asa-choice__note">Sujeito a análise no balcão.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input" type="radio" name="pg" disabled><span class="asa-choice__text"><span class="asa-choice__title">Pix</span><span class="asa-choice__note">Indisponível para reservas com caução.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Uma opção entre várias que não podem coexistir. A forma de pagamento escolhida muda quais campos aparecem depois — boleto não pede número, validade nem CVV.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Caixa · escolhas independentes</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Concordo com os termos da locação</span><span class="asa-choice__note">Obrigatório para concluir a reserva.</span></span></label>
+          <label class="asa-choice asa-choice--optional"><input class="asa-choice__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Quero receber ofertas por WhatsApp</span><span class="asa-choice__note">Opcional. Você pode desativar quando quiser.</span></span></label>
+          <label class="asa-choice asa-choice--optional"><input class="asa-choice__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Salvar meus dados para a próxima reserva</span><span class="asa-choice__note">Deixa a segunda reserva mais rápida que a primeira.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">De zero a todas. A caixa opcional nasce sempre desmarcada e tem peso visual menor que a obrigatória — não são a mesma decisão, e não devem parecer a mesma.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Chave · efeito imediato</span>
+        <fieldset class="asa-fieldset">
+          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Avisar quando o carro estiver pronto</span><span class="asa-choice__note">Notificação no WhatsApp, na hora da retirada.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Lembrete de devolução</span><span class="asa-choice__note">Três horas antes do fim da diária de 27 horas.</span></span></label>
+        </fieldset>
+        <p class="asa-doc-gloss">Só para configuração binária que vale na hora, sem passo de salvar. Usar chave para algo que só é aplicado depois de um "salvar" deixa a pessoa em dúvida sobre se ainda precisa confirmar.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card asa-doc-card--cream">
+        <span class="asa-doc-card__title">Por que o marcado é preto e não vermelho</span>
+        <p class="asa-doc-gloss" style="max-width:760px">O vermelho é o orçamento da ação principal da tela. Um checkout com cinco caixas marcadas em vermelho estouraria o teto de 20% de área e faria o botão de confirmar deixar de ser o elemento de maior contraste — que é justamente o que a hierarquia depende. Marcado usa preto; o vermelho fica reservado ao único CTA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="compostos">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Compostos</span>
+    <h2>Busca, etapas e pagamento.</h2>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Busca de veículo · o componente central da locadora</span>
+      <div class="asa-demo asa-demo--yellow asa-demo--stack">
+        <form class="asa-search" style="width:100%">
+          <div class="asa-search__row">
+            <div class="asa-field">
+              <label class="asa-field__label" for="s1">Retirada</label>
+              <input class="asa-input" id="s1" value="Aeroporto de Recife (REC)">
+            </div>
+            <div class="asa-field">
+              <label class="asa-field__label" for="s2">Data e hora de retirada</label>
+              <input class="asa-input" id="s2" type="datetime-local" value="2026-10-02T10:00">
+            </div>
+            <div class="asa-field">
+              <label class="asa-field__label" for="s3">Data e hora de devolução</label>
+              <input class="asa-input" id="s3" type="datetime-local" value="2026-10-05T13:00">
+            </div>
+            <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
+          </div>
+        </form>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Fica sobre branco, dentro do campo claro do vão, com o amarelo em volta. O botão é o único vermelho da composição. Em telas abaixo de 768px os quatro blocos empilham — a busca nunca comprime a ponto de o alvo de toque cair abaixo de 44px.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Etapas do checkout</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack">
+        <ol class="asa-stepper" style="width:100%">
+          <li class="asa-stepper__item" data-state="done">
+            <span class="asa-stepper__index">Passo 1 · concluído</span>
+            <span class="asa-stepper__label">Dados do condutor</span>
+          </li>
+          <li class="asa-stepper__item" aria-current="step">
+            <span class="asa-stepper__index">Passo 2 · agora</span>
+            <span class="asa-stepper__label">Pagamento e caução</span>
+          </li>
+          <li class="asa-stepper__item">
+            <span class="asa-stepper__index">Passo 3</span>
+            <span class="asa-stepper__label">Confirmação</span>
+          </li>
+        </ol>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Dividir um formulário de doze campos em três telas reduz o esforço percebido a cada momento, mesmo que o trabalho total seja idêntico. E o indicador comunica que existe um fim conhecido: a incerteza de "quanto ainda falta" é uma das maiores causas de abandono. Voltar uma etapa nunca apaga o que já foi preenchido.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Campos de pagamento</span>
+      <div class="asa-doc-cards asa-doc-cards--wide">
+        <div class="asa-doc-card">
+          <fieldset class="asa-fieldset">
+            <div class="asa-field asa-field--adorned">
+              <label class="asa-field__label" for="cc">Número do cartão</label>
+              <input class="asa-input" id="cc" value="5432 1098 7654 3210" inputmode="numeric">
+              <span class="asa-field__adornment">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </span>
+            </div>
+            <div class="asa-field-row">
+              <div class="asa-field">
+                <label class="asa-field__label" for="val">Validade</label>
+                <input class="asa-input" id="val" value="09/29" inputmode="numeric">
+              </div>
+              <div class="asa-field">
+                <label class="asa-field__label" for="cvv">CVV</label>
+                <input class="asa-input" id="cvv" value="123" inputmode="numeric" aria-describedby="cvvh">
+                <span class="asa-field__help" id="cvvh">3 dígitos no verso</span>
+              </div>
+            </div>
+          </fieldset>
+          <p class="asa-doc-gloss">Validade e CVV lado a lado espelham o layout físico do cartão, que a pessoa provavelmente tem na mão. A bandeira reconhecida aparece dentro do próprio campo, confirmando visualmente que o sistema entendeu o número digitado.</p>
+        </div>
+
+        <div class="asa-doc-card">
+          <div class="asa-alert asa-alert--info">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">Caução de R$ 2.000 bloqueada, não cobrada</span>
+              <span class="asa-alert__text">O valor fica reservado no limite do cartão e é liberado em até 5 dias úteis depois da devolução. Sem letra miúda: não há desconto nem tarifa sobre esse valor.</span>
+            </div>
+          </div>
+          <div class="asa-alert asa-alert--ok">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">Reserva confirmada</span>
+              <span class="asa-alert__text">Código REC-4821. Enviamos tudo no seu WhatsApp.</span>
+            </div>
+          </div>
+          <div class="asa-alert asa-alert--error">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">O banco não autorizou</span>
+              <span class="asa-alert__text">Nada foi cobrado. Tente outro cartão, ou me chame no WhatsApp que eu resolvo com você.</span>
+            </div>
+          </div>
+          <p class="asa-doc-gloss">O alerta usa borda de 4px à esquerda e nenhuma sombra. O texto segue o Registro 2 — caixa baixa, conversacional, sem exclamação. É onde a promessa de "sem letra miúda" é testada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Total sempre junto do botão</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack" style="max-width:460px">
+        <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">3 diárias de 27h</span><span style="font-size:14px;font-weight:500">R$ 567,00</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Proteção básica</span><span style="font-size:14px;font-weight:500">R$ 89,00</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Taxa de aeroporto</span><span style="font-size:14px;font-weight:500;color:var(--asa-ok)">Não cobramos</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--asa-line);padding-top:10px">
+            <span style="font-size:14px;font-weight:700">Total</span>
+            <span style="font:italic 900 28px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action)">R$ 656,00</span>
+          </div>
+          <button class="asa-btn asa-btn--primary asa-btn--block" style="margin-top:6px"><span class="asa-btn__label">Confirmar e pagar</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Mostrar o valor total imediatamente acima do botão reduz a ansiedade de clicar em pagar sem uma confirmação final do que será cobrado. "Não cobramos" em verde transforma uma ausência de taxa em um benefício visível — é o mesmo fato operacional que a marca já usa na comunicação.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="flutuante">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Camada flutuante</span>
+    <h2>Sete peças que não existiam. Nada no sistema saía do documento.</h2>
+    <p class="asa-doc-section__lead">São as peças que aparecem por cima do resto da tela: confirmar uma ação, filtrar uma lista, escolher uma opção num menu. Todas usam o fundo creme da marca — branco sobre branco, separado só por uma borda fina, ficaria praticamente invisível.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Modal — diálogo centrado</span>
+      <div class="asa-demo asa-demo--white" style="position:relative;min-height:300px;padding:0;overflow:hidden">
+        <div class="asa-modal" data-state="open" style="position:absolute;inset:0">
+          <div class="asa-overlay" data-state="open" style="position:absolute"></div>
+          <div class="asa-modal__surface" role="dialog" aria-modal="true" aria-labelledby="modal-title-demo" style="position:relative;max-width:380px">
+            <div class="asa-modal__header">
+              <h3 class="asa-modal__title" id="modal-title-demo">Confirmar cancelamento?</h3>
+              <button class="asa-btn asa-btn--icon asa-btn--outline" aria-label="Fechar">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="asa-modal__body"><p style="max-width:none">Você perde o desconto de reserva antecipada.</p></div>
+            <div class="asa-modal__footer">
+              <button class="asa-btn asa-btn--outline">Voltar</button>
+              <button class="asa-btn asa-btn--primary">Cancelar reserva</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Uso: ver, alterar ou cancelar uma reserva sem sair da página, e explicar a caução com valor exato antes de pedir o cartão. O fundo escurece tudo por trás — é o único lugar do sistema em que o creme flutuante convive com um véu quase preto.</p>
+    </div>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Sheet — a mesma função, ancorada embaixo</span>
+        <div class="asa-demo asa-demo--white" style="position:relative;height:190px;padding:0;overflow:hidden">
+          <div class="asa-sheet" data-state="open" style="position:absolute;inset:0">
+            <div class="asa-sheet__surface" style="position:relative;max-width:none">
+              <div class="asa-sheet__handle"></div>
+              <p style="max-width:none">Filtrar por categoria</p>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">Padrão mobile: filtro da vitrine, seleção de proteção — qualquer ação que precise de mais espaço do que um menu simples, sem sair da tela.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Popover + menu</span>
+        <div class="asa-demo asa-demo--white" style="position:relative;height:190px">
+          <div class="asa-popover" data-state="open" style="position:absolute;top:0;left:0;min-width:200px">
+            <ul class="asa-menu" role="menu">
+              <li role="presentation"><button class="asa-menu__item" role="menuitem" data-state="selected">Português</button></li>
+              <li role="presentation"><button class="asa-menu__item" role="menuitem">English</button></li>
+              <hr class="asa-menu__divider" role="separator">
+              <li role="presentation"><button class="asa-menu__item asa-menu__item--danger" role="menuitem">Sair</button></li>
+            </ul>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">A mesma superfície serve ao autocomplete do combobox e ao calendário do datepicker — ver Motor de busca, abaixo.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Disclosure — troca de ícone, nunca gira</span>
+        <div class="asa-disclosure" data-state="closed">
+          <button class="asa-disclosure__trigger" aria-expanded="false">O que muda se eu cancelar?
+            <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+        </div>
+        <div class="asa-disclosure" data-state="open">
+          <button class="asa-disclosure__trigger" aria-expanded="true">O que muda se eu cancelar?
+            <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+          <div class="asa-disclosure__panel" style="--asa-disclosure-h:80px">
+            <div class="asa-disclosure__body">Cancelamento grátis até a retirada. Depois disso, cobra-se uma diária.</div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">Regra da marca: nada gira. O indicador de abrir/fechar troca de seta — nunca anima uma rotação.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="navegacao">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Navegação</span>
+    <h2>O menu real do portal. O chrome desta documentação nunca foi ele.</h2>
+    <p class="asa-doc-section__lead">O menu deste guia não é o menu do site. O menu real do produto é este: duas camadas empilhadas — uma barra de utilidade fina, e o menu principal logo abaixo dela — mais o substituto para telas pequenas.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Utility bar + navbar</span>
+      <div class="asa-frame">
+        <div class="asa-frame__bar"><span class="asa-frame__url">asalocadora.com.br</span></div>
+        <div class="asa-frame__body">
+          <div class="asa-utilitybar">
+            <div class="asa-utilitybar__group">
+              <a class="asa-utilitybar__link" href="#">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                0800 700 7000
+              </a>
+              <a class="asa-utilitybar__link" href="#">Recife · Fortaleza</a>
+            </div>
+            <div class="asa-utilitybar__group">
+              <a class="asa-utilitybar__link" href="#">Minha reserva</a>
+              <a class="asa-utilitybar__link" href="#">PT ▾</a>
+            </div>
+          </div>
+          <nav class="asa-navbar">
+            <a class="asa-navbar__brand" href="#"><img src="../assets/img/lockup.png" alt="Asa Rent a Car"></a>
+            <ul class="asa-navbar__nav">
+              <li><a class="asa-navbar__link" href="#" aria-current="page">Frota</a></li>
+              <li><a class="asa-navbar__link" href="#">Tarifas</a></li>
+              <li><a class="asa-navbar__link" href="#">Clube Asa</a></li>
+              <li><a class="asa-navbar__link" href="#">Dúvidas</a></li>
+            </ul>
+            <div class="asa-navbar__actions">
+              <button class="asa-btn asa-btn--outline asa-btn--sm">Entrar</button>
+              <button class="asa-btn asa-btn--icon asa-btn--outline asa-navbar__toggle" aria-label="Abrir menu">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">A barra fina do topo rola para fora da tela conforme a página desce — só o menu principal fica fixo. Em telas largas o menu horizontal aparece por completo; em telas de celular, vira um ícone que abre o menu lateral.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Navdrawer — substituto mobile</span>
+      <div class="asa-demo asa-demo--white" style="position:relative;height:320px;padding:0;overflow:hidden">
+        <div class="asa-navdrawer" data-state="open" style="position:absolute;inset:0">
+          <div class="asa-navdrawer__surface" style="position:relative">
+            <div class="asa-navdrawer__header">
+              <img src="../assets/img/lockup.png" alt="Asa Rent a Car" style="height:22px">
+              <button class="asa-btn asa-btn--icon asa-btn--outline" aria-label="Fechar menu">
+                <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <ul class="asa-navdrawer__list">
+              <li><a class="asa-navdrawer__link" href="#" aria-current="page">Frota</a></li>
+              <li><a class="asa-navdrawer__link" href="#">Tarifas</a></li>
+              <li><a class="asa-navdrawer__link" href="#">Clube Asa</a></li>
+              <li><a class="asa-navdrawer__link" href="#">Dúvidas</a></li>
+              <li><a class="asa-navdrawer__link" href="#">Minha reserva</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Mesmo par overlay + painel do modal e do sheet — muda só a direção de entrada, lateral em vez de central ou de baixo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="motor-busca">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Motor de busca</span>
+    <h2>Sete controles. O grid de quatro colunas não sobrevivia a isso.</h2>
+    <p class="asa-doc-section__lead">O motor de busca é o componente central da locadora, usado em três lugares do site. Reúne o campo de local, o calendário com hora, atalhos rápidos e a consulta de reserva já feita.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Busca completa</span>
+      <div class="asa-demo asa-demo--yellow" style="padding:0">
+        <form class="asa-search" style="width:100%">
+          <div class="asa-search__tabs" role="tablist">
+            <button class="asa-search__tab" type="button" role="tab" aria-selected="true">Carro</button>
+            <button class="asa-search__tab" type="button" role="tab" aria-selected="false">Utilitário</button>
+            <button class="asa-search__tab" type="button" role="tab" aria-selected="false">Van</button>
+          </div>
+          <div class="asa-search__row">
+            <div class="asa-field">
+              <label class="asa-field__label" for="m-local">Local de retirada</label>
+              <input class="asa-input" id="m-local" value="Aeroporto de Recife (REC)">
+            </div>
+            <div class="asa-field">
+              <label class="asa-field__label" for="m-data1">Retirada</label>
+              <input class="asa-input" id="m-data1" value="02/10/2026">
+            </div>
+            <div class="asa-field">
+              <label class="asa-field__label" for="m-data2">Devolução</label>
+              <input class="asa-input" id="m-data2" value="05/10/2026">
+            </div>
+            <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
+          </div>
+          <div class="asa-search__chips">
+            <button class="asa-chip" type="button" aria-pressed="false">Motorista 21–25 anos</button>
+            <button class="asa-chip" type="button" aria-pressed="true">CNH estrangeira</button>
+            <button class="asa-chip" type="button" aria-pressed="false">Tenho um cupom</button>
+          </div>
+          <div class="asa-search__aside">
+            <button class="asa-btn asa-btn--link" type="button">Já tem uma reserva? Consultar →</button>
+          </div>
+        </form>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">As abas escolhem o tipo de veículo (carro, utilitário, van); os campos de local e data seguem o mesmo layout de sempre; os atalhos rápidos cobrem idade do motorista, CNH estrangeira e cupom sem precisar de mais um campo; e a consulta de reserva já feita mora dentro do próprio bloco de busca.</p>
+    </div>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Combobox — quatro tipos de lugar</span>
+        <div class="asa-demo asa-demo--white" style="position:relative;padding:0;overflow:hidden;min-height:230px">
+          <div class="asa-popover" data-state="open" style="position:absolute;inset:8px;min-width:0">
+            <ul class="asa-combobox__list" role="listbox" aria-label="Sugestões de lugar">
+              <li class="asa-combobox__option" role="option" aria-selected="true">
+                <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+                <span class="asa-combobox__label"><span class="asa-combobox__name">Aeroporto de Recife</span><span class="asa-combobox__hint">Aeroporto</span></span>
+                <span class="asa-combobox__iata">REC</span>
+              </li>
+              <li class="asa-combobox__option" role="option" aria-selected="false">
+                <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+                <span class="asa-combobox__label"><span class="asa-combobox__name">Recife — Centro</span><span class="asa-combobox__hint">Cidade</span></span>
+              </li>
+              <li class="asa-combobox__option" role="option" aria-selected="false">
+                <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span class="asa-combobox__label"><span class="asa-combobox__name">Boa Viagem</span><span class="asa-combobox__hint">Bairro · Recife</span></span>
+              </li>
+              <li class="asa-combobox__option" role="option" aria-selected="false">
+                <svg class="asa-icon asa-combobox__option-type" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                <span class="asa-combobox__label"><span class="asa-combobox__name">Porto de Galinhas</span><span class="asa-combobox__hint">Destino</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">Aeroporto, cidade, bairro ou destino turístico: cada tipo de lugar tem seu próprio ícone na lista de sugestões, para facilitar a escolha rápida.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Datepicker + timeselect</span>
+        <div class="asa-demo asa-demo--white" style="flex-direction:column;align-items:stretch">
+          <div class="asa-popover" data-state="open" style="position:static;width:100%">
+            <div class="asa-datepicker__header">
+              <button class="asa-btn asa-btn--icon asa-btn--link" aria-label="Mês anterior">‹</button>
+              <span>Outubro 2026</span>
+              <button class="asa-btn asa-btn--icon asa-btn--link" aria-label="Próximo mês">›</button>
+            </div>
+            <div class="asa-datepicker__grid">
+              <span class="asa-datepicker__weekday">D</span><span class="asa-datepicker__weekday">S</span><span class="asa-datepicker__weekday">T</span><span class="asa-datepicker__weekday">Q</span><span class="asa-datepicker__weekday">Q</span><span class="asa-datepicker__weekday">S</span><span class="asa-datepicker__weekday">S</span>
+              <span></span><span></span><span></span><span></span>
+              <button class="asa-datepicker__day" disabled>1</button>
+              <button class="asa-datepicker__day" data-state="start">2</button>
+              <button class="asa-datepicker__day">3</button>
+              <button class="asa-datepicker__day" data-state="in-range">4</button>
+              <button class="asa-datepicker__day" data-state="in-range">5</button>
+              <button class="asa-datepicker__day" data-state="in-range">6</button>
+              <button class="asa-datepicker__day" data-state="in-range">7</button>
+              <button class="asa-datepicker__day" data-state="in-range">8</button>
+              <button class="asa-datepicker__day" data-state="in-range">9</button>
+              <button class="asa-datepicker__day" data-state="end">10</button>
+              <button class="asa-datepicker__day">11</button>
+              <button class="asa-datepicker__day">12</button>
+              <button class="asa-datepicker__day">13</button>
+              <button class="asa-datepicker__day">14</button>
+              <button class="asa-datepicker__day">15</button>
+              <button class="asa-datepicker__day">16</button>
+              <button class="asa-datepicker__day">17</button>
+            </div>
+          </div>
+          <div class="asa-field" style="margin-top:var(--asa-space-3)">
+            <label class="asa-field__label" for="m-time">Hora de retirada</label>
+            <select class="asa-timeselect" id="m-time">
+              <option>09:00</option>
+              <option selected>10:00</option>
+              <option>11:00</option>
+            </select>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">A diária de 27 horas só faz sentido se a hora exata de retirada e devolução entrar na busca — por isso o seletor de horário nunca aparece sozinho, sempre ao lado da data.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Chip · quatro usos</span>
+      <div class="asa-demo asa-demo--white">
+        <button class="asa-chip" type="button" aria-pressed="false">Sazonalidade · Carnaval</button>
+        <button class="asa-chip" type="button" aria-pressed="true">
+          <svg class="asa-icon asa-chip__icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          Filtro rápido · Automático
+        </button>
+        <button class="asa-chip" type="button" aria-pressed="false" disabled>Indisponível nesta data</button>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Cantos levemente arredondados, nunca em formato de pílula — a regra de forma da marca não abre exceção para o chip.</p>
+    </div>
+
+    <div class="asa-doc-cards">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Booking lookup · com moldura própria</span>
+        <div class="asa-booking-lookup">
+          <span class="asa-booking-lookup__title">Consultar minha reserva</span>
+          <div class="asa-booking-lookup__row">
+            <div class="asa-field"><label class="asa-field__label" for="bl-cod">Código da reserva</label><input class="asa-input" id="bl-cod" placeholder="AR-48291"></div>
+            <div class="asa-field"><label class="asa-field__label" for="bl-doc">CPF do condutor</label><input class="asa-input" id="bl-doc" placeholder="000.000.000-00"></div>
+          </div>
+          <button class="asa-btn asa-btn--outline" type="button">Consultar</button>
+        </div>
+        <p class="asa-doc-gloss">Em <code class="asa-doc-code">/minha-reserva</code>, com o cartão da própria página por baixo.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Booking lookup · <code class="asa-doc-code">--plain</code>, dentro de um popover</span>
+        <div class="asa-demo asa-demo--white" style="position:relative;padding:0;overflow:hidden;min-height:180px">
+          <div class="asa-popover" data-state="open" style="position:absolute;inset:8px;min-width:0">
+            <div class="asa-booking-lookup asa-booking-lookup--plain">
+              <span class="asa-booking-lookup__title">Minha reserva</span>
+              <div class="asa-booking-lookup__row">
+                <div class="asa-field"><label class="asa-field__label" for="bl2-cod">Código</label><input class="asa-input" id="bl2-cod" placeholder="AR-48291"></div>
+              </div>
+              <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Consultar</button>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">O mesmo bloco aparece no menu, no widget da página inicial e em "minha reserva" — três molduras, um componente só.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="vitrine">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Vitrine</span>
+    <h2>Filtro, resultado e o carro. O elo mais fraco do site atual.</h2>
+    <p class="asa-doc-section__lead"><code class="asa-doc-code">asa-filters</code>, <code class="asa-doc-code">asa-resultbar</code>, <code class="asa-doc-code">asa-speclist</code>, <code class="asa-doc-code">asa-rating</code> e <code class="asa-doc-code">asa-emptystate</code> — mais o <code class="asa-doc-code">asa-card-vehicle</code> completo, com selo, política de cancelamento, preço de 5 partes e dois CTAs.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Filtro + resultado, lado a lado</span>
+      <div class="asa-layout-2col">
+        <aside class="asa-filters">
+          <div class="asa-filters__group">
+            <span class="asa-filters__group-title">Categoria</span>
+            <label class="asa-choice asa-filters__option">
+              <input class="asa-choice__input" type="checkbox" checked>
+              <span class="asa-choice__text"><span class="asa-choice__title">Econômico</span></span>
+              <span class="asa-filters__count">12</span>
+            </label>
+            <label class="asa-choice asa-filters__option">
+              <input class="asa-choice__input" type="checkbox">
+              <span class="asa-choice__text"><span class="asa-choice__title">SUV</span></span>
+              <span class="asa-filters__count">8</span>
+            </label>
+            <label class="asa-choice asa-filters__option">
+              <input class="asa-choice__input" type="checkbox" disabled>
+              <span class="asa-choice__text"><span class="asa-choice__title">Van</span></span>
+              <span class="asa-filters__count">0</span>
+            </label>
+          </div>
+          <div class="asa-filters__group">
+            <span class="asa-filters__group-title">Câmbio</span>
+            <label class="asa-choice asa-filters__option">
+              <input class="asa-choice__input" type="checkbox">
+              <span class="asa-choice__text"><span class="asa-choice__title">Automático</span></span>
+              <span class="asa-filters__count">17</span>
+            </label>
+            <label class="asa-choice asa-filters__option">
+              <input class="asa-choice__input" type="checkbox">
+              <span class="asa-choice__text"><span class="asa-choice__title">Manual</span></span>
+              <span class="asa-filters__count">3</span>
+            </label>
+          </div>
+          <button class="asa-btn asa-btn--link asa-filters__clear" type="button">Limpar filtros</button>
+        </aside>
+
+        <div>
+          <div class="asa-resultbar">
+            <span class="asa-resultbar__count">20 carros disponíveis</span>
+            <label class="asa-resultbar__sort">Ordenar:
+              <select class="asa-select">
+                <option>Recomendado</option>
+                <option>Menor preço</option>
+                <option>Maior nota</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="asa-doc-cards" style="margin-top:var(--asa-space-4)">
+            <article class="asa-card asa-card-vehicle">
+              <span class="asa-tag asa-tag--outline asa-card-vehicle__badge">Preferido do público</span>
+              <div class="asa-cut">
+                <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · SUV no pátio ]</span></div>
+              </div>
+              <div class="asa-card__body">
+                <span class="asa-card-vehicle__category">Grupo H · SUV automático</span>
+                <h3 class="asa-card-vehicle__title">Ideal para Jericoacoara e Canoa Quebrada</h3>
+                <ul class="asa-speclist">
+                  <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 pessoas</li>
+                  <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>3 malas</li>
+                  <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v3m0 12v3m9-9h-3M6 12H3"/></svg>Automático</li>
+                </ul>
+                <span class="asa-rating"><span class="asa-rating__value">4,7</span><span class="asa-rating__source">no Google</span><span class="asa-rating__count">· +4.500</span></span>
+                <span class="asa-card-vehicle__policy">
+                  <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  Cancele grátis até a retirada
+                </span>
+                <div class="asa-card-vehicle__footer">
+                  <div class="asa-price">
+                    <span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 656</span>
+                    <span class="asa-price__daily">R$ 189/diária</span>
+                    <span class="asa-price__pix">Pix · 5% off</span>
+                  </div>
+                  <div class="asa-card-vehicle__actions">
+                    <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Detalhes</button>
+                    <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Reservar</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="asa-card asa-card-vehicle" data-state="soldout">
+              <div class="asa-card-vehicle__soldout">Esgotado nesta data</div>
+              <div class="asa-cut">
+                <div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · sedã na orla ]</span></div>
+              </div>
+              <div class="asa-card__body">
+                <span class="asa-card-vehicle__category">Grupo D · sedã automático</span>
+                <h3 class="asa-card-vehicle__title">Confortável para Porto de Galinhas</h3>
+                <ul class="asa-speclist">
+                  <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>5 pessoas</li>
+                  <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>2 malas</li>
+                </ul>
+                <div class="asa-card-vehicle__footer">
+                  <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 426</span></div>
+                  <div class="asa-card-vehicle__actions">
+                    <button class="asa-btn asa-btn--outline asa-btn--sm" type="button" disabled>Reservar</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Em telas menores, o filtro e a lista de resultados empilham em vez de ficar lado a lado. Uma categoria com contagem zero fica desabilitada, não desaparece — assim o layout não muda a cada clique. O segundo card mostra um carro esgotado: véu sobre a foto e botão de reserva desabilitado.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Empty state</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-emptystate" style="width:100%">
+          <svg class="asa-icon asa-icon--feature" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <p class="asa-emptystate__title">Nenhum carro com esses filtros</p>
+          <p class="asa-emptystate__text">Tente remover um filtro ou ampliar o intervalo de datas.</p>
+          <button class="asa-btn asa-btn--outline" type="button">Limpar filtros</button>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Quando os filtros combinados não encontram nenhum carro, a tela sempre oferece uma saída de ação — nunca só um aviso de "nenhum resultado".</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="funil">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Funil</span>
+    <h2>Resumo, upsell, comparação, adicional, preço e pagamento.</h2>
+    <p class="asa-doc-section__lead">Seis componentes do checkout — dois deles (resumo fixo e upsell) já são prática da Asa hoje, e nunca tinham virado código.</p>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Summary — resumo fixo</span>
+        <div class="asa-summary asa-summary--sticky" style="position:static">
+          <div class="asa-summary__row"><span>3 diárias · Grupo H</span><span>R$ 567,00</span></div>
+          <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 89,00</span></div>
+          <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 656,00</span></div>
+        </div>
+        <p class="asa-doc-gloss">Em telas largas, o resumo fica fixo ao lado, logo abaixo do menu. Em telas de celular, ele vira uma barra fixa no rodapé — mesma informação, dois lugares diferentes.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Upsell</span>
+        <label class="asa-upsell">
+          <input class="asa-choice__input" type="checkbox">
+          <span class="asa-upsell__body">
+            <span class="asa-upsell__title">Categoria SUV</span>
+            <span class="asa-upsell__proof">Escolhido por 4 em cada 10 clientes</span>
+          </span>
+          <span class="asa-upsell__delta">+R$ 3,00/dia</span>
+        </label>
+        <p class="asa-doc-gloss">Oferecer o upgrade de categoria já é prática da Asa — este é o componente visual para isso.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Comparison — proteções lado a lado</span>
+      <div class="asa-comparison">
+        <div class="asa-comparison__row asa-comparison__row--head">
+          <div class="asa-comparison__col">Cobertura</div>
+          <div class="asa-comparison__col">Básica</div>
+          <div class="asa-comparison__col">Completa</div>
+          <div class="asa-comparison__col">Total</div>
+        </div>
+        <div class="asa-comparison__row">
+          <div class="asa-comparison__col">Colisão</div>
+          <div class="asa-comparison__col">Franquia R$2.500</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">Franquia R$800</div>
+          <div class="asa-comparison__col">Sem franquia</div>
+        </div>
+        <div class="asa-comparison__row">
+          <div class="asa-comparison__col">Vidros e pneus</div>
+          <div class="asa-comparison__col">—</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">—</div>
+          <div class="asa-comparison__col">Incluso</div>
+        </div>
+        <div class="asa-comparison__row">
+          <div class="asa-comparison__col">Preço/diária</div>
+          <div class="asa-comparison__col">Incluso</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">+R$29</div>
+          <div class="asa-comparison__col">+R$49</div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Uma tabela comparativa lado a lado, no lugar de três blocos de texto separados — mais fácil de comparar as coberturas de proteção.</p>
+    </div>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Addon — <code class="asa-doc-code">asa-choice--card</code></span>
+        <div class="asa-stack" style="gap:var(--asa-space-2)">
+          <label class="asa-choice asa-choice--card">
+            <input class="asa-choice__input" type="checkbox" checked>
+            <span class="asa-choice__text"><span class="asa-choice__title">Combustível pré-pago</span><span class="asa-choice__note">Devolva vazio, sem correr para o posto</span></span>
+            <span class="asa-choice__price">+R$79</span>
+          </label>
+          <label class="asa-choice asa-choice--card">
+            <input class="asa-choice__input" type="checkbox">
+            <span class="asa-choice__text"><span class="asa-choice__title">GPS</span></span>
+            <span class="asa-choice__price">+R$19/dia</span>
+          </label>
+        </div>
+        <p class="asa-doc-gloss">Estado marcado é a borda inteira (2px), não só o quadrado de 20px — numa lista de 4-5 adicionais em sequência, um check pequeno se perde.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Price breakdown — dentro de um disclosure</span>
+        <div class="asa-disclosure" data-state="open">
+          <button class="asa-disclosure__trigger" aria-expanded="true">Como chegamos em R$ 656,00?
+            <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+          <div class="asa-disclosure__panel" style="--asa-disclosure-h:160px">
+            <div class="asa-disclosure__body">
+              <div class="asa-pricebreakdown">
+                <div class="asa-summary__row"><span>Diária × 3</span><span>R$ 567,00</span></div>
+                <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 89,00</span></div>
+                <div class="asa-summary__row"><span>Taxa de aeroporto</span><span style="color:var(--asa-ok)">Não cobramos</span></div>
+                <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 656,00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss">Detalhar como o total foi calculado evita que o preço final pareça uma surpresa — a pessoa vê exatamente o que compõe o valor.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Paymethod</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-paymethod">
+          <span class="asa-paymethod__pix">Pix</span>
+          <span class="asa-paymethod__discount">5% de desconto</span>
+          <span class="asa-paymethod__installments">ou 12x sem juros no cartão</span>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">O turquesa do Pix é a única cor "emprestada" de fora da marca no sistema — aparece só aqui, e não se espalha para nenhum outro componente.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="pos-venda">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Pós-venda e confiança</span>
+    <h2>A reserva depois de feita, e o que sustenta a confiança ao redor dela.</h2>
+    <p class="asa-doc-section__lead">O cartão de reserva e a lista de tarefas aparecem em "minha reserva"; a trinca de confiança, o aviso de cookies, a barra de cupom e o espaço reservado para foto completam essa etapa da jornada.</p>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card asa-doc-card--flush">
+        <article class="asa-card asa-card-booking">
+          <div class="asa-card-booking__header">
+            <span class="asa-card-booking__code">AR-48291</span>
+            <span class="asa-tag asa-tag--ok">Confirmada</span>
+          </div>
+          <div class="asa-card-booking__body">
+            <span class="asa-card-booking__vehicle">Ideal para Jericoacoara — Grupo H</span>
+            <ul class="asa-speclist">
+              <li class="asa-speclist__item">Retirada 02/10 · 10:00</li>
+              <li class="asa-speclist__item">Devolução 05/10 · 13:00</li>
+            </ul>
+          </div>
+          <div class="asa-card-booking__footer">
+            <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Alterar</button>
+            <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Cancelar</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-doc-card__title">Tasklist — "tudo resolvido sem sair daqui"</span>
+        <ul class="asa-tasklist">
+          <li class="asa-tasklist__item" data-state="done">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Check-in Asa Express
+          </li>
+          <li class="asa-tasklist__item" aria-current="step">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
+            Confirmar horário de retirada
+          </li>
+          <li class="asa-tasklist__item">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
+            Avaliar sua experiência
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Reassurance — a trinca abaixo do motor</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-reassurance" style="width:100%">
+          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Cancelamento grátis</span>
+          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Sem taxa de aeroporto</span>
+          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Suporte 24h</span>
+          <span class="asa-reassurance__proof">+1.200 reservas feitas nas últimas 48 horas</span>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">A linha de prova social ao vivo (quantidade de reservas recentes) é opcional e sempre estática — nunca um contador animado.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Figure — quando a foto real existir</span>
+      <div class="asa-doc-cards">
+        <div>
+          <div class="asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · Boa Viagem, Recife ]</span></div>
+          <p class="asa-doc-gloss" style="margin-top:8px">Hoje: <code class="asa-doc-code">asa-photo</code>, hachura por design.</p>
+        </div>
+        <div>
+          <figure class="asa-figure asa-figure--16x9" style="background:var(--asa-disabled-bg)">
+            <svg viewBox="0 0 400 225" style="width:100%;height:100%;display:block" aria-hidden="true"><rect width="400" height="225" fill="#E4E0DA"/><circle cx="330" cy="55" r="26" fill="#FEC42B"/><path d="M0 190 Q100 140 200 175 T400 160 V225 H0 Z" fill="#C9C3B8"/></svg>
+            <figcaption class="asa-figure__caption">Boa Viagem, Recife</figcaption>
+          </figure>
+          <p class="asa-doc-gloss" style="margin-top:8px">Amanhã: <code class="asa-doc-code">asa-figure</code>, mesma proporção e legenda — câmera diferente.</p>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">A direção é trocar foto de carro em estúdio por foto de lugar real e gente de verdade. O sistema já entrega o espaço, o corte de 8° e a legenda; a fotografia em si é o próximo passo — até lá, o hachurado é o correto a mostrar.</p>
+    </div>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card asa-doc-card--flush">
+        <div class="asa-consent" style="position:static;border-top:none">
+          <div class="asa-consent__banner">
+            <p class="asa-consent__text">Usamos cookies para lembrar suas buscas e medir o que funciona. Você decide o quanto.</p>
+            <div class="asa-consent__actions">
+              <button class="asa-btn asa-btn--link" type="button">Preferências</button>
+              <button class="asa-btn asa-btn--outline" type="button">Recusar</button>
+              <button class="asa-btn asa-btn--primary" type="button">Aceitar</button>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="padding:0 var(--asa-space-4) var(--asa-space-4);margin:0">O painel de preferências detalhadas fica escondido por padrão, revelado só quando a pessoa toca em "Preferências".</p>
+      </div>
+      <div class="asa-doc-card asa-doc-card--flush">
+        <div class="asa-stickybar" style="position:static">
+          <span>5% off na sua primeira locação — código BEMVINDO</span>
+          <button class="asa-btn asa-btn--icon asa-stickybar__dismiss" type="button" aria-label="Fechar" style="background:transparent">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <p class="asa-doc-gloss" style="padding:var(--asa-space-4)">Uma barra fixa com o cupom de primeira locação, em vez de um carrossel de slides que passa sozinho e some.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="navegacao-estendida">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Navegação estendida</span>
+    <h2>O que faltava depois do menu: rodapé, trilha e as duas formas de trocar de contexto.</h2>
+    <p class="asa-doc-section__lead">Completam a navegação: o rodapé, a trilha de localização (breadcrumb), as abas de conteúdo e a barra de navegação inferior do futuro aplicativo.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Footer — hub de links por abas</span>
+      <footer class="asa-footer" style="border-radius:var(--asa-radius)">
+        <div class="asa-footer__inner">
+          <div class="asa-footer__brand"><img src="../assets/img/lockup-branco.png" alt="Asa Rent a Car"></div>
+          <div>
+            <div class="asa-footer__tabs" role="tablist">
+              <button class="asa-footer__tab" role="tab" aria-selected="true" type="button">Aeroportos</button>
+              <button class="asa-footer__tab" role="tab" aria-selected="false" type="button">Cidades</button>
+              <button class="asa-footer__tab" role="tab" aria-selected="false" type="button">Destinos</button>
+            </div>
+            <div class="asa-footer__linkhub" style="margin-top:var(--asa-space-4)">
+              <div class="asa-footer__group">
+                <span class="asa-footer__group-title">Recife</span>
+                <a class="asa-footer__link" href="#">Aluguel de carro no Aeroporto do Recife</a>
+                <a class="asa-footer__link" href="#">Retirada em Boa Viagem</a>
+              </div>
+              <div class="asa-footer__group">
+                <span class="asa-footer__group-title">Fortaleza</span>
+                <a class="asa-footer__link" href="#">Aluguel de carro no Aeroporto de Fortaleza</a>
+                <a class="asa-footer__link" href="#">Retirada na Beira-Mar</a>
+              </div>
+              <div class="asa-footer__group">
+                <span class="asa-footer__group-title">Frota</span>
+                <a class="asa-footer__link" href="#">Econômicos</a>
+                <a class="asa-footer__link" href="#">SUVs</a>
+              </div>
+              <div class="asa-footer__group">
+                <span class="asa-footer__group-title">Ajuda</span>
+                <a class="asa-footer__link" href="#">Dúvidas frequentes</a>
+                <a class="asa-footer__link" href="#">Minha reserva</a>
+              </div>
+            </div>
+          </div>
+          <div class="asa-footer__bottom">
+            <ul class="asa-footer__legal">
+              <li><a href="#">Termos de uso</a></li>
+              <li><a href="#">Privacidade</a></li>
+              <li><a href="#">Trabalhe conosco</a></li>
+            </ul>
+            <div class="asa-footer__social">
+              <a href="#" aria-label="Instagram"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+              <a href="#" aria-label="WhatsApp"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Um rodapé com abas por Aeroportos, Cidades e Destinos organiza dezenas de páginas de conteúdo sem precisar de uma coluna nova a cada cidade nova. O amarelo aqui é só acento de marca sobre fundo escuro, não ação — por isso marca a aba ativa, e não o vermelho.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Breadcrumb</span>
+      <div class="asa-demo asa-demo--white">
+        <nav aria-label="Trilha">
+          <ol class="asa-breadcrumb">
+            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="#">Início</a></li>
+            <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
+            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="#">Frota</a></li>
+            <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
+            <li class="asa-breadcrumb__item" aria-current="page">SUV automático</li>
+          </ol>
+        </nav>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Útil em qualquer página vários níveis abaixo da home — ajuda a pessoa a entender onde está e a voltar. O último item nunca é um link, porque já é a página atual.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Tabs — linha e segmentado</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack">
+        <div class="asa-tabs" role="tablist">
+          <button class="asa-tabs__tab" role="tab" aria-selected="true" type="button">Dicas de viagem</button>
+          <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Aeroportos</button>
+          <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Novidades</button>
+        </div>
+        <div class="asa-tabs asa-tabs--segmented" role="tablist">
+          <button class="asa-tabs__tab" role="tab" aria-selected="true" type="button">Alugar</button>
+          <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Comprar</button>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">A versão em linha serve para categorias de conteúdo; a versão segmentada, para alternar entre duas opções de peso igual, como "Alugar" e "Comprar". O preenchimento é sempre neutro, nunca vermelho — essa cor fica reservada para o botão de ação da tela.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Tab bar de app</span>
+      <div class="asa-demo asa-demo--white" style="padding:0;max-width:320px">
+        <nav class="asa-tabbar" style="width:100%">
+          <a class="asa-tabbar__item" href="#" aria-current="page">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Buscar
+          </a>
+          <a class="asa-tabbar__item" href="#">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            Reservas
+          </a>
+          <a class="asa-tabbar__item" href="#">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Perfil
+          </a>
+        </nav>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">A barra de navegação inferior do futuro aplicativo. O estado ativo repete a mesma linguagem do menu do site — cor, peso e traço — nunca um segundo vermelho de destaque.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="conteudo">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Conteúdo</span>
+    <h2>Blog, dúvidas e páginas institucionais precisam de mais do que título e parágrafo.</h2>
+    <p class="asa-doc-section__lead">A prateleira de destinos e os quatro tipos de cartão de conteúdo que a home e as páginas de destino precisam além do card de veículo, mais paginação, texto corrido, perguntas frequentes e depoimento.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Shelf — prateleira contextual</span>
+      <div class="asa-demo asa-demo--white asa-demo--stack">
+        <div class="asa-shelf" style="width:100%">
+          <div class="asa-shelf__head">
+            <h3 class="asa-shelf__title">Disponível neste fim de semana em Recife</h3>
+            <a class="asa-shelf__link" href="#">Ver todos</a>
+          </div>
+          <div class="asa-shelf__track">
+            <a class="asa-card-destination" href="#">
+              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--4x5"><span class="asa-photo__caption">[ foto · Porto de Galinhas ]</span></div></div>
+              <h4 class="asa-card-destination__title">Porto de Galinhas</h4>
+              <p class="asa-card-destination__note">a partir de R$ 149/diária</p>
+            </a>
+            <a class="asa-card-destination" href="#">
+              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--4x5"><span class="asa-photo__caption">[ foto · Jericoacoara ]</span></div></div>
+              <h4 class="asa-card-destination__title">Jericoacoara</h4>
+              <p class="asa-card-destination__note">a partir de R$ 189/diária</p>
+            </a>
+            <a class="asa-card-destination" href="#">
+              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--4x5"><span class="asa-photo__caption">[ foto · Canoa Quebrada ]</span></div></div>
+              <h4 class="asa-card-destination__title">Canoa Quebrada</h4>
+              <p class="asa-card-destination__note">a partir de R$ 169/diária</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Rolagem horizontal simples, sem seta nem bolinha de página — a regra de "nada gira ou pulsa" também vale para indicador de carrossel.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Card de oferta, loja e artigo</span>
+      <div class="asa-doc-cards">
+        <div class="asa-card asa-card-offer">
+          <span class="asa-tag asa-tag--outline">Só esta semana</span>
+          <h3 class="asa-card-offer__title">5% off à vista no Pix</h3>
+          <p class="asa-card-offer__text">Válido para retirada em Recife e Fortaleza até domingo.</p>
+          <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Ver condições</button>
+        </div>
+        <div class="asa-card asa-card-store">
+          <h3 class="asa-card-store__title">Aeroporto do Recife</h3>
+          <p class="asa-card-store__row">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Terminal de Passageiros, Recife/PE
+          </p>
+          <p class="asa-card-store__row">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg>
+            Aberto agora · até 23h
+          </p>
+          <a class="asa-card-store__link" href="#">Como chegar</a>
+        </div>
+        <article class="asa-card asa-card-article">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · pátio de retirada ]</span></div></div>
+          <span class="asa-card-article__category">Aeroporto</span>
+          <h3 class="asa-card-article__title">O que fazer nos 8 minutos entre o desembarque e a retirada</h3>
+          <p class="asa-card-article__excerpt">Sem taxa de aeroporto e sem fila de transfer — o guia rápido de quem chega em Recife.</p>
+          <p class="asa-card-article__meta">10 set 2026 · 4 min de leitura</p>
+        </article>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Cartões para as páginas de ofertas, lojas e blog. O card de artigo herda o mesmo corte de 8° do card de veículo — nenhum tipo de card do sistema usa uma moldura de foto diferente.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Pagination</span>
+      <div class="asa-demo asa-demo--white">
+        <nav aria-label="Páginas">
+          <ul class="asa-pagination" style="list-style:none;margin:0;padding:0">
+            <li><a class="asa-pagination__item" href="#" aria-disabled="true">‹</a></li>
+            <li><a class="asa-pagination__item" href="#" aria-current="page">1</a></li>
+            <li><a class="asa-pagination__item" href="#">2</a></li>
+            <li><a class="asa-pagination__item" href="#">3</a></li>
+            <li><a class="asa-pagination__item" href="#">›</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Útil para blog e listagens longas. A página atual usa preenchimento escuro sólido: é uma posição, não um botão de ação.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Prose — bloco de texto corrido</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-prose">
+          <h2>Diária de 27 horas: o que isso muda na sua viagem</h2>
+          <p>Na Asa, a diária começa na hora da retirada e vale por 27 horas, não 24 — devolver com até três horas de atraso não gera cobrança extra. É regra operacional, não promoção, e por isso vive como texto corrido, não como selo.</p>
+          <h3>Retirada em 8 minutos</h3>
+          <p>O balcão fica dentro do saguão do aeroporto. Sem transfer, sem taxa de aeroporto embutida na tarifa exibida.</p>
+          <p>Veja também as <a href="#">regras de locação</a> e a <a href="#">política de combustível</a>.</p>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">O bloco de texto corrido usado em artigos e páginas institucionais, com largura de linha e espaçamento pensados para leitura confortável.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Accordion — FAQ</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-accordion" style="width:100%">
+          <div class="asa-disclosure" data-state="open">
+            <button class="asa-disclosure__trigger" aria-expanded="true">Preciso de cartão de crédito para alugar?
+              <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+            <div class="asa-disclosure__panel" style="--asa-disclosure-h:80px">
+              <div class="asa-disclosure__body">Sim, para a caução. Aceitamos as principais bandeiras, no nome do condutor principal.</div>
+            </div>
+          </div>
+          <div class="asa-disclosure" data-state="closed">
+            <button class="asa-disclosure__trigger" aria-expanded="false">Posso devolver o carro em outra cidade?
+              <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Usa o mesmo componente de pergunta/resposta que aparece em outras partes do sistema, agrupado numa única lista de perguntas frequentes.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Testimonial</span>
+      <div class="asa-doc-cards">
+        <div class="asa-card asa-testimonial">
+          <p class="asa-testimonial__quote">Retirei o carro em 10 minutos, sem sair da fila do aeroporto para achar um totem de outra locadora.</p>
+          <div class="asa-testimonial__footer">
+            <span class="asa-avatar" aria-hidden="true"></span>
+            <div>
+              <span class="asa-testimonial__name">Marcela T.</span>
+              <span class="asa-testimonial__source">Google · Recife</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Um depoimento real de cliente, com nome e origem — o componente funciona mesmo sem uma foto do cliente, com um avatar simples no lugar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="conta">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Conta e assinatura</span>
+    <h2>Check-in expresso, código de verificação e o único bloco de comparação de planos.</h2>
+    <p class="asa-doc-section__lead">O envio de documento para o check-in "Asa Express", o campo de código de verificação e o cartão de comparação de planos do Clube Asa.</p>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Upload de documento</span>
+      <div class="asa-doc-cards">
+        <div class="asa-upload">
+          <div class="asa-upload__dropzone">
+            <svg class="asa-icon asa-icon--feature" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p class="asa-upload__text">Arraste a CNH ou toque para escolher o arquivo</p>
+            <p class="asa-upload__hint">JPG ou PDF, até 10MB</p>
+          </div>
+        </div>
+        <div class="asa-upload" data-state="done">
+          <div class="asa-upload__file">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            cnh-frente.jpg
+          </div>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Mesmo visual dos campos de formulário do sistema, para não parecer uma ferramenta de terceiro solta dentro da tela.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Código de verificação</span>
+      <div class="asa-demo asa-demo--white">
+        <div class="asa-codeinput">
+          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" autocomplete="one-time-code" value="4">
+          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" value="7">
+          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1" value="2">
+          <input class="asa-input asa-codeinput__digit" inputmode="numeric" maxlength="1">
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Cada dígito é um campo do próprio sistema, com o mesmo destaque de foco e de erro que qualquer outro campo de formulário.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Card de plano</span>
+      <div class="asa-doc-cards">
+        <div class="asa-card asa-card-plan">
+          <span class="asa-card-plan__name">Avulso</span>
+          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 0</span><span class="asa-price__note">sem mensalidade</span></div>
+          <ul class="asa-card-plan__benefits">
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Preço de tabela</li>
+          </ul>
+          <button class="asa-btn asa-btn--outline" type="button">Continuar avulso</button>
+        </div>
+        <div class="asa-card asa-card-plan asa-card-plan--featured">
+          <span class="asa-tag asa-tag--ink" style="align-self:flex-start">Mais escolhido</span>
+          <span class="asa-card-plan__name">Clube Asa</span>
+          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 19</span><span class="asa-price__note">/ano</span></div>
+          <ul class="asa-card-plan__benefits">
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>10% off em toda reserva</li>
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Cancelamento grátis sempre</li>
+          </ul>
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Assinar Clube Asa</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Reaproveita o mesmo cartão e o mesmo preço vermelho do restante do sistema, em vez de inventar uma quarta variação de cartão. Sem gamificação: o benefício é desconto e cancelamento, nunca pontos ou selo de nível.</p>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="05-icones.html"><span>Anterior</span><b>← 05 · Ícones</b></a>
+  <a class="asa-doc-next__link" href="07-hierarquia.html" style="text-align:right"><span>Próxima seção</span><b>07 · Hierarquia →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="../assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Guia de Marca Asa Rent a Car · para agências e fornecedores parceiros.</p>
+</footer>
+
+</body>
+</html>

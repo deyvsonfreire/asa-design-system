@@ -13,7 +13,7 @@
   .step { display:flex; flex-direction:column; gap:10px; border-bottom:1px solid var(--asa-line-soft); padding:26px 0; }
   .step:last-child { border-bottom:0; }
   .step__meta { display:flex; gap:18px; flex-wrap:wrap; }
-  .step__meta span { font-family:var(--asa-font-mono); font-size:11px; letter-spacing:.1em; color:var(--asa-ink-3); text-transform:uppercase; }
+  .step__meta span { font-family:var(--asa-font-mono); font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--asa-ink-2); text-transform:uppercase; }
   /* O espécime mostra o tamanho REAL do degrau — 64px é 64px. Em tela
      estreita ele rola na própria caixa em vez de encolher, porque um
      espécime reduzido documentaria um tamanho que não existe. */
@@ -48,7 +48,8 @@
     <a href="10-tokens.html">10 Tokens</a>
     <a href="11-movimento.html">11 Movimento</a>
     <a href="12-app-nativo.html">12 App nativo</a>
-    <a href="13-roadmap.html">13 Roadmap</a>
+    
+    <a href="14-downloads.html">14 Downloads</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -83,6 +84,12 @@
           <div class="asa-doc-spec"><span>Fallback</span><span class="asa-doc-spec__value">Helvetica Neue, Arial</span></div>
         </div>
         <p class="asa-doc-gloss">A face de display usa <code class="asa-doc-code">block</code> em vez de <code class="asa-doc-code">swap</code> de propósito: um flash de Helvetica Bold Italic num título de 64px em caixa alta é dano de marca visível. No corpo de 16px, o mesmo flash não é.</p>
+        <div style="margin-top:16px">
+          <a class="asa-download-btn" href="assets/downloads/fontes/pacote-tipografia-br-omny.zip" download>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Baixar Família BR Omny (.zip)
+          </a>
+        </div>
       </div>
 
       <div class="asa-doc-card asa-doc-card--yellow">
@@ -179,30 +186,30 @@
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card asa-doc-card--yellow">
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Registro 1 · Anúncio</span>
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase">Seu carro já tá te esperando.</span>
-          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase">Retirada em 8 minutos, no saguão do aeroporto.</span>
-          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase">Dentro do saguão. Aberto 24 horas.</span>
+        <div style="display:flex;flex-direction:column;gap:14px;color:var(--asa-ink)">
+          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase;color:var(--asa-ink)">Seu carro já tá te esperando.</span>
+          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase;color:var(--asa-ink)">Retirada em 8 minutos, no saguão do aeroporto.</span>
+          <span style="font:italic 900 clamp(24px,3.4cqi,38px)/0.98 var(--asa-font);letter-spacing:-.03em;text-transform:uppercase;color:var(--asa-ink)">Dentro do saguão. Aberto 24 horas.</span>
         </div>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Onde vive</span><span class="asa-doc-spec__value" style="color:#4A3A10">título, preço, número</span></div>
-          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Onde nunca aparece</span><span class="asa-doc-spec__value" style="color:#4A3A10">corpo de texto</span></div>
+          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span style="color:var(--asa-ink)">Onde vive</span><span class="asa-doc-spec__value" style="color:#3A2C08">título, preço, número</span></div>
+          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span style="color:var(--asa-ink)">Onde nunca aparece</span><span class="asa-doc-spec__value" style="color:#3A2C08">corpo de texto</span></div>
         </div>
-        <p class="asa-doc-gloss">Caixa alta, itálico, Black, entreletras negativa — o mesmo corte do wordmark. Nunca usado para falar com uma pessoa individual.</p>
+        <p class="asa-doc-gloss" style="color:#3A2C08">Caixa alta, itálico, Black, entreletras negativa — o mesmo corte do wordmark. Nunca usado para falar com uma pessoa individual.</p>
       </div>
 
       <div class="asa-doc-card">
-        <span class="asa-doc-block__title" style="margin:0">Registro 2 · Balcão</span>
-        <div style="display:flex;flex-direction:column;gap:14px">
-          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font)">Pode deixar comigo — seu carro já tá te esperando.</span>
-          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font)">Chegando 22h? Deixo a chave separada, é só me chamar aqui.</span>
-          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font)">A gente responde todas as reclamações — e resolve.</span>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-action-hover)">Registro 2 · Balcão</span>
+        <div style="display:flex;flex-direction:column;gap:14px;color:var(--asa-ink)">
+          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">Pode deixar comigo — seu carro já tá te esperando.</span>
+          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">Chegando 22h? Deixo a chave separada, é só me chamar aqui.</span>
+          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">A gente responde todas as reclamações — e resolve.</span>
         </div>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span>Onde vive</span><span class="asa-doc-spec__value">campo claro, WhatsApp, formulário</span></div>
-          <div class="asa-doc-spec"><span>Onde nunca aparece</span><span class="asa-doc-spec__value">sobre vermelho, título de campanha</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink)">Onde vive</span><span class="asa-doc-spec__value" style="color:var(--asa-ink-2)">campo claro, WhatsApp, formulário</span></div>
+          <div class="asa-doc-spec"><span style="color:var(--asa-ink)">Onde nunca aparece</span><span class="asa-doc-spec__value" style="color:var(--asa-ink-2)">sobre vermelho, título de campanha</span></div>
         </div>
-        <p class="asa-doc-gloss">Caixa baixa, Regular, corpo grande, sem itálico e sem exclamação. É a voz de quem atende. Também é o registro obrigatório dos textos de consentimento — é ali que a promessa de "sem letra miúda" é testada de verdade.</p>
+        <p class="asa-doc-gloss" style="color:var(--asa-ink-2)">Caixa baixa, Regular, corpo grande, sem itálico e sem exclamação. É a voz de quem atende. Também é o registro obrigatório dos textos de consentimento — é ali que a promessa de "sem letra miúda" é testada de verdade.</p>
       </div>
     </div>
 

@@ -1,0 +1,89 @@
+{
+  "color": {
+    "brand": {
+      "yellow": {
+        "value": "#FEC42B",
+        "type": "color",
+        "description": "Superfície principal 40%"
+      },
+      "red": {
+        "value": "#E80911",
+        "type": "color",
+        "description": "Ação e conversão 20%"
+      },
+      "redDark": {
+        "value": "#C4070E",
+        "type": "color",
+        "description": "Hover, pressionado e erro"
+      },
+      "black": {
+        "value": "#141517",
+        "type": "color",
+        "description": "Texto e densidade 25%"
+      },
+      "mist": {
+        "value": "#F4F4F3",
+        "type": "color",
+        "description": "Superfície de composição 15%"
+      },
+      "blackDeep": {
+        "value": "#0D0D0E",
+        "type": "color",
+        "description": "Fundo escuro e rodapé"
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Cards e texto sobre vermelho"
+      },
+      "green": {
+        "value": "#065F46",
+        "type": "color",
+        "description": "Confirmação e sucesso"
+      }
+    }
+  },
+  "angle": {
+    "brand": {
+      "value": "8deg",
+      "type": "dimension",
+      "description": "Ângulo proprietário Asa"
+    }
+  },
+  "spacing": {
+    "xs": {
+      "value": "4px",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "8px",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "16px",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "32px",
+      "type": "dimension"
+    },
+    "xxl": {
+      "value": "64px",
+      "type": "dimension"
+    }
+  },
+  "borderRadius": {
+    "card": {
+      "value": "8px",
+      "type": "dimension"
+    },
+    "pill": {
+      "value": "9999px",
+      "type": "dimension"
+    }
+  }
+}

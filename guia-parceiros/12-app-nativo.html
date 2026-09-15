@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12 · App nativo — Guia de Marca Asa · Parceiros</title>
+<link rel="stylesheet" href="../css/asa-tokens.css">
+<link rel="stylesheet" href="../css/asa-base.css">
+<link rel="stylesheet" href="../css/asa-components.css">
+<link rel="stylesheet" href="../css/asa-utilities.css">
+<link rel="stylesheet" href="../css/asa-docs.css">
+<link rel="stylesheet" href="guia.css">
+<style>
+  .phones { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px, 100%), 1fr)); gap:clamp(20px,2.4vw,34px); align-items:start; }
+  .phone-block { display:flex; flex-direction:column; gap:14px; align-items:center; }
+  .phone-block > p { text-align:center; max-width:340px; }
+  .asa-phone__screen { padding-top:8px; padding-bottom:8px; }
+</style>
+</head>
+<body>
+
+<a class="asa-skiplink" href="#intro">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="../assets/img/lockup.png" alt="">
+    <span class="asa-guia-badge">Guia para parceiros</span>
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
+    <a href="01-fundamentos.html">01 Fundamentos</a>
+    <a href="02-grid.html">02 Grid</a>
+    <a href="03-cor.html">03 Cor</a>
+    <a href="04-tipografia.html">04 Tipografia</a>
+    <a href="05-icones.html">05 Ícones</a>
+    <a href="06-componentes.html">06 Componentes</a>
+    <a href="07-hierarquia.html">07 Hierarquia</a>
+    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+    <a href="09-seguranca.html">09 Confiança</a>
+    <a href="10-tokens.html">10 Referência</a>
+    <a href="11-movimento.html">11 Movimento</a>
+    <a href="12-app-nativo.html" aria-current="page">12 App nativo</a>
+    
+    <a href="14-downloads.html">14 Downloads</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
+  </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--cream" id="intro">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">12 · App nativo</span>
+    <h2>O app ainda não existe. Mas já sabemos a cara dele.</h2>
+    <p class="asa-doc-section__lead">Tudo que já vale para o site vale igual no futuro aplicativo — as cores, a tipografia, o ângulo de 8°, os ícones. O que muda é só a navegação, que passa a ser por abas na parte de baixo da tela, como em qualquer app nativo.</p>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="decisoes">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Personalidade do app</span>
+    <h2>Direto ao ponto — nem tela de boas-vindas, nem gamificação.</h2>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Não terá</span>
+        <span class="asa-doc-card__title">Telas de boas-vindas antes de usar</span>
+        <p style="max-width:none">O app abre direto na busca de carro — sem pedir login antes e sem telas explicando o produto. A conta só é criada ao final da primeira reserva, do mesmo jeito que já funciona no site.</p>
+      </div>
+
+      <div class="asa-doc-card">
+        <span class="asa-verdict asa-verdict--no">Não terá</span>
+        <span class="asa-doc-card__title">Pontos, selos ou ranking</span>
+        <p style="max-width:none">Alugar carro é uma decisão de viagem, não um hábito para gamificar. A recorrência do cliente é resolvida com um histórico simples e o botão "reservar de novo" — nunca com pontuação ou conquistas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="telas">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Telas</span>
+    <h2>Seis telas, os mesmos componentes.</h2>
+    <p class="asa-doc-section__lead">Nenhum componente novo foi criado para o app. O card de veículo, o campo, o botão, a etiqueta e a placa de número são exatamente os mesmos de 06 Componentes — só recompostos em 375 pontos de largura.</p>
+
+    <div class="asa-doc-block phones">
+
+      <div class="phone-block">
+        <div class="asa-phone" style="background:var(--asa-surface)">
+          <div class="asa-phone__status"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen" style="justify-content:center;align-items:center;position:relative">
+            <div class="asa-watermark" style="right:-30%;top:8%;width:100%"></div>
+            <img src="../assets/img/lockup.png" alt="Asa Rent a Car" style="width:62%;position:relative">
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">1 · Splash. Dura só o tempo real de carregar sessão e fontes — estender de propósito para "mostrar a marca" é percebido como lentidão, não como identidade. O lockup entra por opacidade em 200ms e fica.</p>
+      </div>
+
+      <div class="phone-block">
+        <div class="asa-phone">
+          <div class="asa-phone__status" style="background:var(--asa-surface)"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen" style="padding:0">
+            <div class="asa-cut" style="background:var(--asa-surface)">
+              <div style="position:relative;padding:12px 20px 22px">
+                <span class="asa-label-mono asa-label-mono--on-yellow">Recife · 24 horas</span>
+                <div style="font:italic 900 26px/0.98 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;margin-top:10px">Seu carro já tá te esperando.</div>
+                <div style="background:#fff;border-radius:8px;padding:14px;margin-top:16px;display:flex;flex-direction:column;gap:12px">
+                  <div class="asa-field"><label class="asa-field__label" for="m1">Retirada</label><input class="asa-input" id="m1" value="Recife (REC)"></div>
+                  <div class="asa-field"><label class="asa-field__label" for="m2">Datas</label><input class="asa-input" id="m2" value="02/10 → 05/10"></div>
+                  <button class="asa-btn asa-btn--primary asa-btn--block"><span class="asa-btn__label">Ver carros</span></button>
+                </div>
+              </div>
+            </div>
+            <div class="asa-cut__under" style="background:var(--asa-bg-dense);padding:26px 20px 16px">
+              <div style="font:italic 900 40px/0.8 var(--asa-font);letter-spacing:-.05em;color:var(--asa-surface)">4,7</div>
+              <div style="font:400 12px/1.3 var(--asa-font);color:#fff;margin-top:6px">no Google, +4.500 avaliações</div>
+            </div>
+          </div>
+          <div class="asa-phone__tabbar" style="padding-inline:12px">
+            <span class="asa-phone__tab" data-active><svg class="asa-icon" viewBox="0 0 24 24" style="fill:currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Buscar</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Reservas</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Ajuda</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</span>
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">2 · Busca. Abre aqui, sem onboarding e sem pedir login. A tab bar tem quatro itens e o ativo muda de forma além de cor — ícone preenchido, não só vermelho.</p>
+      </div>
+
+      <div class="phone-block">
+        <div class="asa-phone">
+          <div class="asa-phone__status"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen">
+            <div style="display:flex;justify-content:space-between;align-items:baseline">
+              <span class="asa-label-mono">14 carros</span>
+              <span style="font:500 12px/1 var(--asa-font);color:var(--asa-action-hover)">Filtrar</span>
+            </div>
+            <article class="asa-card asa-card-vehicle">
+              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · SUV ]</span></div></div>
+              <div class="asa-card__body">
+                <span class="asa-card-vehicle__category">Grupo H · SUV</span>
+                <h3 class="asa-card-vehicle__title">Ideal para Jericoacoara</h3>
+                <div class="asa-card-vehicle__footer">
+                  <span class="asa-card-vehicle__price">R$ 189</span>
+                  <button class="asa-btn asa-btn--primary asa-btn--sm"><span class="asa-btn__label">Reservar</span></button>
+                </div>
+              </div>
+            </article>
+            <article class="asa-card" aria-busy="true">
+              <div class="asa-skeleton asa-skeleton--media"></div>
+              <div class="asa-card__body" style="gap:10px">
+                <div class="asa-skeleton asa-skeleton--text" style="width:50%"></div>
+                <div class="asa-skeleton asa-skeleton--title" style="width:88%"></div>
+                <div class="asa-card-vehicle__footer">
+                  <div class="asa-skeleton asa-skeleton--title" style="width:60px"></div>
+                  <div class="asa-skeleton" style="width:78px;height:36px"></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="asa-phone__tabbar" style="padding-inline:12px">
+            <span class="asa-phone__tab" data-active><svg class="asa-icon" viewBox="0 0 24 24" style="fill:currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Buscar</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Reservas</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Ajuda</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</span>
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">3 · Frota. O esqueleto tem a forma do card real, e é estático: um brilho em loop violaria a regra de que nada no sistema pulsa. Um item por vez leva botão vermelho.</p>
+      </div>
+
+      <div class="phone-block">
+        <div class="asa-phone">
+          <div class="asa-phone__status"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen">
+            <ol class="asa-stepper" style="gap:6px">
+              <li class="asa-stepper__item" data-state="done"><span class="asa-stepper__index">1 ✓</span></li>
+              <li class="asa-stepper__item" aria-current="step"><span class="asa-stepper__index">2 · agora</span></li>
+              <li class="asa-stepper__item"><span class="asa-stepper__index">3</span></li>
+            </ol>
+            <h3 style="font:italic 900 24px/0.98 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">Só pra ter certeza que é você</h3>
+            <p style="font:400 14px/1.5 var(--asa-font)">Para bloquear a caução de R$ 2.000, confirme com a digital.</p>
+            <div style="display:grid;place-items:center;padding:18px 0">
+              <div style="width:72px;height:72px;border:1.5px solid var(--asa-line);border-radius:var(--asa-radius-full);display:grid;place-items:center;color:var(--asa-action-hover)">
+                <svg class="asa-icon asa-icon--feature" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <button class="asa-btn asa-btn--primary asa-btn--block"><span class="asa-btn__label">Usar digital</span></button>
+            <button class="asa-btn asa-btn--outline asa-btn--block asa-btn--sm"><span class="asa-btn__label">Receber código no WhatsApp</span></button>
+            <span class="asa-field__help" style="text-align:center">A caução volta em até 5 dias úteis depois da devolução.</span>
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">4 · Segundo fator. A biometria é o caminho de menor atrito, mas nunca o único: quem não tem ou não quer usar recebe código, com validade visível. Sem tab bar — no checkout, sair da tarefa é o que não se quer facilitar.</p>
+      </div>
+
+      <div class="phone-block">
+        <div class="asa-phone">
+          <div class="asa-phone__status" style="background:var(--asa-surface)"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen" style="padding:0">
+            <div class="asa-cut" style="background:var(--asa-surface)">
+              <div style="position:relative;padding:14px 20px 26px">
+                <span class="asa-tag asa-tag--ok">Reserva confirmada</span>
+                <div style="font:italic 900 26px/0.98 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;margin-top:12px">Pronto. Seu carro já tá te esperando.</div>
+              </div>
+            </div>
+            <div style="padding:22px 20px;display:flex;flex-direction:column;gap:14px">
+              <span class="asa-label-mono">Código da reserva</span>
+              <div style="font:italic 900 44px/0.85 var(--asa-font);letter-spacing:-.04em">REC-4821</div>
+              <div class="asa-doc-specs">
+                <div class="asa-doc-spec"><span style="font-size:13px">Retirada</span><span class="asa-doc-spec__value">02/10 · 10:00</span></div>
+                <div class="asa-doc-spec"><span style="font-size:13px">Caução</span><span class="asa-doc-spec__value">R$ 2.000 bloqueada</span></div>
+              </div>
+              <button class="asa-btn asa-btn--secondary asa-btn--block"><span class="asa-btn__label">Adicionar à carteira</span></button>
+            </div>
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">5 · Confirmação. Tela dedicada, não um retorno silencioso à lista — mas sem ilustração comemorativa, sem confete e sem emoji. O código aparece inteiro, de uma vez.</p>
+      </div>
+
+      <div class="phone-block">
+        <div class="asa-phone">
+          <div class="asa-phone__status"><span>9:41</span><span>▮▮▮</span></div>
+          <div class="asa-phone__screen">
+            <span class="asa-label-mono">Reserva ativa</span>
+            <div class="asa-card" style="padding:14px;display:flex;flex-direction:column;gap:10px">
+              <span class="asa-tag asa-tag--ok">Confirmada</span>
+              <span style="font:700 15px/1.25 var(--asa-font)">Grupo H · SUV automático</span>
+              <span style="font:400 12px/1.5 var(--asa-font);color:var(--asa-ink-3)">REC-4821 · 02/10 às 10:00, saguão de Recife</span>
+              <button class="asa-btn asa-btn--secondary asa-btn--sm asa-btn--block"><span class="asa-btn__label">Falar no WhatsApp</span></button>
+            </div>
+            <span class="asa-label-mono">Anteriores</span>
+            <div class="asa-doc-specs">
+              <div class="asa-doc-spec"><span style="font-size:13px">REC-3390 · junho</span><span class="asa-doc-spec__value">R$ 512</span></div>
+              <div class="asa-doc-spec"><span style="font-size:13px">FOR-2841 · março</span><span class="asa-doc-spec__value">R$ 468</span></div>
+            </div>
+            <button class="asa-btn asa-btn--primary asa-btn--block"><span class="asa-btn__label">Reservar de novo</span></button>
+          </div>
+          <div class="asa-phone__tabbar" style="padding-inline:12px">
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Buscar</span>
+            <span class="asa-phone__tab" data-active><svg class="asa-icon" viewBox="0 0 24 24" style="fill:currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Reservas</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Ajuda</span>
+            <span class="asa-phone__tab"><svg class="asa-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</span>
+          </div>
+          <div class="asa-phone__home"></div>
+        </div>
+        <p class="asa-doc-gloss">6 · Reservas. É o motor da recorrência, e por isso "Reservar de novo" é o único vermelho da tela. Sem pontos, sem sequência, sem selo — só o caminho mais curto para repetir o que já deu certo.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="proximo">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">Ainda em aberto</span>
+    <h2>Notificações e modo escuro seguem em definição.</h2>
+    <p class="asa-doc-section__lead">Duas coisas ainda não têm decisão fechada: como serão as notificações push (quantas, sobre o quê) e se haverá uma versão escura do app. O que já está garantido é que, quando isso for decidido, o tom de voz e as cores da marca não mudam — só a plataforma ganha um recurso a mais.</p>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="11-movimento.html"><span>Anterior</span><b>← 11 · Movimento</b></a>
+  <a class="asa-doc-next__link" href="13-roadmap.html" style="text-align:right"><span>Próxima seção</span><b>13 · Roadmap →</b></a>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="../assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Guia de Marca Asa Rent a Car · para agências e fornecedores parceiros.</p>
+</footer>
+
+</body>
+</html>

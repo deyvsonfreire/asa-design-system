@@ -143,6 +143,12 @@ De brinde, o scan determinístico rodado durante esta correção achou um bug an
 
 Todos os pares de contraste que citavam creme foram recalculados contra `--asa-mist` em `03-cor.html` — nenhum veredito WCAG mudou.
 
+## Guia de Marca para Parceiros (15/09/2026)
+
+Nasceu `guia-parceiros/` — uma versão paralela das 14 páginas, para fornecedores e agências de publicidade que não precisam (e não devem ver) o nível de detalhe de implementação deste sistema. Mesmo CSS, mesmos componentes visuais; o texto foi reescrito removendo jargão técnico (tokens, ARIA, WCAG, código, decisões internas de produto/engenharia) e, onde fazia sentido, trocando exemplo genérico por conteúdo real de marca (claims comerciais, personas, exemplos de copy publicitária já usados em campanha). As páginas 09, 10, 12 e 13 — que no sistema interno são spec de segurança, mapa de variáveis CSS, prontidão técnica de app e roadmap de componentes derivado de benchmark competitivo — foram reduzidas a conteúdo apropriado para o público externo (tom de confiança, cartela de referência visual, e uma nota curta de evolução, respectivamente), já que o conteúdo original era 100% interno e, em parte, estratégico/confidencial.
+
+Link de acesso: `guia-parceiros/index.html`, também referenciado no rodapé da página inicial deste sistema.
+
 ## Dívida técnica registrada
 
 - **Fontes em `.otf`** (~75KB por face). Para produção, converter para `woff2` e subsetar para latim + diacríticos pt-BR leva a ~25KB por face. As ferramentas de conversão (`fontTools`, `brotli`, `woff2_compress`) não estavam disponíveis na máquina onde este pacote foi montado — por isso ficou como dívida, não pré-requisito. `.otf` funciona em todos os navegadores atuais.

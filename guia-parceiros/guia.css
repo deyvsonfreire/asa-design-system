@@ -1,0 +1,130 @@
+/* Guia de Marca — Parceiros
+   Camada de estilo exclusiva desta versão. Não altera nenhum arquivo do
+   sistema de design interno (asa-tokens/base/components/utilities/docs). */
+
+.asa-guia-badge {
+  display: inline-block;
+  margin-left: var(--asa-space-4, 12px);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--asa-yellow);
+  color: var(--asa-ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .asa-guia-badge { display: none; }
+}
+
+/* ─── Cards e Botões de Download ─── */
+.asa-download-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--asa-surface, #fff);
+  border: var(--asa-border-width, 1.5px) solid var(--asa-line, #141517);
+  border-radius: var(--asa-radius, 8px);
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.asa-download-box--yellow {
+  background: var(--asa-yellow, #FEC42B);
+  border-color: var(--asa-ink, #141517);
+}
+
+.asa-download-box--dark {
+  background: var(--asa-ink, #141517);
+  border-color: var(--asa-ink, #141517);
+  color: #fff;
+}
+
+.asa-download-box__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.asa-download-box__title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.asa-download-box__desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--asa-ink-2, #4A4C50);
+  margin: 0;
+  max-width: 650px;
+}
+
+.asa-download-box--dark .asa-download-box__desc {
+  color: #A8AAAE;
+}
+
+.asa-download-box__meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--asa-font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--asa-ink-2, #4A4C50);
+  margin-top: 6px;
+}
+
+.asa-download-box--dark .asa-download-box__meta {
+  color: #A8AAAE;
+}
+
+.asa-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--asa-action, #E80911);
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: var(--asa-radius, 8px);
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.asa-download-btn:hover {
+  background: var(--asa-action-hover, #C4070E);
+  transform: translateY(-1px);
+}
+
+.asa-download-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.asa-download-btn--secondary {
+  background: transparent;
+  color: var(--asa-ink, #141517) !important;
+  border: 1.5px solid var(--asa-ink, #141517);
+}
+
+.asa-download-btn--secondary:hover {
+  background: rgba(20, 21, 23, 0.08);
+}

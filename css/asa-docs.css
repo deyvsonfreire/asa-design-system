@@ -335,9 +335,9 @@
 
 .asa-doc-block__title {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-mono);
-  line-height: 1;
-  font-weight: var(--asa-weight-medium);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: var(--asa-weight-bold);
   letter-spacing: var(--asa-tracking-mono);
   text-transform: uppercase;
   color: var(--asa-action-hover);
@@ -365,11 +365,17 @@
 .asa-doc-card {
   background: var(--asa-bg-elevated);
   border: var(--asa-border-width) solid var(--asa-line);
+  color: var(--asa-ink);
   padding: clamp(20px, 2.6vw, 34px);
   display: flex;
   flex-direction: column;
   gap: var(--asa-space-4);
   container-type: inline-size;
+}
+
+.asa-doc-card p {
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 .asa-doc-card--dense  { background: var(--asa-bg-dense); border-color: transparent; color: var(--asa-ink-inverse); }
@@ -384,16 +390,40 @@
 .asa-doc-card--dense a:hover {
   color: var(--asa-surface);
 }
-.asa-doc-card--yellow { background: var(--asa-surface); border-color: transparent; }
-.asa-doc-card--cream  { background: var(--asa-bg); }
+.asa-doc-card--yellow { background: var(--asa-surface); border-color: transparent; color: var(--asa-ink) !important; }
+.asa-doc-card--cream  { background: var(--asa-bg); color: var(--asa-ink); }
 .asa-doc-card--flush  { padding: 0; overflow: hidden; }
 
+/* Em seções dense, garante que cards claros/amarelos não herdem texto branco nem títulos amarelos */
+.asa-doc-section--dense .asa-doc-card:not(.asa-doc-card--dense) {
+  color: var(--asa-ink);
+}
+.asa-doc-section--dense .asa-doc-card:not(.asa-doc-card--dense) .asa-doc-block__title {
+  color: var(--asa-action-hover);
+}
+.asa-doc-section--dense .asa-doc-card--yellow .asa-doc-block__title {
+  color: var(--asa-ink) !important;
+}
+.asa-doc-section--dense .asa-doc-card:not(.asa-doc-card--dense) .asa-doc-spec span {
+  color: var(--asa-ink);
+}
+.asa-doc-section--dense .asa-doc-card--yellow .asa-doc-spec span {
+  color: var(--asa-ink);
+}
+.asa-doc-section--dense .asa-doc-card--yellow .asa-doc-spec__value {
+  color: #3A2C08 !important;
+}
+.asa-doc-section--dense .asa-doc-card:not(.asa-doc-card--dense) .asa-doc-spec__value {
+  color: var(--asa-ink-2);
+}
+
 /* A glosa gruda na base do card. É o que alinha o racional entre cards de
-   alturas diferentes na mesma linha. */
+   alturas diferentes na mesma linha. Ajustado para 15px com --asa-ink-2 para
+   leitura nítida e confortável em tela. */
 .asa-doc-gloss {
-  font-size: 13px;
-  line-height: 1.55;
-  color: var(--asa-ink-3);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--asa-ink-2);
   margin-top: auto;
   max-width: none;
 }
@@ -405,14 +435,14 @@
    "dentro da seção escura, mas sem card". Ordem importa: como vem ANTES das
    regras de card por classe (mesma especificidade), um card --dense/--yellow
    aninhado numa seção escura continua vencendo pela ordem de origem. */
-.asa-doc-section--dense .asa-doc-gloss { color: var(--asa-gray-dark-1); }
+.asa-doc-section--dense .asa-doc-gloss { color: var(--asa-gray-dark-2); }
 
-.asa-doc-card--dense .asa-doc-gloss  { color: var(--asa-gray-dark-1); }
-.asa-doc-card--yellow .asa-doc-gloss { color: #4A3A10; }
+.asa-doc-card--dense .asa-doc-gloss  { color: var(--asa-gray-dark-2); }
+.asa-doc-card--yellow .asa-doc-gloss { color: #3A2C08; }
 
 .asa-doc-card__title {
-  font-size: 15px;
-  line-height: 1.25;
+  font-size: var(--asa-fs-subtitle, 17px);
+  line-height: 1.3;
   font-weight: var(--asa-weight-bold);
   color: inherit;
 }
@@ -429,6 +459,7 @@
   gap: var(--asa-space-4);
   border-bottom: 1px solid var(--asa-line-soft);
   padding: 12px 0;
+  font-size: 15px;
 }
 
 .asa-doc-spec:last-child { border-bottom: 0; }
@@ -438,15 +469,15 @@
 
 .asa-doc-spec__value {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-mono);
+  font-size: 13px;
   line-height: 1.4;
-  font-weight: var(--asa-weight-medium);
-  color: var(--asa-ink-3);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink-2);
   text-align: right;
   flex: none;
 }
 
-.asa-doc-card--dense .asa-doc-spec__value { color: var(--asa-gray-dark-1); }
+.asa-doc-card--dense .asa-doc-spec__value { color: var(--asa-gray-dark-2); }
 
 .asa-doc-specs { display: flex; flex-direction: column; }
 
@@ -471,23 +502,23 @@
 }
 
 .asa-swatch__name {
-  font-size: 15px;
-  line-height: 1.1;
+  font-size: 16px;
+  line-height: 1.2;
   font-weight: var(--asa-weight-bold);
 }
 
 .asa-swatch__hex {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-mono);
-  line-height: 1;
-  font-weight: var(--asa-weight-medium);
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: var(--asa-weight-bold);
   color: var(--asa-action-hover);
 }
 
 .asa-swatch__use {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--asa-ink-3);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--asa-ink-2);
 }
 
 /* ==========================================================================
@@ -523,15 +554,15 @@
 
 .asa-demo__caption {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label); /* era 10px — já apontado como real na Fase B do critique */
+  font-size: 12px;
   line-height: 1.4;
-  font-weight: var(--asa-weight-medium);
+  font-weight: var(--asa-weight-bold);
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--asa-ink-3);
+  color: var(--asa-ink-2);
 }
 
-.asa-demo--dense .asa-demo__caption { color: var(--asa-gray-dark-1); }
+.asa-demo--dense .asa-demo__caption { color: var(--asa-gray-dark-2); }
 
 /* Par certo/errado, para hierarquia visual e regras de uso. */
 .asa-verdict {
@@ -539,9 +570,9 @@
   align-items: center;
   gap: 6px;
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label); /* era 10px — mesmo piso do achado em .asa-doc-table th */
-  font-weight: var(--asa-weight-medium);
-  letter-spacing: .12em;
+  font-size: 13px;
+  font-weight: var(--asa-weight-bold);
+  letter-spacing: .14em;
   text-transform: uppercase;
 }
 
@@ -715,9 +746,9 @@
 
 .asa-doc-foot p {
   color: var(--asa-on-action);
-  font-size: 13px;
-  line-height: 1.5;
-  max-width: 460px;
+  font-size: 14px;
+  line-height: 1.55;
+  max-width: 480px;
 }
 
 /* ==========================================================================
@@ -727,8 +758,8 @@
 .asa-doc-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 .asa-doc-table th,
@@ -741,18 +772,18 @@
 
 .asa-doc-table th {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label); /* era 10px — abaixo do piso de 12px; cabeçalho de tabela é texto funcional, não rótulo decorativo */
-  font-weight: var(--asa-weight-medium);
+  font-size: 12px;
+  font-weight: var(--asa-weight-bold);
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--asa-ink-3);
+  color: var(--asa-ink-2);
   white-space: nowrap;
 }
 
 .asa-doc-table code,
 .asa-doc-code {
   font-family: var(--asa-font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--asa-action-hover);
 }
 
@@ -772,3 +803,116 @@
 .asa-doc-pre .k { color: var(--asa-surface); }
 
 .asa-doc-scroll { overflow-x: auto; }
+
+/* ==========================================================================
+   CARDS E BOTÕES DE DOWNLOAD (BIBLIOTECA DE ATIVOS)
+   ========================================================================== */
+
+.asa-download-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--asa-surface, #fff);
+  border: var(--asa-border-width, 1.5px) solid var(--asa-line, #141517);
+  border-radius: var(--asa-radius, 8px);
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.asa-download-box--yellow {
+  background: var(--asa-yellow, #FEC42B);
+  border-color: var(--asa-ink, #141517);
+}
+
+.asa-download-box--dark {
+  background: var(--asa-ink, #141517);
+  border-color: var(--asa-ink, #141517);
+  color: #fff;
+}
+
+.asa-download-box__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.asa-download-box__title {
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.asa-download-box__desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--asa-ink-2, #4A4C50);
+  margin: 0;
+  max-width: 650px;
+}
+
+.asa-download-box--dark .asa-download-box__desc {
+  color: #A8AAAE;
+}
+
+.asa-download-box__meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--asa-font-mono, monospace);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--asa-ink-2, #4A4C50);
+  margin-top: 6px;
+}
+
+.asa-download-box--dark .asa-download-box__meta {
+  color: #A8AAAE;
+}
+
+.asa-download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--asa-action, #E80911);
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: var(--asa-radius, 8px);
+  border: 0;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.asa-download-btn:hover {
+  background: var(--asa-action-hover, #C4070E);
+  transform: translateY(-1px);
+}
+
+.asa-download-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.asa-download-btn--secondary {
+  background: transparent;
+  color: var(--asa-ink, #141517) !important;
+  border: 1.5px solid var(--asa-ink, #141517);
+}
+
+.asa-download-btn--secondary:hover {
+  background: rgba(20, 21, 23, 0.08);
+}
+
