@@ -12,7 +12,9 @@
 <style>
   .icons { display:grid; grid-template-columns:repeat(auto-fill,minmax(min(112px, 100%), 1fr)); gap:2px; background:var(--asa-line); border:var(--asa-border-width) solid var(--asa-line); }
   .icons figure { margin:0; background:var(--asa-bg-elevated); display:flex; flex-direction:column; align-items:center; gap:10px; padding:20px 8px; }
-  .icons figcaption { font-family:var(--asa-font-mono); font-size:10px; letter-spacing:.08em; color:var(--asa-ink-3); text-align:center; }
+  /* Legenda em 12/16, caixa baixa, BR Omny: o piso da escala vale também
+     para a documentação. O nome do ícone é o nome do arquivo na biblioteca. */
+  .icons figcaption { font-family:var(--asa-font); font-size:12px; line-height:16px; font-weight:500; color:var(--asa-ink-3); text-align:center; }
 </style>
 </head>
 <body>
@@ -23,20 +25,21 @@
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html" aria-current="page">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Segurança</a>
-    <a href="10-tokens.html">10 Tokens</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html" aria-current="page">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html">10 Tokens</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -76,13 +79,13 @@
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color:var(--asa-ink)">
               <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            <span style="font:600 11px/1.2 var(--asa-font-mono, monospace);text-transform:uppercase;color:var(--asa-ink);letter-spacing:0.04em">1.5px · harmonia</span>
+            <span style="font:500 12px/16px var(--asa-font);color:var(--asa-ink)">1.5px · harmonia</span>
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 6px;background:var(--asa-surface);border:1.5px solid var(--asa-ink);border-radius:2px;opacity:0.65">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="color:var(--asa-ink)">
               <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
             </svg>
-            <span style="font:600 11px/1.2 var(--asa-font-mono, monospace);text-transform:uppercase;color:var(--asa-ink);letter-spacing:0.04em">2.5px · pesado</span>
+            <span style="font:500 12px/16px var(--asa-font);color:var(--asa-ink)">2.5px · pesado</span>
           </div>
         </div>
 
@@ -98,10 +101,10 @@
           </div>
           <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
             <svg class="asa-icon asa-icon--feature" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span class="asa-demo__caption">48px · destaque</span>
+            <span class="asa-demo__caption">48px · estado vazio</span>
           </div>
         </div>
-        <p class="asa-doc-gloss">24px em botão, campo e navegação. 48px só em bloco de benefício e estado vazio. Não use um terceiro tamanho: se o ícone parece pequeno demais a 24px, o problema é o espaço em volta, não o ícone.</p>
+        <p class="asa-doc-gloss">24px em botão, campo e navegação. 48px só em estado vazio; bloco de benefício é foto ou texto, não ícone. Não use um terceiro tamanho: se o ícone parece pequeno demais a 24px, o problema é o espaço em volta, não o ícone.</p>
       </div>
     </div>
   </div>
@@ -109,7 +112,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="conjunto">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">O conjunto</span>
     <h2>Vinte ícones cobrem o produto inteiro.</h2>
     <p class="asa-doc-section__lead">Este é o conjunto funcional de uma locadora: buscar, escolher data e local, pagar, confirmar, pedir ajuda. Se uma tela nova precisar de um ícone que não está aqui, pegue na mesma biblioteca — nunca de outra.</p>
 
@@ -142,7 +144,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="uso">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Regras de uso</span>
     <h2>Contorno para inativo. Preenchido só para marcar estado.</h2>
 
     <div class="asa-doc-cards">
@@ -183,6 +184,29 @@
           <div class="asa-doc-spec"><span>Escalar a arte de 24px para 48px</span><span class="asa-doc-spec__value">traço fica desproporcional</span></div>
         </div>
         <p class="asa-doc-gloss">Um ícone puramente decorativo leva <code class="asa-doc-code">aria-hidden="true"</code>. Um ícone que É a ação — o X de fechar, por exemplo — precisa de rótulo acessível, mesmo sem texto visível.</p>
+      </div>
+    </div>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Ícone não substitui foto</span>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:6px 0 14px">
+          <span class="asa-doc-spec__value" style="text-align:left">card de veículo · especificação em uma linha</span>
+          <ul class="asa-speclist asa-speclist--text">
+            <li class="asa-speclist__item">5 lugares</li>
+            <li class="asa-speclist__item">2 malas</li>
+            <li class="asa-speclist__item">manual</li>
+          </ul>
+        </div>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Bloco de benefício</span><span class="asa-doc-spec__value">foto real (.asa-figure) ou texto</span></div>
+          <div class="asa-doc-spec"><span>Especificação no card de veículo</span><span class="asa-doc-spec__value">uma linha de texto · .asa-speclist--text</span></div>
+          <div class="asa-doc-spec"><span>Ícone por atributo</span><span class="asa-doc-spec__value">só na página do carro</span></div>
+          <div class="asa-doc-spec"><span>Trio ícone + título + texto</span><span class="asa-doc-spec__value">nunca</span></div>
+          <div class="asa-doc-spec"><span>Ícone de 48px</span><span class="asa-doc-spec__value">só estado vazio (.asa-emptystate)</span></div>
+          <div class="asa-doc-spec"><span>Foto que ainda não existe</span><span class="asa-doc-spec__value">hachura .asa-photo + legenda dizendo qual falta</span></div>
+        </div>
+        <p class="asa-doc-gloss">Foto é conteúdo, não ilustração — e ícone é sinal de função, não decoração. Seis cards de vitrine com três ícones cada eram dezoito ícones repetidos numa tela, sem dizer nada que uma linha de texto não diga. Onde cabia um ícone grande "para ilustrar", cabe uma foto do saguão ou nada. Ver <a href="06-componentes.html">06 · Componentes</a>.</p>
       </div>
     </div>
 

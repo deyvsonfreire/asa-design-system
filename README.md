@@ -3,7 +3,7 @@
 Implementação em código do handoff de identidade que está na pasta acima. São duas coisas num pacote só:
 
 1. **Uma biblioteca CSS** (`css/`) — quatro arquivos, sem build, sem dependência, portável para qualquer stack.
-2. **Uma documentação navegável** (13 páginas HTML) que consome essa mesma biblioteca — ou seja, a documentação é também o teste de que a biblioteca funciona.
+2. **Uma documentação navegável** (15 páginas HTML) que consome essa mesma biblioteca — ou seja, a documentação é também o teste de que a biblioteca funciona.
 
 ## Como abrir
 
@@ -33,6 +33,11 @@ asa-design-system/
 ├── 11-movimento.html       durações e o que nunca anima
 ├── 12-app-nativo.html      o que muda fora do navegador
 ├── 13-roadmap.html         o que falta para o portal (derivado do benchmark)
+├── 14-downloads.html       brand kit, logos, fontes, ícones, templates
+├── 15-composicao.html      a página inteira: faixas, variação, foto, checklist de vícios
+├── asa-home/               home v1 (linha de base, PR #1)
+├── asa-home-v2/            home v2 — o exemplo vivo de 15 Composição (PR #1)
+├── guia-parceiros/         as mesmas páginas, sem jargão, para agências e fornecedores
 ├── css/
 │   ├── asa-tokens.css      @font-face + primitivos + semânticos
 │   ├── asa-base.css        reset, defaults de elemento, layout, foco
@@ -148,6 +153,16 @@ Todos os pares de contraste que citavam creme foram recalculados contra `--asa-m
 Nasceu `guia-parceiros/` — uma versão paralela das 14 páginas, para fornecedores e agências de publicidade que não precisam (e não devem ver) o nível de detalhe de implementação deste sistema. Mesmo CSS, mesmos componentes visuais; o texto foi reescrito removendo jargão técnico (tokens, ARIA, WCAG, código, decisões internas de produto/engenharia) e, onde fazia sentido, trocando exemplo genérico por conteúdo real de marca (claims comerciais, personas, exemplos de copy publicitária já usados em campanha). As páginas 09, 10, 12 e 13 — que no sistema interno são spec de segurança, mapa de variáveis CSS, prontidão técnica de app e roadmap de componentes derivado de benchmark competitivo — foram reduzidas a conteúdo apropriado para o público externo (tom de confiança, cartela de referência visual, e uma nota curta de evolução, respectivamente), já que o conteúdo original era 100% interno e, em parte, estratégico/confidencial.
 
 Link de acesso: `guia-parceiros/index.html`, também referenciado no rodapé da página inicial deste sistema.
+
+## Revisão de composição — a página inteira (out/2026)
+
+A home foi reconstruída (`asa-home/` → `asa-home-v2/`) comparando com Booking, GOL e CVC. A v1 seguia cada regra do sistema e ainda lia como template: 8 seções com o mesmo cabeçalho, 38 cards iguais, 79 blocos em caixa alta, 79 ícones. O diagnóstico mostrou que o problema não estava nas páginas e sim em três regras de base — e que o próprio chrome desta documentação ensinava o padrão (rótulo vermelho em caixa alta acima de todo H2, títulos de bloco em mono). Três PRs, do centro para fora:
+
+1. **Biblioteca e chrome (PR #2).** `h2` sai do Registro 1 e vira Registro 2 (32/36, 700, caixa baixa, `h2 em` para a palavra em vermelho); Registro 1 fica só no H1, no preço e na placa. Rótulos, legendas e cabeçalhos de rodapé em 14px caixa baixa; `.asa-tag` é a única caixa alta restante. `.asa-shelf` ganha setas e o próximo card à mostra; `.asa-card-destination--overlay` e `.asa-destgrid`; `.asa-speclist--text`; `--asa-fs-lead` 18/28; seção com mínimo de 72px. O kicker da documentação vira legenda discreta e depois some.
+2. **Conteúdo (PR #3).** As páginas que carregavam a regra antiga (02, 04, 05, 06, 07, 08, 10, 11, 13) reescritas; sexta ferramenta de hierarquia, **Variação**; a página nova **15 · Composição de página**, com a anatomia da home v2 e o checklist de vícios de template; link do 13 de volta à navegação.
+3. **Espelhos e governança.** `guia-parceiros/` espelhado; skill de assistente regenerada a partir deste repositório.
+
+Decisões tomadas pelo dono do projeto: Título vira Registro 2 (não um sexto degrau); setas sim, bolinha não; página 15 nova; foto de banco só como comp de visualização, nunca em produção.
 
 ## Dívida técnica registrada
 

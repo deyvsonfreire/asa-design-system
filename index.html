@@ -21,7 +21,6 @@
   </div>
 
   <div class="asa-doc-cover__middle">
-    <span class="asa-doc-section__label" style="color:var(--asa-ink)">Documentação de implementação</span>
     <h1>O sistema saiu do PDF.<br><span class="asa-mark">Agora ele é código.</span></h1>
     <p class="asa-doc-cover__lead">O handoff definiu a identidade: escala, proporção de cor, geometria, componentes e voz. Esta documentação é o mesmo sistema escrito em CSS, com a tipografia real, todos os estados que faltavam e as telas de produto compostas a partir dos componentes. O teste continua sendo o mesmo: duas pessoas diferentes montam a mesma peça.</p>
   </div>
@@ -40,20 +39,21 @@
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
     <div class="asa-doc-nav__list">
       <a href="index.html" aria-current="page">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Segurança</a>
-    <a href="10-tokens.html">10 Tokens</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html">10 Tokens</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -62,7 +62,6 @@
 
 <section id="main" class="asa-doc-section asa-doc-section--dense">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Como usar esta documentação</span>
     <h2>Leia na ordem. Cada seção depende da anterior.</h2>
     <p class="asa-doc-section__lead">A ordem não é editorial, é de dependência real de construção: não dá para decidir componente antes de ter cor e tipografia, nem tokenizar antes de ter as decisões que os tokens representam.</p>
 
@@ -101,8 +100,7 @@
 
 <section class="asa-doc-section asa-doc-section--cream">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Índice</span>
-    <h2>Doze seções, da marca ao app.</h2>
+    <h2>Quinze seções, da marca à <em>página</em>.</h2>
 
     <div class="asa-doc-cards">
 
@@ -127,7 +125,7 @@
       <a class="asa-doc-card" href="04-tipografia.html">
         <span class="asa-doc-block__title" style="margin:0">04 · Tipografia</span>
         <span class="asa-doc-card__title">BR Omny real, cinco degraus, dois registros</span>
-        <p class="asa-doc-gloss">A fonte da marca renderizando de verdade — não mais o placeholder em Helvetica dos protótipos. Inclui a largura máxima de bloco de texto que faltava.</p>
+        <p class="asa-doc-gloss">A fonte da marca renderizando de verdade. O Registro 1 (caixa alta itálica) vive só no H1, no preço e na placa; o título de seção é Registro 2, com uma palavra em vermelho.</p>
       </a>
 
       <a class="asa-doc-card" href="05-icones.html">
@@ -144,8 +142,8 @@
 
       <a class="asa-doc-card" href="07-hierarquia.html">
         <span class="asa-doc-block__title" style="margin:0">07 · Hierarquia</span>
-        <span class="asa-doc-card__title">Cinco ferramentas, lado a lado com o erro</span>
-        <p class="asa-doc-gloss">Escala, proximidade, espaço em branco, alinhamento e cor — cada uma com o par certo/errado, para virar checklist em vez de julgamento estético.</p>
+        <span class="asa-doc-card__title">Seis ferramentas, lado a lado com o erro</span>
+        <p class="asa-doc-gloss">Escala, proximidade, espaço em branco, alinhamento, cor e variação — cada uma com o par certo/errado, para virar checklist em vez de julgamento estético.</p>
       </a>
 
       <a class="asa-doc-card" href="08-fluxo-reserva.html">
@@ -190,13 +188,18 @@
         <p class="asa-doc-gloss" style="color:#A8AAAE">Baixe o Brand Kit Completo (.zip), vetores do logo, fontes BR Omny, 287 ícones Feather, amostras de cores Adobe (.ase) e templates de grid.</p>
       </a>
 
+      <a class="asa-doc-card" href="15-composicao.html">
+        <span class="asa-doc-block__title" style="margin:0">15 · Composição de página</span>
+        <span class="asa-doc-card__title">Como uma página inteira fica com cara de Asa</span>
+        <p class="asa-doc-gloss">O que o sistema não ensinava: faixas, uma estrutura por seção, foto antes de ícone, respiro de 120px — e o checklist que mede os vícios de template antes de cada entrega. A home v2 é o exemplo vivo.</p>
+      </a>
+
     </div>
   </div>
 </section>
 
 <section class="asa-doc-section asa-doc-section--white">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Antes de começar</span>
     <h2>Três coisas que mudam o resultado.</h2>
 
     <div class="asa-doc-cards">

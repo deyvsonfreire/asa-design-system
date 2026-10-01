@@ -10,8 +10,10 @@
 <link rel="stylesheet" href="css/asa-utilities.css">
 <link rel="stylesheet" href="css/asa-docs.css">
 <style>
-  .comp { font-family:var(--asa-font-mono); font-size:12px; color:var(--asa-action-hover); white-space:nowrap; }
-  .fase { font-family:var(--asa-font-mono); font-size:var(--asa-fs-label); letter-spacing:.1em; text-transform:uppercase; white-space:nowrap; }
+  /* Nome de componente e fase: BR Omny em caixa baixa, 12px (piso da escala
+     de UI). O mono em caixa alta era etiqueta; aqui é texto de tabela. */
+  .comp { font-family:var(--asa-font); font-size:var(--asa-fs-label); font-weight:600; color:var(--asa-action-hover); white-space:nowrap; }
+  .fase { font-family:var(--asa-font); font-size:var(--asa-fs-label); font-weight:500; white-space:nowrap; }
   .fase--1 { color:var(--asa-action-hover); font-weight:700; }
   .fase--2 { color:var(--asa-ink-3); }
   .fase--3 { color:var(--asa-gray-dark-1); }
@@ -30,20 +32,21 @@
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Segurança</a>
-    <a href="10-tokens.html">10 Tokens</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html">10 Tokens</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html" aria-current="page">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -87,7 +90,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="novos">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">O inventário</span>
     <h2>Quarenta componentes novos, em seis camadas.</h2>
     <p class="asa-doc-section__lead">Cada um amarrado ao achado do estudo que o exige. A ordem das camadas é ordem de dependência real: sem a primeira, nenhuma das outras se sustenta.</p>
 
@@ -142,8 +144,8 @@
             <tr><td><span class="comp">asa-speclist</span></td><td>§5.2 os cinco atributos: lugares, malas, câmbio, ar, km livre</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-rating</span></td><td>§5.4 "nota dentro de cada card, no ponto de decisão"; MUST #8</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-emptystate</span></td><td>Consequência inevitável de MUST #3 — filtros combináveis dão conjunto vazio</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-shelf</span></td><td>§5.8 prateleiras contextuais; "Disponível neste fim de semana em Recife"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-card-destination</span></td><td>§6.2 "PARA ONDE VOCÊ VAI" — landing pages de destino</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-shelf</span></td><td>§5.8 prateleiras contextuais; "Disponível neste fim de semana em Recife". Setas desabilitadas nas pontas, espiada do próximo card; pontos continuam proibidos</td><td>Ambos</td><td><span class="fase fase--done">✓ Revisado (out/2026): setas e espiada</span></td></tr>
+            <tr><td><span class="comp">asa-card-destination</span></td><td>§6.2 "Para onde você vai" — landing pages de destino. Variante <span class="comp">--overlay</span> com o nome sobre a foto e grade <span class="comp">asa-destgrid</span></td><td>Ambos</td><td><span class="fase fase--done">✓ Revisado (out/2026): nome sobre a foto</span></td></tr>
             <tr><td><span class="comp">asa-card-offer</span> <span class="comp">asa-card-store</span> <span class="comp">asa-card-article</span></td><td>Hub <code>/ofertas</code>, <code>/lojas</code> e blog</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-pagination</span></td><td>Inferido — ~120 páginas com o blog maduro</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
@@ -183,7 +185,6 @@
 
 <section class="asa-doc-section asa-doc-section--cream" id="extensoes">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Extensões</span>
     <h2>Catorze componentes existentes que precisam crescer.</h2>
     <p class="asa-doc-section__lead">Estender, não recriar. Em três casos o componente atual simplesmente não sobrevive ao que o portal pede.</p>
 
@@ -216,9 +217,8 @@
 
 <section class="asa-doc-section asa-doc-section--dense" id="tensoes">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Tensões</span>
     <h2>Onde o estudo colide com as regras duras da marca.</h2>
-    <p class="asa-doc-section__lead">Treze colisões reais. Todas já resolvidas por critério — as três mais duras foram decididas em 10/09/2026, com um princípio único: melhor prática de UX/CRO acima de preservar o status quo, mesmo quando isso reescreve uma página já publicada do próprio sistema.</p>
+    <p class="asa-doc-section__lead">Catorze colisões reais. Todas já resolvidas por critério — as três mais duras foram decididas em 10/09/2026, com um princípio único: melhor prática de UX/CRO acima de preservar o status quo, mesmo quando isso reescreve uma página já publicada do próprio sistema.</p>
 
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
@@ -242,7 +242,7 @@
     </div>
 
     <div class="asa-doc-block">
-      <span class="asa-doc-block__title">As outras dez</span>
+      <span class="asa-doc-block__title">As outras onze</span>
       <div class="asa-doc-cards">
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
           <span class="asa-doc-card__title">T6 · O ângulo de 8° não sobrevive a uma UI funcional</span>
@@ -250,7 +250,7 @@
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
           <span class="asa-doc-card__title">T3 · Sete superfícies flutuantes contra "nenhuma sombra"</span>
-          <p class="asa-doc-gloss">Com o fundo agora branco, um popover branco sobre branco separado por borda de 14% é invisível. Saída limpa: o creme vira a superfície flutuante do sistema. Elegante — dá ao creme trabalho funcional — mas reatribui a cota de 15%.</p>
+          <p class="asa-doc-gloss">Com o fundo agora branco, um popover branco sobre branco separado por borda de 14% é invisível. Saída limpa: a mist (<code class="asa-doc-code" style="color:var(--asa-surface)">--asa-mist</code>) vira a superfície flutuante do sistema — revisado em 12/09/2026: o creme passou a histórico e a mist é a superfície clara viva. Elegante — dá à superfície clara trabalho funcional — mas reatribui a cota de 15%.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
           <span class="asa-doc-card__title">T11 · Marcas de terceiros com cor própria</span>
@@ -268,15 +268,19 @@
           <span class="asa-doc-card__title">T7 · Vitrine assíncrona contra "nada pulsa, nada gira"</span>
           <p class="asa-doc-gloss">32 retângulos cinzas parados por 1,5s parecem página quebrada. O sistema já resolveu isso uma vez, no botão: três pontos em fade a 400ms. Basta promover ao nível de lista. Zero regra quebrada.</p>
         </div>
+        <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
+          <span class="asa-verdict asa-verdict--yes">Decidido · uma topologia por seção</span>
+          <span class="asa-doc-card__title">T14 · Overfitting visual: a página que repete a mesma estrutura</span>
+          <p class="asa-doc-gloss">A home v1 tinha 8 cabeçalhos de seção idênticos, 38 cards iguais e 79 blocos em caixa alta: o olho aprende o molde na segunda seção e para de ler. Decidido: uma topologia por seção, fundos alternados, cards só onde há produto, marca d'água uma vez por página. Ver <a href="15-composicao.html" style="color:var(--asa-surface)">15 · Composição</a> e a sexta ferramenta de <a href="07-hierarquia.html#variacao" style="color:var(--asa-surface)">07 · Hierarquia</a>.</p>
+        </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Faltam T4 (densidade contra alvo de 44px), T10 (microcópia em caixa alta fica 40% mais larga) e T13 (cinco superfícies sticky sem sombra) — todas resolvíveis por critério, detalhadas no Markdown. T8 era um defeito e já foi corrigido; T1, T2 e T9 estão decididas acima.</p>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Faltam T4 (densidade contra alvo de 44px), T10 (microcópia em caixa alta fica 40% mais larga) e T13 (cinco superfícies sticky sem sombra) — todas resolvíveis por critério, detalhadas no Markdown. T8 era um defeito e já foi corrigido; T1, T2, T9 e T14 estão decididas acima.</p>
     </div>
   </div>
 </section>
 
 <section class="asa-doc-section asa-doc-section--white" id="corrigidos">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Corrigido nesta rodada</span>
     <h2>Três defeitos que a auditoria encontrou no próprio sistema.</h2>
     <p class="asa-doc-section__lead">Encontrados numa derivação independente do CSS e verificados linha a linha antes de corrigir. Nenhum deles é opinião — os três violam regra que o próprio sistema declara.</p>
 
@@ -306,7 +310,6 @@
 
 <section class="asa-doc-section asa-doc-section--cream" id="fora">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Fronteira</span>
     <h2>O que o estudo pede e não é problema deste sistema.</h2>
     <p class="asa-doc-section__lead">Listar isto é tão útil quanto listar componentes: impede que o design system vire depósito do que está pendente em outras frentes.</p>
 
@@ -325,7 +328,7 @@
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Produção visual e jurídico</span>
-        <p class="asa-doc-gloss">"Trocar carro em estúdio por lugar e gente" é direção de arte e produção fotográfica no Nordeste. O sistema entrega o slot, o corte de 8° e a legenda; não entrega a foto — e enquanto ela não existir, o hachurado é a única coisa correta a mostrar. O texto da LGPD precisa de parecer jurídico; o componente é só o recipiente.</p>
+        <p class="asa-doc-gloss">"Trocar carro em estúdio por lugar e gente" é direção de arte e produção fotográfica no Nordeste. O sistema entrega o slot, o corte de 8° e a legenda; não entrega a foto. Enquanto ela não existe, o hachurado de <code class="asa-doc-code">asa-photo</code> marca o lugar e nomeia a foto que falta; foto de banco entra só como comp marcado em protótipo, nunca em produção; e <code class="asa-doc-code">asa-figure</code> é o modo da foto real. O texto da LGPD precisa de parecer jurídico; o componente é só o recipiente.</p>
       </div>
     </div>
   </div>
@@ -333,7 +336,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="proximos">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Próximos passos</span>
     <h2>A ordem importa, e é dependência real.</h2>
 
     <div class="asa-doc-cards">

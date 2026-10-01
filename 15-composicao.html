@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>15 · Composição de página — Sistema de Design Asa</title>
+<link rel="stylesheet" href="css/asa-tokens.css">
+<link rel="stylesheet" href="css/asa-base.css">
+<link rel="stylesheet" href="css/asa-components.css">
+<link rel="stylesheet" href="css/asa-utilities.css">
+<link rel="stylesheet" href="css/asa-docs.css">
+<style>
+  /* Anatomia da home: faixas empilhadas em miniatura. Cada faixa mostra o
+     fundo real e um esboço da sua estrutura — não é componente, é diagrama. */
+  .anatomy { display:grid; gap:10px; }
+  .band { display:grid; grid-template-columns: 230px 1fr; gap:16px; align-items:stretch; border:var(--asa-border-width) solid var(--asa-line); border-radius:var(--asa-radius); }
+  .band__meta { padding:14px 16px; display:flex; flex-direction:column; gap:4px; background:var(--asa-bg-elevated); border-radius:var(--asa-radius) 0 0 var(--asa-radius); }
+  .band__sketch { border-radius:0 var(--asa-radius) var(--asa-radius) 0; }
+  .band__meta b { font-size:var(--asa-fs-body-dense); line-height:var(--asa-lh-body-dense); }
+  .band__meta span { font-size:var(--asa-fs-body-dense); line-height:var(--asa-lh-body-dense); color:var(--asa-ink-3); }
+  .band__sketch { padding:14px 16px; min-height:64px; display:flex; align-items:center; gap:10px; }
+  .band--yellow .band__sketch { background:var(--asa-surface); }
+  .band--white  .band__sketch { background:var(--asa-bg-elevated); }
+  .band--mist   .band__sketch { background:var(--asa-bg); }
+  .band--dense  .band__sketch { background:var(--asa-bg-dense); }
+  .band--deep   .band__sketch { background:var(--asa-bg-deep); }
+  .sk { border-radius:4px; background:rgba(20,21,23,.18); }
+  .band--dense .sk, .band--deep .sk { background:rgba(255,255,255,.22); }
+  .sk--line { height:8px; }
+  .sk--photo { background-image:repeating-linear-gradient(-8deg, rgba(20,21,23,.18) 0 1px, transparent 1px 8px); background-color:#E4E0DA; }
+  .band--dense .sk--photo { background-color:#2A2B2E; }
+  .sk--btn { background:var(--asa-action); }
+  .band > * { min-width:0; }
+  @media (max-width: 760px) {
+    .band { grid-template-columns:1fr; gap:0; }
+    .band__meta { border-radius:var(--asa-radius) var(--asa-radius) 0 0; }
+    .band__sketch { border-radius:0 0 var(--asa-radius) var(--asa-radius); }
+  }
+
+  /* Antes/depois: números medidos na home v1 e v2 */
+  .delta { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr)); gap:clamp(16px,2vw,28px); }
+  /* Placa de número sobre preto é amarela, como .asa-numberplate; vermelho sobre preto dá 3,9:1 */
+  .delta__item b { display:block; font:italic 900 clamp(40px,5cqi,64px)/.9 var(--asa-font); letter-spacing:-.04em; color:var(--asa-surface); }
+  .delta__item small { display:block; margin-top:8px; color:var(--asa-ink-inverse); }
+  .delta__item s { color:var(--asa-ink-inverse-2); text-decoration-thickness:1.5px; }
+</style>
+</head>
+<body>
+
+<a class="asa-skiplink" href="#intro">Pular para o conteúdo</a>
+<nav class="asa-doc-nav" aria-label="Navegação da documentação">
+  <div class="asa-doc-nav__inner">
+    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <div class="asa-doc-nav__list">
+      <a href="index.html">00 Início</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html">10 Tokens</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html" aria-current="page">15 Composição</a>
+    </div>
+    <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
+  </div>
+  <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
+</nav>
+
+<section class="asa-doc-section asa-doc-section--yellow" id="intro">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">15 · Composição de página</span>
+    <h2>O sistema ensinava a peça e o componente. Faltava ensinar a página.</h2>
+    <p class="asa-doc-section__lead" style="color:var(--asa-ink)">A home v1 seguia cada regra deste sistema — tokens, escala, 8°, um vermelho por tela — e ainda assim lia como template: oito seções com o mesmo cabeçalho, trinta e oito cards iguais, setenta e nove blocos em caixa alta. Nenhuma regra de componente pega isso, porque o problema é a soma. Esta seção fixa o que a reconstrução (home v2, outubro de 2026) decidiu, para que toda página nova nasça com a mesma cara e possa ser medida antes de ir ao ar.</p>
+
+    <div class="asa-doc-cards" style="margin-top:28px">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">A foto é o conteúdo</span>
+        <p class="asa-doc-gloss">O que as referências de mercado fazem e a v1 não fazia: a fotografia carrega a emoção, o texto carrega o fato, a cor de marca aparece em poucos blocos grandes. Na v1 era o inverso — texto carregando tudo, cor em todo lugar, foto em lugar nenhum.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Uma estrutura por seção</span>
+        <p class="asa-doc-gloss">O olho aprende um padrão na segunda repetição e desliga na terceira. Cabeçalho, grade e fundo nunca se repetem em duas seções seguidas. É a sexta ferramenta de <a href="07-hierarquia.html#variacao">07 Hierarquia</a>.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Medido, não opinado</span>
+        <p class="asa-doc-gloss">Caixa alta, ícones, cards com borda, cabeçalhos repetidos e fundos em sequência se contam. O checklist no fim desta página é o critério de entrega de qualquer página nova.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="anatomia">
+  <div class="asa-doc-section__inner">
+    <h2>A anatomia da home: oito faixas, oito <em>estruturas</em>.</h2>
+    <p class="asa-doc-section__lead">Faixas de largura total, uma atrás da outra, com o container de 1200px dentro de cada uma. O ritmo vem da alternância de fundo e de topologia — não de ilhas arredondadas flutuando sobre uma margem. Entre faixas, 120px no desktop e 72 no celular (<code class="asa-doc-code">--asa-section-pad-y</code>).</p>
+
+    <div class="asa-doc-block anatomy">
+      <div class="band band--white">
+        <div class="band__meta"><b>Cabeçalho</b><span>branco · fora do hero</span></div>
+        <div class="band__sketch"><div class="sk sk--line" style="width:60px"></div><div class="sk sk--line" style="width:220px;margin-left:auto"></div><div class="sk sk--line" style="width:70px;background:var(--asa-ink)"></div></div>
+      </div>
+      <div class="band band--yellow">
+        <div class="band__meta"><b>Hero</b><span>amarelo · H1 em Registro 1 + busca · marca d'água, uma vez</span></div>
+        <div class="band__sketch" style="flex-direction:column;align-items:flex-start;gap:8px"><div class="sk sk--line" style="width:55%;height:18px;background:var(--asa-ink)"></div><div class="sk sk--line" style="width:35%"></div><div style="display:flex;gap:6px;width:100%;margin-top:6px;background:#fff;padding:8px;border-radius:4px"><div class="sk sk--line" style="flex:1.3;height:22px"></div><div class="sk sk--line" style="flex:1;height:22px"></div><div class="sk sk--line" style="flex:1;height:22px"></div><div class="sk sk--btn" style="width:70px;height:22px"></div></div></div>
+      </div>
+      <div class="band band--white">
+        <div class="band__meta"><b>Faixa-foto</b><span>branco · foto larga + três fatos em texto</span></div>
+        <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:0"><div class="sk sk--photo" style="height:54px;border-radius:4px 4px 0 0"></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--asa-line-soft);border:1px solid var(--asa-line-soft);margin:-12px 10px 0;position:relative"><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div></div></div>
+      </div>
+      <div class="band band--white">
+        <div class="band__meta"><b>Frota</b><span>branco · prateleira com o próximo card à mostra · único lugar com cards</span></div>
+        <div class="band__sketch" style="overflow:hidden"><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div></div>
+      </div>
+      <div class="band band--mist">
+        <div class="band__meta"><b>Como funciona</b><span>mist · editorial: foto com corte de 8° + texto em duas colunas</span></div>
+        <div class="band__sketch"><div class="sk sk--photo" style="flex:0 0 42%;height:54px;clip-path:polygon(0 0,100% 0,100% 80%,0 100%)"></div><div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="sk sk--line"></div><div class="sk sk--line"></div><div class="sk sk--line" style="width:70%"></div><div class="sk sk--line" style="width:70%"></div></div></div>
+      </div>
+      <div class="band band--dense">
+        <div class="band__meta"><b>Aeroportos e prova</b><span>preto · duas fotos grandes + placas 4,7 e 9,4 + citações sem card</span></div>
+        <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:8px"><div style="display:flex;gap:8px"><div class="sk sk--photo" style="flex:1;height:34px"></div><div class="sk sk--photo" style="flex:1;height:34px"></div></div><div style="display:flex;gap:16px;align-items:center"><span style="font:italic 900 22px/1 var(--asa-font);color:var(--asa-surface)">4,7</span><span style="font:italic 900 22px/1 var(--asa-font);color:var(--asa-surface)">9,4</span><div class="sk sk--line" style="flex:1"></div></div></div>
+      </div>
+      <div class="band band--white">
+        <div class="band__meta"><b>Destinos</b><span>branco · grade assimétrica, nome sobre a foto</span></div>
+        <div class="band__sketch" style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;height:72px"><div class="sk sk--photo" style="grid-row:span 2"></div><div class="sk sk--photo"></div><div class="sk sk--photo"></div><div class="sk sk--photo" style="grid-column:span 2"></div></div>
+      </div>
+      <div class="band band--white">
+        <div class="band__meta"><b>Dúvidas e fechamento</b><span>branco · lista com divisores, sem cards · CTA curto em amarelo, sem repetir o hero</span></div>
+        <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:6px"><div class="sk sk--line" style="width:40%"></div><div style="height:1px;background:var(--asa-line-soft)"></div><div class="sk sk--line" style="width:55%"></div><div style="height:1px;background:var(--asa-line-soft)"></div><div style="display:flex;align-items:center;gap:8px;background:var(--asa-surface);padding:8px;border-radius:4px;margin-top:4px"><div class="sk sk--line" style="flex:1;background:var(--asa-ink)"></div><div class="sk sk--btn" style="width:60px;height:14px"></div></div></div>
+      </div>
+    </div>
+
+    <p class="asa-doc-gloss" style="margin-top:20px;max-width:760px">Branco aparece mais de uma vez, mas nunca com a mesma estrutura: foto larga, prateleira, grade assimétrica, lista. O amarelo abre e fecha a página e não aparece no meio; o preto aparece uma vez, no momento da prova. A home v2 (<code class="asa-doc-code">asa-home-v2/index.html</code>, no repositório) é esta anatomia construída.</p>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="regras">
+  <div class="asa-doc-section__inner">
+    <h2>Dez regras de composição. Nenhuma é de componente.</h2>
+    <p class="asa-doc-section__lead">Cada uma tem o vício que corrige. Os números entre parênteses são o que foi medido na home v1 antes da reconstrução.</p>
+
+    <div class="asa-doc-cards asa-doc-cards--wide">
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title">Tipografia e texto</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Registro 1 (caixa alta itálica)</span><span class="asa-doc-spec__value">só H1, preço e placa</span></div>
+          <div class="asa-doc-spec"><span>Título de seção</span><span class="asa-doc-spec__value">Registro 2, uma palavra em vermelho</span></div>
+          <div class="asa-doc-spec"><span>Sobretítulo acima do título</span><span class="asa-doc-spec__value">nunca (eram 11)</span></div>
+          <div class="asa-doc-spec"><span>Rótulo, legenda, rodapé</span><span class="asa-doc-spec__value">14px caixa baixa (eram 52 em caixa alta)</span></div>
+          <div class="asa-doc-spec"><span>Numeração "Passo 01"</span><span class="asa-doc-spec__value">só se a ordem informar algo</span></div>
+        </div>
+        <p class="asa-doc-gloss">A caixa alta é a assinatura, e assinatura se usa uma vez. Com 79 blocos em caixa alta, a v1 não tinha H1 — tinha 79 H1.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title">Imagem e estrutura</span>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Foto no lugar de ícone</span><span class="asa-doc-spec__value">trio de benefícios vira faixa-foto (eram 79 ícones)</span></div>
+          <div class="asa-doc-spec"><span>Card só onde há produto</span><span class="asa-doc-spec__value">frota; destino vira foto, passo vira lista, FAQ vira divisor (eram 38 cards)</span></div>
+          <div class="asa-doc-spec"><span>Uma estrutura por seção</span><span class="asa-doc-spec__value">cabeçalho, grade e fundo nunca iguais em sequência (eram 8 iguais)</span></div>
+          <div class="asa-doc-spec"><span>Faixas, não ilhas</span><span class="asa-doc-spec__value">largura total, fundo alternado, 120/72px entre elas</span></div>
+          <div class="asa-doc-spec"><span>Marca d'água e CTA final</span><span class="asa-doc-spec__value">uma vez, no hero; o CTA fecha curto, sem repetir o hero</span></div>
+        </div>
+        <p class="asa-doc-gloss">Ícone é âncora de leitura numa lista longa; como decoração de três frases ele só adiciona ruído. A spec do carro é uma linha de texto: "5 lugares · 2 malas · manual".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--dense" id="medidas">
+  <div class="asa-doc-section__inner">
+    <h2>O que mudou de v1 para v2, em número.</h2>
+    <p class="asa-doc-section__lead">Mesmo conteúdo, mesma busca, mesmos fatos. Só a composição.</p>
+
+    <div class="asa-doc-block delta">
+      <div class="delta__item"><b>8</b><small>blocos em caixa alta <s>79</s></small></div>
+      <div class="delta__item"><b>11</b><small>ícones <s>79</s></small></div>
+      <div class="delta__item"><b>19</b><small>cards com borda <s>38</s></small></div>
+      <div class="delta__item"><b>0</b><small>sobretítulos <s>11</s></small></div>
+      <div class="delta__item"><b>16</b><small>fotos <s>0</s></small></div>
+      <div class="delta__item"><b>8.482</b><small>px de altura no celular <s>11.435</s></small></div>
+    </div>
+    <p class="asa-doc-gloss" style="margin-top:24px;max-width:760px">A página ficou mais curta com texto maior (o corpo subiu de 12–14px para 16px) porque parou de dizer a mesma coisa três vezes: trinca de selos, faixa de parceiros, chips do formulário e sobretítulos saíram, e o que ficou é foto ou fato.</p>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--white" id="checklist">
+  <div class="asa-doc-section__inner">
+    <h2>Checklist de entrega: os vícios de template, <em>medidos</em>.</h2>
+    <p class="asa-doc-section__lead">Antes de qualquer página nova ir ao ar, contar. Cada linha tem um limite e um jeito de medir que não depende de gosto. Quem contar acima do limite não precisa discutir: precisa reconstruir a seção.</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-scroll">
+        <table class="asa-doc-table">
+          <thead><tr><th>O que contar</th><th>Limite</th><th>Como medir</th><th>O vício que denuncia</th></tr></thead>
+          <tbody>
+            <tr><td>Blocos de texto em caixa alta</td><td>H1 + etiquetas de benefício + preços e placas; nada mais</td><td><code class="asa-doc-code">text-transform: uppercase</code> computado nos nós com texto</td><td>Registro 1 espalhado; rótulo e legenda gritando</td></tr>
+            <tr><td>Sobretítulos</td><td>0</td><td>Qualquer texto curto imediatamente acima de um h2/h3</td><td>Kicker mono vermelho acima de todo título</td></tr>
+            <tr><td>Ícones</td><td>Só em controle (menu, seta, fechar) e em lista longa</td><td><code class="asa-doc-code">&lt;svg&gt;</code> fora de botão e de lista com mais de cinco itens</td><td>Ícone por atributo, trio ícone+título+texto</td></tr>
+            <tr><td>Cards com a mesma borda</td><td>Só onde há produto para comparar</td><td>Elementos com <code class="asa-doc-code">border: 1.5px</code> fora da vitrine</td><td>Card como contêiner preguiçoso de qualquer coisa</td></tr>
+            <tr><td>Cabeçalhos de seção iguais</td><td>0 em sequência</td><td>Duas seções seguidas com a mesma estrutura de abertura</td><td>Overfitting visual: o olho desliga na segunda</td></tr>
+            <tr><td>Fundos iguais em sequência</td><td>0</td><td>Duas faixas seguidas com o mesmo <code class="asa-doc-code">background</code></td><td>Ritmo plano, "muro" de seções</td></tr>
+            <tr><td>Grades iguais</td><td>Nunca a mesma grade duas vezes</td><td>3×2, 4×1, 2×1 repetidos</td><td>Mesma topologia, conteúdo diferente</td></tr>
+            <tr><td>Marca d'água</td><td>1</td><td><code class="asa-doc-code">.asa-watermark</code> por página</td><td>Asa repetida vira papel de parede</td></tr>
+            <tr><td>Fotos</td><td>Pelo menos uma por faixa que fala de lugar, carro ou gente</td><td>Contar <code class="asa-doc-code">img</code>/<code class="asa-doc-code">asa-figure</code> por seção</td><td>Texto carregando tudo; ícone no lugar da foto</td></tr>
+            <tr><td>CTA final</td><td>Curto, em Registro 2, com fundo e frase diferentes do hero</td><td>Comparar H2 do fechamento com o H1</td><td>Fechamento que repete a abertura</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="asa-doc-cards" style="margin-top:28px">
+      <div class="asa-doc-card asa-doc-card--yellow">
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">O detector não substitui a conta</span>
+        <p class="asa-doc-gloss" style="color:#3A2C08">O scanner determinístico (impeccable) pega texto pequeno, contraste e caixa alta em corpo de texto. Não pega oito seções iguais — isso só aparece contando, ou olhando a página de longe com os olhos semicerrados: se tudo tem o mesmo peso, nada é a ação.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Quando desviar do sistema</span>
+        <p class="asa-doc-gloss">Três decisões da home v2 saíram da letra do sistema e foram incorporadas: o título de seção em Registro 2, as setas na prateleira e o mínimo de 72px entre faixas. O caminho é esse — desviar com motivo, medir, e trazer para a regra — não desviar em silêncio.</p>
+      </div>
+      <div class="asa-doc-card">
+        <span class="asa-doc-block__title" style="margin:0">Foto de banco, só como comp</span>
+        <p class="asa-doc-gloss">Protótipo pode usar comp de visualização de banco de imagem, com marca d'água e marcado como tal, para avaliar a composição. Produção exige foto real da Asa ou licença — e a legenda do placeholder já é o briefing da produção fotográfica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--cream" id="roteiro">
+  <div class="asa-doc-section__inner">
+    <h2>Roteiro para uma página nova.</h2>
+    <p class="asa-doc-section__lead">A ordem é de dependência: decidir a estrutura antes de escrever, escrever antes de buscar foto, medir antes de entregar.</p>
+
+    <div class="asa-doc-block">
+      <div class="asa-doc-specs" style="max-width:860px">
+        <div class="asa-doc-spec"><span>1 · Percurso</span><span class="asa-doc-spec__value">o que a pessoa precisa decidir, na ordem — cada decisão vira uma faixa</span></div>
+        <div class="asa-doc-spec"><span>2 · Topologia</span><span class="asa-doc-spec__value">uma estrutura por faixa, nenhuma repetida; cards só na vitrine</span></div>
+        <div class="asa-doc-spec"><span>3 · Fundos</span><span class="asa-doc-spec__value">alternar branco, mist, amarelo e preto; amarelo abre e fecha, preto na prova</span></div>
+        <div class="asa-doc-spec"><span>4 · Texto</span><span class="asa-doc-spec__value">H1 em Registro 1; H2 em Registro 2 com uma palavra em vermelho; sem sobretítulo</span></div>
+        <div class="asa-doc-spec"><span>5 · Foto</span><span class="asa-doc-spec__value">uma por faixa de lugar, carro ou gente; placeholder com a legenda do que falta</span></div>
+        <div class="asa-doc-spec"><span>6 · Medir</span><span class="asa-doc-spec__value">o checklist acima, mais o scanner, em 375 e 1440px</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="asa-doc-next">
+  <a class="asa-doc-next__link" href="14-downloads.html"><span>Anterior</span><b>← 14 · Downloads</b></a>
+  <span></span>
+</div>
+
+<footer class="asa-doc-foot">
+  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+</footer>
+
+</body>
+</html>
