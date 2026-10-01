@@ -56,8 +56,15 @@ body {
 /* --------------------------------------------------------------------------
    OS 5 DEGRAUS
    Registro 1 (Anúncio): caixa alta, itálico, Black, entreletras negativa.
-   Mesmo corte do wordmark. Só título, preço e número — nunca corpo de texto,
-   nunca para falar com uma pessoa.
+   Mesmo corte do wordmark. Vive em TRÊS lugares, e só neles: o H1 da página,
+   o preço e a placa de número. Nunca corpo de texto, nunca para falar com
+   uma pessoa.
+
+   Revisão de composição (out/2026): o H2 saiu do Registro 1. Oito títulos de
+   seção em caixa alta itálica numa mesma página viravam grito contínuo e
+   apagavam o H1 — o degrau Título continua 32/36, mas em Registro 2 (700,
+   caixa baixa), com UMA palavra em vermelho de ação quando a seção pede
+   assinatura (<em> dentro do h2). Em peça de anúncio o H1 já cobre.
    -------------------------------------------------------------------------- */
 
 h1,
@@ -72,20 +79,37 @@ h1,
   text-wrap: balance;
 }
 
+/* Registro 2 (Balcão) começa aqui: caixa baixa, sem itálico, sem exclamação.
+   É a voz de quem atende. Vive no campo claro. */
+
 h2,
 .asa-title {
   font-size: var(--asa-fs-title-fluid);
   line-height: 1.125;
-  font-weight: var(--asa-weight-black);
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: var(--asa-tracking-display);
+  font-weight: var(--asa-weight-bold);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: var(--asa-tracking-title);
   margin: 0;
   text-wrap: balance;
 }
 
-/* Registro 2 (Balcão) começa aqui: caixa baixa, sem itálico, sem exclamação.
-   É a voz de quem atende. Vive no campo claro. */
+/* A palavra em vermelho: uma por título, nunca duas, e nunca sobre amarelo
+   (2,94:1 reprova — ver 03 Cor). Sobre amarelo e sobre preto a ênfase
+   herda a cor do título. */
+h2 em,
+.asa-title em,
+.asa-accent {
+  font-style: normal;
+  color: var(--asa-action);
+}
+
+.asa-bg-surface h2 em,
+.asa-bg-surface .asa-accent,
+.asa-bg-dense h2 em,
+.asa-bg-dense .asa-accent,
+.asa-bg-deep h2 em,
+.asa-bg-deep .asa-accent { color: inherit; }
 
 h3,
 .asa-highlight {
@@ -106,19 +130,34 @@ p,
   text-wrap: pretty;
 }
 
+/* Rótulo: caixa baixa, 14/20, Medium, cinza de legenda. A caixa alta com
+   tracking é da etiqueta de benefício (.asa-tag) e de nada mais — a home v2
+   tinha 52 rótulos em caixa alta e 8 bastavam (revisão de composição,
+   out/2026). .asa-label--caps mantém o desenho antigo para o raro rótulo que
+   é, de fato, uma etiqueta sem fundo. */
 small,
 .asa-label {
-  font-size: var(--asa-fs-label);
-  line-height: var(--asa-lh-label);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  text-transform: uppercase;
-  letter-spacing: var(--asa-tracking-label);
+  color: var(--asa-ink-3);
   display: inline-block;
 }
 
-/* Rótulo mono de seção. A cor muda com o fundo — é a única "cor de rótulo"
-   do sistema: vermelho escuro sobre claro, amarelo sobre preto, verde para
-   marcar o que já existe e não se toca. */
+.asa-label--caps {
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  text-transform: uppercase;
+  letter-spacing: var(--asa-tracking-label);
+  color: inherit;
+}
+
+/* Rótulo mono: metadado de produto — código de reserva, placa, IATA, nome
+   de token nesta documentação. NUNCA acima de um título como "sobretítulo":
+   o título carrega o próprio peso, e o rótulo em cima dele é o vício que a
+   revisão de composição tirou de 11 seções da home. A cor muda com o fundo:
+   vermelho escuro sobre claro, amarelo sobre preto, verde para o que já
+   existe e não se toca. */
 .asa-label-mono {
   font-family: var(--asa-font-mono);
   font-size: var(--asa-fs-mono);

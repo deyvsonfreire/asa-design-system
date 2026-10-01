@@ -3,8 +3,12 @@
 
    Só o chrome do documento: capa, navegação, seção, card, glosa, vitrine.
    Nada aqui é componente de produto — o produto está em asa-components.css.
-   A gramática (rótulo mono → título display → lead → grid de cards com
-   glosa na base) é herdada do arquivo de referência do handoff.
+   A gramática era "rótulo mono → título display → lead → cards", herdada
+   do handoff. A revisão de composição (out/2026) a trocou por "título em
+   Registro 2 → lide → conteúdo", porque a documentação precisa praticar o
+   que prescreve: o rótulo acima do título virou legenda discreta (sem
+   vermelho, sem caixa alta) até ser removido página a página, e nenhuma
+   peça do chrome usa mais caixa alta além do carimbo da capa.
    ========================================================================== */
 
 /* ==========================================================================
@@ -281,8 +285,10 @@
 
 /* ==========================================================================
    SEÇÃO
-   Ritmo de fundo alternado creme → branco → creme, com a seção escura
-   reservada para o momento de maior peso do documento.
+   Ritmo de fundo: duas seções seguidas nunca têm o mesmo fundo (mist, branco,
+   amarelo, preto), e a seção escura fica para o momento de maior peso. Uma
+   topologia por seção — a página que repete a mesma grade cinco vezes
+   ensina o leitor a parar de olhar.
    ========================================================================== */
 
 .asa-doc-section {
@@ -301,24 +307,24 @@
   container-type: inline-size;
 }
 
+/* Legenda de seção: discreta, caixa baixa, sem cor de ação. Existe para o
+   número da seção; onde só repete o título, a página o remove. */
 .asa-doc-section__label {
-  font-size: var(--asa-fs-label);
-  line-height: 1;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--asa-action-hover);
+  color: var(--asa-ink-3);
   display: block;
-  margin-bottom: 18px;
+  margin-bottom: var(--asa-space-3);
 }
 
-.asa-doc-section--dense .asa-doc-section__label { color: var(--asa-surface); }
+.asa-doc-section--dense .asa-doc-section__label { color: var(--asa-ink-inverse-2); }
 .asa-doc-section--yellow .asa-doc-section__label { color: var(--asa-ink); }
 
 .asa-doc-section h2 {
-  font-size: clamp(30px, 4.6cqi, 62px);
-  line-height: .98;
-  max-width: 1000px;
+  font-size: clamp(28px, 3.2cqi, 44px);
+  line-height: 1.1;
+  max-width: 900px;
 }
 
 .asa-doc-section__lead {
@@ -334,18 +340,16 @@
 .asa-doc-block { margin-top: clamp(36px, 5vw, 64px); }
 
 .asa-doc-block__title {
-  font-family: var(--asa-font-mono);
-  font-size: 13px;
-  line-height: 1.2;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-subtitle);
+  line-height: var(--asa-lh-subtitle);
   font-weight: var(--asa-weight-bold);
-  letter-spacing: var(--asa-tracking-mono);
-  text-transform: uppercase;
-  color: var(--asa-action-hover);
+  color: var(--asa-ink);
   display: block;
   margin-bottom: var(--asa-space-4);
 }
 
-.asa-doc-section--dense .asa-doc-block__title { color: var(--asa-surface); }
+.asa-doc-section--dense .asa-doc-block__title { color: var(--asa-ink-inverse); }
 .asa-doc-section--yellow .asa-doc-block__title { color: var(--asa-ink); }
 
 /* ==========================================================================
@@ -553,12 +557,10 @@
 }
 
 .asa-demo__caption {
-  font-family: var(--asa-font-mono);
-  font-size: 12px;
-  line-height: 1.4;
-  font-weight: var(--asa-weight-bold);
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
   color: var(--asa-ink-2);
 }
 
@@ -569,11 +571,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--asa-font-mono);
-  font-size: 13px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-bold);
-  letter-spacing: .14em;
-  text-transform: uppercase;
 }
 
 .asa-verdict--yes { color: var(--asa-ok); }
@@ -604,7 +605,7 @@
 
 .asa-frame__url {
   font-family: var(--asa-font-mono);
-  font-size: 10px;
+  font-size: var(--asa-fs-label); /* era 10px, abaixo do piso */
   letter-spacing: .04em;
   color: var(--asa-ink-3);
   background: var(--asa-bg-elevated);
@@ -714,20 +715,16 @@
 }
 
 .asa-doc-next__link span {
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label); /* era 10px — abaixo do piso de 12px, achado pelo detector; é link real, não rótulo decorativo */
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   color: var(--asa-ink-3);
 }
 
 .asa-doc-next__link b {
-  font-size: 20px;
-  line-height: 1.2;
-  font-weight: var(--asa-weight-black);
-  font-style: italic;
-  text-transform: uppercase;
-  letter-spacing: var(--asa-tracking-display);
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
   color: var(--asa-action-hover);
 }
 
@@ -771,12 +768,10 @@
 }
 
 .asa-doc-table th {
-  font-family: var(--asa-font-mono);
-  font-size: 12px;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
   font-weight: var(--asa-weight-bold);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--asa-ink-2);
+  color: var(--asa-ink);
   white-space: nowrap;
 }
 
@@ -863,10 +858,9 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  font-family: var(--asa-font-mono, monospace);
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense, 14px);
+  line-height: var(--asa-lh-body-dense, 20px);
   color: var(--asa-ink-2, #4A4C50);
   margin-top: 6px;
 }

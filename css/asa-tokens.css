@@ -191,7 +191,8 @@
      valor abaixo de 12px, e só para o rótulo mono decorativo de seção; texto
      de produto (tag, contagem, atributo) nunca deve usar --asa-fs-mono. */
   --asa-fs-subtitle:    17px;   --asa-lh-subtitle:    24px;  /* título de card       */
-  --asa-fs-body-dense:  14px;   --asa-lh-body-dense:  20px;  /* botão, choice, denso */
+  --asa-fs-body-dense:  14px;   --asa-lh-body-dense:  20px;  /* botão, choice, denso, rótulo de campo */
+  --asa-fs-lead:        18px;   --asa-lh-lead:        28px;  /* lide de seção: a frase sob o H2 (revisão de composição, out/2026) */
 
   /* Registro de NUMERAL — preço e nota, não conteúdo nem UI de chrome. Já
      existia como precedente não nomeado (.asa-price__value, .asa-numberplate
@@ -206,7 +207,8 @@
   --asa-fs-display-fluid: clamp(38px, 6.4cqi, 64px);
   --asa-fs-title-fluid:   clamp(24px, 3.2cqi, 32px);
 
-  --asa-tracking-display: -.03em;   /* display e título          */
+  --asa-tracking-display: -.03em;   /* display (H1), Registro 1  */
+  --asa-tracking-title:   -.01em;   /* título de seção, Registro 2 (out/2026) */
   --asa-tracking-number:  -.05em;   /* placa de número           */
   --asa-tracking-price:   -.04em;   /* preço                     */
   --asa-tracking-label:   .2em;     /* etiqueta caixa alta       */
@@ -257,7 +259,10 @@
   --asa-bp-tablet:  768px;
   --asa-bp-desktop: 1024px;
 
-  --asa-section-pad-y: clamp(56px, 8vw, 120px);
+  /* Revisão de composição (out/2026): o mínimo sobe de 56 para 72px. A home
+     v2 mostrou que 56px no celular não separa duas faixas de fundo diferente;
+     o máximo de 120px já era o valor de desktop. */
+  --asa-section-pad-y: clamp(72px, 8vw, 120px);
   --asa-section-pad-x: clamp(20px, 6vw, 90px);
 
   /* ========================================================================

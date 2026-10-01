@@ -65,8 +65,11 @@
 
 /* --------------------------------------------------------------------------
    PLACEHOLDER DE FOTOGRAFIA
-   Nenhuma foto do sistema existe ainda. Até existirem, este hachurado — e
-   nunca foto de banco de imagem, que quebraria a direção de fotografia.
+   A foto é conteúdo, não ilustração: na home v2 ela substituiu 68 ícones e
+   19 cards (revisão de composição, out/2026). Enquanto a foto real não
+   existe, este hachurado marca o lugar e a legenda diz qual foto falta.
+   Foto de banco de imagem só como COMP de visualização em protótipo,
+   marcada como tal e nunca em produção — ela não é a Asa.
    A hachura corre a 8°, o mesmo ângulo do vão.
    -------------------------------------------------------------------------- */
 
@@ -101,12 +104,10 @@
   position: absolute;
   left: var(--asa-space-3);
   bottom: 22px;
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  line-height: 1.35;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  letter-spacing: .1em;
-  text-transform: uppercase;
   color: var(--asa-ink-3);
 }
 
@@ -118,7 +119,8 @@
 /* --------------------------------------------------------------------------
    MARCA D'ÁGUA
    A asa sozinha, sem wordmark, só existe em dois lugares: marca d'água a 13%
-   sobre amarelo, e dentro do recorte circular do ícone de perfil.
+   sobre amarelo, e dentro do recorte circular do ícone de perfil. E UMA VEZ
+   por página — no hero. Repetida no CTA final ela vira papel de parede.
    -------------------------------------------------------------------------- */
 
 .asa-watermark {
