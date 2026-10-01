@@ -1,12 +1,12 @@
 /* ==========================================================================
-   ASA RENT A CAR — UTILITÁRIOS
+   ASA RENT A CAR: UTILITÁRIOS
    O corte de 8°, a hachura de placeholder e a marca d'água.
    Carregar por ÚLTIMO: sem build, a ordem de origem na cascata é o que
    dispensa !important.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   O VÃO — corte a 8°
+   O VÃO: corte a 8°
 
    O ângulo sai do próprio logo: é a inclinação da asa e do wordmark, sempre
    subindo para a direita. É o ÚNICO ângulo do sistema.
@@ -14,7 +14,7 @@
    Por que cqw e não porcentagem: numa porcentagem, a coordenada Y de um
    polygon é relativa à ALTURA da caixa. Como tan(8°) relaciona altura a
    largura, a mesma porcentagem produz ângulos diferentes em proporções
-   diferentes — o card de veículo em 16:9 com "100% 86%" corta a 4,5°, não a
+   diferentes: o card de veículo em 16:9 com "100% 86%" corta a 4,5°, não a
    8°. Expressando a subida em unidade de largura (cqw), o ângulo fica
    correto em qualquer proporção. tan(8°) = 0.14054.
 
@@ -24,7 +24,7 @@
    acima, sem clip.
    -------------------------------------------------------------------------- */
 
-/* O wrapper é quem estabelece o container — cqw resolve contra ele, então
+/* O wrapper é quem estabelece o container: cqw resolve contra ele, então
    a subida passa a ser relativa à largura DESTE bloco, não do viewport. */
 .asa-cut {
   container-type: inline-size;
@@ -65,11 +65,11 @@
 
 /* --------------------------------------------------------------------------
    PLACEHOLDER DE FOTOGRAFIA
-   A foto é conteúdo, não ilustração: na home v2 ela substituiu 68 ícones e
-   19 cards (revisão de composição, out/2026). Enquanto a foto real não
+   A foto é conteúdo, não ilustração: na página ela ocupa o lugar que o
+   ícone decorativo e o card vazio ocupariam. Enquanto a foto real não
    existe, este hachurado marca o lugar e a legenda diz qual foto falta.
    Foto de banco de imagem só como COMP de visualização em protótipo,
-   marcada como tal e nunca em produção — ela não é a Asa.
+   marcada como tal e nunca em produção: ela não é a Asa.
    A hachura corre a 8°, o mesmo ângulo do vão.
    -------------------------------------------------------------------------- */
 
@@ -97,9 +97,8 @@
 }
 
 /* Legenda do placeholder. Fica acima do corte da base para não ser fatiada.
-   12px, não 10px: o piso de "nenhum texto abaixo de 12px em tela" é regra
-   dura da marca e vence a conveniência de caber mais texto — a mesma decisão
-   que subiu o label de campo de 9px para 12px (ver divergência #2 no README). */
+   Nunca abaixo de 12px: o piso de "nenhum texto abaixo de 12px em tela" é
+   regra dura da marca e vence a conveniência de caber mais texto. */
 .asa-photo__caption {
   position: absolute;
   left: var(--asa-space-3);
@@ -120,7 +119,7 @@
    MARCA D'ÁGUA
    A asa sozinha, sem wordmark, só existe em dois lugares: marca d'água a 13%
    sobre amarelo, e dentro do recorte circular do ícone de perfil. E UMA VEZ
-   por página — no hero. Repetida no CTA final ela vira papel de parede.
+   por página, no hero. Repetida no CTA final ela vira papel de parede.
    -------------------------------------------------------------------------- */
 
 .asa-watermark {
@@ -159,22 +158,22 @@
 
 /* Fundos de superfície, para compor os dois campos do vão. */
 .asa-bg-surface   { background: var(--asa-surface); color: var(--asa-ink); }
-.asa-bg-cream     { background: var(--asa-bg); }
+.asa-bg-mist     { background: var(--asa-bg); }
 .asa-bg-white     { background: var(--asa-bg-elevated); }
 .asa-bg-dense     { background: var(--asa-bg-dense); color: var(--asa-ink-inverse); }
 .asa-bg-deep      { background: var(--asa-bg-deep); color: var(--asa-ink-inverse); }
 
-/* REGRA DURA (T5): preço nunca sobre amarelo — 2.94:1, reprova até o mínimo
-   de texto grande (ver 03-cor.html). Não é mais só orientação de composição:
+/* REGRA DURA: preço nunca sobre amarelo. 2,94:1 reprova até o mínimo de
+   texto grande (ver 03-cor.html). Não é só orientação de composição:
    nenhum componente que exiba preço pode ser instanciado dentro de
-   .asa-bg-surface. Verificável — candidato a regra de lint. */
+   .asa-bg-surface. Verificável; candidato a regra de lint. */
 
 /* --------------------------------------------------------------------------
-   DENSIDADE — Lacuna 6 (T4)
-   Filtro e vitrine têm listas mais longas do que a peça publicitária previu
-   (30 linhas de filtro × 44px de alvo de toque = 1.320px só de sidebar).
-   .asa-dense desloca o espaçamento vertical um degrau para dentro do escopo,
-   sem duplicar componente — quem está dentro lê --asa-space-* normalmente.
+   DENSIDADE
+   Filtro e vitrine têm listas longas (30 linhas de filtro × 44px de alvo
+   de toque = 1.320px só de sidebar). .asa-dense desloca o espaçamento
+   vertical um degrau para dentro do escopo, sem duplicar componente: quem
+   está dentro lê --asa-space-* normalmente.
    Os 44px continuam sendo ÁREA DE TOQUE, nunca altura visual: a linha pode
    ser mais baixa por dentro, com padding que devolve os 44px ao alvo.
    -------------------------------------------------------------------------- */
@@ -186,22 +185,22 @@
 }
 
 /* --------------------------------------------------------------------------
-   ORÇAMENTO DE COR POR ARQUÉTIPO DE PÁGINA — T2 (decidida 10/09/2026)
-   A proporção 40/25/20/15 foi calibrada para peça publicitária e para um
-   funil de 8 telas; aplicada às 70 páginas do portal sem distinção, o
-   amarelo perde função em página institucional/jurídica e polui página
-   transacional (mais cor decorativa = mais ruído contra a tarefa — o oposto
-   do que checkout precisa). Passa a variar por arquétipo, declarado no
-   <body>. Cada modo aqui é o TETO de uso do amarelo como composição — não
-   afeta o header, que é chrome fixo de marca em qualquer página.
+   ORÇAMENTO DE COR POR ARQUÉTIPO DE PÁGINA
+   A proporção 40/25/20/15 é calibrada para peça publicitária e para o
+   funil; aplicada às ~70 páginas do portal sem distinção, o amarelo perde
+   função em página institucional/jurídica e polui página transacional
+   (mais cor decorativa = mais ruído contra a tarefa, o oposto do que
+   checkout precisa). Por isso varia por arquétipo, declarado no <body>.
+   Cada modo aqui é o TETO de uso do amarelo como composição; não afeta o
+   header, que é chrome fixo de marca em qualquer página.
    -------------------------------------------------------------------------- */
 [data-page-mode="marketing"] {
-  /* ~40/25/20/15 — o padrão já documentado em 03-cor.html. Nenhuma mudança. */
+  /* ~40/25/20/15, o padrão documentado em 03-cor.html. */
 }
 
 [data-page-mode="transactional"] {
-  /* Modo foco: motor de busca, vitrine, funil, checkout. O amarelo cai para
-     uso estritamente funcional — estado ativo, um único destaque de CTA, a
+  /* Modo foco: motor de busca, vitrine, funil, checkout. O amarelo fica em
+     uso estritamente funcional: estado ativo, um único destaque de CTA, a
      marca no header. Composição em --asa-bg-surface fica reservada a, no
      máximo, um bloco por tela (ex.: faixa do Clube Asa). */
   --asa-yellow-budget: functional-only;
@@ -209,7 +208,7 @@
 
 [data-page-mode="informational"] {
   /* Quase neutro: regras de locação, proteções e taxas, prevenção a
-     fraudes, acessibilidade, blog. Amarelo só no header/logo e em link —
-     página jurídica que parece anúncio perde credibilidade, não ganha. */
+     fraudes, acessibilidade, blog. Amarelo só no header/logo e em link:
+     página jurídica que parece anúncio perde credibilidade. */
   --asa-yellow-budget: chrome-only;
 }

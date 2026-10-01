@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>03 · Cor — Sistema de Design Asa</title>
+<title>03 · Cor · Sistema de Design Asa</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -48,11 +48,11 @@
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="paleta">
+<section class="asa-doc-section asa-doc-section--mist" id="paleta">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">03 · Cor</span>
     <h2>Amarelo é o ambiente. Vermelho é o que pede resposta.</h2>
-    <p class="asa-doc-section__lead">As duas cores são as mesmas de sempre, com os pesos trocados. O amarelo assume o fundo das peças; o vermelho passa a aparecer só onde há uma ação, um preço ou a assinatura. Cada cor aqui tem função escrita — não existe cor disponível "para usar quando precisar".</p>
+    <p class="asa-doc-section__lead">O amarelo assume o fundo das peças; o vermelho aparece só onde há uma ação, um preço ou a assinatura. Cada cor aqui tem função escrita. Não existe cor disponível "para usar quando precisar".</p>
 
     <div class="asa-doc-cards asa-doc-cards--tight">
 
@@ -88,19 +88,11 @@
         <div class="asa-swatch__info">
           <span class="asa-swatch__name">Cinza Mist</span>
           <span class="asa-swatch__hex">#F4F4F3 · 15%</span>
-          <span class="asa-swatch__use">Superfície de composição e camada flutuante (modal, popover, menu, navdrawer). Nunca fundo padrão de <code>body</code> — isso é branco.</span>
+          <span class="asa-swatch__use">Superfície de composição e camada flutuante (modal, popover, menu, navdrawer). Nunca fundo padrão de <code>body</code>: isso é branco.</span>
         </div>
       </div>
 
-      <div class="asa-swatch">
-        <div class="asa-swatch__chip" style="background:#FFFBF0"></div>
-        <div class="asa-swatch__info">
-          <span class="asa-swatch__name">Creme <span style="font-weight:400;text-transform:none;letter-spacing:0">(retirado, ver revisão abaixo)</span></span>
-          <span class="asa-swatch__hex">#FFFBF0</span>
-          <span class="asa-swatch__use">Primitivo de referência histórica. Nenhuma superfície viva do sistema o consome desde 12/09/2026 — substituído por Cinza Mist em toda composição e camada flutuante.</span>
-        </div>
-      </div>
-
+      
       <div class="asa-swatch">
         <div class="asa-swatch__chip" style="background:#C4070E"></div>
         <div class="asa-swatch__info">
@@ -147,7 +139,7 @@
         <div style="flex:20;background:#E80911;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">20%</div>
         <div style="flex:15;background:#F4F4F3;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">É a lógica do 60-30-10 adaptada a quatro papéis. O princípio é o mesmo: uma cor domina a superfície e cria um fundo de descanso, uma segunda estrutura o texto, e a de maior impacto aparece na menor área — exatamente onde importa que o olho vá primeiro. Revisão de 12/09/2026: a fatia de 15% era creme (<code>#FFFBF0</code>) e passou a ser cinza mist (<code>#F4F4F3</code>) — mesma proporção, mesmo papel de composição, sem viés de matiz amarelo.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">A fatia de 15% é o cinza mist (<code>#F4F4F3</code>): superfície de composição e camada flutuante, neutra, sem viés de matiz amarelo.</p>
     </div>
 
     <div class="asa-download-box" style="margin-top:20px">
@@ -168,7 +160,7 @@
 <section class="asa-doc-section asa-doc-section--white" id="contraste">
   <div class="asa-doc-section__inner">
     <h2>Testado, não presumido.</h2>
-    <p class="asa-doc-section__lead">Escolher um cinza escuro em vez de preto puro é uma decisão de conforto visual — mas ela só vale se o contraste resultante continuar suficiente para leitura. Todos os pares abaixo foram calculados, não estimados. O mínimo AA é 4,5:1 para texto normal e 3:1 para texto grande (≥18,66px em negrito, ou ≥24px).</p>
+    <p class="asa-doc-section__lead">Escolher um cinza escuro em vez de preto puro é uma decisão de conforto visual, mas ela só vale se o contraste resultante continuar suficiente para leitura. Todos os pares abaixo foram calculados, não estimados. O mínimo AA é 4,5:1 para texto normal e 3:1 para texto grande (≥18,66px em negrito, ou ≥24px).</p>
 
     <div class="asa-doc-block asa-doc-scroll">
       <table class="asa-doc-table">
@@ -202,7 +194,7 @@
             <td><div class="pair" style="background:#F4F4F3;color:#141517">Corpo</div></td>
             <td class="ratio">16,60:1</td>
             <td><span class="verd verd--aaa">AAA</span></td>
-            <td>Composição e camada flutuante (era creme até 12/09/2026)</td>
+            <td>Composição e camada flutuante</td>
           </tr>
           <tr>
             <td>Branco sobre <code>--asa-green</code></td>
@@ -237,30 +229,23 @@
             <td><div class="pair" style="background:#F4F4F3;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
             <td class="ratio">4,26:1</td>
             <td><span class="verd verd--big">Só texto grande</span></td>
-            <td>Preço e número em display — nunca em legenda</td>
+            <td>Preço e número em display, nunca em legenda</td>
           </tr>
-          <tr>
-            <td><code>--asa-red</code> sobre <code>--asa-yellow</code></td>
-            <td><div class="pair" style="background:#FEC42B;color:#E80911;font-size:20px;font-style:italic;font-weight:900">R$ 189</div></td>
-            <td class="ratio">2,94:1</td>
-            <td><span class="verd verd--fail">Reprovado</span></td>
-            <td>Não usar — ver a nota abaixo</td>
-          </tr>
-        </tbody>
+                  </tbody>
       </table>
     </div>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--yellow">
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Correção de acessibilidade</span>
-        <span class="asa-doc-card__title">Vermelho nunca vai como texto direto sobre amarelo</span>
-        <p style="max-width:none">O handoff permitia vermelho sobre amarelo "a partir do corpo de destaque". Medido, o par dá <b>2,94:1</b> — abaixo até do mínimo de 3:1 para texto grande. É o único par da paleta que reprova.</p>
-        <p class="asa-doc-gloss">A correção não muda nada na estrutura, porque o sistema já resolvia isso sozinho: o vão põe promessa no campo amarelo e preço no campo claro. O preço vive sobre cinza mist (4,26:1, aprovado em texto grande) ou sobre branco (4,68:1, aprovado em texto normal). O que muda é que agora isso é regra, não coincidência de composição.</p>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">O par que não existe</span>
+        <span class="asa-doc-card__title">Vermelho nunca como texto sobre amarelo</span>
+        <p style="max-width:none">O par mede <b>2,94:1</b>, abaixo do mínimo de 3:1 para texto grande. É o único par da paleta que reprova, e por isso não entra na matriz.</p>
+        <p class="asa-doc-gloss">A composição resolve isso sozinha: o campo amarelo carrega a promessa, o campo claro carrega o preço. O preço vive sobre cinza mist (4,26:1, aprovado em texto grande) ou sobre branco; o título em amarelo usa a tinta preta, e a palavra de ênfase herda a cor do título.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Sobre o botão vermelho em peça amarela</span>
-        <p style="max-width:none">Ele continua válido. O que a pessoa lê é o rótulo branco sobre o vermelho do próprio botão — 4,68:1, aprovado.</p>
-        <p class="asa-doc-gloss">A ressalva é a fronteira entre o botão e o fundo amarelo, que fica em 2,94:1. Como o botão é identificado pelo rótulo e pela forma preenchida, e não pela borda, isso não impede o uso — mas não coloque um botão vermelho <i>vazado</i> sobre amarelo, porque aí a fronteira passa a ser a única pista.</p>
+        <p style="max-width:none">Ele continua válido. O que a pessoa lê é o rótulo branco sobre o vermelho do próprio botão: 4,68:1, aprovado.</p>
+        <p class="asa-doc-gloss">A ressalva é a fronteira entre o botão e o fundo amarelo, que fica em 2,94:1. Como o botão é identificado pelo rótulo e pela forma preenchida, e não pela borda, isso não impede o uso. Não coloque um botão vermelho <i>vazado</i> sobre amarelo, porque aí a fronteira passa a ser a única pista.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Dois vermelhos, dois papéis</span>
@@ -268,7 +253,7 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">#E80911</code> texto grande</span><span class="asa-doc-spec__value">4,26:1 sobre cinza mist</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">#C4070E</code> texto pequeno</span><span class="asa-doc-spec__value">5,64:1 sobre cinza mist</span></div>
         </div>
-        <p class="asa-doc-gloss">O handoff já mandava usar o vermelho escuro em rótulo pequeno sobre fundo claro. O cálculo mostra por quê: é a diferença entre reprovar e passar em AA. A intuição estava certa; agora ela tem número.</p>
+        <p class="asa-doc-gloss">Rótulo pequeno sobre fundo claro usa o vermelho escuro. O cálculo mostra por quê: é a diferença entre reprovar e passar em AA.</p>
       </div>
     </div>
   </div>
@@ -292,17 +277,17 @@
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-verdict asa-verdict--yes">03</span>
         <span class="asa-doc-card__title">Piso de um vermelho</span>
-        <p class="asa-doc-gloss">Uma peça sem nenhum vermelho perde a assinatura. Sempre existe pelo menos um elemento vermelho — normalmente o único botão de ação.</p>
+        <p class="asa-doc-gloss">Uma peça sem nenhum vermelho perde a assinatura. Sempre existe pelo menos um elemento vermelho, normalmente o único botão de ação.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-verdict asa-verdict--no">04</span>
         <span class="asa-doc-card__title">Nunca texto com alpha</span>
-        <p class="asa-doc-gloss">Nada de <code class="asa-doc-code" style="color:var(--asa-surface)">opacity</code> ou <code class="asa-doc-code" style="color:var(--asa-surface)">color-mix</code> em texto sobre fundo colorido — tinta cheia sempre. Estado desabilitado usa token literal, não transparência.</p>
+        <p class="asa-doc-gloss">Nada de <code class="asa-doc-code" style="color:var(--asa-surface)">opacity</code> ou <code class="asa-doc-code" style="color:var(--asa-surface)">color-mix</code> em texto sobre fundo colorido: tinta cheia sempre. Estado desabilitado usa token literal, não transparência.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-verdict asa-verdict--no">05</span>
         <span class="asa-doc-card__title">Sobre vermelho, só branco puro</span>
-        <p class="asa-doc-gloss">Nenhum creme, nenhum cinza claro, nenhum amarelo. Só #FFFFFF — é o que sustenta os 4,68:1 medidos.</p>
+        <p class="asa-doc-gloss">Nenhum cinza claro, nenhum amarelo. Só #FFFFFF: é o que sustenta os 4,68:1 medidos.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-verdict asa-verdict--no">06</span>
@@ -313,7 +298,7 @@
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Sobre o preto não ser preto</span>
-      <p style="color:var(--asa-ink-inverse-2);max-width:700px">O preto da marca é <code class="asa-doc-code" style="color:var(--asa-surface)">#141517</code>, não <code class="asa-doc-code" style="color:var(--asa-surface)">#000000</code>. Preto puro sobre branco puro cria o contraste máximo possível, o que em tela tende a cansar a vista em leitura longa e a gerar uma leve vibração nas bordas do texto, especialmente em OLED. O #141517 mantém 16,60:1 sobre cinza mist — folga de sobra sobre o mínimo — com leitura mais confortável.</p>
+      <p style="color:var(--asa-ink-inverse-2);max-width:700px">O preto da marca é <code class="asa-doc-code" style="color:var(--asa-surface)">#141517</code>, não <code class="asa-doc-code" style="color:var(--asa-surface)">#000000</code>. Preto puro sobre branco puro cria o contraste máximo possível, o que em tela tende a cansar a vista em leitura longa e a gerar uma leve vibração nas bordas do texto, especialmente em OLED. O #141517 mantém 16,60:1 sobre cinza mist, folga de sobra sobre o mínimo, com leitura mais confortável.</p>
     </div>
   </div>
 </section>

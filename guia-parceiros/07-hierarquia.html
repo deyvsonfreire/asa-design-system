@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>07 · Hierarquia — Guia de Marca Asa · Parceiros</title>
+<title>07 · Hierarquia · Guia de Marca Asa · Parceiros</title>
 <link rel="stylesheet" href="../css/asa-tokens.css">
 <link rel="stylesheet" href="../css/asa-base.css">
 <link rel="stylesheet" href="../css/asa-components.css">
@@ -15,6 +15,24 @@
   .sample { background:var(--asa-bg-elevated); border:var(--asa-border-width) solid var(--asa-line); padding:24px; min-height:210px; display:flex; flex-direction:column; }
   .sample--bad { border-color:rgba(196,7,14,.35); }
   .sample--good { border-color:rgba(6,95,70,.35); }
+  /* Par certo/errado empilhado em largura cheia, usado pela ferramenta Variação. */
+  .pair-stack { display:grid; gap:clamp(20px,3vw,36px); }
+  .pair-stack .sample { min-height:0; }
+  .pair-stack__head { display:flex; align-items:baseline; gap:16px; margin-bottom:16px; }
+  /* Mini página para a ferramenta Variação: três "seções" desenhadas só com CSS. */
+  .mock { display:grid; gap:8px; }
+  .mock__sec { padding:14px 16px; background:var(--asa-bg); display:grid; gap:8px; }
+  .mock__cap { font:500 12px/1.3 var(--asa-font); color:var(--asa-ink-3); }
+  .mock__title { font:700 16px/1.2 var(--asa-font); color:var(--asa-ink); }
+  .mock__cards { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+  .mock__card { height:34px; background:var(--asa-bg-elevated); border:var(--asa-border-width) solid var(--asa-line); }
+  .mock__band { position:relative; max-height:150px; }
+  .mock__band-text { position:absolute; left:16px; top:14px; right:16px; font:700 16px/1.2 var(--asa-font); color:var(--asa-ink); }
+  .mock__cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start; }
+  .mock__list { margin:0; padding-left:18px; font:400 12px/1.5 var(--asa-font); color:var(--asa-ink-2); }
+  .mock__sec--dense { background:var(--asa-bg-dense); color:var(--asa-ink-inverse); grid-template-columns:auto 1fr; align-items:center; gap:16px; }
+  .mock__num { font:italic 900 40px/1 var(--asa-font); letter-spacing:-.04em; color:var(--asa-surface); }
+  .mock__sec--dense .mock__cap { color:var(--asa-ink-inverse-2); }
 </style>
 </head>
 <body>
@@ -26,31 +44,31 @@
     <span class="asa-guia-badge">Guia para parceiros</span>
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html" aria-current="page">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Confiança</a>
-    <a href="10-tokens.html">10 Referência</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html" aria-current="page">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Confiança</a>
+      <a href="10-tokens.html">10 Referência</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="intro">
+<section class="asa-doc-section asa-doc-section--mist" id="intro">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">07 · Hierarquia visual</span>
-    <h2>Cinco ferramentas para saber exatamente o que ajustar quando uma peça não está funcionando.</h2>
-    <p class="asa-doc-section__lead">Hierarquia é a ordem em que o olho processa a tela, antes de qualquer leitura consciente. Sem hierarquia deliberada, a pessoa precisa trabalhar para descobrir o que importa — e o resultado mais comum é simplesmente não notar a ação principal. Cada ferramenta abaixo vem com um exemplo certo e um errado lado a lado, porque apontar <i>qual</i> ponto está fraco é muito mais útil do que dizer "deixa mais bonito".</p>
+    <h2>Seis ferramentas para saber exatamente o que ajustar quando uma peça não está funcionando.</h2>
+    <p class="asa-doc-section__lead">Hierarquia é a ordem em que o olho processa a tela, antes de qualquer leitura consciente. Sem hierarquia deliberada, a pessoa precisa trabalhar para descobrir o que importa, e o resultado mais comum é simplesmente não notar a ação principal. Cada ferramenta abaixo vem com um exemplo certo e um errado lado a lado, porque apontar <i>qual</i> ponto está fraco é muito mais útil do que dizer "deixa mais bonito".</p>
   </div>
 </section>
 
@@ -58,7 +76,7 @@
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">01 · Escala</span>
     <h2>As pessoas leem as coisas grandes primeiro.</h2>
-    <p class="asa-doc-section__lead">Tamanho é processado antes da leitura consciente começar. Mas escala só funciona de forma relativa: hierarquia é sempre a razão entre elementos, nunca um tamanho absoluto. Se tudo na tela é grande, nada se destaca — o efeito de gritar se anula quando todo mundo grita junto.</p>
+    <p class="asa-doc-section__lead">Tamanho é processado antes da leitura consciente começar. Mas escala só funciona de forma relativa: hierarquia é sempre a razão entre elementos, nunca um tamanho absoluto. Se tudo na tela é grande, nada se destaca: o efeito de gritar se anula quando todo mundo grita junto.</p>
 
     <div class="asa-doc-block pair-grid">
       <div>
@@ -71,7 +89,7 @@
             <span style="font:700 20px/1.2 var(--asa-font)">R$ 189 a diária</span>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">Quatro informações no mesmo peso. O olho não sabe por onde entrar, e o preço — que é o que decide a compra — some no meio da lista.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro informações no mesmo peso. O olho não sabe por onde entrar, e o preço, que é o que decide a compra, some no meio da lista.</p>
       </div>
       <div>
         <div class="sample sample--good">
@@ -83,17 +101,17 @@
             <span style="font:italic 900 32px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action);margin-top:6px">R$ 189</span>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">Quatro degraus distintos da escala. O preço é o maior elemento e o único colorido — o olho chega nele primeiro sem precisar procurar.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro degraus distintos da escala. O preço é o maior elemento e o único colorido: o olho chega nele primeiro sem precisar procurar.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="asa-doc-section asa-doc-section--white" id="proximidade">
+<section class="asa-doc-section asa-doc-section--mist" id="proximidade">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">02 · Proximidade</span>
     <h2>O cérebro agrupa o que está perto, antes de ler o que está escrito.</h2>
-    <p class="asa-doc-section__lead">Se dois elementos são relacionados, o espaço entre eles precisa ser visivelmente menor que o espaço até o próximo grupo. O erro mais comum é o espaçamento democrático — a mesma distância entre tudo —, que destrói o agrupamento: se o espaço entre um rótulo e seu campo é igual ao espaço até o campo seguinte, ninguém consegue dizer onde um grupo termina.</p>
+    <p class="asa-doc-section__lead">Se dois elementos são relacionados, o espaço entre eles precisa ser visivelmente menor que o espaço até o próximo grupo. O erro mais comum é o espaçamento democrático (a mesma distância entre tudo), que destrói o agrupamento: se o espaço entre um rótulo e seu campo é igual ao espaço até o campo seguinte, ninguém consegue dizer onde um grupo termina.</p>
 
     <div class="asa-doc-block pair-grid">
       <div>
@@ -132,7 +150,7 @@
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">03 · Espaço em branco</span>
     <h2>Um elemento isolado ganha atenção por subtração.</h2>
-    <p class="asa-doc-section__lead">Diferente da proximidade, que aproxima o que é relacionado, o respiro generoso em volta de um bloco inteiro sinaliza uma fronteira e reduz a densidade que o olho precisa processar de uma vez. Espaço em branco não é sobra: é ferramenta ativa.</p>
+    <p class="asa-doc-section__lead">Diferente da proximidade, que aproxima o que é relacionado, o respiro generoso em volta de um bloco inteiro sinaliza uma fronteira e reduz a densidade que o olho precisa processar de uma vez. Espaço em branco é ferramenta ativa.</p>
 
     <div class="asa-doc-block pair-grid">
       <div>
@@ -149,7 +167,7 @@
             <span style="font:400 10px/1.3 var(--asa-font)">Diária de 27h · sem taxa · sem transfer · 4,7 no Google · 9,4 no Reclame Aqui</span>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">Cabe mais coisa. Mas nada respira, a densidade é uniforme e a busca — que é a ação real da tela — não se distingue do restante.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">Cabe mais coisa. Mas nada respira, a densidade é uniforme e a busca, que é a ação real da tela, não se distingue do restante.</p>
       </div>
       <div>
         <div class="sample sample--good" style="padding:10px">
@@ -162,7 +180,7 @@
             </div>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">O respiro maior fica em volta do elemento que mais importa. Cortar espaço em branco para caber mais é um pedido comum — e quase sempre reduz a hierarquia percebida e a sensação de qualidade.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">O respiro maior fica em volta do elemento que mais importa. Cortar espaço em branco para caber mais é um pedido comum, e quase sempre reduz a hierarquia percebida e a sensação de qualidade.</p>
       </div>
     </div>
   </div>
@@ -186,7 +204,7 @@
         </div>
         <div style="padding:24px">
           <span class="asa-doc-card__title">Balanço assimétrico, de propósito</span>
-          <p class="asa-doc-gloss" style="margin-top:10px">Balanço simétrico transmite formalidade e calma. Assimétrico transmite dinamismo — e é mais difícil de acertar, porque exige pesar ativamente elementos de tamanho e cor diferentes. A Asa usa o assimétrico porque a promessa é "retirada em 8 minutos": simetria comunicaria o oposto do que a marca vende.</p>
+          <p class="asa-doc-gloss" style="margin-top:10px">Balanço simétrico transmite formalidade e calma. Assimétrico transmite dinamismo, e é mais difícil de acertar, porque exige pesar ativamente elementos de tamanho e cor diferentes. A Asa usa o assimétrico porque a promessa é "retirada em 8 minutos": simetria comunicaria o oposto do que a marca vende.</p>
         </div>
       </div>
 
@@ -198,7 +216,7 @@
           <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Preço e botão no card</span><span class="asa-doc-spec__value">linha de base</span></div>
           <div class="asa-doc-spec"><span style="color:var(--asa-ink-inverse)">Divisórias e recortes</span><span class="asa-doc-spec__value">8°, subindo à direita</span></div>
         </div>
-        <p class="asa-doc-gloss">Alinhamento não é "alinhar tudo à esquerda" — é ser consistente sobre <i>qual</i> borda ou eixo os elementos compartilham. No sistema Asa existe um eixo a mais que na maioria dos projetos: o de 8°, que atravessa a peça inteira e amarra os dois campos do vão.</p>
+        <p class="asa-doc-gloss">Alinhar vai além de encostar tudo à esquerda: é ser consistente sobre <i>qual</i> borda ou eixo os elementos compartilham. No sistema Asa existe um eixo a mais que na maioria dos projetos: o de 8°, que atravessa a peça inteira e amarra os dois campos do vão.</p>
       </div>
     </div>
   </div>
@@ -208,7 +226,7 @@
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">05 · Cor e contraste</span>
     <h2>Se tudo compete com cor saturada, nenhum elemento vence.</h2>
-    <p class="asa-doc-section__lead">Cor é um dos sinais mais rápidos que o sistema visual detecta — e por isso o mais fácil de estragar por excesso. A regra "um único botão vermelho por peça" não é estilo: é essa ferramenta de hierarquia escrita como regra de marca.</p>
+    <p class="asa-doc-section__lead">Cor é um dos sinais mais rápidos que o sistema visual detecta, e por isso o mais fácil de estragar por excesso. A regra "um único botão vermelho por peça" é essa ferramenta de hierarquia escrita como regra de marca.</p>
 
     <div class="asa-doc-block pair-grid">
       <div>
@@ -223,7 +241,7 @@
             </div>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">Quatro elementos disputando o mesmo canal. Qual é a ação principal? A etiqueta, o título, ou um dos dois botões? A cor deixou de significar "aqui" e virou papel de parede.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">Quatro elementos disputando o mesmo canal. Qual é a ação principal? A etiqueta, o título, ou um dos dois botões? A cor deixou de significar "aqui": é só papel de parede.</p>
       </div>
       <div>
         <div class="sample sample--good">
@@ -237,7 +255,61 @@
             </div>
           </div>
         </div>
-        <p class="asa-doc-gloss" style="margin-top:12px">Um só elemento carrega o contraste máximo. As outras ações continuam disponíveis, mas param de competir — e a assinatura da marca se mantém, porque o vermelho não desapareceu.</p>
+        <p class="asa-doc-gloss" style="margin-top:12px">Um só elemento carrega o contraste máximo. As outras ações continuam disponíveis, mas param de competir, e a assinatura da marca se mantém, porque o vermelho continua ali.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="asa-doc-section asa-doc-section--mist" id="variacao">
+  <div class="asa-doc-section__inner">
+    <span class="asa-doc-section__label">06 · Variação</span>
+    <h2>Repetir a mesma estrutura ensina o olho a <em>parar</em> de olhar.</h2>
+    <p class="asa-doc-section__lead">É o vício da repetição: oito cabeçalhos de seção idênticos, dezenas de cards iguais, bloco após bloco em caixa alta. O olho aprende o padrão na segunda seção e, a partir dali, não lê mais: reconhece. Consistência é a peça inteira seguir as mesmas regras. Repetição é cada seção usar o mesmo molde. Uma estrutura por seção, fundos alternados, cards só onde existe produto.</p>
+
+    <div class="asa-doc-block pair-stack">
+      <div>
+        <div class="sample sample--bad">
+          <div class="pair-stack__head"><span class="asa-verdict asa-verdict--no">Errado · a mesma grade três vezes</span></div>
+          <div class="mock">
+            <div class="mock__sec">
+              <span class="mock__cap">Nossa frota</span>
+              <span class="mock__title">Carros para cada tipo de viagem</span>
+              <div class="mock__cards"><span class="mock__card"></span><span class="mock__card"></span><span class="mock__card"></span></div>
+            </div>
+            <div class="mock__sec">
+              <span class="mock__cap">Nossos destinos</span>
+              <span class="mock__title">De Recife a Jericoacoara</span>
+              <div class="mock__cards"><span class="mock__card"></span><span class="mock__card"></span><span class="mock__card"></span></div>
+            </div>
+            <div class="mock__sec">
+              <span class="mock__cap">Nossas vantagens</span>
+              <span class="mock__title">Por que alugar com a Asa</span>
+              <div class="mock__cards"><span class="mock__card"></span><span class="mock__card"></span><span class="mock__card"></span></div>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Legenda, título em negrito, três cards. Legenda, título em negrito, três cards. Na terceira seção o olho já não distingue frota de destino de vantagem: tudo é "mais um bloco com cards", e a página inteira fica com o peso de uma lista.</p>
+      </div>
+      <div>
+        <div class="sample sample--good">
+          <div class="pair-stack__head"><span class="asa-verdict asa-verdict--yes">Certo · três estruturas, três assuntos</span></div>
+          <div class="mock">
+            <div class="asa-photo asa-photo--16x9 mock__band">
+              <span class="mock__band-text">De Recife a Jericoacoara</span>
+              <span class="asa-photo__caption">Foto: estrada do litoral, carro Asa em primeiro plano</span>
+            </div>
+            <div class="mock__sec mock__cols">
+              <span class="mock__title">Por que alugar com a Asa</span>
+              <ul class="mock__list"><li>Balcão dentro do saguão</li><li>Retirada em 8 minutos</li><li>Diária de 27 horas</li></ul>
+            </div>
+            <div class="mock__sec mock__sec--dense">
+              <span class="mock__num">4,7</span>
+              <span class="mock__cap">no Google, em mais de 3 mil avaliações</span>
+            </div>
+          </div>
+        </div>
+        <p class="asa-doc-gloss" style="margin-top:12px">Cada assunto tem a forma que pede: o destino é foto, porque é lugar; as vantagens são lista, porque são argumentos; a nota é número grande em fundo escuro, porque é prova. O fundo alterna, e os cards só voltam onde há produto para listar: na frota. O olho recomeça a cada seção em vez de reconhecer o molde e seguir rolando.</p>
       </div>
     </div>
   </div>
@@ -245,21 +317,20 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="combinacao">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Como as ferramentas se combinam</span>
     <h2>O botão certo empilha três sinais ao mesmo tempo.</h2>
 
     <div class="asa-doc-cards">
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-card__title">1 · Cor</span>
         <p class="asa-doc-gloss">É o único elemento vermelho da composição. Contraste máximo, usado uma vez só.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-card__title">2 · Isolamento</span>
         <p class="asa-doc-gloss">Tem espaço em branco próprio em volta, mais generoso que o de qualquer outro elemento da tela.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-card__title">3 · Posição</span>
-        <p class="asa-doc-gloss">Fica sempre no campo de baixo do vão — o campo do "o que o cliente recebe". A posição é previsível de peça em peça.</p>
+        <p class="asa-doc-gloss">Fica sempre no campo de baixo do vão, o campo do "o que o cliente recebe". A posição é previsível de peça em peça.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--yellow">
         <span class="asa-doc-card__title">Por que três e não um</span>
@@ -273,11 +344,12 @@
         <table class="asa-doc-table">
           <thead><tr><th>Princípio</th><th>Pergunta</th><th>O que evitar</th></tr></thead>
           <tbody>
-            <tr><td>Escala</td><td>O elemento mais importante é também o visualmente mais pesado?</td><td>Tudo do mesmo tamanho — nada se destaca</td></tr>
+            <tr><td>Escala</td><td>O elemento mais importante é também o visualmente mais pesado?</td><td>Tudo do mesmo tamanho, nada se destaca</td></tr>
             <tr><td>Proximidade</td><td>O que é relacionado está mais perto entre si do que do resto?</td><td>Espaçamento uniforme mascarando os grupos</td></tr>
-            <tr><td>Espaço em branco</td><td>O elemento principal tem espaço próprio em volta?</td><td>Densidade uniforme — nada respira</td></tr>
+            <tr><td>Espaço em branco</td><td>O elemento principal tem espaço próprio em volta?</td><td>Densidade uniforme, nada respira</td></tr>
             <tr><td>Alinhamento</td><td>Os elementos compartilham bordas ou eixos entre si?</td><td>Desalinhamentos pequenos que incomodam sem explicação</td></tr>
             <tr><td>Cor</td><td>Só um elemento da tela usa o contraste máximo?</td><td>Vários vermelhos competindo ao mesmo tempo</td></tr>
+            <tr><td>Variação</td><td>Cada seção tem uma estrutura própria, ou a peça repete a mesma grade?</td><td>Mesmo cabeçalho, mesmos cards, mesmo fundo em sequência</td></tr>
           </tbody>
         </table>
       </div>

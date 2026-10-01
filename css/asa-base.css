@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ASA RENT A CAR — BASE
+   ASA RENT A CAR: BASE
    Reset mínimo + defaults de elemento. HTML semântico já nasce na marca:
    h1 é display, h2 é título, p é corpo, small é etiqueta. Quem escrever
    markup correto acerta a tipografia sem consultar tabela nenhuma.
@@ -20,20 +20,17 @@ html {
 /* O bloco de reduced-motion em asa-tokens.css zera as quatro durações, mas
    não alcança isto: scroll-behavior é propriedade de elemento, não custom
    property, então precisa da própria regra. Sem ela, quem pediu menos
-   movimento continuava levando scroll animado em toda âncora — e o sistema
-   passa a ter muitas (FAQ, landing de destino, hub de links do rodapé). */
+   movimento levaria scroll animado em toda âncora, e o sistema tem muitas
+   (FAQ, landing de destino, hub de links do rodapé). */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
 
-/* Fundo padrão da página: branco, não creme. A implementação original usava
-   --asa-bg (creme) como o canvas de toda tela — mas o token de cor já
-   documenta o creme como uma fatia de 15% da composição, não a base inteira.
-   Usá-lo como fundo global de body fazia o creme aparecer bem mais que
-   15% na prática (feedback de revisão). Branco vira o neutro-padrão;
-   creme continua existindo como token e aparece onde for composição
-   deliberada — seção específica, hero, formulário — não como pano de fundo
-   automático de tudo. */
+/* Fundo padrão da página: branco. O cinza mist (--asa-bg) é superfície de
+   composição e camada flutuante: entra onde a composição pede (uma seção
+   específica, um hero, um formulário, um modal), nunca como o canvas
+   inteiro. Como fundo global de body ele deixaria de ser composição e
+   viraria pano de fundo automático de tudo. */
 body {
   margin: 0;
   background: var(--asa-bg-elevated);
@@ -44,12 +41,11 @@ body {
   font-weight: var(--asa-weight-regular);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* clip, não hidden (Lacuna 10, corrigida nesta rodada): overflow-x: hidden
-     no body cria um novo contexto de rolagem, e isso é causa documentada de
-     quebra em position: sticky em qualquer descendente — o portal passa a
-     depender de sticky em cinco lugares (resumo, cupom, header, CTA mobile,
-     filtros). clip contém o mesmo estouro horizontal sem criar esse
-     contexto. */
+  /* clip, não hidden: overflow-x: hidden no body cria um novo contexto de
+     rolagem, e isso é causa documentada de quebra em position: sticky em
+     qualquer descendente; o portal depende de sticky em cinco lugares
+     (resumo, cupom, header, CTA mobile, filtros). clip contém o mesmo
+     estouro horizontal sem criar esse contexto. */
   overflow-x: clip;
 }
 
@@ -60,11 +56,10 @@ body {
    o preço e a placa de número. Nunca corpo de texto, nunca para falar com
    uma pessoa.
 
-   Revisão de composição (out/2026): o H2 saiu do Registro 1. Oito títulos de
-   seção em caixa alta itálica numa mesma página viravam grito contínuo e
-   apagavam o H1 — o degrau Título continua 32/36, mas em Registro 2 (700,
-   caixa baixa), com UMA palavra em vermelho de ação quando a seção pede
-   assinatura (<em> dentro do h2). Em peça de anúncio o H1 já cobre.
+   O H2 é Registro 2: o degrau Título (32/36) em 700, caixa baixa, com UMA
+   palavra em vermelho de ação quando a seção pede assinatura (<em> dentro do
+   h2). Oito títulos de seção em caixa alta itálica numa mesma página viram
+   grito contínuo e apagam o H1; em peça de anúncio o H1 já cobre.
    -------------------------------------------------------------------------- */
 
 h1,
@@ -95,8 +90,8 @@ h2,
 }
 
 /* A palavra em vermelho: uma por título, nunca duas, e nunca sobre amarelo
-   (2,94:1 reprova — ver 03 Cor). Sobre amarelo e sobre preto a ênfase
-   herda a cor do título. */
+   (2,94:1 reprova, ver 03 Cor). Sobre amarelo a ênfase herda a cor do
+   título; sobre preto ela é amarela, como a placa de número. */
 h2 em,
 .asa-title em,
 .asa-accent {
@@ -105,11 +100,11 @@ h2 em,
 }
 
 .asa-bg-surface h2 em,
-.asa-bg-surface .asa-accent,
+.asa-bg-surface .asa-accent { color: inherit; }
 .asa-bg-dense h2 em,
 .asa-bg-dense .asa-accent,
 .asa-bg-deep h2 em,
-.asa-bg-deep .asa-accent { color: inherit; }
+.asa-bg-deep .asa-accent { color: var(--asa-surface); }
 
 h3,
 .asa-highlight {
@@ -130,11 +125,27 @@ p,
   text-wrap: pretty;
 }
 
+/* Lide de seção: a frase sob o H2, 18/28, cinza de corpo secundário, na
+   medida de leitura. Sobre amarelo herda a tinta preta; sobre preto, a
+   cinza clara. */
+.asa-lead {
+  font-size: var(--asa-fs-lead);
+  line-height: var(--asa-lh-lead);
+  font-weight: var(--asa-weight-regular);
+  color: var(--asa-ink-2);
+  max-width: var(--asa-measure);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.asa-bg-surface .asa-lead { color: var(--asa-ink); }
+.asa-bg-dense .asa-lead,
+.asa-bg-deep .asa-lead { color: var(--asa-ink-inverse-2); }
+
 /* Rótulo: caixa baixa, 14/20, Medium, cinza de legenda. A caixa alta com
-   tracking é da etiqueta de benefício (.asa-tag) e de nada mais — a home v2
-   tinha 52 rótulos em caixa alta e 8 bastavam (revisão de composição,
-   out/2026). .asa-label--caps mantém o desenho antigo para o raro rótulo que
-   é, de fato, uma etiqueta sem fundo. */
+   tracking é da etiqueta de benefício (.asa-tag) e de nada mais.
+   .asa-label--caps existe para o raro rótulo que é, de fato, uma etiqueta
+   sem fundo. */
 small,
 .asa-label {
   font-size: var(--asa-fs-body-dense);
@@ -152,12 +163,11 @@ small,
   color: inherit;
 }
 
-/* Rótulo mono: metadado de produto — código de reserva, placa, IATA, nome
-   de token nesta documentação. NUNCA acima de um título como "sobretítulo":
-   o título carrega o próprio peso, e o rótulo em cima dele é o vício que a
-   revisão de composição tirou de 11 seções da home. A cor muda com o fundo:
-   vermelho escuro sobre claro, amarelo sobre preto, verde para o que já
-   existe e não se toca. */
+/* Rótulo mono: metadado de produto (código de reserva, placa, IATA, nome
+   de token nesta documentação). NUNCA acima de um título como sobretítulo:
+   o título carrega o próprio peso. A cor muda com o fundo: vermelho escuro
+   sobre claro, amarelo sobre preto, verde para o que já existe e não se
+   toca. */
 .asa-label-mono {
   font-family: var(--asa-font-mono);
   font-size: var(--asa-fs-mono);
@@ -192,7 +202,7 @@ img {
 /* --------------------------------------------------------------------------
    FOCO
    A marca proíbe sombra em qualquer lugar, então elevação e foco não podem
-   usar box-shadow. outline resolve os dois — e não é sombra.
+   usar box-shadow. outline resolve os dois, e não é sombra.
    -------------------------------------------------------------------------- */
 
 :focus-visible {
@@ -233,7 +243,7 @@ img {
   padding-block: var(--asa-section-pad-y);
 }
 
-/* Grade de 12 colunas, gutter 24px. Colapsa para 4 no mobile — o que precisa
+/* Grade de 12 colunas, gutter 24px. Colapsa para 4 no mobile: o que precisa
    sobreviver ao colapso é a hierarquia, não o número de colunas. */
 .asa-grid {
   display: grid;
@@ -249,10 +259,10 @@ img {
   .asa-grid { --asa-columns: 8; }
 }
 
-/* Âncoras não podem parar embaixo do header fixo. --asa-header-h (Lacuna 9)
-   está calibrado para a navbar de 54px desta documentação; o header de
-   produto (duas camadas, ~100–110px) só precisa mudar o token — nenhuma
-   âncora do site precisa ser tocada de novo. */
+/* Âncoras não podem parar embaixo do header fixo. --asa-header-h está
+   calibrado para a navbar de 54px desta documentação; o header de produto
+   (duas camadas, ~100 a 110px) só precisa mudar o token, e nenhuma âncora
+   do site precisa ser tocada. */
 [id] {
   scroll-margin-top: var(--asa-header-h);
 }
@@ -263,10 +273,10 @@ img {
   gap: var(--asa-space-4);
 }
 
-/* Layout de duas colunas — Lacuna 8. Sidebar de filtro + vitrine é o único
-   lugar do sistema que precisa disto; abaixo de 1024px a sidebar empilha
-   acima do conteúdo, nunca vira sheet automaticamente — isso é decisão de
-   quem monta a tela, não do layout. */
+/* Layout de duas colunas. Sidebar de filtro + vitrine é o único lugar do
+   sistema que precisa disto; abaixo de 1024px a sidebar empilha acima do
+   conteúdo e nunca vira sheet automaticamente: isso é decisão de quem
+   monta a tela, não do layout. */
 .asa-layout-2col {
   display: grid;
   grid-template-columns: 1fr;

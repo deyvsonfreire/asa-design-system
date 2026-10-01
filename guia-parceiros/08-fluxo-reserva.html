@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>08 · Fluxo de reserva — Guia de Marca Asa · Parceiros</title>
+<title>08 · Fluxo de reserva · Guia de Marca Asa · Parceiros</title>
 <link rel="stylesheet" href="../css/asa-tokens.css">
 <link rel="stylesheet" href="../css/asa-base.css">
 <link rel="stylesheet" href="../css/asa-components.css">
@@ -11,9 +11,9 @@
 <link rel="stylesheet" href="../css/asa-docs.css">
 <link rel="stylesheet" href="guia.css">
 <style>
-  /* Branco, não creme — mesmo ajuste do fundo padrão global (ver
-     asa-base.css). O creme aparece só onde a tela realmente compõe com ele
-     (campo de busca, placa de número), não como base do produto inteiro. */
+  /* Moldura de tela: fundo branco, o mesmo padrão de página do sistema. O
+     cinza mist entra só onde a tela compõe com ele (busca, camada flutuante),
+     nunca como base do produto inteiro. */
   .screen { padding: 22px; display:flex; flex-direction:column; gap:18px; background:var(--asa-bg-elevated); }
   .screen__nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-bottom:14px; border-bottom:1px solid var(--asa-line); }
   .screen__nav img { height:18px; width:auto; }
@@ -33,47 +33,47 @@
     <span class="asa-guia-badge">Guia para parceiros</span>
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html" aria-current="page">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Confiança</a>
-    <a href="10-tokens.html">10 Referência</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html" aria-current="page">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Confiança</a>
+      <a href="10-tokens.html">10 Referência</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="intro">
+<section class="asa-doc-section asa-doc-section--mist" id="intro">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">08 · Fluxo de reserva</span>
     <h2>Oito telas, da busca à confirmação da reserva.</h2>
-    <p class="asa-doc-section__lead">Estas são as telas reais do produto Asa, tela a tela — da busca ao carro na mão. É a referência mais direta de como o cliente vive a experiência de reservar um carro, útil para alinhar qualquer campanha, vídeo ou material ao que a pessoa realmente encontra depois que clica.</p>
+    <p class="asa-doc-section__lead">Estas são as telas reais do produto Asa, da busca ao carro na mão. É a referência mais direta de como o cliente vive a experiência de reservar um carro, útil para alinhar qualquer campanha, vídeo ou material ao que a pessoa realmente encontra depois que clica.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">A jornada em cinco passos</span>
         <span class="asa-doc-card__title">Buscar, escolher, preencher, pagar, confirmar</span>
-        <p class="asa-doc-gloss">Do formulário de busca na home até o código de reserva na mão — sempre pelo mesmo caminho, sem cadastro obrigatório no início. A conta só é oferecida no final, como um atalho para a próxima viagem, nunca como barreira antes de ver carro e preço.</p>
+        <p class="asa-doc-gloss">Do formulário de busca na home até o código de reserva na mão, sempre pelo mesmo caminho e sem cadastro obrigatório no início. A conta só é oferecida no final, como um atalho para a próxima viagem, nunca como barreira antes de ver carro e preço.</p>
       </div>
       <div class="asa-doc-card">
-        <span class="asa-doc-block__title" style="margin:0">Telas reais, não mockups</span>
+        <span class="asa-doc-block__title" style="margin:0">Telas reais, em uso</span>
         <span class="asa-doc-card__title">O mesmo texto e visual que o cliente vê</span>
-        <p class="asa-doc-gloss">O que está aqui é o produto em uso — os mesmos textos, cores e botões que aparecem quando alguém reserva de verdade. Bom para calibrar o tom de qualquer peça que faça referência à experiência de reserva.</p>
+        <p class="asa-doc-gloss">O que está aqui é o produto em uso: os mesmos textos, cores e botões que aparecem quando alguém reserva de verdade. Bom para calibrar o tom de qualquer peça que faça referência à experiência de reserva.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Um vermelho por tela</span>
         <span class="asa-doc-card__title">A ação principal, e mais nada</span>
-        <p class="asa-doc-gloss">Em todas as oito telas existe exatamente um botão vermelho. Onde há uma segunda ação — voltar, falar no WhatsApp, ver detalhes — ela usa contorno ou amarelo. É a mesma regra de hierarquia de cor do resto do guia, aplicada aqui ao produto real.</p>
+        <p class="asa-doc-gloss">Em todas as oito telas existe exatamente um botão vermelho. Uma segunda ação (voltar, falar no WhatsApp, ver detalhes) usa contorno ou amarelo. É a mesma regra de hierarquia de cor do resto do guia, aplicada aqui ao produto real.</p>
       </div>
     </div>
   </div>
@@ -139,11 +139,11 @@
             <div class="asa-doc-spec"><span>Busca</span><span class="asa-doc-spec__value">dentro da dobra</span></div>
             <div class="asa-doc-spec"><span>Vermelho</span><span class="asa-doc-spec__value">1 · botão "Ver carros"</span></div>
           </div>
-          <p class="asa-doc-gloss">O vão separa a promessa (campo amarelo) da prova (campo escuro). A busca fica no campo amarelo porque é a próxima ação da promessa, não uma consequência dela.</p>
+          <p class="asa-doc-gloss">O vão separa a promessa (campo amarelo) da prova (campo escuro). A busca fica no campo amarelo porque é o passo seguinte da promessa.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--yellow">
           <span class="asa-doc-card__title">Prova social logo na entrada</span>
-          <p class="asa-doc-gloss">Nota 4,7 no Google e 9,4 no Reclame Aqui aparecem já na primeira dobra, ao lado da busca. São números reais e podem ser reaproveitados como argumento em qualquer peça — anúncio, banner ou post.</p>
+          <p class="asa-doc-gloss">Nota 4,7 no Google e 9,4 no Reclame Aqui aparecem já na primeira dobra, ao lado da busca. São números reais e podem ser reaproveitados como argumento em qualquer peça: anúncio, banner ou post.</p>
         </div>
       </div>
     </div>
@@ -151,10 +151,10 @@
 </section>
 
 <!-- 2 -->
-<section class="asa-doc-section asa-doc-section--white" id="tela-frota">
+<section class="asa-doc-section asa-doc-section--mist" id="tela-frota">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Tela 2 · Listagem de frota</span>
-    <h2>Os filtros vivem na URL, não na memória da aplicação.</h2>
+    <h2>Cada combinação de filtros é um link que pode ser compartilhado.</h2>
 
     <div class="asa-doc-block flow">
       <div class="asa-frame">
@@ -245,9 +245,9 @@
           </div>
           <p class="asa-doc-gloss">Só o primeiro card leva botão vermelho; os demais usam contorno. Numa lista de catorze carros, catorze botões vermelhos anulariam a hierarquia e estourariam o teto de área da marca.</p>
         </div>
-        <div class="asa-doc-card asa-doc-card--cream">
-          <span class="asa-doc-card__title">O título fala da viagem, não da ficha técnica</span>
-          <p class="asa-doc-gloss">"Ideal para Jericoacoara e Canoa Quebrada", não "1.6 16V flex". A especificação técnica vira a linha em cinza; o título responde à pergunta que a pessoa realmente tem, que é se o carro serve para onde ela vai — o mesmo raciocínio vale para uma headline de anúncio.</p>
+        <div class="asa-doc-card asa-doc-card--mist">
+          <span class="asa-doc-card__title">O título fala da viagem, a linha cinza fala da ficha técnica</span>
+          <p class="asa-doc-gloss">"Ideal para Jericoacoara e Canoa Quebrada", não "1.6 16V flex". A especificação técnica vira a linha em cinza; o título responde à pergunta que a pessoa realmente tem, que é se o carro serve para onde ela vai. O mesmo raciocínio vale para uma headline de anúncio.</p>
         </div>
       </div>
     </div>
@@ -311,11 +311,11 @@
         <div class="asa-doc-card">
           <span class="asa-doc-block__title" style="margin:0">Preço sem letra miúda</span>
           <span class="asa-doc-card__title">Subtotal, taxa e total, ali, antes do clique</span>
-          <p class="asa-doc-gloss">Diária, número de dias e "não cobramos taxa de aeroporto" aparecem juntos, antes de qualquer ação. Um link de anúncio pode apontar direto para esta página, com o carro e o preço já visíveis — é uma boa referência para uma landing page de campanha.</p>
+          <p class="asa-doc-gloss">Diária, número de dias e "não cobramos taxa de aeroporto" aparecem juntos, antes de qualquer ação. Um link de anúncio pode apontar direto para esta página, com o carro e o preço já visíveis: é uma boa referência para uma landing page de campanha.</p>
         </div>
-        <div class="asa-doc-card asa-doc-card--cream">
+        <div class="asa-doc-card asa-doc-card--mist">
           <span class="asa-doc-card__title">A voz do balcão, direto na tela</span>
-          <p class="asa-doc-gloss">O bloco "Chegando 22h?" fala como o atendente do balcão falaria: caixa baixa, primeira pessoa, sem exclamação. Não é decoração — responde à dúvida real de quem chega em voo noturno.</p>
+          <p class="asa-doc-gloss">O bloco "Chegando 22h?" fala como o atendente do balcão falaria: caixa baixa, primeira pessoa, sem exclamação. Ele responde à dúvida real de quem chega em voo noturno.</p>
         </div>
       </div>
     </div>
@@ -323,7 +323,7 @@
 </section>
 
 <!-- 4 -->
-<section class="asa-doc-section asa-doc-section--white" id="tela-dados">
+<section class="asa-doc-section asa-doc-section--mist" id="tela-dados">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Tela 4 · Checkout, passo 1</span>
     <h2>Doze campos em três telas parecem menos que doze numa só.</h2>
@@ -395,7 +395,7 @@
             <div class="asa-doc-spec"><span>Voltar uma etapa</span><span class="asa-doc-spec__value">nunca apaga o que já foi digitado</span></div>
             <div class="asa-doc-spec"><span>Vermelho</span><span class="asa-doc-spec__value">1 · "Ir para pagamento"</span></div>
           </div>
-          <p class="asa-doc-gloss">"Voltar" é contorno, não vermelho: são duas ações na mesma tela, e só uma delas leva a pessoa adiante.</p>
+          <p class="asa-doc-gloss">"Voltar" usa contorno: são duas ações na mesma tela, e só uma delas leva a pessoa adiante.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--yellow">
           <span class="asa-doc-card__title">O resumo fica visível o tempo todo</span>
@@ -410,7 +410,7 @@
 <section class="asa-doc-section asa-doc-section--white" id="tela-pagamento">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Tela 5 · Checkout, passo 2</span>
-    <h2>O total fica colado no botão. E a caução é explicada antes de ser cobrada.</h2>
+    <h2>O total fica colado no botão e a caução é explicada antes de ser cobrada.</h2>
 
     <div class="asa-doc-block flow">
       <div class="asa-frame">
@@ -524,11 +524,11 @@
             <div class="asa-doc-spec"><span>Termos e ofertas por WhatsApp</span><span class="asa-doc-spec__value">desmarcados por padrão</span></div>
             <div class="asa-doc-spec"><span>Vermelho</span><span class="asa-doc-spec__value">1 · "Confirmar e pagar"</span></div>
           </div>
-          <p class="asa-doc-gloss">Pagamento é seguro e protegido: a caução é explicada em destaque antes de ser bloqueada no cartão, e o botão mostra que está processando para evitar um segundo clique. Abaixo, o mesmo passo com um cartão recusado — mesmo padrão visual de erro usado no resto do sistema.</p>
+          <p class="asa-doc-gloss">Pagamento é seguro e protegido: a caução é explicada em destaque antes de ser bloqueada no cartão, e o botão mostra que está processando para evitar um segundo clique. Abaixo, o mesmo passo com um cartão recusado, no mesmo padrão visual de erro usado no resto do sistema.</p>
         </div>
-        <div class="asa-doc-card asa-doc-card--cream">
+        <div class="asa-doc-card asa-doc-card--mist">
           <span class="asa-doc-card__title">Pagamento simples e transparente</span>
-          <p class="asa-doc-gloss">A caução de R$ 2.000 fica bloqueada, não cobrada, e volta em até 5 dias úteis após a devolução do carro — explicado em português claro, antes da cobrança acontecer.</p>
+          <p class="asa-doc-gloss">A caução de R$ 2.000 fica bloqueada e não cobrada, e volta em até 5 dias úteis após a devolução do carro. A explicação vem em português claro, antes de qualquer cobrança.</p>
         </div>
       </div>
     </div>
@@ -536,10 +536,10 @@
 </section>
 
 <!-- 6 -->
-<section class="asa-doc-section asa-doc-section--white" id="tela-confirmacao">
+<section class="asa-doc-section asa-doc-section--mist" id="tela-confirmacao">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Tela 6 · Checkout, passo 3</span>
-    <h2>É aqui que a conta nasce — depois da reserva, nunca antes.</h2>
+    <h2>A conta nasce depois da reserva, nunca antes.</h2>
 
     <div class="asa-doc-block flow">
       <div class="asa-frame">
@@ -567,7 +567,7 @@
 
             <div style="background:var(--asa-bg-elevated);border:1.5px solid var(--asa-line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:12px">
               <span class="asa-label-mono">Guardar para a próxima</span>
-              <p style="font:400 14px/1.5 var(--asa-font)">Crie uma senha e a próxima reserva leva menos da metade do tempo — seus dados e sua CNH já ficam salvos.</p>
+              <p style="font:400 14px/1.5 var(--asa-font)">Crie uma senha e a próxima reserva leva menos da metade do tempo: seus dados e sua CNH já ficam salvos.</p>
               <div class="asa-field">
                 <label class="asa-field__label" for="c1">Criar senha</label>
                 <input class="asa-input" id="c1" type="password" autocomplete="new-password" value="12345678" aria-describedby="c1h">
@@ -583,11 +583,11 @@
       <div class="note">
         <div class="asa-doc-card">
           <span class="asa-doc-block__title" style="margin:0">O convite certo, na hora certa</span>
-          <p class="asa-doc-gloss">Criar conta é oferecido só depois que a reserva já está confirmada, nunca antes — com uma oferta concreta: "a próxima leva menos da metade do tempo". E o botão "Agora não" está sempre ali: quem não quiser, segue com o código de reserva na mão do mesmo jeito.</p>
+          <p class="asa-doc-gloss">Criar conta é oferecido só depois que a reserva já está confirmada, com uma oferta concreta: "a próxima leva menos da metade do tempo". E o botão "Agora não" está sempre ali: quem não quiser, segue com o código de reserva na mão do mesmo jeito.</p>
         </div>
-        <div class="asa-doc-card asa-doc-card--cream">
+        <div class="asa-doc-card asa-doc-card--mist">
           <span class="asa-doc-card__title">Celebração sem confete</span>
-          <p class="asa-doc-gloss">A confirmação usa etiqueta verde, campo amarelo e o código em display. Nenhuma ilustração comemorativa, nenhum emoji, nenhum contador animado — o número aparece inteiro, de uma vez.</p>
+          <p class="asa-doc-gloss">A confirmação usa etiqueta verde, campo amarelo e o código em display. Nenhuma ilustração comemorativa, nenhum emoji, nenhum contador animado: o número aparece inteiro, de uma vez.</p>
         </div>
       </div>
     </div>
@@ -598,7 +598,7 @@
 <section class="asa-doc-section asa-doc-section--white" id="tela-minha-reserva">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">Telas 7 e 8 · Minha reserva e erro</span>
-    <h2>O histórico é o produto da recorrência. E link quebrado não é beco sem saída.</h2>
+    <h2>O histórico traz a pessoa de volta, e um link quebrado ainda leva ao carro.</h2>
 
     <div class="asa-doc-block flow">
       <div class="asa-frame">
@@ -646,11 +646,11 @@
       <div class="note">
         <div class="asa-doc-card">
           <span class="asa-doc-block__title" style="margin:0">"Reservar de novo" é o motor</span>
-          <p class="asa-doc-gloss">É o único vermelho da tela, e não por acaso: com dados e CNH salvos, refazer uma reserva anterior é o caminho mais curto que existe no produto. Isso — e não pontuação ou selo — é o mecanismo de recorrência.</p>
+          <p class="asa-doc-gloss">É o único vermelho da tela: com dados e CNH salvos, refazer uma reserva anterior é o caminho mais curto que existe no produto. Esse atalho é o mecanismo de recorrência, sem pontuação nem selo.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--yellow">
           <span class="asa-doc-card__title">Controle total sobre os próprios dados</span>
-          <p class="asa-doc-gloss">Com conta salva, a pessoa consegue ver, baixar e apagar o que está guardado sobre ela, direto no produto — sem precisar abrir chamado ou mandar mensagem para pedir isso.</p>
+          <p class="asa-doc-gloss">Com conta salva, a pessoa consegue ver, baixar e apagar o que está guardado sobre ela, direto no produto, sem precisar abrir chamado ou mandar mensagem.</p>
         </div>
       </div>
     </div>
@@ -680,10 +680,10 @@
       <div class="note">
         <div class="asa-doc-card">
           <span class="asa-doc-block__title" style="margin:0">Até o erro tem a cara da marca</span>
-          <p class="asa-doc-gloss">Um link antigo de campanha, uma busca desatualizada, um erro de digitação — a web manda gente para páginas que não existem mais o tempo todo. Por isso essa tela nunca é a página em branco padrão do navegador: ela usa o mesmo visual e o mesmo tom de voz de qualquer outra tela da Asa.</p>
+          <p class="asa-doc-gloss">Link antigo de campanha, busca desatualizada, erro de digitação: a web manda gente para páginas que não existem mais o tempo todo. Por isso essa tela nunca é a página em branco padrão do navegador: ela usa o mesmo visual e o mesmo tom de voz de qualquer outra tela da Asa.</p>
         </div>
-        <div class="asa-doc-card asa-doc-card--cream">
-          <span class="asa-doc-card__title">Devolve a busca, não um link para a home</span>
+        <div class="asa-doc-card asa-doc-card--mist">
+          <span class="asa-doc-card__title">Devolve a busca no lugar do erro</span>
           <p class="asa-doc-gloss">Quem caiu aqui queria alugar um carro. Repetir o formulário de busca resolve a intenção original no mesmo lugar; mandar para a home obrigaria a pessoa a recomeçar a navegação por conta própria.</p>
         </div>
       </div>

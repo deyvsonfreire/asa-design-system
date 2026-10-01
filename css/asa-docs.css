@@ -1,14 +1,12 @@
 /* ==========================================================================
-   ASA RENT A CAR — GRAMÁTICA DA DOCUMENTAÇÃO
+   ASA RENT A CAR: GRAMÁTICA DA DOCUMENTAÇÃO
 
    Só o chrome do documento: capa, navegação, seção, card, glosa, vitrine.
-   Nada aqui é componente de produto — o produto está em asa-components.css.
-   A gramática era "rótulo mono → título display → lead → cards", herdada
-   do handoff. A revisão de composição (out/2026) a trocou por "título em
-   Registro 2 → lide → conteúdo", porque a documentação precisa praticar o
-   que prescreve: o rótulo acima do título virou legenda discreta (sem
-   vermelho, sem caixa alta) até ser removido página a página, e nenhuma
-   peça do chrome usa mais caixa alta além do carimbo da capa.
+   Nada aqui é componente de produto; o produto está em asa-components.css.
+   A gramática de página é "título em Registro 2 → lide → conteúdo": a
+   documentação pratica o que prescreve. A legenda acima do título, quando
+   existe, é discreta (sem vermelho, sem caixa alta) e só numera a seção.
+   Nenhuma peça do chrome usa caixa alta além do carimbo da capa.
    ========================================================================== */
 
 /* ==========================================================================
@@ -19,11 +17,10 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  /* rgba(255,255,255,.94) sobre var(--asa-bg-elevated): translúcido correto
-     para o branco que é o fundo padrão do sistema (era rgba(255,247,227,.94)
-     — o creme ANTIGO, de antes da correção para #FFFBF0 — nunca atualizado
-     quando o resto do sistema corrigiu o tom; ficou um amarelo mais
-     saturado que qualquer superfície viva do sistema atual). */
+  /* rgba(255,255,255,.94) sobre var(--asa-bg-elevated): o translúcido da
+     barra parte do branco que é o fundo padrão do sistema. Nunca de um tom
+     amarelado, que leria mais saturado que qualquer superfície viva do
+     sistema. */
   background: rgba(255, 255, 255, .94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--asa-line);
@@ -69,20 +66,19 @@
 }
 
 /* --------------------------------------------------------------------------
-   DRAWER MOBILE — revisão de 12/09/2026
-   Antes disto, abaixo de 1024px a barra inteira virava uma faixa de
-   rolagem horizontal indescobrível: a maioria das 14 páginas ficava
-   invisível sem um swipe por sorte — e contradizia a própria especificação
-   de Navegação do sistema (asa-navdrawer, já construído e documentado em
-   06-componentes.html#flutuante). Aqui, sem JS (mesma restrição de sempre):
-   um checkbox real faz o papel do botão, estilizado como hambúrguer via
-   ::before/::after, e :has() no ancestral — já um precedente do próprio
-   sistema em .asa-choice--card:has(.asa-choice__input:checked) — dispensa
-   qualquer amarração de irmão-adjacente entre o checkbox e o painel.
+   DRAWER MOBILE
+   Abaixo de 1024px a barra vira um drawer, a mesma especificação de
+   Navegação do sistema (asa-navdrawer, 06-componentes.html#flutuante): uma
+   faixa de rolagem horizontal esconderia a maioria das páginas sem um
+   swipe por sorte. Sem JS: um checkbox real faz o papel do botão,
+   estilizado como hambúrguer via ::before/::after, e :has() no ancestral
+   (o mesmo mecanismo de .asa-choice--card:has(.asa-choice__input:checked))
+   dispensa qualquer amarração de irmão-adjacente entre o checkbox e o
+   painel.
    -------------------------------------------------------------------------- */
 
 .asa-doc-nav__list {
-  display: contents; /* no desktop, os links continuam filhos diretos do flex de .asa-doc-nav__inner — zero mudança visual */
+  display: contents; /* no desktop, os links são filhos diretos do flex de .asa-doc-nav__inner, sem efeito visual */
 }
 
 .asa-doc-nav__toggle {
@@ -287,7 +283,7 @@
    SEÇÃO
    Ritmo de fundo: duas seções seguidas nunca têm o mesmo fundo (mist, branco,
    amarelo, preto), e a seção escura fica para o momento de maior peso. Uma
-   topologia por seção — a página que repete a mesma grade cinco vezes
+   topologia por seção: a página que repete a mesma grade cinco vezes
    ensina o leitor a parar de olhar.
    ========================================================================== */
 
@@ -296,7 +292,7 @@
   border-top: 1px solid var(--asa-line-soft);
 }
 
-.asa-doc-section--cream { background: var(--asa-bg); }
+.asa-doc-section--mist { background: var(--asa-bg); }
 .asa-doc-section--white { background: var(--asa-bg-elevated); }
 .asa-doc-section--dense { background: var(--asa-bg-dense); color: var(--asa-ink-inverse); border-top-color: transparent; }
 .asa-doc-section--yellow{ background: var(--asa-surface); }
@@ -384,18 +380,17 @@
 
 .asa-doc-card--dense  { background: var(--asa-bg-dense); border-color: transparent; color: var(--asa-ink-inverse); }
 
-/* Achado pelo scanner em quase toda página: um <a> de conteúdo dentro de
-   seção/card --dense herda o global a:hover (--asa-action, #E80911) — 3,9:1
-   sobre #141517, reprova AA. O estado normal (--asa-action-hover) já passa;
-   só o hover mais claro falha. Mesmo precedente de --asa-label-mono--on-dark
-   e da placa de número: amarelo é o acento que este sistema já usa sobre
-   fundo escuro — 11,45:1, AAA. */
+/* Link de conteúdo dentro de seção/card --dense: o a:hover global
+   (--asa-action, #E80911) dá 3,9:1 sobre #141517 e reprova AA. O estado
+   normal (--asa-action-hover) passa; só o hover mais claro falha. Sobre
+   fundo escuro o acento do sistema é o amarelo (11,45:1, AAA), o mesmo de
+   --asa-label-mono--on-dark e da placa de número. */
 .asa-doc-section--dense a:hover,
 .asa-doc-card--dense a:hover {
   color: var(--asa-surface);
 }
 .asa-doc-card--yellow { background: var(--asa-surface); border-color: transparent; color: var(--asa-ink) !important; }
-.asa-doc-card--cream  { background: var(--asa-bg); color: var(--asa-ink); }
+.asa-doc-card--mist  { background: var(--asa-bg); color: var(--asa-ink); }
 .asa-doc-card--flush  { padding: 0; overflow: hidden; }
 
 /* Em seções dense, garante que cards claros/amarelos não herdem texto branco nem títulos amarelos */
@@ -422,8 +417,8 @@
 }
 
 /* A glosa gruda na base do card. É o que alinha o racional entre cards de
-   alturas diferentes na mesma linha. Ajustado para 15px com --asa-ink-2 para
-   leitura nítida e confortável em tela. */
+   alturas diferentes na mesma linha. 15px em --asa-ink-2, para leitura
+   nítida e confortável em tela. */
 .asa-doc-gloss {
   font-size: 15px;
   line-height: 1.6;
@@ -432,11 +427,11 @@
   max-width: none;
 }
 
-/* Bug real, achado pelo detector: um .asa-doc-block "solto" (sem classe de
-   card) dentro de .asa-doc-section--dense herdava --asa-ink-3 (feito para
-   fundo claro) sobre fundo preto — 2,7:1, reprova AA. As duas regras abaixo
-   já cobriam o caso "dentro de um card --dense/--yellow"; esta cobre o caso
-   "dentro da seção escura, mas sem card". Ordem importa: como vem ANTES das
+/* Um .asa-doc-block "solto" (sem classe de card) dentro de
+   .asa-doc-section--dense não pode herdar --asa-ink-3, feito para fundo
+   claro: sobre preto dá 2,7:1 e reprova AA. As duas regras abaixo cobrem o
+   caso "dentro de um card --dense/--yellow"; esta cobre o caso "dentro da
+   seção escura, mas sem card". Ordem importa: como vem ANTES das
    regras de card por classe (mesma especificidade), um card --dense/--yellow
    aninhado numa seção escura continua vencendo pela ordem de origem. */
 .asa-doc-section--dense .asa-doc-gloss { color: var(--asa-gray-dark-2); }
@@ -528,7 +523,7 @@
 /* ==========================================================================
    VITRINE DE COMPONENTE
    O fundo da vitrine é escolhido para provar a regra de contraste que o
-   componente documenta — não é decoração.
+   componente documenta, não para decorar.
    ========================================================================== */
 
 .asa-demo {
@@ -581,7 +576,7 @@
 .asa-verdict--no  { color: var(--asa-action-hover); }
 
 /* ==========================================================================
-   MOLDURAS — navegador e celular
+   MOLDURAS: navegador e celular
    Usadas para apresentar telas inteiras dentro da documentação.
    ========================================================================== */
 
@@ -605,7 +600,7 @@
 
 .asa-frame__url {
   font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label); /* era 10px, abaixo do piso */
+  font-size: var(--asa-fs-label); /* piso do sistema: nada abaixo de 12px */
   letter-spacing: .04em;
   color: var(--asa-ink-3);
   background: var(--asa-bg-elevated);
@@ -690,7 +685,7 @@
 }
 
 /* Mockup, não navegação real: os itens são spans ilustrativos, então o
-   estado ativo não usa aria-current — senão o leitor de tela anunciaria
+   estado ativo não usa aria-current; senão o leitor de tela anunciaria
    várias "páginas atuais" na mesma página de documentação. */
 .asa-phone__tab[data-active] { color: var(--asa-action-hover); }
 
@@ -749,7 +744,7 @@
 }
 
 /* ==========================================================================
-   TABELA (só na documentação — o produto não usa tabela)
+   TABELA (só na documentação: o produto não usa tabela)
    ========================================================================== */
 
 .asa-doc-table {

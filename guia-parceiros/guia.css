@@ -1,4 +1,4 @@
-/* Guia de Marca — Parceiros
+/* Guia de Marca: Parceiros
    Camada de estilo exclusiva desta versão. Não altera nenhum arquivo do
    sistema de design interno (asa-tokens/base/components/utilities/docs). */
 
@@ -9,7 +9,7 @@
   border-radius: 0;                 /* é etiqueta: raio zero, como .asa-tag */
   background: var(--asa-yellow);
   color: var(--asa-ink);
-  font-size: 12px;                  /* piso do sistema; era 11px */
+  font-size: 12px;                  /* piso do sistema: nada abaixo de 12px */
   font-weight: 500;
   letter-spacing: .1em;
   text-transform: uppercase;
