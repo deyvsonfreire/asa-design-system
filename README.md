@@ -41,6 +41,8 @@ asa-design-system/
 ├── asa-home-v2/            a home de referência, exemplo vivo de 15 · Composição
 ├── guia-parceiros/         as mesmas páginas, sem jargão, para agências e fornecedores
 ├── scripts/auditar.py      conta os vícios do checklist de 15 em qualquer página
+├── scripts/nav.py          regenera a navegação de todas as páginas
+├── scripts/publicar-guia.py sincroniza o guia com o site do GitHub Pages
 ├── css/
 │   ├── asa-tokens.css      @font-face + primitivos + semânticos
 │   ├── asa-base.css        reset, defaults de elemento, layout, foco
@@ -95,6 +97,12 @@ Conta, por página, o que o checklist de `15-composicao.html` manda contar: bloc
 ## Guia para parceiros
 
 `guia-parceiros/` é a versão das mesmas páginas para fornecedores e agências: mesmo CSS, mesmos componentes, texto sem jargão de implementação (tokens, ARIA, código, decisões internas de produto). As páginas de segurança, tokens, app e roadmap aparecem lá reduzidas ao que interessa a quem produz uma peça. Link: `guia-parceiros/index.html`.
+
+O guia é publicado à parte, em <https://deyvsonfreire.github.io/asa-guia-parceiros/>, a partir do repositório `deyvsonfreire/asa-guia-parceiros`. Depois de mudar `guia-parceiros/` ou `css/`, sincronize um clone daquele repositório e faça push na `main` dele; o GitHub Pages republica sozinho:
+
+```bash
+python3 scripts/publicar-guia.py /caminho/do/clone/asa-guia-parceiros
+```
 
 ## Fora do sistema
 
