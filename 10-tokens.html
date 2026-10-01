@@ -21,20 +21,21 @@
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Segurança</a>
-    <a href="10-tokens.html" aria-current="page">10 Tokens</a>
-    <a href="11-movimento.html">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html" aria-current="page">10 Tokens</a>
+      <a href="11-movimento.html">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -79,8 +80,7 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="cor">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Coleção · Cor</span>
-    <h2>Oito primitivos, quatorze apelidos.</h2>
+    <h2>Nove primitivos, quinze apelidos.</h2>
 
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card">
@@ -91,7 +91,8 @@
               <tr><td><span class="chip" style="background:#FEC42B"></span></td><td><code>--asa-yellow</code></td><td>#FEC42B</td></tr>
               <tr><td><span class="chip" style="background:#141517"></span></td><td><code>--asa-black</code></td><td>#141517</td></tr>
               <tr><td><span class="chip" style="background:#E80911"></span></td><td><code>--asa-red</code></td><td>#E80911</td></tr>
-              <tr><td><span class="chip" style="background:#FFFBF0"></span></td><td><code>--asa-cream</code></td><td>#FFFBF0</td></tr>
+              <tr><td><span class="chip" style="background:#FFFBF0"></span></td><td><code>--asa-cream</code></td><td>#FFFBF0 · histórico, nenhuma superfície viva</td></tr>
+              <tr><td><span class="chip" style="background:#F4F4F3"></span></td><td><code>--asa-mist</code></td><td>#F4F4F3 · fundo de composição e camada flutuante</td></tr>
               <tr><td><span class="chip" style="background:#C4070E"></span></td><td><code>--asa-red-dark</code></td><td>#C4070E</td></tr>
               <tr><td><span class="chip" style="background:#065F46"></span></td><td><code>--asa-green</code></td><td>#065F46</td></tr>
               <tr><td><span class="chip" style="background:#0D0D0E"></span></td><td><code>--asa-black-deep</code></td><td>#0D0D0E</td></tr>
@@ -114,10 +115,11 @@
             <thead><tr><th>Apelido</th><th>Aponta para</th><th>Papel</th></tr></thead>
             <tbody>
               <tr><td><code>--asa-surface</code></td><td>yellow</td><td>superfície principal da marca</td></tr>
-              <tr><td><code>--asa-bg</code></td><td>cream</td><td>fundo de tela e formulário</td></tr>
+              <tr><td><code>--asa-bg</code></td><td>mist</td><td>fundo de composição — não é o fundo padrão de body</td></tr>
               <tr><td><code>--asa-bg-elevated</code></td><td>white</td><td>card, superfície elevada</td></tr>
               <tr><td><code>--asa-bg-dense</code></td><td>black</td><td>bloco de informação densa</td></tr>
               <tr><td><code>--asa-bg-deep</code></td><td>black-deep</td><td>peça noturna, rodapé</td></tr>
+              <tr><td><code>--asa-surface-float</code></td><td>mist</td><td>modal, sheet, popover, menu</td></tr>
               <tr><td><code>--asa-action</code></td><td>red</td><td>somente ação</td></tr>
               <tr><td><code>--asa-action-hover</code></td><td>red-dark</td><td>hover, foco, erro</td></tr>
               <tr><td><code>--asa-on-action</code></td><td>white</td><td>texto sobre vermelho</td></tr>
@@ -151,7 +153,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="demais">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Demais coleções</span>
     <h2>Tipografia, espaço, forma, ícone e movimento.</h2>
 
     <div class="asa-doc-cards">
@@ -163,17 +164,21 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-title</code></span><span class="asa-doc-spec__value">32px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-highlight</code></span><span class="asa-doc-spec__value">20px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body</code></span><span class="asa-doc-spec__value">16px</span></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-label</code></span><span class="asa-doc-spec__value">12px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-label</code></span><span class="asa-doc-spec__value">12px · só etiqueta (.asa-tag)</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-mono</code></span><span class="asa-doc-spec__value">11px · só metadado de produto</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-tracking-display</code></span><span class="asa-doc-spec__value">-0.03em · H1, Registro 1</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-tracking-title</code></span><span class="asa-doc-spec__value">-0.01em · H2, Registro 2</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-measure</code></span><span class="asa-doc-spec__value">640px</span></div>
         </div>
-        <p class="asa-doc-gloss">Não existe token composto de tipografia. O atalho <code class="asa-doc-code">font</code> não carrega <code class="asa-doc-code">letter-spacing</code> nem <code class="asa-doc-code">text-transform</code>, e quatro dos cinco degraus dependem de um ou de outro — um token composto reintroduziria a chance de erro exatamente onde o sistema é mais frágil.</p>
+        <p class="asa-doc-gloss">Não existe token composto de tipografia. O atalho <code class="asa-doc-code">font</code> não carrega <code class="asa-doc-code">letter-spacing</code> nem <code class="asa-doc-code">text-transform</code>, e três dos cinco degraus dependem de um ou de outro — um token composto reintroduziria a chance de erro exatamente onde o sistema é mais frágil.</p>
       </div>
 
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Escala de UI <span style="font-weight:400;color:var(--asa-ink-3)">· T9, 10/09/2026</span></span>
         <div class="asa-doc-specs">
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-subtitle</code></span><span class="asa-doc-spec__value">17px · título de card</span></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body-dense</code></span><span class="asa-doc-spec__value">14px · botão, choice, chip</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body-dense</code></span><span class="asa-doc-spec__value">14px · botão, rótulo, denso</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-lead</code></span><span class="asa-doc-spec__value">18px · lide sob o H2</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-price-card</code></span><span class="asa-doc-spec__value">24px · registro de numeral</span></div>
         </div>
         <p class="asa-doc-gloss">Degrau paralelo à escala de conteúdo acima, com o mesmo piso de 12px. Nasceu porque os componentes já rodavam uma escala não nomeada (10/11/13/14/17/24px) — os usos em 11px (<code class="asa-doc-code">asa-tag</code>, categoria do card) subiram para <code class="asa-doc-code">--asa-fs-label</code> em vez de virar exceção. Ver <a href="13-roadmap.html#tensoes">13 · Roadmap</a>.</p>
@@ -182,13 +187,15 @@
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Espaço e grade</span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-1…11</code></span><span class="asa-doc-spec__value">4 a 90px</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-1…11</code></span><span class="asa-doc-spec__value">4 a 90px · o 90 é margem lateral</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-section-pad-y</code></span><span class="asa-doc-spec__value">clamp(72px, 8vw, 120px) · entre faixas</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-section-pad-x</code></span><span class="asa-doc-spec__value">clamp(20px, 6vw, 90px)</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-container-max</code></span><span class="asa-doc-spec__value">1200px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-gutter</code></span><span class="asa-doc-spec__value">24px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-columns</code></span><span class="asa-doc-spec__value">12 / 8 / 4</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-safe-fold</code></span><span class="asa-doc-spec__value">680px</span></div>
         </div>
-        <p class="asa-doc-gloss">Breakpoints existem como token para leitura e para JS, mas as media queries repetem o valor literal: custom property não funciona dentro de <code class="asa-doc-code">@media</code>.</p>
+        <p class="asa-doc-gloss">O vão entre seções não é um passo da escala: é <code class="asa-doc-code">--asa-section-pad-y</code>, 120px no desktop e 72 no celular. Breakpoints existem como token para leitura e para JS, mas as media queries repetem o valor literal: custom property não funciona dentro de <code class="asa-doc-code">@media</code>.</p>
       </div>
 
       <div class="asa-doc-card">
@@ -232,9 +239,8 @@
 
 <section class="asa-doc-section asa-doc-section--cream" id="fundacao-f1">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Fundação de F1 · 10/09/2026</span>
     <h2>Camada, atenção e superfície de interação. Nada disso existia.</h2>
-    <p class="asa-doc-section__lead">Tokens que fecham as Lacunas 1–3, 9 e 12 do mapa de componentes — pré-requisito da camada flutuante e da navegação de produto documentadas em <a href="06-componentes.html#flutuante">06 · Componentes</a>.</p>
+    <p class="asa-doc-section__lead">Fundação de F1 (10/09/2026): tokens que fecham as Lacunas 1–3, 9 e 12 do mapa de componentes — pré-requisito da camada flutuante e da navegação de produto documentadas em <a href="06-componentes.html#flutuante">06 · Componentes</a>.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card">
@@ -256,7 +262,7 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-popover</code></span><span class="asa-doc-spec__value">1220</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-z-toast</code></span><span class="asa-doc-spec__value">1300</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-scrim</code></span><span class="asa-doc-spec__value">rgba(13,13,14,.56)</span></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-surface-float</code></span><span class="asa-doc-spec__value">= creme · T3</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-surface-float</code></span><span class="asa-doc-spec__value">= mist · T3, revisado 12/09</span></div>
         </div>
         <p class="asa-doc-gloss">Escala de 10 em 10, com vão para inserção sem renumerar tudo. <code class="asa-doc-code">--asa-z-dropdown</code> vence <code class="asa-doc-code">--asa-z-sticky</code> de propósito: um combobox aberto sob um header fixo precisa aparecer por cima dele.</p>
       </div>
@@ -284,7 +290,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="consumir">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Como consumir</span>
     <h2>Cole os quatro arquivos. Não há build, não há dependência.</h2>
 
     <div class="asa-doc-cards asa-doc-cards--wide">

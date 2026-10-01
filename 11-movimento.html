@@ -25,7 +25,7 @@
   .play [data-anim="wipe"]  { animation: wipe8 var(--asa-dur-scene) var(--asa-ease) both; }
   .stage { background:var(--asa-surface); padding:22px; min-height:150px; display:flex; flex-direction:column; justify-content:center; gap:10px; overflow:hidden; }
   .timeline { display:flex; height:34px; border:var(--asa-border-width) solid var(--asa-line); }
-  .timeline span { display:grid; place-items:center; font:500 10px/1 var(--asa-font-mono); letter-spacing:.08em; text-transform:uppercase; border-right:1px solid var(--asa-line); }
+  .timeline span { display:grid; place-items:center; font:500 12px/16px var(--asa-font); text-align:center; padding:0 6px; border-right:1px solid var(--asa-line); }
   .timeline span:last-child { border-right:0; }
 </style>
 </head>
@@ -37,20 +37,21 @@
     <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
-    <a href="01-fundamentos.html">01 Fundamentos</a>
-    <a href="02-grid.html">02 Grid</a>
-    <a href="03-cor.html">03 Cor</a>
-    <a href="04-tipografia.html">04 Tipografia</a>
-    <a href="05-icones.html">05 Ícones</a>
-    <a href="06-componentes.html">06 Componentes</a>
-    <a href="07-hierarquia.html">07 Hierarquia</a>
-    <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-    <a href="09-seguranca.html">09 Segurança</a>
-    <a href="10-tokens.html">10 Tokens</a>
-    <a href="11-movimento.html" aria-current="page">11 Movimento</a>
-    <a href="12-app-nativo.html">12 App nativo</a>
-    
-    <a href="14-downloads.html">14 Downloads</a>
+      <a href="01-fundamentos.html">01 Fundamentos</a>
+      <a href="02-grid.html">02 Grid</a>
+      <a href="03-cor.html">03 Cor</a>
+      <a href="04-tipografia.html">04 Tipografia</a>
+      <a href="05-icones.html">05 Ícones</a>
+      <a href="06-componentes.html">06 Componentes</a>
+      <a href="07-hierarquia.html">07 Hierarquia</a>
+      <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
+      <a href="09-seguranca.html">09 Segurança</a>
+      <a href="10-tokens.html">10 Tokens</a>
+      <a href="11-movimento.html" aria-current="page">11 Movimento</a>
+      <a href="12-app-nativo.html">12 App nativo</a>
+      <a href="13-roadmap.html">13 Roadmap</a>
+      <a href="14-downloads.html">14 Downloads</a>
+      <a href="15-composicao.html">15 Composição</a>
     </div>
     <input type="checkbox" class="asa-doc-nav__toggle" id="docNavToggle" aria-label="Abrir menu de navegação">
   </div>
@@ -73,6 +74,7 @@
             <tr><td>Logo</td><td>Entra por opacidade e permanece. Nada além disso.</td><td>200ms</td><td><code>--asa-dur-fast</code></td></tr>
             <tr><td>Hover e foco</td><td>Só mudança de cor. Sem deslocamento, sem escala.</td><td>200ms</td><td><code>--asa-dur-fast</code></td></tr>
             <tr><td>Números</td><td>Aparecem inteiros, de uma vez.</td><td>—</td><td>sem animação</td></tr>
+            <tr><td>Carrossel (<code>.asa-shelf</code>)</td><td>Seta é controle, não animação: desliza em até 400ms, desativada nas pontas. Indicador que pulsa continua proibido.</td><td>≤ 400ms</td><td><code>--asa-dur-max</code></td></tr>
             <tr><td>Qualquer coisa</td><td>Teto absoluto do sistema.</td><td>400ms</td><td><code>--asa-dur-max</code></td></tr>
           </tbody>
         </table>
@@ -84,18 +86,18 @@
       <div class="asa-doc-cards play">
         <div class="asa-doc-card asa-doc-card--flush">
           <div class="stage">
-            <span class="asa-label-mono asa-label-mono--on-yellow" data-anim="slide">Entrada de texto</span>
-            <div data-anim="slide" style="font:italic 900 26px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em;animation-delay:80ms">Seu carro já tá te esperando.</div>
+            <div class="asa-display" data-anim="slide" style="font-size:26px;line-height:1">Seu carro já tá te esperando.</div>
+            <p data-anim="slide" style="font:400 16px/24px var(--asa-font);animation-delay:80ms;max-width:none">Retirada em 8 minutos, no saguão do aeroporto.</p>
           </div>
           <div style="padding:18px">
             <span class="asa-doc-card__title">240ms · ease-out</span>
-            <p class="asa-doc-gloss" style="margin-top:8px">O deslocamento é no eixo de 8°, não na horizontal pura: 28px para a direita e 4px para cima. É o mesmo trajeto da asa. Nada de fade isolado — o texto sempre chega andando pelo eixo.</p>
+            <p class="asa-doc-gloss" style="margin-top:8px">O deslocamento é no eixo de 8°, não na horizontal pura: 28px para a direita e 4px para cima. É o mesmo trajeto da asa. Nada de fade isolado — o texto sempre chega andando pelo eixo. O H1 é o único texto em Registro 1 da cena; o lide chega 80ms depois, em Registro 2, sem sobretítulo.</p>
           </div>
         </div>
 
         <div class="asa-doc-card asa-doc-card--flush">
           <div class="stage" style="background:var(--asa-bg-dense)">
-            <div data-anim="wipe" style="background:var(--asa-surface);padding:16px;font:italic 900 22px/1 var(--asa-font);text-transform:uppercase;letter-spacing:-.03em">R$ 189</div>
+            <div class="asa-display" data-anim="wipe" style="background:var(--asa-surface);padding:16px;font-size:22px;line-height:1;letter-spacing:var(--asa-tracking-price)">R$ 189</div>
           </div>
           <div style="padding:18px">
             <span class="asa-doc-card__title">320ms · wipe a 8°</span>
@@ -119,7 +121,6 @@
 
 <section class="asa-doc-section asa-doc-section--dense" id="nunca">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Proibições</span>
     <h2>O que o sistema nunca faz.</h2>
 
     <div class="asa-doc-cards">
@@ -162,7 +163,6 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="peca">
   <div class="asa-doc-section__inner">
-    <span class="asa-doc-section__label">Vídeo e mídia paga</span>
     <h2>O ritmo de uma peça de 8 segundos.</h2>
     <p class="asa-doc-section__lead">Peça de vídeo não é a soma de animações soltas: é uma estrutura de tempo fixa, a mesma em toda campanha. É o equivalente temporal do vão — promessa primeiro, entrega depois, assinatura por último.</p>
 
