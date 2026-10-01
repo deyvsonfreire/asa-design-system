@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>12 · App nativo — Sistema de Design Asa</title>
+<title>12 · App nativo · Sistema de Design Asa</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -45,33 +45,33 @@
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="intro">
+<section class="asa-doc-section asa-doc-section--mist" id="intro">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">12 · App nativo</span>
     <h2>O app ainda não existe. As decisões que o esperam, sim.</h2>
-    <p class="asa-doc-section__lead">Esta seção não antecipa o produto — documenta só o que muda quando o mesmo sistema sai do navegador. Tudo que já foi decidido nas onze seções anteriores continua valendo sem tradução: as cores, os cinco degraus, o ângulo de 8°, os 44px de alvo de toque e as quatro durações são valores de plataforma nenhuma. O que muda é a arquitetura de navegação e o que a plataforma oferece a mais.</p>
+    <p class="asa-doc-section__lead">Esta seção documenta só o que muda quando o mesmo sistema sai do navegador. Tudo que as onze seções anteriores definem vale sem tradução: as cores, os cinco degraus, o ângulo de 8°, os 44px de alvo de toque e as quatro durações são valores de plataforma nenhuma. O que muda é a arquitetura de navegação e o que a plataforma oferece a mais.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--yellow">
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Já está pronto para o app</span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Alvo de toque de 44px</span><span class="asa-doc-spec__value" style="color:#4A3A10">token, não regra web</span></div>
+          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Alvo de toque de 44px</span><span class="asa-doc-spec__value" style="color:#4A3A10">token, independe de plataforma</span></div>
           <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Ícones a 24 e 48px</span><span class="asa-doc-spec__value" style="color:#4A3A10">equivalente nativo direto</span></div>
-          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Durações 200–400ms</span><span class="asa-doc-spec__value" style="color:#4A3A10">tempo, não CSS</span></div>
+          <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Durações 200–400ms</span><span class="asa-doc-spec__value" style="color:#4A3A10">tempo, independe de plataforma</span></div>
           <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span>Conta persistente</span><span class="asa-doc-spec__value" style="color:#4A3A10">login já compartilhado</span></div>
         </div>
-        <p class="asa-doc-gloss">A conta persistente decidida no fluxo web é a peça que faz o app nascer reaproveitando histórico e dados salvos, em vez de duplicar cadastro. Sem ela, o app começaria com um segundo banco de usuários.</p>
+        <p class="asa-doc-gloss">A conta persistente de 08 Fluxo de reserva é a peça que faz o app nascer reaproveitando histórico e dados salvos, em vez de duplicar cadastro. Sem ela, o app começaria com um segundo banco de usuários.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">O que muda de verdade</span>
         <div class="asa-doc-specs">
-          <div class="asa-doc-spec"><span>Navegação</span><span class="asa-doc-spec__value">tab bar, não barra superior</span></div>
-          <div class="asa-doc-spec"><span>Abertura</span><span class="asa-doc-spec__value">splash existe, na web não</span></div>
-          <div class="asa-doc-spec"><span>Código de acesso</span><span class="asa-doc-spec__value">OTP na tela, não magic link</span></div>
+          <div class="asa-doc-spec"><span>Navegação</span><span class="asa-doc-spec__value">tab bar no lugar da barra superior</span></div>
+          <div class="asa-doc-spec"><span>Abertura</span><span class="asa-doc-spec__value">splash só no app</span></div>
+          <div class="asa-doc-spec"><span>Código de acesso</span><span class="asa-doc-spec__value">OTP digitado na tela</span></div>
           <div class="asa-doc-spec"><span>Segundo fator</span><span class="asa-doc-spec__value">biometria do aparelho</span></div>
           <div class="asa-doc-spec"><span>Áreas reservadas</span><span class="asa-doc-spec__value">notch e home indicator</span></div>
         </div>
-        <p class="asa-doc-gloss">Cinco diferenças. Todo o resto do sistema atravessa sem alteração — e é isso que se espera de um design system que fez o trabalho direito.</p>
+        <p class="asa-doc-gloss">Cinco diferenças. Todo o resto do sistema atravessa sem alteração: é isso que se espera de um design system que fez o trabalho direito.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Grade mobile</span>
@@ -96,37 +96,37 @@
         <span class="asa-verdict asa-verdict--no">Contra o padrão</span>
         <span class="asa-doc-card__title">Sem onboarding antes do cadastro</span>
         <p style="max-width:none">O padrão é mostrar duas ou três telas explicando o produto antes de pedir login. A Asa não terá nenhuma: o app abre direto na busca.</p>
-        <p class="asa-doc-gloss">O onboarding pré-cadastro existe para vender a decisão de criar conta antes de pedir dados pessoais. Aqui ele não resolve nada, porque o app não pede conta para buscar, ver preço nem reservar — a conta nasce ao final da primeira reserva, exatamente como na web. Manter as telas de explicação seria criar um atrito para justificar um atrito que decidimos não ter.</p>
+        <p class="asa-doc-gloss">O onboarding pré-cadastro existe para vender a decisão de criar conta antes de pedir dados pessoais. Aqui ele não resolve nada, porque o app não pede conta para buscar, ver preço nem reservar: a conta nasce ao final da primeira reserva, exatamente como na web. Manter as telas de explicação seria criar um atrito para justificar um atrito que decidimos não ter.</p>
       </div>
 
       <div class="asa-doc-card">
         <span class="asa-verdict asa-verdict--no">Contra o padrão</span>
         <span class="asa-doc-card__title">Sem gamificação</span>
-        <p style="max-width:none">Nada de pontos, sequência de dias, conquistas ou ranking — mesmo com recorrência sendo o objetivo declarado do produto.</p>
-        <p class="asa-doc-gloss">Gamificação faz sentido quando o produto depende de uso recorrente e <i>voluntário</i>: hábito, aprendizado, exercício. Alugar carro é transacional — a pessoa aluga quando viaja, não porque manteve uma sequência. Pontos e ranking aqui seriam ruído sem resolver problema real, e ainda entrariam em choque com um sistema que não usa emoji nem tom lúdico. A recorrência se resolve por histórico, dados salvos e o botão "reservar de novo".</p>
+        <p style="max-width:none">Nada de pontos, sequência de dias, conquistas ou ranking, mesmo com recorrência sendo o objetivo declarado do produto.</p>
+        <p class="asa-doc-gloss">Gamificação faz sentido quando o produto depende de uso recorrente e <i>voluntário</i>: hábito, aprendizado, exercício. Alugar carro é transacional: a pessoa aluga quando viaja, e não porque manteve uma sequência. Pontos e ranking aqui seriam ruído sem resolver problema real, e ainda entrariam em choque com um sistema que não usa emoji nem tom lúdico. A recorrência se resolve por histórico, dados salvos e o botão "reservar de novo".</p>
       </div>
 
       <div class="asa-doc-card">
         <span class="asa-verdict asa-verdict--yes">Segue o padrão</span>
-        <span class="asa-doc-card__title">Código digitado, não link por e-mail</span>
+        <span class="asa-doc-card__title">Código digitado no lugar do link por e-mail</span>
         <p style="max-width:none">Na web, o link mágico funciona porque a caixa de e-mail já está em outra aba do mesmo navegador. No app, sair para o cliente de e-mail e voltar rompe o contexto.</p>
-        <p class="asa-doc-gloss">Por isso o app pede um código numérico digitado na própria tela, com a validade sempre visível. E oferece mais de um canal: se o WhatsApp falhar, SMS — porque nem todo mundo tem acesso confiável aos dois ao mesmo tempo.</p>
+        <p class="asa-doc-gloss">Por isso o app pede um código numérico digitado na própria tela, com a validade sempre visível. E oferece mais de um canal: se o WhatsApp falhar, SMS, porque nem todo mundo tem acesso confiável aos dois ao mesmo tempo.</p>
       </div>
 
       <div class="asa-doc-card">
         <span class="asa-verdict asa-verdict--yes">Segue o padrão</span>
         <span class="asa-doc-card__title">Biometria como segundo fator da caução</span>
         <p style="max-width:none">O aparelho já tem Face ID ou digital configurados. Usar isso no momento de bloquear a caução tem atrito quase zero comparado a digitar um código.</p>
-        <p class="asa-doc-gloss">A regra de <i>quando</i> pedir não muda em relação à web: só em ação de risco alto — caução, troca de cartão, troca de senha. O que muda é o <i>como</i>, porque o app tem um fator que o navegador não tem.</p>
+        <p class="asa-doc-gloss">A regra de <i>quando</i> pedir não muda em relação à web: só em ação de risco alto: caução, troca de cartão, troca de senha. O que muda é o <i>como</i>, porque o app tem um fator que o navegador não tem.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="asa-doc-section asa-doc-section--cream" id="telas">
+<section class="asa-doc-section asa-doc-section--mist" id="telas">
   <div class="asa-doc-section__inner">
     <h2>Seis telas, os mesmos componentes.</h2>
-    <p class="asa-doc-section__lead">Nenhum componente novo foi criado para o app. O card de veículo, o campo, o botão, a etiqueta e a placa de número são exatamente os mesmos de 06 Componentes — só recompostos em 375 pontos de largura.</p>
+    <p class="asa-doc-section__lead">O app não tem componente próprio. O card de veículo, o campo, o botão, a etiqueta e a placa de número são exatamente os mesmos de 06 Componentes, só recompostos em 375 pontos de largura.</p>
 
     <div class="asa-doc-block phones">
 
@@ -138,7 +138,7 @@
           </div>
           <div class="asa-phone__home"></div>
         </div>
-        <p class="asa-doc-gloss">1 · Splash. Dura só o tempo real de carregar sessão e fontes — estender de propósito para "mostrar a marca" é percebido como lentidão, não como identidade. O lockup entra por opacidade em 200ms e fica.</p>
+        <p class="asa-doc-gloss">1 · Splash. Dura só o tempo real de carregar sessão e fontes: estender de propósito para "mostrar a marca" é percebido como lentidão. O lockup entra por opacidade em 200ms e fica.</p>
       </div>
 
       <div class="phone-block">
@@ -168,7 +168,7 @@
           </div>
           <div class="asa-phone__home"></div>
         </div>
-        <p class="asa-doc-gloss">2 · Busca. Abre aqui, sem onboarding e sem pedir login. A tab bar tem quatro itens e o ativo muda de forma além de cor — ícone preenchido, não só vermelho.</p>
+        <p class="asa-doc-gloss">2 · Busca. Abre aqui, sem onboarding e sem pedir login. A tab bar tem quatro itens e o ativo muda de forma além de cor: ícone preenchido, além do vermelho.</p>
       </div>
 
       <div class="phone-block">
@@ -230,7 +230,7 @@
           </div>
           <div class="asa-phone__home"></div>
         </div>
-        <p class="asa-doc-gloss">4 · Segundo fator. A biometria é o caminho de menor atrito, mas nunca o único: quem não tem ou não quer usar recebe código, com validade visível. Sem tab bar — no checkout, sair da tarefa é o que não se quer facilitar.</p>
+        <p class="asa-doc-gloss">4 · Segundo fator. A biometria é o caminho de menor atrito, mas nunca o único: quem não tem ou não quer usar recebe código, com validade visível. Sem tab bar: no checkout, sair da tarefa é o que não se quer facilitar.</p>
       </div>
 
       <div class="phone-block">
@@ -255,7 +255,7 @@
           </div>
           <div class="asa-phone__home"></div>
         </div>
-        <p class="asa-doc-gloss">5 · Confirmação. Tela dedicada, não um retorno silencioso à lista — mas sem ilustração comemorativa, sem confete e sem emoji. O código aparece inteiro, de uma vez.</p>
+        <p class="asa-doc-gloss">5 · Confirmação. Tela dedicada, sem retorno silencioso à lista, e sem ilustração comemorativa, confete ou emoji. O código aparece inteiro, de uma vez.</p>
       </div>
 
       <div class="phone-block">
@@ -284,7 +284,7 @@
           </div>
           <div class="asa-phone__home"></div>
         </div>
-        <p class="asa-doc-gloss">6 · Reservas. É o motor da recorrência, e por isso "Reservar de novo" é o único vermelho da tela. Sem pontos, sem sequência, sem selo — só o caminho mais curto para repetir o que já deu certo.</p>
+        <p class="asa-doc-gloss">6 · Reservas. É o motor da recorrência, e por isso "Reservar de novo" é o único vermelho da tela. Sem pontos, sem sequência, sem selo: só o caminho mais curto para repetir o que já deu certo.</p>
       </div>
 
     </div>
@@ -293,16 +293,16 @@
 
 <section class="asa-doc-section asa-doc-section--dense" id="proximo">
   <div class="asa-doc-section__inner">
-    <h2>O que ainda não foi decidido — e por que não foi.</h2>
+    <h2>O que ainda não foi decidido, e por que.</h2>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-card__title">Deep link para a reserva</span>
-        <p class="asa-doc-gloss">Na web, uma tela endereçável é comportamento padrão. No app, isso exige universal links construídos de propósito. A mensagem de confirmação no WhatsApp precisa abrir a reserva certa dentro do app — não a home — e isso é engenharia, não design.</p>
+        <p class="asa-doc-gloss">Na web, uma tela endereçável é comportamento padrão. No app, isso exige universal links construídos de propósito. A mensagem de confirmação no WhatsApp precisa abrir a reserva certa dentro do app, e não a home. Isso é engenharia.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-card__title">Notificação push</span>
-        <p class="asa-doc-gloss">O app abre um canal que a web não tem. Fica em aberto porque a decisão é de operação, não de interface: quantos avisos por reserva, e quem escreve. O que já está definido é o registro — Registro 2, voz de balcão, sem emoji.</p>
+        <p class="asa-doc-gloss">O app abre um canal que a web não tem. Fica em aberto porque a decisão é de operação: quantos avisos por reserva, e quem escreve. O registro já está definido: Registro 2, voz de balcão, sem emoji.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-card__title">Fonte no aparelho</span>
@@ -310,7 +310,7 @@
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-card__title">Modo escuro do sistema</span>
-        <p class="asa-doc-gloss">O iOS e o Android oferecem; a marca não tem uma variante escura definida. Se for necessário, ela se resolve na camada semântica de tokens — que existe justamente para isso — e não repintando componentes.</p>
+        <p class="asa-doc-gloss">O iOS e o Android oferecem; a marca não tem uma variante escura definida. Se for necessário, ela se resolve na camada semântica de tokens, que existe justamente para isso, sem repintar componentes.</p>
       </div>
     </div>
   </div>
@@ -323,7 +323,7 @@
 
 <footer class="asa-doc-foot">
   <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · documentação de implementação. Duas pessoas diferentes montam a mesma peça — esse continua sendo o teste.</p>
+  <p>Sistema de Identidade v3.2 · documentação de implementação. Duas pessoas diferentes montam a mesma peça: esse é o teste.</p>
 </footer>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>04 · Tipografia — Sistema de Design Asa</title>
+<title>04 · Tipografia · Sistema de Design Asa</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -13,9 +13,9 @@
   .step { display:flex; flex-direction:column; gap:10px; border-bottom:1px solid var(--asa-line-soft); padding:26px 0; }
   .step:last-child { border-bottom:0; }
   .step__meta { display:flex; gap:18px; flex-wrap:wrap; }
-  /* Meta do degrau em caixa baixa, 14/20 Medium — o mesmo desenho de
-     .asa-label. A mono em caixa alta que estava aqui era um rótulo acima
-     de título, exatamente o vício que a revisão de composição tirou. */
+  /* Meta do degrau em caixa baixa, 14/20 Medium, o mesmo desenho de
+     .asa-label. Nunca mono em caixa alta acima de um título: é sobretítulo,
+     e sobretítulo não existe no sistema. */
   .step__meta span { font-family:var(--asa-font); font-size:14px; line-height:20px; font-weight:500; color:var(--asa-ink-2); }
   /* Fatos operacionais: uma lista em duas colunas, não quatro cards. */
   .facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 32px; margin:0; }
@@ -23,7 +23,7 @@
   .facts dt { margin:0; font-size:var(--asa-fs-subtitle); line-height:var(--asa-lh-subtitle); font-weight:var(--asa-weight-bold); color:var(--asa-ink-inverse); }
   .facts dd { margin:0; font-size:15px; line-height:1.6; color:var(--asa-gray-dark-2); }
   @container (max-width: 560px) { .facts { grid-template-columns:1fr; } }
-  /* O espécime mostra o tamanho REAL do degrau — 64px é 64px. Em tela
+  /* O espécime mostra o tamanho REAL do degrau: 64px é 64px. Em tela
      estreita ele rola na própria caixa em vez de encolher, porque um
      espécime reduzido documentaria um tamanho que não existe. */
   .step > div:not(.step__meta) { overflow-x:auto; padding-bottom:4px; }
@@ -66,11 +66,11 @@
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="familia">
+<section class="asa-doc-section asa-doc-section--mist" id="familia">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">04 · Tipografia</span>
     <h2>Uma família, cinco degraus, e o itálico que já estava no wordmark.</h2>
-    <p class="asa-doc-section__lead">Esta página está renderizando em BR Omny de verdade — não no placeholder em Helvetica dos protótipos do handoff. Uma família com faixa ampla de pesos sustenta toda a hierarquia sozinha, sem precisar de uma segunda fonte: menos arquivo para carregar e mais coesão, porque todos os pesos compartilham a mesma estrutura de letra.</p>
+    <p class="asa-doc-section__lead">Esta página renderiza em BR Omny. Uma família com faixa ampla de pesos sustenta toda a hierarquia sozinha, sem precisar de uma segunda fonte: menos arquivo para carregar e mais coesão, porque todos os pesos compartilham a mesma estrutura de letra.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card">
@@ -82,7 +82,7 @@
           <div class="weight-row"><span style="font-weight:900;font-size:22px">Retirada em 8 minutos</span><span class="asa-doc-spec__value">Black · 900</span></div>
           <div class="weight-row"><span style="font-weight:900;font-style:italic;font-size:22px;text-transform:uppercase">Retirada em 8 min</span><span class="asa-doc-spec__value">Black Italic · 900</span></div>
         </div>
-        <p class="asa-doc-gloss">Cinco das catorze faces instaladas. Thin, Light, SemiBold e os demais itálicos não têm papel definido no sistema — carregá-los seria peso morto. A Black normal existe como defesa: sem ela, um peso 900 sem itálico cairia no Bold sem ninguém perceber.</p>
+        <p class="asa-doc-gloss">Cinco das catorze faces instaladas. Thin, Light, SemiBold e os demais itálicos não têm papel definido no sistema; carregá-los seria peso morto. A Black normal existe como defesa: sem ela, um peso 900 sem itálico cairia no Bold sem ninguém perceber.</p>
       </div>
 
       <div class="asa-doc-card">
@@ -103,9 +103,9 @@
       </div>
 
       <div class="asa-doc-card asa-doc-card--yellow">
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Dívida técnica registrada</span>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Para produção: woff2 e subset</span>
         <p style="max-width:none">As fontes estão em <code class="asa-doc-code">.otf</code>, cerca de 75KB por face. Para produção, converter para <code class="asa-doc-code">woff2</code> e subsetar para latim com diacríticos de pt-BR derruba isso para perto de 25KB por face.</p>
-        <p class="asa-doc-gloss">Não bloqueia nada: .otf é suportado por todos os navegadores atuais, e cinco faces são aceitáveis numa documentação servida localmente. A máquina não tem hoje as ferramentas de conversão (fontTools, brotli, woff2_compress) — por isso ficou registrado como dívida, não como pré-requisito.</p>
+        <p class="asa-doc-gloss">Não bloqueia nada: .otf é suportado por todos os navegadores atuais, e cinco faces são aceitáveis numa documentação servida localmente. Em site público, a conversão é obrigatória (fontTools, brotli ou woff2_compress).</p>
       </div>
     </div>
   </div>
@@ -113,8 +113,8 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="escala">
   <div class="asa-doc-section__inner">
-    <h2>Cinco degraus. Nada entre eles.</h2>
-    <p class="asa-doc-section__lead">A escala é fechada de propósito. Sem uma escala formal, cada tamanho novo vira uma decisão isolada e o sistema se fragmenta tela a tela — que é exatamente o problema que este documento existe para resolver.</p>
+    <h2>Cinco degraus, e nada entre eles.</h2>
+    <p class="asa-doc-section__lead">A escala é fechada de propósito. Sem uma escala formal, cada tamanho novo vira uma decisão isolada e o sistema se fragmenta tela a tela, que é exatamente o problema que este documento existe para resolver.</p>
 
     <div class="asa-doc-block">
       <div class="asa-doc-card">
@@ -122,13 +122,13 @@
         <div class="step">
           <div class="step__meta"><span>Display</span><span>64 / 60</span><span>900 itálico</span><span>caixa alta</span><span>-0.03em</span></div>
           <div style="font:italic 900 64px/60px var(--asa-font);letter-spacing:-.03em;text-transform:uppercase">Seu carro já tá te esperando</div>
-          <p class="asa-doc-gloss">O H1 da página e a capa de peça. É o Registro 1 — e com o preço e a placa de número, é um dos três únicos lugares onde ele vive. Em número grande — a placa de 4,7 e 9,4 — o tracking fecha para -0.05em e a entrelinha cai para 0.8.</p>
+          <p class="asa-doc-gloss">O H1 da página e a capa de peça. É o Registro 1: com o preço e a placa de número, é um dos três únicos lugares onde ele vive. Em número grande (a placa de 4,7 e 9,4), o tracking fecha para -0.05em e a entrelinha cai para 0.8.</p>
         </div>
 
         <div class="step">
           <div class="step__meta"><span>Título</span><span>32 / 36</span><span>700</span><span>caixa baixa</span><span>-0.01em</span></div>
           <div style="font:700 32px/36px var(--asa-font);letter-spacing:-.01em">Dentro do saguão, aberto <em style="font-style:normal;color:var(--asa-action)">24 horas</em>.</div>
-          <p class="asa-doc-gloss">Título de seção (H2) e de bloco. Saiu do Registro 1 na revisão de composição: oito títulos em caixa alta itálica numa página viravam grito contínuo e apagavam o H1. O Registro 1 fica só no H1, no preço e na placa. Quando a seção pede assinatura, uma palavra — e só uma — vai em vermelho de ação, via <code class="asa-doc-code">&lt;em&gt;</code> dentro do <code class="asa-doc-code">h2</code>. Nunca sobre amarelo: 2,94:1 reprova, e ali a ênfase herda a cor do título.</p>
+          <p class="asa-doc-gloss">Título de seção (H2) e de bloco, sempre em Registro 2: caixa baixa, peso 700. O Registro 1 fica só no H1, no preço e na placa; oito títulos em caixa alta itálica numa página viram grito contínuo e apagam o H1. Quando a seção pede assinatura, uma palavra, e só uma, vai em vermelho de ação, via <code class="asa-doc-code">&lt;em&gt;</code> dentro do <code class="asa-doc-code">h2</code>. Nunca sobre amarelo: 2,94:1 reprova, e ali a ênfase herda a cor do título.</p>
         </div>
 
         <div class="step">
@@ -139,7 +139,7 @@
 
         <div class="step">
           <div class="step__meta"><span>Corpo</span><span>16 / 26</span><span>400</span><span>caixa baixa</span><span>0</span></div>
-          <div style="font:400 16px/26px var(--asa-font);max-width:640px">Pode deixar comigo — seu carro já tá te esperando. Chegando 22h? Deixo a chave separada, é só me chamar aqui. A gente responde todas as reclamações, e resolve.</div>
+          <div style="font:400 16px/26px var(--asa-font);max-width:640px">Pode deixar comigo: seu carro já tá te esperando. Chegando 22h? Deixo a chave separada, é só me chamar aqui. A gente responde todas as reclamações, e resolve.</div>
           <p class="asa-doc-gloss">Texto corrido. Limitado a 640px de largura, que é onde a linha fica em torno de 65 caracteres.</p>
         </div>
 
@@ -159,7 +159,7 @@
         <div class="step">
           <div class="step__meta"><span>Lide</span><span>18 / 28</span><span>400</span><span><code class="asa-doc-code">--asa-fs-lead</code></span></div>
           <div style="font:400 18px/28px var(--asa-font);max-width:640px">O balcão fica dentro do saguão, aberto 24 horas. Chegou, retirou: oito minutos.</div>
-          <p class="asa-doc-gloss">A frase sob o H2. Fica entre o Destaque e o Corpo porque precisa ser lida como continuação do título, não como parágrafo — e porque o H2 em caixa baixa já não grita a ponto de pedir um corpo de 16px logo abaixo.</p>
+          <p class="asa-doc-gloss">A frase sob o H2. Fica entre o Destaque e o Corpo porque precisa ser lida como continuação do título, não como parágrafo, e porque o H2 em caixa baixa já não grita a ponto de pedir um corpo de 16px logo abaixo.</p>
         </div>
 
         <div class="step">
@@ -171,21 +171,21 @@
         <div class="step">
           <div class="step__meta"><span>Corpo denso</span><span>14 / 20</span><span>500</span><span><code class="asa-doc-code">--asa-fs-body-dense</code></span></div>
           <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center"><span class="asa-btn asa-btn--primary" style="min-height:40px;padding:10px 16px">Ver carros</span><span class="asa-label">Local de retirada</span><span style="font:400 14px/20px var(--asa-font);color:var(--asa-ink-3)">5 lugares · 2 malas · manual</span></div>
-          <p class="asa-doc-gloss">Botão, rótulo de campo, especificação de veículo e qualquer texto de componente denso. O rótulo é caixa baixa, Medium — não mono, não caixa alta.</p>
+          <p class="asa-doc-gloss">Botão, rótulo de campo, especificação de veículo e qualquer texto de componente denso. O rótulo é caixa baixa, Medium: nunca mono, nunca caixa alta.</p>
         </div>
 
         <div class="step">
           <div class="step__meta"><span>Preço de card</span><span>24 / 24</span><span>900 itálico</span><span><code class="asa-doc-code">--asa-fs-price-card</code></span></div>
           <div><span class="asa-card-vehicle__price">R$ 189</span><span style="font:400 14px/20px var(--asa-font);color:var(--asa-ink-3);margin-left:8px">por dia</span></div>
-          <p class="asa-doc-gloss">O preço é Registro 1 na densidade do card: valor fixo onde o preço de página usa <code class="asa-doc-code">clamp()</code>. Registro de numeral, não de texto — nunca uma frase nesse corte.</p>
+          <p class="asa-doc-gloss">O preço é Registro 1 na densidade do card: valor fixo onde o preço de página usa <code class="asa-doc-code">clamp()</code>. Registro de numeral: nunca uma frase nesse corte.</p>
         </div>
 
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Escala paralela à de conteúdo, com o mesmo piso de 12px (decisão T9). Existe porque componente de produto tem densidade que o conteúdo não tem; sem ela, o código já rodava 10/11/13/14/17/24px sem nome. Mapa completo em <a href="10-tokens.html#demais">10 · Tokens</a>.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Escala paralela à de conteúdo, com o mesmo piso de 12px. Existe porque componente de produto tem densidade que o conteúdo não tem, e cada tamanho dessa densidade precisa de nome. Mapa completo em <a href="10-tokens.html#demais">10 · Tokens</a>.</p>
     </div>
 
     <div class="asa-doc-cards">
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-block__title" style="margin:0">Entrelinha inverte a intuição</span>
         <div class="asa-doc-specs">
           <div class="asa-doc-spec"><span>Display 64px</span><span class="asa-doc-spec__value">fator 0,94</span></div>
@@ -195,7 +195,7 @@
         <p class="asa-doc-gloss">Quanto menor a fonte, maior o multiplicador. Em tamanho grande as letras já ocupam altura, e um fator alto abriria vãos estranhos entre linhas de título; em tamanho pequeno, pouca entrelinha aperta o parágrafo e cansa a leitura.</p>
       </div>
 
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-block__title" style="margin:0">Rótulo mono</span>
         <div style="display:flex;flex-direction:column;gap:10px">
           <span class="asa-label-mono">RES-7F3K2</span>
@@ -206,13 +206,13 @@
           <div class="asa-doc-spec"><span>Pilha</span><span class="asa-doc-spec__value">ui-monospace, SF Mono, Menlo</span></div>
           <div class="asa-doc-spec"><span>Métrica</span><span class="asa-doc-spec__value">11px · 500 · 0.14em</span></div>
         </div>
-        <p class="asa-doc-gloss">Só metadado de produto: código de reserva, IATA do aeroporto, nome de token nesta documentação. Nunca acima de um título — o título carrega o próprio peso, e o sobretítulo era o vício que a revisão de composição tirou de onze seções da home. É o único lugar onde o sistema sai da BR Omny, e o único abaixo de 12px; por isso texto de produto (tag, contagem, atributo) nunca usa esta métrica.</p>
+        <p class="asa-doc-gloss">Só metadado de produto: código de reserva, IATA do aeroporto, nome de token nesta documentação. Nunca acima de um título: o título carrega o próprio peso, e um sobretítulo em mono só rouba dele. É o único lugar onde o sistema sai da BR Omny, e o único abaixo de 12px; por isso texto de produto (tag, contagem, atributo) nunca usa esta métrica.</p>
       </div>
 
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-block__title" style="margin:0">Nota sobre a escala</span>
         <p style="max-width:none">A escala não é 8pt puro nem modular de razão fixa: 64→32 é razão 2, mas 20→16 é 1,25.</p>
-        <p class="asa-doc-gloss">É uma escala editada à mão, ajustada a necessidades reais de peça. Mantida como está porque os valores são finais e já validados nos protótipos — e por isso mesmo a escala de conteúdo é fechada: não se estende por fórmula, e um sexto degrau quebra o sistema em vez de completá-lo. A válvula de escape tem nome: é a escala de UI acima. Se o tamanho que falta não está nela, o problema é o layout, não a escala.</p>
+        <p class="asa-doc-gloss">É uma escala editada à mão, ajustada a necessidades reais de peça. Os valores são finais, e por isso a escala de conteúdo é fechada: não se estende por fórmula, e um sexto degrau quebra o sistema em vez de completá-lo. A válvula de escape tem nome: é a escala de UI acima. Se o tamanho que falta não está nela, o problema é o layout.</p>
       </div>
     </div>
   </div>
@@ -220,8 +220,8 @@
 
 <section class="asa-doc-section asa-doc-section--dense" id="registros">
   <div class="asa-doc-section__inner">
-    <h2>A marca anuncia de um jeito e atende de outro. Nunca ao mesmo tempo.</h2>
-    <p class="asa-doc-section__lead">Não é uma questão de estilo de texto — é de quem está falando. O registro de anúncio fala para uma plateia; o de balcão fala para uma pessoa. Misturar os dois na mesma frase é o erro que mais rápido faz a comunicação parecer de outra marca.</p>
+    <h2>A marca anuncia de um jeito e atende de outro, nunca ao mesmo tempo.</h2>
+    <p class="asa-doc-section__lead">A diferença está em quem fala. O registro de anúncio fala para uma plateia; o de balcão fala para uma pessoa. Misturar os dois na mesma frase é o erro que mais rápido faz a comunicação parecer de outra marca.</p>
 
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card asa-doc-card--yellow">
@@ -235,21 +235,21 @@
           <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span style="color:var(--asa-ink)">Onde vive</span><span class="asa-doc-spec__value" style="color:#3A2C08">H1 da página, preço, placa de número</span></div>
           <div class="asa-doc-spec" style="border-bottom-color:rgba(20,21,23,.2)"><span style="color:var(--asa-ink)">Onde nunca aparece</span><span class="asa-doc-spec__value" style="color:#3A2C08">título de seção, rótulo, corpo de texto</span></div>
         </div>
-        <p class="asa-doc-gloss" style="color:#3A2C08">Caixa alta, itálico, Black, entreletras negativa — o mesmo corte do wordmark. Três lugares, e só eles. Nunca usado para falar com uma pessoa individual, e nunca num H2: quando ele aparece em todo título, deixa de ser assinatura.</p>
+        <p class="asa-doc-gloss" style="color:#3A2C08">Caixa alta, itálico, Black, entreletras negativa: o mesmo corte do wordmark. Três lugares, e só eles. Nunca usado para falar com uma pessoa individual, e nunca num H2: quando ele aparece em todo título, deixa de ser assinatura.</p>
       </div>
 
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-action-hover)">Registro 2 · Balcão</span>
         <div style="display:flex;flex-direction:column;gap:14px;color:var(--asa-ink)">
-          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">Pode deixar comigo — seu carro já tá te esperando.</span>
+          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">Pode deixar comigo: seu carro já tá te esperando.</span>
           <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">Chegando 22h? Deixo a chave separada, é só me chamar aqui.</span>
-          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">A gente responde todas as reclamações — e resolve.</span>
+          <span style="font:400 clamp(17px,2cqi,22px)/1.5 var(--asa-font);color:var(--asa-ink)">A gente responde todas as reclamações, e resolve.</span>
         </div>
         <div class="asa-doc-specs">
           <div class="asa-doc-spec"><span style="color:var(--asa-ink)">Onde vive</span><span class="asa-doc-spec__value" style="color:var(--asa-ink-2)">campo claro, WhatsApp, formulário</span></div>
           <div class="asa-doc-spec"><span style="color:var(--asa-ink)">Onde nunca aparece</span><span class="asa-doc-spec__value" style="color:var(--asa-ink-2)">sobre vermelho, título de campanha</span></div>
         </div>
-        <p class="asa-doc-gloss" style="color:var(--asa-ink-2)">Caixa baixa, sem itálico e sem exclamação — do título de seção em 700 ao corpo em 400. É a voz de quem atende. Também é o registro obrigatório dos textos de consentimento — é ali que a promessa de "sem letra miúda" é testada de verdade.</p>
+        <p class="asa-doc-gloss" style="color:var(--asa-ink-2)">Caixa baixa, sem itálico e sem exclamação, do título de seção em 700 ao corpo em 400. É a voz de quem atende. Também é o registro obrigatório dos textos de consentimento: é ali que a promessa de "sem letra miúda" é testada de verdade.</p>
       </div>
     </div>
 
@@ -261,7 +261,7 @@
         <div><dt>Diária de 27 horas</dt><dd>Três horas de folga sobre a diária padrão do mercado.</dd></div>
         <div><dt>Sem taxa de aeroporto</dt><dd>E sem letra miúda. Não use emoji: não faz parte do sistema.</dd></div>
       </dl>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Quatro fatos, uma lista. Em cards separados, cada um pedia um ícone para não parecer vazio — e o trio ícone-título-texto é justamente o que o sistema não faz.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Quatro fatos, uma lista. Em cards separados, cada um pede um ícone para não parecer vazio, e o trio ícone-título-texto é justamente o que o sistema não faz.</p>
     </div>
   </div>
 </section>

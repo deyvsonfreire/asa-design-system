@@ -1,15 +1,15 @@
 /* ==========================================================================
-   ASA RENT A CAR — TOKENS
+   ASA RENT A CAR: TOKENS
    Sistema de Identidade v3.2 (B2C, amarelo dominante)
 
-   Camada 1: primitivos  — a escala bruta. NUNCA usar direto em componente.
-   Camada 2: semânticos  — o papel na interface. É o que componente consome.
+   Camada 1: primitivos, a escala bruta. NUNCA usar direto em componente.
+   Camada 2: semânticos, o papel na interface. É o que componente consome.
 
    Trocar a v3.2 pela v3.1 (B2B, vermelho dominante) = trocar só a camada 2.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   TIPOGRAFIA — BR Omny
+   TIPOGRAFIA: BR Omny
    5 faces das 14 instaladas. Thin/Light/SemiBold e os demais itálicos não têm
    uso especificado no sistema; carregá-los seria peso morto.
    A face Black normal existe como defesa: sem ela, um font-weight:900 sem
@@ -61,31 +61,19 @@
 :root {
 
   /* ========================================================================
-     CAMADA 1 — PRIMITIVOS
+     CAMADA 1: PRIMITIVOS
      ======================================================================== */
 
   /* Cor da marca */
   --asa-yellow:        #FEC42B;
-  --asa-yellow-hover:  #EAB227;                 /* hover do amarelo — era hex avulso só no botão secundário, nomeado em 12/09/2026 */
+  --asa-yellow-hover:  #EAB227;                 /* hover do amarelo (botão secundário) */
   --asa-black:         #141517;
   --asa-red:           #E80911;
-  /* Tom clareado a partir do #FFF7E3 original (feedback de revisão: o
-     creme precisava ser bem mais leve — não mais escuro, correção de uma
-     tentativa anterior que foi na direção errada). Luminância relativa sobe
-     de 0.933 para 0.965 — mais próximo do branco, ainda com um leve calor.
-     Efeito colateral bom: por estar mais afastado dos tons escuros de texto,
-     todo contraste contra ele melhora, sem mudar categoria WCAG nenhuma
-     (ver 03-cor.html). A frequência de uso — não só o tom — também foi
-     reduzida: ver comentário em asa-base.css sobre o fundo padrão de tela. */
-  --asa-cream:         #FFFBF0;
-  /* Cinza ultraclaro neutro, sem viés de matiz — substitui o creme como
-     superfície de composição e camada flutuante (revisão de 12/09/2026):
-     o creme, mesmo corrigido, ainda lia como "amarelo diluído" em toda
-     seção/demo/painel que o usava, e o objetivo passou a ser reservar
-     qualquer tom de amarelo só para acento deliberado (capa, badge,
-     assinatura). --asa-cream continua existindo como primitivo de
-     referência (ver 10-tokens.html), mas nenhuma superfície viva o consome
-     mais — ver --asa-bg e --asa-surface-float abaixo. */
+  /* Cinza ultraclaro neutro, sem viés de matiz: a superfície de composição
+     e da camada flutuante (modal, popover, menu). Qualquer tom de amarelo
+     fica reservado ao acento deliberado (capa, badge, assinatura); o neutro
+     claro do sistema é este cinza, nunca um amarelo diluído. Consumido por
+     --asa-bg e --asa-surface-float. */
   --asa-mist:          #F4F4F3;
   --asa-red-dark:      #C4070E;
   --asa-green:         #065F46;
@@ -108,13 +96,13 @@
   --asa-font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
 
   /* ========================================================================
-     CAMADA 2 — SEMÂNTICOS
+     CAMADA 2: SEMÂNTICOS
      A regra "vermelho é só ação" só é executável se o componente escrever
      var(--asa-action). Escrevendo var(--asa-red), a regra vira folclore.
      ======================================================================== */
 
   --asa-surface:        var(--asa-yellow);      /* superfície principal da marca */
-  --asa-bg:             var(--asa-mist);        /* accent de composição — NAO é fundo padrão de body, ver asa-base.css */
+  --asa-bg:             var(--asa-mist);        /* superfície de composição; nunca o fundo padrão de body (ver asa-base.css) */
   --asa-bg-elevated:    var(--asa-white);       /* card, superfície elevada     */
   --asa-bg-deep:        var(--asa-black-deep);  /* peça noturna, rodapé, vídeo  */
   --asa-bg-dense:       var(--asa-black);       /* bloco de informação densa    */
@@ -134,44 +122,41 @@
   --asa-line:           rgba(20, 21, 23, .14);   /* borda sobre claro            */
   --asa-line-soft:      rgba(20, 21, 23, .12);   /* divisor interno de card      */
   --asa-line-inverse:   rgba(255, 255, 255, .16);/* borda sobre escuro           */
-  --asa-line-strong:    rgba(20, 21, 23, .30);   /* aresta de contato de sticky — Lacuna 3, T13 */
+  --asa-line-strong:    rgba(20, 21, 23, .30);   /* aresta de contato de sticky */
 
-  /* Canal de atenção — Lacuna 2. Sem isto, "esgotado", "restam 2",
-     "documento recusado" e "campo inválido" competiam pelo mesmo vermelho
-     que é o orçamento do CTA. --asa-warn nunca é ação: não leva onClick. */
-  /* Revisão de 12/09/2026: o tom original (#B65C00) só tinha sido testado
-     contra branco (4,52:1). Contra o próprio --asa-warn-bg pareado, dava
-     4,2:1 — reprova o mínimo de 4,5:1 para texto normal, achado pelo scanner
-     determinístico. Escurecido para fechar 5,02:1 sobre --asa-warn-bg e
-     5,58:1 sobre branco — os dois pares onde o canal de atenção realmente
-     aparece (tag, alerta). */
-  --asa-warn:           #A35200;                /* laranja escuro — 5,58:1 sobre branco, 5,02:1 sobre --asa-warn-bg */
+  /* Canal de atenção. Sem ele, "esgotado", "restam 2", "documento recusado"
+     e "campo inválido" disputariam o mesmo vermelho que é o orçamento do
+     CTA. --asa-warn nunca é ação: não leva onClick.
+     O tom fecha 5,02:1 sobre --asa-warn-bg e 5,58:1 sobre branco, os dois
+     pares onde o canal aparece (tag, alerta). O mínimo de 4,5:1 para texto
+     normal vale contra cada fundo pareado, não só contra branco. */
+  --asa-warn:           #A35200;                /* laranja escuro: 5,58:1 sobre branco, 5,02:1 sobre --asa-warn-bg */
   --asa-warn-bg:        #FDF1E4;                /* fundo do alerta de atenção    */
 
-  /* Superfícies de interação — Lacuna 3. Antes hardcoded dentro de .asa-input. */
+  /* Superfícies de interação: hover e seleção, compartilhadas por campo, choice, menu e calendário. */
   --asa-surface-hover:    rgba(20, 21, 23, .04);
   --asa-surface-selected: rgba(254, 196, 43, .12);  /* amarelo em baixíssima opacidade, nunca sólido em área grande */
 
-  /* Camada e sobreposição — Lacuna 1. Pré-requisito dos 7 componentes
-     flutuantes (asa-overlay, asa-modal, asa-sheet, asa-popover, asa-menu).
+  /* Camada e sobreposição: base dos componentes flutuantes (asa-overlay,
+     asa-modal, asa-sheet, asa-popover, asa-menu).
      Escala de 10 em 10 para deixar vão de inserção sem renumerar tudo. */
   --asa-z-sticky:    1000;
-  --asa-z-dropdown:  1010;   /* combobox, date picker — precisa vencer o header sticky embaixo dele */
+  --asa-z-dropdown:  1010;   /* combobox, date picker: precisa vencer o header sticky embaixo dele */
   --asa-z-overlay:   1200;
   --asa-z-modal:     1210;
   --asa-z-popover:   1220;   /* pode abrir por cima de um modal (ex.: tooltip dentro de um formulário) */
   --asa-z-toast:     1300;
-  --asa-scrim:          rgba(13, 13, 14, .56);  /* --asa-black-deep em opacidade — nunca puro preto */
-  --asa-surface-float:  var(--asa-mist);        /* T3 revisado 12/09 — cinza ultraclaro vira a superfície flutuante do sistema, no lugar do creme */
+  --asa-scrim:          rgba(13, 13, 14, .56);  /* --asa-black-deep em opacidade, nunca puro preto */
+  --asa-surface-float:  var(--asa-mist);        /* superfície de modal, sheet, popover e menu */
 
-  /* Offset de header — Lacuna 9. 70px calibrado para a navbar de 54px desta
+  /* Offset de header. 70px calibrado para a navbar de 54px desta
      documentação; o header de produto (duas camadas) recalcula este valor. */
   --asa-header-h:       70px;
 
-  --asa-icon-dense:     16px;   /* Lacuna 7 — ícone dentro de card e chip, abaixo do --asa-icon-inline de 24px */
+  --asa-icon-dense:     16px;   /* ícone dentro de card e chip, abaixo do --asa-icon-inline de 24px */
 
   /* ========================================================================
-     TIPOGRAFIA — 5 degraus, base 8. Nada entre eles.
+     TIPOGRAFIA: 5 degraus, base 8. Nada entre eles.
      ======================================================================== */
 
   --asa-fs-display:     64px;   --asa-lh-display:   60px;
@@ -181,23 +166,22 @@
   --asa-fs-label:       12px;   --asa-lh-label:     16px;
   --asa-fs-mono:        11px;
 
-  /* Escala de UI — decisão T9 (10/09/2026). A escala acima é de CONTEÚDO,
-     "nada entre eles". Componente de produto tem densidade que o conteúdo
-     não tem (título de card, botão, contagem de filtro), e forçar os dois
-     na mesma régua foi o que produziu 10/11/13/14/17/24px soltos no código.
-     Nasce uma escala paralela, nomeada, com o MESMO piso de 12px: os usos em
-     11px que existiam (asa-tag, __category) SOBEM para --asa-fs-label —
-     o piso venceu, não virou exceção. --asa-fs-mono continua sendo o único
-     valor abaixo de 12px, e só para o rótulo mono decorativo de seção; texto
-     de produto (tag, contagem, atributo) nunca deve usar --asa-fs-mono. */
+  /* Escala de UI. A escala acima é de CONTEÚDO, "nada entre eles".
+     Componente de produto tem densidade que o conteúdo não tem (título de
+     card, botão, contagem de filtro); forçar os dois na mesma régua produz
+     tamanhos soltos no código. Esta é a escala paralela, nomeada, com o
+     MESMO piso de 12px: tag e categoria usam --asa-fs-label, nunca menos.
+     --asa-fs-mono é o único valor abaixo de 12px, e só para o rótulo mono
+     decorativo de seção; texto de produto (tag, contagem, atributo) nunca
+     usa --asa-fs-mono. */
   --asa-fs-subtitle:    17px;   --asa-lh-subtitle:    24px;  /* título de card       */
   --asa-fs-body-dense:  14px;   --asa-lh-body-dense:  20px;  /* botão, choice, denso, rótulo de campo */
-  --asa-fs-lead:        18px;   --asa-lh-lead:        28px;  /* lide de seção: a frase sob o H2 (revisão de composição, out/2026) */
+  --asa-fs-lead:        18px;   --asa-lh-lead:        28px;  /* lide de seção: a frase sob o H2 */
 
-  /* Registro de NUMERAL — preço e nota, não conteúdo nem UI de chrome. Já
-     existia como precedente não nomeado (.asa-price__value, .asa-numberplate
-     usam clamp() fluido próprio); este é o mesmo registro na densidade de
-     card, onde o valor precisa ser fixo, não fluido. */
+  /* Registro de NUMERAL: preço e nota, não conteúdo nem UI de chrome.
+     .asa-price__value e .asa-numberplate usam clamp() fluido próprio; este
+     é o mesmo registro na densidade de card, onde o valor precisa ser fixo,
+     não fluido. */
   --asa-fs-price-card:  24px;
 
   /* Versões fluidas de display e título. Ancoradas em cqi, não em vw: dentro
@@ -208,7 +192,7 @@
   --asa-fs-title-fluid:   clamp(24px, 3.2cqi, 32px);
 
   --asa-tracking-display: -.03em;   /* display (H1), Registro 1  */
-  --asa-tracking-title:   -.01em;   /* título de seção, Registro 2 (out/2026) */
+  --asa-tracking-title:   -.01em;   /* título de seção, Registro 2 */
   --asa-tracking-number:  -.05em;   /* placa de número           */
   --asa-tracking-price:   -.04em;   /* preço                     */
   --asa-tracking-label:   .2em;     /* etiqueta caixa alta       */
@@ -224,7 +208,7 @@
   --asa-measure: 640px;
 
   /* ========================================================================
-     ESPAÇAMENTO — nomeado por índice, não por pixel: o índice é estável,
+     ESPAÇAMENTO. Nomeado por índice, não por pixel: o índice é estável,
      o valor por trás dele pode evoluir sem renomear token.
      ======================================================================== */
 
@@ -249,30 +233,28 @@
   --asa-gutter:        24px;
   --asa-safe-fold:     680px;   /* altura útil da primeira dobra */
 
-  /* Lacuna 8 — layout de duas colunas. 1200px de container menos padding
+  /* Layout de duas colunas. 1200px de container menos padding
      deixa ~1020px: sidebar (280) + 3 cards de vitrine fica apertado sem
      este token existir para a régua toda concordar no mesmo valor. */
   --asa-sidebar-w: 280px;
 
-  /* Breakpoints. Custom property não funciona dentro de @media — estes
-     existem para leitura e para JS; as media queries repetem o valor. */
+  /* Breakpoints. Custom property não funciona dentro de @media; estes
+     existem para leitura e para JS, e as media queries repetem o valor. */
   --asa-bp-tablet:  768px;
   --asa-bp-desktop: 1024px;
 
-  /* Revisão de composição (out/2026): o mínimo sobe de 56 para 72px. A home
-     v2 mostrou que 56px no celular não separa duas faixas de fundo diferente;
-     o máximo de 120px já era o valor de desktop. */
+  /* Respiro entre faixas: 72px no celular, 120px no desktop. Menos que 72px
+     não separa duas faixas de fundo diferente no celular. */
   --asa-section-pad-y: clamp(72px, 8vw, 120px);
   --asa-section-pad-x: clamp(20px, 6vw, 90px);
 
   /* ========================================================================
      FORMA
-     radius 8px em botão, card e campo — ajustado a partir dos 4px originais
-     do handoff (feedback de revisão: arredondamento levemente mais suave).
-     50% só em avatar. Etiqueta de benefício continua com radius zero, de
-     propósito — é o que a diferencia de um botão à primeira vista. Nada
-     mais é arredondado. Nenhuma sombra em lugar nenhum — a marca é chapada;
-     elevação se resolve com borda e contraste de fundo.
+     radius 8px em botão, card e campo. 50% só em avatar. Etiqueta de
+     benefício tem radius zero, de propósito: é o que a diferencia de um
+     botão à primeira vista. Nada mais é arredondado. Nenhuma sombra em
+     lugar nenhum: a marca é chapada; elevação se resolve com borda e
+     contraste de fundo.
      ======================================================================== */
 
   --asa-radius:        8px;
@@ -287,7 +269,7 @@
   --asa-icon-stroke:   1.5;    /* mesma espessura da borda de card */
 
   /* ========================================================================
-     GEOMETRIA PROPRIETÁRIA — a regra dos 8°
+     GEOMETRIA PROPRIETÁRIA: a regra dos 8°
      O ângulo do logo, subindo para a direita. É o único ângulo do sistema.
      A subida é expressa em unidade de LARGURA (cqw) porque tan(8°) relaciona
      altura a largura: com porcentagem de altura o ângulo mudaria a cada
@@ -300,7 +282,7 @@
   /* ========================================================================
      MOVIMENTO
      Teto absoluto de 400ms. Sem bounce, sem elástico, sem rotação.
-     Números nunca sobem em contador — aparecem inteiros, de uma vez.
+     Números nunca sobem em contador: aparecem inteiros, de uma vez.
      ======================================================================== */
 
   --asa-dur-fast:    200ms;   /* entrada do logo, por opacidade */
@@ -308,7 +290,7 @@
   --asa-dur-scene:   320ms;   /* wipe de transição de cena      */
   --asa-dur-max:     400ms;   /* limite geral                    */
   --asa-ease:        ease-out;
-  --asa-ease-in:     ease-in;  /* Lacuna 12 — saída de overlay, sheet e drawer; entrada continua --asa-ease */
+  --asa-ease-in:     ease-in;  /* saída de overlay, sheet e drawer; a entrada usa --asa-ease */
 }
 
 /* Respeitar quem pediu menos movimento. Declarado junto dos tokens, não no

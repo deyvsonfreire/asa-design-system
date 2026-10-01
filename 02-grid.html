@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>02 · Grid — Sistema de Design Asa</title>
+<title>02 · Grid · Sistema de Design Asa</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -14,7 +14,7 @@
   .grid-demo > i { display:block; height:96px; background:rgba(232,9,17,.14); border:1px solid rgba(232,9,17,.3); }
   .space-bar { background:var(--asa-action); height:16px; }
   /* Lista da dobra: uma coluna de veredito, uma de razão. Substitui o trio
-     de cards — três caixas iguais lado a lado pediam um ícone em cada uma. */
+     de cards: três caixas iguais lado a lado pediam um ícone em cada uma. */
   .fold-list { display:grid; grid-template-columns:minmax(200px,.4fr) 1fr; gap:0 24px; margin:0; }
   .fold-list dt, .fold-list dd { margin:0; padding:14px 0; border-bottom:1px solid var(--asa-line-soft); }
   .fold-list dt { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
@@ -24,7 +24,7 @@
     .fold-list { grid-template-columns:1fr; }
     .fold-list dt { padding-bottom:4px; border-bottom:0; }
   }
-  /* Rótulo de campo do demo da dobra: 14px, caixa baixa, Medium — o mesmo
+  /* Rótulo de campo do demo da dobra: 14px, caixa baixa, Medium, o mesmo
      desenho de .asa-label. Nada aqui fica abaixo de 12px. */
   .fold-field { background:var(--asa-white); border-radius:8px; padding:12px 16px; font:500 14px/20px var(--asa-font); color:var(--asa-ink-3); }
 </style>
@@ -58,11 +58,11 @@
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="grade">
+<section class="asa-doc-section asa-doc-section--mist" id="grade">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">02 · Grid</span>
-    <h2>Doze colunas, goteira de 24. E uma decisão sobre onde parar de crescer.</h2>
-    <p class="asa-doc-section__lead">A grade não aparece na tela — mas é ela que faz um layout parecer organizado sem que a pessoa saiba dizer por quê. Elementos de linhas diferentes acabam se alinhando verticalmente porque todos estão ancorados no mesmo sistema de colunas, não porque alguém alinhou par a par.</p>
+    <h2>Doze colunas, goteira de 24 e uma decisão sobre onde parar de crescer.</h2>
+    <p class="asa-doc-section__lead">A grade não aparece na tela, mas é ela que faz um layout parecer organizado sem que a pessoa saiba dizer por quê. Elementos de linhas diferentes acabam se alinhando verticalmente porque todos estão ancorados no mesmo sistema de colunas, não porque alguém alinhou par a par.</p>
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Grade de 12 colunas · desktop</span>
@@ -79,16 +79,16 @@
           <div class="asa-doc-spec"><span>Goteira (gutter)</span><span class="asa-doc-spec__value">24px</span></div>
           <div class="asa-doc-spec"><span>Margem lateral</span><span class="asa-doc-spec__value">clamp(20px, 6vw, 90px)</span></div>
         </div>
-        <p class="asa-doc-gloss">Confundir goteira com margem é o erro mais comum. O sintoma: conteúdo grudado na borda da tela mas com bastante espaço entre os elementos internos — ou o contrário.</p>
+        <p class="asa-doc-gloss">Confundir goteira com margem é o erro mais comum. O sintoma: conteúdo grudado na borda da tela mas com bastante espaço entre os elementos internos, ou o contrário.</p>
       </div>
 
       <div class="asa-doc-card">
-        <span class="asa-doc-block__title" style="margin:0">Container fixo, não fluido</span>
+        <span class="asa-doc-block__title" style="margin:0">Container fixo de 1200px</span>
         <div class="asa-doc-specs">
           <div class="asa-doc-spec"><span>Largura máxima</span><span class="asa-doc-spec__value">1200px</span></div>
           <div class="asa-doc-spec"><span>Documentação (exceção)</span><span class="asa-doc-spec__value">1500px</span></div>
         </div>
-        <p class="asa-doc-gloss">O site da Asa é conteúdo comercial, não painel de dados. Um container fluido deixaria uma linha de texto esticar até 3000px num monitor grande. Grid fluido resolve dashboard; aqui ele produziria linhas ilegíveis.</p>
+        <p class="asa-doc-gloss">O site da Asa é conteúdo comercial. Um container fluido deixaria uma linha de texto esticar até 3000px num monitor grande. Grid fluido resolve dashboard; aqui ele produziria linhas ilegíveis.</p>
       </div>
 
       <div class="asa-doc-card">
@@ -98,7 +98,7 @@
           <div class="asa-doc-spec"><span>Tablet · 768 a 1023px</span><span class="asa-doc-spec__value">8 colunas</span></div>
           <div class="asa-doc-spec"><span>Mobile · abaixo de 768px</span><span class="asa-doc-spec__value">4 colunas</span></div>
         </div>
-        <p class="asa-doc-gloss">O que precisa sobreviver ao colapso é a hierarquia, não o número de colunas. Três cards lado a lado viram cards empilhados sem que se perca a noção do que é mais importante na tela.</p>
+        <p class="asa-doc-gloss">O que precisa sobreviver ao colapso é a hierarquia. Três cards lado a lado viram cards empilhados sem que se perca a noção do que é mais importante na tela.</p>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
 <section class="asa-doc-section asa-doc-section--white" id="dobra">
   <div class="asa-doc-section__inner">
     <h2>A primeira dobra tem 680px para convencer.</h2>
-    <p class="asa-doc-section__lead">Grande parte do tráfego chega frio — busca, anúncio, link compartilhado — sem o compromisso prévio que alguém demonstra ao instalar um app. Isso dá à primeira dobra uma dupla responsabilidade: dizer do que se trata e apresentar a próxima ação, antes de qualquer rolagem.</p>
+    <p class="asa-doc-section__lead">Grande parte do tráfego chega frio (busca, anúncio, link compartilhado), sem o compromisso prévio que alguém demonstra ao instalar um app. Isso dá à primeira dobra uma dupla responsabilidade: dizer do que se trata e apresentar a próxima ação, antes de qualquer rolagem.</p>
 
     <div class="asa-doc-block">
       <div style="border:var(--asa-border-width) solid var(--asa-line);position:relative;background:var(--asa-surface);height:340px;overflow:hidden">
@@ -130,24 +130,24 @@
     </div>
 
     <div class="asa-doc-block">
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-block__title" style="margin:0 0 8px">O que fica de cada lado da linha</span>
         <dl class="fold-list">
           <dt><span class="asa-verdict asa-verdict--yes">Dentro da dobra</span><b>Proposta de valor e busca</b></dt>
-          <dd class="asa-doc-gloss" style="margin-top:0">A promessa em display — o H1, único lugar da tela em Registro 1 —, o formulário de busca completo e o único botão vermelho. Cada rolagem extra antes disso é uma chance a mais de a pessoa desistir.</dd>
+          <dd class="asa-doc-gloss" style="margin-top:0">A promessa em display (o H1, único lugar da tela em Registro 1), o formulário de busca completo e o único botão vermelho. Cada rolagem extra antes disso é uma chance a mais de a pessoa desistir.</dd>
           <dt><span class="asa-verdict asa-verdict--no">Fora da dobra</span><b>Prova social, frota e institucional</b></dt>
           <dd class="asa-doc-gloss" style="margin-top:0">As placas de 4,7 e 9,4, os cards de veículo e o texto de balcão vêm depois. Eles sustentam a decisão, mas não são o que faz a pessoa ficar nos primeiros segundos.</dd>
           <dt><span class="asa-verdict asa-verdict--no">Nunca</span><b>Tela de carregamento com logo</b></dt>
-          <dd class="asa-doc-gloss" style="margin-top:0">Splash é padrão de app, onde a pessoa já demonstrou intenção ao instalar. Na web, bloquear a página atrás de uma tela de marca é lido como lentidão — e ainda derruba a métrica de performance que afeta busca.</dd>
+          <dd class="asa-doc-gloss" style="margin-top:0">Splash é padrão de app, onde a pessoa já demonstrou intenção ao instalar. Na web, bloquear a página atrás de uma tela de marca é lido como lentidão, e ainda derruba a métrica de performance que afeta busca.</dd>
         </dl>
       </div>
     </div>
   </div>
 </section>
 
-<section class="asa-doc-section asa-doc-section--white" id="espacamento">
+<section class="asa-doc-section asa-doc-section--mist" id="espacamento">
   <div class="asa-doc-section__inner">
-    <h2>Escala linear de base 8. Nunca um valor escolhido no olho.</h2>
+    <h2>Escala linear de base 8, nunca um valor escolhido no olho.</h2>
     <p class="asa-doc-section__lead">Espaçamento usa incremento fixo, diferente da tipografia, que usa salto proporcional. São dois tipos de escala resolvendo dois problemas: um gap de 8px entre ícones e um respiro de 72 a 120px entre faixas precisam da mesma previsibilidade de passo.</p>
 
     <div class="asa-doc-block">
@@ -163,17 +163,17 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-8</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:40px"></div><span class="asa-doc-spec__value">40px</span></div></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-9</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:56px"></div><span class="asa-doc-spec__value">56px</span></div></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-10</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:64px"></div><span class="asa-doc-spec__value">64px</span></div></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-11</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:90px"></div><span class="asa-doc-spec__value">90px · margem lateral máxima — não é o vão entre seções</span></div></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-space-11</code></span><div style="flex:1;display:flex;align-items:center;gap:12px"><div class="space-bar" style="width:90px"></div><span class="asa-doc-spec__value">90px · margem lateral máxima, nunca o vão entre seções</span></div></div>
         </div>
-        <p class="asa-doc-gloss">Os tokens são nomeados por índice, não por pixel: o índice é estável, o valor por trás dele pode evoluir sem renomear nada no produto inteiro.</p>
+        <p class="asa-doc-gloss">Os tokens são nomeados por índice: o índice é estável, e o valor por trás dele pode evoluir sem renomear nada no produto inteiro.</p>
       </div>
     </div>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--yellow">
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Entre seções: 120 no desktop, 72 no celular</span>
-        <p style="max-width:none">O vão vertical entre duas faixas é <code class="asa-doc-code">--asa-section-pad-y</code>, <b>clamp(72px, 8vw, 120px)</b> — e não um passo da escala de espaço. <b>90px</b> (<code class="asa-doc-code">--asa-space-11</code>) é a margem lateral máxima, nunca o respiro entre seções.</p>
-        <p class="asa-doc-gloss">O mínimo subiu de 56 para 72px na revisão de composição: no celular, 56px não separava duas faixas de fundo diferente — a troca de cor fazia o trabalho sozinha e a página parecia emendada. Os quatro valores herdados que não são múltiplos de 8 (12, 20, 56 e 90) continuam na escala porque já circulam nas peças aprovadas; só o papel do 90 ficou explícito.</p>
+        <p style="max-width:none">O vão vertical entre duas faixas é <code class="asa-doc-code">--asa-section-pad-y</code>, <b>clamp(72px, 8vw, 120px)</b>, e não um passo da escala de espaço. <b>90px</b> (<code class="asa-doc-code">--asa-space-11</code>) é a margem lateral máxima, nunca o respiro entre seções.</p>
+        <p class="asa-doc-gloss">O mínimo é 72px: no celular, menos que isso não separa duas faixas de fundo diferente, a troca de cor fica fazendo o trabalho sozinha e a página parece emendada. Os quatro valores que não são múltiplos de 8 (12, 20, 56 e 90) fazem parte da escala porque circulam nas peças aprovadas; o 90 tem um papel só, a margem lateral.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Padding de seção</span>
@@ -181,11 +181,11 @@
           <div class="asa-doc-spec"><span>Vertical · <code class="asa-doc-code">--asa-section-pad-y</code></span><span class="asa-doc-spec__value">clamp(72px, 8vw, 120px)</span></div>
           <div class="asa-doc-spec"><span>Horizontal · <code class="asa-doc-code">--asa-section-pad-x</code></span><span class="asa-doc-spec__value">clamp(20px, 6vw, 90px)</span></div>
         </div>
-        <p class="asa-doc-gloss">Cortar espaço em branco para caber mais conteúdo é um pedido comum de quem não trabalha com design — e normalmente reduz a hierarquia percebida e a sensação de qualidade. O respiro é ferramenta, não sobra.</p>
+        <p class="asa-doc-gloss">Cortar espaço em branco para caber mais conteúdo é um pedido comum de quem não trabalha com design, e normalmente reduz a hierarquia percebida e a sensação de qualidade. O respiro é ferramenta, não sobra.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Grade também no componente</span>
-        <p style="max-width:none">A mesma lógica de colunas vale dentro do card, do formulário e da busca — não só no layout da página.</p>
+        <p style="max-width:none">A mesma lógica de colunas vale dentro do card, do formulário e da busca, e não só no layout da página.</p>
         <p class="asa-doc-gloss">É essa disciplina que faz o rodapé de um card de veículo alinhar com o de outro card na linha de baixo, sem que ninguém tenha planejado esse alinhamento elemento por elemento.</p>
       </div>
     </div>
@@ -200,7 +200,7 @@
           <div class="asa-doc-spec"><span>Marca-d'água</span><span class="asa-doc-spec__value">uma vez por página</span></div>
           <div class="asa-doc-spec"><span>CTA de fechamento</span><span class="asa-doc-spec__value">curto, não repete o hero</span></div>
         </div>
-        <p class="asa-doc-gloss">A grade organiza dentro da faixa; o ritmo organiza entre elas. Cada seção escolhe uma topologia (duas colunas, prateleira, lista, grade de cards) e fica com ela — misturar duas na mesma faixa é o que faz a página parecer montada de pedaços. O detalhe está em <a href="15-composicao.html">15 · Composição</a>.</p>
+        <p class="asa-doc-gloss">A grade organiza dentro da faixa; o ritmo organiza entre elas. Cada seção escolhe uma topologia (duas colunas, prateleira, lista, grade de cards) e fica com ela: misturar duas na mesma faixa é o que faz a página parecer montada de pedaços. O detalhe está em <a href="15-composicao.html">15 · Composição</a>.</p>
       </div>
     </div>
 

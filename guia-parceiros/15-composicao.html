@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>15 · Composição de página · Sistema de Design Asa</title>
-<link rel="stylesheet" href="css/asa-tokens.css">
-<link rel="stylesheet" href="css/asa-base.css">
-<link rel="stylesheet" href="css/asa-components.css">
-<link rel="stylesheet" href="css/asa-utilities.css">
-<link rel="stylesheet" href="css/asa-docs.css">
+<title>15 · Composição de página · Guia de Marca Asa · Parceiros</title>
+<link rel="stylesheet" href="../css/asa-tokens.css">
+<link rel="stylesheet" href="../css/asa-base.css">
+<link rel="stylesheet" href="../css/asa-components.css">
+<link rel="stylesheet" href="../css/asa-utilities.css">
+<link rel="stylesheet" href="../css/asa-docs.css">
+<link rel="stylesheet" href="guia.css">
 <style>
   /* Anatomia da página: faixas empilhadas em miniatura. Cada faixa mostra o
      fundo real e um esboço da sua estrutura. É diagrama, não componente. */
@@ -52,13 +53,6 @@
   .pair__card { flex:1; border:1.5px solid rgba(20,21,23,.18); border-radius:4px; padding:8px; display:flex; flex-direction:column; gap:6px; }
   .pair__caption { grid-column:1 / -1; margin:0; }
   @media (max-width: 640px) { .pair { grid-template-columns:1fr; } }
-  /* Listas de regra: rótulo à esquerda, valor em texto corrido à direita. */
-  .ref-list { display:grid; gap:0; margin:0; }
-  .ref-list > div { display:grid; grid-template-columns:minmax(120px,.38fr) 1fr; gap:4px 16px; padding:10px 0; border-bottom:1px solid var(--asa-line-soft); }
-  .ref-list > div:last-child { border-bottom:0; }
-  .ref-list dt { margin:0; font-size:var(--asa-fs-body-dense); line-height:var(--asa-lh-body-dense); font-weight:var(--asa-weight-bold); color:var(--asa-ink); }
-  .ref-list dd { margin:0; font-size:15px; line-height:1.5; color:var(--asa-ink-2); }
-  @media (max-width: 480px) { .ref-list > div { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -66,7 +60,8 @@
 <a class="asa-skiplink" href="#intro">Pular para o conteúdo</a>
 <nav class="asa-doc-nav" aria-label="Navegação da documentação">
   <div class="asa-doc-nav__inner">
-    <img class="asa-doc-nav__logo" src="assets/img/lockup.png" alt="">
+    <img class="asa-doc-nav__logo" src="../assets/img/lockup.png" alt="">
+    <span class="asa-guia-badge">Guia para parceiros</span>
     <div class="asa-doc-nav__list">
       <a href="index.html">00 Início</a>
       <a href="01-fundamentos.html">01 Fundamentos</a>
@@ -77,11 +72,10 @@
       <a href="06-componentes.html">06 Componentes</a>
       <a href="07-hierarquia.html">07 Hierarquia</a>
       <a href="08-fluxo-reserva.html">08 Fluxo de reserva</a>
-      <a href="09-seguranca.html">09 Segurança</a>
-      <a href="10-tokens.html">10 Tokens</a>
+      <a href="09-seguranca.html">09 Confiança</a>
+      <a href="10-tokens.html">10 Referência</a>
       <a href="11-movimento.html">11 Movimento</a>
       <a href="12-app-nativo.html">12 App nativo</a>
-      <a href="13-roadmap.html">13 Roadmap</a>
       <a href="14-downloads.html">14 Downloads</a>
       <a href="15-composicao.html" aria-current="page">15 Composição</a>
     </div>
@@ -94,7 +88,7 @@
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">15 · Composição de página</span>
     <h2>A página inteira tem regra, não só a peça.</h2>
-    <p class="asa-doc-section__lead" style="color:var(--asa-ink)">Uma página pode seguir cada token, cada degrau e cada regra de componente e ainda assim ler como template: oito seções com o mesmo cabeçalho, dezenas de cards iguais, caixa alta em todo bloco. Nenhuma regra de componente pega isso, porque o problema é a soma. Esta seção fixa como as faixas se encadeiam, o que a fotografia faz, o que o texto faz e como medir o resultado antes de ir ao ar. A home (<code class="asa-doc-code">asa-home-v2/index.html</code>) é o exemplo vivo de tudo o que está aqui.</p>
+    <p class="asa-doc-section__lead" style="color:var(--asa-ink)">Uma página pode seguir cada cor, cada degrau da escala e cada regra de componente e ainda assim ler como template: oito seções com o mesmo cabeçalho, dezenas de cards iguais, caixa alta em todo bloco. Nenhuma regra de componente pega isso, porque o problema é a soma. Esta seção fixa como as faixas se encadeiam, o que a fotografia faz, o que o texto faz e como medir o resultado antes de ir ao ar. A home de referência da Asa é o exemplo vivo de tudo o que está aqui.</p>
 
     <div class="asa-doc-cards" style="margin-top:28px">
       <div class="asa-doc-card">
@@ -107,7 +101,7 @@
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Medido, não opinado</span>
-        <p class="asa-doc-gloss">Caixa alta, ícones, cards com borda, cabeçalhos repetidos, fundos em sequência e travessões se contam. O checklist no fim desta página é o critério de entrega de qualquer página nova, e <code class="asa-doc-code">scripts/auditar.py</code> faz a conta.</p>
+        <p class="asa-doc-gloss">Caixa alta, ícones, cards com borda, cabeçalhos repetidos, fundos em sequência e travessões se contam. O checklist no fim desta página é o critério de entrega de qualquer página nova. Confere-se contando, antes de entregar.</p>
       </div>
     </div>
   </div>
@@ -121,26 +115,26 @@
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card">
         <span class="asa-doc-block__title">Texto e tipografia</span>
-        <dl class="ref-list">
-          <div><dt>Uma família só</dt><dd>BR Omny; o peso faz a hierarquia, não uma segunda fonte</dd></div>
-          <div><dt>Caixa alta</dt><dd>só H1, preço e placa de número (Registro 1)</dd></div>
-          <div><dt>Título de seção</dt><dd>caixa baixa, 32/36, 700, uma palavra em vermelho</dd></div>
-          <div><dt>Lide sob o título</dt><dd>18/28, em até 640px de medida; corpo 16/26</dd></div>
-          <div><dt>Acima do título</dt><dd>nada: sobretítulo, rótulo e numeração não existem</dd></div>
-          <div><dt>Fato no lugar de slogan</dt><dd>"balcão 24h no desembarque", "diária de 27 horas", "8 minutos"</dd></div>
-        </dl>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Uma família só</span><span class="asa-doc-spec__value">BR Omny; o peso faz a hierarquia, não uma segunda fonte</span></div>
+          <div class="asa-doc-spec"><span>Caixa alta</span><span class="asa-doc-spec__value">só H1, preço e placa de número (Registro 1)</span></div>
+          <div class="asa-doc-spec"><span>Título de seção</span><span class="asa-doc-spec__value">caixa baixa, 32/36, 700, uma palavra em vermelho</span></div>
+          <div class="asa-doc-spec"><span>Lide sob o título</span><span class="asa-doc-spec__value">18/28, em até 640px de medida; corpo 16/26</span></div>
+          <div class="asa-doc-spec"><span>Acima do título</span><span class="asa-doc-spec__value">nada: sobretítulo, rótulo e numeração não existem</span></div>
+          <div class="asa-doc-spec"><span>Fato no lugar de slogan</span><span class="asa-doc-spec__value">"balcão 24h no desembarque", "diária de 27 horas", "8 minutos"</span></div>
+        </div>
         <p class="asa-doc-gloss">Caixa alta é assinatura, e assinatura se usa uma vez por página. Uma página com oito títulos em caixa alta não tem H1: tem oito.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title">Imagem, ritmo e respiro</span>
-        <dl class="ref-list">
-          <div><dt>Foto grande, poucas vezes</dt><dd>gente e lugar, nunca carro de estúdio; uma por faixa que fala de destino, carro ou atendimento</dd></div>
-          <div><dt>Faixas, não ilhas</dt><dd>largura total, fundo alternado, 120px entre elas no desktop e 72 no celular</dd></div>
-          <div><dt>Prateleira</dt><dd>setas e o próximo card à mostra; sem bolinhas de paginação</dd></div>
-          <div><dt>Grade de destinos</dt><dd>assimétrica, nome sobre a foto; nunca quatro tiles iguais</dd></div>
-          <div><dt>Ícone</dt><dd>só em controle e em lista longa; o atributo do carro é texto</dd></div>
-          <div><dt>Primeira dobra</dt><dd>a busca e o botão cabem em 375×812 sem rolar</dd></div>
-        </dl>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Foto grande, poucas vezes</span><span class="asa-doc-spec__value">gente e lugar, nunca carro de estúdio; uma por faixa que fala de destino, carro ou atendimento</span></div>
+          <div class="asa-doc-spec"><span>Faixas, não ilhas</span><span class="asa-doc-spec__value">largura total, fundo alternado, 120px entre elas no desktop e 72 no celular</span></div>
+          <div class="asa-doc-spec"><span>Prateleira</span><span class="asa-doc-spec__value">setas e o próximo card à mostra; sem bolinhas de paginação</span></div>
+          <div class="asa-doc-spec"><span>Grade de destinos</span><span class="asa-doc-spec__value">assimétrica, nome sobre a foto; nunca quatro tiles iguais</span></div>
+          <div class="asa-doc-spec"><span>Ícone</span><span class="asa-doc-spec__value">só em controle e em lista longa; o atributo do carro é texto</span></div>
+          <div class="asa-doc-spec"><span>Primeira dobra</span><span class="asa-doc-spec__value">a busca e o botão cabem em 375×812 sem rolar</span></div>
+        </div>
         <p class="asa-doc-gloss">A cor de marca aparece em poucos blocos grandes: o amarelo abre e fecha a página, o preto aparece uma vez, no momento da prova. Entre eles, branco e cinza mist alternados.</p>
       </div>
     </div>
@@ -189,47 +183,47 @@
 <section class="asa-doc-section asa-doc-section--mist" id="anatomia">
   <div class="asa-doc-section__inner">
     <h2>A anatomia da home: dez faixas, nenhuma estrutura <em>repetida</em>.</h2>
-    <p class="asa-doc-section__lead">Faixas de largura total, uma atrás da outra, com o container de 1200px dentro de cada uma. O ritmo vem da alternância de fundo e de estrutura, nunca de ilhas arredondadas flutuando sobre uma margem. Entre faixas, 120px no desktop e 72 no celular (<code class="asa-doc-code">--asa-section-pad-y</code>). Cada faixa abaixo está construída em <a href="06-componentes.html#faixas">06 Componentes · Faixas de página</a>.</p>
+    <p class="asa-doc-section__lead">Faixas de largura total, uma atrás da outra, com o container de 1200px dentro de cada uma. O ritmo vem da alternância de fundo e de estrutura, nunca de ilhas arredondadas flutuando sobre uma margem. Entre faixas, 120px no desktop e 72 no celular. Cada faixa abaixo está construída em <a href="06-componentes.html#faixas">06 Componentes · Faixas de página</a>.</p>
 
     <div class="asa-doc-block anatomy">
       <div class="band band--white">
-        <div class="band__meta"><b>Cabeçalho</b><span>branco · fora do hero · logo, menu, telefone e botão preto</span><code>asa-navbar</code></div>
+        <div class="band__meta"><b>Cabeçalho</b><span>branco · fora do hero · logo, menu, telefone e botão preto</span></div>
         <div class="band__sketch"><div class="sk sk--line" style="width:60px"></div><div class="sk sk--line" style="width:220px;margin-left:auto"></div><div class="sk sk--line" style="width:70px;background:var(--asa-ink)"></div></div>
       </div>
       <div class="band band--yellow">
-        <div class="band__meta"><b>Hero</b><span>amarelo · H1 em Registro 1 com a frase assinada em placa preta · busca · marca d'água, uma vez</span><code>asa-hero · asa-search</code></div>
+        <div class="band__meta"><b>Hero</b><span>amarelo · H1 em Registro 1 com a frase assinada em placa preta · busca · marca d'água, uma vez</span></div>
         <div class="band__sketch" style="flex-direction:column;align-items:flex-start;gap:8px"><div class="sk sk--line" style="width:55%;height:18px;background:var(--asa-ink)"></div><div class="sk sk--line" style="width:35%"></div><div style="display:flex;gap:6px;width:100%;margin-top:6px;background:#fff;padding:8px;border-radius:4px"><div class="sk sk--line" style="flex:1.3;height:22px"></div><div class="sk sk--line" style="flex:1;height:22px"></div><div class="sk sk--line" style="flex:1;height:22px"></div><div class="sk sk--btn" style="width:70px;height:22px"></div></div></div>
       </div>
       <div class="band band--white">
-        <div class="band__meta"><b>Faixa-foto</b><span>branco · a chegada em foto larga · três fatos em texto, sem ícone</span><code>asa-factstrip</code></div>
+        <div class="band__meta"><b>Faixa-foto</b><span>branco · a chegada em foto larga · três fatos em texto, sem ícone</span></div>
         <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:0"><div class="sk sk--photo" style="height:54px;border-radius:4px 4px 0 0"></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--asa-line-soft);border:1px solid var(--asa-line-soft);margin:-12px 10px 0;position:relative"><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div><div style="background:#fff;padding:8px"><div class="sk sk--line" style="width:70%"></div></div></div></div>
       </div>
       <div class="band band--white">
-        <div class="band__meta"><b>Frota</b><span>branco · prateleira com setas e o próximo card à mostra · o único lugar com cards</span><code>asa-shelf · asa-card-vehicle</code></div>
+        <div class="band__meta"><b>Frota</b><span>branco · prateleira com setas e o próximo card à mostra · o único lugar com cards</span></div>
         <div class="band__sketch" style="overflow:hidden"><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div><div class="sk sk--photo" style="flex:0 0 31%;height:48px"></div></div>
       </div>
       <div class="band band--mist">
-        <div class="band__meta"><b>Como funciona</b><span>mist · editorial: foto com corte de 8° e os quatro requisitos em duas colunas</span><code>asa-editorial</code></div>
+        <div class="band__meta"><b>Como funciona</b><span>mist · editorial: foto com corte de 8° e os quatro requisitos em duas colunas</span></div>
         <div class="band__sketch"><div class="sk sk--photo" style="flex:0 0 42%;height:54px;clip-path:polygon(0 0,100% 0,100% 80%,0 100%)"></div><div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px"><div class="sk sk--line"></div><div class="sk sk--line"></div><div class="sk sk--line" style="width:70%"></div><div class="sk sk--line" style="width:70%"></div></div></div>
       </div>
       <div class="band band--dense">
-        <div class="band__meta"><b>Aeroportos e prova</b><span>preto · duas praças em foto grande · placas 4,7 e 9,4 · dois depoimentos sem card</span><code>asa-proof · asa-card-place · asa-numberplate--bare · asa-testimonial--bare</code></div>
+        <div class="band__meta"><b>Aeroportos e prova</b><span>preto · duas praças em foto grande · placas 4,7 e 9,4 · dois depoimentos sem card</span></div>
         <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:8px"><div style="display:flex;gap:8px"><div class="sk sk--photo" style="flex:1;height:34px"></div><div class="sk sk--photo" style="flex:1;height:34px"></div></div><div style="display:flex;gap:16px;align-items:center"><span style="font:italic 900 22px/1 var(--asa-font);color:var(--asa-surface)">4,7</span><span style="font:italic 900 22px/1 var(--asa-font);color:var(--asa-surface)">9,4</span><div class="sk sk--line" style="flex:1"></div></div></div>
       </div>
       <div class="band band--white">
-        <div class="band__meta"><b>Destinos</b><span>branco · grade assimétrica, nome sobre a foto</span><code>asa-destgrid · asa-card-destination--overlay</code></div>
+        <div class="band__meta"><b>Destinos</b><span>branco · grade assimétrica, nome sobre a foto</span></div>
         <div class="band__sketch" style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;height:72px"><div class="sk sk--photo" style="grid-row:span 2"></div><div class="sk sk--photo"></div><div class="sk sk--photo"></div><div class="sk sk--photo" style="grid-column:span 2"></div></div>
       </div>
       <div class="band band--white">
-        <div class="band__meta"><b>Dúvidas</b><span>branco, separado por um fio · lista com divisores, sem cards · atendimento à esquerda</span><code>asa-faq · asa-disclosure--faq</code></div>
+        <div class="band__meta"><b>Dúvidas</b><span>branco, separado por um fio · lista com divisores, sem cards · atendimento à esquerda</span></div>
         <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:6px"><div class="sk sk--line" style="width:40%"></div><div style="height:1px;background:var(--asa-line-soft)"></div><div class="sk sk--line" style="width:55%"></div><div style="height:1px;background:var(--asa-line-soft)"></div><div class="sk sk--line" style="width:48%"></div></div>
       </div>
       <div class="band band--yellow">
-        <div class="band__meta"><b>Fechamento</b><span>amarelo, faixa curta · H2 em Registro 2, uma frase, dois botões · sem marca d'água</span><code>asa-closing · asa-section--short</code></div>
+        <div class="band__meta"><b>Fechamento</b><span>amarelo, faixa curta · H2 em Registro 2, uma frase, dois botões · sem marca d'água</span></div>
         <div class="band__sketch"><div class="sk sk--line" style="flex:1;height:12px;background:var(--asa-ink)"></div><div class="sk sk--btn" style="width:70px;height:18px"></div><div class="sk sk--line" style="width:70px;height:18px;background:transparent;border:1.5px solid var(--asa-ink)"></div></div>
       </div>
       <div class="band band--deep">
-        <div class="band__meta"><b>Rodapé</b><span>preto profundo · abas de aeroportos, cidades e destinos sobre o hub de links</span><code>asa-footer</code></div>
+        <div class="band__meta"><b>Rodapé</b><span>preto profundo · abas de aeroportos, cidades e destinos sobre o hub de links</span></div>
         <div class="band__sketch" style="flex-direction:column;align-items:stretch;gap:8px"><div style="display:flex;gap:10px"><div class="sk sk--line" style="width:50px"></div><div class="sk sk--line" style="width:50px"></div><div class="sk sk--line" style="width:50px"></div></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px"><div class="sk sk--line"></div><div class="sk sk--line"></div><div class="sk sk--line"></div><div class="sk sk--line"></div></div></div>
       </div>
     </div>
@@ -246,25 +240,25 @@
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card">
         <span class="asa-doc-block__title">Tipografia e texto</span>
-        <dl class="ref-list">
-          <div><dt>Registro 1 (caixa alta itálica)</dt><dd>só H1, preço e placa</dd></div>
-          <div><dt>Título de seção</dt><dd>Registro 2, uma palavra em vermelho</dd></div>
-          <div><dt>Sobretítulo acima do título</dt><dd>nunca</dd></div>
-          <div><dt>Rótulo, legenda, rodapé</dt><dd>14px, caixa baixa</dd></div>
-          <div><dt>Numeração "Passo 01"</dt><dd>só se a ordem informar algo</dd></div>
-          <div><dt>Travessão e fórmula repetida</dt><dd>zero; ponto final, dois-pontos ou frase nova</dd></div>
-        </dl>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Registro 1 (caixa alta itálica)</span><span class="asa-doc-spec__value">só H1, preço e placa</span></div>
+          <div class="asa-doc-spec"><span>Título de seção</span><span class="asa-doc-spec__value">Registro 2, uma palavra em vermelho</span></div>
+          <div class="asa-doc-spec"><span>Sobretítulo acima do título</span><span class="asa-doc-spec__value">nunca</span></div>
+          <div class="asa-doc-spec"><span>Rótulo, legenda, rodapé</span><span class="asa-doc-spec__value">14px, caixa baixa</span></div>
+          <div class="asa-doc-spec"><span>Numeração "Passo 01"</span><span class="asa-doc-spec__value">só se a ordem informar algo</span></div>
+          <div class="asa-doc-spec"><span>Travessão e fórmula repetida</span><span class="asa-doc-spec__value">zero; ponto final, dois-pontos ou frase nova</span></div>
+        </div>
         <p class="asa-doc-gloss">A caixa alta é a assinatura, e assinatura se usa uma vez. O texto fala como quem atende no balcão: frases curtas, fatos, nenhuma exclamação.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title">Imagem e estrutura</span>
-        <dl class="ref-list">
-          <div><dt>Foto no lugar de ícone</dt><dd>o trio de benefícios vira faixa-foto com três fatos</dd></div>
-          <div><dt>Card só onde há produto</dt><dd>frota; destino vira foto, passo vira lista, dúvida vira divisor</dd></div>
-          <div><dt>Uma estrutura por seção</dt><dd>cabeçalho, grade e fundo nunca iguais em sequência</dd></div>
-          <div><dt>Faixas, não ilhas</dt><dd>largura total, fundo alternado, 120/72px entre elas</dd></div>
-          <div><dt>Marca d'água e fechamento</dt><dd>marca d'água uma vez, no hero; o fechamento é curto e não repete o hero</dd></div>
-        </dl>
+        <div class="asa-doc-specs">
+          <div class="asa-doc-spec"><span>Foto no lugar de ícone</span><span class="asa-doc-spec__value">o trio de benefícios vira faixa-foto com três fatos</span></div>
+          <div class="asa-doc-spec"><span>Card só onde há produto</span><span class="asa-doc-spec__value">frota; destino vira foto, passo vira lista, dúvida vira divisor</span></div>
+          <div class="asa-doc-spec"><span>Uma estrutura por seção</span><span class="asa-doc-spec__value">cabeçalho, grade e fundo nunca iguais em sequência</span></div>
+          <div class="asa-doc-spec"><span>Faixas, não ilhas</span><span class="asa-doc-spec__value">largura total, fundo alternado, 120/72px entre elas</span></div>
+          <div class="asa-doc-spec"><span>Marca d'água e fechamento</span><span class="asa-doc-spec__value">marca d'água uma vez, no hero; o fechamento é curto e não repete o hero</span></div>
+        </div>
         <p class="asa-doc-gloss">Ícone é âncora de leitura numa lista longa; como decoração de três frases ele só adiciona ruído. A spec do carro é uma linha de texto: "5 lugares · 2 malas · manual".</p>
       </div>
     </div>
@@ -281,16 +275,16 @@
         <table class="asa-doc-table">
           <thead><tr><th>O que contar</th><th>Limite</th><th>Como medir</th><th>O vício que denuncia</th></tr></thead>
           <tbody>
-            <tr><td>Blocos de texto em caixa alta</td><td>H1 + etiquetas de benefício + preços e placas; nada mais</td><td><code class="asa-doc-code">text-transform: uppercase</code> computado nos nós com texto</td><td>Registro 1 espalhado; rótulo e legenda gritando</td></tr>
+            <tr><td>Blocos de texto em caixa alta</td><td>H1 + etiquetas de benefício + preços e placas; nada mais</td><td>Contar os blocos de texto que aparecem em caixa alta na página</td><td>Registro 1 espalhado; rótulo e legenda gritando</td></tr>
             <tr><td>Sobretítulos</td><td>0</td><td>Qualquer texto curto imediatamente acima de um h2/h3</td><td>Rótulo mono acima de todo título</td></tr>
-            <tr><td>Ícones</td><td>Só em controle (menu, seta, fechar) e em lista longa</td><td><code class="asa-doc-code">&lt;svg&gt;</code> fora de botão e de lista com mais de cinco itens</td><td>Ícone por atributo, trio ícone+título+texto</td></tr>
-            <tr><td>Cards com a mesma borda</td><td>Só onde há produto para comparar</td><td>Elementos com <code class="asa-doc-code">border: 1.5px</code> fora da vitrine</td><td>Card como contêiner de qualquer coisa</td></tr>
+            <tr><td>Ícones</td><td>Só em controle (menu, seta, fechar) e em lista longa</td><td>Ícones fora de botão e de lista com mais de cinco itens</td><td>Ícone por atributo, trio ícone+título+texto</td></tr>
+            <tr><td>Cards com a mesma borda</td><td>Só onde há produto para comparar</td><td>Caixas com borda fora da vitrine de produto</td><td>Card como contêiner de qualquer coisa</td></tr>
             <tr><td>Cabeçalhos de seção iguais</td><td>0 em sequência</td><td>Duas seções seguidas com a mesma estrutura de abertura</td><td>Overfitting visual: o olho desliga na segunda</td></tr>
-            <tr><td>Fundos iguais em sequência</td><td>0</td><td>Duas faixas seguidas com o mesmo <code class="asa-doc-code">background</code></td><td>Ritmo plano, "muro" de seções</td></tr>
+            <tr><td>Fundos iguais em sequência</td><td>0</td><td>Duas faixas seguidas com o mesmo fundo</td><td>Ritmo plano, "muro" de seções</td></tr>
             <tr><td>Grades iguais</td><td>Nunca a mesma grade duas vezes</td><td>3×2, 4×1, 2×1 repetidos</td><td>Mesma topologia, conteúdo diferente</td></tr>
-            <tr><td>Marca d'água</td><td>1</td><td><code class="asa-doc-code">.asa-watermark</code> por página</td><td>Asa repetida vira papel de parede</td></tr>
-            <tr><td>Fotos</td><td>Pelo menos uma por faixa que fala de lugar, carro ou gente</td><td>Contar <code class="asa-doc-code">img</code>/<code class="asa-doc-code">asa-figure</code> por seção</td><td>Texto carregando tudo; ícone no lugar da foto</td></tr>
-            <tr><td>Travessões e fórmulas de texto</td><td>0</td><td>Contar o traço longo e o traço médio no texto visível; ler em voz alta à procura de "não é X, é Y" repetido</td><td>Texto gerado, não escrito</td></tr>
+            <tr><td>Marca d'água</td><td>1</td><td>Contar a asa em marca d'água na página inteira</td><td>Asa repetida vira papel de parede</td></tr>
+            <tr><td>Fotos</td><td>Pelo menos uma por faixa que fala de lugar, carro ou gente</td><td>Contar as fotos de cada seção</td><td>Texto carregando tudo; ícone no lugar da foto</td></tr>
+            <tr><td>Travessões e fórmulas de texto</td><td>0</td><td>Contar os travessões (longo e médio) no texto visível; ler em voz alta à procura de "não é X, é Y" repetido</td><td>Texto gerado, não escrito</td></tr>
             <tr><td>Fechamento</td><td>Curto, em Registro 2, com fundo e frase diferentes do hero</td><td>Comparar o H2 do fechamento com o H1</td><td>Fechamento que repete a abertura</td></tr>
           </tbody>
         </table>
@@ -299,8 +293,8 @@
 
     <div class="asa-doc-cards" style="margin-top:28px">
       <div class="asa-doc-card asa-doc-card--yellow">
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">O detector não substitui a conta</span>
-        <p class="asa-doc-gloss" style="color:#3A2C08">O scanner determinístico (impeccable) pega texto pequeno, contraste e caixa alta em corpo de texto. Não pega oito seções iguais: isso só aparece contando, ou olhando a página de longe com os olhos semicerrados. Se tudo tem o mesmo peso, nada é a ação.</p>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Contar antes de olhar</span>
+        <p class="asa-doc-gloss" style="color:#3A2C08">Texto pequeno, contraste e caixa alta em corpo de texto se pegam olhando de perto. Oito seções iguais, não: isso só aparece contando, ou olhando a página de longe com os olhos semicerrados. Se tudo tem o mesmo peso, nada é a ação.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Quando desviar do sistema</span>
@@ -326,7 +320,7 @@
         <div class="asa-doc-spec"><span>3 · Fundos</span><span class="asa-doc-spec__value">alternar branco, mist, amarelo e preto; amarelo abre e fecha, preto na prova</span></div>
         <div class="asa-doc-spec"><span>4 · Texto</span><span class="asa-doc-spec__value">H1 em Registro 1; H2 em Registro 2 com uma palavra em vermelho; fatos, sem sobretítulo, sem travessão</span></div>
         <div class="asa-doc-spec"><span>5 · Foto</span><span class="asa-doc-spec__value">uma por faixa de lugar, carro ou gente; placeholder com a legenda do que falta</span></div>
-        <div class="asa-doc-spec"><span>6 · Medir</span><span class="asa-doc-spec__value">o checklist acima com <code class="asa-doc-code">scripts/auditar.py</code>, mais o scanner, em 375 e 1440px</span></div>
+        <div class="asa-doc-spec"><span>6 · Medir</span><span class="asa-doc-spec__value">o checklist acima, item por item, no celular e no desktop</span></div>
       </div>
     </div>
   </div>
@@ -334,12 +328,12 @@
 
 <div class="asa-doc-next">
   <a class="asa-doc-next__link" href="14-downloads.html"><span>Anterior</span><b>← 14 · Downloads</b></a>
-  <span></span>
+  <a class="asa-doc-next__link" href="index.html" style="text-align:right"><span>Início</span><b>00 · Início do Guia →</b></a>
 </div>
 
 <footer class="asa-doc-foot">
-  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+  <img src="../assets/img/lockup-branco.png" alt="Asa Rent a Car">
+  <p>Guia de Marca Asa Rent a Car · para agências e fornecedores parceiros. Balcão no aeroporto de Recife e Fortaleza, 24 horas.</p>
 </footer>
 
 </body>

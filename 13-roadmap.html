@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>13 · Roadmap de componentes — Sistema de Design Asa</title>
+<title>13 · Roadmap de componentes · Sistema de Design Asa</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="css/asa-docs.css">
 <style>
   /* Nome de componente e fase: BR Omny em caixa baixa, 12px (piso da escala
-     de UI). O mono em caixa alta era etiqueta; aqui é texto de tabela. */
+     de UI). É texto de tabela, não etiqueta: sem mono, sem caixa alta. */
   .comp { font-family:var(--asa-font); font-size:var(--asa-fs-label); font-weight:600; color:var(--asa-action-hover); white-space:nowrap; }
   .fase { font-family:var(--asa-font); font-size:var(--asa-fs-label); font-weight:500; white-space:nowrap; }
   .fase--1 { color:var(--asa-action-hover); font-weight:700; }
@@ -53,36 +53,36 @@
   <label class="asa-doc-nav__scrim" for="docNavToggle" aria-hidden="true"></label>
 </nav>
 
-<section class="asa-doc-section asa-doc-section--cream" id="diagnostico">
+<section class="asa-doc-section asa-doc-section--mist" id="diagnostico">
   <div class="asa-doc-section__inner">
     <span class="asa-doc-section__label">13 · Roadmap de componentes</span>
     <h2>O sistema foi feito para peça. O portal pede produto.</h2>
-    <p class="asa-doc-section__lead">Um estudo de benchmark com 24 sites — dez locadoras globais, cinco OTAs, três de mobilidade, e as quatro concorrentes que disputam o mesmo cliente em Recife e Fortaleza — mediu a distância entre o site atual e o piso do setor. Esta página traduz esse estudo em peças: o que precisa entrar na biblioteca para que o portal seja construível.</p>
+    <p class="asa-doc-section__lead">As prioridades desta página vêm da comparação com 24 sites do setor (dez locadoras globais, cinco agências de viagem online, três de mobilidade e as quatro concorrentes que disputam o mesmo cliente em Recife e Fortaleza). Ela diz o que entra na biblioteca para o portal ser construível, e em que ordem.</p>
 
     <div class="asa-doc-block placar">
-      <div><b>40</b><span>componentes novos</span></div>
-      <div><b>14</b><span>extensões de componentes que já existem</span></div>
-      <div><b>15</b><span>lacunas de token e fundação</span></div>
-      <div><b>13</b><span>tensões entre o estudo e as regras da marca</span></div>
+      <div><b>48</b><span>componentes de produto, em quatro camadas</span></div>
+      <div><b>14</b><span>componentes de peça que crescem para o portal</span></div>
+      <div><b>13</b><span>tensões entre o portal e as regras da marca</span></div>
+      <div><b>3</b><span>garantias do CSS que não se negociam</span></div>
     </div>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Construído em 10/09/2026</span>
-        <span class="asa-doc-block__title" style="margin:0">Não existia camada flutuante</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">Sem modal, popover, dropdown, sheet, scrim ou z-index. Nenhum.</p>
-        <p class="asa-doc-gloss">Não era "um componente faltando" — era uma camada inteira da arquitetura ausente, pré-requisito de seis itens MUST: autocomplete, calendário, menu, minha reserva, filtros no mobile e consentimento. Os 7 primitivos estão documentados em <a href="06-componentes.html#flutuante" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
+        <span class="asa-doc-block__title" style="margin:0">Camada flutuante</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Modal, popover, dropdown, sheet, scrim e escala de z-index.</p>
+        <p class="asa-doc-gloss">É uma camada inteira da arquitetura, pré-requisito de seis peças: autocomplete, calendário, menu, minha reserva, filtros no mobile e consentimento. Os 7 primitivos estão documentados em <a href="06-componentes.html#flutuante" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Construído em 10/09/2026</span>
-        <span class="asa-doc-block__title" style="margin:0">Não existia navegação de produto</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">O que existia era <code class="asa-doc-code" style="color:var(--asa-surface)">asa-doc-nav</code> — chrome desta documentação.</p>
-        <p class="asa-doc-gloss">O próprio README diz que <code class="asa-doc-code" style="color:var(--asa-surface)">asa-docs.css</code> não vai para produção. <code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilitybar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navbar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navdrawer</code> são o menu real, em <a href="06-componentes.html#navegacao" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
+        <span class="asa-doc-block__title" style="margin:0">Navegação de produto</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Barra utilitária, navbar e gaveta mobile. <code class="asa-doc-code" style="color:var(--asa-surface)">asa-doc-nav</code> é o chrome desta documentação.</p>
+        <p class="asa-doc-gloss"><code class="asa-doc-code" style="color:var(--asa-surface)">asa-docs.css</code> não vai para produção. <code class="asa-doc-code" style="color:var(--asa-surface)">asa-utilitybar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navbar</code> + <code class="asa-doc-code" style="color:var(--asa-surface)">asa-navdrawer</code> são o menu real, em <a href="06-componentes.html#navegacao" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
         <span class="asa-doc-block__title" style="margin:0">Existe uma densidade só</span>
         <p style="color:var(--asa-ink-inverse);max-width:none">E ela é generosa: padding de seção até 120px, alvo de 44px, respiro largo.</p>
-        <p class="asa-doc-gloss">A vitrine (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-filters</code>) já existe, em <a href="06-componentes.html#vitrine" style="color:var(--asa-surface)">06 · Componentes</a>. <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-dense</code> continua opt-in por escopo — quem monta a tela decide onde aplicar, não é automático.</p>
+        <p class="asa-doc-gloss">A vitrine (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-filters</code>) está em <a href="06-componentes.html#vitrine" style="color:var(--asa-surface)">06 · Componentes</a>. <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-dense</code> é opt-in por escopo: quem monta a tela decide onde aplicar.</p>
       </div>
     </div>
   </div>
@@ -90,22 +90,22 @@
 
 <section class="asa-doc-section asa-doc-section--white" id="novos">
   <div class="asa-doc-section__inner">
-    <h2>Quarenta componentes novos, em seis camadas.</h2>
-    <p class="asa-doc-section__lead">Cada um amarrado ao achado do estudo que o exige. A ordem das camadas é ordem de dependência real: sem a primeira, nenhuma das outras se sustenta.</p>
+    <h2>Quarenta e oito componentes de produto, em quatro camadas.</h2>
+    <p class="asa-doc-section__lead">Cada um com o motivo que o justifica. A ordem das camadas é ordem de dependência: sem a primeira, nenhuma das outras se sustenta.</p>
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Camada de interação · pré-requisito de tudo</span>
       <div class="asa-doc-scroll">
         <table class="asa-doc-table">
-          <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
+          <thead><tr><th>Componente</th><th>Motivo</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
             <tr><td><span class="comp">asa-overlay</span></td><td>Primitivo de modal, sheet e consentimento</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-modal</span></td><td>§6.1 <code>/minha-reserva</code>; ver, alterar e cancelar sem sair da página</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-sheet</span></td><td>§6.3 filtros no mobile — a tela 3 do app já mostra o botão "Filtrar" sem destino</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-modal</span></td><td>Em <code>/minha-reserva</code>, ver, alterar e cancelar sem sair da página</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-sheet</span></td><td>Filtros no mobile: o botão "Filtrar" da tela 3 do app precisa de destino</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-popover</span></td><td>Superfície do autocomplete, do menu e do calendário</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-menu</span></td><td>§5.8 menu de 2 camadas; "Minha reserva ▸" com submenu</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-disclosure</span></td><td>Cupom colapsado — 7 referências, MUST #9; "⊕ Devolver em outro local"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-skiplink</span></td><td>MUST #10 — acessibilidade</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-menu</span></td><td>Menu de duas camadas; "Minha reserva ▸" abre submenu</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-disclosure</span></td><td>Cupom colapsado e "⊕ Devolver em outro local": o secundário fica fechado até ser pedido</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-skiplink</span></td><td>Acessibilidade: pular para o conteúdo por teclado</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -115,19 +115,19 @@
       <span class="asa-doc-block__title">Navegação · motor de busca</span>
       <div class="asa-doc-scroll">
         <table class="asa-doc-table">
-          <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
+          <thead><tr><th>Componente</th><th>Motivo</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
-            <tr><td><span class="comp">asa-utilitybar</span></td><td>§5.8 a barra utilitária do Budget; MUST #6</td><td>Web</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-navbar</span></td><td>MUST #6 menu visível; §3 #1 Minha reserva no header</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-utilitybar</span></td><td>Idioma, moeda, central e Minha reserva fora do menu principal</td><td>Web</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-navbar</span></td><td>Menu visível no desktop e Minha reserva no header</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-navdrawer</span></td><td>Substituto mobile do menu horizontal</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-combobox</span></td><td>§5.1 os quatro tipos de lugar da Booking: aeroporto+IATA, cidade, bairro, destino. MUST #4</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>§6.2 — a diária de 27h só é vendável se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-combobox</span></td><td>Quatro tipos de lugar na busca: aeroporto com IATA, cidade, bairro e destino</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>A diária de 27h só é vendável se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-chip</span></td><td>Quatro usos: chips do motor, de intenção, de sazonalidade, de filtro rápido</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-booking-lookup</span></td><td>MUST #2 — aparece no header, no widget e em <code>/minha-reserva</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-tabs</span></td><td>§5.6 abas de linha de negócio — 8 referências, cada aba troca o formulário</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-footer</span></td><td>§5.7 hub de links; rodapé com abas Aeroportos/Cidades/Destinos</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-breadcrumb</span></td><td>Inferido — IA de ~70 páginas em 4 níveis + <code>BreadcrumbList</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-tabbar</span></td><td>Já decidido em 12 · App nativo, mas só existe no CSS de documentação</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-booking-lookup</span></td><td>Localizar reserva pelo código, no header, no widget e em <code>/minha-reserva</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-tabs</span></td><td>Abas de linha de negócio: cada aba troca o formulário do motor</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-footer</span></td><td>Hub de links no rodapé, com abas Aeroportos, Cidades e Destinos</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-breadcrumb</span></td><td>Arquitetura de ~70 páginas em 4 níveis, com <code>BreadcrumbList</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-tabbar</span></td><td>Navegação do app, definida em 12 · App nativo</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -137,17 +137,17 @@
       <span class="asa-doc-block__title">Vitrine · o elo mais fraco do site atual</span>
       <div class="asa-doc-scroll">
         <table class="asa-doc-table">
-          <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
+          <thead><tr><th>Componente</th><th>Motivo</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
-            <tr><td><span class="comp">asa-filters</span></td><td>MUST #3 — "com contagem ao lado de cada opção"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-resultbar</span></td><td>§6.3 "32 carros disponíveis · Ordenar: Recomendado ▾"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-speclist</span></td><td>§5.2 os cinco atributos: lugares, malas, câmbio, ar, km livre</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-rating</span></td><td>§5.4 "nota dentro de cada card, no ponto de decisão"; MUST #8</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-emptystate</span></td><td>Consequência inevitável de MUST #3 — filtros combináveis dão conjunto vazio</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-shelf</span></td><td>§5.8 prateleiras contextuais; "Disponível neste fim de semana em Recife". Setas desabilitadas nas pontas, espiada do próximo card; pontos continuam proibidos</td><td>Ambos</td><td><span class="fase fase--done">✓ Revisado (out/2026): setas e espiada</span></td></tr>
-            <tr><td><span class="comp">asa-card-destination</span></td><td>§6.2 "Para onde você vai" — landing pages de destino. Variante <span class="comp">--overlay</span> com o nome sobre a foto e grade <span class="comp">asa-destgrid</span></td><td>Ambos</td><td><span class="fase fase--done">✓ Revisado (out/2026): nome sobre a foto</span></td></tr>
+            <tr><td><span class="comp">asa-filters</span></td><td>Filtros combináveis, com contagem ao lado de cada opção</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-resultbar</span></td><td>Total de resultados e ordenação na mesma linha</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-speclist</span></td><td>Os cinco atributos do carro: lugares, malas, câmbio, ar, km livre</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-rating</span></td><td>Nota dentro de cada card, no ponto de decisão</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-emptystate</span></td><td>Filtros combináveis dão conjunto vazio; a tela precisa de saída</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-shelf</span></td><td>Prateleiras contextuais ("Disponível neste fim de semana em Recife"), com setas desabilitadas nas pontas e espiada do próximo card; pontos são proibidos</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-card-destination</span></td><td>Landing pages de destino ("Para onde você vai"). Variante <span class="comp">--overlay</span> com o nome sobre a foto e grade <span class="comp">asa-destgrid</span></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-card-offer</span> <span class="comp">asa-card-store</span> <span class="comp">asa-card-article</span></td><td>Hub <code>/ofertas</code>, <code>/lojas</code> e blog</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-pagination</span></td><td>Inferido — ~120 páginas com o blog maduro</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-pagination</span></td><td>Cerca de 120 páginas com o blog maduro</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -157,59 +157,59 @@
       <span class="asa-doc-block__title">Funil · pós-venda · confiança</span>
       <div class="asa-doc-scroll">
         <table class="asa-doc-table">
-          <thead><tr><th>Componente</th><th>Achado que exige</th><th>Plataforma</th><th>Fase</th></tr></thead>
+          <thead><tr><th>Componente</th><th>Motivo</th><th>Plataforma</th><th>Fase</th></tr></thead>
           <tbody>
-            <tr><td><span class="comp">asa-summary</span></td><td>§5.2 o resumo sticky está na lista do que a Asa <b>já faz bem</b> — e não existe na biblioteca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-upsell</span></td><td>§5.2 "escolhido por 4 em cada 10 clientes" — melhor que a média do mercado, e nunca foi codificado</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-comparison</span></td><td>§6.3 explícito: trocar os três blocos de proteção por tabela lado a lado</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-addon</span></td><td>§6.3 ampliar adicionais: flexibilidade, pneus e vidros, combustível, entrega, GPS</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-pricebreakdown</span></td><td>§5.3 — o salto de +49% precisa ser <b>explicado</b>. Sem detalhamento, "preço final" vira outra promessa não verificável</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-paymethod</span></td><td>MUST #5 — 12x sem juros, desconto no Pix, combinar meios</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-card-booking</span> <span class="comp">asa-tasklist</span></td><td>MUST #2; §6.2 "TUDO RESOLVIDO SEM SAIR DAQUI"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-reassurance</span></td><td>§3 #7 trinca de reasseguro abaixo do motor — 5 referências; MUST #8</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-consent</span></td><td>MUST #10 — 10 referências; hoje não há banner, o que é risco jurídico e de Consent Mode</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-stickybar</span></td><td>§5.8 barra fixa do cupom em vez de um slide de carrossel que passa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-figure</span></td><td>§5.8 "trocar carro em estúdio por lugar e gente"</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-prose</span></td><td>§5.7 — ~70 páginas de conteúdo longo num sistema que só define h1/h2/h3/p/small</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-summary</span></td><td>Resumo da reserva fixo durante o funil, um ponto forte da Asa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-upsell</span></td><td>Oferta de upgrade com prova social ("escolhido por 4 em cada 10 clientes")</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-comparison</span></td><td>Proteções comparadas lado a lado, em tabela</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-addon</span></td><td>Adicionais: flexibilidade, pneus e vidros, combustível, entrega, GPS</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-pricebreakdown</span></td><td>O preço final precisa ser detalhado linha a linha; sem isso é promessa não verificável</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-paymethod</span></td><td>12x sem juros, desconto no Pix e combinação de meios</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-card-booking</span> <span class="comp">asa-tasklist</span></td><td>Reserva e pendências resolvidas na mesma tela ("TUDO RESOLVIDO SEM SAIR DAQUI")</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-reassurance</span></td><td>Trinca de reasseguro logo abaixo do motor de busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-consent</span></td><td>Banner de consentimento: exigência jurídica e do Consent Mode</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-stickybar</span></td><td>Barra fixa do cupom, em vez de um slide de carrossel que passa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-figure</span></td><td>Foto real de lugar e gente, no lugar de carro em estúdio</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-prose</span></td><td>Cerca de 70 páginas de conteúdo longo, além de h1/h2/h3/p/small</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-accordion</span> <span class="comp">asa-testimonial</span></td><td>FAQ com schema; "HISTÓRIAS REAIS" com nome e cidade</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-upload</span> <span class="comp">asa-codeinput</span></td><td>SHOULD #11 check-in "Asa Express" — a maior oportunidade de coerência entre promessa e produto</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-card-plan</span></td><td>COULD #23 — Clube Asa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-upload</span> <span class="comp">asa-codeinput</span></td><td>Check-in "Asa Express": a maior oportunidade de coerência entre promessa e produto</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-card-plan</span></td><td>Clube Asa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
 
-    <p class="asa-doc-gloss" style="margin-top:24px;max-width:760px">Dez coisas que <i>parecem</i> faltar e conscientemente não viraram componente — toast, tooltip, ordenação, toggle de one-way, formulário PJ, seletor de idioma, favoritos, stepper de quantidade — estão listadas com o motivo no documento em Markdown, para não reabrir a discussão depois.</p>
+    <p class="asa-doc-gloss" style="margin-top:24px;max-width:760px">O que <i>parece</i> faltar e não é componente: toast, tooltip, ordenação, toggle de one-way, formulário PJ, seletor de idioma, favoritos, stepper de quantidade. O motivo de cada um está no documento em Markdown.</p>
   </div>
 </section>
 
-<section class="asa-doc-section asa-doc-section--cream" id="extensoes">
+<section class="asa-doc-section asa-doc-section--mist" id="extensoes">
   <div class="asa-doc-section__inner">
-    <h2>Catorze componentes existentes que precisam crescer.</h2>
-    <p class="asa-doc-section__lead">Estender, não recriar. Em três casos o componente atual simplesmente não sobrevive ao que o portal pede.</p>
+    <h2>Catorze componentes de peça que crescem para o portal.</h2>
+    <p class="asa-doc-section__lead">Estender, sem recriar. Três carregam o peso do portal e têm as partes de produto; das outras onze, cinco estão prontas e seis seguem pendentes.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Estendido 10/09/2026</span>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
         <span class="asa-doc-block__title" style="margin:0">asa-search</span>
-        <span class="asa-doc-card__title">Era um grid de 4 colunas para um motor de 7 controles</span>
-        <p class="asa-doc-gloss">Ganhou <code class="asa-doc-code">__tabs</code>, <code class="asa-doc-code">__row</code> (o grid antigo, agora nomeado), <code class="asa-doc-code">__chips</code> e <code class="asa-doc-code">__aside</code>. Ver <a href="06-componentes.html#motor-busca">06 · Componentes</a>.</p>
+        <span class="asa-doc-card__title">Motor de sete controles</span>
+        <p class="asa-doc-gloss">Tem <code class="asa-doc-code">__tabs</code>, <code class="asa-doc-code">__row</code> (o grid de campos), <code class="asa-doc-code">__chips</code> e <code class="asa-doc-code">__aside</code>. Ver <a href="06-componentes.html#motor-busca">06 · Componentes</a>.</p>
       </div>
       <div class="asa-doc-card" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Estendido 10/09/2026</span>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
         <span class="asa-doc-block__title" style="margin:0">asa-card-vehicle</span>
-        <span class="asa-doc-card__title">Faltava quase tudo do que o estudo desenha</span>
-        <p class="asa-doc-gloss">Ganhou <code class="asa-doc-code">__badge</code>, <code class="asa-doc-code">__policy</code>, <code class="asa-doc-code">__actions</code> (dois CTAs), <code class="asa-doc-code">[data-state="soldout"]</code> e <code class="asa-doc-code">--horizontal</code>. Consome <code class="asa-doc-code">asa-speclist</code> e <code class="asa-doc-code">asa-rating</code> diretamente. Ver <a href="06-componentes.html#vitrine">06 · Componentes</a>.</p>
+        <span class="asa-doc-card__title">Card de vitrine completo</span>
+        <p class="asa-doc-gloss">Tem <code class="asa-doc-code">__badge</code>, <code class="asa-doc-code">__policy</code>, <code class="asa-doc-code">__actions</code> (dois CTAs), <code class="asa-doc-code">[data-state="soldout"]</code> e <code class="asa-doc-code">--horizontal</code>. Consome <code class="asa-doc-code">asa-speclist</code> e <code class="asa-doc-code">asa-rating</code> diretamente. Ver <a href="06-componentes.html#vitrine">06 · Componentes</a>.</p>
       </div>
       <div class="asa-doc-card" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Estendido 10/09/2026</span>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
         <span class="asa-doc-block__title" style="margin:0">asa-price</span>
-        <span class="asa-doc-card__title">Eram três partes para um requisito de cinco</span>
-        <p class="asa-doc-gloss">Ganhou <code class="asa-doc-code">__daily</code>, <code class="asa-doc-code">__installment</code>, <code class="asa-doc-code">__pix</code>. <code class="asa-doc-code">__value</code> continua o total do período — sempre vermelho, sem variante (T1).</p>
+        <span class="asa-doc-card__title">Preço em cinco partes</span>
+        <p class="asa-doc-gloss">Tem <code class="asa-doc-code">__daily</code>, <code class="asa-doc-code">__installment</code> e <code class="asa-doc-code">__pix</code>. <code class="asa-doc-code">__value</code> é o total do período: sempre vermelho, sem variante.</p>
       </div>
-      <div class="asa-doc-card asa-doc-card--cream">
+      <div class="asa-doc-card asa-doc-card--mist">
         <span class="asa-doc-card__title">As outras onze</span>
-        <p class="asa-doc-gloss"><s><code class="asa-doc-code">asa-tag</code></s> · <s><code class="asa-doc-code">asa-choice--card</code></s> · <s><code class="asa-doc-code">asa-alert</code></s> · <s><code class="asa-doc-code">asa-btn</code> (<code class="asa-doc-code">--icon</code>/<code class="asa-doc-code">--link</code>)</s> · <s><code class="asa-doc-code">asa-photo</code> (modo foto real, ver <code class="asa-doc-code">asa-figure</code>)</s> — as cinco já construídas. Seguem pendentes: <code class="asa-doc-code">asa-stepper</code> ("Editar" por etapa), <code class="asa-doc-code">asa-numberplate--inline</code>, <code class="asa-doc-code">asa-field</code> (cupom inline), <code class="asa-doc-code">asa-icon</code> (catálogo formal dos ícones novos — hoje usados inline, não cadastrados em <code class="asa-doc-code">05-icones.html</code>) e <code class="asa-doc-code">asa-skeleton</code>/<code class="asa-doc-code">asa-avatar</code> (forma de card, foto e iniciais).</p>
+        <p class="asa-doc-gloss"><s><code class="asa-doc-code">asa-tag</code></s> · <s><code class="asa-doc-code">asa-choice--card</code></s> · <s><code class="asa-doc-code">asa-alert</code></s> · <s><code class="asa-doc-code">asa-btn</code> (<code class="asa-doc-code">--icon</code>/<code class="asa-doc-code">--link</code>)</s> · <s><code class="asa-doc-code">asa-photo</code> (modo foto real, ver <code class="asa-doc-code">asa-figure</code>)</s>: as cinco construídas. Pendentes: <code class="asa-doc-code">asa-stepper</code> ("Editar" por etapa), <code class="asa-doc-code">asa-numberplate--inline</code>, <code class="asa-doc-code">asa-field</code> (cupom inline), <code class="asa-doc-code">asa-icon</code> (catálogo formal dos ícones novos, hoje usados inline e ainda fora de <code class="asa-doc-code">05-icones.html</code>) e <code class="asa-doc-code">asa-skeleton</code>/<code class="asa-doc-code">asa-avatar</code> (forma de card, foto e iniciais).</p>
       </div>
     </div>
   </div>
@@ -217,27 +217,27 @@
 
 <section class="asa-doc-section asa-doc-section--dense" id="tensoes">
   <div class="asa-doc-section__inner">
-    <h2>Onde o estudo colide com as regras duras da marca.</h2>
-    <p class="asa-doc-section__lead">Catorze colisões reais. Todas já resolvidas por critério — as três mais duras foram decididas em 10/09/2026, com um princípio único: melhor prática de UX/CRO acima de preservar o status quo, mesmo quando isso reescreve uma página já publicada do próprio sistema.</p>
+    <h2>Onde o portal colide com as regras duras da marca.</h2>
+    <p class="asa-doc-section__lead">Treze colisões, todas resolvidas por critério e por um princípio único: melhor prática de UX e CRO acima de preservar o status quo, mesmo quando isso reescreve uma página do próprio sistema.</p>
 
     <div class="asa-doc-cards asa-doc-cards--wide">
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Decidido · preço continua vermelho</span>
-        <span class="asa-doc-card__title">T1 · O preço vermelho numa vitrine de 32 cards</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">Eram quatro fontes de vermelho por card — preço, selo, CTA e rótulo de categoria — vezes 32.</p>
-        <p class="asa-doc-gloss">O efeito von Restorff (um sinal só funciona enquanto for raro) confirma o que <b>07 · Hierarquia</b> já ensinava: "o preço é o maior elemento <i>e o único colorido</i>". Lei de precedência: preço mantém <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-action</code>; selo vira <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag--outline</code>; CTA de listagem vira <code class="asa-doc-code" style="color:var(--asa-surface)">asa-btn--outline</code> (vermelho cheio só na tela de instância única); rótulo de categoria vira <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-ink-3</code>.</p>
+        <span class="asa-verdict asa-verdict--yes">Decidido · preço vermelho e único</span>
+        <span class="asa-doc-card__title">O preço vermelho numa vitrine de 32 cards</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Quatro candidatos a vermelho por card (preço, selo, CTA e rótulo de categoria), vezes 32.</p>
+        <p class="asa-doc-gloss">O efeito von Restorff (um sinal só funciona enquanto for raro) confirma o que <b>07 · Hierarquia</b> ensina: o preço é o maior elemento <i>e o único colorido</i>. Lei de precedência: preço em <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-action</code>; selo em <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag--outline</code>; CTA de listagem em <code class="asa-doc-code" style="color:var(--asa-surface)">asa-btn--outline</code> (vermelho cheio só na tela de instância única); rótulo de categoria em <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-ink-3</code>.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
         <span class="asa-verdict asa-verdict--yes">Decidido · proporção por arquétipo</span>
-        <span class="asa-doc-card__title">T2 · A proporção 40/25/20/15 num site de 70 páginas</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">Foi calibrada para peça publicitária e um funil de 8 telas.</p>
-        <p class="asa-doc-gloss">Passa a variar por <code class="asa-doc-code" style="color:var(--asa-surface)">&lt;body data-page-mode&gt;</code>: <b>marketing</b> mantém ~40/25/20/15; <b>transactional</b> (motor, vitrine, funil, checkout) cai para modo foco — menos cor decorativa é o achado mais replicado de CRO em conversão; <b>informational</b> (regras, taxas, fraude, blog) fica quase neutro, porque página jurídica que parece anúncio perde credibilidade.</p>
+        <span class="asa-doc-card__title">A proporção 40/25/20/15 num site de 70 páginas</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Uma proporção só serve para peça publicitária e um funil de 8 telas.</p>
+        <p class="asa-doc-gloss">Ela varia por <code class="asa-doc-code" style="color:var(--asa-surface)">&lt;body data-page-mode&gt;</code>: <b>marketing</b> mantém ~40/25/20/15; <b>transactional</b> (motor, vitrine, funil, checkout) usa modo foco, porque menos cor decorativa é o achado mais replicado de CRO em conversão; <b>informational</b> (regras, taxas, fraude, blog) fica quase neutro, porque página jurídica que parece anúncio perde credibilidade.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
         <span class="asa-verdict asa-verdict--yes">Decidido · escala de UI nomeada</span>
-        <span class="asa-doc-card__title">T9 · Os cinco degraus já foram furados</span>
-        <p style="color:var(--asa-ink-inverse);max-width:none">O código rodava uma escala paralela não nomeada: 11, 13, 14, 17 e 24px espalhados pelos componentes.</p>
-        <p class="asa-doc-gloss">A escala de conteúdo fica intocada. Nasce ao lado uma escala de <b>UI</b> com piso de 12px inegociável: <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-subtitle</code> (17px) e <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-body-dense</code> (14px) viram degraus legítimos; os usos em 11px (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">__category</code>) <b>sobem</b> para 12px em vez de virar exceção.</p>
+        <span class="asa-doc-card__title">Os cinco degraus de conteúdo e a escala de UI</span>
+        <p style="color:var(--asa-ink-inverse);max-width:none">Componentes de produto precisam de tamanhos que os cinco degraus de conteúdo não têm.</p>
+        <p class="asa-doc-gloss">A escala de conteúdo fica intocada. Ao lado dela existe uma escala de <b>UI</b> com piso de 12px inegociável: <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-subtitle</code> (17px) e <code class="asa-doc-code" style="color:var(--asa-surface)">--asa-fs-body-dense</code> (14px) são degraus legítimos; nada fica em 11px (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-tag</code> e <code class="asa-doc-code" style="color:var(--asa-surface)">__category</code> usam 12px).</p>
       </div>
     </div>
 
@@ -245,78 +245,75 @@
       <span class="asa-doc-block__title">As outras onze</span>
       <div class="asa-doc-cards">
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T6 · O ângulo de 8° não sobrevive a uma UI funcional</span>
-          <p class="asa-doc-gloss">A regra proíbe <code class="asa-doc-code" style="color:var(--asa-surface)">clip-path</code> em container interativo, porque o triângulo removido leva junto botão, link e anel de foco. O portal é quase todo container interativo. Na prática o ângulo assinatura desaparece do funil e da vitrine. Saída: expressá-lo por divisor entre seções e pelo corte da mídia dentro do card. Resolvível — desde que alguém olhe o resultado e aceite que ainda é assinatura suficiente.</p>
+          <span class="asa-doc-card__title">O ângulo de 8° numa UI funcional</span>
+          <p class="asa-doc-gloss">A regra proíbe <code class="asa-doc-code" style="color:var(--asa-surface)">clip-path</code> em container interativo, porque o triângulo removido leva junto botão, link e anel de foco. O portal é quase todo container interativo. Na prática o ângulo assinatura sai do funil e da vitrine. Saída: expressá-lo por divisor entre seções e pelo corte da mídia dentro do card. Quem monta a tela confere se o resultado ainda é assinatura suficiente.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T3 · Sete superfícies flutuantes contra "nenhuma sombra"</span>
-          <p class="asa-doc-gloss">Com o fundo agora branco, um popover branco sobre branco separado por borda de 14% é invisível. Saída limpa: a mist (<code class="asa-doc-code" style="color:var(--asa-surface)">--asa-mist</code>) vira a superfície flutuante do sistema — revisado em 12/09/2026: o creme passou a histórico e a mist é a superfície clara viva. Elegante — dá à superfície clara trabalho funcional — mas reatribui a cota de 15%.</p>
+          <span class="asa-doc-card__title">Sete superfícies flutuantes contra "nenhuma sombra"</span>
+          <p class="asa-doc-gloss">Com o fundo branco, um popover branco sobre branco separado por borda de 14% é invisível. Saída limpa: o cinza mist (<code class="asa-doc-code" style="color:var(--asa-surface)">--asa-mist</code>) é a superfície flutuante do sistema. Dá à superfície clara trabalho funcional, e reatribui a cota de 15%.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T11 · Marcas de terceiros com cor própria</span>
+          <span class="asa-doc-card__title">Marcas de terceiros com cor própria</span>
           <p class="asa-doc-gloss">Pix (turquesa), Google e bandeiras de cartão entram no checkout e na home. O sistema não tem regra para cor de terceiro, e esses manuais restringem monocromatização. Tem componente jurídico.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T12 · A estrela do rating é amarela</span>
-          <p class="asa-doc-gloss">Se o rating aparece em 32 cards, o amarelo da marca passa a significar "avaliação" — o ativo cromático mais forte da Asa vira cor de rating. Saída: rating sem estrela, ou estrela em preto.</p>
+          <span class="asa-doc-card__title">A estrela do rating é amarela</span>
+          <p class="asa-doc-gloss">Se o rating aparece em 32 cards, o amarelo da marca passa a significar "avaliação": o ativo cromático mais forte da Asa reduzido a cor de rating. Saída: rating sem estrela, ou estrela em preto.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T5 · Preço nunca sobre amarelo — agora como restrição estrutural</span>
-          <p class="asa-doc-gloss">A regra funcionava com um preço por peça. A home nova tem preço na prateleira, nos cards de destino, no clube e na barra de cupom. Vira regra verificável: nenhum componente com preço pode ser instanciado dentro de <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-bg-surface</code>.</p>
+          <span class="asa-doc-card__title">Preço nunca sobre amarelo, como restrição estrutural</span>
+          <p class="asa-doc-gloss">Com um preço por peça, a regra se confere no olho. A home tem preço na prateleira, nos cards de destino, no clube e na barra de cupom, então a regra é verificável: nenhum componente com preço pode ser instanciado dentro de <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-bg-surface</code>.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
-          <span class="asa-doc-card__title">T7 · Vitrine assíncrona contra "nada pulsa, nada gira"</span>
+          <span class="asa-doc-card__title">Vitrine assíncrona contra "nada pulsa, nada gira"</span>
           <p class="asa-doc-gloss">32 retângulos cinzas parados por 1,5s parecem página quebrada. O sistema já resolveu isso uma vez, no botão: três pontos em fade a 400ms. Basta promover ao nível de lista. Zero regra quebrada.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
           <span class="asa-verdict asa-verdict--yes">Decidido · uma topologia por seção</span>
-          <span class="asa-doc-card__title">T14 · Overfitting visual: a página que repete a mesma estrutura</span>
-          <p class="asa-doc-gloss">A home v1 tinha 8 cabeçalhos de seção idênticos, 38 cards iguais e 79 blocos em caixa alta: o olho aprende o molde na segunda seção e para de ler. Decidido: uma topologia por seção, fundos alternados, cards só onde há produto, marca d'água uma vez por página. Ver <a href="15-composicao.html" style="color:var(--asa-surface)">15 · Composição</a> e a sexta ferramenta de <a href="07-hierarquia.html#variacao" style="color:var(--asa-surface)">07 · Hierarquia</a>.</p>
+          <span class="asa-doc-card__title">Overfitting visual: a página que repete a mesma estrutura</span>
+          <p class="asa-doc-gloss">Oito cabeçalhos de seção idênticos, 38 cards iguais e 79 blocos em caixa alta numa home: o olho aprende o molde na segunda seção e para de ler. Regra: uma topologia por seção, fundos alternados, cards só onde há produto, marca d'água uma vez por página. Ver <a href="15-composicao.html" style="color:var(--asa-surface)">15 · Composição</a> e a sexta ferramenta de <a href="07-hierarquia.html#variacao" style="color:var(--asa-surface)">07 · Hierarquia</a>.</p>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Faltam T4 (densidade contra alvo de 44px), T10 (microcópia em caixa alta fica 40% mais larga) e T13 (cinco superfícies sticky sem sombra) — todas resolvíveis por critério, detalhadas no Markdown. T8 era um defeito e já foi corrigido; T1, T2, T9 e T14 estão decididas acima.</p>
+      <p class="asa-doc-gloss" style="margin-top:18px;max-width:760px">Três ficam em aberto: densidade contra o alvo de 44px, microcópia em caixa alta (fica 40% mais larga) e cinco superfícies sticky sem sombra. Todas resolvíveis por critério, detalhadas no Markdown.</p>
     </div>
   </div>
 </section>
 
 <section class="asa-doc-section asa-doc-section--white" id="corrigidos">
   <div class="asa-doc-section__inner">
-    <h2>Três defeitos que a auditoria encontrou no próprio sistema.</h2>
-    <p class="asa-doc-section__lead">Encontrados numa derivação independente do CSS e verificados linha a linha antes de corrigir. Nenhum deles é opinião — os três violam regra que o próprio sistema declara.</p>
+    <h2>Três garantias do CSS que não se negociam.</h2>
+    <p class="asa-doc-section__lead">Nenhuma delas é opinião: as três são regra que o próprio sistema declara, e o CSS as cumpre linha a linha.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card">
-        <span class="asa-verdict asa-verdict--yes">Corrigido</span>
-        <span class="asa-doc-card__title">Foco e erro usavam a mesma cor</span>
-        <p class="asa-doc-gloss"><code class="asa-doc-code">:focus</code> e <code class="asa-doc-code">[aria-invalid]</code> pintavam a borda com <code class="asa-doc-code">--asa-action-hover</code>. Num campo focado <i>e</i> inválido — o estado normal de quem errou e voltou para corrigir — o sinal de erro sumia. Como a paleta é fechada e não tem canal de atenção, o segundo canal virou a <b>espessura</b>: 2px contra 1.5px. É a mesma redundância de sinais que o botão primário já usa.</p>
+        <span class="asa-doc-card__title">Erro nunca depende só da cor da borda</span>
+        <p class="asa-doc-gloss"><code class="asa-doc-code">:focus</code> e <code class="asa-doc-code">[aria-invalid]</code> dividem a mesma cor de borda, <code class="asa-doc-code">--asa-action-hover</code>. Num campo focado <i>e</i> inválido (o estado normal de quem errou e voltou para corrigir) o erro continua visível porque tem um segundo canal, a <b>espessura</b>: 2px contra 1.5px, mais a mensagem com ícone ligada por <code class="asa-doc-code">aria-describedby</code>. É a mesma redundância de sinais do botão primário.</p>
       </div>
       <div class="asa-doc-card">
-        <span class="asa-verdict asa-verdict--yes">Corrigido</span>
-        <span class="asa-doc-card__title">Legenda de foto abaixo do piso de 12px</span>
-        <p class="asa-doc-gloss">A legenda do placeholder estava em 10px, contra a regra dura de que nenhum texto fica abaixo de 12px em tela — a mesma regra que já tinha subido o label de campo de 9px para 12px. Agora usa o degrau Etiqueta.</p>
+        <span class="asa-doc-card__title">Nenhum texto abaixo de 12px, inclusive legenda de foto</span>
+        <p class="asa-doc-gloss">Piso de 12px em tela, sem exceção: label de campo, etiqueta e a legenda do placeholder de foto usam o degrau Etiqueta. Texto menor que isso é defeito, em qualquer componente.</p>
       </div>
       <div class="asa-doc-card">
-        <span class="asa-verdict asa-verdict--yes">Corrigido</span>
-        <span class="asa-doc-card__title">Scroll suave ignorava reduced-motion</span>
-        <p class="asa-doc-gloss">O bloco de <code class="asa-doc-code">prefers-reduced-motion</code> zera as quatro durações, mas não alcançava <code class="asa-doc-code">scroll-behavior</code>, que é propriedade de elemento e não custom property. Com um site cheio de âncoras (FAQ, destinos, hub do rodapé), isso é conformidade.</p>
+        <span class="asa-doc-card__title">Reduced-motion também zera o scroll suave</span>
+        <p class="asa-doc-gloss">O bloco de <code class="asa-doc-code">prefers-reduced-motion</code> zera as quatro durações e também <code class="asa-doc-code">scroll-behavior</code>, que é propriedade de elemento e não custom property, por isso precisa da própria regra. Num site cheio de âncoras (FAQ, destinos, hub do rodapé), isso é conformidade.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--yellow">
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Dois riscos registrados, não corrigidos</span>
-        <p class="asa-doc-gloss"><code class="asa-doc-code">body { overflow-x: hidden }</code> é causa conhecida de quebra em <code class="asa-doc-code">position: sticky</code>, e o portal depende de sticky em cinco lugares — correção de uma linha (<code class="asa-doc-code">overflow-x: clip</code>) quando quiserem. E <code class="asa-doc-code">scroll-margin-top: 70px</code> está calibrado para a navbar desta documentação; o header de produto terá ~110px e precisa virar token.</p>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Dois riscos conhecidos</span>
+        <p class="asa-doc-gloss"><code class="asa-doc-code">body { overflow-x: hidden }</code> é causa conhecida de quebra em <code class="asa-doc-code">position: sticky</code>, e o portal depende de sticky em cinco lugares; a correção é uma linha (<code class="asa-doc-code">overflow-x: clip</code>). E <code class="asa-doc-code">scroll-margin-top: 70px</code> está calibrado para a navbar desta documentação; o header de produto terá ~110px e precisa virar token.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="asa-doc-section asa-doc-section--cream" id="fora">
+<section class="asa-doc-section asa-doc-section--mist" id="fora">
   <div class="asa-doc-section__inner">
-    <h2>O que o estudo pede e não é problema deste sistema.</h2>
+    <h2>O que o portal pede e não é problema deste sistema.</h2>
     <p class="asa-doc-section__lead">Listar isto é tão útil quanto listar componentes: impede que o design system vire depósito do que está pendente em outras frentes.</p>
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Precificação</span>
-        <p class="asa-doc-gloss">A tabela incoerente (C+ mais barato que B+, Commander a R$982/dia) é RMS, não interface — <b>mas bloqueia</b> a entrega de ordenação por preço: o filtro novo exporia o problema em vez de resolvê-lo. Embutir proteção e taxa no preço exibido é decisão comercial e jurídica; 12x e Pix dependem de adquirente e gateway.</p>
+        <p class="asa-doc-gloss">A tabela incoerente (C+ mais barato que B+, Commander a R$982/dia) é RMS, não interface. <b>Mas bloqueia</b> a entrega de ordenação por preço: o filtro novo exporia o problema em vez de resolvê-lo. Embutir proteção e taxa no preço exibido é decisão comercial e jurídica; 12x e Pix dependem de adquirente e gateway.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Conteúdo, SEO e mídia</span>
@@ -324,7 +321,7 @@
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Operação e negócio</span>
-        <p class="asa-doc-gloss">Central 0800, distribuição em OTA, carro reserva pós-sinistro, transfer, afiliados, precificação do clube. A base de dados do autocomplete é dado — o componente é só a casca. O "escolhido por 4 em cada 10" é dado operacional real, não enfeite.</p>
+        <p class="asa-doc-gloss">Central 0800, distribuição em OTA, carro reserva pós-sinistro, transfer, afiliados, precificação do clube. A base de dados do autocomplete é dado: o componente é só a casca. O "escolhido por 4 em cada 10" é dado operacional real.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Produção visual e jurídico</span>
@@ -340,23 +337,23 @@
 
     <div class="asa-doc-cards">
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">Concluído em 10/09/2026</span>
-        <span class="asa-doc-card__title">1 · Decidir T1, T2 e T9</span>
-        <p class="asa-doc-gloss">Preço continua vermelho e único no card; proporção de cor passa a variar por <code class="asa-doc-code" style="color:var(--asa-surface)">data-page-mode</code>; escala de UI ganha dois degraus nomeados com piso de 12px mantido. Detalhe em <a href="#tensoes" style="color:var(--asa-surface)">Tensões</a>.</p>
+        <span class="asa-verdict asa-verdict--yes">Decidido</span>
+        <span class="asa-doc-card__title">1 · As três tensões de base</span>
+        <p class="asa-doc-gloss">Preço vermelho e único no card; proporção de cor varia por <code class="asa-doc-code" style="color:var(--asa-surface)">data-page-mode</code>; escala de UI com dois degraus nomeados e piso de 12px. Detalhe em <a href="#tensoes" style="color:var(--asa-surface)">Tensões</a>.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">2 · Corrigir a tabela de preços</span>
         <p class="asa-doc-gloss">Antes de entregar ordenação por preço. É dependência de negócio bloqueando entrega de design.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">7 de 7 elos concluídos · 10/09/2026</span>
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink-inverse)">3 · Construir a fundação de F1</span>
-        <p class="asa-doc-gloss">Fundação de F1 completa: tokens, camada flutuante, navegação, motor de busca, vitrine, funil e pós-venda/confiança — os sete elos, todos catalogados em <a href="06-componentes.html" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink-inverse)">3 · A fundação</span>
+        <p class="asa-doc-gloss">Tokens, camada flutuante, navegação, motor de busca, vitrine, funil e pós-venda/confiança: sete elos, todos catalogados em <a href="06-componentes.html" style="color:var(--asa-surface)">06 · Componentes</a>.</p>
       </div>
       <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-ok)">
-        <span class="asa-verdict asa-verdict--yes">12 de 12 componentes concluídos · 10/09/2026</span>
-        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink-inverse)">4 · Construir F2/F3</span>
-        <p class="asa-doc-gloss">Navegação estendida (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-footer</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-breadcrumb</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tabs</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tabbar</code>), conteúdo (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-shelf</code>, os quatro <code class="asa-doc-code" style="color:var(--asa-surface)">asa-card-*</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-pagination</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-prose</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-accordion</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-testimonial</code>) e conta (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-upload</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-codeinput</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-card-plan</code>) — todos em <a href="06-componentes.html" style="color:var(--asa-surface)">06 · Componentes</a>. A biblioteca de produto está completa.</p>
+        <span class="asa-verdict asa-verdict--yes">Construído</span>
+        <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink-inverse)">4 · Navegação estendida, conteúdo e conta</span>
+        <p class="asa-doc-gloss">Navegação estendida (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-footer</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-breadcrumb</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tabs</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-tabbar</code>), conteúdo (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-shelf</code>, os quatro <code class="asa-doc-code" style="color:var(--asa-surface)">asa-card-*</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-pagination</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-prose</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-accordion</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-testimonial</code>) e conta (<code class="asa-doc-code" style="color:var(--asa-surface)">asa-upload</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-codeinput</code>, <code class="asa-doc-code" style="color:var(--asa-surface)">asa-card-plan</code>), todos em <a href="06-componentes.html" style="color:var(--asa-surface)">06 · Componentes</a>. A biblioteca de produto está completa.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">5 · Definir os hooks de medição</span>
@@ -367,7 +364,7 @@
     <div class="asa-doc-block">
       <div class="asa-doc-card asa-doc-card--dense">
         <span class="asa-doc-card__title">Ordem de grandeza</span>
-        <p style="color:var(--asa-ink-inverse);max-width:760px">A biblioteca sai de <b>17 para cerca de 57 componentes</b>. É o tamanho de um design system de produto, não de identidade — e é o que o portal do blueprint exige. O documento completo, com os achados citados um a um e a lista do que foi conscientemente descartado, está em <code class="asa-doc-code" style="color:var(--asa-surface)">MAPA-COMPONENTES_DESIGN-SYSTEM.md</code>.</p>
+        <p style="color:var(--asa-ink-inverse);max-width:760px">A biblioteca tem <b>cerca de 65 componentes</b>. É o tamanho de um design system de produto, e é o que o portal exige. O documento completo, com o motivo de cada peça e a lista do que não é componente, está em <code class="asa-doc-code" style="color:var(--asa-surface)">MAPA-COMPONENTES_DESIGN-SYSTEM.md</code>.</p>
       </div>
     </div>
   </div>
@@ -380,7 +377,7 @@
 
 <footer class="asa-doc-foot">
   <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · roadmap derivado do estudo de benchmark de 24 sites, 08–10/09/2026.</p>
+  <p>Sistema de Identidade v3.2 · roadmap de componentes do portal.</p>
 </footer>
 
 </body>
