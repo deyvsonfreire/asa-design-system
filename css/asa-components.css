@@ -392,12 +392,10 @@
 /* T1 (10/09/2026): era --asa-action-hover — um terceiro vermelho no card,
    ao lado do preço e do CTA. É metadado de classificação, não ação. */
 .asa-card-vehicle__category {
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  line-height: 1;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  letter-spacing: var(--asa-tracking-mono);
-  text-transform: uppercase;
   color: var(--asa-ink-3);
 }
 
@@ -496,13 +494,13 @@
   gap: 6px;
 }
 
+/* Caixa baixa, 14px: o rótulo fala com a pessoa (Registro 2), não é
+   etiqueta. 14px também é o que o iOS exige para não dar zoom ao focar. */
 .asa-field__label {
-  font-size: var(--asa-fs-label);
-  line-height: 1.2;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--asa-ink-3);
+  color: var(--asa-ink-2);
 }
 
 .asa-field__control,
@@ -1749,10 +1747,9 @@
 
 .asa-filters__group-title {
   font-family: var(--asa-font);
-  font-size: var(--asa-fs-label);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-bold);
-  letter-spacing: .04em;
-  text-transform: uppercase;
   color: var(--asa-ink);
   margin-bottom: 6px;
 }
@@ -1819,6 +1816,11 @@
    SPECLIST — os cinco atributos do card (§5.2): lugares, malas, câmbio,
    ar, km livre. Slot, não parágrafo — cada atributo é procurável e
    estilizável sozinho.
+
+   Revisão de composição (out/2026): no CARD de vitrine a lista é texto, sem
+   ícone por atributo (--text): seis cards com três ícones cada eram 18
+   ícones repetidos numa tela. O ícone por atributo fica para a página do
+   carro, onde a lista é longa e o olho precisa de âncora.
    -------------------------------------------------------------------------- */
 .asa-speclist {
   list-style: none;
@@ -1843,6 +1845,11 @@
   height: var(--asa-icon-dense);
   color: var(--asa-ink-3);
 }
+
+.asa-speclist--text { gap: 0 6px; color: var(--asa-ink-3); }
+.asa-speclist--text .asa-speclist__item { color: inherit; }
+.asa-speclist--text .asa-speclist__item .asa-icon { display: none; }
+.asa-speclist--text .asa-speclist__item + .asa-speclist__item::before { content: "·"; margin-right: 6px; }
 
 /* --------------------------------------------------------------------------
    RATING — nota dentro do card, no ponto de decisão (§5.4, MUST #8).
@@ -2321,16 +2328,20 @@
   object-fit: cover;
 }
 
+/* Legenda sobre foto: tinta cheia num chip preto, nunca texto solto com
+   sombra (o sistema não tem sombra, e branco sobre foto clara reprova). */
 .asa-figure__caption {
   position: absolute;
   left: var(--asa-space-3);
   bottom: var(--asa-space-3);
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, .55);
+  padding: 6px 10px;
+  background: var(--asa-ink);
+  border-radius: var(--asa-radius);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-inverse);
 }
 
 .asa-figure--16x9  { aspect-ratio: 16 / 9; }
@@ -2399,12 +2410,12 @@
 .asa-footer__group { display: flex; flex-direction: column; }
 
 .asa-footer__group-title {
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  letter-spacing: var(--asa-tracking-mono);
-  text-transform: uppercase;
-  color: var(--asa-gray-dark-1);
-  margin: 0 0 var(--asa-space-2);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink-inverse);
+  margin: 0 0 var(--asa-space-3);
 }
 
 .asa-footer__link {
@@ -2568,9 +2579,21 @@
    e os hubs de página precisam além do card de veículo.
    ========================================================================== */
 
-/* Prateleira — rolagem nativa, sem JS de carrossel e sem indicador de
-   página: "nada gira" também vale para bolinhas de paginação que piscam. */
-.asa-shelf { display: flex; flex-direction: column; }
+/* Prateleira — rolagem nativa com o PRÓXIMO CARD À MOSTRA (1,15 cards no
+   celular, 2,2 no tablet, 3,25 no desktop): a borda do card seguinte é a
+   pista de que há mais, e por isso não existe bolinha de paginação ("nada
+   gira" também vale para indicador que pisca). Setas, sim — são botões,
+   não animação (revisão de composição, out/2026, alinhada ao que GOL e
+   Booking fazem): .asa-shelf__nav com dois .asa-btn--icon, desativados nas
+   pontas por JS; sem JS, [data-js] esconde a navegação e a rolagem nativa
+   continua funcionando. O deslize respeita o teto de 400ms. */
+.asa-shelf { display: flex; flex-direction: column; --asa-shelf-cols: 1.15; }
+
+@media (min-width: 768px)  { .asa-shelf { --asa-shelf-cols: 2.2; } }
+@media (min-width: 1024px) { .asa-shelf { --asa-shelf-cols: 3.25; } }
+
+.asa-shelf__nav { display: flex; gap: var(--asa-space-2); flex-shrink: 0; }
+.asa-shelf__nav .asa-btn:disabled { opacity: .4; cursor: not-allowed; background: transparent; }
 
 .asa-shelf__head {
   display: flex;
@@ -2597,21 +2620,60 @@
 }
 
 .asa-shelf__track {
-  display: flex;
-  gap: var(--asa-space-4);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--asa-shelf-cols) - 1) * var(--asa-space-6)) / var(--asa-shelf-cols));
+  gap: var(--asa-space-6);
   overflow-x: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
   padding-bottom: var(--asa-space-2);
   margin-bottom: calc(var(--asa-space-2) * -1);
+  scrollbar-width: none;
 }
 
+.asa-shelf__track::-webkit-scrollbar { display: none; }
+
 .asa-shelf__track > * {
-  flex: 0 0 auto;
-  width: 260px;
+  min-width: 0;
   scroll-snap-align: start;
 }
 
+/* Card de destino. Duas formas: título ABAIXO da foto (padrão de prateleira)
+   ou SOBRE a foto, num chip branco (--overlay), para a grade assimétrica de
+   destinos da home — 2 tiles grandes + 2 pequenos (.asa-destgrid). O nome
+   sobre a foto é o que faz a foto virar conteúdo em vez de ilustração. */
 .asa-card-destination { display: block; text-decoration: none; color: inherit; }
+
+.asa-card-destination--overlay { position: relative; overflow: hidden; border-radius: var(--asa-radius); }
+.asa-card-destination--overlay .asa-figure,
+.asa-card-destination--overlay .asa-photo { height: 100%; }
+
+.asa-card-destination--overlay .asa-card-destination__body {
+  position: absolute;
+  left: var(--asa-space-4);
+  bottom: var(--asa-space-4);
+  padding: var(--asa-space-2) var(--asa-space-3);
+  background: var(--asa-bg-elevated);
+  border-radius: var(--asa-radius);
+}
+
+.asa-card-destination--overlay .asa-card-destination__title { margin: 0; }
+
+.asa-destgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--asa-space-4);
+}
+
+.asa-destgrid > * { aspect-ratio: 1; }
+.asa-destgrid > .asa-destgrid__lg { grid-column: span 2; aspect-ratio: 16 / 10; }
+.asa-destgrid > .asa-destgrid__wide { grid-column: span 2; aspect-ratio: 16 / 7; }
+
+@media (min-width: 768px) {
+  .asa-destgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--asa-space-6); height: 560px; }
+  .asa-destgrid > * { aspect-ratio: auto; }
+  .asa-destgrid > .asa-destgrid__lg { grid-row: span 2; }
+}
 
 .asa-card-destination__title {
   margin: var(--asa-space-2) 0 2px;
@@ -2690,10 +2752,10 @@
 }
 
 .asa-card-article__category {
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  letter-spacing: var(--asa-tracking-mono);
-  text-transform: uppercase;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
   color: var(--asa-ink-3);
 }
 
@@ -2775,7 +2837,8 @@
 .asa-prose h2 {
   font-size: var(--asa-fs-title);
   line-height: var(--asa-lh-title);
-  font-weight: var(--asa-weight-black);
+  font-weight: var(--asa-weight-bold);
+  letter-spacing: var(--asa-tracking-title);
   color: var(--asa-ink);
   margin: var(--asa-space-8) 0 var(--asa-space-3);
 }
@@ -2823,6 +2886,8 @@
 .asa-testimonial__quote::before { content: '"'; }
 .asa-testimonial__quote::after  { content: '"'; }
 
+/* Rodapé do depoimento: nome e fonte. O avatar é opcional — sem foto da
+   pessoa, não se usa o ícone de marca no lugar dela (a asa não é a cliente). */
 .asa-testimonial__footer { display: flex; align-items: center; gap: var(--asa-space-3); }
 
 .asa-testimonial__name {
@@ -2918,11 +2983,11 @@
 
 .asa-card-plan__name {
   margin: 0;
-  font-family: var(--asa-font-mono);
-  font-size: var(--asa-fs-label);
-  letter-spacing: var(--asa-tracking-mono);
-  text-transform: uppercase;
-  color: var(--asa-ink-3);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
 }
 
 .asa-card-plan__benefits {
