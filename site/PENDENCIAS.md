@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e a etapa 1 da reserva (vitrine).
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação).
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home e a vitrine), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home e as quatro etapas da reserva), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -131,6 +131,22 @@ Já estão em 00c: o pátio de Fortaleza (O1), devolução em outro local (O8), 
 | R6 | **Motor de cada grupo** para a ficha "Ver detalhes". A fonte traz só a cilindrada no nome do modelo, e é ela que aparece. | Vitrine | Operação |
 | R7 | **D e D+ (hatch automático) no atalho "Hatch":** a copy lista só A, B e B+ em hatch econômico; sem D e D+, quem filtra "Hatch" e "Automático" não acha nenhum carro. Entraram em "Hatch", com o nome "Hatch" no lugar de "Hatch econômico". | Vitrine | Marketing |
 
+## 3f. Reserva: proteção, pagamento e confirmação
+
+Já estão em 00c: coberturas, franquia e qual proteção é obrigatória (C1), a taxa sobre adicionais (C2), o valor da caução (C3), parcelamento e Pix (C4), idade, CNH digital e estrangeiro (O2), voo e tolerância (O4), pré-cadastro (O13). Aqui fica o que as etapas acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| F6 | **Proteção Completa sem preço:** sem o valor por dia, ela não entra na conta. Na etapa 2 a opção aparece, mas fica desabilitada com "Disponível quando o valor da Completa for confirmado". | Etapa 2 | Comercial |
+| F7 | **Comparação das proteções:** pela regra da copy, a linha que a operação não confirmar sai inteira, nas três colunas. Hoje só o preço da Básica e da Básica + Terceiros está confirmado; as oito linhas de cobertura esperam (C1). | Etapa 2 | Operação |
+| F8 | **Upgrade:** quem é o grupo "acima" de cada grupo, o preço (o "+R$ 3,00/dia" da ficha vale para qualquer grupo?) e a base do "4 em cada 10 clientes". No protótipo o mapa de upgrade é de exemplo. | Etapa 2 | Comercial |
+| F9 | **Cadeira de bebê:** faixa de idade e peso, e o máximo por reserva (no protótipo, 3). Condutor adicional: os requisitos são os do principal? Precisa ir ao balcão? Os termos de hoje permitem até 3. | Etapa 2, Etapa 3 | Operação |
+| F10 | **Cupom e o que ele desconta:** no protótipo o desconto incide sobre diárias, upgrade, proteção e taxa, e não sobre os adicionais (a mesma conta da vitrine). | Etapas 1 a 4 | Comercial |
+| F11 | **Pagamento online:** quais formas o checkout aceita, se existe "pagar na retirada", parcelas e juros, prazo e desconto do Pix, o nome do gateway, o selo que ele autoriza e o que a Asa guarda do cartão. Em produção, número, validade e código são campos hospedados do gateway (PCI). | Etapa 3, Etapa 4 | Financeiro + TI |
+| F12 | **Campos do condutor:** o motor coleta a data da 1ª habilitação? "Mais de 21 anos" é 22 completos ou 21 completos? Número do voo (sem confirmação, o campo sai). Condutor estrangeiro, CNH estrangeira e PID ficam fora desta versão. | Etapa 3 | Operação + TI |
+| F13 | **Confirmação:** a confirmação também vai por WhatsApp? O voucher em PDF é gerado pelo sistema (hoje, "Imprimir ou salvar em PDF" usa o navegador)? O e-mail pode ser corrigido pelo site? Qual o formato do localizador? | Etapa 4 | TI |
+| F14 | **Fortaleza:** a sinalização exata até a Área de Locadoras no terminal (o texto de Recife está confirmado). | Etapa 4 | Operação |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -190,6 +206,9 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T23 | **Eventos novos no GTM:** da home, `view_item_list` e `select_item` (item_list_id home_categorias) e `select_content` (praca, destino, avaliacoes_google); da vitrine, `view_search_results`, `view_item_list` (a cada filtro), `select_item`, `view_item`, `filter_applied` e `sort_applied` (personalizados) e `generate_lead` com page_type vitrine e lead_topic disponibilidade ou reserva. A copy da home pede `faq_open`; ficou `faq_expand`, o nome que o site já usa. | GTM, GA4 |
 | T24 | **Estados da vitrine no motor:** carregando (esqueleto, sem preço falso), erro, tudo esgotado, vazio por filtro, sem busca e busca expirada (30 minutos na mesma aba). No protótipo abrem por `?estado=`. O preço e o esgotado de cada grupo são de exemplo. | Vitrine |
 | T25 | **Próxima etapa da reserva:** "Escolher este carro" leva a `/reservas-online/adicionais` com a busca e o grupo na URL; a página ainda não existe (copy 03). | Vitrine |
+| T27 | **Estado do funil:** busca e escolhas (local, datas, cupom, grupo, upgrade, proteção, adicionais) ficam na URL e passam de etapa em etapa; dado pessoal nunca vai para a URL nem para o GA4. No protótipo, os dados da etapa 3 e a reserva feita ficam no `sessionStorage` da aba, que some ao fechar; em produção, na sessão do motor. Os campos do cartão não são guardados em lugar nenhum. A conta do preço é uma só (`site/reservas-online/funil.js`), usada da vitrine à confirmação. | Funil |
+| T28 | **Eventos do funil no GTM:** `view_item`, `view_promotion` e `select_promotion` (upgrade, com delta_price_day), `add_to_cart` e `remove_from_cart` (proteção, adicionais, upgrade), `view_cart`, `begin_checkout`, `add_payment_info` (credito_online, pix_online, pagar_retirada), `checkout_option` (booking_for, card_owner), `checkout_error` (error_field, error_type), `purchase` (uma vez por localizador; no Pix, só quando cai), `pix_pending`, `pix_code_copied`, `precadastro_click`, `voucher_download` e `generate_lead` (checkout_erro, tenho_reserva). Nenhum leva nome, CPF, e-mail ou telefone. | GTM, GA4 |
+| T29 | **Consentimentos do checkout:** registrar data, hora, versão dos textos aceitos e o valor de cada caixa; a de ofertas é opcional e nunca condiciona a reserva. | Etapa 3 |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -264,3 +283,13 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Vitrine | Slider de faixa de preço | Dois controles, "De" e "Até", com os valores escritos | Mesmo resultado, mais simples de usar no teclado e no leitor de tela |
 | Vitrine | Rodapé da lista com BenefitItem | Três itens em texto, sem ícone e sem card | Ícone decorativo sai |
 | Vitrine (e todo o funil) | Cabeçalho reduzido (logo, 0800, Minha reserva), sem menu, e WhatsApp só com o ícone (00-componentes-globais) | O cabeçalho e o rodapé de todas as páginas; o "Reservar" do cabeçalho abre "Alterar busca" | Decisão do usuário, 02/10: o site mantém um cabeçalho e um rodapé só. A copy de componentes globais precisa ser atualizada |
+| Etapa 2 | `asa-stickybar` com o total no celular | `asa-summary--bar` no pé, com total, "Ver detalhes" e "Continuar"; some quando o resumo está na tela | O `asa-stickybar` da biblioteca é a barra do cupom, no topo; o resumo em barra é o `asa-summary--bar` |
+| Etapa 2 | Tabela comparativa com radio por coluna | Três cards lado a lado com as mesmas linhas alinhadas, a escolha embaixo; no celular, empilhados | É a mesma comparação, e o card inteiro escolhe a proteção (não só o círculo) |
+| Etapa 2 | Completa selecionável | Completa visível, mas desabilitada até ter preço | Sem o valor, a conta do preço final não fecha |
+| Etapa 2 | Badge "Melhor upgrade" | Etiqueta preta, não vermelha | O vermelho da tela é o "Continuar" |
+| Etapa 3 | "Entendi, manter" e "Voltar e mudar" como links | Dois botões de texto dentro do aviso | São ações, não navegação |
+| Etapa 3 | Data com placeholder dd/mm/aaaa | Campo de texto com máscara dd/mm/aaaa, não o calendário do navegador | Data de nascimento e de 1ª habilitação se digitam mais rápido do que se escolhem num calendário |
+| Etapa 4 | Etiqueta "Reserva feita" acima do H1 | Linha de status com ícone, acima do H1 em texto pequeno verde | O H1 já diz; a linha é o estado, não um sobretítulo de seção |
+| Etapa 4 | "Baixar voucher em PDF" | "Imprimir ou salvar em PDF", pelo navegador | O PDF do sistema não está confirmado (F13); a impressão já esconde cabeçalho, rodapé e botões |
+| Etapa 4 | Pré-cadastro com `asa-cut` de fundo | Faixa amarela curta, o único bloco de cor da etapa | Modo transacional: um bloco de cor por tela; o fechamento do sistema não leva foto |
+| Etapa 4 | "Abrir no Google Maps" com [CONFIRMAR] | Os links das fichas do Google, já conhecidos | Resolvido com o Google Business Profile |

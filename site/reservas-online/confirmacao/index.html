@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva confirmada | Asa Locadora</title>
+  <meta name="description" content="Sua reserva na Asa está feita. Veja o localizador, o que levar para a retirada e como achar o balcão no aeroporto de Recife ou Fortaleza.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://asalocadora.com.br/reservas-online/confirmacao">
+  <link rel="preload" href="/assets/fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="/css/asa-tokens.css">
+  <link rel="stylesheet" href="/css/asa-base.css">
+  <link rel="stylesheet" href="/css/asa-components.css">
+  <link rel="stylesheet" href="/css/asa-utilities.css">
+  <link rel="stylesheet" href="/site/site.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://asalocadora.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reservar",
+          "item": "https://asalocadora.com.br/reservas-online"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Confirmação",
+          "item": "https://asalocadora.com.br/reservas-online/confirmacao"
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<!--
+  /reservas-online/confirmacao: etapa 4 do funil. Copy: novo-site/copy-v2/05-reservas-confirmacao.md.
+  Página transacional, noindex, nofollow, canonical para a própria URL. Schema: só BreadcrumbList.
+  Lê a reserva da aba (no protótipo, sessionStorage gravado pela etapa 3); sem ela, não mostra nenhum dado pessoal.
+  purchase dispara uma vez por localizador; no Pix, só quando o pagamento cai.
+  Faixas: topo com stepper (mist) > confirmação e localizador (branco) > voucher e o que levar (mist) > balcão (branco) >
+  pré-cadastro (amarelo, o único bloco de cor) > precisa mudar algo (mist) > rodapé.
+-->
+<body data-page-mode="transactional" data-page-type="funil-confirmacao">
+
+  <!-- parcial:cabecalho -->
+  <a class="asa-skiplink" href="#conteudo">Pular para o conteúdo</a>
+
+  <div class="asa-utilitybar">
+    <div class="asa-utilitybar__group">
+      <span>Balcões 24h dentro dos aeroportos de Recife e Fortaleza</span>
+    </div>
+    <div class="asa-utilitybar__group">
+      <a class="asa-utilitybar__link" href="tel:08000800015" aria-label="Ligar para a Asa no 0800 080 0015" data-telefone>0800 080 0015</a>
+      <a class="asa-utilitybar__link" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Asa no WhatsApp (abre em nova aba)" data-lead="whatsapp">WhatsApp</a>
+      <a class="asa-utilitybar__link" href="/empresas">Empresas</a>
+    </div>
+  </div>
+
+  <header class="asa-navbar site-navbar">
+    <a class="asa-navbar__brand" href="/" aria-label="Asa Rent a Car, página inicial">
+      <img src="/assets/img/lockup.png" alt="" width="961" height="371">
+    </a>
+
+    <nav class="site-nav" aria-label="Principal">
+      <ul class="asa-navbar__nav">
+        <li class="site-nav__item" data-submenu>
+          <a class="asa-navbar__link" href="/frota">Frota</a>
+          <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="sub-frota">
+            <span class="site-sr">Abrir os grupos da frota</span>
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="asa-popover site-nav__panel" id="sub-frota">
+            <ul class="asa-menu">
+              <li><a class="asa-menu__item site-menu__item" href="/frota/hatch-economico"><b>Hatch econômico</b><span>Mobi, HB20, Onix. Para a cidade.</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/frota/sedan"><b>Sedã</b><span>Onix Plus e Corolla. Porta-malas separado.</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/frota/suv"><b>SUV</b><span>Tracker, Compass e Commander.</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/frota/7-lugares"><b>7 lugares</b><span>Spin e Commander.</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/frota/picape"><b>Picape</b><span>Strada, Toro 4x4 e S10 4x4.</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/frota/automatico"><b>Automático</b><span>10 dos 15 grupos.</span></a></li>
+              <li role="separator" class="asa-menu__divider"></li>
+              <li><a class="asa-menu__item site-menu__all" href="/frota">Ver os 15 grupos da frota</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="site-nav__item" data-submenu>
+          <a class="asa-navbar__link" href="/lojas">Lojas</a>
+          <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="sub-lojas">
+            <span class="site-sr">Abrir as lojas</span>
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="asa-popover site-nav__panel" id="sub-lojas">
+            <ul class="asa-menu">
+              <li><a class="asa-menu__item site-menu__item" href="/aluguel-de-carros/aeroporto-recife"><b>Aeroporto do Recife</b><span>Portão A5 de Desembarque, 24h</span></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/aluguel-de-carros/aeroporto-fortaleza"><b>Aeroporto de Fortaleza</b><span>Área de Locadoras, 24h</span></a></li>
+              <li role="separator" class="asa-menu__divider"></li>
+              <li><a class="asa-menu__item site-menu__all" href="/lojas">Ver as duas lojas no mapa</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="site-nav__item" data-submenu>
+          <a class="asa-navbar__link" href="/ofertas">Ofertas</a>
+          <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="sub-ofertas">
+            <span class="site-sr">Abrir as ofertas</span>
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="asa-popover site-nav__panel" id="sub-ofertas">
+            <ul class="asa-menu">
+              <li><a class="asa-menu__item site-menu__item" href="/ofertas/primeira-locacao"><b>Primeira locação</b></a></li>
+              <li role="separator" class="asa-menu__divider"></li>
+              <li><a class="asa-menu__item site-menu__all" href="/ofertas">Ver todas as ofertas</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="site-nav__item" data-submenu>
+          <a class="asa-navbar__link" href="/duvidas">Dúvidas</a>
+          <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="sub-duvidas">
+            <span class="site-sr">Abrir as dúvidas</span>
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="asa-popover site-nav__panel" id="sub-duvidas">
+            <ul class="asa-menu">
+              <li><a class="asa-menu__item site-menu__item" href="/caucao-e-requisitos"><b>O que preciso para alugar</b></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/protecoes-e-taxas"><b>Proteções e taxas</b></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/diaria-27-horas"><b>Diária de 27 horas</b></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/regras-de-locacao"><b>Regras de locação</b></a></li>
+              <li><a class="asa-menu__item site-menu__item" href="/assistencia-24h"><b>Assistência 24h</b></a></li>
+              <li role="separator" class="asa-menu__divider"></li>
+              <li><a class="asa-menu__item site-menu__all" href="/duvidas">Ver todas as dúvidas</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a class="asa-navbar__link" href="/minha-reserva">Minha reserva</a></li>
+      </ul>
+    </nav>
+
+    <div class="asa-navbar__actions">
+      <a class="asa-btn asa-btn--ink asa-btn--sm" href="/#reservar" data-reservar>Reservar</a>
+      <button class="asa-btn asa-btn--icon asa-btn--outline asa-navbar__toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-celular">
+        <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="asa-overlay" data-drawer-veu></div>
+  <div class="asa-navdrawer" id="menu-celular" data-state="closed">
+    <div class="asa-navdrawer__surface" role="dialog" aria-modal="true" aria-label="Menu" inert>
+      <div class="asa-navdrawer__header">
+        <img src="/assets/img/lockup.png" alt="Asa Rent a Car" width="961" height="371" style="height:22px;width:auto">
+        <button class="asa-btn asa-btn--icon asa-btn--outline" type="button" aria-label="Fechar menu" data-drawer-fechar>
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <a class="asa-btn asa-btn--primary asa-btn--block" href="/#reservar" data-reservar data-drawer-fechar>Reservar carro</a>
+      <ul class="asa-navdrawer__list">
+        <li>
+          <details class="site-drawer__group">
+            <summary class="asa-navdrawer__link">Frota<svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="site-drawer__sub">
+              <li><a href="/frota/hatch-economico">Hatch econômico</a></li>
+              <li><a href="/frota/sedan">Sedã</a></li>
+              <li><a href="/frota/suv">SUV</a></li>
+              <li><a href="/frota/7-lugares">7 lugares</a></li>
+              <li><a href="/frota/picape">Picape</a></li>
+              <li><a href="/frota/automatico">Automático</a></li>
+              <li><a href="/frota">Ver os 15 grupos da frota</a></li>
+            </ul>
+          </details>
+        </li>
+        <li>
+          <details class="site-drawer__group">
+            <summary class="asa-navdrawer__link">Lojas<svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></summary>
+            <ul class="site-drawer__sub">
+              <li><a href="/aluguel-de-carros/aeroporto-recife">Aeroporto do Recife · Portão A5, 24h</a></li>
+              <li><a href="/aluguel-de-carros/aeroporto-fortaleza">Aeroporto de Fortaleza · Área de Locadoras, 24h</a></li>
+              <li><a href="/lojas">Ver as duas lojas no mapa</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a class="asa-navdrawer__link" href="/ofertas">Ofertas</a></li>
+        <li><a class="asa-navdrawer__link" href="/duvidas">Dúvidas</a></li>
+        <li><a class="asa-navdrawer__link" href="/minha-reserva">Minha reserva</a></li>
+        <li><a class="asa-navdrawer__link" href="/empresas">Empresas</a></li>
+        <li><a class="asa-navdrawer__link" href="/aluguel-mensal">Aluguel mensal</a></li>
+      </ul>
+      <div class="site-drawer__foot">
+        <p class="site-drawer__title">Balcão 24h nos dois aeroportos</p>
+        <a class="asa-btn asa-btn--secondary asa-btn--block" href="tel:08000800015" data-lead="telefone">Ligar 0800 080 0015</a>
+        <a class="asa-btn asa-btn--link" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a>
+        <!-- CONFIRMAR: horário do atendimento remoto pelo WhatsApp. A linha "Atendimento remoto pelo WhatsApp: {horário}." entra aqui quando houver. -->
+      </div>
+    </div>
+  </div>
+  <!-- /parcial:cabecalho -->
+
+  <main id="conteudo">
+
+    <!-- TOPO DO FUNIL · mist · o aviso de rascunho e a etapa. Sem trilha visual: o stepper faz o papel (a BreadcrumbList fica no JSON-LD). -->
+    <section class="asa-bg-mist site-funnel-top" aria-label="Etapas da reserva">
+      <div class="asa-container">
+        <div class="asa-alert asa-alert--warn site-draft" role="note">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="asa-alert__body">
+            <span class="asa-alert__title">Rascunho para revisão</span>
+            <span class="asa-alert__text">O localizador, o código Pix e o QR Code são de exemplo. Envio por WhatsApp, prazo do Pix, voucher em PDF, valor da caução e o pré-cadastro com o localizador esperam confirmação. Para ver sem fazer a reserva: ?exemplo=cartao, ?exemplo=pix ou ?exemplo=retirada; no Pix, ?estado=pix-pago e ?estado=pix-expirado. Sem reserva na aba, aparece o acesso por Minha reserva. Detalhes em site/PENDENCIAS.md.</span>
+          </div>
+        </div>
+        <nav aria-label="Etapas da reserva">
+          <ol class="asa-stepper site-stepper">
+            <li class="asa-stepper__item" data-state="done"><span class="asa-stepper__index">Etapa 1 · concluída</span><span class="asa-stepper__label">Carro</span></li>
+            <li class="asa-stepper__item" data-state="done"><span class="asa-stepper__index">Etapa 2 · concluída</span><span class="asa-stepper__label">Proteção e adicionais</span></li>
+            <li class="asa-stepper__item" data-state="done"><span class="asa-stepper__index">Etapa 3 · concluída</span><span class="asa-stepper__label">Dados e pagamento</span></li>
+            <li class="asa-stepper__item" aria-current="step"><span class="asa-stepper__index">Etapa 4 de 4</span><span class="asa-stepper__label">Confirmação</span></li>
+          </ol>
+          <p class="site-sr">Etapa 4 de 4: confirmação</p>
+        </nav>
+      </div>
+    </section>
+
+    <!-- SEM SESSÃO · link aberto por outra pessoa ou em outra aba: nenhum dado pessoal aparece -->
+    <section class="asa-section asa-bg-white" data-sem-sessao hidden aria-labelledby="sem-titulo">
+      <div class="asa-container">
+        <div class="asa-emptystate site-empty">
+          <h1 class="asa-emptystate__title" id="sem-titulo">Consulte sua reserva</h1>
+          <p class="asa-emptystate__text">Para ver os dados da reserva, use o localizador e o CPF em Minha reserva.</p>
+          <div class="site-empty__actions"><a class="asa-btn asa-btn--primary" href="/minha-reserva">Ir para Minha reserva</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFIRMAÇÃO · branco · a prova da reserva em primeiro lugar: H1 com o primeiro nome, o localizador para copiar e o e-mail.
+         A etiqueta "Reserva feita" da copy saiu: acima do H1 ela seria sobretítulo, e o H1 já diz. Na variação Pix, o QR Code, o
+         copia e cola e os três passos entram no lugar. Logo abaixo, o lembrete do cartão físico. -->
+    <section class="asa-section asa-bg-white site-confirm" data-reserva hidden aria-labelledby="confirm-titulo">
+      <div class="asa-container site-confirm__grid">
+        <div class="site-confirm__main">
+          <div data-ok>
+            <p class="site-confirm__status"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span data-status-texto>Reserva confirmada</span></p>
+          </div>
+          <h1 class="site-funnel-h1" id="confirm-titulo" data-titulo tabindex="-1"></h1>
+
+          <div class="site-confirm__code">
+            <p class="asa-field__label" id="loc-rotulo">Localizador</p>
+            <div class="site-coupon">
+              <div class="asa-coupon">
+                <input class="asa-coupon__code" type="text" readonly aria-labelledby="loc-rotulo" data-localizador>
+                <button class="asa-btn asa-btn--outline asa-btn--sm asa-coupon__copy" type="button" data-copiar-loc><span class="asa-btn__label">Copiar localizador</span></button>
+              </div>
+              <span class="site-sr" role="status" aria-live="polite" data-loc-aviso></span>
+            </div>
+          </div>
+
+          <div data-bloco-ok>
+            <p class="site-confirm__mail">Enviamos a confirmação para <b data-email></b>. Se não chegar em alguns minutos, olhe a caixa de spam ou consulte em <a href="/minha-reserva">Minha reserva</a>. <!-- CONFIRMAR: se a confirmação também vai por WhatsApp; se for, acrescentar "e para o WhatsApp {celular_mascarado}". --></p>
+            <p class="site-confirm__fix"><a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-email-errado>O e-mail está errado?<span class="site-sr"> (abre o WhatsApp em nova aba)</span></a> <!-- CONFIRMAR: se o e-mail pode ser corrigido pelo site. --></p>
+          </div>
+
+          <div class="site-pix" data-bloco-pix hidden>
+            <p class="site-confirm__mail">Sua reserva fica confirmada quando o pagamento cair. Pague até <b><span class="site-pending">[CONFIRMAR: prazo do Pix]</span></b>.</p>
+            <div class="site-pix__grid">
+              <div class="site-pix__qr asa-photo" role="img" data-qr><span class="asa-photo__caption">[ QR Code do Pix · gerado pelo gateway ]</span></div>
+              <div>
+                <p class="asa-field__label" id="pix-rotulo">Pix copia e cola</p>
+                <div class="site-coupon">
+                  <div class="asa-coupon site-pix__code">
+                    <input class="asa-coupon__code" type="text" readonly aria-labelledby="pix-rotulo" data-pix-codigo>
+                    <button class="asa-btn asa-btn--outline asa-btn--sm asa-coupon__copy" type="button" data-copiar-pix><span class="asa-btn__label">Copiar código Pix</span></button>
+                  </div>
+                  <span class="site-sr" role="status" aria-live="polite" data-pix-aviso></span>
+                </div>
+                <ol class="site-pix__steps">
+                  <li>Abra o app do seu banco e escolha Pix.</li>
+                  <li>Leia o QR Code ou cole o código.</li>
+                  <li>Confira o valor de <b data-pix-valor></b> e confirme.</li>
+                </ol>
+              </div>
+            </div>
+            <p class="site-sr" role="status" aria-live="polite" data-pix-estado></p>
+          </div>
+
+          <div class="site-pix__expired" data-pix-expirado hidden>
+            <div class="asa-alert asa-alert--error">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div class="asa-alert__body"><span class="asa-alert__title">O prazo do Pix acabou</span><span class="asa-alert__text">A reserva não foi confirmada. Gere um novo código para tentar manter o mesmo carro.</span></div>
+        </div>
+            <div class="site-actions"><button class="asa-btn asa-btn--primary" type="button" data-novo-pix>Gerar novo Pix</button><a class="asa-btn asa-btn--link" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa-reserva>Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a></div>
+          </div>
+        </div>
+
+        <div class="site-confirm__card">
+          <div class="asa-alert asa-alert--warn">
+            <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <div class="asa-alert__body">
+              <span class="asa-alert__title">Leve o cartão de crédito físico de quem paga</span>
+              <span class="asa-alert__text">A caução de <span class="site-pending">[CONFIRMAR: valor da caução]</span> é feita nele na retirada e estornada por inteiro depois da devolução e da vistoria. Carteira digital e cartão virtual não servem.</span>
+              <span class="asa-alert__text site-confirm__resp" data-resp-aviso hidden></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOUCHER · mist · tudo o que a reserva tem, em asa-summary, e ao lado o que levar (lista sem função de marcar) -->
+    <section class="asa-section asa-bg-mist site-voucher" data-reserva hidden aria-labelledby="voucher-titulo">
+      <div class="asa-container site-duo">
+        <div>
+          <h2 id="voucher-titulo">Sua <em>reserva</em></h2>
+          <div class="asa-summary site-voucher__box" data-voucher></div>
+          <div class="site-actions site-voucher__actions">
+            <button class="asa-btn asa-btn--outline" type="button" data-imprimir-voucher>Imprimir ou salvar em PDF</button>
+            <!-- CONFIRMAR: se o voucher em PDF é gerado pelo sistema. Se for, entra "Baixar voucher em PDF"; se falhar: "Não conseguimos gerar o PDF agora. A confirmação está no seu e-mail e em Minha reserva." -->
+          </div>
+        </div>
+        <div>
+          <h2 id="levar-titulo">O que levar para a <em>retirada</em></h2>
+          <ul class="site-checklist" data-levar></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- BALCÃO · branco · editorial: a foto do balcão da praça da reserva, o caminho, o horário, o endereço e o mapa -->
+    <section class="asa-section asa-bg-white" data-reserva hidden aria-labelledby="balcao-titulo">
+      <div class="asa-container">
+        <div class="asa-editorial">
+          <div class="asa-editorial__media asa-cut"><div class="asa-photo asa-cut__media" role="img" data-balcao-foto><span class="asa-photo__caption" data-balcao-legenda></span></div></div>
+          <div>
+            <h2 id="balcao-titulo" data-balcao-titulo></h2>
+            <p class="asa-lead" data-balcao-texto></p>
+            <dl class="asa-editorial__facts">
+              <div><dt>Horário</dt><dd>24 horas, todos os dias</dd></div>
+              <div><dt>Endereço</dt><dd data-balcao-endereco></dd></div>
+            </dl>
+            <p class="site-editorial__links"><a href="#" target="_blank" rel="noopener noreferrer" data-balcao-maps>Abrir no Google Maps<span class="site-sr"> (abre em nova aba)</span></a><a href="#" data-balcao-mais></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRÉ-CADASTRO · amarelo, o único bloco de cor da etapa (modo transacional) · a ação principal depois da confirmação.
+         A copy pedia asa-cut no fundo; o fechamento do sistema é a faixa curta, sem foto. -->
+    <section class="asa-section asa-section--short asa-bg-surface" data-reserva hidden aria-labelledby="pre-titulo">
+      <div class="asa-container asa-closing">
+        <div class="asa-closing__copy">
+          <h2 id="pre-titulo">Adiante seu cadastro antes de <em>viajar</em></h2>
+          <p class="asa-lead">Envie seus dados e a foto da CNH agora pelo celular. No balcão, a equipe encontra seu cadastro pronto para conferir e segue para o contrato e a vistoria. <span class="site-pending">[CONFIRMAR: o que o pré-cadastro coleta hoje]</span></p>
+        </div>
+        <div class="asa-closing__actions">
+          <a class="asa-btn asa-btn--primary" href="https://precadastro.asalocadora.com.br" target="_blank" rel="noopener noreferrer" data-precadastro>Fazer meu pré-cadastro<span class="site-sr"> (abre em nova aba)</span></a>
+          <a class="asa-btn asa-btn--outline" href="/minha-reserva">Fazer depois pela Minha reserva</a>
+        </div>
+        <!-- CONFIRMAR: se o pré-cadastro aceita o localizador pelo link. Quando /checkin-express existir, o botão aponta para lá. -->
+      </div>
+    </section>
+
+    <!-- PRECISA MUDAR ALGO · mist, curta · autoatendimento e contato, em texto -->
+    <section class="asa-section asa-section--short asa-bg-mist" data-reserva hidden aria-labelledby="mudar-titulo">
+      <div class="asa-container">
+        <h2 class="site-listhelp__title" id="mudar-titulo">Precisa mudar <em>algo</em>?</h2>
+        <ul class="site-listhelp site-listhelp--2">
+          <li><b>Consultar ou cancelar</b><p><a href="/minha-reserva">Abrir Minha reserva</a> com o localizador e o CPF. O cancelamento é grátis até 24h antes da retirada.</p></li>
+          <li><b>Falar com a equipe</b><p>0800 080 0015, telefone e WhatsApp. <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa-reserva>Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a></p></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- parcial:rodape -->
+  <footer class="asa-footer site-footer">
+    <div class="asa-footer__inner">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <img src="/assets/img/lockup-branco.png" alt="Asa Rent a Car" width="961" height="371" loading="lazy" decoding="async">
+          <p>Alugando mobilidade para quem busca liberdade. Frota nova, atendimento humanizado e diária de 27 horas. Em Recife e Fortaleza desde 2004.</p>
+        </div>
+        <div class="site-footer__contact">
+          <p class="site-footer__title">Fale com a Asa a qualquer hora</p>
+          <p>0800 080 0015, no telefone e no WhatsApp.</p>
+          <div class="site-footer__actions">
+            <a class="asa-btn asa-btn--secondary" href="tel:08000800015" aria-label="Ligar para a Asa no 0800 080 0015" data-lead="telefone" data-telefone>Ligar</a>
+            <a class="asa-btn asa-btn--outline site-btn--on-dark" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-lead="whatsapp">Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a>
+          </div>
+          <!-- CONFIRMAR: e-mail contato@asalocadora.com.br. Entra aqui quando confirmado. -->
+        </div>
+      </div>
+
+      <div class="asa-footer__linkhub site-footer__hub">
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Aeroportos</summary>
+          <a class="asa-footer__link" href="/aluguel-de-carros/aeroporto-recife">Aluguel de carros no Aeroporto do Recife</a>
+          <a class="asa-footer__link" href="/aluguel-de-carros/aeroporto-fortaleza">Aluguel de carros no Aeroporto de Fortaleza</a>
+          <a class="asa-footer__link" href="/lojas">As duas lojas</a>
+        </details>
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Cidades</summary>
+          <a class="asa-footer__link" href="/aluguel-de-carros/recife">Aluguel de carros em Recife</a>
+          <a class="asa-footer__link" href="/aluguel-de-carros/fortaleza">Aluguel de carros em Fortaleza</a>
+        </details>
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Destinos</summary>
+          <a class="asa-footer__link" href="/aluguel-de-carros/porto-de-galinhas">Aluguel de carro para Porto de Galinhas</a>
+          <a class="asa-footer__link" href="/aluguel-de-carros/maragogi">Aluguel de carro para Maragogi</a>
+          <a class="asa-footer__link" href="/aluguel-de-carros/olinda">Aluguel de carro em Olinda</a>
+          <a class="asa-footer__link" href="/aluguel-de-carros/jericoacoara">Aluguel de carro para Jericoacoara</a>
+        </details>
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Frota</summary>
+          <a class="asa-footer__link" href="/frota/hatch-economico">Hatch econômico</a>
+          <a class="asa-footer__link" href="/frota/sedan">Sedã</a>
+          <a class="asa-footer__link" href="/frota/suv">SUV</a>
+          <a class="asa-footer__link" href="/frota/7-lugares">Carro de 7 lugares</a>
+          <a class="asa-footer__link" href="/frota/picape">Picape</a>
+          <a class="asa-footer__link" href="/frota/automatico">Carro automático</a>
+          <a class="asa-footer__link" href="/frota">Toda a frota</a>
+        </details>
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Ajuda</summary>
+          <a class="asa-footer__link" href="/duvidas">Dúvidas frequentes</a>
+          <a class="asa-footer__link" href="/caucao-e-requisitos">O que preciso para alugar</a>
+          <a class="asa-footer__link" href="/protecoes-e-taxas">Proteções e taxas</a>
+          <a class="asa-footer__link" href="/diaria-27-horas">Diária de 27 horas</a>
+          <a class="asa-footer__link" href="/regras-de-locacao">Regras de locação</a>
+          <a class="asa-footer__link" href="/assistencia-24h">Assistência 24h</a>
+          <a class="asa-footer__link" href="/prevencao-a-fraudes">Prevenção a fraudes</a>
+          <a class="asa-footer__link" href="/minha-reserva">Minha reserva</a>
+        </details>
+        <details class="asa-footer__group site-footer__group" data-rodape-grupo>
+          <summary class="asa-footer__group-title">Institucional</summary>
+          <a class="asa-footer__link" href="/quem-somos">Quem somos</a>
+          <a class="asa-footer__link" href="/empresas">Empresas e terceirização de frota</a>
+          <a class="asa-footer__link" href="/aluguel-mensal">Aluguel mensal</a>
+          <a class="asa-footer__link" href="/ofertas">Ofertas</a>
+          <a class="asa-footer__link" href="/blog">Blog</a>
+          <a class="asa-footer__link" href="/contato">Contato</a>
+          <a class="asa-footer__link" href="/relacoes-com-investidores">Relações com investidores</a>
+          <a class="asa-footer__link" href="/acessibilidade">Acessibilidade</a>
+        </details>
+      </div>
+
+      <div class="site-footer__places">
+        <!-- NAP letra a letra das fichas do Google Business Profile (API, 02/10/2026). O nome segue o padrão sugerido em
+             PENDENCIAS.md, D8: a ficha de Recife hoje se chama "ASA Locadora - Aeroporto do Recife". -->
+        <address>
+          <b>Asa Locadora - Aeroporto do Recife</b>
+          Aeroporto Internacional do Recife/Guararapes - Gilberto Freyre, Praça Ministro Salgado Filho, S/N, Portão A5 de Desembarque<br>
+          Imbiribeira, Recife - PE, 51210-902<br>
+          Aberto 24 horas, todos os dias · 0800 080 0015
+          <a class="asa-footer__link" href="/aluguel-de-carros/aeroporto-recife">Como chegar ao balcão de Recife</a>
+        </address>
+        <address>
+          <b>Asa Locadora - Aeroporto de Fortaleza</b>
+          Aeroporto Internacional de Fortaleza - Pinto Martins, Av. Sen. Carlos Jereissati, 3000, Área de Locadoras / Terminal de Desembarque<br>
+          Serrinha, Fortaleza - CE, 60741-900<br>
+          Aberto 24 horas, todos os dias · 0800 080 0015
+          <a class="asa-footer__link" href="/aluguel-de-carros/aeroporto-fortaleza">Como chegar ao balcão de Fortaleza</a>
+        </address>
+        <div>
+          <b>Formas de pagamento</b>
+          Cartão de crédito · Cartão de débito · Pix · Dinheiro<br>
+          A caução é feita em cartão de crédito físico.
+        </div>
+      </div>
+
+      <div class="asa-footer__bottom">
+        <!-- CONFIRMAR: razão social e CNPJ. Há dois valores em conflito; nenhum é publicado até a confirmação. -->
+        <ul class="asa-footer__legal">
+          <li>© 2026 Asa Rent a Car</li>
+          <li><a href="/politica-de-privacidade">Política de privacidade</a></li>
+          <li><a href="/politica-de-termos-e-condicoes">Termos e condições</a></li>
+          <!-- "Configurar cookies" entra aqui junto com o banner de cookies (asa-consent). -->
+        </ul>
+        <div class="asa-footer__social">
+          <a href="https://instagram.com/asalocadora" target="_blank" rel="noopener noreferrer" aria-label="Asa no Instagram (abre em nova aba)"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <!-- CONFIRMAR: se facebook.com/assinaturacarro é o perfil certo; só entra depois. -->
+        </div>
+      </div>
+      <p class="site-footer__note">Fotos ilustrativas. O modelo de cada grupo é uma referência: você recebe ele ou outro do mesmo grupo.</p>
+    </div>
+  </footer>
+
+  <div class="site-fab" data-fab>
+    <div class="asa-popover site-fab__panel" id="fab-painel" role="dialog" aria-labelledby="fab-titulo">
+      <p class="site-fab__title" id="fab-titulo">Fale com a Asa</p>
+      <p class="site-fab__text">0800 080 0015 no WhatsApp. Escolha o assunto:</p>
+      <ul class="asa-menu">
+        <li><a class="asa-menu__item" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="reserva" data-lead="whatsapp">Quero reservar um carro</a></li>
+        <li><a class="asa-menu__item" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="tenho_reserva" data-lead="whatsapp">Já tenho uma reserva</a></li>
+        <li><a class="asa-menu__item" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="empresa" data-lead="whatsapp">Sou empresa</a></li>
+      </ul>
+      <!-- CONFIRMAR: horário do atendimento remoto. A linha "Atendimento remoto: {horário}. Os balcões funcionam 24h." entra aqui. -->
+    </div>
+    <button class="asa-btn asa-btn--secondary site-fab__btn" type="button" aria-expanded="false" aria-controls="fab-painel" aria-label="Falar com a Asa no WhatsApp">
+      <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <span class="site-fab__label" aria-hidden="true">Fale no WhatsApp</span>
+    </button>
+  </div>
+  <!-- /parcial:rodape -->
+
+  <script src="/site/reservas-online/funil.js" defer></script>
+  <script src="/site/reservas-online/confirmacao/confirmacao.js" defer></script>
+  <script src="/site/site.js" defer></script>
+</body>
+</html>

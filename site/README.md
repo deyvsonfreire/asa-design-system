@@ -21,6 +21,10 @@ site/
 ├── site.js              menus, rodapé, WhatsApp, busca compacta e eventos de GA4
 ├── index.html           home: a home aprovada (asa-home-v2) com a busca, frota, prova, destinos e o que levar (rascunho)
 ├── reservas-online/     etapa 1 da reserva, a vitrine: resumo, filtros, cards e estados (reservas.js; rascunho, noindex)
+│   ├── funil.js         o que as quatro etapas compartilham: frota, proteções, adicionais, a conta, o resumo e o estado
+│   ├── adicionais/      etapa 2: carro escolhido, upgrade, proteção e adicionais, resumo (rascunho, noindex)
+│   ├── checkout/        etapa 3: para quem é, condutor, quem paga, pagamento e consentimentos (rascunho, noindex)
+│   └── confirmacao/     etapa 4: localizador, Pix, voucher, o que levar, balcão, pré-cadastro (rascunho, noindex)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
@@ -75,6 +79,7 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 A lista completa, com quem decide cada item, está em [PENDENCIAS.md](PENDENCIAS.md).
 
 - A busca de todas as páginas leva à vitrine (`/reservas-online?local=REC&retirada=…&devolucao=…`), que monta os carros com preço e esgotado de exemplo. Os estados abrem com `?estado=carregando`, `erro`, `esgotado` e `expirada`; sem local ou datas, aparece a busca. O campo "Tenho um cupom" só aceita o BEMVINDOASA, para mostrar os estados de válido e inválido.
+- O funil anda pela URL: `/reservas-online` > `/adicionais` > `/checkout` > `/confirmacao`, com a busca e as escolhas na query string. O envio do checkout é simulado e os retornos abrem com `?estado=recusado`, `preco`, `esgotado`, `erro`. A confirmação abre sem passar pelo funil com `?exemplo=cartao`, `pix` ou `retirada`.
 - Todas as páginas, inclusive as do funil (`/reservas-online/*`), usam o mesmo cabeçalho e o mesmo rodapé. Na vitrine, o "Reservar" do cabeçalho abre "Alterar busca".
 - As páginas de oferta trazem os dois estados no mesmo HTML (`data-temporada` e `data-fora`). Em produção o CMS entrega só um; no protótipo, o outro abre pela URL: `/ofertas?vazio`, `/ofertas/primeira-locacao?pausado`, `/ofertas/carnaval?encerrada` (e São João, Réveillon).
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.
