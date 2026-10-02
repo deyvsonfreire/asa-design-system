@@ -20,6 +20,9 @@ site/
 ├── site.css             a cola entre as páginas e a biblioteca (nada de cor nova)
 ├── site.js              menus, rodapé, WhatsApp, busca compacta e eventos de GA4
 ├── 404.html             404 do site
+├── relacoes-com-investidores/   RI: a empresa, os 14 documentos publicados, contato (rascunho, noindex)
+├── politica-de-privacidade/     política em 13 seções, com índice (rascunho para revisão jurídica)
+├── politica-de-termos-e-condicoes/  termos em 14 seções, com índice e impressão (rascunho)
 └── blog/
     ├── index.html       /blog, também /blog/categoria/<slug> e ?pagina=N
     ├── blog.js          filtro por categoria e paginação do hub
@@ -53,4 +56,4 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.
 - Fotos são placeholders. Produção exige foto real da Asa ou licença.
 - O banner de cookies (`asa-consent`) e a barra de primeira locação ainda não entram: a barra depende das regras do cupom BEMVINDOASA.
-- Texto entre colchetes (`[CONFIRMAR]`, `[VERIFICAR]`) é pendência de fato e não vai ao ar assim.
+- Texto entre colchetes (`[CONFIRMAR]`, `[VERIFICAR]`, `[REVISÃO JURÍDICA]`) é pendência de fato e não vai ao ar assim. Nas páginas que dependem da empresa ou do jurídico (RI, privacidade, termos), a pendência aparece em laranja (`.site-pending`) e um aviso de rascunho abre a página, para quem revisa achar tudo no navegador. Nas demais, ela fica em comentário HTML.

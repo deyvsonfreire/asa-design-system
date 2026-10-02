@@ -649,3 +649,171 @@ html[data-drawer-aberto] { overflow: hidden; }
 .asa-prose .site-article__fleet { padding-left: 0; }
 .asa-prose .site-article__booking p { margin: 0; }
 .asa-prose .site-article__booking .site-article__booking-title { margin-bottom: var(--asa-space-4); }
+
+/* --------------------------------------------------------------------------
+   RASCUNHO PARA REVISÃO
+   Páginas que dependem de dado da empresa ou de revisão jurídica (RI,
+   privacidade, termos) saem como rascunho: um aviso no topo e cada trecho
+   pendente em laranja de atenção, para quem revisa achar tudo no navegador.
+   Nada disso vai ao ar: o aviso sai quando a última pendência fechar.
+   -------------------------------------------------------------------------- */
+.site-draft { margin-bottom: clamp(20px, 3vw, 32px); }
+
+.site-pending {
+  color: var(--asa-warn);
+  font-weight: var(--asa-weight-medium);
+}
+
+/* --------------------------------------------------------------------------
+   TEXTO LONGO COM ÍNDICE
+   Política, termos, regras: índice à esquerda no desktop (grudado), texto
+   na medida de 640px à direita. No celular o índice vem antes, recolhido.
+   -------------------------------------------------------------------------- */
+.site-legal {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .site-legal { grid-template-columns: 260px minmax(0, 720px); justify-content: space-between; }
+}
+
+.site-legal__toc > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--asa-touch-min);
+  padding: 0 var(--asa-space-4);
+  background: var(--asa-bg);
+  border-radius: var(--asa-radius);
+  font-weight: var(--asa-weight-bold);
+  list-style: none;
+  cursor: pointer;
+}
+
+.site-legal__toc > summary::-webkit-details-marker { display: none; }
+.site-legal__toc[open] > summary { margin-bottom: var(--asa-space-4); }
+.site-legal__toc[open] > summary .asa-icon { transform: scaleY(-1); }
+
+@media (min-width: 1024px) {
+  .site-legal__toc > summary { display: none; }
+}
+
+.site-legal .asa-prose { max-width: 720px; }
+
+.site-legal .asa-prose h2 {
+  font-size: clamp(22px, 2.4vw, 26px);
+  line-height: 1.25;
+  margin-top: var(--asa-space-9);
+}
+
+.site-legal .asa-prose h2:first-child { margin-top: 0; }
+
+/* O resumo do topo: lista curta, numa caixa branca dentro da abertura. */
+.site-legal__summary {
+  margin-top: var(--asa-space-7);
+  max-width: 760px;
+}
+
+.site-legal__summary ul {
+  margin: var(--asa-space-2) 0 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: var(--asa-space-1);
+}
+
+.site-legal__summary li { color: var(--asa-ink-2); font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); }
+.site-legal__summary b { color: var(--asa-ink); }
+
+.site-opening__tools { margin-top: var(--asa-space-5); }
+
+/* --------------------------------------------------------------------------
+   LISTA DE ARQUIVOS (RI)
+   Uma linha por documento, com divisor: título, data e tamanho, e o botão
+   de baixar à direita. Sem card e sem ícone de arquivo: o botão já diz PDF.
+   -------------------------------------------------------------------------- */
+.site-files {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.site-files li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-3) var(--asa-space-6);
+  padding: var(--asa-space-5) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+}
+
+.site-files__title {
+  display: block;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-files__meta {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-files .asa-btn { flex: none; }
+
+.site-tabpanel[hidden] { display: none; }
+
+.site-tabpanels { margin-top: var(--asa-space-7); }
+
+/* Valores, missão e visão: lista de definições em duas colunas. */
+.site-values {
+  display: grid;
+  gap: var(--asa-space-6);
+  margin: var(--asa-space-8) 0 0;
+  padding-top: var(--asa-space-7);
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+@media (min-width: 768px) { .site-values { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.site-values dt { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-values dd { margin: var(--asa-space-1) 0 0; color: var(--asa-ink-2); }
+
+.site-editorial-link { display: inline-block; margin-top: var(--asa-space-6); }
+
+/* Contato: duas colunas, o alerta de atendimento ao lado. */
+.site-contact {
+  display: grid;
+  gap: var(--asa-space-7);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-contact { grid-template-columns: 5fr 7fr; } }
+
+.site-contact dl { margin: var(--asa-space-6) 0 0; display: grid; gap: var(--asa-space-4); }
+.site-contact dt { font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); color: var(--asa-ink-3); }
+.site-contact dd { margin: 2px 0 0; font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+
+.site-contact .asa-alert a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; font-weight: var(--asa-weight-medium); }
+
+/* --------------------------------------------------------------------------
+   IMPRESSÃO
+   Termos e política saem só com o texto: sem cabeçalho, índice, rodapé,
+   botões e o WhatsApp.
+   -------------------------------------------------------------------------- */
+@media print {
+  .asa-utilitybar, .asa-navbar, .asa-navdrawer, .asa-overlay, .site-fab, .site-footer,
+  .site-legal__toc, .site-opening__tools, .site-links-band, .asa-skiplink { display: none !important; }
+  .site-opening, .asa-section { padding-block: 12px; background: none !important; }
+  .site-legal { display: block; }
+  .asa-prose a { color: inherit; }
+  .site-pending { color: inherit; }
+  h1 { font-size: 28pt; }
+}
