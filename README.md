@@ -40,9 +40,12 @@ asa-design-system/
 ├── asa-home/               versão anterior da home, mantida para comparação
 ├── asa-home-v2/            a home de referência, exemplo vivo de 15 · Composição
 ├── guia-parceiros/         as mesmas páginas, sem jargão, para agências e fornecedores
+├── site/                   as páginas de produção do novo site, a começar pelo blog (ver site/README.md)
 ├── scripts/auditar.py      conta os vícios do checklist de 15 em qualquer página
 ├── scripts/nav.py          regenera a navegação de todas as páginas
 ├── scripts/publicar-guia.py sincroniza o guia com o site do GitHub Pages
+├── scripts/servir-site.py  serve site/ com as URLs de produção em localhost:8766
+├── scripts/parciais.py     copia cabeçalho e rodapé de site/_parciais/ para todas as páginas
 ├── css/
 │   ├── asa-tokens.css      @font-face + primitivos + semânticos
 │   ├── asa-base.css        reset, defaults de elemento, layout, foco

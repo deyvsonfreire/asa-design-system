@@ -16,6 +16,7 @@ reconstruir a seção, não para discutir.
 import html as htmllib
 import re
 import sys
+from html.parser import HTMLParser
 
 LIMITES = {
     "caixa_alta": "H1, etiquetas (.asa-tag), preços e placas; nada mais",
@@ -32,14 +33,79 @@ LIMITES = {
 CAIXA_ALTA_PERMITIDA = ("asa-tag", "asa-price__value", "asa-numberplate__value", "asa-display", "t-display", "t-plate")
 
 # Classes de "card com borda" do sistema e dos protótipos.
-CARD = re.compile(r'class="[^"]*\b(asa-card\b|asa-card-[a-z]+|asa-doc-card\b|border-\[1\.5px\])')
+# Só a classe do bloco conta (asa-card-article), nunca os elementos BEM
+# dele (asa-card-article__title): um card é um elemento, não seis.
+CARD = re.compile(r'class="[^"]*?(?<![\w-])(asa-card(?:-[a-z]+)?|asa-doc-card|border-\[1\.5px\])(?![\w-])')
 
 # Fundos de faixa (sistema e protótipo em Tailwind).
 FUNDO = re.compile(r'class="[^"]*\b(asa-bg-(surface|white|mist|dense|deep)|asa-doc-section--(yellow|white|mist|dense)|bg-\[#[0-9A-Fa-f]{6}\]|bg-white)\b')
 
 
+CONTROLE = {"button", "a", "summary", "label", "nav"}
+MENSAGEM = ("asa-field__error", "asa-alert", "asa-combobox__option")
+VAZIOS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr",
+          "path", "circle", "line", "polyline", "polygon", "rect", "ellipse"}
+
+
+class _Pilha(HTMLParser):
+    """Percorre a página com a pilha de elementos abertos. Na primeira
+    passada só mede cada lista; na segunda, com o tamanho final de cada
+    lista já sabido, conta os svg sem ancestral permitido."""
+
+    def __init__(self, tamanhos=None):
+        super().__init__()
+        self.pilha, self.soltos = [], 0
+        self.tamanhos = tamanhos
+        self.medidos, self.listas = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "svg" and self.tamanhos is not None and not self._permitido():
+            self.soltos += 1
+        if tag in VAZIOS:
+            return
+        item = [tag, dict(attrs).get("class") or "", None]
+        if tag in ("ul", "ol"):
+            item[2] = self.listas
+            self.listas += 1
+            self.medidos.append(0)
+        if tag == "li":
+            for el in reversed(self.pilha):
+                if el[0] in ("ul", "ol"):
+                    self.medidos[el[2]] += 1
+                    break
+        self.pilha.append(item)
+
+    def handle_startendtag(self, tag, attrs):
+        if tag == "svg" and self.tamanhos is not None and not self._permitido():
+            self.soltos += 1
+
+    def handle_endtag(self, tag):
+        for i in range(len(self.pilha) - 1, -1, -1):
+            if self.pilha[i][0] == tag:
+                del self.pilha[i:]
+                break
+
+    def _permitido(self):
+        for tag, cls, lista in self.pilha:
+            if tag in CONTROLE or any(c in cls for c in MENSAGEM):
+                return True
+            if lista is not None and self.tamanhos[lista] > 5:
+                return True
+        return False
+
+
+def icones_soltos(corpo):
+    medida = _Pilha()
+    medida.feed(corpo)
+    conta = _Pilha(medida.medidos)
+    conta.feed(corpo)
+    return conta.soltos
+
 def texto_visivel(src):
     src = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", src, flags=re.S | re.I)
+    # O endereço (NAP) é cópia literal do Google Business Profile, com o
+    # traço do nome oficial do aeroporto; não é texto escrito pela marca.
+    src = re.sub(r"<address\b[^>]*>.*?</address>", " ", src, flags=re.S | re.I)
     src = re.sub(r"<!--.*?-->", " ", src, flags=re.S)
     src = re.sub(r"<[^>]+>", " ", src)
     return htmllib.unescape(src)
@@ -69,15 +135,10 @@ def auditar(path):
     sobre = re.findall(r"<(?:span|p|small)\b[^>]*>([^<]{1,40})</(?:span|p|small)>\s*<h[23]\b", corpo)
     r["sobretitulos"] = len(sobre)
 
-    # 3. Ícones fora de controle: svg que não está dentro de button/a/summary/nav/label.
-    icones = 0
-    for m in re.finditer(r"<svg\b", corpo):
-        antes = corpo[max(0, m.start() - 600):m.start()]
-        aberto = re.findall(r"<(button|a|summary|nav|label|li)\b", antes)
-        fechado = re.findall(r"</(button|a|summary|nav|label|li)>", antes)
-        if len(aberto) <= len(fechado):
-            icones += 1
-    r["icones_fora_de_controle"] = icones
+    # 3. Ícones fora de controle: svg sem um ancestral de controle (botão,
+    #    link, summary, label, nav), de mensagem (erro de campo, alerta) ou de
+    #    lista longa (li de uma lista com mais de cinco itens).
+    r["icones_fora_de_controle"] = icones_soltos(corpo)
 
     # 4. Cards com borda.
     r["cards_com_borda"] = len(CARD.findall(corpo))
@@ -99,7 +160,8 @@ def auditar(path):
     # 6. Marca d'água.
     r["marcas_dagua"] = len(re.findall(r"asa-watermark", corpo))
 
-    # 7. Travessões no texto visível (intervalo numérico 72–120 é permitido).
+    # 7. Travessões no texto visível (intervalo numérico 72–120 é permitido;
+    #    <address> fica de fora, ver texto_visivel).
     t = texto_visivel(src)
     r["travessoes"] = len(re.findall(r"—|(?<![0-9])–(?![0-9])", t))
 
