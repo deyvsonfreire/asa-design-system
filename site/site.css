@@ -1506,3 +1506,137 @@ html[data-drawer-aberto] { overflow: hidden; }
 .site-nowrap { white-space: nowrap; }
 .site-opening .site-opening-split { margin-top: var(--asa-space-6); }
 .site-opening-split .asa-lead { margin-top: 0; }
+
+/* --------------------------------------------------------------------------
+   EMPRESAS, DÚVIDAS, DIÁRIA, PROTEÇÕES E CAUÇÃO
+   -------------------------------------------------------------------------- */
+
+/* Atalhos em três colunas (Empresas: escolha o seu caso). */
+@media (min-width: 1024px) { .site-shortcuts--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Fatos sobre fundo preto (Empresas: por que a Asa), em grade de dois. */
+.site-facts-dark {
+  display: grid;
+  gap: var(--asa-space-6) var(--asa-space-8);
+  list-style: none;
+  margin: var(--asa-space-8) 0 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) { .site-facts-dark { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.site-facts-dark li { padding-top: var(--asa-space-5); border-top: 1px solid var(--asa-line-inverse); }
+.site-facts-dark b { display: block; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); color: var(--asa-ink-inverse); }
+.site-facts-dark p { margin: var(--asa-space-2) 0 0; color: var(--asa-ink-inverse-2); }
+.site-facts-dark a { color: var(--asa-surface); font-weight: var(--asa-weight-bold); }
+.site-facts-dark a:hover { color: var(--asa-ink-inverse); }
+.asa-bg-dense .asa-proof__bar.site-proof-plates { grid-template-columns: 1fr; }
+
+/* Formulário em seções (Empresas). */
+.site-form fieldset.site-form__group { display: grid; gap: var(--asa-space-5); padding-top: var(--asa-space-6); border-top: var(--asa-border-width) solid var(--asa-line); }
+.site-form fieldset.site-form__group > legend { float: left; width: 100%; margin: 0 0 var(--asa-space-2); font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-form fieldset.site-form__group > legend + * { clear: both; }
+.site-form .site-form__choices { display: flex; flex-wrap: wrap; gap: var(--asa-space-1) var(--asa-space-6); }
+.site-form .site-form__choices legend { font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); color: var(--asa-ink-2); }
+.site-form [data-condicional][hidden] { display: none; }
+.site-form .asa-field__help--aviso { color: var(--asa-warn); font-weight: var(--asa-weight-medium); }
+.site-form-summary:empty { display: none; }
+.site-form-summary ul { margin: var(--asa-space-2) 0 0; padding-left: 1.1em; }
+.site-form-summary a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+.site-form-done[hidden] { display: none; }
+.site-form-done h3 { margin-bottom: var(--asa-space-3); }
+.site-form-done p { color: var(--asa-ink-2); }
+
+/* Dúvidas: a busca e os atalhos na abertura; temas com índice ao lado. */
+.site-faq-search { max-width: 560px; margin-top: var(--asa-space-7); }
+.site-faq-search .asa-field__help { min-height: 1.4em; }
+.site-faq-topics { margin-top: var(--asa-space-6); }
+.site-faq-topic + .site-faq-topic { margin-top: var(--asa-space-10, 64px); }
+.site-faq-topic[hidden], .site-faq-topic details[hidden] { display: none; }
+.site-faq-topic > h2 { margin-bottom: var(--asa-space-4); }
+.site-faq-topic .asa-disclosure__body ul { margin: var(--asa-space-2) 0; padding-left: 1.1em; }
+.site-faq-topic .asa-disclosure__body a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; font-weight: var(--asa-weight-medium); }
+.site-faq-empty[hidden] { display: none; }
+.site-faq-empty { padding: var(--asa-space-6) 0; border-top: var(--asa-border-width) solid var(--asa-line); color: var(--asa-ink-2); }
+.site-legal--faq .site-legal__toc > summary { display: none; }
+@media (max-width: 1023px) { .site-legal--faq .site-legal__toc { display: none; } }
+.site-legal--faq .site-faq-main { max-width: 760px; }
+
+/* Diária de 27 horas: a regra em destaque no hero, como um resumo. */
+.site-rule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--asa-space-3) var(--asa-space-5);
+  margin-top: var(--asa-space-6);
+  padding: var(--asa-space-4) var(--asa-space-5);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-ink);
+  border-radius: var(--asa-radius);
+  max-width: 640px;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  color: var(--asa-ink);
+}
+
+.site-rule b { font-weight: var(--asa-weight-bold); }
+
+/* Busca com a dica das 27 horas: sugestão, não erro. */
+.site-booking__hint:empty { display: none; }
+.site-booking__hint { display: flex; flex-wrap: wrap; align-items: center; gap: var(--asa-space-2) var(--asa-space-4); margin: 0; font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); color: var(--asa-ink); }
+.site-booking__hint .asa-btn { min-height: 36px; }
+
+/* Exemplos com horários: a tabela e, ao lado, como ler e o bate e volta. */
+.site-examples {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-examples { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 80px); } }
+
+.site-examples .asa-prose { max-width: none; }
+.site-examples__aside p { color: var(--asa-ink-2); }
+.site-examples__aside p + p { margin-top: var(--asa-space-4); }
+.site-examples__aside .asa-alert { margin-top: var(--asa-space-6); }
+
+/* Proteções: a tabela da biblioteca no desktop; no celular, um card por
+   proteção, com o selo "Escolha popular" em texto. */
+.site-compare .asa-comparison { --asa-comparison-cols: 3; }
+.site-compare .asa-comparison__col .asa-tag { margin-top: var(--asa-space-2); }
+.site-compare .asa-comparison__row--head .asa-comparison__col { font-size: var(--asa-fs-body); }
+.site-plans { display: none; }
+
+@media (max-width: 767px) {
+  .site-compare .asa-comparison { display: none; }
+  .site-plans { display: grid; gap: var(--asa-space-5); list-style: none; margin: 0; padding: 0; }
+  .site-plans > li { padding: var(--asa-space-5); background: var(--asa-bg-elevated); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+  .site-plans > li[data-popular] { border-color: var(--asa-ink); }
+  .site-plans h3 { margin: 0; }
+  .site-plans .asa-tag { margin-top: var(--asa-space-2); }
+  .site-plans dl { margin: var(--asa-space-4) 0 0; display: grid; gap: var(--asa-space-3); }
+  .site-plans dt { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+  .site-plans dd { margin: 2px 0 0; color: var(--asa-ink); }
+  .site-plans__note { margin: var(--asa-space-4) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+}
+
+.site-compare__note { margin: var(--asa-space-5) 0 0; font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); color: var(--asa-ink-2); }
+.site-compare .site-checklist { margin-top: var(--asa-space-7); }
+.site-compare > .asa-alert { margin-top: var(--asa-space-7); max-width: 760px; }
+
+/* Tabela da prosa fora de um artigo (documentos, adicionais, exemplos). */
+.site-table { max-width: 960px; }
+.site-table table { margin: 0; }
+.site-table + p, .site-table + .site-after { margin-top: var(--asa-space-5); }
+
+/* Fechamento com a busca (Proteções, Caução): o H2, a frase e a busca. */
+.site-closing-search .asa-search { margin-top: var(--asa-space-6); border: var(--asa-border-width) solid var(--asa-line); }
+.site-closing-search .asa-lead { margin-top: var(--asa-space-3); color: var(--asa-ink-2); }
+.site-closing-search .site-closing__links { margin-top: var(--asa-space-5); }
+.site-closing-search .site-closing__links a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Abertura com a lista de requisitos (Caução). */
+.site-opening .site-checklist { margin-top: var(--asa-space-7); max-width: 760px; }
+.site-opening .site-checklist li { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-opening .site-checklist + .asa-alert { margin-top: var(--asa-space-6); max-width: 760px; }
+.site-form[hidden] { display: none; }
