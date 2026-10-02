@@ -257,6 +257,66 @@
     }, { passive: true });
   }
 
+  /* ---------- Índice de texto longo ---------- */
+  var toc = $('[data-toc]');
+  if (toc) {
+    var desk = matchMedia('(min-width: 1024px)');
+    var syncToc = function () { if (desk.matches) toc.open = true; };
+    syncToc();
+    desk.addEventListener('change', syncToc);
+    var links = $$('.asa-toc__link', toc);
+    var alvos = links.map(function (a) { return document.getElementById(a.hash.slice(1)); }).filter(Boolean);
+    links.forEach(function (a) { a.addEventListener('click', function () { if (!desk.matches) toc.open = false; }); });
+    if ('IntersectionObserver' in window && alvos.length) {
+      var marcar = function (id) {
+        links.forEach(function (a) {
+          if (a.hash === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      };
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) marcar(e.target.id); });
+      }, { rootMargin: '-20% 0px -70% 0px' });
+      alvos.forEach(function (el) { io.observe(el); });
+    }
+  }
+
+  /* ---------- Abas com painel (role="tab") ---------- */
+  $$('[data-tabs]').forEach(function (bar) {
+    var tabs = $$('[role="tab"]', bar);
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (n) { e.preventDefault(); select(tabs[(i + n + tabs.length) % tabs.length], true); }
+      });
+    });
+    select(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0]);
+  });
+
+  /* ---------- Download de documento ---------- */
+  $$('[data-download]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      track('file_download', { file_name: a.dataset.download, tipo_documento: a.dataset.tipo || '' });
+    });
+  });
+
+  /* ---------- Imprimir ou salvar em PDF ---------- */
+  $$('[data-imprimir]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      track('print_terms', { pagina: b.dataset.imprimir });
+      window.print();
+    });
+  });
+
   /* ---------- Clique em card de artigo ---------- */
   $$('[data-slug]').forEach(function (card) {
     var link = $('a', card);

@@ -1361,6 +1361,30 @@
     </div>
 
     <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Tabela no texto e índice da página</span>
+      <div class="asa-demo asa-demo--white" style="align-items:flex-start;gap:40px;flex-wrap:wrap">
+        <nav class="asa-toc" aria-label="Nesta página" style="position:static;width:220px">
+          <span class="asa-toc__title">Nesta página</span>
+          <ul class="asa-toc__list">
+            <li><a class="asa-toc__link" href="#">1. Quem é o responsável</a></li>
+            <li><a class="asa-toc__link" href="#" aria-current="true">2. Que dados coletamos</a></li>
+            <li><a class="asa-toc__link" href="#">3. Por quanto tempo guardamos</a></li>
+          </ul>
+        </nav>
+        <div class="asa-prose" style="flex:1;min-width:280px">
+          <table>
+            <thead><tr><th scope="col">Categoria</th><th scope="col">Exemplos</th><th scope="col">Quando</th></tr></thead>
+            <tbody>
+              <tr><td>Habilitação</td><td data-label="Exemplos">número, categoria e validade da CNH</td><td data-label="Quando">reserva e balcão</td></tr>
+              <tr><td>Contato</td><td data-label="Exemplos">e-mail, celular, endereço</td><td data-label="Quando">reserva e atendimento</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Para texto longo (política, termos, regras). A tabela dentro de <code class="asa-doc-code">asa-prose</code> tem fio entre linhas e nenhuma caixa; abaixo de 640px cada linha vira um bloco, com o nome da coluna tirado do <code class="asa-doc-code">data-label</code> da célula. <code class="asa-doc-code">asa-toc</code> é o índice de âncoras: gruda ao lado do texto no desktop e marca a seção em leitura com <code class="asa-doc-code">aria-current="true"</code>, o mesmo traço vermelho do navbar.</p>
+    </div>
+
+    <div class="asa-doc-block">
       <span class="asa-doc-block__title">Accordion · FAQ</span>
       <div class="asa-demo asa-demo--white">
         <div class="asa-accordion" style="width:100%">

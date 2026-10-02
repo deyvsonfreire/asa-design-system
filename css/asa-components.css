@@ -2924,6 +2924,93 @@ a.asa-tabs__tab:hover { color: var(--asa-ink); }
 .asa-prose a { color: var(--asa-action-hover); text-decoration: underline; }
 .asa-prose strong { color: var(--asa-ink); font-weight: var(--asa-weight-bold); }
 
+/* Tabela no texto corrido (dados coletados, bases legais, prazos). Fio fino
+   entre linhas, cabeçalho em negrito, sem zebra e sem caixa em volta. Abaixo
+   de 640px cada linha vira um bloco, e o rótulo da coluna vem do
+   data-label de cada célula: tabela larga rolando para o lado no celular
+   esconde justamente a coluna que responde a pergunta. */
+.asa-prose table {
+  width: 100%;
+  margin: 0 0 var(--asa-space-6);
+  border-collapse: collapse;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-prose th,
+.asa-prose td {
+  padding: var(--asa-space-3) var(--asa-space-4) var(--asa-space-3) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.asa-prose th {
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  border-bottom: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-prose td:first-child { font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+
+@media (max-width: 639px) {
+  .asa-prose thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .asa-prose tr { display: block; padding: var(--asa-space-3) 0; border-bottom: 1px solid var(--asa-line-soft); }
+  .asa-prose td { display: block; padding: 2px 0; border: none; }
+  .asa-prose td[data-label]::before {
+    content: attr(data-label) ": ";
+    font-weight: var(--asa-weight-medium);
+    color: var(--asa-ink-3);
+  }
+  .asa-prose td:first-child::before { content: none; }
+}
+
+/* Índice da página: os títulos de um texto longo (política, termos,
+   regras), em links de âncora. No desktop gruda ao lado do texto e marca a
+   seção em leitura com aria-current="true", o mesmo traço vermelho de
+   "onde eu estou" do navbar; no celular vem antes do texto, recolhido em
+   <details>. */
+.asa-toc {
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-toc__title {
+  display: block;
+  margin: 0 0 var(--asa-space-3);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--asa-line-soft);
+}
+
+.asa-toc__link {
+  display: block;
+  padding: 6px 0 6px var(--asa-space-4);
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--asa-ink-3);
+  text-decoration: none;
+}
+
+.asa-toc__link:hover { color: var(--asa-ink); }
+
+.asa-toc__link[aria-current="true"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+  border-left-color: var(--asa-action);
+}
+
+@media (min-width: 1024px) {
+  .asa-toc { position: sticky; top: calc(var(--asa-header-h) + var(--asa-space-6)); }
+}
+
 /* Accordion: agrupador de asa-disclosure para FAQ. O disclosure resolve o
    item individual; isto só fecha a borda superior do grupo. Reuso, não um
    quarto padrão de expansível. */
