@@ -228,6 +228,40 @@
     });
     ret.addEventListener('change', function () { if (ret.hasAttribute('aria-invalid')) validate(); });
 
+    /* Dica das 27 horas (página da diária): se a devolução passa das 3 horas
+       de tolerância depois do último dia cheio, sugere o horário-limite.
+       É dica, não erro. Supõe a tolerância no fim do contrato, a confirmar
+       com o motor de reservas (PENDENCIAS.md). */
+    var dica = $('[data-dica27]', form);
+    if (dica) {
+      var HORA = 3600 * 1000, DIA = 24 * HORA;
+      var checar = function () {
+        var p = parse(pick.value), r = parse(ret.value);
+        dica.innerHTML = '';
+        if (!p || !r || r <= p) return;
+        var dias = Math.floor((r - p) / DIA), sobra = r - p - dias * DIA;
+        if (dias < 1 || sobra <= 3 * HORA) return;
+        var limite = new Date(p.getTime() + dias * DIA + 3 * HORA);
+        var texto = document.createElement('span');
+        texto.textContent = 'Seu horário de devolução passa da tolerância de 3 horas. Isso pode somar uma diária. Quer devolver até ' + hour(limite) + '?';
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'asa-btn asa-btn--outline asa-btn--sm';
+        b.textContent = 'Ajustar para ' + hour(limite);
+        b.addEventListener('click', function () {
+          ret.value = toLocal(limite);
+          track('select_content', { content_type: 'ajuste_27h' });
+          checar();
+          ret.focus();
+        });
+        dica.appendChild(texto);
+        dica.appendChild(b);
+      };
+      pick.addEventListener('change', checar);
+      ret.addEventListener('change', checar);
+      checar();
+    }
+
     /* "Tenho um cupom": recolhido, abre sozinho quando a página ou a URL
        (?cupom=) já traz o código. */
     var cupom = $('[data-cupom]', form);
@@ -363,7 +397,7 @@
 
   /* ---------- Dúvida aberta: faq_expand ---------- */
   $$('details[data-faq-id]').forEach(function (d) {
-    d.addEventListener('toggle', function () { if (d.open) track('faq_expand', { question_id: d.dataset.faqId }); });
+    d.addEventListener('toggle', function () { if (d.open) track('faq_expand', d.dataset.faqTopic ? { question_id: d.dataset.faqId, topic: d.dataset.faqTopic } : { question_id: d.dataset.faqId }); });
   });
 
   /* ---------- Artigo: leitura até 90% ---------- */

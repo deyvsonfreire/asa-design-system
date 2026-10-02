@@ -23,6 +23,11 @@ site/
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
+├── empresas/           B2B: casos, terceirização, setor público, formulário de proposta (empresas.js), prova (rascunho)
+├── duvidas/            os sete temas numa faixa, com busca ao digitar (duvidas.js) e FAQPage só das respostas completas (rascunho)
+├── diaria-27-horas/    a regra, a busca com a dica de horário-limite, exemplos com voo (rascunho)
+├── protecoes-e-taxas/  como o preço é montado, comparação (tabela no desktop, cards no celular), taxa de 12%, adicionais (rascunho)
+├── caucao-e-requisitos/ os três requisitos, documentos, pré-autorização, sem cartão (#sem-cartao), outra pessoa (rascunho)
 ├── regras-de-locacao/   da retirada à devolução, em dez seções com índice; regras de hoje em laranja (rascunho)
 ├── assistencia-24h/     o número, a emergência, pane, acidente e situações comuns; barra de ligação no celular (rascunho)
 ├── prevencao-a-fraudes/ canais oficiais, golpes comuns, o que a Asa nunca pede, como denunciar (rascunho)
