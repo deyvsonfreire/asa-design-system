@@ -27,6 +27,14 @@ site/
 │   └── confirmacao/     etapa 4: localizador, Pix, voucher, o que levar, balcão, pré-cadastro (rascunho, noindex)
 ├── minha-reserva/       consulta por localizador e CPF: versão B (WhatsApp) e versão A (painel, ?versao=a) (minha-reserva.js; rascunho, noindex)
 ├── checkin-express/     página-ponte do pré-cadastro: o que adianta, como fazer, documentos e LGPD (rascunho, noindex)
+├── frota/              hub: usos, a tabela dos 15 grupos com filtros, "ou similar", balcões e prova (rascunho)
+│   ├── frota.js         preço "a partir de" e, com datas, o total e o esgotado; "Reservar grupo X"; filtros; barra do celular
+│   ├── hatch-economico/ grupos A, B e B+ (rascunho)
+│   ├── sedan/           grupos C+, E+ e N+, com a tabela sedã ou hatch (rascunho)
+│   ├── suv/             grupos G+, J+ e I+ (rascunho)
+│   ├── 7-lugares/       grupos F+ e I+, com a comparação rápida (rascunho)
+│   ├── picape/          grupos H, O+ e P+, com o "leia antes" (rascunho)
+│   └── automatico/      os 10 automáticos em abas por tamanho, e a prova (rascunho)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
@@ -82,6 +90,7 @@ A lista completa, com quem decide cada item, está em [PENDENCIAS.md](PENDENCIAS
 
 - A busca de todas as páginas leva à vitrine (`/reservas-online?local=REC&retirada=…&devolucao=…`), que monta os carros com preço e esgotado de exemplo. Os estados abrem com `?estado=carregando`, `erro`, `esgotado` e `expirada`; sem local ou datas, aparece a busca. O campo "Tenho um cupom" só aceita o BEMVINDOASA, para mostrar os estados de válido e inválido.
 - O funil anda pela URL: `/reservas-online` > `/adicionais` > `/checkout` > `/confirmacao`, com a busca e as escolhas na query string. O envio do checkout é simulado e os retornos abrem com `?estado=recusado`, `preco`, `esgotado`, `erro`. A confirmação abre sem passar pelo funil com `?exemplo=cartao`, `pix` ou `retirada`.
+- Nas páginas da frota, o preço vem da mesma conta do funil (`funil.js`). Sem datas, cada card mostra o "a partir de" de 1 diária; ao mudar a retirada ou a devolução na busca (ou com `?local=&retirada=&devolucao=` na URL), o total do período, a diária e o esgotado. Os estados abrem com `?estado=carregando`, `erro` e `esgotado`. A busca de cada categoria vai à vitrine já filtrada; "Reservar grupo X" vai direto à etapa 2.
 - Todas as páginas, inclusive as do funil (`/reservas-online/*`), usam o mesmo cabeçalho e o mesmo rodapé. Na vitrine, o "Reservar" do cabeçalho abre "Alterar busca".
 - As páginas de oferta trazem os dois estados no mesmo HTML (`data-temporada` e `data-fora`). Em produção o CMS entrega só um; no protótipo, o outro abre pela URL: `/ofertas?vazio`, `/ofertas/primeira-locacao?pausado`, `/ofertas/carnaval?encerrada` (e São João, Réveillon).
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.

@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva e o pré-cadastro.
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro e a frota (hub e as seis categorias).
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva e o pré-cadastro), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro e as sete páginas da frota), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -162,6 +162,24 @@ Já estão em 00c: o pré-cadastro e o que ele coleta (O13), o voo e a tolerânc
 | K2 | **Contrato:** a assinatura no balcão é física ou digital? | Pré-cadastro | Operação |
 | K3 | **Documentos e LGPD:** empresa terceira na validação ou no armazenamento, prazo de guarda, base legal e o e-mail do encarregado. | Pré-cadastro, Política de privacidade | Jurídico |
 
+## 3h. Frota (hub e as seis categorias)
+
+Já estão em 00c e nesta lista: a caução por categoria (C3), a devolução em outro aeroporto (O8), estrada sem pavimentação (D12), uso proibido e carga (R7), cadeira de bebê (F9), a tabela de 15 grupos estar atual (D9) e "mais um dia" (D11). Aqui fica o que as sete páginas acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| V1 | **"A partir de" sem datas:** qual período de referência (no protótipo, 1 diária com a proteção básica e a taxa) e os tokens `{preco_final_a_partir}` e `{diaria_a_partir}` do motor. Com 1 diária, a linha "Diária a partir de" repetiria o total e saiu; volta se o período for maior. Com datas, cada card mostra o total do período, a diária e o esgotado. | Hero e cards das seis categorias, barra do celular | Dev + comercial |
+| V2 | **Grupo B e B+:** o que muda além do modelo de referência (itens, tarifa). | Hatch econômico | Operação |
+| V3 | **"Ou similar":** o critério interno; se o similar sempre mantém o câmbio; o que acontece se faltar carro do grupo (e do automático); se dá para pedir um modelo específico, com qual antecedência; e a troca de grupo depois da reserva concluída. | Frota, Automático | Operação |
+| V4 | **Malas:** o tamanho de mala de referência da coluna "Malas", a capacidade do porta-malas em litros (hatch e sedã) e as malas com a 3ª fileira em uso (Spin e Commander). Também a orientação para 7 pessoas com mais de 4 malas. | Frota, Sedã, SUV, 7 lugares | Operação |
+| V5 | **Tração dos SUVs:** Tracker, Compass e Commander são 4x2 ou 4x4? | SUV | Operação |
+| V6 | **Picapes:** combustível da Toro 2.0 e da S10 2.8, capota ou tampa na caçamba, limite de peso e o que pode ir na caçamba (os termos de hoje proíbem transporte de carga, R7). | Picape | Operação + jurídico |
+| V7 | **CNH categoria B** para carro de 7 lugares e para as três picapes (CTB, art. 143). | 7 lugares, Picape | Jurídico |
+| V8 | **Grupo D é o automático de menor tarifa?** A copy diz que ele "abre a lista"; o texto não afirma que é o mais barato até a confirmação. | Frota, Automático | Comercial |
+| V9 | **Cartão corporativo (PJ):** o titular entra como responsável financeiro e vai ao balcão? | Sedã | Operação |
+| V10 | **Consumo por modelo:** só entra se houver dado oficial publicável. | Hatch econômico | Operação |
+| V11 | **Volume de busca** dos termos principais na Semrush: "carros para alugar em Recife e Fortaleza", "aluguel de carro econômico", "aluguel de carro sedã" e "sedan", "aluguel de SUV", "aluguel de picape", "aluguel de caminhonete", "picape 4x4" e "aluguel de carro automático". | As sete páginas | Marketing |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -192,6 +210,7 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | A9 | **Anúncios das campanhas** (Google Ads e Meta): estão como rascunho na copy e não entram nas páginas. Antes de subir: o título "Sem van: carro no aeroporto" só vale para Recife (O1); o texto do Réveillon na Meta cita os dois aeroportos; o título "Réveillon em Porto de carro" usa uma abreviação que a própria copy pede para testar. | Google Ads, Meta |
 
 | A10 | Fotos da home e da vitrine: carro da frota saindo do pátio do Aeroporto do Recife com pessoas reais (LCP da home), os dois balcões com a sinalização, atendente entregando a chave, os quatro destinos e os 15 modelos de referência na mesma angulação e fundo. A home aprovada (PR asa-design-system#1) usava 16 fotos de banco sem licença, que não vieram para o site. | Home, Vitrine |
+| A11 | **Fotos da frota:** os 15 modelos de referência no pátio, no mesmo ângulo 3/4 dianteiro e fundo neutro, e as da copy de cada categoria (Corolla com o porta-malas aberto, Compass saindo do pátio, Spin com a 3ª fileira, S10 com a caçamba, câmbio automático do Tracker). Também os roteiros (Olinda, Beira-Mar, Porto de Galinhas, Maragogi, litoral do Ceará, picape com prancha) e os dois balcões. Depoimentos de Jones D. (Frota) e Daniel G. (Automático) dependem de A2. | Frota e categorias |
 
 ## 6. Técnico e de lançamento
 
@@ -226,6 +245,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T29 | **Consentimentos do checkout:** registrar data, hora, versão dos textos aceitos e o valor de cada caixa; a de ofertas é opcional e nunca condiciona a reserva. | Etapa 3 |
 | T30 | **Eventos de Minha reserva e do pré-cadastro:** `manage_booking` (action consultar, com result encontrada, nao_encontrada, erro, bloqueada ou encaminhada e a version A ou B; e as ações do painel: precadastro, voucher, pagar_pix, alterar, cancelar_iniciar, cancelar_confirmar, com o booking_status), `refund` (só com o localizador como transaction_id), `generate_lead` (tenho_reserva, com a version) e `precadastro_click` (link_url, page_type, placement). Nada de localizador ou CPF fora do `refund`; nenhuma imagem ou dado da CNH em tag nenhuma. | GTM, GA4 |
 | T31 | **Pré-cadastro nativo:** quando o fluxo de `/checkin-express` existir (identificação, dados, foto da CNH, enviado, já escritos na copy), trocar o botão para o fluxo interno, revisar a indexação e redirecionar `precadastro.asalocadora.com.br` com 301. | Pré-cadastro |
+| T32 | **Frota e o motor de reservas:** a busca das categorias vai à vitrine com o filtro na URL (`categoria=hatch&cambio=manual`, `categoria=seda`, `suv`, `7-lugares`, `picape`, `cambio=automatico`); "Reservar grupo X" com datas vai direto à etapa 2 (`grupo=`); sem datas, leva à busca, que segue para a etapa 2 com o grupo. O preço, a diária e o esgotado dos cards precisam vir do motor por datas. 301 de `/nossos-veiculos` para `/frota`. | Frota e categorias |
+| T33 | **Eventos da frota no GTM:** `view_item_list` e `select_item` com as listas `frota_hub`, `frota_hatch_economico`, `frota_sedan`, `frota_suv`, `frota_7_lugares`, `frota_picape`, `frota_automatico` e `frota_usos` (item_id = letra do grupo); `filter_applied` (filtro, valor, ativo, resultados) na tabela; `tab_select` nas abas de automáticos; `cta_reservar_categoria` (categoria, placement); `search` ganhou `categoria` e `grupo`. | Frota e categorias |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -317,3 +338,23 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Minha reserva | Contato com `generate_lead` | `generate_lead` (tenho_reserva) no lugar do `contact_click` das páginas de ajuda | A copy pede lead: quem tem reserva e chama a equipe é atendimento de venda feita |
 | Pré-cadastro | Topo com `asa-cut` e botão | Abertura dividida: texto e botão à esquerda, foto com o corte de 8° à direita | É o mesmo pedido, no padrão das aberturas informativas |
 | Pré-cadastro | Versão nativa (etapas 1 a 4) | Só a página-ponte; as etapas ficam na copy para quando o fluxo for construído | A própria copy diz que hoje o serviço está em outro endereço |
+| Frota (as sete) | Eyebrow acima do H1 ("Frota Asa · 15 grupos", "Grupos A, B e B+ · câmbio manual") | Hub: saiu. Categorias: a linha dos grupos vai abaixo do H1 | Acima do H1 seria sobretítulo |
+| Categorias | Foto do carro no hero (LCP) | O hero leva o preço e a busca; a foto foi para o card do grupo | Hero leve, como nas campanhas |
+| Categorias | Preço "a partir de" no hero | No cartão branco da busca, acima dos campos | Vermelho sobre amarelo não passa no contraste (06 Componentes, preço) |
+| Categorias | `asa-stickybar` no celular | `asa-summary--bar` no pé, com a categoria, o "a partir de" e Reservar; some enquanto a busca do topo, o fechamento ou o rodapé estão à vista | O `asa-stickybar` é a barra do cupom, no topo (mesma decisão da etapa 2) |
+| Categorias | "Cards de roteiro" | Foto do lugar, texto e link, sem card | Card fica para produto; é o padrão dos roteiros das campanhas |
+| Categorias | SpecTag com ícones | A ficha em texto corrido, como na vitrine | Mesma regra da vitrine |
+| Frota | "Onde você retira" e "Quem já alugou" em duas faixas | Uma faixa preta com os balcões, as notas e o depoimento | É a faixa de prova da home; o preto aparece uma vez |
+| Frota | Coluna "Ar" na tabela | Saiu; "todos os grupos têm ar-condicionado" vai na nota da tabela | Era "Sim" nas 15 linhas |
+| Frota | No celular, a tabela vira lista de VehicleCard | O mesmo HTML: cada linha vira um bloco com o grupo, o modelo, a ficha numa linha, a categoria e o preço | Um conteúdo só, sem duplicar a frota no HTML |
+| Frota e categorias | Fechamento com foto ao fundo (`asa-cut`) | Fechamento amarelo curto, sem foto | Padrão do fechamento do sistema |
+| Frota e categorias | Eventos `frota_filtro_aplicado`, `frota_aba_automatico` e `faq_abrir` | `filter_applied` (com item_list_id), `tab_select` e `faq_expand` | Os nomes que a vitrine, as campanhas e as dúvidas já usam: uma configuração só no GTM |
+| Categorias | "Devolver em outro local" na busca | Não entrou | Depende de O8, como na busca de todas as páginas |
+| Sedã | "A busca tem a opção Devolver em outro local" | "Fale com a equipe antes de reservar" com a pendência | A busca não tem a opção (O8) |
+| SUV, Picape | "Se o roteiro pede 4x4"; "4x4 não libera trilha" | "Se você precisa de 4x4"; a regra de hoje (estrada sem pavimentação proibida) em laranja | D12 |
+| Picape | "Carga na caçamba: bagagem e equipamento, sim" e "carga ou mudança" | A regra de hoje (transporte de carga proibido) em laranja, com a pendência do que pode ir na caçamba | R7 |
+| Picape | Aviso para a Strada com mais de 2 ocupantes | Não entrou | O funil não pergunta o número de passageiros |
+| Picape | "Não leva passageiro no banco de trás" | "Não tem banco de trás" | O grupo H tem 2 lugares e 2 portas |
+| Automático | H2 "Atenção: estes grupos são manuais" | "Estes cinco grupos são manuais", em faixa curta | Aviso sem alarme; o texto já diz o que fazer |
+| Automático | "Fortaleza: chegada de madrugada, carro automático na hora" | "Fortaleza: chegada de madrugada", com o balcão 24h | "Na hora" é promessa de tempo, que a fonte proíbe sem medição |
+| Hatch, 7 lugares | "A diária pode sair até 15% mais barata" | Mantido, com o link para a oferta "mais um dia" | Fato do site atual; a condição de pagamento antecipado está em D11 |
