@@ -3290,6 +3290,10 @@ a.asa-tabs__tab:hover { color: var(--asa-ink); }
   display: block;
 }
 
+/* A régua de fatos sobe sobre a base da foto: a legenda do placeholder
+   fica no alto, onde a régua não cobre. */
+.asa-factstrip__media .asa-photo__caption { top: var(--asa-space-3); bottom: auto; }
+
 .asa-factstrip__facts {
   position: relative;
   display: grid;

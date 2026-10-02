@@ -3,21 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artigo não encontrado | Asa Locadora</title>
-  <meta name="description" content="Não encontramos este artigo do blog Asa na Estrada. Veja os artigos mais recentes ou reserve seu carro nos aeroportos de Recife e Fortaleza.">
-  <meta name="robots" content="noindex">
+  <title>Quem somos: locadora em Recife e Fortaleza | Asa Locadora</title>
+  <meta name="description" content="Desde 2004 alugando carros em Recife e Fortaleza, com balcões 24h dentro dos aeroportos e terceirização de frota para empresas e órgãos públicos.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://asalocadora.com.br/quem-somos">
   <link rel="preload" href="/assets/fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="/css/asa-tokens.css">
   <link rel="stylesheet" href="/css/asa-base.css">
   <link rel="stylesheet" href="/css/asa-components.css">
   <link rel="stylesheet" href="/css/asa-utilities.css">
   <link rel="stylesheet" href="/site/site.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "Quem somos",
+      "url": "https://asalocadora.com.br/quem-somos",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://asalocadora.com.br/#website"
+      },
+      "publisher": {
+        "@id": "https://asalocadora.com.br/#organization"
+      },
+      "about": {
+        "@id": "https://asalocadora.com.br/#organization"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://asalocadora.com.br/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quem somos",
+          "item": "https://asalocadora.com.br/quem-somos"
+        }
+      ]
+    }
+  ]
+  </script>
 </head>
 <!--
-  404 do blog: responde na URL pedida, com status 404 real, sem redirecionar para /blog.
-  Faixas: abertura (mist) > artigos recentes (branco) > rodapé.
+  /quem-somos. Copy: novo-site/copy-v2/39-quem-somos.md.
+  Página de marca (data-page-mode="marketing"): o amarelo abre e fecha, o preto aparece uma vez, na prova.
+  Faixas: hero com foto (amarelo) > onde estamos, faixa-foto (branco) > o que a Asa faz, editorial (mist) >
+  a equipe (branco) > avaliações (preto) > missão, visão e valores (branco) > como trabalha, linhas (mist) >
+  fechamento (amarelo, curto) > rodapé. Pendências em site/PENDENCIAS.md.
 -->
-<body data-page-mode="informational" data-page-type="404_blog">
+<body data-page-mode="marketing" data-page-type="quem_somos">
 
   <!-- parcial:cabecalho -->
   <a class="asa-skiplink" href="#conteudo">Pular para o conteúdo</a>
@@ -171,50 +213,189 @@
 
   <main id="conteudo">
 
-    <section class="asa-bg-mist site-opening">
-      <div class="asa-container">
-        <h1>Não achamos este artigo</h1>
-        <p class="asa-lead">Ele pode ter mudado de endereço. Os artigos do blog continuam aqui, e a busca de carros também.</p>
-        <div class="site-opening__actions">
-          <a class="asa-btn asa-btn--primary" href="/#reservar">Ver carros disponíveis</a>
-          <a class="asa-btn asa-btn--outline" href="/blog">Ver o blog</a>
+    <!-- HERO · amarelo · H1 em Registro 1 com a frase assinada em placa preta, foto da equipe à direita, marca d'água uma vez -->
+    <section class="asa-hero asa-bg-surface site-hero-media">
+      <div class="asa-watermark" aria-hidden="true"></div>
+      <div class="asa-container asa-hero__inner">
+        <div class="asa-hero__copy">
+        <div class="asa-alert asa-alert--warn site-draft" role="note">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="asa-alert__body">
+            <span class="asa-alert__title">Rascunho para revisão</span>
+            <span class="asa-alert__text">O bloco com a equipe depende da autorização de nome, foto e cargo de cada pessoa, e os trechos de avaliação dependem da política de uso. Sem as autorizações, o bloco da equipe sai inteiro. Detalhes em site/PENDENCIAS.md.</span>
+          </div>
+        </div>
+        <nav aria-label="Trilha">
+          <ol class="asa-breadcrumb">
+            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="/">Início</a></li>
+            <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
+            <li class="asa-breadcrumb__item" aria-current="page">Quem somos</li>
+          </ol>
+        </nav>
+          <h1>A Asa aluga carros em Recife e Fortaleza <span class="asa-hero__mark">desde 2004</span></h1>
+          <p class="asa-lead">Alugando mobilidade para quem busca liberdade. Frota nova, atendimento humanizado e diária de 27 horas.</p>
+          <div class="site-actions">
+            <a class="asa-btn asa-btn--primary" href="/reservas-online">Ver carros disponíveis</a>
+            <a class="asa-btn asa-btn--link" href="/lojas">Conheça nossos balcões</a>
+          </div>
+        </div>
+        <div class="site-hero-media__photo">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Equipe da Asa Rent a Car no balcão do aeroporto"><span class="asa-photo__caption">[ foto · equipe uniformizada no balcão, olhando para a câmera ]</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="asa-section asa-bg-white" aria-labelledby="recentes-titulo">
+    <!-- ONDE ESTAMOS · branco · faixa-foto: a chegada em foto larga e três fatos em texto, sem ícone -->
+    <section class="asa-section asa-bg-white" aria-labelledby="onde-titulo">
       <div class="asa-container">
         <div class="asa-section-head">
           <div class="asa-section-head__copy">
-            <h2 id="recentes-titulo">Os artigos mais <em>recentes</em></h2>
+            <h2 id="onde-titulo">Dentro dos dois <em>aeroportos</em>, 24 horas</h2>
+          </div>
+          <a class="asa-shelf__link" href="/lojas">Ver endereços e como chegar</a>
+        </div>
+        <div class="asa-factstrip">
+          <div class="asa-factstrip__media"><div class="asa-photo" role="img" aria-label="Viajante saindo do desembarque do Aeroporto do Recife em direção ao balcão da Asa"><span class="asa-photo__caption">[ foto · desembarque do Aeroporto do Recife, Portão A5 ]</span></div></div>
+          <div class="asa-factstrip__facts">
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Recife, Portão A5</b><p class="asa-factstrip__text">No desembarque do Aeroporto do Recife. O carro sai do pátio do próprio aeroporto, sem van.</p></div>
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Fortaleza, Área de Locadoras</b><p class="asa-factstrip__text">No Terminal de Desembarque do Aeroporto de Fortaleza.</p></div>
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">15 grupos de carros</b><p class="asa-factstrip__text">Do Fiat Mobi à picape S10 4x4, com ar-condicionado e quilometragem livre. Balcão aberto 24 horas.</p></div>
           </div>
         </div>
-        <ul class="site-blog__grid">
-          <li data-slug="preciso-de-4x4-para-ir-a-jericoacoara" data-categoria="aventura">
-            <article class="asa-card asa-card-article">
-              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9" role="img" aria-label="Picape 4x4 numa trilha de areia entre dunas, a caminho de Jericoacoara"><span class="asa-photo__caption">[ foto · picape na areia a caminho de Jericoacoara ]</span></div></div>
-              <h3 class="asa-card-article__title"><a class="asa-card-article__link" href="/blog/preciso-de-4x4-para-ir-a-jericoacoara">Preciso de 4x4 para ir a Jericoacoara?</a></h3>
-              <p class="asa-card-article__excerpt">Toro ou S10 4x4 e o que conferir sobre o acesso de carros à vila antes de sair de Fortaleza.</p>
-              <p class="asa-card-article__meta"><span class="asa-card-article__category">Aventura</span> · <time datetime="2026-09-24">24 set 2026</time> · 7 min de leitura</p>
-            </article>
+        <!-- CONFIRMAR (PENDENCIAS.md, D9): as avaliações citam Kicks, Polo e Argo, fora da tabela de 15 grupos. -->
+      </div>
+    </section>
+
+    <!-- O QUE A ASA FAZ · mist · editorial: foto com corte de 8° e as duas linhas de negócio -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="faz-titulo">
+      <div class="asa-container">
+        <div class="asa-editorial">
+          <div class="asa-editorial__media">
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/3" role="img" aria-label="Carros da frota da Asa no pátio do aeroporto"><span class="asa-photo__caption">[ foto · frota no pátio do aeroporto ]</span></div></div>
+          </div>
+          <div>
+            <h2 id="faz-titulo">O que a Asa <em>faz</em></h2>
+            <dl class="asa-editorial__facts">
+              <div><dt>Locação de carros</dt><dd>Para quem chega de avião a Recife ou Fortaleza, para quem mora nas duas cidades e para quem precisa de carro por um mês ou mais. <a href="/frota">Ver a frota</a> · <a href="/aluguel-mensal">Aluguel mensal</a></dd></div>
+              <div><dt>Terceirização de frota</dt><dd>Veículos para órgãos públicos, empresas de economia mista e empresas privadas. <a href="/empresas" data-linha="empresas">Terceirização de frota para empresas</a></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AS PESSOAS DO BALCÃO · branco · retratos sem card. Só renderiza com autorização de cada pessoa (PENDENCIAS.md, A1). -->
+    <section class="asa-section asa-bg-white" aria-labelledby="pessoas-titulo" data-requer-autorizacao>
+      <div class="asa-container">
+        <div class="asa-section-head">
+          <div class="asa-section-head__copy">
+            <h2 id="pessoas-titulo">Quem recebe você no <em>aeroporto</em></h2>
+            <p class="asa-lead">Nas avaliações do Google, os clientes citam a equipe pelo nome. Aqui estão algumas dessas pessoas.</p>
+          </div>
+        </div>
+        <ul class="site-people">
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Sandro, da Asa, no Aeroporto do Recife"><span class="asa-photo__caption">[ foto · retrato de Sandro no balcão, luz natural ]</span></div></div>
+            <h3 class="site-people__name">Sandro</h3>
+            <p class="site-people__role">Recife · entrega e vistoria <span class="site-pending">[CONFIRMAR: cargo]</span></p>
+            <blockquote><p>"Excelente atendimento, desde o remoto até o Sandro."</p><cite>Lais C., via Google, 15/06/2026 [AUTORIZAÇÃO]</cite></blockquote>
           </li>
-          <li data-slug="recife-a-cidade-que-respira-historia-e-mar" data-categoria="cidades">
-            <article class="asa-card asa-card-article">
-              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9" role="img" aria-label="Praça do Marco Zero, no Recife Antigo, no fim da tarde"><span class="asa-photo__caption">[ foto · Marco Zero e o Recife Antigo no fim da tarde ]</span></div></div>
-              <h3 class="asa-card-article__title"><a class="asa-card-article__link" href="/blog/recife-a-cidade-que-respira-historia-e-mar">Recife, a cidade que respira história e mar</a></h3>
-              <p class="asa-card-article__excerpt">Três dias de carro pelo Recife Antigo, por Boa Viagem e por Olinda, saindo do Portão A5.</p>
-              <p class="asa-card-article__meta"><span class="asa-card-article__category">Cidades</span> · <time datetime="2026-09-22">22 set 2026</time> · 8 min de leitura</p>
-            </article>
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Saulo Viana, da Asa, no Aeroporto de Fortaleza"><span class="asa-photo__caption">[ foto · retrato de Saulo Viana no balcão, luz natural ]</span></div></div>
+            <h3 class="site-people__name">Saulo Viana</h3>
+            <p class="site-people__role">Fortaleza · agente de pátio <span class="site-pending">[CONFIRMAR: cargo]</span></p>
+            <blockquote><p>"Cheguei de madrugada no aeroporto de Fortaleza e fui bem atendido… pelo funcionário Saulo Viana."</p><cite>Danilo L., via Google, 23/09/2026 [AUTORIZAÇÃO]</cite></blockquote>
           </li>
-          <li data-slug="fortaleza-guia-para-explorar-a-capital-cearense" data-categoria="cidades">
-            <article class="asa-card asa-card-article">
-              <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9" role="img" aria-label="Calçadão da Avenida Beira-Mar, em Fortaleza, com o mar à direita"><span class="asa-photo__caption">[ foto · orla da Beira-Mar de Fortaleza ]</span></div></div>
-              <h3 class="asa-card-article__title"><a class="asa-card-article__link" href="/blog/fortaleza-guia-para-explorar-a-capital-cearense">Fortaleza: guia para explorar a capital cearense</a></h3>
-              <p class="asa-card-article__excerpt">A orla, os mercados e os bate-voltas de carro a partir da Área de Locadoras do aeroporto.</p>
-              <p class="asa-card-article__meta"><span class="asa-card-article__category">Cidades</span> · <time datetime="2026-09-19">19 set 2026</time> · 7 min de leitura</p>
-            </article>
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Robson, da Asa, no Aeroporto de Fortaleza"><span class="asa-photo__caption">[ foto · retrato de Robson no balcão, luz natural ]</span></div></div>
+            <h3 class="site-people__name">Robson</h3>
+            <p class="site-people__role">Fortaleza · abertura de contrato no balcão <span class="site-pending">[CONFIRMAR: cargo]</span></p>
+            <blockquote><p>"Atendimento impecável do Robson e Saulo atendentes super atenciosos, amei tudo."</p><cite>Priscila V., via Google, 19/09/2026 [AUTORIZAÇÃO]</cite></blockquote>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- AVALIAÇÕES · preto · a prova, uma vez: placas 4,7 e 9,4 e três depoimentos sem card -->
+    <section class="asa-section asa-bg-dense site-proof-3" aria-labelledby="avaliacoes-titulo">
+      <div class="asa-container">
+        <div class="asa-section-head">
+          <div class="asa-section-head__copy">
+            <h2 id="avaliacoes-titulo">O que dizem as <em>avaliações</em></h2>
+            <p class="asa-lead">A média no Google das lojas de Recife e Fortaleza e a nota no Reclame Aqui, com trechos de avaliações reais.</p>
+          </div>
+        </div>
+        <div class="asa-proof__bar">
+          <div>
+            <div class="asa-proof__plates">
+              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">4,7</span><span class="asa-numberplate__source">no Google</span></div>
+              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">9,4</span><span class="asa-numberplate__source">no Reclame Aqui</span></div>
+            </div>
+            <p class="site-proof__note">Dados do Google atualizados em <span class="site-pending">[CONFIRMAR: data, puxada da API]</span>.</p>
+          </div>
+          <div class="asa-proof__quotes">
+              <figure class="asa-testimonial asa-testimonial--bare">
+                <blockquote class="asa-testimonial__quote">Locadora muito boa, preço justo, carro zero. Já sou cliente.</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Jones D.</span><span class="asa-testimonial__source">Recife, via Google</span></span></figcaption>
+              </figure>
+              <figure class="asa-testimonial asa-testimonial--bare">
+                <blockquote class="asa-testimonial__quote">Empresa maravilhosa, adorei tudo. Principalmente a facilidade para alugarmos.</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Raquel A.</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
+              </figure>
+              <figure class="asa-testimonial asa-testimonial--bare">
+                <blockquote class="asa-testimonial__quote">Atendimento excelente da Letícya… sempre que precisei ela estava à disposição, do on-line ao presencial.</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Maria Eduarda</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
+              </figure>
+          </div>
+        </div>
+        <div class="site-proof__links">
+          <a href="https://maps.google.com/maps?cid=7788866797979248996" target="_blank" rel="noopener noreferrer" data-reviews="REC">Ver as avaliações de Recife no Google<span class="site-sr"> (abre em nova aba)</span></a>
+          <a href="https://maps.google.com/maps?cid=6562632952082218298" target="_blank" rel="noopener noreferrer" data-reviews="FOR">Ver as avaliações de Fortaleza no Google<span class="site-sr"> (abre em nova aba)</span></a>
+        </div>
+        <!-- D4: no GBP em 02/10/2026, Recife 4,7 (4.767), Fortaleza 4,9 (3.718), juntas 4,8 (8.485). Em produção a nota vem da
+             API com a data; se a API falhar, as placas do Google somem. Citações: [AUTORIZAÇÃO/política de uso]. -->
+      </div>
+    </section>
+
+    <!-- MISSÃO, VISÃO E VALORES · branco · texto oficial, sem reescrever; os links institucionais embaixo -->
+    <section class="asa-section asa-bg-white" aria-labelledby="mvv-titulo">
+      <div class="asa-container">
+        <h2 id="mvv-titulo">Missão, visão e <em>valores</em></h2>
+        <dl class="site-values">
+          <div><dt>Missão</dt><dd>Promover a eficiência em gestão de ativos por meio da inovação, garantindo a rentabilidade e gerando valor sustentável.</dd></div>
+          <div><dt>Visão</dt><dd>Tornar-se, até 2030, uma organização reconhecida como referência na gestão de ativos e mobilidade inteligente.</dd></div>
+          <div><dt>Valores</dt><dd>Resultados, Comprometimento, Credibilidade, Excelência no Relacionamento, Resiliência.</dd></div>
+        </dl>
+        <p class="site-more">Mais sobre a empresa: <a href="/relacoes-com-investidores">Relações com investidores</a> <a href="/contato">Fale com a Asa</a></p>
+      </div>
+    </section>
+
+    <!-- COMO A ASA TRABALHA · mist · linhas com divisor, no lugar do trio de ícones -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="trabalha-titulo">
+      <div class="asa-container">
+        <div class="asa-section-head">
+          <div class="asa-section-head__copy">
+            <h2 id="trabalha-titulo">O que você encontra ao alugar com a <em>Asa</em></h2>
+          </div>
+        </div>
+        <ul class="site-rows">
+          <li><b>Preço final antes de pagar</b><p>O site mostra o preço com a proteção básica e a taxa inclusas.</p><a href="/protecoes-e-taxas">Proteções e taxas</a></li>
+          <li><b>Diária de 27 horas</b><p>3 horas de tolerância na devolução, sem pagar outra diária.</p><a href="/diaria-27-horas">Como funciona</a></li>
+          <li><b>Regras explicadas antes da viagem</b><p>Idade, CNH, cartão e caução estão em uma página só.</p><a href="/caucao-e-requisitos">Requisitos e caução</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FECHAMENTO · amarelo, curto · H2 em Registro 2, os dois aeroportos e o botão. Sem marca d'água. -->
+    <section class="asa-section asa-section--short asa-bg-surface" aria-labelledby="fim-titulo">
+      <div class="asa-container asa-closing">
+        <div class="asa-closing__copy">
+          <h2 id="fim-titulo">Seu próximo carro sai do <em>aeroporto</em></h2>
+          <p class="asa-lead">Balcão 24h no <a href="/aluguel-de-carros/aeroporto-recife">Aeroporto do Recife</a> e no <a href="/aluguel-de-carros/aeroporto-fortaleza">Aeroporto de Fortaleza</a>.</p>
+        </div>
+        <div class="asa-closing__actions">
+          <a class="asa-btn asa-btn--primary" href="/reservas-online">Ver carros disponíveis</a>
+        </div>
       </div>
     </section>
 

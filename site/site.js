@@ -317,6 +317,14 @@
     });
   });
 
+  /* ---------- Quem somos: linha de negócio e avaliações ---------- */
+  $$('[data-linha]').forEach(function (a) {
+    a.addEventListener('click', function () { track('select_content', { content_type: 'linha_negocio', item_id: a.dataset.linha }); });
+  });
+  $$('[data-reviews]').forEach(function (a) {
+    a.addEventListener('click', function () { track('click_reviews', { loja: a.dataset.reviews }); });
+  });
+
   /* ---------- Clique em card de artigo ---------- */
   $$('[data-slug]').forEach(function (card) {
     var link = $('a', card);
