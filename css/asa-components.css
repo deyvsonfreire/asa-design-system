@@ -2699,9 +2699,15 @@ a.asa-tabs__tab:hover { color: var(--asa-ink); }
 
 @media (min-width: 768px) {
   .asa-destgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--asa-space-6); height: 560px; }
-  .asa-destgrid > * { aspect-ratio: auto; }
+  .asa-destgrid > *,
+  .asa-destgrid > .asa-destgrid__lg,
+  .asa-destgrid > .asa-destgrid__wide { aspect-ratio: auto; }
   .asa-destgrid > .asa-destgrid__lg { grid-row: span 2; }
 }
+
+/* O chip do nome fica embaixo; a legenda do placeholder sobe para o alto. */
+.asa-card-destination--overlay .asa-photo__caption,
+.asa-card-place__media .asa-photo__caption { top: var(--asa-space-3); bottom: auto; }
 
 .asa-card-destination__title {
   margin: var(--asa-space-2) 0 2px;

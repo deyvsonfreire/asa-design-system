@@ -1640,3 +1640,297 @@ html[data-drawer-aberto] { overflow: hidden; }
 .site-opening .site-checklist li { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
 .site-opening .site-checklist + .asa-alert { margin-top: var(--asa-space-6); max-width: 760px; }
 .site-form[hidden] { display: none; }
+
+/* --------------------------------------------------------------------------
+   HOME
+   A home aprovada (asa-home-v2) remontada com a biblioteca: hero, faixa-foto,
+   prateleira, prova, grade de destinos, editorial, dúvidas e fechamento.
+   Aqui só o que a biblioteca não traz: a linha abaixo da faixa-foto, os
+   links soltos de cada faixa e o botão dentro do card de praça.
+   -------------------------------------------------------------------------- */
+.site-arrival { padding-top: clamp(32px, 4vw, 56px); }
+
+.site-arrival__note {
+  margin: var(--asa-space-5) auto 0;
+  font-size: var(--asa-fs-label);
+  line-height: 1.4;
+  color: var(--asa-ink-3);
+  text-align: center;
+  max-width: none;
+}
+
+.asa-factstrip__text a,
+.site-shelf__more a,
+.site-editorial__links a,
+.site-faq__all a,
+.site-proof__map a,
+.site-place__links a,
+.site-proof__reviews a {
+  color: inherit;
+  font-weight: var(--asa-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* A prateleira ocupa o container; os cards têm a mesma altura e o rodapé
+   do card (preço e botão) cola embaixo. */
+.site-shelf .asa-shelf__track { padding-top: 2px; }
+.site-shelf .asa-card-vehicle { display: flex; flex-direction: column; }
+.site-shelf .asa-card__body { flex: 1; }
+.site-shelf .asa-card-vehicle__footer { margin-top: auto; align-items: flex-end; flex-wrap: wrap; }
+.site-shelf .site-vehicle-price span:last-child { color: var(--asa-ink-3); }
+.site-shelf__more { margin: var(--asa-space-6) 0 0; font-size: var(--asa-fs-body-dense); }
+
+/* Praça: o card da biblioteca é um link inteiro; aqui ele leva um botão
+   (preenche a busca) e dois links, por isso vira article. */
+.site-place__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--asa-space-3);
+  margin-top: var(--asa-space-5);
+}
+
+.site-place__links,
+.site-proof__map,
+.site-proof__reviews {
+  margin: 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-inverse-2);
+  max-width: none;
+}
+
+.site-place__links a,
+.site-proof__map a,
+.site-proof__reviews a { color: var(--asa-ink-inverse); }
+
+.site-proof__map { margin-top: var(--asa-space-6); }
+
+.site-proof__facts {
+  margin: var(--asa-space-6) 0 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-inverse-2);
+  max-width: 40ch;
+}
+
+.site-proof__facts b { color: var(--asa-ink-inverse); }
+
+.site-proof__reviews { margin-top: var(--asa-space-7); }
+.site-proof__pending { margin: var(--asa-space-3) 0 0; font-size: var(--asa-fs-label); max-width: none; }
+
+.site-editorial__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-2) var(--asa-space-6);
+  margin: var(--asa-space-6) 0 0;
+  font-size: var(--asa-fs-body-dense);
+}
+
+.site-faq__all { margin: var(--asa-space-4) 0 0; font-size: var(--asa-fs-body-dense); }
+
+/* Lide logo abaixo do H2 fora do asa-section-head (prova e editorial). */
+.asa-proof > .asa-section-head__copy .asa-lead,
+.asa-editorial h2 + .asa-lead { margin-top: var(--asa-space-4); }
+
+html.site-travado { overflow: hidden; }
+
+/* --------------------------------------------------------------------------
+   VITRINE (/reservas-online)
+   Topo do funil com stepper e resumo, filtros em coluna (painel no
+   celular), cabeçalho da lista, atalhos e os cards.
+   -------------------------------------------------------------------------- */
+.site-funnel-top { padding-block: var(--asa-space-6); }
+.site-funnel-top .site-draft { margin-bottom: var(--asa-space-5); }
+
+.site-stepper { max-width: 760px; }
+.site-stepper .asa-stepper__index { text-transform: none; letter-spacing: 0; font-family: var(--asa-font); }
+
+.site-searchsum {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--asa-space-4);
+  margin-top: var(--asa-space-5);
+  padding: var(--asa-space-4) var(--asa-space-5);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+}
+
+.site-searchsum[hidden] { display: none; }
+.site-searchsum__body { display: grid; gap: 2px; min-width: 0; }
+.site-searchsum__body p { margin: 0; max-width: none; }
+.site-searchsum__place { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); font-weight: var(--asa-weight-bold); }
+.site-searchsum__dates { display: flex; flex-wrap: wrap; gap: 0 var(--asa-space-5); font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-searchsum__rule { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-searchsum__coupon { margin-top: var(--asa-space-2) !important; }
+
+/* H1 do funil: Registro 1, no tamanho de uma tela de tarefa. */
+.site-funnel-h1 { font-size: clamp(28px, 3.4vw, 40px); }
+
+.site-vitrine { padding-top: clamp(32px, 4vw, 48px); }
+.site-vitrine__alert { margin-bottom: var(--asa-space-6); }
+.site-vitrine__nosearch .asa-lead { margin-top: var(--asa-space-4); }
+.site-vitrine__inline { margin-top: var(--asa-space-6); padding: clamp(16px, 2vw, 24px); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+.site-vitrine__inline .site-booking { padding: 0; }
+.site-vitrine__main { min-width: 0; }
+
+.site-resultbar { margin-top: var(--asa-space-5); }
+.site-resultbar .asa-resultbar__count { margin: 0; margin-right: auto; }
+.site-resultbar__rating { margin-right: var(--asa-space-4); }
+
+.site-chips {
+  display: flex;
+  gap: var(--asa-space-2);
+  margin: var(--asa-space-4) 0 var(--asa-space-6);
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding-bottom: 2px;
+}
+
+.site-chips::-webkit-scrollbar { display: none; }
+.site-chips .asa-chip { flex: none; white-space: nowrap; }
+.site-chips .asa-chip span { color: inherit; opacity: 1; }
+
+.site-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 264px), 1fr));
+  gap: var(--asa-space-6);
+}
+
+.site-results[aria-busy="true"] { pointer-events: none; }
+.site-vitrine__main:has([aria-busy="true"]) .asa-resultbar__count { font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-regular); color: var(--asa-ink-2); }
+.site-results > li { display: flex; min-width: 0; }
+.site-results > li > * { flex: 1; }
+.site-results__wide { grid-column: 1 / -1; }
+
+.site-vcard { display: flex; flex-direction: column; }
+.site-vcard .asa-card__body { flex: 1; gap: var(--asa-space-2); padding: var(--asa-space-4); }
+.site-vcard .asa-card-vehicle__category { margin-top: -4px; }
+.site-vcard__price { margin-top: auto; padding-top: var(--asa-space-3); border-top: 1px solid var(--asa-line-soft); }
+.site-vcard__price .asa-price__value { font-size: 30px; }
+.site-vcard__old { font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-vcard .asa-card-vehicle__actions { flex-wrap: wrap; margin-top: var(--asa-space-2); }
+.site-vcard .asa-card-vehicle__actions .asa-btn--primary,
+.site-vcard .asa-card-vehicle__actions .asa-btn--outline { flex: 1 1 auto; }
+
+/* Esgotado: a foto apaga e o selo escrito diz o porquê (cor não é o único
+   sinal). O texto não recebe opacidade. */
+.site-vcard[data-esgotado] .site-vcard__media { filter: grayscale(1); opacity: .45; }
+.site-vcard__soldout {
+  display: grid;
+  justify-items: start;
+  gap: var(--asa-space-2);
+  margin-top: auto;
+  padding-top: var(--asa-space-3);
+  border-top: 1px solid var(--asa-line-soft);
+}
+
+.site-vcard__soldout p { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+
+.site-skel { gap: var(--asa-space-3); }
+
+.site-empty { padding-block: var(--asa-space-8); border: var(--asa-border-width) dashed var(--asa-line); border-radius: var(--asa-radius); }
+.site-empty__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--asa-space-3); margin-top: var(--asa-space-3); }
+
+/* Filtros: painel ancorado embaixo no celular (asa-sheet), coluna no desktop. */
+.site-filters__head {
+  display: flex;
+  align-items: center;
+  gap: var(--asa-space-3);
+  margin-bottom: var(--asa-space-4);
+}
+
+.site-filters__title { margin: 0 auto 0 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-filters .asa-filters__group { border: 0; border-bottom: var(--asa-border-width) solid var(--asa-line-soft); margin: 0; padding: 0 0 var(--asa-space-4); min-width: 0; }
+.site-filters .asa-filters__group:last-of-type { border-bottom: 0; }
+.site-filters legend { padding: 0; }
+.site-filters .asa-choice__text { flex: 1; }
+.asa-filters__option:has(:disabled) .asa-choice__title,
+.asa-filters__option:has(:disabled) .asa-filters__count { color: var(--asa-disabled-text); }
+.asa-filters__option:has(:disabled) { cursor: not-allowed; }
+.site-filters__help { margin: -2px 0 4px; }
+.site-filters__range { margin: 0 0 var(--asa-space-2); font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); font-variant-numeric: tabular-nums; }
+.site-filters__foot { position: sticky; bottom: 0; padding-top: var(--asa-space-4); background: var(--asa-surface-float); }
+
+.site-range { display: grid; grid-template-columns: 32px 1fr; align-items: center; gap: var(--asa-space-2); min-height: var(--asa-touch-min); font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-range input { width: 100%; accent-color: var(--asa-ink); }
+
+.site-filters__open {
+  position: fixed;
+  left: 50%;
+  bottom: var(--asa-space-4);
+  transform: translateX(-50%);
+  z-index: var(--asa-z-sticky);
+  gap: var(--asa-space-2);
+}
+
+.site-filters__open[hidden] { display: none; }
+
+@media (min-width: 1024px) {
+  .site-filters {
+    position: sticky;
+    top: calc(var(--asa-header-h) + var(--asa-space-4));
+    inset: auto;
+    z-index: auto;
+    display: block;
+    pointer-events: auto;
+  }
+  .site-filters__veil,
+  .site-filters .asa-sheet__handle,
+  .site-filters__close,
+  .site-filters__foot,
+  .site-filters__open { display: none !important; }
+  .site-filters .asa-sheet__surface {
+    max-width: none;
+    max-height: calc(100vh - var(--asa-header-h) - 32px);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Ficha do grupo no modal "Ver detalhes". */
+.site-spec { width: 100%; border-collapse: collapse; font-size: var(--asa-fs-body-dense); }
+.site-spec th, .site-spec td { padding: var(--asa-space-2) 0; border-bottom: 1px solid var(--asa-line-soft); text-align: left; }
+.site-spec th { font-weight: var(--asa-weight-medium); color: var(--asa-ink-3); width: 44%; }
+.site-modal-busca .asa-modal__surface { max-width: 560px; }
+.site-modal-busca .site-booking { padding: 0; }
+.site-modal-busca .asa-search__row { grid-template-columns: 1fr; }
+
+/* Ajuda no pé da lista: três itens em texto, sem ícone nem card. */
+.site-listhelp {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--asa-space-6);
+}
+
+@media (min-width: 768px) { .site-listhelp { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--asa-space-8); } }
+
+.site-listhelp b { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-listhelp p { margin: var(--asa-space-1) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-listhelp a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Na vitrine o botão de filtros ocupa o centro do pé; o WhatsApp fica à direita. */
+body[data-page-type="vitrine"] { padding-bottom: 72px; }
+@media (min-width: 1024px) { body[data-page-type="vitrine"] { padding-bottom: 0; } }
+.site-vitrine [hidden] { display: none !important; }
+.site-vcard__media { position: relative; }
+.site-vcard__badge { position: absolute; left: var(--asa-space-3); bottom: var(--asa-space-3); z-index: 1; }
+.site-vcard__badge { background: var(--asa-bg-elevated); }
+
+.site-filters__veil { z-index: 0; }
+.site-filters__surface { position: relative; z-index: 1; }
+.site-filters__open--fora { visibility: hidden; }
