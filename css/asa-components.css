@@ -2741,6 +2741,99 @@ a.asa-tabs__tab:hover { color: var(--asa-ink); }
   color: var(--asa-ink-2);
 }
 
+/* Card completo do hub /ofertas: foto com o corte de 8° (a mesma moldura
+   do card de artigo e do de veículo), a ficha da oferta em linhas de
+   rótulo e valor, o código quando houver cupom, as regras atrás de um
+   disclosure e as ações no pé. A ficha é fixa (como usar, validade, onde
+   vale): sem validade confirmada, o card não é publicado. */
+.asa-card-offer > .asa-cut { margin: calc(-1 * var(--asa-space-4)) calc(-1 * var(--asa-space-4)) var(--asa-space-2); }
+
+/* O selo vai sobre a foto, no canto baixo à esquerda (o lado que o corte
+   não sobe), como o selo do card de veículo: acima do título ele seria
+   sobretítulo. Sem foto, ele fica no fluxo, depois do texto. */
+.asa-card-offer__badge { position: absolute; left: var(--asa-space-4); bottom: var(--asa-space-4); z-index: 1; }
+.asa-card-offer > .asa-tag { align-self: flex-start; }
+
+.asa-card-offer__facts {
+  display: grid;
+  gap: var(--asa-space-2);
+  margin: var(--asa-space-2) 0 0;
+  padding-top: var(--asa-space-3);
+  border-top: 1px solid var(--asa-line-soft);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-card-offer__facts > div {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr);
+  gap: var(--asa-space-3);
+}
+
+.asa-card-offer__facts dt { color: var(--asa-ink-3); }
+.asa-card-offer__facts dd { margin: 0; font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+
+.asa-card-offer .asa-coupon { margin-top: var(--asa-space-2); }
+.asa-card-offer .asa-coupon__code { padding-inline: var(--asa-space-3); font-size: var(--asa-fs-body); letter-spacing: .04em; }
+
+.asa-card-offer__rules { border-top: 1px solid var(--asa-line-soft); border-bottom: 0; margin-top: var(--asa-space-2); }
+
+.asa-card-offer__rules ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: var(--asa-space-1);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-card-offer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--asa-space-2) var(--asa-space-5);
+  margin-top: auto;
+  padding-top: var(--asa-space-3);
+}
+
+/* Cupom: o código num campo somente leitura (dá para selecionar à mão se a
+   área de transferência falhar) e o botão de copiar. Sem tracejado de
+   "recorte aqui": o código é texto, não ilustração. O estado "Código
+   copiado" troca o rótulo do botão por 3s e é anunciado por aria-live. */
+.asa-coupon {
+  display: flex;
+  align-items: stretch;
+  max-width: 420px;
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-ink);
+  border-radius: var(--asa-radius);
+  overflow: hidden;
+}
+
+.asa-coupon__code {
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--asa-space-4);
+  background: transparent;
+  border: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-highlight);
+  font-weight: var(--asa-weight-bold);
+  letter-spacing: .06em;
+  color: var(--asa-ink);
+}
+
+.asa-coupon__code:focus-visible { outline: 2px solid var(--asa-ink); outline-offset: -4px; }
+
+.asa-coupon__copy.asa-btn {
+  flex: none;
+  min-height: var(--asa-control-h);
+  border: 0;
+  border-left: var(--asa-border-width) solid var(--asa-ink);
+  border-radius: 0;
+}
+
 .asa-card-store {
   display: flex;
   flex-direction: column;

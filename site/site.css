@@ -1053,3 +1053,347 @@ html[data-drawer-aberto] { overflow: hidden; }
   .site-proof-3 .asa-proof__plates { grid-template-columns: repeat(2, max-content); gap: var(--asa-space-10); }
   .site-proof-3 .asa-proof__quotes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* --------------------------------------------------------------------------
+   HERO COM BUSCA (Ofertas e campanhas)
+   O asa-hero da home: H1 em Registro 1, linha de apoio e a busca num cartão
+   branco. A busca já tem o próprio fundo; aqui ela perde o padding duplo.
+   -------------------------------------------------------------------------- */
+.site-hero-search .asa-breadcrumb { margin-bottom: clamp(20px, 3vw, 32px); }
+.site-hero-search .asa-lead { margin-top: var(--asa-space-5); max-width: 760px; }
+.site-hero-search .asa-hero__search .site-booking { padding: 0; }
+.site-hero-search .asa-coupon { margin-top: var(--asa-space-6); }
+
+.site-hero__offer {
+  margin: var(--asa-space-5) 0 0;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-hero__offer .asa-tag { vertical-align: middle; margin-right: var(--asa-space-2); }
+
+.site-hero__meta {
+  margin: var(--asa-space-3) 0 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.site-hero__meta a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); }
+
+/* "Tenho um cupom" dentro da busca: recolhido, com cara de link. Aberto,
+   mostra o campo e o botão Aplicar na mesma linha. */
+.site-booking__coupon { border-bottom: 0; }
+
+.site-booking__coupon > summary.asa-disclosure__trigger {
+  display: inline-flex;
+  width: auto;
+  min-height: var(--asa-touch-min);
+  padding: 0;
+  color: var(--asa-ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-booking__coupon > summary .asa-icon { width: var(--asa-icon-dense); height: var(--asa-icon-dense); }
+
+.site-booking__coupon-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--asa-space-3);
+  padding-bottom: var(--asa-space-2);
+}
+
+.site-booking__coupon-row .asa-field { flex: 1 1 220px; max-width: 360px; }
+.site-booking__coupon-row .asa-btn { min-height: var(--asa-control-h); }
+
+.site-booking__coupon-msg {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
+}
+
+.site-booking__coupon-msg:empty { display: none; }
+.site-booking__coupon-msg[data-tipo="ok"] { color: var(--asa-ok); }
+.site-booking__coupon-msg[data-tipo="erro"] { color: var(--asa-action-hover); }
+
+/* --------------------------------------------------------------------------
+   VITRINE DE OFERTAS
+   Três colunas no desktop; os cards esticam até a mesma altura e as ações
+   descem para o pé.
+   -------------------------------------------------------------------------- */
+.site-offers {
+  display: grid;
+  gap: var(--asa-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px)  { .site-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .site-offers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.site-offers > li { display: flex; }
+.site-offers > li[hidden] { display: none; }
+.site-offers > li > .asa-card-offer { flex: 1; }
+
+.site-offers__note {
+  margin: var(--asa-space-6) 0 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-offers-empty[hidden] { display: none; }
+.site-offers-empty { border-top: var(--asa-border-width) solid var(--asa-line); }
+
+/* Uma oferta só, larga: a foto à esquerda e a ficha à direita. Campanhas. */
+@media (min-width: 768px) {
+  .site-offer-wide.asa-card-offer {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 0 var(--asa-space-7);
+    padding: 0;
+  }
+  .site-offer-wide > .asa-cut { margin: 0; grid-row: 1 / span 6; min-width: 0; }
+  .site-offer-wide > .asa-cut .asa-photo { aspect-ratio: auto !important; height: 100%; min-height: 360px; }
+  .site-offer-wide > :not(.asa-cut) { grid-column: 2; }
+  .site-offer-wide > :not(.asa-cut) { margin-right: var(--asa-space-6); }
+  .site-offer-wide > .asa-tag { margin-top: var(--asa-space-6); }
+  .site-offer-wide > :last-child { margin-bottom: var(--asa-space-6); }
+}
+
+/* --------------------------------------------------------------------------
+   PASSOS NUMERADOS
+   A ordem informa (busca, cupom, preço), então o número aparece. Lista com
+   divisor, o número em negrito à esquerda; sem círculo e sem ícone.
+   -------------------------------------------------------------------------- */
+.site-steps {
+  list-style: none;
+  margin: var(--asa-space-7) 0 0;
+  padding: 0;
+  counter-reset: passo;
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.site-steps li {
+  counter-increment: passo;
+  display: grid;
+  grid-template-columns: 2.25em minmax(0, 1fr);
+  gap: var(--asa-space-3);
+  padding: var(--asa-space-5) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+}
+
+.site-steps li::before {
+  content: counter(passo);
+  font-size: var(--asa-fs-subtitle);
+  line-height: 1.2;
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-steps b { display: block; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); color: var(--asa-ink); }
+.site-steps p { margin: var(--asa-space-1) 0 0; color: var(--asa-ink-2); }
+
+.site-steps + .asa-alert { margin-top: var(--asa-space-7); }
+.site-steps + .asa-alert a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; font-weight: var(--asa-weight-medium); }
+
+/* Como usar o cupom + como o preço aparece: os passos à esquerda, o
+   resumo de exemplo à direita no desktop. */
+.site-howto {
+  display: grid;
+  gap: var(--asa-space-9);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-howto { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(48px, 6vw, 96px); } }
+
+.site-howto__price h3 { margin-bottom: var(--asa-space-3); }
+.site-howto__price > p { color: var(--asa-ink-2); }
+.site-howto__price .asa-summary { margin-top: var(--asa-space-6); }
+.site-howto__price .asa-summary__row span:last-child { color: var(--asa-ink-3); text-align: right; }
+.site-howto__price .asa-summary__row--total span:last-child { color: var(--asa-ink); }
+.site-howto__price a { display: inline-block; margin-top: var(--asa-space-5); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+
+/* --------------------------------------------------------------------------
+   ANTES DE CHEGAR AO BALCÃO
+   O H2 e o aviso à esquerda, a lista de conferência à direita. Cada item
+   abre com o fato em negrito; divisor entre eles, sem ícone de check.
+   -------------------------------------------------------------------------- */
+.site-check {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-check { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 5vw, 80px); } }
+
+.site-check__aside .asa-alert { margin-top: var(--asa-space-6); }
+.site-check__aside > p { margin-top: var(--asa-space-4); color: var(--asa-ink-2); }
+.site-check__aside > a { display: inline-block; margin-top: var(--asa-space-6); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+
+.site-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.site-checklist li {
+  padding: var(--asa-space-5) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+  color: var(--asa-ink-2);
+}
+
+.site-checklist b { color: var(--asa-ink); }
+
+/* --------------------------------------------------------------------------
+   REGRAS DO CUPOM
+   Lista de definições em linhas: o assunto à esquerda, a regra à direita.
+   Visível sem clique, porque aqui as regras são o conteúdo.
+   -------------------------------------------------------------------------- */
+.site-terms {
+  margin: var(--asa-space-8) 0 0;
+  border-top: var(--asa-border-width) solid var(--asa-line);
+  max-width: 960px;
+}
+
+.site-terms > div {
+  display: grid;
+  gap: var(--asa-space-1) var(--asa-space-7);
+  padding: var(--asa-space-4) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+}
+
+@media (min-width: 768px) { .site-terms > div { grid-template-columns: 14em minmax(0, 1fr); } }
+
+.site-terms dt { font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-terms dd { margin: 0; color: var(--asa-ink-2); }
+
+/* --------------------------------------------------------------------------
+   DIÁRIA DE 27 HORAS NA TEMPORADA
+   O texto à esquerda; à direita, o exemplo de horário como um resumo: a
+   retirada, o limite da devolução e o que acontece depois.
+   -------------------------------------------------------------------------- */
+.site-clock {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: center;
+}
+
+@media (min-width: 1024px) { .site-clock { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(48px, 6vw, 96px); } }
+
+.site-clock__copy > p { color: var(--asa-ink-2); margin-top: var(--asa-space-4); }
+.site-clock__copy > a { display: inline-block; margin-top: var(--asa-space-6); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+
+.site-clock .asa-summary { padding: var(--asa-space-6); gap: var(--asa-space-4); }
+.site-clock .asa-summary__row { font-size: var(--asa-fs-body); }
+.site-clock .asa-summary__row span:last-child { font-weight: var(--asa-weight-bold); color: var(--asa-ink); text-align: right; }
+.site-clock__title { margin: 0; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); color: var(--asa-ink-3); }
+
+/* --------------------------------------------------------------------------
+   ROTEIROS DE TEMPORADA
+   Dois lugares lado a lado, cada um com a foto no corte de 8°, o nome, o
+   texto e o link para a página de destino. No Réveillon, um por aba.
+   -------------------------------------------------------------------------- */
+.site-routes {
+  display: grid;
+  gap: var(--asa-space-9) var(--asa-space-7);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) { .site-routes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.site-routes h3 { margin: var(--asa-space-5) 0 var(--asa-space-2); }
+.site-routes p { margin: 0; color: var(--asa-ink-2); }
+.site-routes p + p { margin-top: var(--asa-space-3); }
+.site-routes a { display: inline-block; margin-top: var(--asa-space-4); margin-right: var(--asa-space-5); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+
+.site-routes-note { margin-top: var(--asa-space-8); max-width: 760px; }
+
+/* Réveillon: abas Pernambuco | Ceará, e em cada painel a foto do estado ao
+   lado da lista de praias. */
+.site-tabpanel .site-places {
+  display: grid;
+  gap: var(--asa-space-7);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-tabpanel .site-places { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 5vw, 80px); } }
+
+.site-places ul { list-style: none; margin: 0; padding: 0; border-top: var(--asa-border-width) solid var(--asa-line); }
+.site-places li { padding: var(--asa-space-5) 0; border-bottom: 1px solid var(--asa-line-soft); color: var(--asa-ink-2); }
+.site-places li b { display: block; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); color: var(--asa-ink); }
+.site-places li a { display: block; width: fit-content; margin-top: var(--asa-space-2); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+
+/* --------------------------------------------------------------------------
+   CARROS DA TEMPORADA
+   A vitrine: três cards de veículo. O preço vem do motor de reservas; até
+   lá, o lugar dele fica marcado.
+   -------------------------------------------------------------------------- */
+.site-vehicles {
+  display: grid;
+  gap: var(--asa-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px)  { .site-vehicles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .site-vehicles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.site-vehicles > li { display: flex; }
+.site-vehicles > li > .asa-card { flex: 1; display: flex; flex-direction: column; }
+.site-vehicles .asa-card__body { flex: 1; }
+.site-vehicles .asa-card-vehicle__footer { margin-top: auto; align-items: flex-end; }
+
+.site-vehicle-price { display: grid; gap: 2px; font-size: var(--asa-fs-label); line-height: 1.35; color: var(--asa-ink-3); }
+.site-vehicle-price b { font-size: var(--asa-fs-body-dense); color: var(--asa-ink); }
+
+.site-vehicles-note { margin-top: var(--asa-space-6); font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+
+/* --------------------------------------------------------------------------
+   FECHAMENTO COM NOTA
+   -------------------------------------------------------------------------- */
+.site-closing__rating {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-2) var(--asa-space-5);
+  margin: var(--asa-space-4) 0 0;
+}
+
+.asa-bg-surface .asa-rating__source,
+.asa-bg-surface .asa-rating__count { color: var(--asa-ink-2); }
+
+.site-closing__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-2) var(--asa-space-5);
+  margin: var(--asa-space-4) 0 0;
+  font-size: var(--asa-fs-body-dense);
+}
+
+/* Estados da página de campanha e do cupom: o que é só da temporada some
+   fora dela, e vice-versa. O HTML traz os dois; o CMS escolhe. */
+[data-temporada][hidden], [data-fora][hidden] { display: none !important; }
+
+/* Prova com um depoimento só: ele ocupa a coluna inteira, na medida. */
+.site-proof-1 .asa-proof__quotes { grid-template-columns: 1fr; }
+.site-proof-1 .asa-testimonial { max-width: 560px; }
+
+.site-offers.site-offers--one { grid-template-columns: minmax(0, 1fr); }
+
+.site-places__from {
+  margin: 0 0 var(--asa-space-4);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-3);
+}

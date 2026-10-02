@@ -23,6 +23,12 @@ site/
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
+├── ofertas/             vitrine de ofertas com cupom, "como usar" e dúvidas (rascunho)
+│   ├── ofertas.js       estados da página: ?vazio, ?pausado, ?encerrada
+│   ├── primeira-locacao/   BEMVINDOASA: código, busca com o cupom aplicado, regras, prova (rascunho)
+│   ├── carnaval/        campanha de temporada: oferta, cuidados, balcão, diária, roteiros, carros (rascunho, noindex)
+│   ├── sao-joao/        campanha: roteiro do interior a partir de Recife (rascunho, noindex)
+│   └── reveillon/       campanha: roteiros em abas Pernambuco e Ceará (rascunho, noindex)
 ├── relacoes-com-investidores/   RI: a empresa, os 14 documentos publicados, contato (rascunho, noindex)
 ├── politica-de-privacidade/     política em 13 seções, com índice (rascunho para revisão jurídica)
 ├── politica-de-termos-e-condicoes/  termos em 14 seções, com índice e impressão (rascunho)
@@ -57,7 +63,8 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 
 A lista completa, com quem decide cada item, está em [PENDENCIAS.md](PENDENCIAS.md).
 
-- A busca não segue para o motor de reservas: mostra uma linha "Protótipo" no lugar.
+- A busca não segue para o motor de reservas: mostra uma linha "Protótipo" no lugar. O campo "Tenho um cupom" só aceita o BEMVINDOASA, para mostrar os estados de válido e inválido.
+- As páginas de oferta trazem os dois estados no mesmo HTML (`data-temporada` e `data-fora`). Em produção o CMS entrega só um; no protótipo, o outro abre pela URL: `/ofertas?vazio`, `/ofertas/primeira-locacao?pausado`, `/ofertas/carnaval?encerrada` (e São João, Réveillon).
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.
 - Fotos são placeholders. Produção exige foto real da Asa ou licença.
 - O banner de cookies (`asa-consent`) e a barra de primeira locação ainda não entram: a barra depende das regras do cupom BEMVINDOASA.
