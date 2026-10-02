@@ -1,0 +1,651 @@
+/* ==========================================================================
+   SITE ASA: a cola entre as páginas do site e a biblioteca.
+   Carregar depois dos quatro arquivos de css/. Aqui fica só o que é do
+   site e não é componente: o arranjo do cabeçalho com submenus, o menu do
+   celular, o rodapé em seis grupos, o botão do WhatsApp e o que cada
+   página precisa para encaixar as faixas. Tudo usa os tokens de
+   asa-tokens.css; nenhum valor de cor novo nasce aqui.
+   Quando algo daqui se repetir em três páginas, sobe para
+   asa-components.css e para 06 Componentes.
+   ========================================================================== */
+
+.site-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   CABEÇALHO
+   Utility bar + navbar da biblioteca. O submenu abre ao passar o mouse, ao
+   focar pelo teclado e pelo botão de seta ao lado de cada item.
+   -------------------------------------------------------------------------- */
+.asa-utilitybar > .asa-utilitybar__group:first-child { color: var(--asa-ink-inverse); }
+
+.site-nav { display: flex; align-items: stretch; }
+
+.site-nav__item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+}
+
+.site-nav__toggle {
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  background: none;
+  border: none;
+  color: var(--asa-ink-3);
+  cursor: pointer;
+}
+
+.site-nav__toggle .asa-icon { width: var(--asa-icon-dense); height: var(--asa-icon-dense); }
+
+.site-nav__panel {
+  top: calc(100% - 6px);
+  left: -12px;
+  min-width: 300px;
+  padding: var(--asa-space-2);
+}
+
+.site-nav__item[data-aberto] .site-nav__panel,
+.site-nav__item:not([data-fechado]):focus-within .site-nav__panel {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+@media (hover: hover) {
+  .site-nav__item:not([data-fechado]):hover .site-nav__panel {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+.site-nav__item[data-aberto] .site-nav__toggle .asa-icon { transform: scaleY(-1); }
+
+.site-menu__item {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding-block: var(--asa-space-2);
+  text-decoration: none;
+}
+
+.site-menu__item b { font-weight: var(--asa-weight-bold); }
+
+.site-menu__item span {
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  color: var(--asa-ink-3);
+}
+
+.site-menu__all {
+  font-weight: var(--asa-weight-bold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   MENU DO CELULAR
+   -------------------------------------------------------------------------- */
+.asa-navdrawer[data-state="closed"] { visibility: hidden; transition: visibility 0s var(--asa-dur-scene); }
+.asa-navdrawer[data-state="open"] { visibility: visible; }
+
+.site-drawer__group > summary {
+  justify-content: space-between;
+  list-style: none;
+  cursor: pointer;
+}
+
+.site-drawer__group > summary::-webkit-details-marker { display: none; }
+.site-drawer__group[open] > summary .asa-icon { transform: scaleY(-1); }
+
+.site-drawer__sub {
+  list-style: none;
+  margin: 0;
+  padding: var(--asa-space-1) 0 var(--asa-space-3);
+}
+
+.site-drawer__sub a {
+  display: flex;
+  align-items: center;
+  min-height: var(--asa-touch-min);
+  padding-left: var(--asa-space-3);
+  font-size: var(--asa-fs-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink-2);
+  text-decoration: none;
+}
+
+.site-drawer__foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--asa-space-3);
+  padding-top: var(--asa-space-4);
+  border-top: var(--asa-border-width) solid var(--asa-line-soft);
+}
+
+.site-drawer__title {
+  margin: 0;
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+html[data-drawer-aberto] { overflow: hidden; }
+
+/* --------------------------------------------------------------------------
+   RODAPÉ
+   asa-footer com os seis grupos da copy. No celular cada grupo é um
+   acordeão (<details>); a partir de 768px todos ficam abertos.
+   -------------------------------------------------------------------------- */
+.site-footer__top {
+  display: grid;
+  gap: var(--asa-space-7);
+  padding-bottom: var(--asa-space-7);
+  border-bottom: var(--asa-border-width) solid var(--asa-line-inverse);
+}
+
+@media (min-width: 1024px) {
+  .site-footer__top { grid-template-columns: 1fr auto; align-items: end; }
+}
+
+.site-footer__brand img { height: 28px; width: auto; }
+
+.site-footer__brand p,
+.site-footer__contact p {
+  margin: var(--asa-space-3) 0 0;
+  max-width: 46ch;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-inverse-2);
+}
+
+.site-footer__contact .site-footer__title {
+  margin: 0;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink-inverse);
+}
+
+.site-footer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-3);
+  margin-top: var(--asa-space-4);
+}
+
+.site-btn--on-dark {
+  color: var(--asa-ink-inverse);
+  border-color: var(--asa-line-inverse);
+}
+
+.site-btn--on-dark:hover:not(:disabled) {
+  color: var(--asa-ink-inverse);
+  border-color: var(--asa-ink-inverse);
+}
+
+.site-footer__hub { grid-template-columns: 1fr; gap: 0; }
+
+@media (min-width: 768px) {
+  .site-footer__hub { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--asa-space-7) var(--asa-space-6); }
+}
+
+@media (min-width: 1024px) {
+  .site-footer__hub { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+.site-footer__group > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--asa-touch-min);
+  margin: 0;
+  list-style: none;
+  cursor: pointer;
+  border-bottom: 1px solid var(--asa-line-inverse);
+}
+
+.site-footer__group > summary::-webkit-details-marker { display: none; }
+
+.site-footer__group > summary::after {
+  content: "+";
+  font-weight: var(--asa-weight-regular);
+  color: var(--asa-ink-inverse-2);
+}
+
+.site-footer__group[open] > summary::after { content: "−"; }
+
+.site-footer__group[open] { padding-bottom: var(--asa-space-3); }
+
+@media (min-width: 768px) {
+  .site-footer__group > summary {
+    min-height: 0;
+    margin-bottom: var(--asa-space-3);
+    border-bottom: none;
+    pointer-events: none;
+  }
+  .site-footer__group > summary::after,
+  .site-footer__group[open] > summary::after { content: none; }
+  .site-footer__group[open] { padding-bottom: 0; }
+}
+
+.site-footer__places {
+  display: grid;
+  gap: var(--asa-space-6);
+  padding-top: var(--asa-space-7);
+  border-top: var(--asa-border-width) solid var(--asa-line-inverse);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+@media (min-width: 768px) {
+  .site-footer__places { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.site-footer__places address { font-style: normal; }
+
+.site-footer__places b {
+  display: block;
+  margin-bottom: var(--asa-space-1);
+  color: var(--asa-ink-inverse);
+}
+
+.site-footer__places .asa-footer__link { margin-top: var(--asa-space-2); color: var(--asa-ink-inverse); text-decoration: underline; text-underline-offset: 3px; }
+
+.site-footer__note {
+  margin: 0;
+  max-width: none;
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  color: var(--asa-ink-inverse-2);
+}
+
+/* --------------------------------------------------------------------------
+   WHATSAPP
+   Botão amarelo fixo (secundário: suporte, nunca a ação principal). Abre um
+   cartão com três assuntos, para a mensagem sair com contexto.
+   -------------------------------------------------------------------------- */
+.site-fab {
+  position: fixed;
+  right: var(--asa-space-4);
+  bottom: var(--asa-space-4);
+  z-index: var(--asa-z-dropdown);
+}
+
+.site-fab[data-oculto] { display: none; }
+
+.site-fab__btn {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: var(--asa-border-width) solid var(--asa-ink);
+}
+
+.site-fab__btn .asa-icon { width: 24px; height: 24px; }
+
+.site-fab__label { display: none; }
+
+@media (hover: hover) and (min-width: 1024px) {
+  .site-fab__btn:hover { width: auto; padding: 0 var(--asa-space-5); }
+  .site-fab__btn:hover .site-fab__label { display: inline; }
+}
+
+.site-fab__panel {
+  right: 0;
+  bottom: calc(100% + var(--asa-space-2));
+  width: min(320px, calc(100vw - 32px));
+}
+
+.site-fab[data-aberto] .site-fab__panel {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.site-fab__title {
+  margin: 0;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+}
+
+.site-fab__text {
+  margin: var(--asa-space-1) 0 0;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-2);
+}
+
+.site-fab .asa-menu__item { text-decoration: none; font-weight: var(--asa-weight-medium); }
+
+/* --------------------------------------------------------------------------
+   BUSCA COMPACTA
+   asa-search com local e as duas datas. As linhas de apoio (diária de 27
+   horas, cancelamento, requisitos) ficam abaixo, em 12px.
+   -------------------------------------------------------------------------- */
+.site-booking { gap: var(--asa-space-4); }
+
+.site-booking .asa-field__error[hidden] { display: none; }
+
+.site-booking__lines {
+  display: grid;
+  gap: var(--asa-space-1);
+  padding-top: var(--asa-space-3);
+  border-top: var(--asa-border-width) solid var(--asa-line-soft);
+}
+
+.site-booking__lines p {
+  margin: 0;
+  max-width: none;
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  color: var(--asa-ink-3);
+}
+
+.site-booking__lines b { color: var(--asa-ink); font-weight: var(--asa-weight-bold); }
+
+.site-booking__lines a {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-booking__status:empty { display: none; }
+
+.site-booking__status {
+  margin: 0;
+  max-width: none;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+}
+
+/* --------------------------------------------------------------------------
+   ABERTURA DE PÁGINA INFORMATIVA
+   Blog, regras, proteções: data-page-mode="informational" deixa o amarelo
+   só no cabeçalho e no logo (13 Roadmap, proporção por arquétipo). A
+   abertura é cinza mist: trilha, H1 em Registro 1 e o lide. Sem marca
+   d'água, que só existe sobre amarelo.
+   -------------------------------------------------------------------------- */
+.site-opening { padding-block: clamp(32px, 5vw, 72px) clamp(40px, 5vw, 80px); }
+
+.site-opening .asa-breadcrumb { margin-bottom: clamp(20px, 3vw, 32px); }
+
+.site-opening .asa-lead { margin-top: var(--asa-space-5); }
+
+.site-opening__meta {
+  margin: var(--asa-space-5) 0 0;
+  max-width: none;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-opening__meta b { color: var(--asa-ink); font-weight: var(--asa-weight-medium); }
+
+/* --------------------------------------------------------------------------
+   BLOG
+   -------------------------------------------------------------------------- */
+/* Destaque: a faixa editorial com o artigo escolhido. Sem card: a foto com
+   o corte de 8° e o texto ao lado. */
+.site-feature .asa-editorial__media { border-radius: 0; }
+
+.site-feature__meta {
+  margin: var(--asa-space-4) 0 0;
+  max-width: none;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-feature__meta b { color: var(--asa-ink-2); font-weight: var(--asa-weight-medium); }
+
+.site-feature .asa-btn { margin-top: var(--asa-space-7); }
+
+.site-blog__tabs { margin-bottom: var(--asa-space-8); }
+
+.site-blog__grid {
+  display: grid;
+  gap: var(--asa-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 640px)  { .site-blog__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .site-blog__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.site-blog__grid > li { display: flex; }
+.site-blog__grid > li > .asa-card-article { flex: 1; }
+.site-blog__grid > li[hidden] { display: none; }
+
+.site-blog__count {
+  margin: 0 0 var(--asa-space-4);
+  max-width: none;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-blog__pages { margin-top: var(--asa-space-9); }
+
+.site-blog__pages .asa-pagination { list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+
+.site-blog__pages .asa-pagination__item--text { padding-inline: var(--asa-space-3); }
+
+.site-blog__empty[hidden] { display: none; }
+
+.site-blog__empty .asa-btn { margin-top: var(--asa-space-2); }
+
+/* Faixa de reserva: H2 e lide em cima; a foto da estrada em largura total,
+   com o topo subindo a 8° (asa-cut__under); a busca sobe por cima da base
+   da foto, sem corte, porque é contêiner interativo. */
+.site-roadband { padding-bottom: var(--asa-section-pad-y); }
+
+.site-roadband__head { margin-bottom: var(--asa-space-8); }
+
+.site-roadband__head .asa-lead a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+.site-roadband__media .asa-photo { height: clamp(260px, 34vw, 460px); }
+
+.site-roadband__search { position: relative; z-index: 1; margin-top: clamp(-160px, -12vw, -64px); }
+
+.site-roadband__search .asa-search {
+  max-width: 1040px;
+  border: var(--asa-border-width) solid var(--asa-line);
+}
+
+/* --------------------------------------------------------------------------
+   ARTIGO
+   Texto na medida de 640px; no desktop o resumo da viagem gruda ao lado.
+   -------------------------------------------------------------------------- */
+.site-article {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .site-article { grid-template-columns: minmax(0, 640px) 320px; justify-content: space-between; }
+}
+
+.site-article__figure { margin: 0 0 var(--asa-space-8); }
+
+.site-article__figure figcaption {
+  margin-top: var(--asa-space-2);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-ink-3);
+}
+
+.site-article__answer {
+  font-size: var(--asa-fs-lead);
+  line-height: var(--asa-lh-lead);
+  color: var(--asa-ink);
+}
+
+.site-summary__title {
+  margin: 0;
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-summary .asa-summary__row span:last-child {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+  text-align: right;
+}
+
+.site-summary__note {
+  margin: 0;
+  max-width: none;
+  font-size: var(--asa-fs-label);
+  line-height: var(--asa-lh-label);
+  color: var(--asa-ink-3);
+}
+
+/* No celular o resumo vem logo depois da resposta, no fluxo do texto; no
+   desktop ele sai do texto e gruda na coluna da direita. */
+.site-summary--inline { margin: 0 0 var(--asa-space-7); }
+
+@media (min-width: 1024px) {
+  .site-summary--inline { display: none; }
+}
+
+/* Busca dentro do texto, depois do segundo H2: o mesmo motor, num bloco
+   mist que sai da medida do texto. */
+.site-article__booking {
+  margin: var(--asa-space-8) 0;
+  padding: var(--asa-space-6);
+  background: var(--asa-bg);
+  border-radius: var(--asa-radius);
+}
+
+.site-article__booking-title {
+  margin: 0 0 var(--asa-space-4);
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-article__booking .asa-search { padding: 0; background: transparent; }
+
+@media (min-width: 768px) {
+  .site-article__booking .asa-search__row { grid-template-columns: 1fr 1fr; }
+  .site-article__booking .asa-search__row > :first-child,
+  .site-article__booking .asa-search__row > .asa-btn { grid-column: 1 / -1; }
+}
+
+.site-article__fleet {
+  margin: 0 0 var(--asa-space-4);
+  padding: 0;
+  list-style: none;
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.site-article__fleet li {
+  display: grid;
+  gap: 2px var(--asa-space-4);
+  padding: var(--asa-space-4) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+}
+
+@media (min-width: 640px) {
+  .site-article__fleet li { grid-template-columns: 180px 1fr; }
+}
+
+.site-article__fleet b { color: var(--asa-ink); }
+
+.site-article__pending {
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  color: var(--asa-warn);
+  font-weight: var(--asa-weight-medium);
+}
+
+.site-roadband__media .asa-photo__caption { top: calc(min(14.05cqw, 45%) + var(--asa-space-3)); bottom: auto; }
+
+/* Aviso curto (número copiado). Some sozinho. */
+.site-toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--asa-space-6);
+  z-index: var(--asa-z-toast);
+  transform: translateX(-50%);
+  padding: var(--asa-space-3) var(--asa-space-4);
+  background: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+  border-radius: var(--asa-radius);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+  font-weight: var(--asa-weight-medium);
+}
+
+.site-toast:empty { display: none; }
+
+/* --------------------------------------------------------------------------
+   PÁGINAS DE ERRO
+   -------------------------------------------------------------------------- */
+.site-opening__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--asa-space-3);
+  margin-top: var(--asa-space-7);
+}
+
+.site-opening__search { margin-top: var(--asa-space-7); }
+
+.site-opening__search .asa-search { border: var(--asa-border-width) solid var(--asa-line); }
+
+.site-links__list {
+  list-style: none;
+  margin: var(--asa-space-7) 0;
+  padding: 0;
+  max-width: var(--asa-measure);
+  border-top: var(--asa-border-width) solid var(--asa-line);
+}
+
+.site-links__list a {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  border-bottom: 1px solid var(--asa-line-soft);
+  font-size: var(--asa-fs-highlight);
+  line-height: var(--asa-lh-highlight);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.site-links__list a:hover { color: var(--asa-action-hover); }
+
+.site-blog__grid[hidden] { display: none; }
+
+.asa-tabs__tab[hidden] { display: none; }
+
+/* Legenda do placeholder no alto da foto cortada: embaixo, o corte de 8°
+   fatiaria a legenda longa. */
+.asa-cut__media .asa-photo__caption { top: var(--asa-space-3); bottom: auto; right: var(--asa-space-3); }
+
+/* Dentro do texto corrido, a margem de parágrafo e o recuo de lista da
+   prose não valem para o resumo nem para a lista da frota. */
+.asa-prose .site-summary p { margin: 0; }
+.asa-prose .site-article__fleet { padding-left: 0; }
+.asa-prose .site-article__booking p { margin: 0; }
+.asa-prose .site-article__booking .site-article__booking-title { margin-bottom: var(--asa-space-4); }
