@@ -2219,3 +2219,156 @@ button.site-booking-card__link { min-height: 0; padding: 0; }
 .site-checkin-duo h3 { margin: 0 0 var(--asa-space-4); }
 .site-booking-card__row { margin: 0; font-size: var(--asa-fs-body-dense); }
 .site-lookup h1 + .asa-lead, .site-checkin-top h1 + .asa-lead { margin-top: var(--asa-space-5); }
+
+/* --------------------------------------------------------------------------
+   FROTA (/frota e as seis categorias)
+   Hero com o "a partir de" no cartão branco da busca (vermelho não vai
+   sobre amarelo), cards de veículo com o preço do frota.js, a tabela dos
+   15 grupos com filtros em chips, colunas de texto (roteiros, fatos) e a
+   barra de reserva do celular.
+   -------------------------------------------------------------------------- */
+body[data-page-type^="frota"] [hidden] { display: none !important; }
+
+.site-hero__groups { margin: var(--asa-space-4) 0 0; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-hero-fleet .site-hero__groups + .asa-lead { margin-top: var(--asa-space-3); }
+.site-hero__proof { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--asa-space-2) var(--asa-space-5); margin: var(--asa-space-5) 0 0; }
+.site-hero__since { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+
+.site-hero-price { padding-bottom: var(--asa-space-4); margin-bottom: var(--asa-space-4); border-bottom: 1px solid var(--asa-line-soft); }
+.site-hero-price .asa-price { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: var(--asa-space-1) var(--asa-space-3); }
+.site-hero-price .asa-price__value { font-size: clamp(30px, 3.4vw, 44px); }
+.site-hero-price .asa-skeleton--title { height: 36px; margin: 0; }
+.site-hero-price__pending { margin: calc(-1 * var(--asa-space-2)) 0 var(--asa-space-4); font-size: var(--asa-fs-label); max-width: none; }
+.site-hero-price__pending:not(:has(.site-pending)) { display: none; }
+
+.site-booking__grupo { margin: var(--asa-space-3) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-booking__grupo b { color: var(--asa-ink); }
+.site-booking__grupo .asa-btn--link { min-height: 0; padding: 0; vertical-align: baseline; }
+
+/* Cards da categoria: dois ou três; com dois, a grade não abre a terceira coluna vazia. */
+@media (min-width: 1024px) {
+  .site-vehicles--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; }
+}
+.site-fcard .asa-card-vehicle__specs b { font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-fcard__text { margin: var(--asa-space-1) 0 0; font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); color: var(--asa-ink-2); max-width: none; }
+.site-vcard__price .asa-price__note { color: var(--asa-ink-2); }
+.site-vcard__price .asa-skeleton { margin: 0; }
+.site-fcard[data-esgotado] .site-vcard__media { filter: grayscale(1); opacity: .45; }
+
+.site-fleet-status { margin: 0 0 var(--asa-space-5); font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: 760px; }
+.site-fleet-status:empty { display: none; }
+.site-fleet-status a, .site-fleet-empty a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-fleet-alert:empty { display: none; }
+.site-fleet-alert { margin-bottom: var(--asa-space-6); max-width: 760px; }
+.site-fleet-alert .site-actions { margin-top: var(--asa-space-3); }
+
+/* Listas com divisor: "para quem" e "considere outra categoria". Sem ícone. */
+.site-list { list-style: none; margin: 0; padding: 0; }
+.site-list li { padding: var(--asa-space-4) 0; border-top: 1px solid var(--asa-line-soft); color: var(--asa-ink-2); }
+.site-list li:last-child { border-bottom: 1px solid var(--asa-line-soft); }
+.site-list b { color: var(--asa-ink); }
+.site-list a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-fleet-duo { margin-top: var(--asa-space-7); }
+.site-fleet-duo h3 { margin: 0 0 var(--asa-space-4); }
+.site-check__aside > p + p { margin-top: var(--asa-space-3); }
+.site-check__aside > p a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Roteiros: com três lugares, três colunas no desktop. */
+@media (min-width: 1024px) { .site-routes--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Fatos curtos em colunas, com fio preto no topo (regras, diária, pontos de atenção). */
+.site-trio { display: grid; gap: var(--asa-space-7); list-style: none; margin: 0; padding: 0; }
+@media (min-width: 768px) { .site-trio--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .site-trio--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.site-trio > li { display: grid; align-content: start; gap: var(--asa-space-2); padding-top: var(--asa-space-5); border-top: 2px solid var(--asa-ink); }
+.site-trio h3, .site-trio p { margin: 0; }
+.site-trio p { color: var(--asa-ink-2); }
+.site-trio a { justify-self: start; margin-top: var(--asa-space-2); font-weight: var(--asa-weight-bold); font-size: var(--asa-fs-body-dense); }
+.site-trio__after { margin-top: var(--asa-space-7); max-width: 760px; color: var(--asa-ink-2); }
+.site-trio__after a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-trio__after.site-actions { display: flex; flex-wrap: wrap; gap: var(--asa-space-3); }
+
+.site-fleet-compare { margin-top: var(--asa-space-8); max-width: 560px; }
+.site-fleet-compare h3 { margin: 0 0 var(--asa-space-4); }
+.site-fleet-manual { max-width: 760px; }
+.site-fleet-manual p { margin: var(--asa-space-4) 0 0; color: var(--asa-ink-2); }
+.site-fleet-similar { max-width: 760px; }
+.site-fleet-similar .asa-prose { margin-top: var(--asa-space-5); }
+.site-fleet-similar .asa-alert { margin-top: var(--asa-space-6); }
+
+.site-tabpanel__more { margin: var(--asa-space-5) 0 0; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); }
+.site-tabpanel__empty { margin: 0 0 var(--asa-space-5); color: var(--asa-ink-2); }
+.site-tabpanel:focus-visible { outline: 2px solid var(--asa-ink); outline-offset: 4px; }
+
+/* Hub: os seis usos. O card inteiro é clicável pelo link (pseudo-elemento). */
+.site-ucard .site-ucard__link { align-self: flex-start; margin-top: auto; }
+.site-ucard .site-fcard__text { margin-bottom: var(--asa-space-3); }
+.site-ucard__link::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.site-ucard:has(.site-ucard__link:hover) { border-color: var(--asa-ink); }
+
+/* Hub: filtros em chips, por grupo. */
+.site-ffilters { display: flex; flex-wrap: wrap; gap: var(--asa-space-4) var(--asa-space-7); margin-top: var(--asa-space-7); }
+.site-ffilters__group { display: grid; gap: var(--asa-space-2); }
+.site-ffilters__label { font-size: var(--asa-fs-label); font-weight: var(--asa-weight-medium); color: var(--asa-ink-3); }
+.site-ffilters__chips { display: flex; flex-wrap: wrap; gap: var(--asa-space-2); }
+@media (max-width: 767px) {
+  .site-ffilters { display: grid; gap: var(--asa-space-3); }
+  .site-ffilters__group { grid-template-columns: 64px minmax(0, 1fr); align-items: center; }
+}
+.site-ffilters__bar { display: flex; align-items: center; gap: var(--asa-space-4); margin: var(--asa-space-6) 0 var(--asa-space-3); min-height: var(--asa-touch-min); }
+.site-ffilters__count { margin: 0; font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+
+/* Hub: a tabela dos 15 grupos. No desktop, tabela; abaixo de 768px, cada
+   linha vira um bloco: grupo e modelo, a ficha numa linha, a categoria e
+   o preço. A unidade ("lugares") só aparece no bloco: na tabela, o
+   cabeçalho já diz. */
+.site-fleet-wrap { background: var(--asa-bg-elevated); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+.site-fleet { width: 100%; border-collapse: collapse; font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); }
+.site-fleet th, .site-fleet td { padding: var(--asa-space-3) var(--asa-space-3); text-align: left; vertical-align: middle; border-bottom: 1px solid var(--asa-line-soft); }
+.site-fleet thead th { font-size: var(--asa-fs-label); font-weight: var(--asa-weight-medium); color: var(--asa-ink-3); border-bottom: var(--asa-border-width) solid var(--asa-line); white-space: nowrap; }
+.site-fleet tbody tr:last-child > * { border-bottom: 0; }
+.site-fleet__g { font-weight: var(--asa-weight-black); font-style: italic; font-size: var(--asa-fs-body); color: var(--asa-ink); width: 1%; white-space: nowrap; }
+.site-fleet__model { font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-fleet__similar { font-weight: var(--asa-weight-regular); color: var(--asa-ink-3); }
+.site-fleet td { color: var(--asa-ink-2); }
+.site-fleet__cats a { color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+.site-fleet__price { white-space: nowrap; }
+.site-fleet__value { display: inline-grid; gap: 0; margin-right: var(--asa-space-2); vertical-align: middle; }
+.site-fleet__value:empty { display: none; }
+.site-fleet__value b { font-size: var(--asa-fs-body); color: var(--asa-ink); font-variant-numeric: tabular-nums; }
+.site-fleet__value span { font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-fleet__price .asa-btn--link { min-height: 32px; padding: 0; }
+.site-fleet tr[data-esgotado] .site-fleet__model { color: var(--asa-ink-3); }
+.site-fleet__unit { display: none; }
+.site-fleet-empty { padding: var(--asa-space-7) var(--asa-space-5); text-align: center; background: var(--asa-bg-elevated); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+.site-fleet-empty p { margin: 0 auto var(--asa-space-4); color: var(--asa-ink-2); }
+
+@media (max-width: 767px) {
+  .site-fleet-wrap { background: none; border: 0; }
+  .site-fleet thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .site-fleet, .site-fleet tbody { display: block; }
+  .site-fleet tbody tr { display: block; padding: var(--asa-space-4); margin-bottom: var(--asa-space-3); background: var(--asa-bg-elevated); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+  .site-fleet th, .site-fleet td { display: inline; padding: 0; border: 0; }
+  .site-fleet__g::after { content: " · "; font-weight: var(--asa-weight-regular); font-style: normal; color: var(--asa-ink-3); }
+  .site-fleet__model { display: inline; font-size: var(--asa-fs-body); }
+  .site-fleet__model::after { content: ""; display: block; margin-bottom: var(--asa-space-2); }
+  .site-fleet__unit { display: inline; }
+  .site-fleet td[data-label="Malas"] { white-space: nowrap; }
+  .site-fleet td[data-label="Tipo"], .site-fleet td[data-label="Câmbio"], .site-fleet td[data-label="Lugares"], .site-fleet td[data-label="Portas"] { color: var(--asa-ink-2); }
+  .site-fleet td[data-label="Tipo"]::after, .site-fleet td[data-label="Câmbio"]::after, .site-fleet td[data-label="Lugares"]::after, .site-fleet td[data-label="Portas"]::after { content: " · "; color: var(--asa-ink-3); }
+  .site-fleet td.site-fleet__cats { display: block; margin-top: var(--asa-space-2); }
+  .site-fleet__cats::before { content: "Categoria: "; color: var(--asa-ink-3); }
+  .site-fleet td.site-fleet__price { display: flex; align-items: center; justify-content: space-between; gap: var(--asa-space-3); margin-top: var(--asa-space-3); padding-top: var(--asa-space-3); border-top: 1px solid var(--asa-line-soft); white-space: normal; }
+  .site-fleet__price .asa-btn--link { margin-left: auto; }
+}
+
+/* Barra de reserva do celular (asa-summary--bar). */
+.site-fleetbar { transition: transform var(--asa-dur-fast) var(--asa-ease); }
+.site-fleetbar.site-sumbar--fora { visibility: hidden; transform: translateY(100%); }
+.site-fleetbar .site-sumbar__total b { font-size: var(--asa-fs-body); }
+@media (max-width: 1023px) {
+  body[data-page-type="frota-categoria"] { padding-bottom: 76px; }
+  body[data-page-type="frota-categoria"] .site-fab { bottom: 88px; }
+}
+@media (prefers-reduced-motion: reduce) { .site-fleetbar { transition: none; } }
+.site-fleet-status:focus { outline: none; }

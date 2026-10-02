@@ -298,7 +298,9 @@
         // Diárias pela regra das 27 horas: as 3 primeiras horas além de cada 24 não abrem diária nova.
         dias: Math.max(1, Math.ceil((fim - ini - 3 * 3600 * 1000) / 864e5)),
         antecedencia: Math.max(0, Math.floor((ini - Date.now()) / 864e5)),
-        cupom_aplicado: aplicado
+        cupom_aplicado: aplicado,
+        categoria: form.dataset.categoria || '',
+        grupo: form.dataset.grupo || ''
       });
       btn.disabled = true;
       btn.setAttribute('data-state', 'loading');
@@ -307,12 +309,23 @@
       // aceito). Em produção quem responde é o motor de reservas.
       var q = new URLSearchParams({ local: local.value, retirada: pick.value, devolucao: ret.value });
       if (aplicado) q.set('cupom', aplicado);
-      location.href = (form.getAttribute('action') || '/reservas-online') + '?' + q.toString();
+      var destino = form.getAttribute('action') || '/reservas-online';
+      // Páginas da frota: com um grupo escolhido ("Reservar grupo X"), a
+      // busca vai direto para a etapa 2; sem grupo, para a vitrine já
+      // filtrada pela categoria (data-filtro). Grupo esgotado volta à vitrine.
+      var g = form.dataset.grupo, F = window.AsaFunil;
+      if (g && !(F && F.grupo(g) && F.grupo(g).esgotado)) {
+        destino = '/reservas-online/adicionais';
+        q.set('grupo', g);
+      } else if (form.dataset.filtro) {
+        new URLSearchParams(form.dataset.filtro).forEach(function (v, k) { q.set(k, v); });
+      }
+      location.href = destino + '?' + q.toString();
     });
     form.resetBusca = function () {
       btn.disabled = false;
       btn.removeAttribute('data-state');
-      label.textContent = idle;
+      label.textContent = form.dataset.grupo ? 'Continuar com o grupo ' + form.dataset.grupo : idle;
     };
     // Voltar pelo histórico devolve a página com o botão ainda em "Buscando".
     addEventListener('pageshow', function (e) { if (e.persisted) form.resetBusca(); });
