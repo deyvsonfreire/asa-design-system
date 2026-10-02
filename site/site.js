@@ -563,6 +563,11 @@
     a.addEventListener('click', function () { track('click_reviews', { loja: a.dataset.reviews }); });
   });
 
+  /* ---------- Pré-cadastro (página-ponte): precadastro_click ---------- */
+  $$('[data-precadastro-click]').forEach(function (a) {
+    a.addEventListener('click', function () { track('precadastro_click', { link_url: a.href, page_type: page, placement: a.dataset.precadastroClick }); });
+  });
+
   /* ---------- Clique em card de artigo ---------- */
   $$('[data-slug]').forEach(function (card) {
     var link = $('a', card);

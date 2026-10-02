@@ -2154,3 +2154,68 @@ body[data-page-type="funil-confirmacao"] .site-fab { bottom: var(--asa-space-4);
    o código Pix são campos longos). */
 .site-confirm__main, .site-funnel__main { grid-template-columns: minmax(0, 1fr); }
 .site-pay__choice { justify-content: flex-start; }
+
+/* --------------------------------------------------------------------------
+   MINHA RESERVA
+   Consulta por localizador e CPF num painel branco (como a busca do hero),
+   o cartão da reserva (asa-card-booking) com status em texto e ícone, e a
+   passagem para o WhatsApp na versão sem integração.
+   -------------------------------------------------------------------------- */
+.site-lookup { align-items: start; }
+.site-lookup h1 { font-size: clamp(32px, 4.4vw, 52px); }
+.site-lookup__note { margin: var(--asa-space-5) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: 520px; }
+.site-lookup__note a, .site-result__small a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-lookup__card {
+  padding: clamp(16px, 2vw, 24px);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  display: grid;
+  gap: var(--asa-space-4);
+  min-width: 0;
+}
+.site-lookup__card [hidden] { display: none !important; }
+.site-lookup__form { margin-top: 0; gap: var(--asa-space-4); }
+.site-lookup__help { justify-self: center; }
+
+.site-result [hidden] { display: none !important; }
+.site-result__b { display: grid; gap: var(--asa-space-4); max-width: 760px; }
+.site-result__b > * { margin: 0; }
+.site-result__b h2:focus, .site-booking-card__title:focus { outline: none; }
+.site-result__small { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+.site-result__extra { display: grid; gap: var(--asa-space-2); justify-items: start; margin-top: var(--asa-space-4); padding-top: var(--asa-space-6); border-top: 1px solid var(--asa-line-soft); }
+.site-result__extra h3, .site-result__extra p { margin: 0; }
+.site-result__extra p { color: var(--asa-ink-2); }
+.site-result__extra .asa-btn { margin-top: var(--asa-space-2); }
+
+.site-booking-card { max-width: 760px; }
+.site-booking-card .asa-card-booking__header { padding: var(--asa-space-5) var(--asa-space-5) 0; flex-wrap: wrap; }
+.site-booking-card .asa-card-booking__body { padding: var(--asa-space-4) var(--asa-space-5); gap: var(--asa-space-4); }
+.site-booking-card__title { margin: 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-booking-card__title .asa-card-booking__code { font-size: inherit; color: var(--asa-ink); letter-spacing: .04em; }
+.site-status { display: inline-flex; align-items: center; gap: 6px; }
+.site-status .asa-icon { width: 14px; height: 14px; }
+.site-booking-card__rows { margin: 0; display: grid; }
+.site-booking-card__rows > div { display: grid; gap: 2px var(--asa-space-4); padding: var(--asa-space-3) 0; border-top: 1px solid var(--asa-line-soft); }
+@media (min-width: 640px) { .site-booking-card__rows > div { grid-template-columns: 140px minmax(0, 1fr); } }
+.site-booking-card__rows dt { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+.site-booking-card__rows dd { margin: 0; color: var(--asa-ink); }
+.site-booking-card__actions { display: grid; gap: var(--asa-space-3); justify-items: start; padding: var(--asa-space-4) var(--asa-space-5) var(--asa-space-5); border-top: 1px solid var(--asa-line-soft); }
+.site-booking-card__actions[hidden] { display: none; }
+.site-booking-card__main { display: grid; gap: var(--asa-space-2); justify-items: start; padding-bottom: var(--asa-space-2); }
+.site-booking-card__main p, .site-booking-card__late { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-booking-card__link { font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+button.site-booking-card__link { min-height: 0; padding: 0; }
+.site-booking-card__late a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* --------------------------------------------------------------------------
+   PRÉ-CADASTRO (página-ponte)
+   -------------------------------------------------------------------------- */
+.site-checkin-top { align-items: center; }
+.site-checkin-top h1 { font-size: clamp(32px, 4.4vw, 52px); }
+.site-checkin-top .site-actions { margin-top: var(--asa-space-6); }
+.site-checkin-top__note { margin: var(--asa-space-3) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3); }
+.site-checkin-duo { margin-top: var(--asa-space-7); }
+.site-checkin-duo h3 { margin: 0 0 var(--asa-space-4); }
+.site-booking-card__row { margin: 0; font-size: var(--asa-fs-body-dense); }
+.site-lookup h1 + .asa-lead, .site-checkin-top h1 + .asa-lead { margin-top: var(--asa-space-5); }

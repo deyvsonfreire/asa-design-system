@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação).
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva e o pré-cadastro.
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home e as quatro etapas da reserva), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva e o pré-cadastro), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -147,6 +147,21 @@ Já estão em 00c: coberturas, franquia e qual proteção é obrigatória (C1), 
 | F13 | **Confirmação:** a confirmação também vai por WhatsApp? O voucher em PDF é gerado pelo sistema (hoje, "Imprimir ou salvar em PDF" usa o navegador)? O e-mail pode ser corrigido pelo site? Qual o formato do localizador? | Etapa 4 | TI |
 | F14 | **Fortaleza:** a sinalização exata até a Área de Locadoras no terminal (o texto de Recife está confirmado). | Etapa 4 | Operação |
 
+## 3g. Minha reserva e pré-cadastro
+
+Já estão em 00c: o pré-cadastro e o que ele coleta (O13), o voo e a tolerância (O4), o encarregado de dados (seção 4 desta lista). Aqui fica o que as duas páginas acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| M1 | **Integração com o Sankhya:** sem ela, `/minha-reserva` vai ao ar na versão B (valida só o formato e segue para o WhatsApp com o localizador). Com ela, a versão A: consulta, status, cancelamento e voucher no site. As duas estão prontas no mesmo HTML. | Minha reserva | TI |
+| M2 | **Localizador:** o formato (para a máscara e a validação) e o assunto exato do e-mail de confirmação. No protótipo, aceita de 6 a 12 letras e números com hífen opcional. | Minha reserva, Confirmação | TI |
+| M3 | **Status que o sistema devolve:** a copy prevê Confirmada, Aguardando pagamento, Cancelada e Concluída. | Minha reserva | TI |
+| M4 | **Cancelamento:** prazo de estorno do pagamento antecipado, regra com menos de 24h e no-show, e se cancelar e alterar podem ser feitos pelo site. Os termos de hoje falam em multa de 30% a 70% em todo cancelamento e reembolso de 30% no no-show, o que conflita com "grátis até 24h". | Minha reserva, Dúvidas, Termos | Jurídico + operação |
+| M5 | **Bloqueio por tentativas:** quantas tentativas e por quanto tempo (no protótipo, 5 tentativas e "15 minutos" pendente). Em produção, no servidor, por IP e por localizador, com a mesma mensagem quando o CPF não bate. | Minha reserva | TI |
+| K1 | **Pré-cadastro, o que falta além de O13:** aceita o PDF da CNH digital? Pede os dados do responsável financeiro? Como o cliente recebe a confirmação do envio? Há tempo médio medido (só com medição entra número)? | Pré-cadastro | Operação |
+| K2 | **Contrato:** a assinatura no balcão é física ou digital? | Pré-cadastro | Operação |
+| K3 | **Documentos e LGPD:** empresa terceira na validação ou no armazenamento, prazo de guarda, base legal e o e-mail do encarregado. | Pré-cadastro, Política de privacidade | Jurídico |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -209,6 +224,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T27 | **Estado do funil:** busca e escolhas (local, datas, cupom, grupo, upgrade, proteção, adicionais) ficam na URL e passam de etapa em etapa; dado pessoal nunca vai para a URL nem para o GA4. No protótipo, os dados da etapa 3 e a reserva feita ficam no `sessionStorage` da aba, que some ao fechar; em produção, na sessão do motor. Os campos do cartão não são guardados em lugar nenhum. A conta do preço é uma só (`site/reservas-online/funil.js`), usada da vitrine à confirmação. | Funil |
 | T28 | **Eventos do funil no GTM:** `view_item`, `view_promotion` e `select_promotion` (upgrade, com delta_price_day), `add_to_cart` e `remove_from_cart` (proteção, adicionais, upgrade), `view_cart`, `begin_checkout`, `add_payment_info` (credito_online, pix_online, pagar_retirada), `checkout_option` (booking_for, card_owner), `checkout_error` (error_field, error_type), `purchase` (uma vez por localizador; no Pix, só quando cai), `pix_pending`, `pix_code_copied`, `precadastro_click`, `voucher_download` e `generate_lead` (checkout_erro, tenho_reserva). Nenhum leva nome, CPF, e-mail ou telefone. | GTM, GA4 |
 | T29 | **Consentimentos do checkout:** registrar data, hora, versão dos textos aceitos e o valor de cada caixa; a de ofertas é opcional e nunca condiciona a reserva. | Etapa 3 |
+| T30 | **Eventos de Minha reserva e do pré-cadastro:** `manage_booking` (action consultar, com result encontrada, nao_encontrada, erro, bloqueada ou encaminhada e a version A ou B; e as ações do painel: precadastro, voucher, pagar_pix, alterar, cancelar_iniciar, cancelar_confirmar, com o booking_status), `refund` (só com o localizador como transaction_id), `generate_lead` (tenho_reserva, com a version) e `precadastro_click` (link_url, page_type, placement). Nada de localizador ou CPF fora do `refund`; nenhuma imagem ou dado da CNH em tag nenhuma. | GTM, GA4 |
+| T31 | **Pré-cadastro nativo:** quando o fluxo de `/checkin-express` existir (identificação, dados, foto da CNH, enviado, já escritos na copy), trocar o botão para o fluxo interno, revisar a indexação e redirecionar `precadastro.asalocadora.com.br` com 301. | Pré-cadastro |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -293,3 +310,10 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Etapa 4 | "Baixar voucher em PDF" | "Imprimir ou salvar em PDF", pelo navegador | O PDF do sistema não está confirmado (F13); a impressão já esconde cabeçalho, rodapé e botões |
 | Etapa 4 | Pré-cadastro com `asa-cut` de fundo | Faixa amarela curta, o único bloco de cor da etapa | Modo transacional: um bloco de cor por tela; o fechamento do sistema não leva foto |
 | Etapa 4 | "Abrir no Google Maps" com [CONFIRMAR] | Os links das fichas do Google, já conhecidos | Resolvido com o Google Business Profile |
+| Minha reserva | Uma versão por vez | As versões A e B no mesmo HTML; vai ao ar a B até a integração (M1) | A copy pede a B sem integração; a A fica pronta para quando houver |
+| Minha reserva | Formulário sem moldura | Os dois campos num painel branco ao lado do H1, como a busca do hero | A consulta é a tarefa da página; o painel a separa do texto sem virar card |
+| Minha reserva | "Baixar voucher em PDF" | "Ver o voucher", que abre a confirmação, com o PDF pendente | O PDF do sistema não está confirmado (F13) |
+| Minha reserva | Status por badge | Etiqueta com ícone e texto (Confirmada, Aguardando pagamento, Cancelada, Concluída), nunca só cor | Regra da copy, com a etiqueta da biblioteca |
+| Minha reserva | Contato com `generate_lead` | `generate_lead` (tenho_reserva) no lugar do `contact_click` das páginas de ajuda | A copy pede lead: quem tem reserva e chama a equipe é atendimento de venda feita |
+| Pré-cadastro | Topo com `asa-cut` e botão | Abertura dividida: texto e botão à esquerda, foto com o corte de 8° à direita | É o mesmo pedido, no padrão das aberturas informativas |
+| Pré-cadastro | Versão nativa (etapas 1 a 4) | Só a página-ponte; as etapas ficam na copy para quando o fluxo for construído | A própria copy diz que hoje o serviço está em outro endereço |

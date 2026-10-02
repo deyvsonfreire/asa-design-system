@@ -25,6 +25,8 @@ site/
 │   ├── adicionais/      etapa 2: carro escolhido, upgrade, proteção e adicionais, resumo (rascunho, noindex)
 │   ├── checkout/        etapa 3: para quem é, condutor, quem paga, pagamento e consentimentos (rascunho, noindex)
 │   └── confirmacao/     etapa 4: localizador, Pix, voucher, o que levar, balcão, pré-cadastro (rascunho, noindex)
+├── minha-reserva/       consulta por localizador e CPF: versão B (WhatsApp) e versão A (painel, ?versao=a) (minha-reserva.js; rascunho, noindex)
+├── checkin-express/     página-ponte do pré-cadastro: o que adianta, como fazer, documentos e LGPD (rascunho, noindex)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
