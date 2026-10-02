@@ -424,6 +424,12 @@
     }, 160);
     document.documentElement.classList.remove('site-travado');
     if (a.gatilho && document.contains(a.gatilho)) a.gatilho.focus();
+    // Gatilho que não recebe mais foco (o "Reservar" do menu do celular,
+    // que já fechou): o foco volta ao "Alterar busca" do resumo.
+    if (document.activeElement !== a.gatilho || a.sup.contains(document.activeElement)) {
+      var volta = $('[data-resumo] [data-abrir-busca]');
+      if (volta && !volta.closest('[hidden]')) volta.focus(); else document.body.focus();
+    }
   }
   document.addEventListener('keydown', function (e) {
     if (!aberta) return;
@@ -470,6 +476,13 @@
   }
   modoFiltros();
   desk.addEventListener('change', modoFiltros);
+  // O botão "Filtros" fica no pé só enquanto a lista está na tela: no rodapé
+  // ele cobriria os links.
+  var btnFiltros = $('[data-abrir-filtros]');
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { btnFiltros.classList.toggle('site-filters__open--fora', !es[0].isIntersecting); })
+      .observe($('[data-vitrine]'));
+  }
   $('[data-abrir-filtros]').addEventListener('click', function (e) { abrir(painel, $('.site-filters__veil', painel), e.currentTarget); });
   $$('[data-fechar-filtros]', painel).forEach(function (b) {
     b.addEventListener('click', function () {
@@ -542,6 +555,18 @@
       });
     }, 700);
   }
+
+  /* "Reservar" do cabeçalho e do menu do celular: aqui a busca já existe,
+     então ele abre "Alterar busca" em vez de levar à home. Sem busca
+     válida, rola até a busca aberta na página. */
+  $$('[data-reservar]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (buscaOk) { setTimeout(function () { abrirBusca(a); }, 0); return; }
+      busca.scrollIntoView({ behavior: LISO, block: 'center' });
+      busca.elements.local.focus({ preventScroll: true });
+    });
+  });
 
   /* Busca expirada: depois de 30 minutos na mesma aba, ou já pela URL. */
   var aviso = $('[data-expirada]');

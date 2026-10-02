@@ -263,3 +263,4 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Vitrine | "{nota_google} no Google · {total_avaliacoes} avaliações" | 4,7 no Google | D4 |
 | Vitrine | Slider de faixa de preço | Dois controles, "De" e "Até", com os valores escritos | Mesmo resultado, mais simples de usar no teclado e no leitor de tela |
 | Vitrine | Rodapé da lista com BenefitItem | Três itens em texto, sem ícone e sem card | Ícone decorativo sai |
+| Vitrine (e todo o funil) | Cabeçalho reduzido (logo, 0800, Minha reserva), sem menu, e WhatsApp só com o ícone (00-componentes-globais) | O cabeçalho e o rodapé de todas as páginas; o "Reservar" do cabeçalho abre "Alterar busca" | Decisão do usuário, 02/10: o site mantém um cabeçalho e um rodapé só. A copy de componentes globais precisa ser atualizada |

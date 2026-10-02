@@ -1734,33 +1734,6 @@ html[data-drawer-aberto] { overflow: hidden; }
 .asa-proof > .asa-section-head__copy .asa-lead,
 .asa-editorial h2 + .asa-lead { margin-top: var(--asa-space-4); }
 
-/* --------------------------------------------------------------------------
-   FUNIL: cabeçalho e rodapé reduzidos
-   Em /reservas-online/* o menu some: logo, o 0800 e "Minha reserva".
-   -------------------------------------------------------------------------- */
-.site-navbar--funnel { justify-content: space-between; }
-
-.site-navbar__funnel {
-  display: flex;
-  align-items: center;
-  gap: var(--asa-space-4);
-}
-
-.site-navbar__phone {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--asa-touch-min);
-  font-size: var(--asa-fs-body-dense);
-  font-weight: var(--asa-weight-medium);
-  color: var(--asa-ink);
-  text-decoration: none;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
-}
-
-.site-footer--funnel .asa-footer__bottom { margin-top: 0; padding-top: 0; border-top: none; }
-.site-footer__help { margin: 0; font-size: var(--asa-fs-label); color: var(--asa-ink-inverse-2); max-width: none; }
-
 html.site-travado { overflow: hidden; }
 
 /* --------------------------------------------------------------------------
@@ -1950,7 +1923,7 @@ html.site-travado { overflow: hidden; }
 .site-listhelp p { margin: var(--asa-space-1) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
 .site-listhelp a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
 
-/* No funil o botão de filtros ocupa o centro do pé; o WhatsApp fica à direita, só com o ícone. */
+/* Na vitrine o botão de filtros ocupa o centro do pé; o WhatsApp fica à direita. */
 body[data-page-type="vitrine"] { padding-bottom: 72px; }
 @media (min-width: 1024px) { body[data-page-type="vitrine"] { padding-bottom: 0; } }
 .site-vitrine [hidden] { display: none !important; }
@@ -1960,3 +1933,4 @@ body[data-page-type="vitrine"] { padding-bottom: 72px; }
 
 .site-filters__veil { z-index: 0; }
 .site-filters__surface { position: relative; z-index: 1; }
+.site-filters__open--fora { visibility: hidden; }
