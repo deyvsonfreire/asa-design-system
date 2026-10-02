@@ -1934,3 +1934,223 @@ body[data-page-type="vitrine"] { padding-bottom: 72px; }
 .site-filters__veil { z-index: 0; }
 .site-filters__surface { position: relative; z-index: 1; }
 .site-filters__open--fora { visibility: hidden; }
+
+/* --------------------------------------------------------------------------
+   FUNIL: etapas 2 a 4 (adicionais, checkout, confirmação)
+   Conteúdo à esquerda e resumo à direita no desktop (fixo ao rolar); no
+   celular o resumo vem depois do conteúdo e uma barra no pé leva o total.
+   -------------------------------------------------------------------------- */
+.site-stepper__edit {
+  margin-left: var(--asa-space-2);
+  font-size: var(--asa-fs-label);
+  font-weight: var(--asa-weight-medium);
+  color: var(--asa-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.site-funnel { padding-top: clamp(32px, 4vw, 48px); }
+.site-funnel [hidden] { display: none !important; }
+
+.site-funnel__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--asa-space-8); align-items: start; }
+@media (min-width: 1024px) { .site-funnel__grid { grid-template-columns: minmax(0, 1fr) 360px; gap: clamp(32px, 4vw, 56px); } }
+
+.site-funnel__main { min-width: 0; display: grid; gap: var(--asa-space-7); }
+.site-funnel__main > .site-funnel-h1 { margin-bottom: calc(-1 * var(--asa-space-3)); }
+.site-funnel__block { display: grid; gap: var(--asa-space-4); padding-top: var(--asa-space-7); border-top: 1px solid var(--asa-line-soft); min-width: 0; }
+.site-funnel__block > h2 { margin: 0; }
+.site-funnel__lead { margin: 0; color: var(--asa-ink-2); max-width: 640px; }
+.site-funnel__after, .site-funnel__proof, .site-funnel__ref { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-funnel__after a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-funnel__proof, .site-funnel__ref { font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-funnel__proof b { color: var(--asa-ink); }
+.site-funnel .asa-alert a { color: inherit; font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (min-width: 1024px) {
+  .site-funnel__aside { position: sticky; top: calc(var(--asa-header-h) + var(--asa-space-4)); }
+}
+.site-funnel__aside { display: grid; gap: var(--asa-space-4); min-width: 0; }
+
+/* Resumo */
+.site-sum { gap: var(--asa-space-2); }
+.site-sum:focus { outline: none; }
+.site-sum:focus-visible { outline: 2px solid var(--asa-ink); outline-offset: 3px; }
+.site-sum p { margin: 0; max-width: none; }
+.site-sum__title { margin: 0 0 var(--asa-space-1); font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-sum__trip, .site-sum__rule, .site-sum__car { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-sum__trip b, .site-sum__car b { color: var(--asa-ink); }
+.site-sum__car { display: grid; padding-bottom: var(--asa-space-2); border-bottom: 1px solid var(--asa-line-soft); }
+.site-sum__car span { font-size: var(--asa-fs-label); color: var(--asa-ok); font-weight: var(--asa-weight-medium); }
+.site-sum .asa-summary__row > span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.site-sum__strong { font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+.site-sum__total { font-size: 26px; line-height: 1; font-weight: var(--asa-weight-black); font-style: italic; letter-spacing: var(--asa-tracking-price); color: var(--asa-action); }
+.site-sum__total .site-pending { font-size: var(--asa-fs-label); font-style: normal; letter-spacing: 0; }
+.site-sum__note { font-size: var(--asa-fs-label); color: var(--asa-ink-3); text-align: right; }
+.site-sum__deposit, .site-sum__cancel, .site-sum__proof { font-size: var(--asa-fs-label); line-height: 1.45; color: var(--asa-ink-2); }
+.site-sum__deposit { padding-top: var(--asa-space-3); border-top: 1px solid var(--asa-line-soft); }
+.site-sum__cancel { color: var(--asa-ok); font-weight: var(--asa-weight-medium); }
+.site-sum__actions { display: grid; gap: var(--asa-space-3); justify-items: stretch; }
+.site-sum__actions .asa-btn[aria-disabled="true"] { background: var(--asa-disabled-bg); color: var(--asa-disabled-text); border-color: var(--asa-disabled-bg); cursor: not-allowed; }
+.site-sum__back { justify-self: center; font-size: var(--asa-fs-body-dense); color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+.site-sum__small { margin: 0; font-size: var(--asa-fs-label); line-height: 1.45; color: var(--asa-ink-3); max-width: none; }
+.site-sum__error { display: flex; flex-wrap: wrap; align-items: center; gap: var(--asa-space-2); }
+
+/* Barra do celular (asa-summary--bar): some quando o resumo está na tela. */
+.site-sumbar { gap: var(--asa-space-3); padding: var(--asa-space-3) var(--asa-space-4); }
+.site-sumbar__total { display: grid; gap: 0; line-height: 1.2; font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-sumbar__total b { font-size: var(--asa-fs-highlight); color: var(--asa-ink); font-variant-numeric: tabular-nums; }
+.site-sumbar__total .asa-btn--link { justify-self: start; min-height: 32px; padding: 0; }
+.site-sumbar .asa-btn--primary { flex: none; }
+.site-sumbar--fora { visibility: hidden; }
+body[data-page-type^="funil-"] { padding-bottom: 88px; }
+body[data-page-type^="funil-"] .site-fab { bottom: 96px; }
+@media (min-width: 1024px) {
+  body[data-page-type^="funil-"] { padding-bottom: 0; }
+  body[data-page-type^="funil-"] .site-fab { bottom: var(--asa-space-4); }
+}
+body[data-page-type="funil-confirmacao"] { padding-bottom: 0; }
+body[data-page-type="funil-confirmacao"] .site-fab { bottom: var(--asa-space-4); }
+
+/* Etapa 2: carro escolhido */
+.site-chosen { display: grid; grid-template-columns: 120px minmax(0, 1fr); align-items: stretch; }
+.site-chosen__photo { aspect-ratio: auto; min-height: 96px; height: 100%; }
+.site-chosen__photo .asa-photo__caption { font-size: 11px; }
+.site-chosen__body { display: grid; gap: var(--asa-space-1); padding: var(--asa-space-4); align-content: center; }
+.site-chosen__title { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: none; }
+.site-chosen__title b { color: var(--asa-ink); }
+.site-chosen__link { justify-self: start; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); color: var(--asa-ink); text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 640px) { .site-chosen { grid-template-columns: 180px minmax(0, 1fr); } }
+
+/* Etapa 2: upgrade */
+.site-upsell { flex-wrap: wrap; align-items: flex-end; cursor: default; background: var(--asa-surface-selected); }
+.site-upsell .asa-upsell__body { flex: 1 1 320px; gap: var(--asa-space-2); }
+.site-upsell__title { margin: 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-upsell__car { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: none; }
+.site-upsell__car b { color: var(--asa-ink); }
+.site-upsell__tags { display: flex; flex-wrap: wrap; gap: var(--asa-space-2); list-style: none; margin: 0; padding: 0; }
+.site-upsell__side { display: grid; gap: var(--asa-space-2); justify-items: start; }
+.site-upsell__msg { flex-basis: 100%; margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-upsell__msg:empty { display: none; }
+.site-upsell--feito { background: var(--asa-bg-elevated); align-items: center; }
+
+/* Etapa 2: proteção em três colunas com as mesmas linhas (subgrid alinha as
+   linhas entre os cards no desktop; no celular, cards empilhados). */
+.site-prots-wrap { border: 0; margin: 0; padding: 0; min-width: 0; }
+.site-prots { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--asa-space-4); }
+.site-prot {
+  display: grid;
+  gap: var(--asa-space-2);
+  padding: var(--asa-space-4);
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-line);
+  border-radius: var(--asa-radius);
+  cursor: pointer;
+}
+.site-prot:has(input:disabled) { cursor: default; }
+.site-prot[data-escolhida] { border: 2px solid var(--asa-ink); padding: calc(var(--asa-space-4) - .5px); background: var(--asa-surface-selected); }
+.site-prot__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--asa-space-2); }
+.site-prot__name { margin: 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-prot__price, .site-prot__delta { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: none; }
+.site-prot__price b { font-size: var(--asa-fs-highlight); color: var(--asa-ink); }
+.site-prot__delta { color: var(--asa-ink); font-weight: var(--asa-weight-medium); }
+.site-prot__rows { margin: var(--asa-space-2) 0 0; display: grid; }
+.site-prot__rows > div { display: grid; gap: 2px; padding: var(--asa-space-2) 0; border-top: 1px solid var(--asa-line-soft); }
+.site-prot__rows dt { font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-prot__rows dd { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink); }
+.site-prot__choice { padding-top: var(--asa-space-3); border-top: 1px solid var(--asa-line); }
+.site-prot__note { margin: 0; font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-prot__error { margin: 0; }
+.site-prots-skeleton { display: grid; gap: var(--asa-space-4); }
+@media (min-width: 768px) {
+  .site-prots, .site-prots-skeleton { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Nome, preço, diferença, as 8 linhas da comparação, a escolha e a nota:
+     13 linhas de grade compartilhadas, para cada linha ficar na mesma altura
+     nas três proteções. */
+  .site-prot { grid-template-rows: subgrid; grid-row: span 13; }
+  .site-prot__rows { grid-template-rows: subgrid; grid-row: span 8; row-gap: 0; }
+}
+
+/* Etapa 2: adicionais */
+.site-extras { list-style: none; margin: 0; padding: 0; border-top: var(--asa-border-width) solid var(--asa-line); }
+.site-extra { display: grid; gap: var(--asa-space-3) var(--asa-space-6); padding: var(--asa-space-5) 0; border-bottom: 1px solid var(--asa-line-soft); align-items: center; }
+@media (min-width: 640px) { .site-extra { grid-template-columns: minmax(0, 1fr) auto; } }
+.site-extra__text p { margin: var(--asa-space-1) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); max-width: 560px; }
+.site-extra__name { margin: 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-extra__name span { margin-left: var(--asa-space-2); font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-medium); color: var(--asa-ink-2); white-space: nowrap; }
+.site-extra__text .site-extra__help { font-size: var(--asa-fs-label); color: var(--asa-ink-3); }
+.site-extra__check { white-space: nowrap; }
+.site-extra__alert, .site-extra__msg { grid-column: 1 / -1; margin: 0; }
+.site-extra__msg { font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-extra__msg:empty { display: none; }
+.site-qty { display: inline-flex; align-items: center; gap: var(--asa-space-3); }
+.site-qty__value { min-width: 2ch; text-align: center; font-size: var(--asa-fs-highlight); font-weight: var(--asa-weight-bold); font-variant-numeric: tabular-nums; }
+
+/* Etapa 3: checkout */
+.site-checkout { margin-top: 0; gap: var(--asa-space-7); }
+.site-checkout .asa-fieldset { gap: var(--asa-space-4); }
+.site-checkout .asa-field-row { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .site-checkout .asa-field-row { grid-template-columns: 1fr 1fr; } }
+.site-checkout__h { margin: 0 0 var(--asa-space-1); }
+.site-checkout__h3 { margin: var(--asa-space-4) 0 0; font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+.site-checkout__sub { display: grid; gap: var(--asa-space-4); padding-top: var(--asa-space-2); }
+.site-checkout__other { display: grid; gap: var(--asa-space-4); padding: var(--asa-space-4); background: var(--asa-surface-float); border-radius: var(--asa-radius); }
+.site-checkout__other > p { margin: 0; color: var(--asa-ink-2); }
+.site-checkout__pend { margin: 0; font-size: var(--asa-fs-body-dense); }
+.site-radios { border: 0; margin: 0; padding: 0; display: grid; }
+.site-switch { align-items: center; }
+.site-alert__links { display: flex; flex-wrap: wrap; gap: 0 var(--asa-space-4); margin-top: var(--asa-space-2); }
+.site-pays { display: grid; gap: var(--asa-space-3); }
+.site-pay { border-radius: var(--asa-radius); }
+.site-pay__body { display: grid; gap: var(--asa-space-4); padding: var(--asa-space-4); border: var(--asa-border-width) solid var(--asa-line); border-top: 0; border-radius: 0 0 var(--asa-radius) var(--asa-radius); margin-top: -4px; }
+.site-pay__body > p { margin: 0; color: var(--asa-ink-2); }
+.site-pay:has(.site-pay__body:not([hidden])) .site-pay__choice { border-radius: var(--asa-radius) var(--asa-radius) 0 0; }
+.site-consent { display: grid; gap: 2px; }
+.site-funnel__notice { margin: 0; }
+
+/* Etapa 4: confirmação */
+.site-confirm__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--asa-space-7); align-items: start; }
+@media (min-width: 1024px) { .site-confirm__grid { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 64px); } }
+.site-confirm__main { display: grid; gap: var(--asa-space-5); min-width: 0; }
+.site-confirm__main > * { margin: 0; }
+.site-confirm__main .site-funnel-h1:focus { outline: none; }
+.site-confirm__status { display: inline-flex; align-items: center; gap: var(--asa-space-2); margin: 0; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); color: var(--asa-ok); }
+.site-confirm__status--wait { color: var(--asa-warn); }
+.site-confirm__code .asa-field__label { margin: 0 0 var(--asa-space-2); }
+.site-confirm__code .asa-coupon__code { font-size: clamp(22px, 3vw, 28px); letter-spacing: .06em; }
+.site-confirm__mail, .site-confirm__fix { margin: 0; color: var(--asa-ink-2); max-width: 640px; }
+.site-confirm__fix { font-size: var(--asa-fs-body-dense); }
+.site-confirm__mail a, .site-confirm__fix a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-confirm__resp { display: block; margin-top: var(--asa-space-2); }
+.site-pix { display: grid; gap: var(--asa-space-5); }
+.site-pix__grid { display: grid; gap: var(--asa-space-5); align-items: start; }
+@media (min-width: 640px) { .site-pix__grid { grid-template-columns: 200px minmax(0, 1fr); } }
+.site-pix__qr { aspect-ratio: 1; max-width: 200px; }
+.site-pix__code .asa-coupon__code { font-size: var(--asa-fs-label); letter-spacing: 0; text-overflow: ellipsis; }
+.site-pix__steps { margin: var(--asa-space-4) 0 0; padding-left: 1.2em; color: var(--asa-ink-2); display: grid; gap: var(--asa-space-1); }
+.site-voucher__box { margin-top: var(--asa-space-5); }
+.site-voucher__list { display: grid; gap: var(--asa-space-2); margin: 0; }
+.site-voucher__list .asa-summary__row { align-items: baseline; }
+.site-voucher__list dt { flex: none; max-width: 45%; }
+.site-voucher__list dd { margin: 0; text-align: right; color: var(--asa-ink); }
+.site-voucher__total { font-size: 24px; font-weight: var(--asa-weight-black); font-style: italic; letter-spacing: var(--asa-tracking-price); color: var(--asa-action); }
+.site-voucher__status { display: block; font-size: var(--asa-fs-label); font-weight: var(--asa-weight-medium); color: var(--asa-ink-2); }
+.site-voucher__actions { margin-top: var(--asa-space-5); }
+.site-voucher .site-checklist { margin-top: var(--asa-space-5); }
+.site-listhelp__title { margin: 0 0 var(--asa-space-6); }
+@media (min-width: 768px) { .site-listhelp--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+@media print {
+  body[data-page-type="funil-confirmacao"] .asa-utilitybar,
+  body[data-page-type="funil-confirmacao"] .site-navbar,
+  body[data-page-type="funil-confirmacao"] .asa-footer,
+  body[data-page-type="funil-confirmacao"] .site-fab,
+  body[data-page-type="funil-confirmacao"] .site-funnel-top,
+  body[data-page-type="funil-confirmacao"] .asa-bg-surface,
+  body[data-page-type="funil-confirmacao"] .asa-coupon__copy,
+  body[data-page-type="funil-confirmacao"] .site-voucher__actions { display: none !important; }
+}
+.site-confirm [hidden], .site-voucher [hidden] { display: none !important; }
+/* Grade de uma coluna: a coluna nunca cresce além do espaço (o localizador e
+   o código Pix são campos longos). */
+.site-confirm__main, .site-funnel__main { grid-template-columns: minmax(0, 1fr); }
+.site-pay__choice { justify-content: flex-start; }

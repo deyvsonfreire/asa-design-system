@@ -18,36 +18,15 @@
   var track = function (ev, p) { (window.asaTrack || function () {})(ev, p); };
   var LISO = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
 
-  /* ---------- Frota (00a, 25/09) e preço de exemplo ----------
+  /* ---------- Frota, proteção e taxa: os mesmos de todas as etapas (funil.js) ----------
      cats: os atalhos e o filtro de categoria. D e D+ são hatch automático:
      entram em "Hatch" (a copy lista só A, B e B+; ver PENDENCIAS.md).
      malas: 1–2 conta em "até 2"; 3–4 em "3 ou mais"; 2–3 nos dois, até a
      Asa decidir. tarifa: diária de exemplo, sem proteção e sem taxa. */
-  var GRUPOS = [
-    { g: 'A',  cat: 'Hatch econômico',  modelo: 'Fiat Mobi',                     cambio: 'Manual',     lugares: 5, portas: 4, malas: '1–2', cats: ['hatch'],             tarifa: 109 },
-    { g: 'B',  cat: 'Hatch econômico',  modelo: 'Hyundai HB20 1.0',              cambio: 'Manual',     lugares: 5, portas: 4, malas: '2–3', cats: ['hatch'],             tarifa: 119, selo: 'Preferido do público' },
-    { g: 'B+', cat: 'Hatch econômico',  modelo: 'Chevrolet Onix 1.0',            cambio: 'Manual',     lugares: 5, portas: 4, malas: '2–3', cats: ['hatch'],             tarifa: 125 },
-    { g: 'C+', cat: 'Sedã',             modelo: 'Chevrolet Onix Plus 1.0',       cambio: 'Manual',     lugares: 5, portas: 4, malas: '2–3', cats: ['seda'],              tarifa: 135 },
-    { g: 'D',  cat: 'Hatch automático', modelo: 'Citroën C3 Live Pack 1.6',      cambio: 'Automático', lugares: 5, portas: 4, malas: '1–2', cats: ['hatch'],             tarifa: 139 },
-    { g: 'D+', cat: 'Hatch automático', modelo: 'Chevrolet Onix 1.0 Turbo',      cambio: 'Automático', lugares: 5, portas: 4, malas: '2–3', cats: ['hatch'],             tarifa: 149 },
-    { g: 'E+', cat: 'Sedã automático',  modelo: 'Chevrolet Onix Plus 1.0 Turbo', cambio: 'Automático', lugares: 5, portas: 4, malas: '2–3', cats: ['seda'],              tarifa: 159 },
-    { g: 'F+', cat: '7 lugares',        modelo: 'Chevrolet Spin 1.8',            cambio: 'Automático', lugares: 7, portas: 4, malas: '3–4', cats: ['7-lugares'],         tarifa: 189 },
-    { g: 'G+', cat: 'SUV',              modelo: 'Chevrolet Tracker 1.0 Turbo',   cambio: 'Automático', lugares: 5, portas: 4, malas: '2–3', cats: ['suv'],               tarifa: 179 },
-    { g: 'H',  cat: 'Picape',           modelo: 'Fiat Strada 1.3',               cambio: 'Manual',     lugares: 2, portas: 2, malas: '3–4', cats: ['picape'],            tarifa: 169 },
-    { g: 'I+', cat: 'SUV 7 lugares',    modelo: 'Jeep Commander 1.3',            cambio: 'Automático', lugares: 7, portas: 4, malas: '2–3', cats: ['suv', '7-lugares'],  tarifa: 259 },
-    { g: 'J+', cat: 'SUV',              modelo: 'Jeep Compass 1.3',              cambio: 'Automático', lugares: 5, portas: 4, malas: '2–3', cats: ['suv'],               tarifa: 239 },
-    { g: 'N+', cat: 'Sedã automático',  modelo: 'Toyota Corolla 2.0',            cambio: 'Automático', lugares: 5, portas: 4, malas: '2–3', cats: ['seda'],              tarifa: 229, esgotado: true },
-    { g: 'O+', cat: 'Picape 4x4',       modelo: 'Fiat Toro 2.0',                 cambio: 'Automático', lugares: 5, portas: 4, malas: '3–4', cats: ['picape'],            tarifa: 279, x4: true },
-    { g: 'P+', cat: 'Picape 4x4',       modelo: 'Chevrolet S10 2.8 CD',          cambio: 'Automático', lugares: 5, portas: 4, malas: '3–4', cats: ['picape'],            tarifa: 329, x4: true }
-  ];
-  var PROTECAO = 19.90;   // proteção básica por dia (FICHA, 08/09)
-  var TAXA = 0.12;        // taxa administrativa sobre diárias + proteção
-  var CUPONS = { BEMVINDOASA: 0.15 };
-
-  var LOCAIS = {
-    REC: { nome: 'Aeroporto do Recife', curto: 'no Aeroporto do Recife', balcao: 'Portão A5 de Desembarque, com o carro no pátio do aeroporto.', url: '/aluguel-de-carros/aeroporto-recife' },
-    FOR: { nome: 'Aeroporto de Fortaleza', curto: 'no Aeroporto de Fortaleza', balcao: 'Área de Locadoras, no Terminal de Desembarque.', url: '/aluguel-de-carros/aeroporto-fortaleza' }
-  };
+  var F = window.AsaFunil;
+  var GRUPOS = F.grupos();
+  var CUPONS = F.CUPONS;
+  var LOCAIS = F.LOCAIS;
   var CAT_NOME = { hatch: 'Hatch', seda: 'Sedã', suv: 'SUV', '7-lugares': '7 lugares', picape: 'Picape' };
   var FILTRO_NOME = { cambio: 'cambio', lugares: 'lugares', malas: 'malas', categoria: 'categoria' };
 
@@ -77,8 +56,9 @@
   var limite = buscaOk ? new Date(ini.getTime() + dias * DIA + 3 * HORA) : null;
 
   GRUPOS.forEach(function (c) {
-    c.cheio = Math.round((c.tarifa + PROTECAO) * dias * (1 + TAXA) * 100) / 100;
-    c.total = Math.round(c.cheio * (1 - desconto) * 100) / 100;
+    // A mesma conta das etapas seguintes (funil.js), com a proteção básica: o preço da vitrine é o que abre a etapa 2.
+    c.cheio = dias ? F.calcular({ grupo: c, dias: dias, desconto: 0 }).total : 0;
+    c.total = dias ? F.calcular({ grupo: c, dias: dias, desconto: desconto, codigo: codigo }).total : 0;
     c.diaria = dias ? Math.round(c.total / dias * 100) / 100 : 0;
     c.malasMax = +c.malas.split('–')[1];
     c.malasOpt = c.malas === '1–2' ? ['ate2'] : c.malas === '3–4' ? ['3mais'] : ['ate2', '3mais'];
@@ -152,9 +132,7 @@
   var CHECK = '<svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
   function esc(s) { return String(s).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }); }
   function proxima(c) {
-    var u = new URLSearchParams({ local: local, retirada: toLocal(ini), devolucao: toLocal(fim), grupo: c.g });
-    if (codigo) u.set('cupom', codigo);
-    return '/reservas-online/adicionais?' + u.toString();
+    return F.url('/reservas-online/adicionais', F.estado(), { grupo: c.g, estado: '' });
   }
   function specs(c) {
     var s = [c.lugares + ' lugares', c.malas.replace('–', ' a ') + ' malas', c.cambio, 'Ar-condicionado', 'Km livre', c.portas + ' portas'];
