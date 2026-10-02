@@ -139,6 +139,27 @@ p,
 }
 
 .asa-bg-surface .asa-lead { color: var(--asa-ink); }
+
+/* Link sobre amarelo: tinta preta sublinhada, também no hover. O vermelho
+   de link (e o do hover de .asa-btn--link) daria 2,94:1 sobre amarelo,
+   abaixo do mínimo; a regra vale para qualquer link de texto da faixa. */
+.asa-bg-surface a:not(.asa-btn),
+.asa-bg-surface a:not(.asa-btn):hover,
+.asa-bg-surface .asa-btn--link,
+.asa-bg-surface .asa-btn--link:hover:not(:disabled),
+.asa-hero a:not(.asa-btn),
+.asa-hero a:not(.asa-btn):hover,
+.asa-hero .asa-btn--link,
+.asa-hero .asa-btn--link:hover:not(:disabled) {
+  color: var(--asa-ink);
+}
+
+.asa-bg-surface a:not(.asa-btn),
+.asa-hero a:not(.asa-btn) { text-decoration: underline; text-underline-offset: 3px; }
+
+/* A trilha e o link de controle dentro da faixa não levam sublinhado. */
+.asa-bg-surface a.asa-breadcrumb__link,
+.asa-hero a.asa-breadcrumb__link { text-decoration: none; }
 .asa-bg-dense .asa-lead,
 .asa-bg-deep .asa-lead { color: var(--asa-ink-inverse-2); }
 

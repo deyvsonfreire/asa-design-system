@@ -20,6 +20,9 @@ site/
 ├── site.css             a cola entre as páginas e a biblioteca (nada de cor nova)
 ├── site.js              menus, rodapé, WhatsApp, busca compacta e eventos de GA4
 ├── 404.html             404 do site
+├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
+├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
+├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
 ├── relacoes-com-investidores/   RI: a empresa, os 14 documentos publicados, contato (rascunho, noindex)
 ├── politica-de-privacidade/     política em 13 seções, com índice (rascunho para revisão jurídica)
 ├── politica-de-termos-e-condicoes/  termos em 14 seções, com índice e impressão (rascunho)
@@ -51,6 +54,8 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
 
 ## O que ainda é protótipo
+
+A lista completa, com quem decide cada item, está em [PENDENCIAS.md](PENDENCIAS.md).
 
 - A busca não segue para o motor de reservas: mostra uma linha "Protótipo" no lugar.
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.
