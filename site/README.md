@@ -23,6 +23,10 @@ site/
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
+├── regras-de-locacao/   da retirada à devolução, em dez seções com índice; regras de hoje em laranja (rascunho)
+├── assistencia-24h/     o número, a emergência, pane, acidente e situações comuns; barra de ligação no celular (rascunho)
+├── prevencao-a-fraudes/ canais oficiais, golpes comuns, o que a Asa nunca pede, como denunciar (rascunho)
+├── acessibilidade/      compromisso WCAG 2.2 AA, recursos, balcão, carros e o canal de relato (rascunho)
 ├── ofertas/             vitrine de ofertas com cupom, "como usar" e dúvidas (rascunho)
 │   ├── ofertas.js       estados da página: ?vazio, ?pausado, ?encerrada
 │   ├── primeira-locacao/   BEMVINDOASA: código, busca com o cupom aplicado, regras, prova (rascunho)

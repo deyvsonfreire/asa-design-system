@@ -344,6 +344,28 @@
     });
   });
 
+  /* ---------- Contato de suporte: contact_click ----------
+     Nas páginas de ajuda (assistência, fraude, acessibilidade, regras) o
+     clique em ligar ou WhatsApp é sinal operacional, não lead de
+     marketing: sai como contact_click, com o lugar e o contexto. */
+  var contexto = document.body.dataset.contexto || page;
+  $$('[data-contato]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      track('contact_click', { method: a.dataset.contato, placement: a.dataset.placement || '', context: contexto });
+    });
+  });
+  $$('[data-emergencia]').forEach(function (a) {
+    a.addEventListener('click', function () { track('emergency_call_click', { number: a.dataset.emergencia }); });
+  });
+  $$('[data-conteudo]').forEach(function (a) {
+    a.addEventListener('click', function () { track('select_content', { content_type: a.dataset.conteudo, item_id: a.dataset.item || '' }); });
+  });
+
+  /* ---------- Dúvida aberta: faq_expand ---------- */
+  $$('details[data-faq-id]').forEach(function (d) {
+    d.addEventListener('toggle', function () { if (d.open) track('faq_expand', { question_id: d.dataset.faqId }); });
+  });
+
   /* ---------- Artigo: leitura até 90% ---------- */
   var article = $('[data-artigo]');
   if (article) {
@@ -367,7 +389,12 @@
     desk.addEventListener('change', syncToc);
     var links = $$('.asa-toc__link', toc);
     var alvos = links.map(function (a) { return document.getElementById(a.hash.slice(1)); }).filter(Boolean);
-    links.forEach(function (a) { a.addEventListener('click', function () { if (!desk.matches) toc.open = false; }); });
+    links.forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (!desk.matches) toc.open = false;
+        if (toc.dataset.tocEvento) track('select_content', { content_type: toc.dataset.tocEvento, item_id: a.hash.slice(1) });
+      });
+    });
     if ('IntersectionObserver' in window && alvos.length) {
       var marcar = function (id) {
         links.forEach(function (a) {
