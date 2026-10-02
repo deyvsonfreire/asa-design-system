@@ -1397,3 +1397,112 @@ html[data-drawer-aberto] { overflow: hidden; }
   font-weight: var(--asa-weight-medium);
   color: var(--asa-ink-3);
 }
+
+/* --------------------------------------------------------------------------
+   PÁGINAS DE AJUDA (Assistência, Fraudes, Acessibilidade)
+   -------------------------------------------------------------------------- */
+
+/* Abertura com as ações de contato: no celular, cada botão ocupa a linha
+   inteira, para acertar com o polegar sob pressa. */
+@media (max-width: 639px) {
+  .site-actions--full { flex-direction: column; align-items: stretch; }
+  .site-actions--full .asa-btn { width: 100%; }
+}
+
+/* Emergência: os números de socorro são links tel:, em negrito. */
+.site-emergency { margin-top: var(--asa-space-7); max-width: 760px; }
+.site-emergency a { color: inherit; font-weight: var(--asa-weight-bold); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+
+/* Barra de ligação, só no celular: Ligar e WhatsApp fixos no pé da tela
+   em toda a página da assistência. Ela substitui o botão flutuante. */
+.site-callbar { display: none; }
+
+@media (max-width: 767px) {
+  .site-callbar {
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: var(--asa-z-sticky);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--asa-space-2);
+    padding: var(--asa-space-3) var(--asa-space-4) calc(var(--asa-space-3) + env(safe-area-inset-bottom));
+    background: var(--asa-bg-elevated);
+    border-top: var(--asa-border-width) solid var(--asa-line);
+  }
+  .site-callbar .asa-btn { width: 100%; }
+  body:has(.site-callbar) { padding-bottom: 76px; }
+  body:has(.site-callbar) .site-fab { display: none; }
+}
+
+/* Duas colunas, cada uma com o próprio H2: assuntos curtos que, sozinhos,
+   seriam faixas de uma linha. */
+.site-duo {
+  display: grid;
+  gap: var(--asa-space-9) var(--asa-space-9);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-duo { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.site-duo > div > p { margin-top: var(--asa-space-4); color: var(--asa-ink-2); }
+.site-duo .asa-alert { margin-top: var(--asa-space-6); }
+.site-duo a:not(.asa-btn) { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Abertura dividida: o H1 e o aviso à esquerda, a lista de canais à direita. */
+.site-opening-split {
+  display: grid;
+  gap: var(--asa-space-8);
+  align-items: start;
+}
+
+@media (min-width: 1024px) { .site-opening-split { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 80px); } }
+
+.site-opening-split .asa-alert { margin-top: var(--asa-space-7); }
+.site-opening-split .site-terms { margin-top: 0; }
+.site-opening-split .site-terms > div { grid-template-columns: 1fr; }
+.site-channels__title { margin: 0 0 var(--asa-space-4); font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-terms dd a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); }
+
+/* Sinais de golpe: três colunas com um fio preto no topo, sem caixa. */
+.site-signals {
+  display: grid;
+  gap: var(--asa-space-8) var(--asa-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) { .site-signals { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.site-signals li { padding-top: var(--asa-space-5); border-top: 2px solid var(--asa-ink); }
+.site-signals h3 { margin: 0 0 var(--asa-space-2); }
+.site-signals p { margin: 0; color: var(--asa-ink-2); }
+.site-signals p + p { margin-top: var(--asa-space-3); color: var(--asa-ink); }
+
+/* Lista de conferência em duas colunas no desktop (lista longa). */
+@media (min-width: 1024px) {
+  .site-checklist--2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--asa-space-8); border-top: 0; }
+  .site-checklist--2 li { border-top: 1px solid var(--asa-line-soft); border-bottom: 0; }
+}
+
+.site-checklist--2 { margin-top: var(--asa-space-7); }
+
+.site-check > .site-steps { margin-top: 0; }
+.site-check__aside .site-pending { display: block; margin-top: var(--asa-space-3); }
+
+/* Texto curto abaixo de uma lista, com o link para a página do assunto. */
+.site-after { margin: var(--asa-space-6) 0 0; color: var(--asa-ink-2); max-width: 760px; }
+.site-after a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Fechamento em fundo neutro (páginas informativas): a mesma faixa curta,
+   sem o amarelo, que nessas páginas fica só no cabeçalho e no logo. */
+.site-closing-neutral .asa-closing__copy .asa-lead { color: var(--asa-ink-2); }
+
+/* Passos em grade de dois no desktop, quando são curtos. */
+@media (min-width: 1024px) {
+  .site-steps--grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--asa-space-8); border-top: 0; }
+  .site-steps--grid li { border-top: 1px solid var(--asa-line-soft); border-bottom: 0; }
+}
+.site-nowrap { white-space: nowrap; }
+.site-opening .site-opening-split { margin-top: var(--asa-space-6); }
+.site-opening-split .asa-lead { margin-top: 0; }
