@@ -303,15 +303,88 @@
       btn.disabled = true;
       btn.setAttribute('data-state', 'loading');
       label.textContent = 'Buscando carros…';
-      // Protótipo: em produção o formulário segue para o motor de reservas.
-      setTimeout(function () {
-        btn.disabled = false;
-        btn.removeAttribute('data-state');
-        label.textContent = idle;
-        var p = parse(pick.value), r = parse(ret.value);
-        status.textContent = 'Protótipo: aqui abre a lista de carros disponíveis no Aeroporto ' + AEROPORTO[local.value] +
-          ', de ' + day(p) + ' às ' + hour(p) + ' a ' + day(r) + ' às ' + hour(r) + '.';
-      }, 600);
+      // Segue para a vitrine com a busca na URL (local, datas e o cupom
+      // aceito). Em produção quem responde é o motor de reservas.
+      var q = new URLSearchParams({ local: local.value, retirada: pick.value, devolucao: ret.value });
+      if (aplicado) q.set('cupom', aplicado);
+      location.href = (form.getAttribute('action') || '/reservas-online') + '?' + q.toString();
+    });
+    form.resetBusca = function () {
+      btn.disabled = false;
+      btn.removeAttribute('data-state');
+      label.textContent = idle;
+    };
+    // Voltar pelo histórico devolve a página com o botão ainda em "Buscando".
+    addEventListener('pageshow', function (e) { if (e.persisted) form.resetBusca(); });
+  });
+
+  /* ---------- Atalhos para a busca da página ----------
+     data-local-busca="REC" escolhe o aeroporto, rola até a busca, leva o
+     foco à retirada e avisa o leitor de tela. data-ir-busca só rola e
+     foca o local. */
+  var NOME_AEROPORTO = { REC: 'Aeroporto do Recife', FOR: 'Aeroporto de Fortaleza' };
+  var LISO = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  function irBusca(foco) {
+    var form = $('[data-booking]');
+    if (!form) return null;
+    form.scrollIntoView({ behavior: LISO, block: 'center' });
+    form.elements[foco].focus({ preventScroll: true });
+    return form;
+  }
+  $$('[data-local-busca]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var form = $('[data-booking]');
+      if (!form) { location.href = '/?local=' + b.dataset.localBusca + '#reservar'; return; }
+      form.elements.local.value = b.dataset.localBusca;
+      irBusca('retirada');
+      say(NOME_AEROPORTO[b.dataset.localBusca] + ' selecionado. Escolha as datas.');
+    });
+  });
+  $$('[data-ir-busca]').forEach(function (a) {
+    a.addEventListener('click', function (e) { if (irBusca('local')) e.preventDefault(); });
+  });
+  var localUrl = new URLSearchParams(location.search).get('local');
+  if (localUrl && NOME_AEROPORTO[localUrl]) $$('[data-booking]').forEach(function (f) { f.elements.local.value = localUrl; });
+
+  /* ---------- Prateleira: setas por card, desativadas nas pontas ---------- */
+  $$('[data-shelf]').forEach(function (shelf) {
+    var track = $('.asa-shelf__track', shelf);
+    var prev = $('[data-shelf-prev][aria-controls="' + track.id + '"]');
+    var next = $('[data-shelf-next][aria-controls="' + track.id + '"]');
+    if (!prev || !next) return;
+    function passo() {
+      var card = track.firstElementChild;
+      return card ? card.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : 320;
+    }
+    function setas() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft >= max;
+    }
+    prev.addEventListener('click', function () { track.scrollBy({ left: -passo(), behavior: LISO }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: passo(), behavior: LISO }); });
+    track.addEventListener('scroll', setas, { passive: true });
+    addEventListener('resize', setas);
+    setas();
+  });
+
+  /* ---------- Lista de itens: view_item_list ao entrar na tela, select_item no CTA ---------- */
+  $$('[data-lista]').forEach(function (lista) {
+    var cards = $$('[data-item-cat]', lista);
+    var itens = cards.map(function (c, i) { return { item_category: c.dataset.itemNome, item_list_id: lista.dataset.lista, index: i }; });
+    var visto = false;
+    var ver = function () {
+      if (visto) return;
+      visto = true;
+      track('view_item_list', { item_list_id: lista.dataset.lista, item_list_name: lista.dataset.listaNome || lista.dataset.lista, items: itens });
+    };
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { ver(); io.disconnect(); } }, { threshold: 0.3 });
+      io.observe(lista);
+    }
+    cards.forEach(function (c, i) {
+      var cta = $('[data-select-item]', c);
+      if (cta) cta.addEventListener('click', function () { track('select_item', { item_list_id: lista.dataset.lista, items: [itens[i]] }); });
     });
   });
 

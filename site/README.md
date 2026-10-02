@@ -8,7 +8,7 @@ As páginas do novo site, montadas só com a biblioteca de `css/` e com as regra
 python3 scripts/servir-site.py
 ```
 
-Depois abra <http://localhost:8766/blog>. As páginas usam os endereços de produção (`/blog`, `/frota`, `/css/asa-tokens.css`), e o servidor monta essa árvore a partir do repositório. Links para páginas que ainda não existem caem no 404 do site: é esperado.
+Depois abra <http://localhost:8766/>. As páginas usam os endereços de produção (`/blog`, `/frota`, `/css/asa-tokens.css`), e o servidor monta essa árvore a partir do repositório. Links para páginas que ainda não existem caem no 404 do site: é esperado.
 
 ## Estrutura
 
@@ -16,9 +16,13 @@ Depois abra <http://localhost:8766/blog>. As páginas usam os endereços de prod
 site/
 ├── _parciais/
 │   ├── cabecalho.html   utility bar, navbar com submenus, menu do celular
-│   └── rodape.html      rodapé em seis grupos, lojas, pagamento e o botão do WhatsApp
+│   ├── rodape.html      rodapé em seis grupos, lojas, pagamento e o botão do WhatsApp
+│   ├── cabecalho-funil.html  cabeçalho reduzido do funil: logo, 0800 e Minha reserva
+│   └── rodape-funil.html     rodapé reduzido do funil e o WhatsApp só com o ícone
 ├── site.css             a cola entre as páginas e a biblioteca (nada de cor nova)
 ├── site.js              menus, rodapé, WhatsApp, busca compacta e eventos de GA4
+├── index.html           home: a home aprovada (asa-home-v2) com a busca, frota, prova, destinos e o que levar (rascunho)
+├── reservas-online/     etapa 1 da reserva, a vitrine: resumo, filtros, cards e estados (reservas.js; rascunho, noindex)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
@@ -72,7 +76,8 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 
 A lista completa, com quem decide cada item, está em [PENDENCIAS.md](PENDENCIAS.md).
 
-- A busca não segue para o motor de reservas: mostra uma linha "Protótipo" no lugar. O campo "Tenho um cupom" só aceita o BEMVINDOASA, para mostrar os estados de válido e inválido.
+- A busca de todas as páginas leva à vitrine (`/reservas-online?local=REC&retirada=…&devolucao=…`), que monta os carros com preço e esgotado de exemplo. Os estados abrem com `?estado=carregando`, `erro`, `esgotado` e `expirada`; sem local ou datas, aparece a busca. O campo "Tenho um cupom" só aceita o BEMVINDOASA, para mostrar os estados de válido e inválido.
+- Páginas do funil (`/reservas-online/*`) usam os parciais `cabecalho-funil` e `rodape-funil`: o menu some para não tirar a pessoa da compra.
 - As páginas de oferta trazem os dois estados no mesmo HTML (`data-temporada` e `data-fora`). Em produção o CMS entrega só um; no protótipo, o outro abre pela URL: `/ofertas?vazio`, `/ofertas/primeira-locacao?pausado`, `/ofertas/carnaval?encerrada` (e São João, Réveillon).
 - Cards, datas e tempos de leitura do blog são exemplo; em produção vêm do CMS.
 - Fotos são placeholders. Produção exige foto real da Asa ou licença.

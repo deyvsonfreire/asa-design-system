@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas e Caução e requisitos.
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e a etapa 1 da reserva (vitrine).
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda e as cinco de regras e empresas), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home e a vitrine), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -114,6 +114,23 @@ Já estão em 00c: proteção obrigatória, Completa e coberturas (C1), a taxa d
 | P4 | **Diária de 27 horas, o que falta além de C8:** a contagem parte da retirada efetiva ou do horário reservado? Vale para os 15 grupos, para todos os canais e para o aluguel mensal? Há tempo médio de devolução medido (só se for publicar número)? | Diária de 27 horas, Dúvidas | Operação |
 | P5 | **Reserva:** alterar datas ou carro muda o valor e até quando pode? Como e em quanto tempo é o reembolso de reserva paga antes? Combustível e pedágio ficam por conta do cliente? | Dúvidas | Operação |
 
+## 3e. Home e reserva (vitrine)
+
+Já estão em 00c: o pátio de Fortaleza (O1), devolução em outro local (O8), parcelamento e Pix (C4), CNH digital (O2). Aqui fica o que a home e a vitrine acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| H1 | **Fichas do Google para o JSON-LD da home:** nome exato de cada ficha e coordenadas (`geo`). Até lá, o `AutoRental` sai com nome descritivo e sem `geo`. URL canônica com ou sem `www` e o caminho do logo para o `Organization`. | Home | Marketing + dev |
+| H2 | **Nota por praça nos cards de Recife e Fortaleza** (tokens `{nota_google_rec}` e `{nota_google_for}`, hoje 4,7 e 4,9) e a data da consulta. Depende de D4; sem decisão, os cards ficam sem nota. | Home | Marketing |
+| H3 | **Preço dos cards de categoria da home:** `{preco_final_a_partir}` e `{diaria_a_partir}` do motor. Sem preço carregado, a linha vira "Veja o preço para as suas datas". | Home | Dev + comercial |
+| R1 | **Critério do "Recomendado"** na ordenação. No protótipo: disponíveis primeiro, depois menor preço final. | Vitrine | Comercial |
+| R2 | **Selo "Preferido do público":** critério e período. No protótipo, no grupo B, como a copy sugere. | Vitrine | Comercial |
+| R3 | **Parcelamento no card** ("ou {n}x de {valor}"). Enquanto não houver, a linha fica só com a diária. | Vitrine | Comercial |
+| R4 | **Malas 2 a 3:** o filtro conta esses grupos em "Até 2 malas" e em "3 malas ou mais" até a Asa decidir. | Vitrine | Operação |
+| R5 | **O que é a "Diária" do card:** a tarifa sem proteção e taxa, ou o preço final dividido pelos dias? No protótipo é o preço final dividido pelos dias, para a diária e o total contarem a mesma história. Tokens `{preco_final_total}` e `{preco_diaria}` do motor. | Vitrine | Comercial + dev |
+| R6 | **Motor de cada grupo** para a ficha "Ver detalhes". A fonte traz só a cilindrada no nome do modelo, e é ela que aparece. | Vitrine | Operação |
+| R7 | **D e D+ (hatch automático) no atalho "Hatch":** a copy lista só A, B e B+ em hatch econômico; sem D e D+, quem filtra "Hatch" e "Automático" não acha nenhum carro. Entraram em "Hatch", com o nome "Hatch" no lugar de "Hatch econômico". | Vitrine | Marketing |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -143,6 +160,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | A8 | **Roteiros das campanhas** ([VERIFICAR] na tela): programação e polos do Carnaval do Recife e de Olinda e o esquema de trânsito; Caruaru pela BR-232 (cerca de 130 km) e se Gravatá entra; as cidades juninas do ano; distâncias de Porto de Galinhas, Carneiros, Maragogi, Cumbuco e Canoa Quebrada; local das festas de virada; regras de acesso de veículos a Jericoacoara e se a Toro 4x4 serve para ele. Conferir a cada edição, com a data. | Carnaval, São João, Réveillon |
 | A9 | **Anúncios das campanhas** (Google Ads e Meta): estão como rascunho na copy e não entram nas páginas. Antes de subir: o título "Sem van: carro no aeroporto" só vale para Recife (O1); o texto do Réveillon na Meta cita os dois aeroportos; o título "Réveillon em Porto de carro" usa uma abreviação que a própria copy pede para testar. | Google Ads, Meta |
 
+| A10 | Fotos da home e da vitrine: carro da frota saindo do pátio do Aeroporto do Recife com pessoas reais (LCP da home), os dois balcões com a sinalização, atendente entregando a chave, os quatro destinos e os 15 modelos de referência na mesma angulação e fundo. A home aprovada (PR asa-design-system#1) usava 16 fotos de banco sem licença, que não vieram para o site. | Home, Vitrine |
+
 ## 6. Técnico e de lançamento
 
 | # | O que falta | Onde |
@@ -167,6 +186,11 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T19 | **Dúvidas no CMS:** pergunta com resposta pendente fica oculta até o fato ser confirmado, e o `FAQPage` do JSON-LD sai do mesmo conteúdo, com o mesmo texto da tela. Hoje o JSON-LD leva as 13 perguntas com resposta completa. | Dúvidas |
 | T20 | **Dica das 27 horas na busca:** sugere o horário-limite quando a devolução passa da tolerância. Supõe a tolerância no fim do contrato; o motor de reservas precisa confirmar o cálculo (P4, C8). | Diária de 27 horas |
 | T21 | **Valores de proteção e adicionais:** puxar do motor quando a integração permitir; até lá, a data de referência (08/09/2026) fica visível. | Proteções e taxas, Dúvidas |
+| T22 | **A busca agora segue para a vitrine:** todas as buscas do site levam a `/reservas-online?local=&retirada=&devolucao=[&cupom=]`. Em produção, ou o motor de reservas responde nessa URL, ou a busca passa a apontar para ele. Na vitrine, os filtros e a ordenação também vivem na URL. | Todas as páginas com busca, Vitrine |
+| T23 | **Eventos novos no GTM:** da home, `view_item_list` e `select_item` (item_list_id home_categorias) e `select_content` (praca, destino, avaliacoes_google); da vitrine, `view_search_results`, `view_item_list` (a cada filtro), `select_item`, `view_item`, `filter_applied` e `sort_applied` (personalizados) e `generate_lead` com page_type vitrine e lead_topic disponibilidade ou reserva. A copy da home pede `faq_open`; ficou `faq_expand`, o nome que o site já usa. | GTM, GA4 |
+| T24 | **Estados da vitrine no motor:** carregando (esqueleto, sem preço falso), erro, tudo esgotado, vazio por filtro, sem busca e busca expirada (30 minutos na mesma aba). No protótipo abrem por `?estado=`. O preço e o esgotado de cada grupo são de exemplo. | Vitrine |
+| T25 | **Próxima etapa da reserva:** "Escolher este carro" leva a `/reservas-online/adicionais` com a busca e o grupo na URL; a página ainda não existe (copy 03). | Vitrine |
+| T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
 
@@ -225,4 +249,17 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Proteções e taxas | Tooltip "?" na franquia | A definição vai no rótulo da linha | Sem clique para entender a palavra mais importante da tabela |
 | Proteções e taxas, Caução | CTA que "abre o BookingSearch" | A busca fica no fechamento e o CTA da abertura rola até ela | Página informativa: a busca não domina a abertura |
 | Caução e requisitos | Lista com ícone de check | Lista com divisor, sem ícone, em corpo grande | Três itens não pedem ícone (15 Composição) |
-
+| Home | Etiqueta "Recife · Fortaleza · 24h" acima do H1 | Sem etiqueta | Sobretítulo; o H1 já diz as duas cidades |
+| Home | Nota, praças e depoimentos em três blocos | Uma faixa preta de prova: praças, placas 4,7 e 9,4, "Desde 2004 · 15 grupos" e os quatro depoimentos | O preto aparece uma vez, no momento da prova (home aprovada e 15 Composição) |
+| Home | "{nota_google} no Google · {total_avaliacoes} avaliações", com a data da consulta | Placas 4,7 e 9,4 | D4 |
+| Home | BenefitItem com ícones no "O que levar" e Alert de informação | Editorial com foto, lista de definições e o aviso da caução no cartão do próprio editorial | Ícone decorativo sai; é a faixa "como funciona" da home aprovada |
+| Home | CTA final com `asa-cut` e foto do pátio no fundo | Fechamento amarelo curto, sem foto | O fechamento não repete o hero |
+| Home | Motor com o local vazio e sugestões ao focar | A busca do site, com o Recife marcado | É a busca de todas as páginas; o autocomplete entra com o motor |
+| Home (aprovada) | "Carro em cerca de 8 minutos" e "Do desembarque ao carro em 8 minutos" | Saiu | A copy retirou a promessa de tempo |
+| Home (aprovada) | Tempos de viagem dos destinos ("1h de Recife") | "Retirada no Aeroporto do Recife" | Eram estimativa; a copy nova diz de qual aeroporto sair |
+| Vitrine | "Escolher este carro" em botão primário em todo card | Vermelho só no primeiro card disponível; os outros em contorno | Regra do botão vermelho único (08 Fluxo de reserva) |
+| Vitrine | SpecTag com ícone por atributo | Atributos em texto, separados por ponto | No card de vitrine a lista é texto (06 Componentes, speclist) |
+| Vitrine | Badge "Preferido do público" no topo do card | Selo sobre a foto, no canto baixo | Acima do título seria sobretítulo |
+| Vitrine | "{nota_google} no Google · {total_avaliacoes} avaliações" | 4,7 no Google | D4 |
+| Vitrine | Slider de faixa de preço | Dois controles, "De" e "Até", com os valores escritos | Mesmo resultado, mais simples de usar no teclado e no leitor de tela |
+| Vitrine | Rodapé da lista com BenefitItem | Três itens em texto, sem ícone e sem card | Ícone decorativo sai |
