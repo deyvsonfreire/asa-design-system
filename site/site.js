@@ -169,6 +169,11 @@
     });
   });
 
+  /* ---------- Cupons conhecidos pelo protótipo ----------
+     Em produção quem responde é o motor de reservas; aqui só o
+     BEMVINDOASA é aceito, para mostrar os três estados do campo. */
+  var CUPONS = { BEMVINDOASA: 'valido' };
+
   /* ---------- Busca compacta ---------- */
   var pad = function (n) { return String(n).padStart(2, '0'); };
   var toLocal = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()); };
@@ -223,11 +228,44 @@
     });
     ret.addEventListener('change', function () { if (ret.hasAttribute('aria-invalid')) validate(); });
 
+    /* "Tenho um cupom": recolhido, abre sozinho quando a página ou a URL
+       (?cupom=) já traz o código. */
+    var cupom = $('[data-cupom]', form);
+    var aplicado = '';
+    if (cupom) {
+      var campo = $('input', cupom);
+      var msg = $('[data-cupom-msg]', cupom);
+      var setMsg = function (tipo, texto) { msg.dataset.tipo = tipo; msg.textContent = texto; };
+      var aplicar = function () {
+        var codigo = campo.value.trim().toUpperCase();
+        campo.value = codigo;
+        if (!codigo) { aplicado = ''; setMsg('erro', 'Digite o código do cupom.'); campo.focus(); return; }
+        var status = CUPONS[codigo] || 'invalido';
+        track('coupon_apply', { coupon: codigo, status: status });
+        if (status === 'valido') { aplicado = codigo; setMsg('ok', form.dataset.cupomOk || 'Cupom aplicado. O desconto já está no preço final.'); }
+        else if (status === 'expirado') { aplicado = ''; setMsg('erro', 'Esse cupom não está mais valendo. Veja as ofertas ativas na página de ofertas.'); }
+        else { aplicado = ''; setMsg('erro', 'Não encontramos esse código. Confira se foi digitado sem espaços.'); }
+      };
+      $('[data-aplicar]', cupom).addEventListener('click', aplicar);
+      campo.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); aplicar(); } });
+      campo.addEventListener('input', function () { if (msg.textContent) setMsg('', ''); aplicado = ''; });
+      var inicial = new URLSearchParams(location.search).get('cupom') || form.dataset.cupomInicial;
+      if (inicial && !form.closest('[hidden]')) { campo.value = inicial; cupom.open = true; aplicar(); }
+      form.usarCupom = function (codigo) { campo.value = codigo; cupom.open = true; aplicar(); };
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (btn.disabled) return;
       if (!validate()) { (pick.hasAttribute('aria-invalid') ? pick : ret).focus(); return; }
-      track('search', { local_retirada: local.value, origem: form.dataset.origem || page, artigo: form.dataset.artigo || '' });
+      var ini = parse(pick.value), fim = parse(ret.value);
+      track('search', {
+        local_retirada: local.value, iata: local.value, origem: form.dataset.origem || page, artigo: form.dataset.artigo || '',
+        // Diárias pela regra das 27 horas: as 3 primeiras horas além de cada 24 não abrem diária nova.
+        dias: Math.max(1, Math.ceil((fim - ini - 3 * 3600 * 1000) / 864e5)),
+        antecedencia: Math.max(0, Math.floor((ini - Date.now()) / 864e5)),
+        cupom_aplicado: aplicado
+      });
       btn.disabled = true;
       btn.setAttribute('data-state', 'loading');
       label.textContent = 'Buscando carros…';
@@ -240,6 +278,69 @@
         status.textContent = 'Protótipo: aqui abre a lista de carros disponíveis no Aeroporto ' + AEROPORTO[local.value] +
           ', de ' + day(p) + ' às ' + hour(p) + ' a ' + day(r) + ' às ' + hour(r) + '.';
       }, 600);
+    });
+  });
+
+  /* ---------- Cupom: copiar o código ---------- */
+  $$('[data-copiar]').forEach(function (b) {
+    var box = b.closest('.asa-coupon');
+    var input = $('.asa-coupon__code', box);
+    var lbl = $('.asa-btn__label', b);
+    var idle = lbl.textContent;
+    var aviso = $('[role="status"]', box.parentNode);
+    b.addEventListener('click', function () {
+      var ok = function () {
+        lbl.textContent = 'Código copiado';
+        if (aviso) aviso.textContent = 'Código ' + input.value + ' copiado.';
+        clearTimeout(b.t);
+        b.t = setTimeout(function () { lbl.textContent = idle; if (aviso) aviso.textContent = ''; }, 3000);
+      };
+      // Sem acesso à área de transferência, o código fica selecionado para copiar pelo teclado.
+      var manual = function () {
+        input.select();
+        if (aviso) aviso.textContent = 'Código selecionado. Copie com o teclado.';
+      };
+      track('coupon_copy', { coupon: input.value, origem: b.dataset.copiar || page });
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(input.value).then(ok, manual);
+      else manual();
+    });
+  });
+
+  /* ---------- "Usar cupom": preenche a busca da página e rola até ela ---------- */
+  $$('[data-usar-cupom]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var form = $('[data-booking]');
+      if (form && form.usarCupom) form.usarCupom(a.dataset.usarCupom);
+    });
+  });
+
+  /* ---------- Promoções: view_promotion e select_promotion ---------- */
+  var utm = new URLSearchParams(location.search).get('utm_campaign') || '';
+  var promoData = function (el) {
+    var d = { promotion_id: el.dataset.promo, promotion_name: el.dataset.promoNome || el.dataset.promo };
+    if (el.dataset.promoSlot) d.creative_slot = el.dataset.promoSlot;
+    if (utm) d.campanha_origem = utm;
+    return d;
+  };
+  var promos = $$('[data-promo]');
+  var vistas = [];
+  var verPromo = function (el) {
+    if (vistas.indexOf(el) !== -1 || el.closest('[hidden]')) return;
+    vistas.push(el);
+    track('view_promotion', promoData(el));
+  };
+  if ('IntersectionObserver' in window) {
+    var ioPromo = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { verPromo(e.target); ioPromo.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    promos.forEach(function (el) { if (el.hasAttribute('data-promo-carga')) verPromo(el); else ioPromo.observe(el); });
+  }
+  // O CTA fica dentro da promoção ou aponta para ela pelo id
+  // (data-promo-cta="carnaval"), como o botão do fechamento.
+  $$('[data-promo-cta]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var el = a.closest('[data-promo]') || $('[data-promo="' + a.dataset.promoCta + '"]');
+      if (el) track('select_promotion', promoData(el));
     });
   });
 
@@ -293,7 +394,10 @@
       if (focus) tab.focus();
     }
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('click', function () {
+        if (bar.hasAttribute('data-tabs-evento') && t.getAttribute('aria-selected') !== 'true') track('tab_select', { aba: t.dataset.aba || t.textContent.trim() });
+        select(t);
+      });
       t.addEventListener('keydown', function (e) {
         var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
         if (n) { e.preventDefault(); select(tabs[(i + n + tabs.length) % tabs.length], true); }

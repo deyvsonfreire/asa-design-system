@@ -112,9 +112,12 @@ def texto_visivel(src):
 
 
 def secoes(src):
-    """Divide a página nas faixas de nível de página (section de primeiro nível)."""
+    """Divide a página nas faixas de nível de página (section de primeiro nível).
+    Faixa com hidden fica de fora: é a de outro estado da página (campanha
+    encerrada, cupom pausado), que o CMS entrega no lugar desta."""
     partes = re.split(r"(?=<section\b)", src)
-    return [p for p in partes if p.lstrip().startswith("<section")]
+    return [p for p in partes if p.lstrip().startswith("<section")
+            and not re.match(r"<section\b[^>]*\shidden[\s>]", p.lstrip())]
 
 
 def auditar(path):

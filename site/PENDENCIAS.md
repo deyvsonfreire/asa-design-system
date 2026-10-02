@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato.
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação e as campanhas de Carnaval, São João e Réveillon.
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato e as cinco de ofertas), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -16,7 +16,7 @@ Cada uma tem duas versões possíveis, e as duas não podem conviver no site.
 
 | # | Decisão | O que encontramos | Onde muda | Quem decide |
 |---|---|---|---|---|
-| D1 | **Regra de cancelamento** (C7) | A copy e a reserva online dizem "grátis até 24h antes". Os termos publicados hoje em asalocadora.com.br cobram multa em todo cancelamento: devolvem 70% com mais de 48h, 60% entre 24h e 48h e 30% com menos de 24h ou não comparecimento. | Termos (seção 9 e resumo), busca (linha "Cancele grátis até 24h"), blog, home | Diretoria + jurídico |
+| D1 | **Regra de cancelamento** (C7) | A copy e a reserva online dizem "grátis até 24h antes". Os termos publicados hoje em asalocadora.com.br cobram multa em todo cancelamento: devolvem 70% com mais de 48h, 60% entre 24h e 48h e 30% com menos de 24h ou não comparecimento. | Termos (seção 9 e resumo), busca (linha "Cancele grátis até 24h"), blog, home, as cinco páginas de ofertas (faixa do que toda locação tem, regras do BEMVINDOASA, cuidados das campanhas) | Diretoria + jurídico |
 | D2 | **Razão social e CNPJ** (J1) | Além dos dois valores em conflito na fonte de verdade, a escritura da 1ª emissão de debêntures, registrada na JUCEPE em 07/12/2023 e publicada na própria página de RI, traz **Companhia Asa Rent a Car Locação de Veículos S.A.**, CNPJ **07.005.206/0001-53**. É um terceiro valor. | Rodapé, Termos (seção 1), Privacidade (seção 1), RI, schema `Organization` | Diretoria |
 | D3 | **A Asa é franquia?** | Os termos publicados hoje identificam a locadora como "empresa definida no Documento de Locação, na qualidade de Sociedade Franqueada". | Termos, Privacidade (quem é o controlador), Quem somos | Diretoria + jurídico |
 | D4 | **Nota do Google: qual número mostrar** | A regra até aqui é o par fixo 4,7 (Google) e 9,4 (Reclame Aqui). No Google Business Profile, em 02/10/2026: Recife 4,7 com 4.767 avaliações, Fortaleza 4,9 com 3.718, e as duas juntas dão 4,8 com 8.485. A copy pede o valor puxado da API, com data, e que ele suma se a API falhar. | Quem somos (faixa preta), home, páginas de aeroporto | Marketing |
@@ -25,6 +25,8 @@ Cada uma tem duas versões possíveis, e as duas não podem conviver no site.
 | D7 | **Domínio com ou sem www** (M2) | O site atual e as fichas do Google usam `asalocadora.com.br`, sem www. O JSON-LD da copy de Contato usa `www`. As páginas foram feitas sem www. | canonical e schema de todas as páginas | Marketing / dev |
 | D8 | **Nome das lojas** | As fichas no Google se chamam "ASA Locadora - Aeroporto do Recife" (ASA em caixa alta) e "Asa Locadora - Aeroporto de Fortaleza". O rodapé usava "Asa Rent a Car · Aeroporto do Recife". Sugestão: padronizar a ficha de Recife para "Asa Locadora - Aeroporto do Recife" e usar esse nome no site. | Rodapé, Contato, Lojas, schema `AutoRental` | Marketing |
 | D9 | **Frota: a tabela de 15 grupos está atual?** | As avaliações de Fortaleza de setembro citam Nissan Kicks, VW Polo automático e Fiat Argo, que não estão na tabela de grupos da fonte de verdade. | Frota, blog (artigo de Porto de Galinhas), Quem somos ("15 grupos") | Operação |
+| D10 | **Vitrine de ofertas sem validade** (C5, C6) | A copy manda: card sem validade confirmada não vai ao ar, e "Por tempo indeterminado" só se for verdade. Hoje nenhuma das duas ofertas tem validade, então `/ofertas` iria ao ar no estado vazio ("No momento não há oferta ativa"). | Ofertas, Primeira locação | Comercial + marketing |
+| D11 | **"Mais um dia" depende de pagamento antecipado?** | No site atual, a oferta "Adicione mais um dia na sua locação e economize até 15% na diária" vem com a nota "Valores para pagamento antecipado". A copy nova não fala disso. Se o desconto exige pagar antes, isso é regra do card. | Ofertas (regras do card), Réveillon (alta temporada) | Comercial |
 
 ## 2. Dados da empresa a confirmar
 
@@ -47,7 +49,7 @@ Os itens marcados como "termos de hoje" já estão escritos nas páginas com a r
 
 | # | Regra | Situação | Onde |
 |---|---|---|---|
-| R1 | Depois das 27 horas (C8) | Termos de hoje: nova diária completa depois dos 180 minutos de cortesia | Termos |
+| R1 | Depois das 27 horas (C8) | Termos de hoje: nova diária completa depois dos 180 minutos de cortesia | Termos, exemplo de horário das três campanhas |
 | R2 | Combustível (O7) | Termos de hoje: sai com tanque cheio, volta cheio, o que faltar é cobrado por litro | Termos |
 | R3 | Limpeza (O7) | Termos de hoje: taxa por sujeira excessiva ou cheiro de cigarro | Termos |
 | R4 | Multas (O7) | Termos de hoje: taxa de administração de R$ 70,00 por infração | Termos |
@@ -58,6 +60,18 @@ Os itens marcados como "termos de hoje" já estão escritos nas páginas com a r
 | R9 | Devolução antecipada e reembolso | Em aberto | Termos |
 
 As demais regras dos Termos (parcelamento, Pix, no-show, devolução em outra loja, nº do voo, tabela de caução, coberturas das proteções) já estão em 00c (C1, C3, C4, C7, O4, O8).
+
+## 3b. Ofertas e campanhas a confirmar
+
+A mecânica do BEMVINDOASA (C5), do "mais um dia" (C6), das campanhas (C12), o voo atrasado (O4), a devolução em outra loja (O8) e o pré-cadastro (O13) já estão em 00c. Aqui fica o que as páginas acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| F1 | **Onde o cupom vale e o que ele muda:** só no site ou também no 0800, no WhatsApp e no balcão; se o desconto muda a caução; se vale no aluguel mensal; se volta a valer quando a reserva é cancelada; se serve para reservar para outra pessoa | Ofertas (dúvidas), Primeira locação (regras e dúvidas) | Comercial |
+| F2 | **Operação na temporada:** grupos que esgotam primeiro no Carnaval, no São João e no fim de ano; faixas de horário de pico do balcão em Recife e em Fortaleza; período de maior ocupação no fim de ano | Carnaval, São João, Réveillon | Operação |
+| F3 | **Cupom no motor de reservas:** a lista de códigos válidos, a resposta para código inválido, expirado e para o BEMVINDOASA usado por quem já alugou (como o sistema reconhece a primeira locação) | Busca de todas as páginas de oferta | Comercial + dev |
+| F4 | **Onde vale cada campanha:** o São João vale também em Fortaleza? O Carnaval vale nas duas praças? | São João, Carnaval | Comercial |
+| F5 | **Próxima edição:** pelo calendário, a próxima é o Réveillon 2026/2027. A página está pronta; falta a mecânica (C12) para ligar a campanha, trocar para index e pôr o card na vitrine | Réveillon, Ofertas | Marketing + comercial |
 
 ## 4. Privacidade: dados que só a empresa sabe
 
@@ -78,19 +92,22 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | # | O que falta | Onde |
 |---|---|---|
 | A1 | **Autorização de nome, foto e cargo** de Sandro, Saulo Viana e Robson (J8). Sem ela, o bloco "Quem recebe você no aeroporto" sai inteiro. As avaliações indicam as funções: Robson abre o contrato no balcão de Fortaleza, Saulo Viana é agente de pátio em Fortaleza e Sandro faz entrega e vistoria em Recife. Os cargos ainda precisam ser confirmados. | Quem somos |
-| A2 | **Política de uso das avaliações** do Google citadas com primeiro nome e inicial (Lais C., Danilo L., Priscila V., Jones D., Raquel A., Maria Eduarda). Letícya, citada na avaliação de Maria Eduarda, também é colaboradora (J8). | Quem somos, home |
+| A2 | **Política de uso das avaliações** do Google citadas com primeiro nome e inicial (Lais C., Danilo L., Priscila V., Jones D., Raquel A., Maria Eduarda). Letícya, citada na avaliação de Maria Eduarda, também é colaboradora (J8). | Quem somos, home, Primeira locação (Raquel A.) |
 | A3 | Fotos reais (M3): equipe no balcão (é o LCP de Quem somos), retratos da equipe, balcões, pátio, frota, destinos do blog, estrada. Hoje todas são placeholder com o briefing na legenda. | Todas |
+| A3b | Fotos das páginas de oferta: cliente recebendo a chave no balcão (com autorização de imagem), SUV na estrada à beira-mar, pátio do Aeroporto do Recife, carro em ladeira de Olinda sem foliões identificáveis, SUV na BR-232 ao entardecer sem marca de festa, estrada costeira ao pôr do sol sem fogos com marca de evento, Porto de Galinhas, Jericoacoara, e um carro por grupo da vitrine (Spin, Commander, Onix Plus, Tracker, Toro). | Ofertas, Primeira locação, campanhas |
 | A4 | Autor dos artigos do blog, com nome e função (M5) | Blog |
 | A5 | Padrão de URL de categoria e paginação do blog atual (M5) | Blog |
 | A6 | Endereços dos artigos novos da pauta 2 a 8 (propostos, não confirmados) | Blog |
 | A7 | Distâncias, tempos e data de conferência dos roteiros ([VERIFICAR] em 00c) | Blog |
+| A8 | **Roteiros das campanhas** ([VERIFICAR] na tela): programação e polos do Carnaval do Recife e de Olinda e o esquema de trânsito; Caruaru pela BR-232 (cerca de 130 km) e se Gravatá entra; as cidades juninas do ano; distâncias de Porto de Galinhas, Carneiros, Maragogi, Cumbuco e Canoa Quebrada; local das festas de virada; regras de acesso de veículos a Jericoacoara e se a Toro 4x4 serve para ele. Conferir a cada edição, com a data. | Carnaval, São João, Réveillon |
+| A9 | **Anúncios das campanhas** (Google Ads e Meta): estão como rascunho na copy e não entram nas páginas. Antes de subir: o título "Sem van: carro no aeroporto" só vale para Recife (O1); o texto do Réveillon na Meta cita os dois aeroportos; o título "Réveillon em Porto de carro" usa uma abreviação que a própria copy pede para testar. | Google Ads, Meta |
 
 ## 6. Técnico e de lançamento
 
 | # | O que falta | Onde |
 |---|---|---|
 | T1 | Banner de cookies (`asa-consent`) e o link "Configurar cookies" no rodapé. Depende de D6. | Global, Privacidade |
-| T2 | Barra de primeira locação (BEMVINDOASA). Só entra com as regras do cupom (C5). | Global |
+| T2 | Barra de primeira locação (BEMVINDOASA). Só entra com as regras do cupom (C5). A página `/ofertas/primeira-locacao` já existe para receber o link da barra. | Global |
 | T3 | Busca ligada ao motor de reservas. Hoje mostra uma linha "Protótipo". | Global |
 | T4 | Formulário de contato com destino real, anti-spam (honeypot) e os eventos de GA4. Depende de E3. | Contato |
 | T5 | Migração dos 14 PDFs de RI: levar os arquivos e manter os endereços `/_files/pasta/6/...` ou redirecionar com 301. | RI |
@@ -100,6 +117,11 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T9 | Coordenadas `geo` das duas lojas para o schema. A API do Google Business Profile não devolveu latitude e longitude; o link do Maps de cada ficha já está nas páginas. | Contato, Lojas |
 | T11 | A demonstração de dúvidas em 06 Componentes diz que a equipe "atende no WhatsApp e no telefone, 24 horas". O horário do atendimento remoto ainda não foi confirmado (E2); o texto da documentação muda junto. | Design system |
 | T10 | Depois de cada merge: sincronizar o guia de parceiros (GitHub Pages), a skill e a cópia offline. Secrets do FTP para o deploy do design system. | Repositório |
+| T12 | **Estados das páginas de oferta no CMS.** Campanha: flag de temporada que liga index, follow e a canonical, troca H1 e fechamento e mostra ou esconde as faixas da oferta e dos carros; a URL nunca muda e o status é 200 o ano todo. Cupom: estado pausado com noindex. Vitrine: card com validade obrigatória, esqueleto no formato do card enquanto carrega, `ItemList` só com os cards ativos. No protótipo, os estados abrem com `?encerrada`, `?pausado` e `?vazio`. | Ofertas, Primeira locação, campanhas |
+| T13 | **Busca nas páginas de oferta:** cupom pré-preenchido por `?cupom=` (sem exemplo no placeholder), datas pré-sugeridas com o período da campanha e o local pelo anúncio. "Devolver em outro local", pedido na copy de `/ofertas`, ficou fora até O8. | Ofertas, Primeira locação, campanhas |
+| T14 | **Eventos novos no GTM:** `view_promotion`, `select_promotion`, `coupon_copy`, `coupon_apply` (valido, invalido, expirado), `tab_select` e os parâmetros novos do `search` (iata, dias pela regra das 27 horas, antecedência, cupom_aplicado). O `dataLayer` já empurra todos. | GTM, GA4 |
+| T15 | **Preço "a partir de" nos cards de veículo das campanhas** vem do motor (`{preco_final_a_partir}`). Até lá, o lugar dele está marcado em laranja. | Carnaval, São João, Réveillon |
+| T16 | **Card de veículo da biblioteca:** a linha de grupo fica acima do título, o que pela regra de 15 Composição é sobretítulo. Nas campanhas ela foi para baixo do título, como já é no card de artigo. Falta alinhar o componente e o exemplo em 06 Componentes (e a home de referência). | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
 
@@ -116,3 +138,24 @@ Não é pendência do site, mas aparece ao conferir o NAP:
 | J6: documentos de RI | Os 14 documentos publicados hoje (demonstrações financeiras 2020 a 2023 e debêntures) entram com data e tamanho | asalocadora.com.br/relacoes-com-investidores |
 | Trecho de avaliação citando Robson | "Atendimento impecável do Robson e Saulo atendentes super atenciosos, amei tudo." (Priscila V., Fortaleza, 19/09/2026) | API do GBP |
 | Links das avaliações de cada loja | Links do Maps das duas fichas | API do GBP |
+
+## 9. Desvios da copy que pedem aprovação
+
+Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de verdade.
+
+| Página | O que a copy pedia | O que entrou | Por quê |
+|---|---|---|---|
+| Primeira locação, campanhas | Selo ("Primeira locação", "Carnaval {ano}") acima do H1 | Primeira locação: sem selo, o H1 já diz. Campanhas: o selo foi para a linha da oferta, abaixo do H1 | Sobretítulo é proibido em 15 Composição |
+| Primeira locação | Selo "Regras" acima do H2 das regras | Sem selo | Mesmo motivo |
+| Ofertas | Selo do card acima do título | Selo sobre a foto, no canto baixo | Mesmo motivo; é o padrão do selo do card de veículo |
+| Campanhas | Foto no hero | O hero leva só a busca; a foto foi para a oferta e os roteiros | Hero leve (LCP), como a copy de `/ofertas` já pedia |
+| Carnaval | "Chegou em Recife ou Fortaleza, o carro está no pátio do próprio aeroporto" | "o balcão da Asa fica dentro do aeroporto e funciona 24h" | O pátio dentro do aeroporto só está confirmado em Recife (O1) |
+| Primeira locação | "O carro sai do pátio do próprio aeroporto" no passo 4 | "Em Recife, o carro sai do pátio do próprio aeroporto" | O1 |
+| Carnaval | "Informe o voo na reserva" | "Avise se o voo atrasar: 0800 080 0015" | O campo do voo está planejado e não confirmado (O4); entrou a alternativa da própria copy |
+| Carnaval | "Faça o pré-cadastro antes de viajar" | Fora da página, em comentário | Link e efeito no balcão sem confirmação (O13) |
+| Ofertas | "Alert neutro com `asa-price` de exemplo" | Resumo de exemplo com os nomes das linhas, sem valores | A fonte de verdade proíbe preço fixo na copy |
+| Ofertas | Estado vazio "No momento não há campanha ativa" | "No momento não há oferta ativa" | O estado aparece quando não há nenhuma oferta, não só campanha |
+| Ofertas, campanhas | CTA final com `asa-cut` de fundo | Fechamento amarelo curto (`asa-closing`) | É o fechamento do sistema; o corte fica nas fotos |
+| Campanhas | BenefitItem com ícones; LocationCard | Faixa-foto com três fatos; lugar com foto e link, sem card | Ícone decorativo e card fora da vitrine são vícios de 15 Composição |
+| Campanhas | Bloco de prova ausente; nota no fechamento | Notas 4,7 e 9,4 no fechamento, sem faixa preta | O preto aparece só quando há prova; a regra do par de notas segue D4 |
+
