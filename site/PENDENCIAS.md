@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro, a frota (hub e as seis categorias) e as quatro praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza).
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro, a frota (hub e as seis categorias) as quatro praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza), Lojas, os quatro destinos (Porto de Galinhas, Maragogi, Olinda, Jericoacoara) e o aluguel mensal.
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro, as sete páginas da frota e as quatro praças), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro, as sete páginas da frota, as quatro praças, Lojas, os destinos e o aluguel mensal), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -193,6 +193,22 @@ Já estão em 00c e nesta lista: o pátio de Fortaleza (O1), voo e tolerância (
 | P5 | **Dados de roteiro ([VERIFICAR] na tela):** distâncias do aeroporto até Boa Viagem, Olinda, Gaibu e Calhetas, Porto de Galinhas, Maragogi, Beira-Mar, Praia do Futuro, Beach Park, Morro Branco, Canoa Quebrada, Cumbuco, Lagoinha, Jericoacoara e Guaramiranga; as rodovias CE-040, CE-025 e CE-085; a faixa de lazer da Av. Boa Viagem; Zona Azul no Recife Antigo e em Fortaleza; a estação Aeroporto do metrô; Brennand; vias de pico; o caranguejo às quintas na Praia do Futuro. | As quatro | Marketing |
 | P6 | **"Passeios em dunas são feitos com bugueiros credenciados":** confirmar o texto com a operação, junto com D12. | Fortaleza | Operação |
 
+## 3j. Lojas, destinos e aluguel mensal
+
+Já estão nesta lista: as referências dos balcões (P1, P2), a devolução em outra loja (O8 e R15, agora em laranja em todas as páginas que falam dela), estrada sem pavimentação (D12), circulação (R7), combustível (R2), caução (R5), prorrogação (R14) e condutor adicional (R12).
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| G1 | **Dados de rota ([VERIFICAR] na tela):** distâncias e tempos do aeroporto a Porto de Galinhas, Maragogi, Olinda e Jijoca; as rodovias (BR-101, PE-060, PE-038, PE-009, AL-101, CE-085); o pedágio da Rota do Atlântico; a divisa perto de São José da Coroa Grande; os trechos de pista simples; o trânsito de pico na saída sul e no centro do Recife; o sinal de celular no caminho de Jeri. | Destinos | Marketing |
+| G2 | **Dados de roteiro ([VERIFICAR] na tela):** Maracaípe e os cavalos-marinhos, Carneiros a 50 km de Porto, tábua de marés, galés de Maragogi e a saída com maré baixa, Antunes e Barra Grande, São Miguel dos Milagres, estacionamentos na vila de Porto e nos pontos de embarque, ruas e estacionamento no Sítio Histórico de Olinda, o trânsito no Carnaval, Rio Doce e Janga, Itamaracá e o Recife Antigo a 7 km de Olinda. | Destinos | Marketing |
+| G3 | **Jericoacoara:** as regras atuais de acesso de veículos ao parque nacional e à vila, se todo o trajeto até Jijoca é asfaltado, os estacionamentos em Jijoca e a taxa de turismo do município. Junto com D12, que hoje proíbe estrada sem pavimentação. | Jericoacoara, Fortaleza, Aeroporto de Fortaleza | Operação + marketing |
+| G4 | **Mapa ilustrado da rota** (arte própria, sem marca de terceiros) para Porto de Galinhas e Maragogi; em Jericoacoara, com o trecho final marcado como "transporte local". Até lá, o lugar dele mostra o briefing. | Destinos | Design |
+| G5 | **Title com a marca curta "\| Asa"** em Maragogi e Olinda, para caber o termo e a origem em 60 caracteres. | Maragogi, Olinda | SEO |
+| L1 | **Ordem das lojas no celular:** a copy pede a loja da praça detectada (ou da última busca) primeiro. No protótipo, só com `?local=FOR`; em produção, pela última busca ou pela localização. | Lojas | Dev |
+| MS1 | **Condições do mensal:** prazo mínimo, franquia de km e km excedente, manutenção e revisão, troca em pane, proteções, taxa de 12%, forma e periodicidade da cobrança, valor da caução, grupos disponíveis, renovação (R14), devolução em outra cidade (R15), valor do condutor adicional e a diferença para um plano de assinatura (IPVA, manutenção e seguro inclusos?). | Aluguel mensal | Comercial |
+| MS2 | **"Pequena empresa" e os termos de hoje:** eles proíbem usar o carro para "fins comerciais" (R7). O que conta como uso comercial no mensal e na locação comum? A página oferece o mensal para a equipe de uma pequena empresa. | Aluguel mensal, Empresas | Jurídico + comercial |
+| MS3 | **Cotação:** para onde vai o pedido (Sankhya, Chatwoot ou e-mail comercial), quem responde e em quanto tempo. O bloqueio de pedido repetido (mesmo WhatsApp em 10 minutos) fica no servidor; no protótipo, na sessão da aba. | Aluguel mensal | Comercial + dev |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -225,6 +241,7 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | A10 | Fotos da home e da vitrine: carro da frota saindo do pátio do Aeroporto do Recife com pessoas reais (LCP da home), os dois balcões com a sinalização, atendente entregando a chave, os quatro destinos e os 15 modelos de referência na mesma angulação e fundo. A home aprovada (PR asa-design-system#1) usava 16 fotos de banco sem licença, que não vieram para o site. | Home, Vitrine |
 | A11 | **Fotos da frota:** os 15 modelos de referência no pátio, no mesmo ângulo 3/4 dianteiro e fundo neutro, e as da copy de cada categoria (Corolla com o porta-malas aberto, Compass saindo do pátio, Spin com a 3ª fileira, S10 com a caçamba, câmbio automático do Tracker). Também os roteiros (Olinda, Beira-Mar, Porto de Galinhas, Maragogi, litoral do Ceará, picape com prancha) e os dois balcões. Depoimentos de Jones D. (Frota) e Daniel G. (Automático) dependem de A2. | Frota e categorias |
 | A12 | **Fotos das praças:** o balcão do Portão A5 com atendente e cliente (com autorização), o balcão de Fortaleza à noite, Recife Antigo, Beira-Mar de Fortaleza, os bate-voltas e destinos (Boa Viagem, Olinda, Calhetas, Porto de Galinhas, Maragogi, Porto das Dunas, Jericoacoara, Morro Branco, Cumbuco, Guaramiranga). Depoimentos de Lais C., Jones D., Danilo L., Raquel A., Maria Eduarda e Daniel G., e os nomes Sandro, Saulo Viana e Letícya, dependem de A1 e A2. | Praças |
+| A13 | **Fotos dos destinos, das lojas e do mensal:** piscinas naturais de Porto de Galinhas e galés de Maragogi (licenciadas), Maracaípe, Muro Alto, Carneiros, Antunes, São Miguel dos Milagres, Sítio Histórico e Alto da Sé de Olinda, Janga, Itamaracá, a estrada asfaltada entre carnaubais rumo a Jeri (nunca carro em duna ou areia), os dois balcões com colaboradores autorizados e o Onix Plus no pátio do Aeroporto do Recife. Depoimentos de Jones D., Lais C. e Danilo L. dependem de A2. | Lojas, destinos, mensal |
 
 ## 6. Técnico e de lançamento
 
@@ -263,6 +280,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T33 | **Eventos da frota no GTM:** `view_item_list` e `select_item` com as listas `frota_hub`, `frota_hatch_economico`, `frota_sedan`, `frota_suv`, `frota_7_lugares`, `frota_picape`, `frota_automatico` e `frota_usos` (item_id = letra do grupo); `filter_applied` (filtro, valor, ativo, resultados) na tabela; `tab_select` nas abas de automáticos; `cta_reservar_categoria` (categoria, placement); `search` ganhou `categoria` e `grupo`. | Frota e categorias |
 | T34 | **Uma loja, um `@id`:** o `AutoRental` de cada loja usa `/lojas#recife` e `/lojas#fortaleza` na home, em Contato e nas quatro praças, com o nome e o endereço da ficha do Google letra a letra e a `url` da página do aeroporto. A página de cidade aponta para a mesma loja e acrescenta `areaServed`. Antes, a home e Contato usavam dois `@id` diferentes. Falta o `geo` (T9). | Home, Contato, praças |
 | T35 | **Eventos das praças:** os nomes da copy viram os do site: `search_submit` → `search` (com `origem` e `iata`), `select_vehicle` → `select_item` (listas `praca_aeroporto_recife`, `praca_recife`, `praca_aeroporto_fortaleza`, `praca_fortaleza`), `click_whatsapp` → `generate_lead`, `click_directions` e `click_internal_destination` → `select_content` (rota, destino), `faq_open` → `faq_expand`, `tab_select` nas abas de Fortaleza. | Praças |
+| T36 | **Mapa das lojas:** carrega só ao tocar em "Mostrar mapa", com a ficha do Google pelo `cid` (`maps.google.com/maps?cid=…&output=embed`). Para produção, trocar pelo iframe oficial ("Compartilhar > Incorporar" da ficha) ou pela Maps Embed API, conforme os termos do Google. Depois de 8 segundos sem carregar, aparece "O mapa não carregou. Use o link Como chegar no Google Maps." | Lojas |
+| T37 | **Eventos novos no GTM:** `map_open` e `select_location` (location REC ou FOR) em Lojas; `select_content` com `regras_de_uso` em Jericoacoara; na cotação do mensal, `form_start`, `form_error` (error_fields) e `generate_lead` (lead_type mensal, customer_type, pickup_location, duration_bucket, vehicle_type, transmission, vehicles_qty), marcado como evento-chave; `contact_click` no WhatsApp e no telefone. Os destinos usam os eventos das praças (T35). | Lojas, destinos, mensal |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -390,3 +409,24 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Recife, Fortaleza | LocationCard da loja | Bloco da loja sem card (foto, endereço da ficha, 24h, mapa), como em Contato | Card fica para produto |
 | Recife | "Colada em Boa Viagem" | "Ao lado de Boa Viagem" | Mais preciso: o aeroporto fica na Imbiribeira, que faz divisa com Boa Viagem |
 | Recife | Gaibu e Calhetas sem página de destino | Na faixa de bate-voltas, sem link | Não há página para linkar |
+| Lojas | LocationCard expandido com botão principal em cada loja | Bloco da loja sem card, com a ação "Ver carros" em contorno nas duas | Página de localização (informativa): as duas lojas têm o mesmo peso e nenhuma ação disputa |
+| Lojas | Nota de cada loja (`{nota_google_recife}`, `{nota_google_fortaleza}`) | Não entrou | D4 e H2 |
+| Lojas | CTA final com `asa-cut` | Fechamento curto neutro, com as duas lojas em botões de mesmo peso | Padrão das páginas informativas |
+| Destinos (os quatro) | Selo acima do H1 e foto no hero | Linha abaixo do H1; a foto foi para a rota e os passeios | Sobretítulo; hero leve |
+| Destinos | "Onde retirar" como Alert | Faixa curta de texto com o link para a página do aeroporto | É o assunto da faixa, não um aviso de sistema |
+| Destinos | Ficha da rota e mapa em blocos separados | Um editorial: o mapa (ou a foto) de um lado, a ficha da rota (asa-summary) e as dicas do outro | Uma faixa só para planejar a estrada |
+| Destinos | LocationCards dos passeios | Foto, texto e link, sem card; sem link quando não há página | Card fica para produto |
+| Destinos | Título da prova com `{nota_google}` | H2 com o nome do bloco e as placas 4,7 e 9,4 | D4 |
+| Porto de Galinhas, Maragogi, Jericoacoara | "Abasteça… [CONFIRMAR: combustível]" | A regra de hoje (tanque cheio na volta) em laranja | R2 |
+| Porto de Galinhas | "Não deixe objetos à vista" | Aviso em destaque, com a regra de hoje sobre objetos esquecidos em laranja | R17 |
+| Maragogi | "[CONFIRMAR: circular em Alagoas]" solto | A regra de hoje (território nacional) em laranja, com a pendência da condição | R7 |
+| Jericoacoara | "O uso fora de estrada pode ser proibido pelo contrato" | "Os termos de hoje proíbem usar o carro em estrada sem pavimentação, inclusive as picapes 4x4", em laranja | D12: os termos já dizem; "pode ser" seria vago |
+| Jericoacoara | Mapa ilustrado da rota | A foto da estrada asfaltada (a da copy para o hero); o mapa fica em G4 | Nenhuma imagem de carro na areia |
+| Jericoacoara | Taxa de turismo como nota solta | Item da lista do "leia antes" | É uma das coisas que a pessoa precisa saber antes de ir |
+| Lojas, destinos, praças, sedã | "Posso devolver em outra loja?" só com [CONFIRMAR] | A regra de hoje (taxa de retorno) em laranja, com a pendência do valor | R15 |
+| Olinda | "Posso cancelar? Sim, sem custo" | Mantido, com a regra de hoje (multa de 30% a 70%) em laranja | D1 |
+| Aluguel mensal | Badge "Aluguel mensal" acima do H1 | Saiu; "mensal" vai na placa preta do H1 | Sobretítulo |
+| Aluguel mensal | Bloco "Antes de retirar, confira" depois do formulário | Ao lado do formulário, com o canal oficial | O que conferir fica à vista de quem pede a cotação |
+| Aluguel mensal | Prova "Nota {nota_google}" no hero | 4,7 no Google e 9,4 no Reclame Aqui | D4 |
+| Aluguel mensal | Passo 4: "O carro sai do pátio do próprio aeroporto" para as duas lojas | "Em Recife, o carro sai do pátio do próprio aeroporto" | O1 |
+| Aluguel mensal | Renovação, quem dirige, outra cidade e caução só com [CONFIRMAR] | As regras de hoje (R14, R12, R15, R5) em laranja, com a pendência do mensal | Os termos de hoje já dizem algo |

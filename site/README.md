@@ -39,7 +39,13 @@ site/
 │   ├── aeroporto-recife/    do desembarque ao carro, devolução, carros, prova, destinos
 │   ├── recife/              a loja, os bairros, bate-voltas, a trabalho, carros, prova
 │   ├── aeroporto-fortaleza/ voo de madrugada, do desembarque ao carro, devolução, carros, prova
-│   └── fortaleza/           a loja, a capital, o litoral em abas, carros, prova
+│   ├── fortaleza/           a loja, a capital, o litoral em abas, carros, prova
+│   ├── porto-de-galinhas/   destino: retirada no Recife, rota, passeios, estacionar na vila, carros, prova
+│   ├── maragogi/            destino: retirada no Recife, rota pela costa, passeios, carros, prova
+│   ├── olinda/              destino: retirada no Recife, o caminho, ladeiras, passeios, carros, prova
+│   └── jericoacoara/        destino: leia antes de ir, retirada em Fortaleza, rota, carros, prova
+├── lojas/               as duas lojas com o endereço da ficha do Google e o mapa sob demanda (lojas.js) (rascunho)
+├── aluguel-mensal/      para quem é, como funciona, o que entra e a cotação (mensal.js) (rascunho)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)

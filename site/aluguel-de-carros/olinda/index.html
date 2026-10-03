@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aluguel de Carros Aeroporto de Fortaleza | Asa Locadora</title>
-  <meta name="description" content="Balcão 24h na Área de Locadoras do desembarque do Aeroporto de Fortaleza. Atendimento de madrugada, km livre e diária de 27h. Veja os preços.">
+  <title>Aluguel de Carro em Olinda, Retirada no Recife | Asa</title>
+  <meta name="description" content="Retire o carro 24h no Aeroporto do Recife e chegue a Olinda em cerca de 20 km. Dicas para as ladeiras e para estacionar no Sítio Histórico. Veja os preços.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://asalocadora.com.br/aluguel-de-carros/aeroporto-fortaleza">
+  <link rel="canonical" href="https://asalocadora.com.br/aluguel-de-carros/olinda">
   <link rel="preload" href="/assets/fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="/css/asa-tokens.css">
   <link rel="stylesheet" href="/css/asa-base.css">
@@ -19,8 +19,9 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "Aeroporto de Fortaleza",
-      "url": "https://asalocadora.com.br/aluguel-de-carros/aeroporto-fortaleza",
+      "@id": "https://asalocadora.com.br/aluguel-de-carros/olinda",
+      "name": "Aluguel de carro para Olinda",
+      "url": "https://asalocadora.com.br/aluguel-de-carros/olinda",
       "inLanguage": "pt-BR",
       "isPartOf": {
         "@id": "https://asalocadora.com.br/#website"
@@ -29,7 +30,17 @@
         "@id": "https://asalocadora.com.br/#organization"
       },
       "about": {
-        "@id": "https://asalocadora.com.br/lojas#fortaleza"
+        "@type": "Place",
+        "name": "Olinda",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Olinda",
+          "addressRegion": "PE",
+          "addressCountry": "BR"
+        }
+      },
+      "provider": {
+        "@id": "https://asalocadora.com.br/lojas#recife"
       }
     },
     {
@@ -45,63 +56,28 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Lojas",
+          "name": "Aluguel de carros",
           "item": "https://asalocadora.com.br/lojas"
         },
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Aeroporto de Fortaleza",
-          "item": "https://asalocadora.com.br/aluguel-de-carros/aeroporto-fortaleza"
+          "name": "Olinda",
+          "item": "https://asalocadora.com.br/aluguel-de-carros/olinda"
         }
       ]
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "AutoRental",
-      "@id": "https://asalocadora.com.br/lojas#fortaleza",
-      "name": "Asa Locadora - Aeroporto de Fortaleza",
-      "url": "https://asalocadora.com.br/aluguel-de-carros/aeroporto-fortaleza",
-      "telephone": "+55-800-080-0015",
-      "hasMap": "https://maps.google.com/maps?cid=6562632952082218298",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Aeroporto Internacional de Fortaleza - Pinto Martins, Av. Sen. Carlos Jereissati, 3000, Área de Locadoras / Terminal de Desembarque",
-        "addressLocality": "Fortaleza",
-        "addressRegion": "CE",
-        "postalCode": "60741-900",
-        "addressCountry": "BR"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "parentOrganization": {
-        "@id": "https://asalocadora.com.br/#organization"
-      }
     }
   ]
   </script>
 </head>
 <!--
-  /aluguel-de-carros/aeroporto-fortaleza. Copy: novo-site/copy-v2/17-aluguel-de-carros-aeroporto-fortaleza.md.
-  Página de praça (data-page-mode="marketing"): amarelo abre e fecha, o preto uma vez (prova).
-  Faixas: hero com preço e busca (amarelo) > voo de madrugada (branco) > do desembarque ao carro, editorial (mist) > o que levar (branco) >
-  diária e devolução (mist) > carros (branco) > destinos (mist) > prova (preto) > dúvidas (branco) > fechamento (amarelo) > rodapé.
-  O1: em Fortaleza, o pátio e o "sem van" não estão confirmados; a página não diz onde o carro fica.
-  Schema: WebPage, BreadcrumbList e AutoRental com o NAP da ficha do Google e @id /lojas#fortaleza.
+  /aluguel-de-carros/olinda. Copy: novo-site/copy-v2/22-aluguel-de-carros-olinda.md.
+  Página de destino (data-page-mode="marketing"): amarelo abre e fecha, o preto uma vez (prova). Não há loja em Olinda.
+  Faixas: hero com preço e busca (amarelo) > onde retirar (branco, curta) > o caminho, editorial (mist) > ladeiras e estacionamento (branco) >
+  o que fazer com o carro (mist) > carros (branco) > o que levar (mist) > prova (preto) > dúvidas (branco) > fechamento (amarelo) > rodapé.
+  Schema: WebPage com about (Place: Olinda/PE) e provider para /lojas#recife, e BreadcrumbList. Sem AutoRental.
 -->
-<body data-page-mode="marketing" data-page-type="praca" data-lista="praca_aeroporto_fortaleza" data-categoria="aeroporto_fortaleza">
+<body data-page-mode="marketing" data-page-type="praca" data-lista="destino_olinda" data-categoria="destino_olinda">
 
   <!-- parcial:cabecalho -->
   <a class="asa-skiplink" href="#conteudo">Pular para o conteúdo</a>
@@ -255,9 +231,9 @@
 
   <main id="conteudo">
 
-    <!-- HERO · amarelo · H1 em Registro 1 com "24h" em placa preta; a linha do selo da copy abaixo do H1 (acima dele seria
+    <!-- HERO · amarelo · H1 em Registro 1 com "Olinda" em placa preta; a linha do selo da copy abaixo do H1 (acima dele seria
          sobretítulo); a lide e as notas. No cartão branco, o "a partir de" (o menor preço da frota) e a busca com o aeroporto já
-         escolhido. A foto da copy para o hero foi para o passo a passo: o hero leva a busca e fica leve. -->
+         escolhido. A foto da copy para o hero foi para o caminho até Olinda e os passeios: o hero leva a busca e fica leve. -->
     <section class="asa-hero asa-bg-surface site-hero-search site-hero-fleet">
       <div class="asa-watermark" aria-hidden="true"></div>
       <div class="asa-container asa-hero__inner">
@@ -266,21 +242,21 @@
           <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div class="asa-alert__body">
             <span class="asa-alert__title">Rascunho para revisão</span>
-            <span class="asa-alert__text">Preços de exemplo do protótipo: sem datas, o "a partir de" é de 1 diária; ao mudar as datas na busca, os cards mostram o total do período (?estado=carregando, erro e esgotado mostram os outros estados). Onde fica o pátio, o acesso para a devolução, a regra de Jericoacoara e as distâncias esperam confirmação. Fotos são briefing e os depoimentos esperam autorização. Detalhes em site/PENDENCIAS.md.</span>
+            <span class="asa-alert__text">Preços de exemplo do protótipo: sem datas, o "a partir de" é de 1 diária; ao mudar as datas na busca, os cards mostram o total do período. Dados de rota e de roteiro aparecem com <span class="site-pending">[VERIFICAR]</span>; regras que os termos de hoje já trazem aparecem em laranja. O title usa a marca curta "| Asa" <span class="site-pending">[CONFIRMAR com SEO]</span>. Fotos são briefing e o depoimento espera autorização. Detalhes em site/PENDENCIAS.md.</span>
           </div>
         </div>
         <nav aria-label="Trilha">
           <ol class="asa-breadcrumb">
             <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="/">Início</a></li>
             <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
-            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="/lojas">Lojas</a></li>
+            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="/lojas">Aluguel de carros</a></li>
             <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
-            <li class="asa-breadcrumb__item" aria-current="page">Aeroporto de Fortaleza</li>
+            <li class="asa-breadcrumb__item" aria-current="page">Olinda</li>
           </ol>
         </nav>
-          <h1>Aluguel de carros no Aeroporto de Fortaleza, <span class="asa-hero__mark">24h</span> na Área de Locadoras</h1>
-          <p class="site-hero__groups">Terminal de Desembarque · aberto 24 horas</p>
-          <p class="asa-lead">Desembarcou em Fortaleza, o balcão da Asa está no Terminal de Desembarque, na Área de Locadoras. Aberto todas as horas, todos os dias.</p>
+          <h1>Aluguel de carro para <span class="asa-hero__mark">Olinda</span>, com retirada no Aeroporto do Recife</h1>
+          <p class="site-hero__groups">Retirada no Aeroporto do Recife · balcão 24h</p>
+          <p class="asa-lead">Olinda fica a cerca de 20 km do balcão do Portão A5 <span class="site-pending">[VERIFICAR]</span>. Retire o carro a qualquer hora e suba as ladeiras no seu horário.</p>
           <p class="site-hero__proof">
             <span class="asa-rating"><span class="asa-rating__value">4,7</span><span class="asa-rating__source">no Google</span></span>
             <span class="asa-rating"><span class="asa-rating__value">9,4</span><span class="asa-rating__source">no Reclame Aqui</span></span>
@@ -292,36 +268,36 @@
             <div class="asa-price"><span class="asa-price__label">A partir de</span><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
           </div>
           <p class="site-hero-price__pending"><span class="site-pending">[CONFIRMAR: período de referência do "a partir de" sem datas (no protótipo, 1 diária)]</span></p>
-          <form class="asa-search site-booking" action="/reservas-online" method="get" data-booking data-categoria="aeroporto_fortaleza" data-origem="praca_aeroporto_fortaleza" id="reservar" aria-label="Buscar carros disponíveis">
+          <form class="asa-search site-booking" action="/reservas-online" method="get" data-booking data-categoria="destino_olinda" data-origem="destino_olinda" id="reservar" aria-label="Buscar carros disponíveis">
             <div class="asa-search__row">
               <div class="asa-field">
-                <label class="asa-field__label" for="af-local">Onde você vai retirar o carro?</label>
-                <select class="asa-select" id="af-local" name="local">
-                  <option value="REC">Aeroporto do Recife (REC) · Portão A5</option>
-                  <option value="FOR" selected>Aeroporto de Fortaleza (FOR) · Área de Locadoras</option>
+                <label class="asa-field__label" for="ol-local">Onde você vai retirar o carro?</label>
+                <select class="asa-select" id="ol-local" name="local">
+                  <option value="REC" selected>Aeroporto do Recife (REC) · Portão A5</option>
+                  <option value="FOR">Aeroporto de Fortaleza (FOR) · Área de Locadoras</option>
                 </select>
               </div>
               <div class="asa-field">
-                <label class="asa-field__label" for="af-retirada">Retirada</label>
-                <input class="asa-input" type="datetime-local" id="af-retirada" name="retirada" step="1800" aria-describedby="af-retirada-erro">
-                <p class="asa-field__error" id="af-retirada-erro" hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></p>
+                <label class="asa-field__label" for="ol-retirada">Retirada</label>
+                <input class="asa-input" type="datetime-local" id="ol-retirada" name="retirada" step="1800" aria-describedby="ol-retirada-erro">
+                <p class="asa-field__error" id="ol-retirada-erro" hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></p>
               </div>
               <div class="asa-field">
-                <label class="asa-field__label" for="af-devolucao">Devolução</label>
-                <input class="asa-input" type="datetime-local" id="af-devolucao" name="devolucao" step="1800" aria-describedby="af-devolucao-erro">
-                <p class="asa-field__error" id="af-devolucao-erro" hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></p>
+                <label class="asa-field__label" for="ol-devolucao">Devolução</label>
+                <input class="asa-input" type="datetime-local" id="ol-devolucao" name="devolucao" step="1800" aria-describedby="ol-devolucao-erro">
+                <p class="asa-field__error" id="ol-devolucao-erro" hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></p>
               </div>
-              <button class="asa-btn asa-btn--primary" type="submit"><span class="asa-btn__label">Ver carros disponíveis</span><span class="asa-btn__loader" aria-hidden="true"><span></span><span></span><span></span></span></button>
+              <button class="asa-btn asa-btn--primary" type="submit"><span class="asa-btn__label">Ver carros para Olinda</span><span class="asa-btn__loader" aria-hidden="true"><span></span><span></span><span></span></span></button>
             </div>
             <details class="asa-disclosure site-booking__coupon" data-cupom>
               <summary class="asa-disclosure__trigger">Tenho um cupom<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
               <div class="site-booking__coupon-row">
                 <div class="asa-field">
-                  <label class="asa-field__label" for="af-cupom">Código do cupom</label>
-                  <input class="asa-input" type="text" id="af-cupom" name="cupom" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="af-cupom-msg">
+                  <label class="asa-field__label" for="ol-cupom">Código do cupom</label>
+                  <input class="asa-input" type="text" id="ol-cupom" name="cupom" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="ol-cupom-msg">
                 </div>
                 <button class="asa-btn asa-btn--outline" type="button" data-aplicar>Aplicar</button>
-                <p class="site-booking__coupon-msg" id="af-cupom-msg" data-cupom-msg role="status" aria-live="polite"></p>
+                <p class="site-booking__coupon-msg" id="ol-cupom-msg" data-cupom-msg role="status" aria-live="polite"></p>
               </div>
             </details>
             <div class="site-booking__lines">
@@ -334,78 +310,91 @@
         </div>
       </div>
     </section>
-    <!-- VOO DE MADRUGADA · branco · o texto à esquerda e, à direita, o depoimento de quem chegou de madrugada, grande e sem card -->
-    <section class="asa-section asa-bg-white" aria-labelledby="madrugada-titulo">
+    <!-- ONDE RETIRAR · branco, curta · esclarece que não há loja em Olinda -->
+    <section class="asa-section asa-bg-white asa-section--short" aria-labelledby="retirada-titulo">
       <div class="asa-container">
-        <div class="site-praca-madrugada">
-          <div>
-            <h2 id="madrugada-titulo">Chegou de madrugada, tem gente no <em>balcão</em></h2>
-            <p class="asa-lead">Muita gente chega a Fortaleza em voos da noite e da madrugada. O balcão da Asa funciona 24 horas, então a retirada acompanha o horário do seu pouso.</p>
-            <p class="site-praca-note"><b>Se o voo atrasar:</b> avise pelo WhatsApp 0800 080 0015 assim que souber. <span class="site-pending">[CONFIRMAR: tolerância para atraso de voo e campo "nº do voo" na reserva]</span></p>
-          </div>
-          <figure class="asa-testimonial asa-testimonial--bare site-praca-quote">
-            <blockquote class="asa-testimonial__quote">Cheguei de madrugada no aeroporto de Fortaleza e fui bem atendido… pelo funcionário Saulo Viana.</blockquote>
-            <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Danilo L.</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
-            <p class="site-proof__pending"><span class="site-pending">[CONFIRMAR: autorização de uso da avaliação e do nome de Saulo Viana]</span></p>
-          </figure>
+        <div class="site-fleet-manual">
+          <h2 id="retirada-titulo">Retirada no Aeroporto do <em>Recife</em></h2>
+          <p>A Asa não tem loja em Olinda. O carro sai do pátio do Aeroporto do Recife, com contrato feito no balcão do Portão A5 do desembarque, aberto 24h. A devolução é no mesmo lugar.</p>
+          <p><a href="/aluguel-de-carros/aeroporto-recife">Como retirar no Aeroporto do Recife</a></p>
         </div>
       </div>
     </section>
-    <!-- DO DESEMBARQUE AO CARRO · mist · editorial: a foto do balcão à noite (a da copy para o hero) e os quatro passos -->
-    <section class="asa-section asa-bg-mist" aria-labelledby="passos-titulo">
+    <!-- O CAMINHO · mist · editorial: a foto do Sítio Histórico (a da copy para o hero) e a ficha da rota. Dados com [VERIFICAR]. -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="rota-titulo">
       <div class="asa-container">
         <div class="asa-editorial site-praca-editorial">
-          <div class="asa-editorial__media"><div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Balcão da Asa Rent a Car na Área de Locadoras do Terminal de Desembarque do Aeroporto de Fortaleza, à noite"><span class="asa-photo__caption">[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, à noite, com atendente e cliente com mala, com autorização de imagem. Arquivo: balcao-asa-aeroporto-fortaleza-area-locadoras.jpg ]</span></div></div></div>
+          <div class="asa-editorial__media"><div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:4/5" role="img" aria-label="Casario colorido do Sítio Histórico de Olinda com os prédios do Recife ao fundo"><span class="asa-photo__caption">[ foto · casario e igrejas do Sítio Histórico de Olinda vistos do Alto da Sé, com o Recife ao fundo. Arquivo: aluguel-carro-olinda-sitio-historico.jpg ]</span></div></div></div>
           <div>
-            <h2 id="passos-titulo">Do desembarque ao <em>carro</em></h2>
-        <ol class="site-steps">
-          <li><div><b>Retire a bagagem e siga para o Terminal de Desembarque.</b><p>Procure a sinalização da Área de Locadoras. <span class="site-pending">[CONFIRMAR: referência visual para achar a Área de Locadoras no saguão]</span></p></div></li>
-          <li><div><b>Vá ao balcão da Asa.</b><p>Apresente a CNH e o cartão de crédito físico de quem paga. Confira o contrato e a proteção.</p></div></li>
-          <li><div><b>Siga para o carro.</b><p><span class="site-pending">[CONFIRMAR: onde fica o pátio da Asa em Fortaleza e como o cliente chega até ele]</span></p></div></li>
-          <li><div><b>Faça a vistoria com a equipe e saia.</b><p>Anote ou fotografe qualquer detalhe antes de sair. <span class="site-pending">[CONFIRMAR: envio das fotos da vistoria de saída ao cliente]</span></p></div></li>
-        </ol>
+            <h2 id="rota-titulo">O caminho até <em>Olinda</em></h2>
+            <div class="asa-summary site-route-card">
+              <p class="site-route-card__title">Ficha da rota <span class="site-pending"><span class="site-pending">[VERIFICAR todos os dados]</span></span></p>
+              <div class="asa-summary__row"><span>Distância</span><span>cerca de 20 km</span></div>
+              <div class="asa-summary__row"><span>Tempo</span><span>de 30 a 50 minutos, conforme o trânsito</span></div>
+              <div class="asa-summary__row"><span>Caminho</span><span>atravessa o Recife no sentido norte, pela Av. Agamenon Magalhães, até a entrada de Olinda pela Av. Presidente Kennedy ou pela orla</span></div>
+            </div>
+            <h3 class="site-route-tips">Dicas de estrada</h3>
+            <ul class="site-list">
+            <li>Nos horários de pico, o trecho central do Recife fica lento <span class="site-pending">[VERIFICAR]</span>.</li>
+            <li>Com a diária de 27 horas, dá para marcar a retirada fora do pico sem perder dia. <a href="/diaria-27-horas">Como funciona</a></li>
+          </ul>
           </div>
         </div>
       </div>
     </section>
-    <!-- O QUE LEVAR · white · aviso + lista de conferência: a surpresa com o cartão físico é dor real das avaliações -->
-    <section class="asa-section asa-bg-white" aria-labelledby="levar-titulo">
+    <!-- LADEIRAS · branco · o aviso do Carnaval à esquerda, a lista de cuidados à direita -->
+    <section class="asa-section asa-bg-white" aria-labelledby="ladeiras-titulo">
       <div class="asa-container">
         <div class="site-check">
           <div class="site-check__aside">
-            <h2 id="levar-titulo">O que levar para retirar o <em>carro</em></h2>
+            <h2 id="ladeiras-titulo">Ladeiras, pedra e ruas <em>estreitas</em></h2>
             <div class="asa-alert asa-alert--warn">
-          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          <div class="asa-alert__body"><span class="asa-alert__title">Carteira digital e cartão virtual não servem para a caução</span><span class="asa-alert__text">Apple Pay, Google Wallet e cartão virtual do app do banco não são aceitos. Leve o cartão de plástico.</span></div>
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div class="asa-alert__body"><span class="asa-alert__title">No Carnaval, deixe o carro longe</span><span class="asa-alert__text">O trânsito no Sítio Histórico é fechado ou muito restrito durante a folia <span class="site-pending">[VERIFICAR]</span>. Siga a pé ou de transporte.</span></div>
         </div>
-            <p><b>Cartão de outra pessoa:</b> ela entra na reserva como responsável financeiro e precisa estar presente na retirada.</p>
-            <a href="/caucao-e-requisitos">Ver requisitos e caução</a>
           </div>
-          <ul class="site-checklist">
-            <li><b>CNH de quem vai dirigir</b>, emitida há pelo menos 2 anos.</li>
-            <li>Condutor com <b>21 anos ou mais</b>.</li>
-            <li><b>Cartão de crédito físico</b> no nome do condutor ou do responsável financeiro da reserva. É nele que fica a pré-autorização (caução), estornada por inteiro depois da devolução e da vistoria.</li>
+          <ul class="site-list">
+            <li>As ruas do Sítio Histórico são de calçamento de pedra, íngremes e estreitas <span class="site-pending">[VERIFICAR]</span>. Dirija devagar e com cuidado com os pedestres.</li>
+            <li>Estacione na parte baixa ou em estacionamentos perto do Sítio Histórico e suba a pé até o Alto da Sé <span class="site-pending">[VERIFICAR]</span>.</li>
+            <li>Na rua, é comum haver guardadores informais. Prefira estacionamento com comprovante e não deixe objetos à vista.</li>
           </ul>
         </div>
       </div>
     </section>
-    <!-- DIÁRIA E DEVOLUÇÃO · mist · a regra das 27 horas e as dos termos de hoje à esquerda, os três passos à direita. O depoimento de Daniel G. foi para a prova. -->
-    <section class="asa-section asa-bg-mist" aria-labelledby="devolver-titulo">
+    <!-- O QUE FAZER · mist · quatro lugares em foto; o Recife Antigo leva à página de Recife -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="roteiros-titulo">
       <div class="asa-container">
-        <div class="site-check">
-          <div class="site-check__aside">
-            <h2 id="devolver-titulo">Devolva no dia do voo com 3 horas de <em>folga</em></h2>
-            <p>Cada diária tem 3 horas de tolerância na devolução. Retirou às 10h, devolve até as 13h do dia seguinte sem pagar nova diária. <a href="/diaria-27-horas">Como funciona a diária de 27 horas</a></p>
-            <p><span class="site-pending">Os termos de hoje cobram uma diária completa depois das 3 horas de tolerância. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></p>
-            <p><span class="site-pending">Os termos de hoje: o carro sai com o tanque cheio e volta cheio; o que faltar é cobrado por litro. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></p>
-            <p><span class="site-pending">Os termos de hoje falam em até 60 dias para a liberação da caução, conforme o banco. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></p>
+        <div class="asa-section-head">
+          <div class="asa-section-head__copy">
+            <h2 id="roteiros-titulo">O que dá para fazer com o <em>carro</em></h2>
           </div>
-        <ol class="site-steps">
-          <li><div><b>Dirija até o ponto de devolução da Asa no aeroporto.</b><p><span class="site-pending">[CONFIRMAR: acesso e sinalização para devolução em Fortaleza]</span></p></div></li>
-          <li><div><b>Faça a vistoria de devolução com a equipe.</b><p>É aqui que se confirma o estado do carro.</p></div></li>
-          <li><div><b>Siga para o embarque.</b></div></li>
-        </ol>
         </div>
+        <ul class="site-routes site-routes--4">
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Mirante do Alto da Sé, em Olinda"><span class="asa-photo__caption">[ foto · Alto da Sé com a vista do Recife, banco licenciado ou foto própria ]</span></div></div>
+            <h3>Alto da Sé e Mosteiro de São Bento</h3>
+            <p>O mirante com vista para o Recife e as igrejas do centro histórico.</p>
+            
+          </li>
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Praia do Janga, ao norte de Olinda"><span class="asa-photo__caption">[ foto · praia do Janga, banco licenciado ou foto própria ]</span></div></div>
+            <h3>Praias ao norte de Olinda</h3>
+            <p>Rio Doce e Janga, na saída para o litoral norte <span class="site-pending">[VERIFICAR]</span>.</p>
+            
+          </li>
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Forte Orange na Ilha de Itamaracá"><span class="asa-photo__caption">[ foto · Forte Orange, em Itamaracá, banco licenciado ou foto própria ]</span></div></div>
+            <h3>Ilha de Itamaracá e Forte Orange</h3>
+            <p>Cerca de 50 km do aeroporto <span class="site-pending">[VERIFICAR]</span>, bom bate-volta para quem se hospeda em Olinda.</p>
+            
+          </li>
+          <li>
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Rua do Bom Jesus, no Recife Antigo, com casarios coloridos"><span class="asa-photo__caption">[ foto · Rua do Bom Jesus, Recife Antigo, banco licenciado ou foto própria ]</span></div></div>
+            <h3>Recife Antigo</h3>
+            <p>A cerca de 7 km de Olinda <span class="site-pending">[VERIFICAR]</span>.</p>
+            <a href="/aluguel-de-carros/recife">Roteiros de carro em Recife</a>
+          </li>
+        </ul>
       </div>
     </section>
     <!-- CARROS · white · três cards de veículo, o título fala do uso e a linha abaixo diz o modelo e o grupo. Preço pelo frota.js, como nas páginas da frota; os botões em contorno. -->
@@ -413,23 +402,23 @@
       <div class="asa-container">
         <div class="asa-section-head">
           <div class="asa-section-head__copy">
-            <h2 id="carros-titulo">O carro certo para a sua <em>viagem</em></h2>
+            <h2 id="carros-titulo">Carro compacto sobe <em>melhor</em></h2>
           </div>
         </div>
         <p class="site-fleet-status" data-preco-status role="status" aria-live="polite"></p>
-        <div class="site-fleet-alert" data-frota-alerta data-msg-carregando="Buscando carros disponíveis no Aeroporto de Fortaleza…" data-msg-esgotado="Não há carros livres nesse horário no Aeroporto de Fortaleza. Tente outro horário ou fale com a gente no WhatsApp: 0800 080 0015." data-esgotado-href="#reservar" data-esgotado-texto="Mudar datas"></div>
+        <div class="site-fleet-alert" data-frota-alerta data-msg-carregando="Buscando carros no Aeroporto do Recife…" data-msg-esgotado="Não há carros livres nesse horário. Tente outro horário ou fale com a gente no WhatsApp: 0800 080 0015." data-esgotado-href="#reservar" data-esgotado-texto="Mudar datas"></div>
         <ul class="site-vehicles site-vehicles--3" data-lista-frota>
           <li>
-            <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-b-mais" data-grupo-card="B+">
-              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Chevrolet Onix hatch no pátio da Asa"><span class="asa-photo__caption">[ foto · Chevrolet Onix hatch da frota, 3/4 dianteiro, fundo neutro, foto própria ]</span></div></div>
+            <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-a" data-grupo-card="A">
+              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Fiat Mobi no pátio da Asa"><span class="asa-photo__caption">[ foto · Fiat Mobi da frota, 3/4 dianteiro, fundo neutro, foto própria ]</span></div></div>
               <div class="asa-card__body">
-                <h3 class="asa-card-vehicle__title">Casal, praias perto da capital</h3>
-                <span class="asa-card-vehicle__category">Chevrolet Onix 1.0 ou similar · grupo B+</span>
-                <p class="asa-card-vehicle__specs">5 lugares · 4 portas · 2 a 3 malas · manual · ar-condicionado</p>
-                <p class="site-fcard__text">Hatch manual com 2 a 3 malas. O Hyundai HB20 (B) tem a mesma faixa. <a href="/frota/hatch-economico">Ver hatches</a></p>
-                <div class="asa-price site-vcard__price" data-preco="B+"><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
+                <h3 class="asa-card-vehicle__title">Para ruas estreitas</h3>
+                <span class="asa-card-vehicle__category">Fiat Mobi ou similar · grupo A</span>
+                <p class="asa-card-vehicle__specs">5 lugares · 4 portas · 1 a 2 malas · manual · ar-condicionado</p>
+                <p class="site-fcard__text">Compacto e fácil de manobrar. O Hyundai HB20 (B) leva uma mala a mais. <a href="/frota/hatch-economico">Ver hatches</a></p>
+                <div class="asa-price site-vcard__price" data-preco="A"><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
                 <div class="asa-card-vehicle__actions">
-                  <a class="asa-btn asa-btn--outline asa-btn--sm" href="#reservar" data-reservar-grupo="B+">Reservar este carro<span class="site-sr"> (grupo B+)</span></a>
+                  <a class="asa-btn asa-btn--outline asa-btn--sm" href="#reservar" data-reservar-grupo="A">Reservar este carro<span class="site-sr"> (grupo A)</span></a>
                 </div>
               </div>
             </article>
@@ -438,10 +427,10 @@
             <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-d" data-grupo-card="D">
               <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Citroën C3 automático no pátio da Asa"><span class="asa-photo__caption">[ foto · Citroën C3 da frota, 3/4 dianteiro, fundo neutro, foto própria ]</span></div></div>
               <div class="asa-card__body">
-                <h3 class="asa-card-vehicle__title">Automático para dirigir tranquilo</h3>
+                <h3 class="asa-card-vehicle__title">Automático para ladeira</h3>
                 <span class="asa-card-vehicle__category">Citroën C3 Live Pack 1.6 ou similar · grupo D</span>
                 <p class="asa-card-vehicle__specs">5 lugares · 4 portas · 1 a 2 malas · automático · ar-condicionado</p>
-                <p class="site-fcard__text">Hatch automático para quem viaja leve. O Onix Turbo (D+) leva uma mala a mais. <a href="/frota/automatico">Ver automáticos</a></p>
+                <p class="site-fcard__text">Arrancar na subida fica mais simples. O Onix 1.0 Turbo (D+) também é automático. <a href="/frota/automatico">Ver automáticos</a></p>
                 <div class="asa-price site-vcard__price" data-preco="D"><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
                 <div class="asa-card-vehicle__actions">
                   <a class="asa-btn asa-btn--outline asa-btn--sm" href="#reservar" data-reservar-grupo="D">Reservar este carro<span class="site-sr"> (grupo D)</span></a>
@@ -450,16 +439,16 @@
             </article>
           </li>
           <li>
-            <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-f-mais" data-grupo-card="F+">
-              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Chevrolet Spin de 7 lugares no pátio da Asa"><span class="asa-photo__caption">[ foto · Chevrolet Spin da frota, portas abertas e a 3ª fileira à mostra, foto própria ]</span></div></div>
+            <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-g-mais" data-grupo-card="G+">
+              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Chevrolet Tracker no pátio da Asa"><span class="asa-photo__caption">[ foto · Chevrolet Tracker da frota, 3/4 dianteiro, fundo neutro, foto própria ]</span></div></div>
               <div class="asa-card__body">
-                <h3 class="asa-card-vehicle__title">Família grande</h3>
-                <span class="asa-card-vehicle__category">Chevrolet Spin 1.8 ou similar · grupo F+</span>
-                <p class="asa-card-vehicle__specs">7 lugares · 4 portas · 3 a 4 malas · automático · ar-condicionado</p>
-                <p class="site-fcard__text">Sete lugares e 3 a 4 malas. O Jeep Commander (I+) também tem 7 lugares. <a href="/frota/7-lugares">Ver carros de 7 lugares</a></p>
-                <div class="asa-price site-vcard__price" data-preco="F+"><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
+                <h3 class="asa-card-vehicle__title">Família</h3>
+                <span class="asa-card-vehicle__category">Chevrolet Tracker 1.0 Turbo ou similar · grupo G+</span>
+                <p class="asa-card-vehicle__specs">5 lugares · 4 portas · 2 a 3 malas · automático · ar-condicionado</p>
+                <p class="site-fcard__text">SUV automático com 5 lugares. <a href="/frota/suv">Ver SUVs</a></p>
+                <div class="asa-price site-vcard__price" data-preco="G+"><span class="asa-price__note">Veja o preço final para as suas datas.</span></div>
                 <div class="asa-card-vehicle__actions">
-                  <a class="asa-btn asa-btn--outline asa-btn--sm" href="#reservar" data-reservar-grupo="F+">Reservar este carro<span class="site-sr"> (grupo F+)</span></a>
+                  <a class="asa-btn asa-btn--outline asa-btn--sm" href="#reservar" data-reservar-grupo="G+">Reservar este carro<span class="site-sr"> (grupo G+)</span></a>
                 </div>
               </div>
             </article>
@@ -468,42 +457,32 @@
         <p class="site-vehicles-note">Modelo "ou similar" dentro do grupo. Todos com ar-condicionado e quilometragem livre. <a href="/frota">Ver os 15 grupos da frota</a></p>
       </div>
     </section>
-    <!-- DESTINOS · mist · três lugares em foto, com a distância do aeroporto ([VERIFICAR]) e o link para a página -->
-    <section class="asa-section asa-bg-mist" aria-labelledby="destinos-titulo">
+    <!-- O QUE LEVAR · mist · aviso + lista de conferência: a surpresa com o cartão físico é dor real das avaliações -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="levar-titulo">
       <div class="asa-container">
-        <div class="asa-section-head">
-          <div class="asa-section-head__copy">
-            <h2 id="destinos-titulo">Do terminal para a <em>praia</em></h2>
-          </div>
+        <div class="site-check">
+          <div class="site-check__aside">
+            <h2 id="levar-titulo">Documentos para retirar o <em>carro</em></h2>
+            <div class="asa-alert asa-alert--warn">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <div class="asa-alert__body"><span class="asa-alert__title">Carteira digital e cartão virtual não servem para a caução</span><span class="asa-alert__text">Apple Pay, Google Wallet e cartão virtual do app do banco não são aceitos. Leve o cartão de plástico.</span></div>
         </div>
-        <ul class="site-routes site-routes--3">
-          <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Calçadão da Avenida Beira-Mar de Fortaleza"><span class="asa-photo__caption">[ foto · calçadão da Beira-Mar de Fortaleza no fim da tarde, banco licenciado ou foto própria ]</span></div></div>
-            <h3>Beira-Mar e Meireles</h3>
-            <p>Cerca de 10 km do aeroporto <span class="site-pending">[VERIFICAR]</span>.</p>
-            <a href="/aluguel-de-carros/fortaleza">Rodar por Fortaleza</a>
-          </li>
-          <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Praia de Porto das Dunas, em Aquiraz"><span class="asa-photo__caption">[ foto · praia de Porto das Dunas, em Aquiraz, banco licenciado ou foto própria ]</span></div></div>
-            <h3>Beach Park e Porto das Dunas</h3>
-            <p>Em Aquiraz, cerca de 30 km pelo litoral leste <span class="site-pending">[VERIFICAR]</span>.</p>
-            <a href="/aluguel-de-carros/fortaleza">Roteiros em Fortaleza</a>
-          </li>
-          <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Lagoa e dunas de Jericoacoara"><span class="asa-photo__caption">[ foto · dunas e lagoa de Jericoacoara, banco licenciado ou foto própria ]</span></div></div>
-            <h3>Jericoacoara</h3>
-            <p>Cerca de 300 km pelo litoral oeste <span class="site-pending">[VERIFICAR]</span>. O acesso final à vila tem regras próprias.</p>
-            <a href="/aluguel-de-carros/jericoacoara">Carro para Jericoacoara</a>
-          </li>
-        </ul>
+            <a href="/caucao-e-requisitos">Ver requisitos e caução</a>
+          </div>
+          <ul class="site-checklist">
+            <li><b>CNH de quem vai dirigir</b>, emitida há pelo menos 2 anos.</li>
+            <li>Condutor com <b>21 anos ou mais</b>.</li>
+            <li><b>Cartão de crédito físico</b> no nome do condutor ou do responsável financeiro, que precisa ir à retirada. É nele que fica a pré-autorização (caução).</li>
+          </ul>
+        </div>
       </div>
     </section>
-    <!-- PROVA · preto, uma vez · as placas 4,7 e 9,4, os depoimentos da loja sem card e o link para as avaliações no Google -->
-    <section class="asa-section asa-bg-dense site-proof-3" aria-labelledby="prova-titulo">
+    <!-- PROVA · preto, uma vez · as placas e o depoimento da loja de retirada -->
+    <section class="asa-section asa-bg-dense site-proof-1" aria-labelledby="prova-titulo">
       <div class="asa-container">
         <div class="asa-section-head">
           <div class="asa-section-head__copy">
-            <h2 id="prova-titulo">Avaliações da loja de <em>Fortaleza</em></h2>
+            <h2 id="prova-titulo">Avaliação da loja de <em>retirada</em></h2>
           </div>
         </div>
         <div class="asa-proof__bar">
@@ -512,28 +491,20 @@
               <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">4,7</span><span class="asa-numberplate__source">no Google</span></div>
               <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">9,4</span><span class="asa-numberplate__source">no Reclame Aqui</span></div>
             </div>
-            <!-- D4 e H2: a copy pede a nota e o total da loja ("{nota_google} no Google, com {total_avaliacoes} avaliações da loja de Fortaleza"); segue o par 4,7 e 9,4 até a decisão. -->
+            <!-- D4 e H2: a copy pede a nota e o total da loja ("{nota_google} no Google, com {total_avaliacoes} avaliações da loja de Recife"); segue o par 4,7 e 9,4 até a decisão. -->
           </div>
           <div>
             <div class="asa-proof__quotes">
               <figure class="asa-testimonial asa-testimonial--bare">
-                <blockquote class="asa-testimonial__quote">Empresa maravilhosa, adorei tudo. Principalmente a facilidade para alugarmos.</blockquote>
-                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Raquel A.</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
-              </figure>
-              <figure class="asa-testimonial asa-testimonial--bare">
-                <blockquote class="asa-testimonial__quote">Atendimento excelente da Letícya… sempre que precisei ela estava à disposição, do on-line ao presencial.</blockquote>
-                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Maria Eduarda</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
-              </figure>
-              <figure class="asa-testimonial asa-testimonial--bare">
-                <blockquote class="asa-testimonial__quote">Fiz a devolução do veículo Citroën C3 automático, veículo muito bom… atendimento muito bom.</blockquote>
-                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Daniel G.</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
+                <blockquote class="asa-testimonial__quote">Locadora muito boa, preço justo, carro zero. Já sou cliente.</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Jones D.</span><span class="asa-testimonial__source">Recife, via Google</span></span></figcaption>
               </figure>
             </div>
-            <p class="site-proof__pending"><span class="site-pending">[CONFIRMAR: autorização de uso das avaliações de Raquel A., Maria Eduarda e Daniel G. e do nome da Letícya]</span></p>
+            <p class="site-proof__pending"><span class="site-pending">[CONFIRMAR: autorização de uso da avaliação de Jones D.]</span></p>
           </div>
         </div>
         <div class="site-proof__links">
-          <a href="https://maps.google.com/maps?cid=6562632952082218298" target="_blank" rel="noopener noreferrer" data-reviews="FOR">Ver as avaliações da loja de Fortaleza no Google<span class="site-sr"> (abre em nova aba)</span></a>
+          <a href="https://maps.google.com/maps?cid=7788866797979248996" target="_blank" rel="noopener noreferrer" data-reviews="REC">Ver as avaliações da loja de Recife no Google<span class="site-sr"> (abre em nova aba)</span></a>
         </div>
       </div>
     </section>
@@ -542,39 +513,31 @@
       <div class="asa-container">
         <div class="asa-faq">
           <div class="asa-faq__aside">
-            <h2 id="duvidas-titulo">Dúvidas de quem retira em <em>Fortaleza</em></h2>
+            <h2 id="duvidas-titulo">Dúvidas sobre ir de carro a <em>Olinda</em></h2>
             <p>Não achou a resposta? Fale com a gente no 0800 080 0015, que é telefone e WhatsApp.</p>
             <a class="asa-btn asa-btn--outline" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="reserva" data-lead="whatsapp">Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a>
             <p class="site-faq__all"><a href="/duvidas">Ver todas as dúvidas</a></p>
           </div>
           <div class="asa-faq__list">
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="onde">
-              <summary class="asa-disclosure__trigger">Onde fica o balcão da Asa no Aeroporto de Fortaleza?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Na Área de Locadoras do Terminal de Desembarque. Endereço: Aeroporto Internacional de Fortaleza - Pinto Martins, Av. Sen. Carlos Jereissati, 3000, Área de Locadoras / Terminal de Desembarque, Serrinha, Fortaleza - CE, 60741-900. <a href="https://maps.google.com/maps?cid=6562632952082218298" target="_blank" rel="noopener noreferrer" data-conteudo="rota" data-item="FOR">Abrir no mapa<span class="site-sr"> (abre o Google Maps em nova aba)</span></a></div>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="loja">
+              <summary class="asa-disclosure__trigger">A Asa tem loja em Olinda?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Não. A retirada é no Aeroporto do Recife, a cerca de 20 km <span class="site-pending">[VERIFICAR]</span>, aberto 24h.</div>
             </details>
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="madrugada">
-              <summary class="asa-disclosure__trigger">O balcão atende de madrugada?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Sim. Funciona 24 horas, todos os dias.</div>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="ladeiras">
+              <summary class="asa-disclosure__trigger">Dá para subir as ladeiras de carro?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Dá, com calma. As ruas são estreitas e de pedra <span class="site-pending">[VERIFICAR]</span>. Uma boa opção é estacionar na parte baixa e subir a pé.</div>
             </details>
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="jeri">
-              <summary class="asa-disclosure__trigger">Posso levar o carro até Jericoacoara?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Pode dirigir até a região. O acesso final à vila e os trechos de areia têm regras próprias. <span class="site-pending">Os termos de hoje proíbem usar o carro em estrada sem pavimentação. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span> <span class="site-pending">[CONFIRMAR: regra contratual de uso em Jericoacoara]</span> <a href="/aluguel-de-carros/jericoacoara">Ver a página de Jericoacoara</a></div>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="carnaval">
+              <summary class="asa-disclosure__trigger">Vale alugar carro para o Carnaval de Olinda?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Vale para chegar à cidade e para os outros dias. Durante a folia, o Sítio Histórico tem trânsito restrito <span class="site-pending">[VERIFICAR]</span>. Reserve com antecedência: é época de alta procura. <a href="/ofertas/carnaval">Ver a página do Carnaval</a></div>
             </details>
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="problema">
-              <summary class="asa-disclosure__trigger">E se o carro der problema na estrada?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Acione a assistência pelo 0800 080 0015. <a href="/assistencia-24h">Como funciona a assistência 24h</a></div>
-            </details>
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="pix">
-              <summary class="asa-disclosure__trigger">Posso pagar com Pix?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">A locação pode ser paga com cartão de crédito ou débito físico, Pix ou dinheiro. A caução exige cartão de crédito físico.</div>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="cambio">
+              <summary class="asa-disclosure__trigger">Carro manual ou automático para Olinda?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Nas ladeiras, o automático facilita as arrancadas em subida. A frota tem o Citroën C3 automático e o Chevrolet Onix Turbo, entre outros.</div>
             </details>
             <details class="asa-disclosure asa-disclosure--faq" data-faq-id="cancelar">
-              <summary class="asa-disclosure__trigger">Posso cancelar?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Sim, sem custo até 24 horas antes da retirada. <span class="site-pending">Os termos de hoje falam em multa de 30% a 70% no cancelamento. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span> <span class="site-pending">[CONFIRMAR: regra de no-show]</span></div>
-            </details>
-            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="recife">
-              <summary class="asa-disclosure__trigger">Posso retirar em Fortaleza e devolver no Recife?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body"><span class="site-pending">Os termos de hoje preveem uma taxa de retorno para devolver o carro em outra loja. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span> <span class="site-pending">[CONFIRMAR: se a devolução Fortaleza → Recife está liberada e o valor]</span></div>
+              <summary class="asa-disclosure__trigger">Posso cancelar se a viagem mudar?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Sim, sem custo até 24 horas antes da retirada. <span class="site-pending">Os termos de hoje falam em multa de 30% a 70% no cancelamento. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></div>
             </details>
           </div>
         </div>
@@ -585,19 +548,19 @@
     <section class="asa-section asa-section--short asa-bg-surface" aria-labelledby="fim-titulo" data-fim>
       <div class="asa-container asa-closing">
         <div class="asa-closing__copy">
-          <h2 id="fim-titulo">Seu carro espera na Área de <em>Locadoras</em></h2>
-          <p class="asa-lead">Balcão 24h no desembarque, quilometragem livre e cancelamento grátis até 24h antes.</p>
+          <h2 id="fim-titulo">Olinda a 20 km do <em>balcão</em></h2>
+          <p class="asa-lead">Retirada 24h no Aeroporto do Recife, quilometragem livre e cancelamento grátis até 24h antes.</p>
         </div>
         <div class="asa-closing__actions">
-          <a class="asa-btn asa-btn--primary" href="#reservar" data-ir-busca data-cta-categoria="aeroporto_fortaleza" data-placement="fechamento">Ver carros no Aeroporto de Fortaleza</a>
+          <a class="asa-btn asa-btn--primary" href="#reservar" data-ir-busca data-cta-categoria="destino_olinda" data-placement="fechamento">Ver carros para Olinda</a>
           <a class="asa-btn asa-btn--outline" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="reserva" data-lead="whatsapp">Falar no WhatsApp: 0800 080 0015<span class="site-sr"> (abre em nova aba)</span></a>
         </div>
       </div>
     </section>
     <!-- BARRA DO CELULAR · asa-summary--bar (abaixo de 1024px), fora da tela enquanto a busca do topo ou o fechamento aparecem -->
     <div class="asa-summary asa-summary--bar site-sumbar site-fleetbar site-sumbar--fora" data-fleetbar aria-hidden="true" inert>
-      <p class="site-sumbar__total"><span>Aeroporto de Fortaleza</span><b data-fleetbar-preco>Veja o preço</b></p>
-      <a class="asa-btn asa-btn--primary" href="#reservar" data-ir-busca data-cta-categoria="aeroporto_fortaleza" data-placement="barra">Reservar</a>
+      <p class="site-sumbar__total"><span>Olinda</span><b data-fleetbar-preco>Veja o preço</b></p>
+      <a class="asa-btn asa-btn--primary" href="#reservar" data-ir-busca data-cta-categoria="destino_olinda" data-placement="barra">Reservar</a>
     </div>
   </main>
 
