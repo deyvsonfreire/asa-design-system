@@ -218,7 +218,7 @@ Cruzamento desta lista com os "Termos e Condições Gerais do Contrato de Locaç
 
 | Item | O que os termos dizem | O que ainda falta |
 |---|---|---|
-| F12, O2: idade | "No mínimo 21 anos completos" e CNH há pelo menos 2 anos (13). Basta ter 21 completos. As páginas misturam "mais de 21 anos" (home, busca, 404, praças, destinos) e "21 anos ou mais"; o certo pelos termos é "21 anos ou mais". | Taxa para condutor jovem, se houver |
+| F12, O2: idade | "No mínimo 21 anos completos" e CNH há pelo menos 2 anos (13). Basta ter 21 completos. Em 02/10, todas as páginas passaram a dizer "21 anos ou mais" (ou "a partir de 21 anos"), e a validação do checkout deixou de recusar quem tem 21 anos completos. | Taxa para condutor jovem, se houver; a documentação de 06 Componentes ainda diz "mais de 21 anos" |
 | F9: condutor adicional | Mesmos requisitos do principal; autorizado em formulário próprio, que passa a fazer parte do contrato; custo por condutor; no máximo 3 (13, 13.2, 13.3). A CNH original é apresentada "no ato da locação", o que indica que o adicional vai ao balcão. | Valor; confirmar a presença no balcão |
 | P3: documentos | RG e CPF originais, CNH "exclusivamente em original" e nenhuma restrição no SPC ou Serasa (13, 13.1). Estrangeiro: passaporte original e CNH do mesmo país do passaporte. Brasileiro que mora fora e usa CNH estrangeira: comprovante de residência no exterior (13.5). | CNH digital (ver contradição TC5), Permissão para Dirigir |
 | O3: análise no balcão | A Asa analisa o crédito e pode recusar a locação mesmo com a reserva feita; na reserva ninguém consulta o crédito (7, 7.1). | Como e quando a análise é feita |
@@ -234,31 +234,33 @@ Cruzamento desta lista com os "Termos e Condições Gerais do Contrato de Locaç
 | M4: cancelamento | O pedido é por escrito, ao e-mail reservas2@asalocadora.com.br ou a outro canal informado, e vale a hora do recebimento; o 0800 080 0015 aparece na cláusula (16.4). A reserva pré-paga só confirma com aprovação cadastral e pagamento integral; reprovada, devolução integral em até 5 dias úteis, no mesmo meio de pagamento (16.1, 16.2). | Prazo de estorno quando o cliente cancela; se o site pode cancelar |
 | F11: pagamento | Estrangeiro paga a locação antes, além da caução (7.5). Cobrança depois do fechamento vai no cartão; sem cartão, boleto (14.3). | Formas, parcelas, Pix, gateway |
 | K2: contrato | Documento de Locação "subscrito em todas as suas vias, anverso e verso" e check-list "rubricado" (preâmbulo): indica assinatura física. | Confirmar se já existe assinatura digital |
-| V6, R7: caçamba | A proibição é de "carga de bens não destinados a veículo de passageiros" (15): bagagem pode; outra carga, não. A página da picape diz só "transporte de carga". | Peso e o que mais pode ir na caçamba |
+| V6, R7: caçamba | A proibição é de "carga de bens não destinados a veículo de passageiros" (15): bagagem pode; outra carga, não. A página da picape passou a dizer isso. | Peso e o que mais pode ir na caçamba |
 | R15: devolução em outra loja | São dois casos: avisando na retirada, vale a "taxa de retorno pré-acordada", escrita no Documento de Locação (12.1); sem aviso, a taxa da tabela (12.3). Também pode recalcular o contrato (14.1.2). | Valores; se o site passa a dizer "avise na retirada" |
 | P2 (praças): ponto de devolução | Devolver "nos locais indicados ou no pátio da LOCADORA"; deixar no estacionamento do aeroporto gera reembolso do estacionamento mais taxa (12.9). | A referência do local em Fortaleza (O1, P2) |
 | S1: assistência | Remoção paga pela Asa num raio de 100 km da loja mais próxima, "não sendo pane elétrica ou defeito mecânico" (12.2, ambígua, R10). BO em 24h e Relatório de Acidentes (9.5). | S1 inteiro |
 | D12: estrada sem pavimentação | O texto é "em estradas sem pavimentação, sem a observação das condições mínimas de segurança" (15): dá para ler que a ressalva vale só sem segurança. A cláusula 12.4 cobra limpeza por uso "em terrenos não pavimentados", o que supõe que ele acontece. Uso proibido tira a proteção (10.2.1) e rescinde o contrato, com honorários de 20% (15.1). | Decisão do jurídico sobre a leitura; até lá, as páginas seguem com "proíbem" |
 | E1: e-mail | Os termos usam reservas2@asalocadora.com.br para cancelamento (16.4). | Qual é o e-mail oficial |
 
-### Regras dos termos que as páginas ainda não usam
+### Regras dos termos que entraram nas páginas em 02/10
 
-Ficam prontas para entrar em laranja onde a página falar do assunto.
+Já estão em laranja, como "regra de hoje", esperando confirmação.
 
-| # | Regra de hoje | Cláusula | Onde entraria |
+| # | Regra de hoje | Cláusula | Onde está |
 |---|---|---|---|
-| R19 | Locação acima de 7 diárias é paga antes | 4.4, 6.4 | Dúvidas, aluguel mensal, Caução e requisitos |
-| R20 | Acima de 30 dias: novo contrato na loja a cada 30 dias | 4.5 | Aluguel mensal (passo a passo, renovação) |
-| R21 | Devolver antes pode aumentar o preço; mínimo de 1 diária | 3.4, 4.3 | Termos (devolução antecipada), Regras de locação |
-| R22 | A caução pode ser usada para outros custos do contrato | 7.4 | Caução e requisitos, Dúvidas |
-| R23 | Estrangeiro paga a locação antes | 7.5 | Caução e requisitos, Dúvidas |
-| R24 | Carro deixado no estacionamento do aeroporto: reembolso do estacionamento mais taxa | 12.9 | Aeroporto do Recife e de Fortaleza (devolução) |
-| R25 | Apreensão: R$ 1.500,00 de taxas mais R$ 450,00 de indisponibilidade; CRLV ou placa perdidos: segunda via mais R$ 450,00 | 12.7, 12.8 | Regras de locação, Assistência 24h |
-| R26 | Tabela de avarias com taxa administrativa de 10% | 14.1.5.3 | Proteções e taxas |
-| R27 | Cobranças depois do fechamento (multas por até 5 anos), no cartão ou por boleto; atraso com juros de 1% ao mês, multa de 2% e IPCA | 6.8, 12.5, 14.2, 14.3 | Regras de locação |
-| R28 | Reserva pré-paga reprovada na análise: devolução integral em até 5 dias úteis | 16.2 | Minha reserva, Dúvidas |
-| R29 | Proteção com isenção de franquia só na retirada | 9.2 | Etapa 2, Proteções e taxas |
-| R30 | Restrição no SPC ou Serasa pode impedir a locação, mesmo com reserva | 7.1, 13.1 | Caução e requisitos, Dúvidas |
+| R19 | Locação acima de 7 diárias é paga antes (no mensal, acima de 30 dias) | 4.4, 4.5, 6.4 | Dúvidas (formas de pagamento), Caução e requisitos (limite do cartão), aluguel mensal (pagamento) |
+| R20 | Acima de 30 dias: novo contrato na loja a cada 30 dias | 4.5 | Aluguel mensal (linha nova na tabela e resposta da renovação). Também entrou a quilometragem: km livre ou franquia (6.5, 6.6) |
+| R21 | Devolver antes pode aumentar o preço; mínimo de 1 diária | 3.4, 4.3 | Termos (devolução antecipada), Regras de locação (devolução) |
+| R22 | A caução pode ser usada para outros custos do contrato | 7.4 | Caução e requisitos (como funciona), Dúvidas (pré-autorização) |
+| R23 | Estrangeiro: passaporte e CNH do mesmo país, e paga a locação antes | 7.5, 13.1 | Caução e requisitos, Dúvidas |
+| R24 | Carro deixado no estacionamento do aeroporto: reembolso do estacionamento mais taxa | 12.9 | Aeroporto do Recife e de Fortaleza (devolução), Regras de locação |
+| R25 | Apreensão: R$ 1.500,00 de taxas mais R$ 450,00 de indisponibilidade; CRLV ou placa perdidos: segunda via mais R$ 450,00 | 12.7, 12.8 | Regras de locação (durante a locação), Assistência 24h (chave e documento) |
+| R26 | Avaria numa peça só pela tabela do balcão, com taxa administrativa de 10% | 9.1.1, 14.1.5.3 | Proteções e taxas (valores que dependem do uso) |
+| R27 | Cobranças depois do fechamento (multas por até 5 anos), no cartão ou por boleto; atraso com juros de 1% ao mês, multa de 2% e IPCA | 6.8, 12.5, 14.2, 14.3 | Regras de locação (multas) |
+| R28 | Reserva pré-paga reprovada na análise: devolução integral em até 5 dias úteis; cancelamento por escrito no reservas2@ ou pelo 0800 | 16.2, 16.4 | Minha reserva (dúvidas), Dúvidas (cancelamento) |
+| R29 | Proteção sem franquia não pode ser contratada depois da retirada | 9.2 | Etapa 2 (abertura da proteção), Proteções e taxas (o que não cobre) |
+| R30 | Restrição no SPC ou Serasa pode impedir a locação, mesmo com reserva | 7.1, 13.1 | Caução e requisitos (análise no balcão), Dúvidas (como alugo) |
+
+Também entraram em laranja: os documentos originais (CNH, RG e CPF) em Caução e Dúvidas; os requisitos do condutor adicional em Caução e Regras de locação; o cliente pessoa jurídica em Caução; o combustível por conta do cliente em Dúvidas; e, em Proteções e taxas, a lista do que nenhuma proteção cobre e de quando o cliente perde a proteção (F7).
 
 ### Contradições dentro dos próprios termos (para o jurídico)
 
@@ -349,6 +351,7 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T35 | **Eventos das praças:** os nomes da copy viram os do site: `search_submit` → `search` (com `origem` e `iata`), `select_vehicle` → `select_item` (listas `praca_aeroporto_recife`, `praca_recife`, `praca_aeroporto_fortaleza`, `praca_fortaleza`), `click_whatsapp` → `generate_lead`, `click_directions` e `click_internal_destination` → `select_content` (rota, destino), `faq_open` → `faq_expand`, `tab_select` nas abas de Fortaleza. | Praças |
 | T36 | **Mapa das lojas:** carrega só ao tocar em "Mostrar mapa", com a ficha do Google pelo `cid` (`maps.google.com/maps?cid=…&output=embed`). Para produção, trocar pelo iframe oficial ("Compartilhar > Incorporar" da ficha) ou pela Maps Embed API, conforme os termos do Google. Depois de 8 segundos sem carregar, aparece "O mapa não carregou. Use o link Como chegar no Google Maps." | Lojas |
 | T37 | **Eventos novos no GTM:** `map_open` e `select_location` (location REC ou FOR) em Lojas; `select_content` com `regras_de_uso` em Jericoacoara; na cotação do mensal, `form_start`, `form_error` (error_fields) e `generate_lead` (lead_type mensal, customer_type, pickup_location, duration_bucket, vehicle_type, transmission, vehicles_qty), marcado como evento-chave; `contact_click` no WhatsApp e no telefone. Os destinos usam os eventos das praças (T35). | Lojas, destinos, mensal |
+| T38 | **06 Componentes:** a demonstração da busca e das dúvidas ainda diz "mais de 21 anos"; o site passou a dizer "21 anos ou mais" (termos de hoje, F12). Alinhar a documentação e a cópia do guia de parceiros. | Design system |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -497,3 +500,6 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Aluguel mensal | Prova "Nota {nota_google}" no hero | 4,7 no Google e 9,4 no Reclame Aqui | D4 |
 | Aluguel mensal | Passo 4: "O carro sai do pátio do próprio aeroporto" para as duas lojas | "Em Recife, o carro sai do pátio do próprio aeroporto" | O1 |
 | Aluguel mensal | Renovação, quem dirige, outra cidade e caução só com [CONFIRMAR] | As regras de hoje (R14, R12, R15, R5) em laranja, com a pendência do mensal | Os termos de hoje já dizem algo |
+| Todas (busca, requisitos, checkout) | "Mais de 21 anos" (fonte de verdade e componentes globais) | "21 anos ou mais" ou "a partir de 21 anos"; o checkout aceita quem tem 21 completos | Os termos de hoje pedem "no mínimo 21 anos completos" (O2, F12) |
+| Picape | "Os termos de hoje proíbem transporte de carga" | "Proíbem levar carga de bens que não são próprios de carro de passeio. Bagagem pode ir na caçamba." | Texto da cláusula 15 dos termos (V6) |
+| Aluguel mensal | Tabela sem a regra dos 30 dias | Linha "Contrato a cada 30 dias", com a regra de hoje em laranja | Cláusula 4.5 dos termos (R20) |
