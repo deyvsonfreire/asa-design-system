@@ -49,6 +49,8 @@ site/
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── VALIDACAO.md          relatório de scripts/validar_site.py: cobertura da copy, falhas, avisos e pendências por página
+├── BRIEFING-FOTOS.md     as 84 imagens a providenciar (192 lugares de foto), com origem, banco sugerido e páginas
+├── briefing-fotos.csv    a mesma lista em planilha, com colunas de responsável, status e arquivo entregue
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
 ├── empresas/           B2B: casos, terceirização, setor público, formulário de proposta (empresas.js), prova (rascunho)
