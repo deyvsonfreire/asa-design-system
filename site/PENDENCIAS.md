@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro e a frota (hub e as seis categorias).
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro, a frota (hub e as seis categorias) e as quatro praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza).
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro e as sete páginas da frota), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro, as sete páginas da frota e as quatro praças), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -180,6 +180,19 @@ Já estão em 00c e nesta lista: a caução por categoria (C3), a devolução em
 | V10 | **Consumo por modelo:** só entra se houver dado oficial publicável. | Hatch econômico | Operação |
 | V11 | **Volume de busca** dos termos principais na Semrush: "carros para alugar em Recife e Fortaleza", "aluguel de carro econômico", "aluguel de carro sedã" e "sedan", "aluguel de SUV", "aluguel de picape", "aluguel de caminhonete", "picape 4x4" e "aluguel de carro automático". | As sete páginas | Marketing |
 
+## 3i. Praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza)
+
+Já estão em 00c e nesta lista: o pátio de Fortaleza (O1), voo e tolerância (O4), devolução em outra loja (O8), as fotos da vistoria, as coordenadas das lojas (T9), a regra de cancelamento (D1), estrada sem pavimentação (D12) e as regras de hoje R1, R2, R5 e R7. Aqui fica o que as quatro páginas acrescentaram.
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| P1 | **Recife, do balcão ao carro:** a referência visual para achar o Portão A5 no saguão, como o cliente vai do balcão ao pátio (a pé, acompanhado, distância) e o acesso de carro ao pátio na devolução. | Aeroporto do Recife | Operação |
+| P2 | **Fortaleza, do balcão ao carro:** a referência da Área de Locadoras no saguão, onde fica o pátio e como o cliente chega até ele, e o ponto de devolução. Enquanto O1 não sai, a página não diz onde o carro fica nem "sem van". | Aeroporto de Fortaleza | Operação |
+| P3 | **Sair do estado:** os termos de hoje permitem circular em todo o território nacional (R7). Há alguma condição para ir a Alagoas, Paraíba, Rio Grande do Norte ou Piauí? | Recife, Fortaleza | Operação + jurídico |
+| P4 | **Trilha das páginas de cidade:** a copy pede "Início > Aluguel de carros > Recife" com o nível do meio apontando para `/lojas`, até o SEO decidir. As páginas de aeroporto usam "Início > Lojas". `/lojas` ainda não existe (copy 19). | Recife, Fortaleza | SEO |
+| P5 | **Dados de roteiro ([VERIFICAR] na tela):** distâncias do aeroporto até Boa Viagem, Olinda, Gaibu e Calhetas, Porto de Galinhas, Maragogi, Beira-Mar, Praia do Futuro, Beach Park, Morro Branco, Canoa Quebrada, Cumbuco, Lagoinha, Jericoacoara e Guaramiranga; as rodovias CE-040, CE-025 e CE-085; a faixa de lazer da Av. Boa Viagem; Zona Azul no Recife Antigo e em Fortaleza; a estação Aeroporto do metrô; Brennand; vias de pico; o caranguejo às quintas na Praia do Futuro. | As quatro | Marketing |
+| P6 | **"Passeios em dunas são feitos com bugueiros credenciados":** confirmar o texto com a operação, junto com D12. | Fortaleza | Operação |
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -211,6 +224,7 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 
 | A10 | Fotos da home e da vitrine: carro da frota saindo do pátio do Aeroporto do Recife com pessoas reais (LCP da home), os dois balcões com a sinalização, atendente entregando a chave, os quatro destinos e os 15 modelos de referência na mesma angulação e fundo. A home aprovada (PR asa-design-system#1) usava 16 fotos de banco sem licença, que não vieram para o site. | Home, Vitrine |
 | A11 | **Fotos da frota:** os 15 modelos de referência no pátio, no mesmo ângulo 3/4 dianteiro e fundo neutro, e as da copy de cada categoria (Corolla com o porta-malas aberto, Compass saindo do pátio, Spin com a 3ª fileira, S10 com a caçamba, câmbio automático do Tracker). Também os roteiros (Olinda, Beira-Mar, Porto de Galinhas, Maragogi, litoral do Ceará, picape com prancha) e os dois balcões. Depoimentos de Jones D. (Frota) e Daniel G. (Automático) dependem de A2. | Frota e categorias |
+| A12 | **Fotos das praças:** o balcão do Portão A5 com atendente e cliente (com autorização), o balcão de Fortaleza à noite, Recife Antigo, Beira-Mar de Fortaleza, os bate-voltas e destinos (Boa Viagem, Olinda, Calhetas, Porto de Galinhas, Maragogi, Porto das Dunas, Jericoacoara, Morro Branco, Cumbuco, Guaramiranga). Depoimentos de Lais C., Jones D., Danilo L., Raquel A., Maria Eduarda e Daniel G., e os nomes Sandro, Saulo Viana e Letícya, dependem de A1 e A2. | Praças |
 
 ## 6. Técnico e de lançamento
 
@@ -247,6 +261,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T31 | **Pré-cadastro nativo:** quando o fluxo de `/checkin-express` existir (identificação, dados, foto da CNH, enviado, já escritos na copy), trocar o botão para o fluxo interno, revisar a indexação e redirecionar `precadastro.asalocadora.com.br` com 301. | Pré-cadastro |
 | T32 | **Frota e o motor de reservas:** a busca das categorias vai à vitrine com o filtro na URL (`categoria=hatch&cambio=manual`, `categoria=seda`, `suv`, `7-lugares`, `picape`, `cambio=automatico`); "Reservar grupo X" com datas vai direto à etapa 2 (`grupo=`); sem datas, leva à busca, que segue para a etapa 2 com o grupo. O preço, a diária e o esgotado dos cards precisam vir do motor por datas. 301 de `/nossos-veiculos` para `/frota`. | Frota e categorias |
 | T33 | **Eventos da frota no GTM:** `view_item_list` e `select_item` com as listas `frota_hub`, `frota_hatch_economico`, `frota_sedan`, `frota_suv`, `frota_7_lugares`, `frota_picape`, `frota_automatico` e `frota_usos` (item_id = letra do grupo); `filter_applied` (filtro, valor, ativo, resultados) na tabela; `tab_select` nas abas de automáticos; `cta_reservar_categoria` (categoria, placement); `search` ganhou `categoria` e `grupo`. | Frota e categorias |
+| T34 | **Uma loja, um `@id`:** o `AutoRental` de cada loja usa `/lojas#recife` e `/lojas#fortaleza` na home, em Contato e nas quatro praças, com o nome e o endereço da ficha do Google letra a letra e a `url` da página do aeroporto. A página de cidade aponta para a mesma loja e acrescenta `areaServed`. Antes, a home e Contato usavam dois `@id` diferentes. Falta o `geo` (T9). | Home, Contato, praças |
+| T35 | **Eventos das praças:** os nomes da copy viram os do site: `search_submit` → `search` (com `origem` e `iata`), `select_vehicle` → `select_item` (listas `praca_aeroporto_recife`, `praca_recife`, `praca_aeroporto_fortaleza`, `praca_fortaleza`), `click_whatsapp` → `generate_lead`, `click_directions` e `click_internal_destination` → `select_content` (rota, destino), `faq_open` → `faq_expand`, `tab_select` nas abas de Fortaleza. | Praças |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -358,3 +374,19 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Automático | H2 "Atenção: estes grupos são manuais" | "Estes cinco grupos são manuais", em faixa curta | Aviso sem alarme; o texto já diz o que fazer |
 | Automático | "Fortaleza: chegada de madrugada, carro automático na hora" | "Fortaleza: chegada de madrugada", com o balcão 24h | "Na hora" é promessa de tempo, que a fonte proíbe sem medição |
 | Hatch, 7 lugares | "A diária pode sair até 15% mais barata" | Mantido, com o link para a oferta "mais um dia" | Fato do site atual; a condição de pagamento antecipado está em D11 |
+| Praças (as quatro) | Selo acima do H1 ("Aeroporto do Recife · Portão A5 · 24h") | Linha abaixo do H1 | Acima do H1 seria sobretítulo |
+| Praças | Foto no hero | O hero leva o preço e a busca; a foto foi para o passo a passo (aeroportos) e para a loja e os bairros (cidades) | Hero leve, como na frota e nas campanhas |
+| Praças | Preço "a partir de" no hero | No cartão branco da busca; é o menor preço da frota inteira | Vermelho sobre amarelo não passa no contraste |
+| Praças | VehicleCard com dois modelos ("HB20 ou Onix") | Um grupo de referência por card, com o título do uso ("Casal com 2 malas"); o outro modelo vai no texto | O preço e o "Reservar" precisam de um grupo |
+| Praças | Título da prova com `{nota_google}` e `{total_avaliacoes}` da loja | H2 com o nome do bloco e as placas 4,7 e 9,4 | D4 e H2 |
+| Praças | `asa-stickybar` no celular e fechamento com foto ao fundo | `asa-summary--bar` no pé e fechamento curto amarelo | Mesmas decisões da frota |
+| Praças | "Quanto custa? A partir de {preco_final_a_partir}" na FAQ | "O valor da busca é o preço final", com o link para a busca | O "a partir de" já está no topo; na FAQ ele ficaria sem atualizar com as datas |
+| Praças | "Posso cancelar? Sim, sem custo até 24h" | Mantido, com a regra de hoje (multa de 30% a 70%) em laranja | D1, como em Minha reserva |
+| Praças | "Posso ir a Alagoas?" e "ao Rio Grande do Norte?" só com [CONFIRMAR] | A regra de hoje (território nacional) em laranja, com a pendência da condição | R7 |
+| Praças | Endereço na FAQ no formato da copy | O texto da ficha do Google | A própria copy manda o GBP valer |
+| Aeroporto do Recife | Blocos "24h" e "diária de 27h" em duas faixas | Uma faixa de duas colunas, cada uma com o próprio H2 | Dois assuntos curtos que, sozinhos, seriam faixas de uma linha |
+| Aeroporto do Recife e de Fortaleza | Devolução sem as regras de combustível, hora extra e estorno | As regras de hoje (R1, R2, R5) em laranja | A copy pedia [CONFIRMAR]; os termos de hoje já dizem algo |
+| Aeroporto de Fortaleza | Depoimento de Daniel G. no bloco da devolução | Na faixa de prova, com Raquel A. e Maria Eduarda | Depoimentos juntos, na faixa preta |
+| Recife, Fortaleza | LocationCard da loja | Bloco da loja sem card (foto, endereço da ficha, 24h, mapa), como em Contato | Card fica para produto |
+| Recife | "Colada em Boa Viagem" | "Ao lado de Boa Viagem" | Mais preciso: o aeroporto fica na Imbiribeira, que faz divisa com Boa Viagem |
+| Recife | Gaibu e Calhetas sem página de destino | Na faixa de bate-voltas, sem link | Não há página para linkar |

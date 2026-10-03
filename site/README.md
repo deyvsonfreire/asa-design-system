@@ -35,6 +35,11 @@ site/
 │   ├── 7-lugares/       grupos F+ e I+, com a comparação rápida (rascunho)
 │   ├── picape/          grupos H, O+ e P+, com o "leia antes" (rascunho)
 │   └── automatico/      os 10 automáticos em abas por tamanho, e a prova (rascunho)
+├── aluguel-de-carros/   as praças, com o preço e a busca do frota.js (rascunho)
+│   ├── aeroporto-recife/    do desembarque ao carro, devolução, carros, prova, destinos
+│   ├── recife/              a loja, os bairros, bate-voltas, a trabalho, carros, prova
+│   ├── aeroporto-fortaleza/ voo de madrugada, do desembarque ao carro, devolução, carros, prova
+│   └── fortaleza/           a loja, a capital, o litoral em abas, carros, prova
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
