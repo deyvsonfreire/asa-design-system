@@ -28,7 +28,8 @@ Cada uma tem duas versões possíveis, e as duas não podem conviver no site.
 | D10 | **Vitrine de ofertas sem validade** (C5, C6) | A copy manda: card sem validade confirmada não vai ao ar, e "Por tempo indeterminado" só se for verdade. Hoje nenhuma das duas ofertas tem validade, então `/ofertas` iria ao ar no estado vazio ("No momento não há oferta ativa"). | Ofertas, Primeira locação | Comercial + marketing |
 | D11 | **"Mais um dia" depende de pagamento antecipado?** | No site atual, a oferta "Adicione mais um dia na sua locação e economize até 15% na diária" vem com a nota "Valores para pagamento antecipado". A copy nova não fala disso. Se o desconto exige pagar antes, isso é regra do card. | Ofertas (regras do card), Réveillon (alta temporada) | Comercial |
 | D12 | **Estrada sem pavimentação: pode ou não?** | Os termos publicados hoje proíbem usar o carro "em estradas sem pavimentação". Ao mesmo tempo, a copy e as páginas sugerem carro para areia: a picape 4x4 "para trechos de areia" no Réveillon, o acesso a Jericoacoara, e o exemplo do card de veículo em 06 Componentes ("altura livre para estrada de areia"). | Réveillon, Regras de locação (durante a locação), Proteções e taxas (exclusões), páginas de Jericoacoara, 06 Componentes | Operação + jurídico |
-| D13 | **Roubo e furto: o que o cliente paga** | Os termos de hoje dizem que o cliente responde pelo valor integral do carro em caso de perda total, furto ou roubo, "independentemente da culpa". Isso precisa conversar com o que as proteções cobrem, antes de qualquer página falar de roubo. | Assistência 24h (situações comuns), Termos, Proteções e taxas | Jurídico |
+| D13 | **Roubo e furto: o que o cliente paga** | Os termos de hoje dizem que o cliente responde pelo valor integral do carro em caso de perda total, furto ou roubo, "independentemente da culpa". Isso precisa conversar com o que as proteções cobrem, antes de qualquer página falar de roubo. A cláusula 9.1 responde em parte: com a LDW, furto, roubo, incêndio e perda total ficam limitados à franquia (ver 3k). | Assistência 24h (situações comuns), Termos, Proteções e taxas | Jurídico |
+| D14 | **Taxa de 12%: sobre o quê?** (C2) | A fonte de verdade, o funil (`funil.js`) e as páginas dizem "12% sobre diárias e proteção", e os adicionais entram sem taxa. Os termos de hoje cobram "taxa de administração de 12% sobre o valor total e final do CONTRATO" (cláusula 6, item vi), o que inclui adicionais, taxa de retorno e horas extras. Se valer o texto dos termos, o preço final das etapas 2 a 4 muda. | Funil (etapas 1 a 4), Dúvidas, Proteções e taxas, home, aluguel mensal, Termos | Financeiro + jurídico |
 
 ## 2. Dados da empresa a confirmar
 
@@ -208,6 +209,72 @@ Já estão nesta lista: as referências dos balcões (P1, P2), a devolução em 
 | MS1 | **Condições do mensal:** prazo mínimo, franquia de km e km excedente, manutenção e revisão, troca em pane, proteções, taxa de 12%, forma e periodicidade da cobrança, valor da caução, grupos disponíveis, renovação (R14), devolução em outra cidade (R15), valor do condutor adicional e a diferença para um plano de assinatura (IPVA, manutenção e seguro inclusos?). | Aluguel mensal | Comercial |
 | MS2 | **"Pequena empresa" e os termos de hoje:** eles proíbem usar o carro para "fins comerciais" (R7). O que conta como uso comercial no mensal e na locação comum? A página oferece o mensal para a equipe de uma pequena empresa. | Aluguel mensal, Empresas | Jurídico + comercial |
 | MS3 | **Cotação:** para onde vai o pedido (Sankhya, Chatwoot ou e-mail comercial), quem responde e em quanto tempo. O bloqueio de pedido repetido (mesmo WhatsApp em 10 minutos) fica no servidor; no protótipo, na sessão da aba. | Aluguel mensal | Comercial + dev |
+
+## 3k. O que os termos de hoje respondem
+
+Cruzamento desta lista com os "Termos e Condições Gerais do Contrato de Locação" publicados em asalocadora.com.br/politica-de-termos-e-condicoes (16 cláusulas, lidos em 02/10/2026). Os termos não substituem a confirmação: a regra entra na página em laranja, como "regra de hoje", até a Asa confirmar. Os números entre parênteses são as cláusulas.
+
+### Pendências que os termos respondem, no todo ou em parte
+
+| Item | O que os termos dizem | O que ainda falta |
+|---|---|---|
+| F12, O2: idade | "No mínimo 21 anos completos" e CNH há pelo menos 2 anos (13). Basta ter 21 completos. As páginas misturam "mais de 21 anos" (home, busca, 404, praças, destinos) e "21 anos ou mais"; o certo pelos termos é "21 anos ou mais". | Taxa para condutor jovem, se houver |
+| F9: condutor adicional | Mesmos requisitos do principal; autorizado em formulário próprio, que passa a fazer parte do contrato; custo por condutor; no máximo 3 (13, 13.2, 13.3). A CNH original é apresentada "no ato da locação", o que indica que o adicional vai ao balcão. | Valor; confirmar a presença no balcão |
+| P3: documentos | RG e CPF originais, CNH "exclusivamente em original" e nenhuma restrição no SPC ou Serasa (13, 13.1). Estrangeiro: passaporte original e CNH do mesmo país do passaporte. Brasileiro que mora fora e usa CNH estrangeira: comprovante de residência no exterior (13.5). | CNH digital (ver contradição TC5), Permissão para Dirigir |
+| O3: análise no balcão | A Asa analisa o crédito e pode recusar a locação mesmo com a reserva feita; na reserva ninguém consulta o crédito (7, 7.1). | Como e quando a análise é feita |
+| P4: contagem das 27 horas | A diária conta "a partir da hora e minuto em que se inicie a locação, constante no Documento de Locação" (6.2): vale a abertura do contrato, não o horário reservado. | Se vale para o mensal; ver contradição TC3 |
+| P5: combustível, alteração | Combustível por conta do cliente; o litro que faltar é cobrado pelo preço da Asa, que pode ser diferente do posto; existe o tanque pré-pago, sem reembolso do que sobrar (11, 11.2, 11.4). Prorrogação pode sair por outra tarifa (3.4). | Pedágio (os termos não falam); prazo do reembolso |
+| R9: devolução antecipada | "Pode acarretar em elevação dos preços praticados", e o mínimo é 1 diária mesmo devolvendo antes (3.4, 4.3). | Se há reembolso das diárias não usadas |
+| P2: caução | É bloqueio no limite, não pagamento; no fim pode ser cancelada ou virar o pagamento (7.2, 7.3). O valor bloqueado pode ser usado para "quaisquer outros custos especiais e/ou adicionais" (7.4). Sem a LDW, a caução é maior, e pode não cobrir todo o dano (7.6, 7.7, 7.7.1). | Dois cartões; como aparece na fatura |
+| B1, V9: empresa | O cliente pode ser pessoa física ou jurídica (preâmbulo). Só quem não tem crédito analisado e aprovado antes precisa apresentar cartão para a caução (7.2), o que abre caminho para cliente com cadastro aprovado. | Se esse cadastro existe e para quem. Se existir, conflita com "sem cartão de crédito de ninguém, não é possível retirar o carro" (Dúvidas, Caução) |
+| P1, F9: cadeirinha | Os termos citam cadeirinha de bebê, assento de elevação e bebê conforto, com termo de compromisso próprio (2, 2.1). A proteção não cobre esses itens (10.1.5) e o dano é do cliente, pelo valor integral (2.3). | Faixas de idade e peso; quais estão disponíveis hoje |
+| F7, C1: coberturas | LDW: limita à franquia em colisão, perda total, furto, roubo e incêndio, sem depender de culpa (9.1). Avaria isolada (para-brisa, retrovisor, vidro, roda, pneu, lanterna ou uma peça de lataria que não seja teto ou capô) paga a peça pela tabela do balcão (9.1.1); várias peças pagam a franquia parcial, e o dano não recuperável a franquia de perda total (9.1.2, 9.1.3). ALI/SLI: limita os danos a terceiros (9.3). Proteção com isenção de franquia só pode ser contratada na retirada (9.2). **Não cobrem:** catástrofe natural e inundação, vandalismo, extravio de rodas, pneus, acessórios, chaves, documentos e placas, danos morais, acessórios extras, estelionato e apropriação indébita (10.1). **Perde a proteção:** uso proibido ou em condição extrema, culpa grave, infração grave ou gravíssima, BO não entregue em 24h, fins ilícitos, álcool ou drogas, condutor não autorizado, informação falsa (10.2). | Valores das franquias; preço da Completa; quais linhas da etapa 2 a operação confirma |
+| D13: roubo e furto | Com a LDW, o cliente paga a franquia (9.1); sem proteção, o valor integral (8.1). Em qualquer caso, paga um tanque cheio (11.3). | Ver contradições TC1 e TC2 |
+| MS1: mensal | Acima de 7 diárias, pagamento antecipado (4.4, 6.4). Acima de 30 dias, cobrança antecipada e **o cliente vai à loja a cada 30 dias para abrir um novo contrato**, sob pena de apropriação indébita (4.5). Tarifa semanal a partir de 7 diárias e mensal acima de 28 (6.4). Km livre ("UNL") ou franquia com km excedente (6.5, 6.6). | O resto de MS1. A ida à loja a cada 30 dias muda o passo a passo e a renovação da página do mensal |
+| M4: cancelamento | O pedido é por escrito, ao e-mail reservas2@asalocadora.com.br ou a outro canal informado, e vale a hora do recebimento; o 0800 080 0015 aparece na cláusula (16.4). A reserva pré-paga só confirma com aprovação cadastral e pagamento integral; reprovada, devolução integral em até 5 dias úteis, no mesmo meio de pagamento (16.1, 16.2). | Prazo de estorno quando o cliente cancela; se o site pode cancelar |
+| F11: pagamento | Estrangeiro paga a locação antes, além da caução (7.5). Cobrança depois do fechamento vai no cartão; sem cartão, boleto (14.3). | Formas, parcelas, Pix, gateway |
+| K2: contrato | Documento de Locação "subscrito em todas as suas vias, anverso e verso" e check-list "rubricado" (preâmbulo): indica assinatura física. | Confirmar se já existe assinatura digital |
+| V6, R7: caçamba | A proibição é de "carga de bens não destinados a veículo de passageiros" (15): bagagem pode; outra carga, não. A página da picape diz só "transporte de carga". | Peso e o que mais pode ir na caçamba |
+| R15: devolução em outra loja | São dois casos: avisando na retirada, vale a "taxa de retorno pré-acordada", escrita no Documento de Locação (12.1); sem aviso, a taxa da tabela (12.3). Também pode recalcular o contrato (14.1.2). | Valores; se o site passa a dizer "avise na retirada" |
+| P2 (praças): ponto de devolução | Devolver "nos locais indicados ou no pátio da LOCADORA"; deixar no estacionamento do aeroporto gera reembolso do estacionamento mais taxa (12.9). | A referência do local em Fortaleza (O1, P2) |
+| S1: assistência | Remoção paga pela Asa num raio de 100 km da loja mais próxima, "não sendo pane elétrica ou defeito mecânico" (12.2, ambígua, R10). BO em 24h e Relatório de Acidentes (9.5). | S1 inteiro |
+| D12: estrada sem pavimentação | O texto é "em estradas sem pavimentação, sem a observação das condições mínimas de segurança" (15): dá para ler que a ressalva vale só sem segurança. A cláusula 12.4 cobra limpeza por uso "em terrenos não pavimentados", o que supõe que ele acontece. Uso proibido tira a proteção (10.2.1) e rescinde o contrato, com honorários de 20% (15.1). | Decisão do jurídico sobre a leitura; até lá, as páginas seguem com "proíbem" |
+| E1: e-mail | Os termos usam reservas2@asalocadora.com.br para cancelamento (16.4). | Qual é o e-mail oficial |
+
+### Regras dos termos que as páginas ainda não usam
+
+Ficam prontas para entrar em laranja onde a página falar do assunto.
+
+| # | Regra de hoje | Cláusula | Onde entraria |
+|---|---|---|---|
+| R19 | Locação acima de 7 diárias é paga antes | 4.4, 6.4 | Dúvidas, aluguel mensal, Caução e requisitos |
+| R20 | Acima de 30 dias: novo contrato na loja a cada 30 dias | 4.5 | Aluguel mensal (passo a passo, renovação) |
+| R21 | Devolver antes pode aumentar o preço; mínimo de 1 diária | 3.4, 4.3 | Termos (devolução antecipada), Regras de locação |
+| R22 | A caução pode ser usada para outros custos do contrato | 7.4 | Caução e requisitos, Dúvidas |
+| R23 | Estrangeiro paga a locação antes | 7.5 | Caução e requisitos, Dúvidas |
+| R24 | Carro deixado no estacionamento do aeroporto: reembolso do estacionamento mais taxa | 12.9 | Aeroporto do Recife e de Fortaleza (devolução) |
+| R25 | Apreensão: R$ 1.500,00 de taxas mais R$ 450,00 de indisponibilidade; CRLV ou placa perdidos: segunda via mais R$ 450,00 | 12.7, 12.8 | Regras de locação, Assistência 24h |
+| R26 | Tabela de avarias com taxa administrativa de 10% | 14.1.5.3 | Proteções e taxas |
+| R27 | Cobranças depois do fechamento (multas por até 5 anos), no cartão ou por boleto; atraso com juros de 1% ao mês, multa de 2% e IPCA | 6.8, 12.5, 14.2, 14.3 | Regras de locação |
+| R28 | Reserva pré-paga reprovada na análise: devolução integral em até 5 dias úteis | 16.2 | Minha reserva, Dúvidas |
+| R29 | Proteção com isenção de franquia só na retirada | 9.2 | Etapa 2, Proteções e taxas |
+| R30 | Restrição no SPC ou Serasa pode impedir a locação, mesmo com reserva | 7.1, 13.1 | Caução e requisitos, Dúvidas |
+
+### Contradições dentro dos próprios termos (para o jurídico)
+
+| # | Contradição | Cláusulas |
+|---|---|---|
+| TC1 | "Superior a 30% (setenta por cento)" na definição de perda total | 8.1 |
+| TC2 | Perda total pelo valor de um carro igual ou similar zero quilômetro (8.2) ou pela tabela FIPE (14.5) | 8.2, 14.5 |
+| TC3 | Depois da diária, cobra hora adicional até completar 3 horas (6.3), mas também dá 180 minutos de cortesia (6.3.1). O site usa a cortesia (diária de 27 horas) | 6.3, 6.3.1 |
+| TC4 | 12% sobre o total do contrato, e não sobre diárias e proteção como diz a fonte de verdade (D14) | 6 (vi) |
+| TC5 | CNH "exclusivamente em original", e a CNH digital (O2) | 13 |
+| TC6 | Estrada sem pavimentação: proibição com ressalva de segurança (15) e taxa de limpeza por uso em terreno não pavimentado (12.4) (D12) | 12.4, 15 |
+| TC7 | Revisão de texto: "IV PRAZO" sem ponto, "VÉICULO", "acento de elevação", palavras com letras separadas ("d e L o c a ç ã o") e a cláusula 4.5 que termina em ".." | Várias |
+
+### O que os termos não respondem
+
+Razão social e CNPJ (D2), notas (D4), as decisões de marketing e comercial (D5 a D11), contatos e governança (E2 a E9), falta de carro do grupo (R8), ofertas e cupom (F1 a F5), número da assistência e fraudes (S2 a S9), terceirização (B2 a B4), vitrine e upgrade (seção 3e, F6, F8, F10), confirmação e Minha reserva (F13, F14, M1 a M3, M5), pré-cadastro (K1, K3), frota (V1 a V5, V7, V8, V10, V11), praças e destinos (P1, P4 a P6, G1 a G5, L1), cotação do mensal (MS3), imagens (seção 5) e técnico (seção 6). Também não dizem nada sobre pedágio, Pix, parcelamento ou o seguro do cartão de crédito.
 
 ## 4. Privacidade: dados que só a empresa sabe
 
