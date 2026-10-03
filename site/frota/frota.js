@@ -37,6 +37,11 @@
   slots.forEach(function (s) { if (grupos.indexOf(s.dataset.preco) === -1) grupos.push(s.dataset.preco); });
   if (!grupos.length) return;
 
+  /* O "a partir de" do hero pode valer para mais grupos que os da página
+     (nas praças, a frota inteira): data-grupos no [data-preco-desde]. */
+  var desdeEl = $('[data-preco-desde]');
+  var gruposDesde = desdeEl && desdeEl.dataset.grupos ? desdeEl.dataset.grupos.split(',') : grupos;
+
   var datas = null;        // { ini, fim, dias } quando a página está no modo com datas
   var estado = '';         // '' | carregando | erro | esgotado
 
@@ -48,7 +53,7 @@
   }
   function esgotado(g) {
     if (!datas) return false;
-    if (estado === 'esgotado') return grupos.indexOf(g) !== -1;
+    if (estado === 'esgotado') return grupos.indexOf(g) !== -1 || gruposDesde.indexOf(g) !== -1;
     return !!F.grupo(g).esgotado;
   }
   function plural(n) { return n + (n === 1 ? ' diária' : ' diárias'); }
@@ -145,7 +150,7 @@
   var barraPreco = $('[data-fleetbar-preco]');
   function menor() {
     var dias = datas ? datas.dias : 1;
-    var vivos = grupos.filter(function (g) { return !esgotado(g); });
+    var vivos = gruposDesde.filter(function (g) { return !esgotado(g); });
     if (!vivos.length) return null;
     return Math.min.apply(null, vivos.map(function (g) { return conta(g, dias).total; }));
   }

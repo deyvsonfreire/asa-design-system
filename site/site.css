@@ -2227,7 +2227,7 @@ button.site-booking-card__link { min-height: 0; padding: 0; }
    15 grupos com filtros em chips, colunas de texto (roteiros, fatos) e a
    barra de reserva do celular.
    -------------------------------------------------------------------------- */
-body[data-page-type^="frota"] [hidden] { display: none !important; }
+body[data-page-type^="frota"] [hidden], body[data-page-type="praca"] [hidden] { display: none !important; }
 
 .site-hero__groups { margin: var(--asa-space-4) 0 0; font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
 .site-hero-fleet .site-hero__groups + .asa-lead { margin-top: var(--asa-space-3); }
@@ -2367,8 +2367,44 @@ body[data-page-type^="frota"] [hidden] { display: none !important; }
 .site-fleetbar.site-sumbar--fora { visibility: hidden; transform: translateY(100%); }
 .site-fleetbar .site-sumbar__total b { font-size: var(--asa-fs-body); }
 @media (max-width: 1023px) {
-  body[data-page-type="frota-categoria"] { padding-bottom: 76px; }
-  body[data-page-type="frota-categoria"] .site-fab { bottom: 88px; }
+  body:has(.site-fleetbar) { padding-bottom: 76px; }
+  body:has(.site-fleetbar) .site-fab { bottom: 88px; }
 }
 @media (prefers-reduced-motion: reduce) { .site-fleetbar { transition: none; } }
 .site-fleet-status:focus { outline: none; }
+
+/* --------------------------------------------------------------------------
+   PRAÇAS (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza)
+   As peças da frota (hero com preço, cards, documentos, barra do celular)
+   e mais: a loja ao lado do texto, duas colunas com H2 próprio, o
+   depoimento grande da madrugada e as notas curtas.
+   -------------------------------------------------------------------------- */
+.site-fcard__text a, .site-vehicles-note a, .site-praca-note a, .site-routes-note a { color: var(--asa-ink); font-weight: var(--asa-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.site-praca-editorial { align-items: start; }
+.site-praca-editorial .asa-editorial__media .asa-photo { aspect-ratio: 4 / 5; }
+.site-praca-editorial h2 + .site-steps, .site-praca-editorial h2 + .asa-editorial__facts { margin-top: var(--asa-space-6); }
+@media (min-width: 640px) { .site-praca-facts--1 { grid-template-columns: minmax(0, 1fr); } }
+.site-praca-note { margin: var(--asa-space-6) 0 0; font-size: var(--asa-fs-body-dense); line-height: var(--asa-lh-body-dense); color: var(--asa-ink-2); max-width: 640px; }
+
+.site-praca-duo > div > p:first-of-type { margin-top: var(--asa-space-5); }
+.site-praca-duo > div > p + p { margin-top: var(--asa-space-3); }
+
+.site-praca-loja { display: grid; gap: var(--asa-space-8); align-items: start; }
+@media (min-width: 1024px) { .site-praca-loja { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 5vw, 80px); } }
+.site-praca-loja .asa-lead { margin-top: var(--asa-space-5); }
+.site-praca-loja .site-list { margin-top: var(--asa-space-6); }
+.site-store h3 { margin: var(--asa-space-5) 0 var(--asa-space-2); }
+.site-store address { font-style: normal; color: var(--asa-ink-2); }
+.site-store p { margin: var(--asa-space-2) 0 0; color: var(--asa-ink-2); }
+.site-store .site-stores__fact { color: var(--asa-ink); font-weight: var(--asa-weight-medium); }
+.site-store__links { display: flex; flex-wrap: wrap; align-items: center; gap: var(--asa-space-3) var(--asa-space-5); margin-top: var(--asa-space-5); }
+.site-store__links a:not(.asa-btn) { font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+
+.site-praca-madrugada { display: grid; gap: var(--asa-space-8); align-items: center; }
+@media (min-width: 1024px) { .site-praca-madrugada { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 5vw, 80px); } }
+.site-praca-madrugada .asa-lead { margin-top: var(--asa-space-5); }
+.site-praca-quote { margin: 0; padding-left: var(--asa-space-6); border-left: 2px solid var(--asa-ink); }
+.site-praca-quote .asa-testimonial__quote { font-size: var(--asa-fs-highlight); line-height: var(--asa-lh-highlight); }
+
+@media (min-width: 1024px) { .site-trio--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; } }
+@media (min-width: 1024px) { .site-routes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--asa-space-7) var(--asa-space-6); } }
