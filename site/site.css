@@ -2408,3 +2408,34 @@ body[data-page-type^="frota"] [hidden], body[data-page-type="praca"] [hidden] { 
 
 @media (min-width: 1024px) { .site-trio--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 960px; } }
 @media (min-width: 1024px) { .site-routes--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--asa-space-7) var(--asa-space-6); } }
+
+/* --------------------------------------------------------------------------
+   LOJAS, DESTINOS E ALUGUEL MENSAL
+   A ficha da rota (asa-summary) dentro do editorial, as lojas completas
+   com o mapa sob demanda e o formulário de cotação.
+   -------------------------------------------------------------------------- */
+body[data-page-type="lojas"] [hidden], body[data-page-type="aluguel-mensal"] [hidden] { display: none !important; }
+
+.site-route-card { margin-top: var(--asa-space-6); }
+.site-route-card__title { margin: 0 0 var(--asa-space-2); font-size: var(--asa-fs-body-dense); font-weight: var(--asa-weight-bold); color: var(--asa-ink); }
+.site-route-card .asa-summary__row > span:last-child { text-align: right; max-width: 62%; }
+.site-route-tips { margin: var(--asa-space-7) 0 var(--asa-space-3); font-size: var(--asa-fs-highlight); }
+
+.site-lojas__tel { margin: var(--asa-space-4) 0 0; color: var(--asa-ink-2); }
+.site-lojas__tel a { color: var(--asa-ink); text-decoration: none; }
+.site-stores--full { align-items: start; }
+.site-store--full h3 { margin-bottom: 0; }
+.site-store__name { margin: var(--asa-space-1) 0 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-3) !important; }
+.site-store__facts { display: grid; gap: var(--asa-space-4); margin: var(--asa-space-5) 0 0; }
+.site-store__facts dt { font-size: var(--asa-fs-label); font-weight: var(--asa-weight-medium); color: var(--asa-ink-3); }
+.site-store__facts dd { margin: 2px 0 0; color: var(--asa-ink-2); }
+.site-store__facts address { font-style: normal; }
+.site-store__facts a { color: var(--asa-ink); font-weight: var(--asa-weight-bold); }
+@media (max-width: 767px) { .site-stores--full[data-primeiro="FOR"] > :last-child { order: -1; } }
+.site-map { margin-top: var(--asa-space-4); padding-top: var(--asa-space-3); border-top: 1px solid var(--asa-line-soft); }
+.site-map .asa-btn--link { padding: 0; min-height: var(--asa-touch-min); }
+.site-map__status { margin: 0; font-size: var(--asa-fs-body-dense); color: var(--asa-ink-2); }
+.site-map__status:empty { display: none; }
+.site-map__frame { display: block; width: 100%; aspect-ratio: 4 / 3; margin-top: var(--asa-space-3); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
+
+.site-compare__alert { margin-top: var(--asa-space-7); max-width: 760px; }

@@ -4,9 +4,9 @@ O que ficou em aberto nas páginas já construídas em `site/`. É a lista de tr
 
 Os códigos entre parênteses (C7, J1, O1...) são os de `novo-site/copy-v2/00c-perguntas-para-a-asa.md`. O item que já está lá não é repetido aqui; esta lista só acrescenta o que as páginas revelaram.
 
-**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro, a frota (hub e as seis categorias) e as quatro praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza).
+**Páginas cobertas:** componentes globais (cabeçalho, rodapé, WhatsApp, busca, 404), blog e modelo de artigo, Relações com Investidores, Política de Privacidade, Termos e Condições, Quem somos, Contato, Ofertas, Primeira locação, as campanhas de Carnaval, São João e Réveillon, Regras de locação, Assistência 24h, Prevenção a fraudes, Acessibilidade, Empresas, Dúvidas, Diária de 27 horas, Proteções e taxas, Caução e requisitos, a home e as quatro etapas da reserva (vitrine, proteção e adicionais, dados e pagamento, confirmação), Minha reserva, o pré-cadastro, a frota (hub e as seis categorias) as quatro praças (Aeroporto do Recife, Recife, Aeroporto de Fortaleza, Fortaleza), Lojas, os quatro destinos (Porto de Galinhas, Maragogi, Olinda, Jericoacoara) e o aluguel mensal.
 
-**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro, as sete páginas da frota e as quatro praças), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
+**Regra de publicação:** nenhuma marcação vai ao ar. Nas páginas em rascunho (RI, Privacidade, Termos, Quem somos, Contato, as cinco de ofertas, as quatro de ajuda, as cinco de regras e empresas, a home, as quatro etapas da reserva, Minha reserva, o pré-cadastro, as sete páginas da frota, as quatro praças, Lojas, os destinos e o aluguel mensal), cada pendência aparece em laranja na tela e um aviso abre a página. Nas outras, ela fica em comentário no HTML.
 
 ---
 
@@ -28,7 +28,8 @@ Cada uma tem duas versões possíveis, e as duas não podem conviver no site.
 | D10 | **Vitrine de ofertas sem validade** (C5, C6) | A copy manda: card sem validade confirmada não vai ao ar, e "Por tempo indeterminado" só se for verdade. Hoje nenhuma das duas ofertas tem validade, então `/ofertas` iria ao ar no estado vazio ("No momento não há oferta ativa"). | Ofertas, Primeira locação | Comercial + marketing |
 | D11 | **"Mais um dia" depende de pagamento antecipado?** | No site atual, a oferta "Adicione mais um dia na sua locação e economize até 15% na diária" vem com a nota "Valores para pagamento antecipado". A copy nova não fala disso. Se o desconto exige pagar antes, isso é regra do card. | Ofertas (regras do card), Réveillon (alta temporada) | Comercial |
 | D12 | **Estrada sem pavimentação: pode ou não?** | Os termos publicados hoje proíbem usar o carro "em estradas sem pavimentação". Ao mesmo tempo, a copy e as páginas sugerem carro para areia: a picape 4x4 "para trechos de areia" no Réveillon, o acesso a Jericoacoara, e o exemplo do card de veículo em 06 Componentes ("altura livre para estrada de areia"). | Réveillon, Regras de locação (durante a locação), Proteções e taxas (exclusões), páginas de Jericoacoara, 06 Componentes | Operação + jurídico |
-| D13 | **Roubo e furto: o que o cliente paga** | Os termos de hoje dizem que o cliente responde pelo valor integral do carro em caso de perda total, furto ou roubo, "independentemente da culpa". Isso precisa conversar com o que as proteções cobrem, antes de qualquer página falar de roubo. | Assistência 24h (situações comuns), Termos, Proteções e taxas | Jurídico |
+| D13 | **Roubo e furto: o que o cliente paga** | Os termos de hoje dizem que o cliente responde pelo valor integral do carro em caso de perda total, furto ou roubo, "independentemente da culpa". Isso precisa conversar com o que as proteções cobrem, antes de qualquer página falar de roubo. A cláusula 9.1 responde em parte: com a LDW, furto, roubo, incêndio e perda total ficam limitados à franquia (ver 3k). | Assistência 24h (situações comuns), Termos, Proteções e taxas | Jurídico |
+| D14 | **Taxa de 12%: sobre o quê?** (C2) | A fonte de verdade, o funil (`funil.js`) e as páginas dizem "12% sobre diárias e proteção", e os adicionais entram sem taxa. Os termos de hoje cobram "taxa de administração de 12% sobre o valor total e final do CONTRATO" (cláusula 6, item vi), o que inclui adicionais, taxa de retorno e horas extras. Se valer o texto dos termos, o preço final das etapas 2 a 4 muda. | Funil (etapas 1 a 4), Dúvidas, Proteções e taxas, home, aluguel mensal, Termos | Financeiro + jurídico |
 
 ## 2. Dados da empresa a confirmar
 
@@ -193,6 +194,90 @@ Já estão em 00c e nesta lista: o pátio de Fortaleza (O1), voo e tolerância (
 | P5 | **Dados de roteiro ([VERIFICAR] na tela):** distâncias do aeroporto até Boa Viagem, Olinda, Gaibu e Calhetas, Porto de Galinhas, Maragogi, Beira-Mar, Praia do Futuro, Beach Park, Morro Branco, Canoa Quebrada, Cumbuco, Lagoinha, Jericoacoara e Guaramiranga; as rodovias CE-040, CE-025 e CE-085; a faixa de lazer da Av. Boa Viagem; Zona Azul no Recife Antigo e em Fortaleza; a estação Aeroporto do metrô; Brennand; vias de pico; o caranguejo às quintas na Praia do Futuro. | As quatro | Marketing |
 | P6 | **"Passeios em dunas são feitos com bugueiros credenciados":** confirmar o texto com a operação, junto com D12. | Fortaleza | Operação |
 
+## 3j. Lojas, destinos e aluguel mensal
+
+Já estão nesta lista: as referências dos balcões (P1, P2), a devolução em outra loja (O8 e R15, agora em laranja em todas as páginas que falam dela), estrada sem pavimentação (D12), circulação (R7), combustível (R2), caução (R5), prorrogação (R14) e condutor adicional (R12).
+
+| # | O que falta | Onde aparece | Quem responde |
+|---|---|---|---|
+| G1 | **Dados de rota ([VERIFICAR] na tela):** distâncias e tempos do aeroporto a Porto de Galinhas, Maragogi, Olinda e Jijoca; as rodovias (BR-101, PE-060, PE-038, PE-009, AL-101, CE-085); o pedágio da Rota do Atlântico; a divisa perto de São José da Coroa Grande; os trechos de pista simples; o trânsito de pico na saída sul e no centro do Recife; o sinal de celular no caminho de Jeri. | Destinos | Marketing |
+| G2 | **Dados de roteiro ([VERIFICAR] na tela):** Maracaípe e os cavalos-marinhos, Carneiros a 50 km de Porto, tábua de marés, galés de Maragogi e a saída com maré baixa, Antunes e Barra Grande, São Miguel dos Milagres, estacionamentos na vila de Porto e nos pontos de embarque, ruas e estacionamento no Sítio Histórico de Olinda, o trânsito no Carnaval, Rio Doce e Janga, Itamaracá e o Recife Antigo a 7 km de Olinda. | Destinos | Marketing |
+| G3 | **Jericoacoara:** as regras atuais de acesso de veículos ao parque nacional e à vila, se todo o trajeto até Jijoca é asfaltado, os estacionamentos em Jijoca e a taxa de turismo do município. Junto com D12, que hoje proíbe estrada sem pavimentação. | Jericoacoara, Fortaleza, Aeroporto de Fortaleza | Operação + marketing |
+| G4 | **Mapa ilustrado da rota** (arte própria, sem marca de terceiros) para Porto de Galinhas e Maragogi; em Jericoacoara, com o trecho final marcado como "transporte local". Até lá, o lugar dele mostra o briefing. | Destinos | Design |
+| G5 | ~~Title com a marca curta "\| Asa" em Maragogi e Olinda~~ **Resolvido em 02/10** pelo guia (00b): a marca fica "\| Asa Locadora" e o termo encurta ("Aluguel de carro para Maragogi", "Aluguel de carro em Olinda"). A origem (retirada no Recife) fica no H1 e na description. | Maragogi, Olinda | SEO |
+| L1 | **Ordem das lojas no celular:** a copy pede a loja da praça detectada (ou da última busca) primeiro. No protótipo, só com `?local=FOR`; em produção, pela última busca ou pela localização. | Lojas | Dev |
+| MS1 | **Condições do mensal:** prazo mínimo, franquia de km e km excedente, manutenção e revisão, troca em pane, proteções, taxa de 12%, forma e periodicidade da cobrança, valor da caução, grupos disponíveis, renovação (R14), devolução em outra cidade (R15), valor do condutor adicional e a diferença para um plano de assinatura (IPVA, manutenção e seguro inclusos?). | Aluguel mensal | Comercial |
+| MS2 | **"Pequena empresa" e os termos de hoje:** eles proíbem usar o carro para "fins comerciais" (R7). O que conta como uso comercial no mensal e na locação comum? A página oferece o mensal para a equipe de uma pequena empresa. | Aluguel mensal, Empresas | Jurídico + comercial |
+| MS3 | **Cotação:** para onde vai o pedido (Sankhya, Chatwoot ou e-mail comercial), quem responde e em quanto tempo. O bloqueio de pedido repetido (mesmo WhatsApp em 10 minutos) fica no servidor; no protótipo, na sessão da aba. | Aluguel mensal | Comercial + dev |
+
+## 3k. O que os termos de hoje respondem
+
+Cruzamento desta lista com os "Termos e Condições Gerais do Contrato de Locação" publicados em asalocadora.com.br/politica-de-termos-e-condicoes (16 cláusulas, lidos em 02/10/2026). Os termos não substituem a confirmação: a regra entra na página em laranja, como "regra de hoje", até a Asa confirmar. Os números entre parênteses são as cláusulas.
+
+### Pendências que os termos respondem, no todo ou em parte
+
+| Item | O que os termos dizem | O que ainda falta |
+|---|---|---|
+| F12, O2: idade | "No mínimo 21 anos completos" e CNH há pelo menos 2 anos (13). Basta ter 21 completos. Em 02/10, todas as páginas passaram a dizer "21 anos ou mais" (ou "a partir de 21 anos"), e a validação do checkout deixou de recusar quem tem 21 anos completos. | Taxa para condutor jovem, se houver; a documentação de 06 Componentes ainda diz "mais de 21 anos" |
+| F9: condutor adicional | Mesmos requisitos do principal; autorizado em formulário próprio, que passa a fazer parte do contrato; custo por condutor; no máximo 3 (13, 13.2, 13.3). A CNH original é apresentada "no ato da locação", o que indica que o adicional vai ao balcão. | Valor; confirmar a presença no balcão |
+| P3: documentos | RG e CPF originais, CNH "exclusivamente em original" e nenhuma restrição no SPC ou Serasa (13, 13.1). Estrangeiro: passaporte original e CNH do mesmo país do passaporte. Brasileiro que mora fora e usa CNH estrangeira: comprovante de residência no exterior (13.5). | CNH digital (ver contradição TC5), Permissão para Dirigir |
+| O3: análise no balcão | A Asa analisa o crédito e pode recusar a locação mesmo com a reserva feita; na reserva ninguém consulta o crédito (7, 7.1). | Como e quando a análise é feita |
+| P4: contagem das 27 horas | A diária conta "a partir da hora e minuto em que se inicie a locação, constante no Documento de Locação" (6.2): vale a abertura do contrato, não o horário reservado. | Se vale para o mensal; ver contradição TC3 |
+| P5: combustível, alteração | Combustível por conta do cliente; o litro que faltar é cobrado pelo preço da Asa, que pode ser diferente do posto; existe o tanque pré-pago, sem reembolso do que sobrar (11, 11.2, 11.4). Prorrogação pode sair por outra tarifa (3.4). | Pedágio (os termos não falam); prazo do reembolso |
+| R9: devolução antecipada | "Pode acarretar em elevação dos preços praticados", e o mínimo é 1 diária mesmo devolvendo antes (3.4, 4.3). | Se há reembolso das diárias não usadas |
+| P2: caução | É bloqueio no limite, não pagamento; no fim pode ser cancelada ou virar o pagamento (7.2, 7.3). O valor bloqueado pode ser usado para "quaisquer outros custos especiais e/ou adicionais" (7.4). Sem a LDW, a caução é maior, e pode não cobrir todo o dano (7.6, 7.7, 7.7.1). | Dois cartões; como aparece na fatura |
+| B1, V9: empresa | O cliente pode ser pessoa física ou jurídica (preâmbulo). Só quem não tem crédito analisado e aprovado antes precisa apresentar cartão para a caução (7.2), o que abre caminho para cliente com cadastro aprovado. | Se esse cadastro existe e para quem. Se existir, conflita com "sem cartão de crédito de ninguém, não é possível retirar o carro" (Dúvidas, Caução) |
+| P1, F9: cadeirinha | Os termos citam cadeirinha de bebê, assento de elevação e bebê conforto, com termo de compromisso próprio (2, 2.1). A proteção não cobre esses itens (10.1.5) e o dano é do cliente, pelo valor integral (2.3). | Faixas de idade e peso; quais estão disponíveis hoje |
+| F7, C1: coberturas | LDW: limita à franquia em colisão, perda total, furto, roubo e incêndio, sem depender de culpa (9.1). Avaria isolada (para-brisa, retrovisor, vidro, roda, pneu, lanterna ou uma peça de lataria que não seja teto ou capô) paga a peça pela tabela do balcão (9.1.1); várias peças pagam a franquia parcial, e o dano não recuperável a franquia de perda total (9.1.2, 9.1.3). ALI/SLI: limita os danos a terceiros (9.3). Proteção com isenção de franquia só pode ser contratada na retirada (9.2). **Não cobrem:** catástrofe natural e inundação, vandalismo, extravio de rodas, pneus, acessórios, chaves, documentos e placas, danos morais, acessórios extras, estelionato e apropriação indébita (10.1). **Perde a proteção:** uso proibido ou em condição extrema, culpa grave, infração grave ou gravíssima, BO não entregue em 24h, fins ilícitos, álcool ou drogas, condutor não autorizado, informação falsa (10.2). | Valores das franquias; preço da Completa; quais linhas da etapa 2 a operação confirma |
+| D13: roubo e furto | Com a LDW, o cliente paga a franquia (9.1); sem proteção, o valor integral (8.1). Em qualquer caso, paga um tanque cheio (11.3). | Ver contradições TC1 e TC2 |
+| MS1: mensal | Acima de 7 diárias, pagamento antecipado (4.4, 6.4). Acima de 30 dias, cobrança antecipada e **o cliente vai à loja a cada 30 dias para abrir um novo contrato**, sob pena de apropriação indébita (4.5). Tarifa semanal a partir de 7 diárias e mensal acima de 28 (6.4). Km livre ("UNL") ou franquia com km excedente (6.5, 6.6). | O resto de MS1. A ida à loja a cada 30 dias muda o passo a passo e a renovação da página do mensal |
+| M4: cancelamento | O pedido é por escrito, ao e-mail reservas2@asalocadora.com.br ou a outro canal informado, e vale a hora do recebimento; o 0800 080 0015 aparece na cláusula (16.4). A reserva pré-paga só confirma com aprovação cadastral e pagamento integral; reprovada, devolução integral em até 5 dias úteis, no mesmo meio de pagamento (16.1, 16.2). | Prazo de estorno quando o cliente cancela; se o site pode cancelar |
+| F11: pagamento | Estrangeiro paga a locação antes, além da caução (7.5). Cobrança depois do fechamento vai no cartão; sem cartão, boleto (14.3). | Formas, parcelas, Pix, gateway |
+| K2: contrato | Documento de Locação "subscrito em todas as suas vias, anverso e verso" e check-list "rubricado" (preâmbulo): indica assinatura física. | Confirmar se já existe assinatura digital |
+| V6, R7: caçamba | A proibição é de "carga de bens não destinados a veículo de passageiros" (15): bagagem pode; outra carga, não. A página da picape passou a dizer isso. | Peso e o que mais pode ir na caçamba |
+| R15: devolução em outra loja | São dois casos: avisando na retirada, vale a "taxa de retorno pré-acordada", escrita no Documento de Locação (12.1); sem aviso, a taxa da tabela (12.3). Também pode recalcular o contrato (14.1.2). | Valores; se o site passa a dizer "avise na retirada" |
+| P2 (praças): ponto de devolução | Devolver "nos locais indicados ou no pátio da LOCADORA"; deixar no estacionamento do aeroporto gera reembolso do estacionamento mais taxa (12.9). | A referência do local em Fortaleza (O1, P2) |
+| S1: assistência | Remoção paga pela Asa num raio de 100 km da loja mais próxima, "não sendo pane elétrica ou defeito mecânico" (12.2, ambígua, R10). BO em 24h e Relatório de Acidentes (9.5). | S1 inteiro |
+| D12: estrada sem pavimentação | O texto é "em estradas sem pavimentação, sem a observação das condições mínimas de segurança" (15): dá para ler que a ressalva vale só sem segurança. A cláusula 12.4 cobra limpeza por uso "em terrenos não pavimentados", o que supõe que ele acontece. Uso proibido tira a proteção (10.2.1) e rescinde o contrato, com honorários de 20% (15.1). | Decisão do jurídico sobre a leitura; até lá, as páginas seguem com "proíbem" |
+| E1: e-mail | Os termos usam reservas2@asalocadora.com.br para cancelamento (16.4). | Qual é o e-mail oficial |
+
+### Regras dos termos que entraram nas páginas em 02/10
+
+Já estão em laranja, como "regra de hoje", esperando confirmação.
+
+| # | Regra de hoje | Cláusula | Onde está |
+|---|---|---|---|
+| R19 | Locação acima de 7 diárias é paga antes (no mensal, acima de 30 dias) | 4.4, 4.5, 6.4 | Dúvidas (formas de pagamento), Caução e requisitos (limite do cartão), aluguel mensal (pagamento) |
+| R20 | Acima de 30 dias: novo contrato na loja a cada 30 dias | 4.5 | Aluguel mensal (linha nova na tabela e resposta da renovação). Também entrou a quilometragem: km livre ou franquia (6.5, 6.6) |
+| R21 | Devolver antes pode aumentar o preço; mínimo de 1 diária | 3.4, 4.3 | Termos (devolução antecipada), Regras de locação (devolução) |
+| R22 | A caução pode ser usada para outros custos do contrato | 7.4 | Caução e requisitos (como funciona), Dúvidas (pré-autorização) |
+| R23 | Estrangeiro: passaporte e CNH do mesmo país, e paga a locação antes | 7.5, 13.1 | Caução e requisitos, Dúvidas |
+| R24 | Carro deixado no estacionamento do aeroporto: reembolso do estacionamento mais taxa | 12.9 | Aeroporto do Recife e de Fortaleza (devolução), Regras de locação |
+| R25 | Apreensão: R$ 1.500,00 de taxas mais R$ 450,00 de indisponibilidade; CRLV ou placa perdidos: segunda via mais R$ 450,00 | 12.7, 12.8 | Regras de locação (durante a locação), Assistência 24h (chave e documento) |
+| R26 | Avaria numa peça só pela tabela do balcão, com taxa administrativa de 10% | 9.1.1, 14.1.5.3 | Proteções e taxas (valores que dependem do uso) |
+| R27 | Cobranças depois do fechamento (multas por até 5 anos), no cartão ou por boleto; atraso com juros de 1% ao mês, multa de 2% e IPCA | 6.8, 12.5, 14.2, 14.3 | Regras de locação (multas) |
+| R28 | Reserva pré-paga reprovada na análise: devolução integral em até 5 dias úteis; cancelamento por escrito no reservas2@ ou pelo 0800 | 16.2, 16.4 | Minha reserva (dúvidas), Dúvidas (cancelamento) |
+| R29 | Proteção sem franquia não pode ser contratada depois da retirada | 9.2 | Etapa 2 (abertura da proteção), Proteções e taxas (o que não cobre) |
+| R30 | Restrição no SPC ou Serasa pode impedir a locação, mesmo com reserva | 7.1, 13.1 | Caução e requisitos (análise no balcão), Dúvidas (como alugo) |
+
+Também entraram em laranja: os documentos originais (CNH, RG e CPF) em Caução e Dúvidas; os requisitos do condutor adicional em Caução e Regras de locação; o cliente pessoa jurídica em Caução; o combustível por conta do cliente em Dúvidas; e, em Proteções e taxas, a lista do que nenhuma proteção cobre e de quando o cliente perde a proteção (F7).
+
+### Contradições dentro dos próprios termos (para o jurídico)
+
+| # | Contradição | Cláusulas |
+|---|---|---|
+| TC1 | "Superior a 30% (setenta por cento)" na definição de perda total | 8.1 |
+| TC2 | Perda total pelo valor de um carro igual ou similar zero quilômetro (8.2) ou pela tabela FIPE (14.5) | 8.2, 14.5 |
+| TC3 | Depois da diária, cobra hora adicional até completar 3 horas (6.3), mas também dá 180 minutos de cortesia (6.3.1). O site usa a cortesia (diária de 27 horas) | 6.3, 6.3.1 |
+| TC4 | 12% sobre o total do contrato, e não sobre diárias e proteção como diz a fonte de verdade (D14) | 6 (vi) |
+| TC5 | CNH "exclusivamente em original", e a CNH digital (O2) | 13 |
+| TC6 | Estrada sem pavimentação: proibição com ressalva de segurança (15) e taxa de limpeza por uso em terreno não pavimentado (12.4) (D12) | 12.4, 15 |
+| TC7 | Revisão de texto: "IV PRAZO" sem ponto, "VÉICULO", "acento de elevação", palavras com letras separadas ("d e L o c a ç ã o") e a cláusula 4.5 que termina em ".." | Várias |
+
+### O que os termos não respondem
+
+Razão social e CNPJ (D2), notas (D4), as decisões de marketing e comercial (D5 a D11), contatos e governança (E2 a E9), falta de carro do grupo (R8), ofertas e cupom (F1 a F5), número da assistência e fraudes (S2 a S9), terceirização (B2 a B4), vitrine e upgrade (seção 3e, F6, F8, F10), confirmação e Minha reserva (F13, F14, M1 a M3, M5), pré-cadastro (K1, K3), frota (V1 a V5, V7, V8, V10, V11), praças e destinos (P1, P4 a P6, G1 a G5, L1), cotação do mensal (MS3), imagens (seção 5) e técnico (seção 6). Também não dizem nada sobre pedágio, Pix, parcelamento ou o seguro do cartão de crédito.
+
 ## 4. Privacidade: dados que só a empresa sabe
 
 Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
@@ -217,7 +302,7 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | A3b | Fotos das páginas de oferta: cliente recebendo a chave no balcão (com autorização de imagem), SUV na estrada à beira-mar, pátio do Aeroporto do Recife, carro em ladeira de Olinda sem foliões identificáveis, SUV na BR-232 ao entardecer sem marca de festa, estrada costeira ao pôr do sol sem fogos com marca de evento, Porto de Galinhas, Jericoacoara, e um carro por grupo da vitrine (Spin, Commander, Onix Plus, Tracker, Toro). | Ofertas, Primeira locação, campanhas |
 | A4 | Autor dos artigos do blog, com nome e função (M5) | Blog |
 | A5 | Padrão de URL de categoria e paginação do blog atual (M5) | Blog |
-| A6 | Endereços dos artigos novos da pauta 2 a 8 (propostos, não confirmados) | Blog |
+| A6 | Endereços dos artigos novos da pauta 2 a 8 (propostos, não confirmados). Os cards do blog já apontam para eles, e os links dão 404 até a publicação. O artigo "Preciso de 4x4 para ir a Jericoacoara?" precisa ser escrito dentro de D12 (o carro vai até Jijoca pelo asfalto; o trecho final é transporte local); o briefing da foto do card passou a ser a picape na estrada asfaltada, nunca na areia. | Blog |
 | A7 | Distâncias, tempos e data de conferência dos roteiros ([VERIFICAR] em 00c) | Blog |
 | A8 | **Roteiros das campanhas** ([VERIFICAR] na tela): programação e polos do Carnaval do Recife e de Olinda e o esquema de trânsito; Caruaru pela BR-232 (cerca de 130 km) e se Gravatá entra; as cidades juninas do ano; distâncias de Porto de Galinhas, Carneiros, Maragogi, Cumbuco e Canoa Quebrada; local das festas de virada; regras de acesso de veículos a Jericoacoara e se a Toro 4x4 serve para ele. Conferir a cada edição, com a data. | Carnaval, São João, Réveillon |
 | A9 | **Anúncios das campanhas** (Google Ads e Meta): estão como rascunho na copy e não entram nas páginas. Antes de subir: o título "Sem van: carro no aeroporto" só vale para Recife (O1); o texto do Réveillon na Meta cita os dois aeroportos; o título "Réveillon em Porto de carro" usa uma abreviação que a própria copy pede para testar. | Google Ads, Meta |
@@ -225,6 +310,8 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | A10 | Fotos da home e da vitrine: carro da frota saindo do pátio do Aeroporto do Recife com pessoas reais (LCP da home), os dois balcões com a sinalização, atendente entregando a chave, os quatro destinos e os 15 modelos de referência na mesma angulação e fundo. A home aprovada (PR asa-design-system#1) usava 16 fotos de banco sem licença, que não vieram para o site. | Home, Vitrine |
 | A11 | **Fotos da frota:** os 15 modelos de referência no pátio, no mesmo ângulo 3/4 dianteiro e fundo neutro, e as da copy de cada categoria (Corolla com o porta-malas aberto, Compass saindo do pátio, Spin com a 3ª fileira, S10 com a caçamba, câmbio automático do Tracker). Também os roteiros (Olinda, Beira-Mar, Porto de Galinhas, Maragogi, litoral do Ceará, picape com prancha) e os dois balcões. Depoimentos de Jones D. (Frota) e Daniel G. (Automático) dependem de A2. | Frota e categorias |
 | A12 | **Fotos das praças:** o balcão do Portão A5 com atendente e cliente (com autorização), o balcão de Fortaleza à noite, Recife Antigo, Beira-Mar de Fortaleza, os bate-voltas e destinos (Boa Viagem, Olinda, Calhetas, Porto de Galinhas, Maragogi, Porto das Dunas, Jericoacoara, Morro Branco, Cumbuco, Guaramiranga). Depoimentos de Lais C., Jones D., Danilo L., Raquel A., Maria Eduarda e Daniel G., e os nomes Sandro, Saulo Viana e Letícya, dependem de A1 e A2. | Praças |
+| A13 | **Fotos dos destinos, das lojas e do mensal:** piscinas naturais de Porto de Galinhas e galés de Maragogi (licenciadas), Maracaípe, Muro Alto, Carneiros, Antunes, São Miguel dos Milagres, Sítio Histórico e Alto da Sé de Olinda, Janga, Itamaracá, a estrada asfaltada entre carnaubais rumo a Jeri (nunca carro em duna ou areia), os dois balcões com colaboradores autorizados e o Onix Plus no pátio do Aeroporto do Recife. Depoimentos de Jones D., Lais C. e Danilo L. dependem de A2. | Lojas, destinos, mensal |
+| A14 | **Lista única de imagens:** as fotos de A3 a A13 estão consolidadas em `site/BRIEFING-FOTOS.md` (e `briefing-fotos.csv`): 84 imagens, 47 próprias, 29 de banco, 5 que aceitam banco em versão genérica e 3 ilustrações. Em 02/10, o briefing da Toro no Réveillon deixou de pedir "estrada de areia" e passou a pedir estrada asfaltada (D12); o título do card, "Picape 4x4 para trechos de areia", continua esperando D12. | Todas |
 
 ## 6. Técnico e de lançamento
 
@@ -263,6 +350,12 @@ Todos estão marcados na página. O jurídico revisa o texto inteiro (J7).
 | T33 | **Eventos da frota no GTM:** `view_item_list` e `select_item` com as listas `frota_hub`, `frota_hatch_economico`, `frota_sedan`, `frota_suv`, `frota_7_lugares`, `frota_picape`, `frota_automatico` e `frota_usos` (item_id = letra do grupo); `filter_applied` (filtro, valor, ativo, resultados) na tabela; `tab_select` nas abas de automáticos; `cta_reservar_categoria` (categoria, placement); `search` ganhou `categoria` e `grupo`. | Frota e categorias |
 | T34 | **Uma loja, um `@id`:** o `AutoRental` de cada loja usa `/lojas#recife` e `/lojas#fortaleza` na home, em Contato e nas quatro praças, com o nome e o endereço da ficha do Google letra a letra e a `url` da página do aeroporto. A página de cidade aponta para a mesma loja e acrescenta `areaServed`. Antes, a home e Contato usavam dois `@id` diferentes. Falta o `geo` (T9). | Home, Contato, praças |
 | T35 | **Eventos das praças:** os nomes da copy viram os do site: `search_submit` → `search` (com `origem` e `iata`), `select_vehicle` → `select_item` (listas `praca_aeroporto_recife`, `praca_recife`, `praca_aeroporto_fortaleza`, `praca_fortaleza`), `click_whatsapp` → `generate_lead`, `click_directions` e `click_internal_destination` → `select_content` (rota, destino), `faq_open` → `faq_expand`, `tab_select` nas abas de Fortaleza. | Praças |
+| T36 | **Mapa das lojas:** carrega só ao tocar em "Mostrar mapa", com a ficha do Google pelo `cid` (`maps.google.com/maps?cid=…&output=embed`). Para produção, trocar pelo iframe oficial ("Compartilhar > Incorporar" da ficha) ou pela Maps Embed API, conforme os termos do Google. Depois de 8 segundos sem carregar, aparece "O mapa não carregou. Use o link Como chegar no Google Maps." | Lojas |
+| T37 | **Eventos novos no GTM:** `map_open` e `select_location` (location REC ou FOR) em Lojas; `select_content` com `regras_de_uso` em Jericoacoara; na cotação do mensal, `form_start`, `form_error` (error_fields) e `generate_lead` (lead_type mensal, customer_type, pickup_location, duration_bucket, vehicle_type, transmission, vehicles_qty), marcado como evento-chave; `contact_click` no WhatsApp e no telefone. Os destinos usam os eventos das praças (T35). | Lojas, destinos, mensal |
+| T38 | **06 Componentes:** a demonstração da busca e das dúvidas ainda diz "mais de 21 anos"; o site passou a dizer "21 anos ou mais" (termos de hoje, F12). Alinhar a documentação e a cópia do guia de parceiros. | Design system |
+| T39 | **Busca: limite da reserva diária.** Acima de 30 diárias (regra das 27 horas), a busca mostra "Para mais de 30 dias, veja o aluguel mensal." com o link, e não segue para a vitrine. O 30 vem da cláusula 4.5 dos termos (novo contrato a cada 30 dias); falta o limite real do motor e a antecedência mínima (00, Bloco 4). | Busca de todas as páginas |
+| T40 | **Eventos novos no GTM:** `search_error` (error_field, error_type: vazio, passado, ordem, acima_maximo) quando a busca é barrada, e `page_not_found` (page_location, page_referrer) nas duas 404. O `cookie_consent` entra com o banner (T1). | GTM, GA4 |
+| T41 | **Validação antes de cada rodada:** `scripts/validar_site.py` gera `site/VALIDACAO.md`. Os avisos que sobram são conhecidos: artigos do blog ainda não publicados (A6, T7), "único ponto" e "única loja" nas cidades (fato, não superlativo), "a melhor estratégia" no Carnaval e o H1 da confirmação, que o JS escolhe. | Repositório |
 | T26 | **Biblioteca, corrigido nesta leva:** na grade de destinos o tile grande não ocupava as duas linhas no desktop (a proporção do celular vencia), e a legenda do placeholder batia no chip do nome no card de destino e de praça. Falta o mesmo cuidado no card de veículo (T16): na vitrine e na home, a linha do grupo também foi para baixo do título. | Design system |
 
 ## 7. Encontrado nas fichas do Google (para o marketing ajustar lá)
@@ -390,3 +483,30 @@ Mudanças feitas nas páginas de ofertas para seguir o sistema ou a fonte de ver
 | Recife, Fortaleza | LocationCard da loja | Bloco da loja sem card (foto, endereço da ficha, 24h, mapa), como em Contato | Card fica para produto |
 | Recife | "Colada em Boa Viagem" | "Ao lado de Boa Viagem" | Mais preciso: o aeroporto fica na Imbiribeira, que faz divisa com Boa Viagem |
 | Recife | Gaibu e Calhetas sem página de destino | Na faixa de bate-voltas, sem link | Não há página para linkar |
+| Lojas | LocationCard expandido com botão principal em cada loja | Bloco da loja sem card, com a ação "Ver carros" em contorno nas duas | Página de localização (informativa): as duas lojas têm o mesmo peso e nenhuma ação disputa |
+| Lojas | Nota de cada loja (`{nota_google_recife}`, `{nota_google_fortaleza}`) | Não entrou | D4 e H2 |
+| Lojas | CTA final com `asa-cut` | Fechamento curto neutro, com as duas lojas em botões de mesmo peso | Padrão das páginas informativas |
+| Destinos (os quatro) | Selo acima do H1 e foto no hero | Linha abaixo do H1; a foto foi para a rota e os passeios | Sobretítulo; hero leve |
+| Destinos | "Onde retirar" como Alert | Faixa curta de texto com o link para a página do aeroporto | É o assunto da faixa, não um aviso de sistema |
+| Destinos | Ficha da rota e mapa em blocos separados | Um editorial: o mapa (ou a foto) de um lado, a ficha da rota (asa-summary) e as dicas do outro | Uma faixa só para planejar a estrada |
+| Destinos | LocationCards dos passeios | Foto, texto e link, sem card; sem link quando não há página | Card fica para produto |
+| Destinos | Título da prova com `{nota_google}` | H2 com o nome do bloco e as placas 4,7 e 9,4 | D4 |
+| Porto de Galinhas, Maragogi, Jericoacoara | "Abasteça… [CONFIRMAR: combustível]" | A regra de hoje (tanque cheio na volta) em laranja | R2 |
+| Porto de Galinhas | "Não deixe objetos à vista" | Aviso em destaque, com a regra de hoje sobre objetos esquecidos em laranja | R17 |
+| Maragogi | "[CONFIRMAR: circular em Alagoas]" solto | A regra de hoje (território nacional) em laranja, com a pendência da condição | R7 |
+| Jericoacoara | "O uso fora de estrada pode ser proibido pelo contrato" | "Os termos de hoje proíbem usar o carro em estrada sem pavimentação, inclusive as picapes 4x4", em laranja | D12: os termos já dizem; "pode ser" seria vago |
+| Jericoacoara | Mapa ilustrado da rota | A foto da estrada asfaltada (a da copy para o hero); o mapa fica em G4 | Nenhuma imagem de carro na areia |
+| Jericoacoara | Taxa de turismo como nota solta | Item da lista do "leia antes" | É uma das coisas que a pessoa precisa saber antes de ir |
+| Lojas, destinos, praças, sedã | "Posso devolver em outra loja?" só com [CONFIRMAR] | A regra de hoje (taxa de retorno) em laranja, com a pendência do valor | R15 |
+| Olinda | "Posso cancelar? Sim, sem custo" | Mantido, com a regra de hoje (multa de 30% a 70%) em laranja | D1 |
+| Aluguel mensal | Badge "Aluguel mensal" acima do H1 | Saiu; "mensal" vai na placa preta do H1 | Sobretítulo |
+| Aluguel mensal | Bloco "Antes de retirar, confira" depois do formulário | Ao lado do formulário, com o canal oficial | O que conferir fica à vista de quem pede a cotação |
+| Aluguel mensal | Prova "Nota {nota_google}" no hero | 4,7 no Google e 9,4 no Reclame Aqui | D4 |
+| Aluguel mensal | Passo 4: "O carro sai do pátio do próprio aeroporto" para as duas lojas | "Em Recife, o carro sai do pátio do próprio aeroporto" | O1 |
+| Aluguel mensal | Renovação, quem dirige, outra cidade e caução só com [CONFIRMAR] | As regras de hoje (R14, R12, R15, R5) em laranja, com a pendência do mensal | Os termos de hoje já dizem algo |
+| Todas (busca, requisitos, checkout) | "Mais de 21 anos" (fonte de verdade e componentes globais) | "21 anos ou mais" ou "a partir de 21 anos"; o checkout aceita quem tem 21 completos | Os termos de hoje pedem "no mínimo 21 anos completos" (O2, F12) |
+| Picape | "Os termos de hoje proíbem transporte de carga" | "Proíbem levar carga de bens que não são próprios de carro de passeio. Bagagem pode ir na caçamba." | Texto da cláusula 15 dos termos (V6) |
+| Aluguel mensal | Tabela sem a regra dos 30 dias | Linha "Contrato a cada 30 dias", com a regra de hoje em laranja | Cláusula 4.5 dos termos (R20) |
+| Maragogi, Olinda, praças, destinos, home, Lojas, Regras | Titles da copy em caixa de título ("Aluguel de Carro"), com "\| Asa" ou sem a marca | Caixa de frase e "\| Asa Locadora" no fim, como as outras páginas | Guia de copy e SEO (00b): marca no fim; consistência entre as páginas (G5) |
+| Sedã, SUV, 7 lugares, picape, Lojas, Ofertas | Pergunta seguida da própria resposta ("Viajam mais de 5 pessoas? Nenhuma picape serve.") | Frase direta ou condicional ("Nenhuma picape leva mais de 5 pessoas.", "Se for revezar o volante…") | Tique proibido pelo guia de copy (00b) |
+| Home, Ofertas | Linha "Vai ficar um mês ou mais? Ver aluguel mensal" na busca (00, Bloco 4) | Entrou agora | A página do mensal não existia quando a home foi feita |

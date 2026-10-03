@@ -3,18 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proteção e adicionais | Reserva Asa Locadora</title>
-  <meta name="description" content="Escolha a proteção do carro, inclua cadeira de bebê ou condutor adicional e veja o preço final da sua reserva na Asa, com a taxa já somada.">
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="canonical" href="https://asalocadora.com.br/reservas-online/adicionais">
+  <title>Lojas nos aeroportos do Recife e Fortaleza | Asa Locadora</title>
+  <meta name="description" content="As duas lojas da Asa Rent a Car ficam dentro dos aeroportos do Recife e de Fortaleza, abertas 24h. Veja endereço, mapa e telefone 0800 080 0015.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://asalocadora.com.br/lojas">
   <link rel="preload" href="/assets/fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="/css/asa-tokens.css">
   <link rel="stylesheet" href="/css/asa-base.css">
   <link rel="stylesheet" href="/css/asa-components.css">
   <link rel="stylesheet" href="/css/asa-utilities.css">
   <link rel="stylesheet" href="/site/site.css">
+  <meta name="asa:secao" content="/lojas">
   <script type="application/ld+json">
   [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Lojas",
+      "url": "https://asalocadora.com.br/lojas",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@id": "https://asalocadora.com.br/#website"
+      },
+      "publisher": {
+        "@id": "https://asalocadora.com.br/#organization"
+      }
+    },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -28,28 +42,91 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Reservar",
-          "item": "https://asalocadora.com.br/reservas-online"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Proteção e adicionais",
-          "item": "https://asalocadora.com.br/reservas-online/adicionais"
+          "name": "Lojas",
+          "item": "https://asalocadora.com.br/lojas"
         }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "@id": "https://asalocadora.com.br/lojas#recife",
+      "name": "ASA Locadora - Aeroporto do Recife",
+      "url": "https://asalocadora.com.br/aluguel-de-carros/aeroporto-recife",
+      "telephone": "+55-800-080-0015",
+      "hasMap": "https://maps.google.com/maps?cid=7788866797979248996",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Aeroporto Internacional do Recife/Guararapes - Gilberto Freyre, Praça Ministro Salgado Filho, S/N, Portão A5 de Desembarque",
+        "addressLocality": "Recife",
+        "addressRegion": "PE",
+        "postalCode": "51210-902",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "parentOrganization": {
+        "@id": "https://asalocadora.com.br/#organization"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "@id": "https://asalocadora.com.br/lojas#fortaleza",
+      "name": "Asa Locadora - Aeroporto de Fortaleza",
+      "url": "https://asalocadora.com.br/aluguel-de-carros/aeroporto-fortaleza",
+      "telephone": "+55-800-080-0015",
+      "hasMap": "https://maps.google.com/maps?cid=6562632952082218298",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Aeroporto Internacional de Fortaleza - Pinto Martins, Av. Sen. Carlos Jereissati, 3000, Área de Locadoras / Terminal de Desembarque",
+        "addressLocality": "Fortaleza",
+        "addressRegion": "CE",
+        "postalCode": "60741-900",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "parentOrganization": {
+        "@id": "https://asalocadora.com.br/#organization"
+      }
     }
   ]
   </script>
 </head>
 <!--
-  /reservas-online/adicionais: etapa 2 do funil. Copy: novo-site/copy-v2/03-reservas-adicionais.md.
-  Página transacional, noindex, nofollow, canonical para a própria URL. Schema: só BreadcrumbList.
-  O estado vem da URL (busca, grupo, upgrade, proteção e adicionais), montada por funil.js; nada de dado pessoal na URL.
-  Faixas: topo do funil com stepper (mist) > etapa (branco: carro, upgrade, proteção, adicionais e resumo) > rodapé.
-  A linha da comparação que a operação não confirmar sai inteira, nas três colunas (regra da copy).
+  /lojas. Copy: novo-site/copy-v2/19-lojas.md.
+  Página de localização (data-page-mode="informational"): o amarelo só no cabeçalho e no logo.
+  Faixas: abertura (mist) > as duas lojas (branco) > só nos aeroportos (mist, curta) > documentos (branco) > dúvidas (mist) > fechamento (branco).
+  Schema: os dois AutoRental com @id /lojas#recife e /lojas#fortaleza, a referência das páginas de aeroporto, cidade e destino, com o NAP
+  da ficha do Google letra a letra; WebPage e BreadcrumbList. Sem aggregateRating; geo entra quando confirmado (T9). Nenhum endereço de
+  pátio ou administrativo aparece aqui.
 -->
-<body data-page-mode="transactional" data-page-type="funil-adicionais">
+<body data-page-mode="informational" data-page-type="lojas">
 
   <!-- parcial:cabecalho -->
   <a class="asa-skiplink" href="#conteudo">Pular para o conteúdo</a>
@@ -92,7 +169,7 @@
           </div>
         </li>
         <li class="site-nav__item" data-submenu>
-          <a class="asa-navbar__link" href="/lojas">Lojas</a>
+          <a class="asa-navbar__link" href="/lojas" aria-current="page">Lojas</a>
           <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="sub-lojas">
             <span class="site-sr">Abrir as lojas</span>
             <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
@@ -203,199 +280,164 @@
 
   <main id="conteudo">
 
-    <!-- TOPO DO FUNIL · mist · o aviso de rascunho e a etapa. Sem trilha visual: o stepper faz o papel (a BreadcrumbList fica no JSON-LD). -->
-    <section class="asa-bg-mist site-funnel-top" aria-label="Etapas da reserva">
+    <!-- ABERTURA · mist · trilha, H1, a frase das duas lojas e a linha do telefone. Página de localização: informativa, sem busca. -->
+    <section class="asa-bg-mist site-opening" aria-labelledby="lojas-titulo">
       <div class="asa-container">
         <div class="asa-alert asa-alert--warn site-draft" role="note">
           <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div class="asa-alert__body">
             <span class="asa-alert__title">Rascunho para revisão</span>
-            <span class="asa-alert__text">Proteções e adicionais usam os valores de referência de 08/09/2026; coberturas, franquia, caução e o valor da Completa esperam a operação. O carro, a tarifa e o upgrade são de exemplo. Abra a partir da vitrine, ou direto por /reservas-online/adicionais?local=REC&retirada=2026-10-10T10:00&devolucao=2026-10-13T10:00&grupo=B. Estados: ?estado=carregando, upgrade-esgotado, recalculo e expirada. Detalhes em site/PENDENCIAS.md.</span>
+            <span class="asa-alert__text">A referência visual para achar cada balcão, o pátio de Fortaleza, a devolução em outra loja e a autorização das fotos esperam confirmação. O mapa só carrega ao tocar em "Mostrar mapa". Com ?local=FOR, a loja de Fortaleza vem primeiro no celular. Detalhes em site/PENDENCIAS.md.</span>
           </div>
         </div>
-        <nav aria-label="Etapas da reserva">
-          <ol class="asa-stepper site-stepper">
-            <li class="asa-stepper__item" data-state="done"><span class="asa-stepper__index">Etapa 1 · concluída</span><span class="asa-stepper__label">Carro <a class="site-stepper__edit" href="/reservas-online" data-editar="carro">Editar<span class="site-sr"> carro</span></a></span></li>
-            <li class="asa-stepper__item" aria-current="step"><span class="asa-stepper__index">Etapa 2 de 4</span><span class="asa-stepper__label">Proteção e adicionais</span></li>
-            <li class="asa-stepper__item"><span class="asa-stepper__index">Etapa 3</span><span class="asa-stepper__label">Dados e pagamento</span></li>
-            <li class="asa-stepper__item"><span class="asa-stepper__index">Etapa 4</span><span class="asa-stepper__label">Confirmação</span></li>
+        <nav aria-label="Trilha">
+          <ol class="asa-breadcrumb">
+            <li class="asa-breadcrumb__item"><a class="asa-breadcrumb__link" href="/">Início</a></li>
+            <li aria-hidden="true"><svg class="asa-breadcrumb__sep" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2"/></svg></li>
+            <li class="asa-breadcrumb__item" aria-current="page">Lojas</li>
           </ol>
-          <p class="site-sr">Etapa 2 de 4: proteção e adicionais</p>
         </nav>
+        <h1 id="lojas-titulo">Lojas da Asa Rent a Car nos aeroportos do Recife e de Fortaleza</h1>
+        <p class="asa-lead">Temos duas lojas, as duas dentro dos aeroportos, abertas 24 horas todos os dias. Você desembarca, vai ao balcão e retira o carro ali mesmo.</p>
+        <p class="site-lojas__tel">Telefone e WhatsApp: <a href="tel:08000800015" data-contato="phone" data-placement="topo"><b>0800 080 0015</b></a></p>
       </div>
     </section>
 
-    <!-- ETAPA 2 · branco · o carro escolhido, o upgrade (só se houver grupo acima livre), a proteção em três colunas com as mesmas
-         linhas e os adicionais; o resumo fica à direita no desktop e, no celular, depois do conteúdo, com a barra do total no pé.
-         Um vermelho só: "Continuar para os dados". -->
-    <section class="asa-section asa-bg-white site-funnel" aria-labelledby="etapa-titulo">
+    <!-- AS DUAS LOJAS · branco · lado a lado no desktop, empilhadas no celular: foto, nome da ficha do Google, endereço, horário, telefone,
+         como chegar, uma ação (ver carros, em contorno: as duas têm o mesmo peso) e os links. O mapa do Google só carrega ao clicar. -->
+    <section class="asa-section asa-bg-white" aria-labelledby="duas-titulo">
       <div class="asa-container">
-        <div class="site-funnel__expired" data-expirada hidden>
-          <div class="asa-emptystate site-empty">
-            <h1 class="asa-emptystate__title">Sua busca expirou</h1>
-            <p class="asa-emptystate__text">Sua busca expirou e os preços podem ter mudado. Refaça a busca para continuar.</p>
-            <div class="site-empty__actions"><a class="asa-btn asa-btn--primary" href="/#reservar" data-refazer>Refazer busca</a></div>
-          </div>
-        </div>
-
-        <div class="site-funnel__grid" data-etapa>
-          <div class="site-funnel__main">
-            <h1 class="site-funnel-h1" id="etapa-titulo">Escolha a proteção e os adicionais</h1>
-
-            <div class="asa-card site-chosen" data-escolhido>
-              <div class="asa-photo site-chosen__photo" role="img" aria-label="" data-escolhido-foto><span class="asa-photo__caption">[ foto · modelo do grupo ]</span></div>
-              <div class="site-chosen__body">
-                <p class="site-chosen__title" data-escolhido-titulo></p>
-                <p class="asa-card-vehicle__specs" data-escolhido-specs></p>
-                <a class="site-chosen__link" href="/reservas-online" data-editar="carro">Trocar de carro</a>
-              </div>
+        <h2 id="duas-titulo" class="site-sr">As duas lojas</h2>
+        <div class="site-stores site-stores--full" data-lojas>
+          <article class="site-store site-store--full" id="loja-recife" data-loja="REC" aria-labelledby="loja-REC-titulo">
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Balcão da Asa Rent a Car no Portão A5 do desembarque do Aeroporto do Recife"><span class="asa-photo__caption">[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com autorização de imagem dos colaboradores ]</span></div></div>
+            <h3 id="loja-REC-titulo">Aeroporto do Recife</h3>
+            <p class="site-store__name">Asa Locadora · Aeroporto do Recife</p>
+            <dl class="site-store__facts">
+              <div><dt>Endereço</dt><dd><address>Aeroporto Internacional do Recife/Guararapes - Gilberto Freyre, Praça Ministro Salgado Filho, S/N, Portão A5 de Desembarque<br>Imbiribeira, Recife - PE, 51210-902</address></dd></div>
+              <div><dt>Horário</dt><dd>24 horas, todos os dias, feriados incluídos</dd></div>
+              <div><dt>Telefone e WhatsApp</dt><dd><a href="tel:08000800015" data-contato="phone" data-placement="loja_rec">0800 080 0015</a></dd></div>
+              <div><dt>Como chegar ao balcão</dt><dd>Depois da restituição de bagagem, siga pelo desembarque até o Portão A5. O contrato é feito no balcão, e o carro sai do pátio dentro do próprio aeroporto. <span class="site-pending">[CONFIRMAR: referência visual no saguão]</span></dd></div>
+              <div><dt>Vindo da cidade</dt><dd>Táxi, aplicativo ou metrô até a estação Aeroporto. <span class="site-pending">[VERIFICAR: estação e ligação com o terminal]</span></dd></div>
+            </dl>
+            <div class="site-store__links">
+              <a class="asa-btn asa-btn--outline" href="/aluguel-de-carros/aeroporto-recife#reservar" data-local-loja="REC">Ver carros no Aeroporto do Recife</a>
+              <a href="https://maps.google.com/maps?cid=7788866797979248996" target="_blank" rel="noopener noreferrer" data-conteudo="rota" data-item="REC">Como chegar no Google Maps<span class="site-sr"> (abre em nova aba)</span></a>
+              <a href="/aluguel-de-carros/aeroporto-recife">Passo a passo da retirada</a>
             </div>
-
-            <div class="site-upgrade" data-upgrade hidden></div>
-
-            <div class="site-funnel__block" role="region" id="protecao" aria-labelledby="protecao-titulo">
-              <h2 id="protecao-titulo">Qual <em>proteção</em> você quer?</h2>
-              <p class="site-funnel__lead">A proteção básica já está no preço final que você viu. Aqui você pode ficar com ela ou aumentar a cobertura. <span class="site-pending">Pelos termos de hoje, a proteção sem franquia não pode ser contratada depois que o carro sai da loja. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></p>
-              <p class="asa-field__error site-prot__error" id="protecao-erro" role="alert" hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Escolha uma proteção para continuar.</span></p>
-              <fieldset class="site-prots-wrap" aria-describedby="protecao-erro">
-                <legend class="site-sr">Proteção</legend>
-                <ul class="site-prots" data-protecoes>
-            <li class="site-prot" data-prot="basica">
-              <div class="site-prot__head">
-                <h3 class="site-prot__name">Básica</h3>
-              </div>
-              <p class="site-prot__price"><b>R$ 19,90</b> por dia</p>
-              <p class="site-prot__delta" data-delta="basica"></p>
-              <dl class="site-prot__rows">
-                <div><dt>Obrigatória?</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Danos ao carro alugado (colisão)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Roubo e furto do carro</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Danos a terceiros</dt><dd>Não inclui <span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Vidros, faróis, retrovisores e pneus</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Coparticipação em caso de dano (franquia)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Pré-autorização no cartão (caução)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Assistência 24h</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-              </dl>
-              <label class="asa-choice site-prot__choice">
-                <input class="asa-choice__input" type="radio" name="protecao" value="basica">
-                <span class="asa-choice__text"><span class="asa-choice__title">Ficar com a Básica</span></span>
-              </label>
-            </li>
-            <li class="site-prot" data-prot="terceiros">
-              <div class="site-prot__head">
-                <h3 class="site-prot__name">Básica + Terceiros</h3><span class="asa-tag asa-tag--outline">Escolha popular</span>
-              </div>
-              <p class="site-prot__price"><b>R$ 39,90</b> por dia</p>
-              <p class="site-prot__delta" data-delta="terceiros"></p>
-              <dl class="site-prot__rows">
-                <div><dt>Obrigatória?</dt><dd>Opcional</dd></div>
-                <div><dt>Danos ao carro alugado (colisão)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Roubo e furto do carro</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Danos a terceiros</dt><dd>Inclui · teto <span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Vidros, faróis, retrovisores e pneus</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Coparticipação em caso de dano (franquia)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Pré-autorização no cartão (caução)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Assistência 24h</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-              </dl>
-              <label class="asa-choice site-prot__choice">
-                <input class="asa-choice__input" type="radio" name="protecao" value="terceiros">
-                <span class="asa-choice__text"><span class="asa-choice__title">Escolher Básica + Terceiros</span></span>
-              </label>
-            </li>
-            <li class="site-prot" data-prot="completa">
-              <div class="site-prot__head">
-                <h3 class="site-prot__name">Completa</h3>
-              </div>
-              <p class="site-prot__price"><b><span class="site-pending">[CONFIRMAR: valor]</span></b> por dia</p>
-              <p class="site-prot__delta" data-delta="completa"></p>
-              <dl class="site-prot__rows">
-                <div><dt>Obrigatória?</dt><dd>Opcional</dd></div>
-                <div><dt>Danos ao carro alugado (colisão)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Roubo e furto do carro</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Danos a terceiros</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Vidros, faróis, retrovisores e pneus</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Coparticipação em caso de dano (franquia)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Pré-autorização no cartão (caução)</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-                <div><dt>Assistência 24h</dt><dd><span class="site-pending">[CONFIRMAR]</span></dd></div>
-              </dl>
-              <label class="asa-choice site-prot__choice">
-                <input class="asa-choice__input" type="radio" name="protecao" value="completa" disabled aria-describedby="prot-completa-nota">
-                <span class="asa-choice__text"><span class="asa-choice__title">Escolher Completa</span></span>
-              </label>
-              <p class="site-prot__note" id="prot-completa-nota">Disponível quando o valor da Completa for confirmado.</p>
-            </li>
-                </ul>
-              </fieldset>
-              <div class="site-prots-skeleton" data-prot-esqueleto hidden aria-hidden="true">
-                <div class="asa-skeleton" style="height:320px"></div><div class="asa-skeleton" style="height:320px"></div><div class="asa-skeleton" style="height:320px"></div>
-              </div>
-              <p class="site-sr" data-prot-carregando role="status"></p>
-              <p class="site-funnel__after"><a href="/protecoes-e-taxas">Entenda cada proteção e o que não é coberto</a></p>
-              <p class="site-funnel__proof"><b>4,7 no Google</b> · balcões de Recife e Fortaleza</p>
-              <!-- D4: a copy pede "{nota_google} no Google · {total_avaliacoes} avaliações"; fica o 4,7 até a decisão. -->
+            <div class="site-map" data-mapa="REC" data-src="https://maps.google.com/maps?cid=7788866797979248996&output=embed" data-titulo="Mapa da loja Aeroporto do Recife">
+              <button class="asa-btn asa-btn--link" type="button" data-mostrar-mapa aria-expanded="false">Mostrar mapa</button>
+              <p class="site-map__status" role="status" aria-live="polite"></p>
             </div>
-
-            <div class="site-funnel__block" role="region" id="adicionais" aria-labelledby="adicionais-titulo">
-              <h2 id="adicionais-titulo"><em>Adicionais</em> para a viagem</h2>
-              <p class="site-funnel__lead">Cobrados por dia. Nenhum vem marcado.</p>
-              <ul class="site-extras">
-                <li class="site-extra">
-                  <div class="site-extra__text">
-                    <h3 class="site-extra__name">Cadeira de bebê <span>R$ 29,90/dia</span></h3>
-                    <p>Para levar criança pequena com segurança.</p>
-                    <p class="site-extra__help" id="cadeira-ajuda">Faixa de idade e peso atendida: <span class="site-pending">[CONFIRMAR]</span>. Até 3 por reserva <span class="site-pending">[CONFIRMAR: máximo]</span>.</p>
-                  </div>
-                  <div class="site-qty" role="group" aria-labelledby="cadeira-rotulo" aria-describedby="cadeira-ajuda">
-                    <span class="site-sr" id="cadeira-rotulo">Quantidade de cadeiras de bebê</span>
-                    <button class="asa-btn asa-btn--outline asa-btn--icon" type="button" data-qty="-1" aria-label="Tirar uma cadeira"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                    <output class="site-qty__value" data-qty-valor aria-live="polite">0</output>
-                    <button class="asa-btn asa-btn--outline asa-btn--icon" type="button" data-qty="1" aria-label="Pôr mais uma cadeira"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button>
-                  </div>
-                  <p class="site-extra__msg" data-qty-msg role="status"></p>
-                </li>
-                <li class="site-extra">
-                  <div class="site-extra__text">
-                    <h3 class="site-extra__name">Condutor adicional <span>R$ 10,90/dia</span></h3>
-                    <p>Para dividir a direção com outra pessoa. Ela precisa ter 21 anos ou mais e CNH há pelo menos 2 anos. <span class="site-pending">[CONFIRMAR: se os requisitos do condutor adicional são os mesmos do principal]</span></p>
-                    <p class="site-extra__help">Os dados dele são pedidos na próxima etapa. <span class="site-pending">[CONFIRMAR: se o condutor adicional precisa ir ao balcão na retirada; os termos de hoje permitem até 3 condutores adicionais]</span></p>
-                  </div>
-                  <label class="asa-choice site-extra__check"><input class="asa-choice__input" type="checkbox" name="condutor" value="1"><span class="asa-choice__text"><span class="asa-choice__title">Incluir condutor adicional</span></span></label>
-                </li>
-                <li class="site-extra">
-                  <div class="site-extra__text">
-                    <h3 class="site-extra__name">Responsável financeiro <span>R$ 14,90/dia</span></h3>
-                    <p>Quando quem vai dirigir não tem cartão de crédito próprio. A caução fica no cartão de outra pessoa, o responsável financeiro.</p>
-                  </div>
-                  <label class="asa-choice site-extra__check"><input class="asa-choice__input" type="checkbox" name="responsavel" value="1"><span class="asa-choice__text"><span class="asa-choice__title">Incluir responsável financeiro</span></span></label>
-                  <div class="site-extra__alert" data-resp-alerta hidden>
-                    <div class="asa-alert asa-alert--warn">
-          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-          <div class="asa-alert__body"><span class="asa-alert__title">O dono do cartão precisa estar no balcão na retirada</span><span class="asa-alert__text">Com o cartão de crédito físico. Sem ele, o carro não é liberado.</span></div>
-        </div>
-                  </div>
-                </li>
-              </ul>
-              <p class="site-funnel__ref">Valores de referência de 08/09/2026. O preço que vale é o do resumo, que vem do motor de reservas.</p>
+          </article>
+          <article class="site-store site-store--full" id="loja-fortaleza" data-loja="FOR" aria-labelledby="loja-FOR-titulo">
+            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Balcão da Asa Rent a Car na Área de Locadoras do Aeroporto de Fortaleza"><span class="asa-photo__caption">[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com autorização de imagem dos colaboradores ]</span></div></div>
+            <h3 id="loja-FOR-titulo">Aeroporto de Fortaleza</h3>
+            <p class="site-store__name">Asa Locadora · Aeroporto de Fortaleza</p>
+            <dl class="site-store__facts">
+              <div><dt>Endereço</dt><dd><address>Aeroporto Internacional de Fortaleza - Pinto Martins, Av. Sen. Carlos Jereissati, 3000, Área de Locadoras / Terminal de Desembarque<br>Serrinha, Fortaleza - CE, 60741-900</address></dd></div>
+              <div><dt>Horário</dt><dd>24 horas, todos os dias, feriados incluídos</dd></div>
+              <div><dt>Telefone e WhatsApp</dt><dd><a href="tel:08000800015" data-contato="phone" data-placement="loja_for">0800 080 0015</a></dd></div>
+              <div><dt>Como chegar ao balcão</dt><dd>No Terminal de Desembarque, siga a sinalização da Área de Locadoras. <span class="site-pending">[CONFIRMAR: referência visual e onde fica o pátio]</span></dd></div>
+              <div><dt>Vindo da cidade</dt><dd>Táxi ou aplicativo até o terminal de desembarque.</dd></div>
+            </dl>
+            <div class="site-store__links">
+              <a class="asa-btn asa-btn--outline" href="/aluguel-de-carros/aeroporto-fortaleza#reservar" data-local-loja="FOR">Ver carros no Aeroporto de Fortaleza</a>
+              <a href="https://maps.google.com/maps?cid=6562632952082218298" target="_blank" rel="noopener noreferrer" data-conteudo="rota" data-item="FOR">Como chegar no Google Maps<span class="site-sr"> (abre em nova aba)</span></a>
+              <a href="/aluguel-de-carros/aeroporto-fortaleza">Passo a passo da retirada</a>
             </div>
-          </div>
-
-        <aside class="site-funnel__aside" aria-label="Resumo da reserva">
-          <div class="asa-summary site-sum" id="resumo" data-resumo tabindex="-1" aria-live="polite" aria-atomic="false"></div>
-          <div class="site-sum__actions">
-            <a class="asa-btn asa-btn--primary asa-btn--block" href="/reservas-online/checkout" data-continuar>Continuar para os dados</a>
-            <a class="site-sum__back" href="/reservas-online" data-editar="carro">Voltar e trocar de carro</a><p class="asa-field__error site-sum__error" data-recalculo hidden><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Não conseguimos atualizar o total. Tente de novo.</span> <button class="asa-btn asa-btn--outline asa-btn--sm" type="button" data-recalcular>Recalcular</button></p>
-          </div>
-        </aside>
+            <div class="site-map" data-mapa="FOR" data-src="https://maps.google.com/maps?cid=6562632952082218298&output=embed" data-titulo="Mapa da loja Aeroporto de Fortaleza">
+              <button class="asa-btn asa-btn--link" type="button" data-mostrar-mapa aria-expanded="false">Mostrar mapa</button>
+              <p class="site-map__status" role="status" aria-live="polite"></p>
+            </div>
+          </article>
         </div>
+        <!-- H2 (PENDENCIAS): a copy pede a nota e o total de cada ficha ({nota_google_recife}, {nota_google_fortaleza}); entra com D4. -->
       </div>
     </section>
 
-    <!-- BARRA DO CELULAR · asa-summary--bar · total, "Ver detalhes" (leva ao resumo) e a ação. Some quando o resumo está na tela. -->
-    <div class="asa-summary asa-summary--bar site-sumbar" data-barra>
-      <div class="site-sumbar__total"><span>Preço final</span><b data-barra-total></b><button class="asa-btn asa-btn--link asa-btn--sm" type="button" data-ver-resumo>Ver detalhes</button></div>
-      <a class="asa-btn asa-btn--primary" href="/reservas-online/checkout" data-continuar>Continuar</a>
-    </div>
-
+    <!-- SÓ NOS AEROPORTOS · mist, curta · evita que o cliente vá a um endereço errado (pátio e administrativo nunca aparecem) -->
+    <section class="asa-section asa-bg-mist asa-section--short" aria-labelledby="so-aeroportos-titulo">
+      <div class="asa-container">
+        <div class="site-fleet-manual">
+          <h2 id="so-aeroportos-titulo">Retirada e devolução só nos <em>aeroportos</em></h2>
+          <p>A Asa não tem loja em bairro, shopping ou centro de Recife e de Fortaleza. Retirada e devolução acontecem só nos dois balcões acima.</p>
+          <div class="asa-alert asa-alert--info">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <div class="asa-alert__body"><span class="asa-alert__title">Só os dois balcões atendem clientes</span><span class="asa-alert__text">Se achar outro endereço da Asa na internet, ele não atende clientes. Na dúvida, fale com a gente no 0800 080 0015 antes de sair.</span></div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- O QUE LEVAR · white · aviso + lista de conferência: a surpresa com o cartão físico é dor real das avaliações -->
+    <section class="asa-section asa-bg-white" aria-labelledby="levar-titulo">
+      <div class="asa-container">
+        <div class="site-check">
+          <div class="site-check__aside">
+            <h2 id="levar-titulo">Documentos para retirar o <em>carro</em></h2>
+            <div class="asa-alert asa-alert--warn">
+          <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <div class="asa-alert__body"><span class="asa-alert__title">Carteira digital e cartão virtual não servem para a caução</span><span class="asa-alert__text">Apple Pay, Google Wallet e cartão virtual do app do banco não são aceitos. Leve o cartão de plástico.</span></div>
+        </div>
+            <a href="/caucao-e-requisitos">Ver requisitos e caução</a>
+          </div>
+          <ul class="site-checklist">
+            <li><b>CNH de quem vai dirigir</b>, emitida há pelo menos 2 anos.</li>
+            <li>Condutor com <b>21 anos ou mais</b>.</li>
+            <li><b>Cartão de crédito físico</b> no nome do condutor ou do responsável financeiro, que precisa ir à retirada. É nele que fica a pré-autorização (caução).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- DÚVIDAS · mist · lista com divisores, o atendimento à esquerda -->
+    <section class="asa-section asa-bg-mist" aria-labelledby="duvidas-titulo">
+      <div class="asa-container">
+        <div class="asa-faq">
+          <div class="asa-faq__aside">
+            <h2 id="duvidas-titulo">Dúvidas sobre as <em>lojas</em></h2>
+            <p>Não achou a resposta? Fale com a gente no 0800 080 0015, que é telefone e WhatsApp.</p>
+            <a class="asa-btn asa-btn--outline" href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-wa="reserva" data-lead="whatsapp">Falar no WhatsApp<span class="site-sr"> (abre em nova aba)</span></a>
+            <p class="site-faq__all"><a href="/duvidas">Ver todas as dúvidas</a></p>
+          </div>
+          <div class="asa-faq__list">
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="madrugada">
+              <summary class="asa-disclosure__trigger">As lojas abrem de madrugada e em feriado?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Sim. As duas funcionam 24 horas, todos os dias.</div>
+            </details>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="outra-loja">
+              <summary class="asa-disclosure__trigger">Posso retirar numa loja e devolver na outra?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body"><span class="site-pending">Os termos de hoje preveem uma taxa de retorno para devolver o carro em outra loja. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span> <span class="site-pending">[CONFIRMAR: se a devolução Recife ↔ Fortaleza está liberada e o valor]</span></div>
+            </details>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="voo">
+              <summary class="asa-disclosure__trigger">Meu voo atrasou. A reserva continua valendo?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Avise pelo WhatsApp 0800 080 0015 assim que souber do atraso. <span class="site-pending">[CONFIRMAR: tolerância para atraso de voo]</span></div>
+            </details>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="outras-cidades">
+              <summary class="asa-disclosure__trigger">A Asa atende em João Pessoa, Natal ou Maceió?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">Não temos loja nessas cidades. A retirada e a devolução são sempre no Aeroporto do Recife ou no de Fortaleza. <span class="site-pending">Pelos termos de hoje, o carro circula em todo o território nacional; fora do Brasil, só com autorização por escrito. <span class="site-pending">[CONFIRMAR: regra dos termos publicados hoje no site]</span></span></div>
+            </details>
+            <details class="asa-disclosure asa-disclosure--faq" data-faq-id="telefone">
+              <summary class="asa-disclosure__trigger">Qual é o telefone da Asa?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <div class="asa-disclosure__body">0800 080 0015, que também é o WhatsApp oficial.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FECHAMENTO · white, curto · página informativa: o amarelo fica só no cabeçalho e no logo -->
+    <section class="asa-section asa-section--short asa-bg-white site-closing-neutral" aria-labelledby="fim-titulo">
+      <div class="asa-container asa-closing">
+        <div class="asa-closing__copy">
+          <h2 id="fim-titulo">Escolha a loja e veja os <em>carros</em></h2>
+          <p class="asa-lead">As duas abrem 24 horas, todos os dias.</p>
+          <p class="site-closing__links"><a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" data-contato="whatsapp" data-placement="fechamento">Falar no WhatsApp: 0800 080 0015<span class="site-sr"> (abre em nova aba)</span></a></p>
+        </div>
+        <div class="asa-closing__actions">
+          <a class="asa-btn asa-btn--outline" href="/aluguel-de-carros/aeroporto-recife#reservar" data-local-loja="REC">Aeroporto do Recife</a>
+          <a class="asa-btn asa-btn--outline" href="/aluguel-de-carros/aeroporto-fortaleza#reservar" data-local-loja="FOR">Aeroporto de Fortaleza</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- parcial:rodape -->
@@ -529,8 +571,7 @@
   </div>
   <!-- /parcial:rodape -->
 
-  <script src="/site/reservas-online/funil.js" defer></script>
-  <script src="/site/reservas-online/adicionais/adicionais.js" defer></script>
+  <script src="/site/lojas/lojas.js" defer></script>
   <script src="/site/site.js" defer></script>
 </body>
 </html>
