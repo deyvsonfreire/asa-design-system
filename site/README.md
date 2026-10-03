@@ -48,6 +48,7 @@ site/
 ├── aluguel-mensal/      para quem é, como funciona, o que entra e a cotação (mensal.js) (rascunho)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
+├── VALIDACAO.md          relatório de scripts/validar_site.py: cobertura da copy, falhas, avisos e pendências por página
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
 ├── empresas/           B2B: casos, terceirização, setor público, formulário de proposta (empresas.js), prova (rascunho)
@@ -94,6 +95,7 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 3. Montar as faixas com as estruturas de 06 Componentes, sem repetir estrutura nem fundo em sequência.
 4. Foto ainda inexistente vira `.asa-photo` com o briefing na legenda e o alt em `aria-label`.
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
+6. Antes de mandar o site para avaliação, rodar `python3 scripts/validar_site.py --relatorio site/VALIDACAO.md`. Ele confere a cobertura das copys 01 a 44, title, description, H1, canonical, robots, JSON-LD, links internos, alt, 15 Composição, as palavras proibidas do guia (00b) e o aviso de rascunho, e sai com erro se houver falha.
 
 ## O que ainda é protótipo
 
