@@ -98,6 +98,7 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 4. Foto ainda inexistente vira `.asa-photo` com o briefing na legenda e o alt em `aria-label`.
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
 6. Antes de mandar o site para avaliação, rodar `python3 scripts/validar_site.py --relatorio site/VALIDACAO.md`. Ele confere a cobertura das copys 01 a 44, title, description, H1, canonical, robots, JSON-LD, links internos, alt, 15 Composição, as palavras proibidas do guia (00b) e o aviso de rascunho, e sai com erro se houver falha.
+7. Para testar sem servidor, rodar `python3 scripts/site_offline.py`: ele gera em `../asa-design-system-offline/site/` uma cópia com caminhos relativos, que abre com dois cliques no `index.html` (Chrome, Safari ou Edge). Rodar de novo a cada mudança.
 
 ## O que ainda é protótipo
 
