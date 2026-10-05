@@ -1,0 +1,900 @@
+[
+ {
+  "item": "L02",
+  "imagem": "Piscinas naturais de Porto de Galinhas na maré baixa",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-piscinas-naturais-483200545.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #483200545",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · piscinas naturais de Porto de Galinhas ]",
+   "[ foto · piscinas naturais de Porto de Galinhas na maré baixa ]",
+   "[ foto · piscinas naturais de Porto de Galinhas na maré baixa, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Piscinas naturais de Porto de Galinhas vistas do alto, com jangadas coloridas na água rasa"
+ },
+ {
+  "item": "L03",
+  "imagem": "Praia de Porto de Galinhas no fim da tarde",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-praia-500501379.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #500501379",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · litoral sul de PE, Porto de Galinhas ]"
+  ],
+  "alt": "Praia de Porto de Galinhas vista do alto, com jangadas e piscinas naturais"
+ },
+ {
+  "item": "L06",
+  "imagem": "Praia dos Carneiros e a igrejinha de São Benedito",
+  "arquivo": "/site/img/fotos/praia-dos-carneiros-525634510.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #525634510",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Praia dos Carneiros vista da areia ]",
+   "[ foto · igrejinha de São Benedito na Praia dos Carneiros, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia dos Carneiros, em Tamandaré, vista do alto, com coqueiros e mar verde"
+ },
+ {
+  "item": "L08",
+  "imagem": "Orla de Boa Viagem, Recife",
+  "arquivo": "/site/img/fotos/boa-viagem-recife-500510845.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #500510845",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · orla de Boa Viagem, em Recife, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Orla de Boa Viagem, no Recife, vista do alto, com os prédios e o mar"
+ },
+ {
+  "item": "L09",
+  "imagem": "Recife Antigo: Marco Zero e Rua do Bom Jesus",
+  "arquivo": "/site/img/fotos/recife-antigo-marco-zero-515087304.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #515087304",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Marco Zero e o Recife Antigo no fim da tarde ]",
+   "[ foto · Rua do Bom Jesus ou Marco Zero, Recife Antigo, com carro estacionado de forma regular, banco licenciado ou foto própria ]",
+   "[ foto · Rua do Bom Jesus, Recife Antigo, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Recife Antigo e o Marco Zero vistos do alto"
+ },
+ {
+  "item": "L10",
+  "imagem": "Sítio Histórico de Olinda visto do Alto da Sé",
+  "arquivo": "/site/img/fotos/olinda-alto-da-se-500510740.webp",
+  "largura": 1600,
+  "altura": 977,
+  "fonte": "Adobe Stock #500510740",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · casario e igrejas do Sítio Histórico de Olinda vistos do Alto da Sé, com o Recife ao fundo. Arquivo: aluguel-carro-olinda-sitio-historico.jpg ]",
+   "[ foto · casario e igrejas do sítio histórico de Olinda ]"
+  ],
+  "alt": "Olinda vista do alto, com o Alto da Sé, as igrejas e o casario"
+ },
+ {
+  "item": "L11",
+  "imagem": "Ladeira do sítio histórico de Olinda",
+  "arquivo": "/site/img/fotos/olinda-ladeira-da-misericordia-248258677.webp",
+  "largura": 1067,
+  "altura": 1600,
+  "fonte": "Adobe Stock #248258677",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · ladeira do sítio histórico de Olinda com casario colorido, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Ladeira da Misericórdia, em Olinda, no Carnaval"
+ },
+ {
+  "item": "L12",
+  "imagem": "Mirante do Alto da Sé, Olinda",
+  "arquivo": "/site/img/fotos/olinda-e-recife-vista-aerea-570002303.webp",
+  "largura": 1600,
+  "altura": 1189,
+  "fonte": "Adobe Stock #570002303",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Alto da Sé com a vista do Recife, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Olinda vista do alto, com os prédios do Recife ao fundo"
+ },
+ {
+  "item": "L17",
+  "imagem": "Piscinas naturais (galés) de Maragogi",
+  "arquivo": "/site/img/fotos/maragogi-barco-571686137.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #571686137",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · galés de Maragogi vistas do alto, foto licenciada. Arquivo: aluguel-carro-maragogi-piscinas-naturais.jpg ]",
+   "[ foto · piscinas naturais de Maragogi, banco licenciado ou foto própria ]",
+   "[ foto · piscinas naturais de Maragogi, mar azul-turquesa ]",
+   "[ foto · piscinas naturais de Maragogi, mar azul-turquesa, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Barco no mar azul-turquesa do litoral de Alagoas"
+ },
+ {
+  "item": "L19",
+  "imagem": "São Miguel dos Milagres na maré baixa",
+  "arquivo": "/site/img/fotos/sao-miguel-dos-milagres-475155143.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #475155143",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia de São Miguel dos Milagres na maré baixa, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia do litoral de Alagoas vista do alto, com barcos no mar verde"
+ },
+ {
+  "item": "L20",
+  "imagem": "Beira-Mar de Fortaleza no fim da tarde",
+  "arquivo": "/site/img/fotos/fortaleza-beira-mar-472095985.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #472095985",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · calçadão da Beira-Mar de Fortaleza ao pôr do sol, banco licenciado ou foto própria ]",
+   "[ foto · calçadão da Beira-Mar de Fortaleza no fim da tarde, banco licenciado ou foto própria ]",
+   "[ foto · orla da Beira-Mar de Fortaleza ]",
+   "[ foto · orla da Beira-Mar de Fortaleza no fim da tarde, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Avenida Beira-Mar de Fortaleza"
+ },
+ {
+  "item": "L21",
+  "imagem": "Avenida de Fortaleza em dia útil",
+  "arquivo": "/site/img/fotos/fortaleza-catedral-295940701.webp",
+  "largura": 1600,
+  "altura": 899,
+  "fonte": "Adobe Stock #295940701",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · avenida de Fortaleza em dia útil, prédios comerciais, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Catedral Metropolitana de Fortaleza"
+ },
+ {
+  "item": "L23",
+  "imagem": "Lagoa e dunas do Cumbuco",
+  "arquivo": "/site/img/fotos/cumbuco-295942222.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #295942222",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · dunas e lagoa no Cumbuco ]",
+   "[ foto · lagoa do Cumbuco com coqueiros, em Caucaia, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia do Cumbuco com as pipas de kitesurf no céu"
+ },
+ {
+  "item": "L24",
+  "imagem": "Dunas e lagoa de Jericoacoara",
+  "arquivo": "/site/img/fotos/jericoacoara-dunas-222062922.webp",
+  "largura": 1600,
+  "altura": 1071,
+  "fonte": "Adobe Stock #222062922",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · dunas e lagoa de Jericoacoara ao pôr do sol ]",
+   "[ foto · dunas e lagoa de Jericoacoara, banco licenciado ou foto própria ]",
+   "[ foto · litoral do CE, Jericoacoara ]"
+  ],
+  "alt": "Praia de Jericoacoara com coqueiros e as dunas ao fundo"
+ },
+ {
+  "item": "L25",
+  "imagem": "Falésias coloridas de Morro Branco, Beberibe",
+  "arquivo": "/site/img/fotos/morro-branco-beberibe-280296930.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #280296930",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · falésias coloridas de Morro Branco, em Beberibe, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Falésias coloridas da praia de Morro Branco, em Beberibe"
+ },
+ {
+  "item": "L26",
+  "imagem": "Falésias de Canoa Quebrada",
+  "arquivo": "/site/img/fotos/canoa-quebrada-332270922.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #332270922",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · falésias de Canoa Quebrada ]"
+  ],
+  "alt": "Praia de Canoa Quebrada vista do alto, com as falésias"
+ },
+ {
+  "item": "L27",
+  "imagem": "Praia do litoral cearense com falésias",
+  "arquivo": "/site/img/fotos/litoral-ceara-falesias-506935029.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #506935029",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia do litoral cearense com falésias, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Falésias e mar no litoral do Ceará, vistos do alto"
+ },
+ {
+  "item": "B07",
+  "imagem": "Cartão de crédito físico na maquininha",
+  "arquivo": "/site/img/fotos/pagamento-cartao-maquininha-455695872.webp",
+  "largura": 1600,
+  "altura": 1104,
+  "fonte": "Adobe Stock #455695872",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · cartão de crédito físico na maquininha do balcão, sem dados legíveis ]"
+  ],
+  "alt": "Cliente pagando com cartão na maquininha"
+ },
+ {
+  "item": "B08",
+  "imagem": "Cliente com o celular no aeroporto",
+  "arquivo": "/site/img/fotos/celular-no-aeroporto-348884536.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #348884536",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · cliente com o celular no saguão do aeroporto ou no balcão da Asa, com autorização de imagem ]"
+  ],
+  "alt": "Mãos usando o celular no saguão do aeroporto"
+ },
+ {
+  "item": "B15",
+  "imagem": "Família com malas saindo do desembarque",
+  "arquivo": "/site/img/fotos/familia-no-aeroporto-442382998.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #442382998",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · família com malas saindo do desembarque do Aeroporto do Recife, com autorização de imagem ]"
+  ],
+  "alt": "Família com a filha e as malas no saguão do aeroporto"
+ },
+ {
+  "item": "C09",
+  "imagem": "Carro parado no acostamento, pisca-alerta e triângulo",
+  "arquivo": "/site/img/fotos/triangulo-de-sinalizacao-184089969.webp",
+  "largura": 1600,
+  "altura": 1038,
+  "fonte": "Adobe Stock #184089969",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota no acostamento, pisca-alerta e triângulo ]"
+  ],
+  "alt": "Triângulo de sinalização na estrada, atrás de um carro parado"
+ },
+ {
+  "item": "C10",
+  "imagem": "Família descarregando o carro no estacionamento",
+  "arquivo": "/site/img/fotos/porta-malas-com-malas-168851945.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #168851945",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · família descarregando o carro no estacionamento ]"
+  ],
+  "alt": "Porta-malas de carro aberto com malas de viagem"
+ },
+ {
+  "item": "L04",
+  "imagem": "Pontal de Maracaípe (no lugar: Porto de Galinhas, mesmo município)",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-orla-559858509.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #559858509",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · pontal de Maracaípe, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia de Porto de Galinhas vista do alto, com a orla em curva, o mar verde-claro e os guarda-sóis na areia"
+ },
+ {
+  "item": "L05",
+  "imagem": "Praia de Muro Alto (no lugar: arrecifes de Porto de Galinhas)",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-arrecifes-483200551.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #483200551",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia de Muro Alto, mar calmo e arrecifes, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Piscinas naturais e arrecifes de Porto de Galinhas vistos do alto, com jangadas na água rasa"
+ },
+ {
+  "item": "L07",
+  "imagem": "Enseada de Calhetas (no lugar: Praia dos Carneiros)",
+  "arquivo": "/site/img/fotos/praia-dos-carneiros-525634510.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #525634510",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · enseada de Calhetas, no Cabo de Santo Agostinho, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia dos Carneiros, em Tamandaré, vista do alto, com coqueiros e mar verde"
+ },
+ {
+  "item": "L13",
+  "imagem": "Praia do Janga (no lugar: praia genérica do Nordeste)",
+  "arquivo": "/site/img/fotos/praia-barcos-nordeste-421379594.webp",
+  "largura": 1600,
+  "altura": 1200,
+  "fonte": "Adobe Stock #421379594",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia do Janga, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia de águas azuis com barcos ancorados ao longe e galhos de árvore no primeiro plano"
+ },
+ {
+  "item": "L16",
+  "imagem": "Estrada de serra a caminho de Gravatá (no lugar: estrada genérica)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-mata-544847370.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #544847370",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada da serra no agreste de PE ]",
+   "[ foto · estrada de serra a caminho de Gravatá ]"
+  ],
+  "alt": "Estrada asfaltada entre a encosta e a mata, com um caminhão ao longe e a placa de 60 km/h"
+ },
+ {
+  "item": "L18",
+  "imagem": "Praia de Antunes (no lugar: praia de Maragogi)",
+  "arquivo": "/site/img/fotos/maragogi-praia-382709767.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #382709767",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Praia de Antunes, em Maragogi, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Cabana de praia com cortinas brancas diante do mar de Maragogi, com barcos ao fundo"
+ },
+ {
+  "item": "L22",
+  "imagem": "Praia de Porto das Dunas (no lugar: Praia Redonda, Icapuí)",
+  "arquivo": "/site/img/fotos/jangada-praia-ceara-298969762.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #298969762",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia de Porto das Dunas, em Aquiraz, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Jangada de vela branca na areia da Praia Redonda, em Icapuí, no Ceará"
+ },
+ {
+  "item": "L28",
+  "imagem": "Estrada de serra em Guaramiranga (no lugar: estrada genérica na mata)",
+  "arquivo": "/site/img/fotos/estrada-serra-mata-435828045.webp",
+  "largura": 1600,
+  "altura": 1200,
+  "fonte": "Adobe Stock #435828045",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada de serra com mata em Guaramiranga, banco licenciado ou foto própria ]",
+   "[ foto · estrada na serra de Guaramiranga ]"
+  ],
+  "alt": "Estrada sinuosa atravessando a mata fechada, vista do alto"
+ },
+ {
+  "item": "C11",
+  "imagem": "Estrada asfaltada rumo a Jericoacoara (no lugar: estrada genérica)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-mata-544847370.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #544847370",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada asfaltada entre carnaubais no litoral oeste do Ceará, sem carro em duna ou areia. Arquivo: aluguel-carro-jericoacoara-estrada-ce.jpg ]"
+  ],
+  "alt": "Estrada asfaltada entre a encosta e a mata, com um caminhão ao longe e a placa de 60 km/h"
+ },
+ {
+  "item": "C01",
+  "imagem": "Ladeira de Olinda no Carnaval",
+  "arquivo": "/site/img/fotos/olinda-ladeira-da-misericordia-248258677.webp",
+  "largura": 1067,
+  "altura": 1600,
+  "fonte": "Adobe Stock #248258677",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota em ladeira de Olinda, sem foliões identificáveis ]"
+  ],
+  "alt": "Ladeira da Misericórdia, em Olinda, no Carnaval"
+ },
+ {
+  "item": "C03",
+  "imagem": "Carro em estrada ao entardecer (genérica)",
+  "arquivo": "/site/img/fotos/carro-estrada-nascer-do-sol-186348859.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #186348859",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota em estrada costeira ao entardecer ]",
+   "[ foto · carro da frota em estrada costeira ao entardecer, sem fogos com marca de evento ]"
+  ],
+  "alt": "Carro na estrada asfaltada com o sol baixo refletido na lateral"
+ },
+ {
+  "item": "C04",
+  "imagem": "Estrada entre coqueiros (no lugar: coqueiral)",
+  "arquivo": "/site/img/fotos/coqueiral-288116249.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #288116249",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da Asa na estrada do litoral sul, entre coqueiros ]",
+   "[ foto · carro da Asa na estrada do litoral, entre coqueiros ]"
+  ],
+  "alt": "Coqueiros vistos de baixo contra o céu azul"
+ },
+ {
+  "item": "C05",
+  "imagem": "Carro em estrada asfaltada, dia claro (genérica)",
+  "arquivo": "/site/img/fotos/carro-estrada-dia-279168079.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #279168079",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · SUV da frota em estrada asfaltada a caminho do litoral sul de Pernambuco, foto própria ]",
+   "[ foto · carro da frota na estrada para a praia, dezembro ]"
+  ],
+  "alt": "Carro prata na rodovia asfaltada em dia de sol"
+ },
+ {
+  "item": "C06",
+  "imagem": "Rodovia do agreste ao entardecer (no lugar: Caruaru vista do alto)",
+  "arquivo": "/site/img/fotos/caruaru-agreste-515214901.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #515214901",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · SUV da frota na BR-232, agreste, fim de tarde, sem marca de festa ]"
+  ],
+  "alt": "Caruaru, no agreste de Pernambuco, vista do alto, com a serra ao fundo"
+ },
+ {
+  "item": "C07",
+  "imagem": "Picape em estrada asfaltada (genérica)",
+  "arquivo": "/site/img/fotos/picape-estrada-296378349.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #296378349",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · picape cabine dupla da frota em estrada asfaltada do Nordeste, foto própria ]"
+  ],
+  "alt": "Picape cabine dupla prata em movimento numa estrada asfaltada"
+ },
+ {
+  "item": "C08",
+  "imagem": "Estrada asfaltada rumo a Jijoca (no lugar: estrada genérica, sem carro)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-reta-202947604.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #202947604",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · picape na estrada asfaltada a caminho de Jijoca, nunca na areia (D12) ]"
+  ],
+  "alt": "Estrada asfaltada reta entre a mata, com o sol no horizonte"
+ },
+ {
+  "item": "P01",
+  "imagem": "Abertura da home (provisória: família saindo de viagem)",
+  "arquivo": "/site/img/fotos/familia-malas-porta-malas-603637990.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #603637990",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota Asa saindo do pátio do Aeroporto do Recife, com pessoas reais e autorização de imagem. Arquivo: asa-aluguel-carros-aeroporto-recife-hero.webp ]",
+   "[ foto · carro da frota Asa saindo do pátio do Aeroporto do Recife, foto própria ]"
+  ],
+  "alt": "Família colocando as malas no porta-malas do carro antes da viagem"
+ },
+ {
+  "item": "P02",
+  "imagem": "Carros alinhados no pátio (genérica)",
+  "arquivo": "/site/img/fotos/carros-estacionados-fila-311493284.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #311493284",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Spin de 7 lugares e automáticos no pátio de Recife ]",
+   "[ foto · pátio do Aeroporto do Recife, carros prontos para a retirada ]",
+   "[ foto · sedãs e SUVs da frota alinhados no pátio, sem placas legíveis (frota-asa-empresas-patio.jpg) ]"
+  ],
+  "alt": "Picapes e SUVs brancos estacionados em fila"
+ },
+ {
+  "item": "P03",
+  "imagem": "Um carro pronto para a retirada (genérica)",
+  "arquivo": "/site/img/fotos/chave-do-carro-305944041.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #305944041",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota (Onix Plus ou Tracker) no pátio do Aeroporto do Recife, luz do fim da tarde, sem pessoas ou com colaborador autorizado entregando a chave. Arquivo: aluguel-mensal-carro-patio-aeroporto-recife.jpg ]",
+   "[ foto · carro da frota no pátio do Aeroporto do Recife ]"
+  ],
+  "alt": "Mão segurando a chave do carro, com o carro ao fundo"
+ },
+ {
+  "item": "P04",
+  "imagem": "Família com malas ao lado do carro (genérica)",
+  "arquivo": "/site/img/fotos/familia-ao-lado-do-carro-281332939.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #281332939",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · família com malas ao lado de uma Spin no pátio do Aeroporto do Recife, com autorização de imagem ]"
+  ],
+  "alt": "Família com crianças correndo na estrada ao lado do carro com o porta-malas cheio de malas"
+ },
+ {
+  "item": "P05",
+  "imagem": "Profissional conferindo um carro (genérica)",
+  "arquivo": "/site/img/fotos/profissional-conferindo-carro-617906762.webp",
+  "largura": 1600,
+  "altura": 655,
+  "fonte": "Adobe Stock #617906762",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · gestor de frota conferindo um sedã no pátio, com autorização de imagem ]"
+  ],
+  "alt": "Profissional de macacão conferindo o motor de um carro com o capô aberto"
+ },
+ {
+  "item": "B05",
+  "imagem": "Entrega da chave ao cliente (genérica)",
+  "arquivo": "/site/img/fotos/entrega-da-chave-1187420128.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #1187420128",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · atendente da Asa entrega a chave ao cliente no balcão, com autorização de imagem da equipe ]",
+   "[ foto · cliente recebe a chave no balcão da Asa, com autorização de uso de imagem ]",
+   "[ foto · cliente recebe a chave no balcão, com autorização de imagem ]"
+  ],
+  "alt": "Cliente sorridente no banco do motorista recebendo a chave do carro"
+ },
+ {
+  "item": "B06",
+  "imagem": "Atendimento a um cliente (genérica)",
+  "arquivo": "/site/img/fotos/atendimento-locacao-368360241.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #368360241",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · balcão da Asa com atendimento a um cliente, com autorização de imagem ]"
+  ],
+  "alt": "Atendente entrega a chave do carro ao cliente"
+ },
+ {
+  "item": "D05",
+  "imagem": "Câmbio automático (genérica)",
+  "arquivo": "/site/img/fotos/cambio-automatico-1207028064.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #1207028064",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · câmbio automático de um Chevrolet Tracker da frota, detalhe do painel, foto própria ]"
+  ],
+  "alt": "Alavanca do câmbio automático no console de um carro"
+ },
+ {
+  "item": "F01",
+  "imagem": "Fiat Mobi (grupo A), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-a-fiat-mobi.webp",
+  "largura": 551,
+  "altura": 344,
+  "fonte": "Foto da frota no site atual da Asa (grupo-a.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Mobi da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Fiat Mobi da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Fiat Mobi branco com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F02",
+  "imagem": "Hyundai HB20 1.0 (grupo B), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-b-hyundai-hb20.webp",
+  "largura": 593,
+  "altura": 370,
+  "fonte": "Foto da frota no site atual da Asa (grupo-b.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Hyundai HB20 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Hyundai HB20 da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Hyundai HB20 em 3/4 frontal, fundo limpo ]"
+  ],
+  "alt": "Hyundai HB20 vermelho com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F03",
+  "imagem": "Chevrolet Onix 1.0 (grupo B+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-b-mais-chevrolet-onix.webp",
+  "largura": 610,
+  "altura": 381,
+  "fonte": "Foto da frota no site atual da Asa (grupo-b-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix hatch da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, luz de manhã, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix hatch preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F04",
+  "imagem": "Chevrolet Onix Plus 1.0 (grupo C+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-c-mais-chevrolet-onix-plus.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (gripo-c-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Plus da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Plus em 3/4 frontal, fundo limpo ]",
+   "[ foto · Chevrolet Onix Plus, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix Plus sedã prata com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F05",
+  "imagem": "Citroën C3 Live Pack 1.6 (grupo D), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-d-citroen-c3.webp",
+  "largura": 593,
+  "altura": 371,
+  "fonte": "Foto da frota no site atual da Asa (grupo-d.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Citroën C3 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Citroën C3 da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Citroën C3 em 3/4 frontal, fundo limpo ]"
+  ],
+  "alt": "Citroën C3 preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F06",
+  "imagem": "Chevrolet Onix 1.0 Turbo (grupo D+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-d-mais-chevrolet-onix-turbo.webp",
+  "largura": 610,
+  "altura": 381,
+  "fonte": "Foto da frota no site atual da Asa (grupo-d-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Turbo da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Turbo da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix hatch preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F07",
+  "imagem": "Chevrolet Onix Plus 1.0 Turbo (grupo E+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-e-mais-chevrolet-onix-plus-turbo.webp",
+  "largura": 568,
+  "altura": 355,
+  "fonte": "Foto da frota no site atual da Asa (grupo-e-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Plus Turbo da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Plus Turbo da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Onix Plus na orla ]",
+   "[ foto · Onix Plus no pátio ]"
+  ],
+  "alt": "Chevrolet Onix Plus sedã vermelho com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F08",
+  "imagem": "Chevrolet Spin 1.8 (grupo F+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-f-mais-chevrolet-spin.webp",
+  "largura": 641,
+  "altura": 400,
+  "fonte": "Foto da frota no site atual da Asa (grupo-f-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Spin com as portas abertas e a terceira fileira de bancos à mostra, no pátio do aeroporto, foto própria ]",
+   "[ foto · Chevrolet Spin com as portas abertas e a terceira fileira à mostra, foto própria ]",
+   "[ foto · Chevrolet Spin da frota, portas abertas e a 3ª fileira à mostra, foto própria ]",
+   "[ foto · Chevrolet Spin em 3/4 frontal, fundo limpo ]",
+   "[ foto · Spin no pátio ]"
+  ],
+  "alt": "Chevrolet Spin prata, de 7 lugares com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F09",
+  "imagem": "Chevrolet Tracker 1.0 Turbo (grupo G+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-g-mais-chevrolet-tracker.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-g-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Tracker da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Tracker da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Tracker em 3/4 frontal, fundo limpo ]",
+   "[ foto · Tracker na estrada ]",
+   "[ foto · Tracker à beira-mar ]"
+  ],
+  "alt": "Chevrolet Tracker cinza com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F10",
+  "imagem": "Fiat Strada 1.3 (grupo H), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-h-fiat-strada.webp",
+  "largura": 592,
+  "altura": 370,
+  "fonte": "Foto da frota no site atual da Asa (grupo-h.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Strada da frota, 3/4 dianteiro no pátio do aeroporto, caçamba visível, foto própria ]"
+  ],
+  "alt": "Fiat Strada vermelha com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F11",
+  "imagem": "Jeep Commander 1.3 (grupo I+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-i-mais-jeep-commander.webp",
+  "largura": 604,
+  "altura": 377,
+  "fonte": "Foto da frota no site atual da Asa (grupo-i-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Commander na estrada costeira ]",
+   "[ foto · Commander no pátio ]",
+   "[ foto · Jeep Commander da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Jeep Commander da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Jeep Commander branco, de 7 lugares com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F12",
+  "imagem": "Jeep Compass 1.3 (grupo J+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-j-mais-jeep-compass.webp",
+  "largura": 576,
+  "altura": 360,
+  "fonte": "Foto da frota no site atual da Asa (grupo-j-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Jeep Compass saindo do pátio do aeroporto, vista lateral, céu aberto, foto própria ]",
+   "[ foto · Jeep Compass, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]"
+  ],
+  "alt": "Jeep Compass cinza com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F13",
+  "imagem": "Toyota Corolla 2.0 (grupo N+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-n-mais-toyota-corolla.webp",
+  "largura": 571,
+  "altura": 356,
+  "fonte": "Foto da frota no site atual da Asa (grupo-n-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Toyota Corolla com o porta-malas aberto e duas malas dentro, no pátio do aeroporto, foto própria ]"
+  ],
+  "alt": "Toyota Corolla branco com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F14",
+  "imagem": "Fiat Toro 2.0 4x4 (grupo O+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-o-mais-fiat-toro.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-o-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Toro 4x4, 3/4 traseiro com a caçamba à mostra, foto própria ]",
+   "[ foto · Fiat Toro 4x4, 3/4 traseiro com a caçamba à mostra, no pátio do aeroporto, foto própria ]",
+   "[ foto · Fiat Toro em 3/4 frontal, fundo limpo ]",
+   "[ foto · Toro 4x4 em estrada asfaltada do litoral do Ceará, sem areia até a decisão D12 ]"
+  ],
+  "alt": "Fiat Toro vinho, cabine dupla com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F15",
+  "imagem": "Chevrolet S10 2.8 4x4 cabine dupla (grupo P+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-p-mais-chevrolet-s10.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-p-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet S10 cabine dupla, vista 3/4 traseira com a caçamba vazia, no pátio do aeroporto, foto própria ]"
+  ],
+  "alt": "Chevrolet S10 cabine dupla azul-escura com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "B01",
+  "imagem": "Loja da Asa no Portão A5, Aeroporto do Recife (imagem do retrofit)",
+  "arquivo": "/site/img/lojas/loja-asa-aeroporto-recife.webp",
+  "largura": 1024,
+  "altura": 1536,
+  "fonte": "Imagem do retrofit da loja de Recife, enviada pela Asa",
+  "licenca": "Imagem da própria Asa",
+  "posicao": "50% 13%",
+  "legendas": [
+   "[ foto · balcão da Asa no Portão A5 de Desembarque, Recife ]",
+   "[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com a sinalização visível ]",
+   "[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com autorização de imagem dos colaboradores ]",
+   "[ foto · balcão da Asa no Portão A5, atendente recebendo cliente com mala, luz do saguão, com autorização de imagem do colaborador. Arquivo: balcao-asa-aeroporto-recife-portao-a5.jpg ]",
+   "[ foto · desembarque do Aeroporto do Recife, Portão A5 ]"
+  ],
+  "alt": "Loja da Asa Rent a Car no Aeroporto do Recife, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto do Recife"
+ },
+ {
+  "item": "B03",
+  "imagem": "Loja da Asa na Área de Locadoras, Aeroporto de Fortaleza (imagem do retrofit)",
+  "arquivo": "/site/img/lojas/loja-asa-aeroporto-fortaleza.webp",
+  "largura": 1086,
+  "altura": 1448,
+  "fonte": "Imagem do retrofit da loja de Fortaleza, enviada pela Asa",
+  "licenca": "Imagem da própria Asa",
+  "posicao": "50% 20%",
+  "legendas": [
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza à noite, com a sinalização visível ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com a sinalização visível ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com autorização de imagem dos colaboradores ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, à noite, com atendente e cliente com mala, com autorização de imagem. Arquivo: balcao-asa-aeroporto-fortaleza-area-locadoras.jpg ]",
+   "[ foto · balcão da Asa na Área de Locadoras, Fortaleza ]"
+  ],
+  "alt": "Loja da Asa Rent a Car no Aeroporto de Fortaleza, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto de Fortaleza"
+ }
+]

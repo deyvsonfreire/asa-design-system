@@ -255,7 +255,7 @@
           <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <div class="asa-alert__body">
             <span class="asa-alert__title">Rascunho para revisão</span>
-            <span class="asa-alert__text">Preços de exemplo do protótipo: sem datas, o "a partir de" é de 1 diária; ao mudar as datas na busca, cada card mostra o total do período e o que estiver esgotado. Estados: ?estado=carregando, erro e esgotado. Fotos são briefing. A diferença entre os grupos B e B+ e os dados de consumo esperam confirmação. Detalhes em site/PENDENCIAS.md.</span>
+            <span class="asa-alert__text">Preços de exemplo do protótipo: sem datas, o "a partir de" é de 1 diária; ao mudar as datas na busca, cada card mostra o total do período e o que estiver esgotado. Estados: ?estado=carregando, erro e esgotado. Onde a foto aparece como briefing, falta a foto própria. A diferença entre os grupos B e B+ e os dados de consumo esperam confirmação. Detalhes em site/PENDENCIAS.md.</span>
           </div>
         </div>
         <nav aria-label="Trilha">
@@ -316,7 +316,7 @@
             <div class="site-booking__lines">
               <p data-diaria><b>Diária de 27 horas:</b> retirando às <span data-hora-retirada>10:00</span>, você devolve até as <span data-hora-limite>13:00</span> sem pagar outra diária. <a href="/diaria-27-horas">Como funciona</a></p>
               <p>Cancele grátis até 24h antes da retirada.</p>
-              <p>Para retirar: mais de 21 anos, CNH há 2 anos ou mais e cartão de crédito físico no nome de quem paga. <a href="/caucao-e-requisitos">Ver requisitos</a></p>
+              <p>Para retirar: a partir de 21 anos, CNH há 2 anos ou mais e cartão de crédito físico no nome de quem paga. <a href="/caucao-e-requisitos">Ver requisitos</a></p>
             </div>
             <p class="site-booking__status" data-status role="status" aria-live="polite"></p>
           </form>
@@ -336,7 +336,7 @@
         <ul class="site-vehicles site-vehicles--3" data-lista-frota>
           <li>
             <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-a" data-grupo-card="A" data-alt="B">
-              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Fiat Mobi no pátio da Asa no aeroporto"><span class="asa-photo__caption">[ foto · Fiat Mobi da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]</span></div></div>
+              <div class="asa-cut site-vcard__media"><div class="site-foto site-foto--inteira asa-cut__media asa-photo" style="aspect-ratio:16/9" data-foto="F01"><img src="/site/img/frota/grupo-a-fiat-mobi.webp" alt="Fiat Mobi branco com o adesivo da Asa na placa, em vista 3/4 dianteira" width="551" height="344" loading="lazy" decoding="async"><!-- foto F01: Foto da frota no site atual da Asa (grupo-a.jpg) (Imagem da própria Asa; provisória até o novo ensaio da frota). Briefing original: [ foto · Fiat Mobi da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ] --></div></div>
               <div class="asa-card__body">
                 <h3 class="asa-card-vehicle__title">Fiat Mobi ou similar</h3>
                 <span class="asa-card-vehicle__category">Grupo A · Hatch econômico</span>
@@ -351,7 +351,7 @@
           </li>
           <li>
             <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-b" data-grupo-card="B" data-alt="B+">
-              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Hyundai HB20 no pátio da Asa no aeroporto"><span class="asa-photo__caption">[ foto · Hyundai HB20 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]</span></div></div>
+              <div class="asa-cut site-vcard__media"><div class="site-foto site-foto--inteira asa-cut__media asa-photo" style="aspect-ratio:16/9" data-foto="F02"><img src="/site/img/frota/grupo-b-hyundai-hb20.webp" alt="Hyundai HB20 vermelho com o adesivo da Asa na placa, em vista 3/4 dianteira" width="593" height="370" loading="lazy" decoding="async"><!-- foto F02: Foto da frota no site atual da Asa (grupo-b.jpg) (Imagem da própria Asa; provisória até o novo ensaio da frota). Briefing original: [ foto · Hyundai HB20 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ] --></div></div>
               <div class="asa-card__body">
                 <h3 class="asa-card-vehicle__title">Hyundai HB20 1.0 ou similar</h3>
                 <span class="asa-card-vehicle__category">Grupo B · Hatch econômico</span>
@@ -366,7 +366,7 @@
           </li>
           <li>
             <article class="asa-card asa-card-vehicle site-vcard site-fcard" id="grupo-b-mais" data-grupo-card="B+" data-alt="B">
-              <div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="Chevrolet Onix hatch estacionado no pátio da Asa no aeroporto"><span class="asa-photo__caption">[ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, luz de manhã, foto própria ]</span></div></div>
+              <div class="asa-cut site-vcard__media"><div class="site-foto site-foto--inteira asa-cut__media asa-photo" style="aspect-ratio:16/9" data-foto="F03"><img src="/site/img/frota/grupo-b-mais-chevrolet-onix.webp" alt="Chevrolet Onix hatch preto com o adesivo da Asa na placa, em vista 3/4 dianteira" width="610" height="381" loading="lazy" decoding="async"><!-- foto F03: Foto da frota no site atual da Asa (grupo-b-mais.jpg) (Imagem da própria Asa; provisória até o novo ensaio da frota). Briefing original: [ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, luz de manhã, foto própria ] --></div></div>
               <div class="asa-card__body">
                 <h3 class="asa-card-vehicle__title">Chevrolet Onix 1.0 ou similar</h3>
                 <span class="asa-card-vehicle__category">Grupo B+ · Hatch econômico</span>
@@ -418,19 +418,19 @@
         </div>
         <ul class="site-routes site-routes--3">
           <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Casario colorido e ladeiras do centro histórico de Olinda"><span class="asa-photo__caption">[ foto · ladeira do sítio histórico de Olinda com casario colorido, banco licenciado ou foto própria ]</span></div></div>
+            <div class="asa-cut"><div class="site-foto asa-cut__media asa-photo" style="aspect-ratio:16/10" data-foto="L11"><img src="/site/img/fotos/olinda-ladeira-da-misericordia-248258677.webp" alt="Ladeira da Misericórdia, em Olinda, no Carnaval" width="1067" height="1600" loading="lazy" decoding="async"><!-- foto L11: Adobe Stock #248258677 (Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026). Briefing original: [ foto · ladeira do sítio histórico de Olinda com casario colorido, banco licenciado ou foto própria ] --></div></div>
             <h3>Recife e Olinda no mesmo dia</h3>
             <p>Carro pequeno facilita achar vaga nas ruas estreitas do centro histórico de Olinda. <span class="site-pending">[VERIFICAR]</span></p>
             <a href="/aluguel-de-carros/olinda">Alugar carro para visitar Olinda</a>
           </li>
           <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Orla da Avenida Beira-Mar, em Fortaleza"><span class="asa-photo__caption">[ foto · orla da Beira-Mar de Fortaleza no fim da tarde, banco licenciado ou foto própria ]</span></div></div>
+            <div class="asa-cut"><div class="site-foto asa-cut__media asa-photo" style="aspect-ratio:16/10" data-foto="L20"><img src="/site/img/fotos/fortaleza-beira-mar-472095985.webp" alt="Avenida Beira-Mar de Fortaleza" width="1600" height="1067" loading="lazy" decoding="async"><!-- foto L20: Adobe Stock #472095985 (Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026). Briefing original: [ foto · orla da Beira-Mar de Fortaleza no fim da tarde, banco licenciado ou foto própria ] --></div></div>
             <h3>Rotina em Fortaleza</h3>
             <p>Para quem vem a trabalho ou visitar a família e passa os dias entre bairro, orla e compromissos.</p>
             <a href="/aluguel-de-carros/fortaleza">Aluguel de carro em Fortaleza</a>
           </li>
           <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Piscinas naturais de Porto de Galinhas na maré baixa"><span class="asa-photo__caption">[ foto · piscinas naturais de Porto de Galinhas na maré baixa, banco licenciado ou foto própria ]</span></div></div>
+            <div class="asa-cut"><div class="site-foto asa-cut__media asa-photo" style="aspect-ratio:16/10" data-foto="L02"><img src="/site/img/fotos/porto-de-galinhas-piscinas-naturais-483200545.webp" alt="Piscinas naturais de Porto de Galinhas vistas do alto, com jangadas coloridas na água rasa" width="1600" height="1066" loading="lazy" decoding="async"><!-- foto L02: Adobe Stock #483200545 (Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026). Briefing original: [ foto · piscinas naturais de Porto de Galinhas na maré baixa, banco licenciado ou foto própria ] --></div></div>
             <h3>Bate e volta ao litoral sul de Pernambuco</h3>
             <p>A quilometragem é livre, então a ida a Porto de Galinhas não soma nada por quilômetro. Para quatro pessoas com mala, prefira um grupo com mais porta-malas.</p>
             <a href="/aluguel-de-carros/porto-de-galinhas">Aluguel de carro para Porto de Galinhas</a>
@@ -477,7 +477,7 @@
           </div>
           <ul class="site-checklist">
             <li><b>CNH de quem vai dirigir</b>, emitida há pelo menos 2 anos.</li>
-            <li>Condutor com <b>mais de 21 anos</b>.</li>
+            <li>Condutor com <b>21 anos ou mais</b>.</li>
             <li><b>Cartão de crédito físico</b> no nome do condutor ou do responsável financeiro da reserva, para a pré-autorização (caução).</li>
           </ul>
         </div>
@@ -493,13 +493,13 @@
         </div>
         <ul class="site-routes site-routes--2">
           <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Balcão da Asa no Portão A5 de desembarque do Aeroporto do Recife"><span class="asa-photo__caption">[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com a sinalização visível ]</span></div></div>
+            <div class="asa-cut"><div class="site-foto asa-cut__media asa-photo" style="aspect-ratio:16/10" data-foto="B01"><img src="/site/img/lojas/loja-asa-aeroporto-recife.webp" alt="Loja da Asa Rent a Car no Aeroporto do Recife, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto do Recife" width="1024" height="1536" loading="lazy" style="object-position:50% 13%" decoding="async"><!-- foto B01: Imagem do retrofit da loja de Recife, enviada pela Asa (Imagem da própria Asa). Briefing original: [ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com a sinalização visível ] --></div></div>
             <h3>Recife</h3>
             <p>Portão A5 de Desembarque. O carro sai do pátio do próprio aeroporto, sem van.</p>
             <a href="/aluguel-de-carros/aeroporto-recife">Aeroporto do Recife</a>
           </li>
           <li>
-            <div class="asa-cut"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/10" role="img" aria-label="Balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza"><span class="asa-photo__caption">[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com a sinalização visível ]</span></div></div>
+            <div class="asa-cut"><div class="site-foto asa-cut__media asa-photo" style="aspect-ratio:16/10" data-foto="B03"><img src="/site/img/lojas/loja-asa-aeroporto-fortaleza.webp" alt="Loja da Asa Rent a Car no Aeroporto de Fortaleza, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto de Fortaleza" width="1086" height="1448" loading="lazy" style="object-position:50% 20%" decoding="async"><!-- foto B03: Imagem do retrofit da loja de Fortaleza, enviada pela Asa (Imagem da própria Asa). Briefing original: [ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com a sinalização visível ] --></div></div>
             <h3>Fortaleza</h3>
             <p>Área de Locadoras, no Terminal de Desembarque.</p>
             <a href="/aluguel-de-carros/aeroporto-fortaleza">Aeroporto de Fortaleza</a>

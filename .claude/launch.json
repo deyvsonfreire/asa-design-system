@@ -4,8 +4,23 @@
     {
       "name": "site-asa",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["scripts/servir-site.py", "8766"],
+      "runtimeArgs": [
+        "scripts/servir-site.py",
+        "8766"
+      ],
       "port": 8766
+    },
+    {
+      "name": "site-offline",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8767",
+        "--directory",
+        "../asa-design-system-offline/site"
+      ],
+      "port": 8767
     }
   ]
 }

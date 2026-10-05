@@ -162,9 +162,14 @@
     var mais = $('[data-balcao-mais]');
     mais.href = L.url;
     mais.textContent = 'Mais sobre o balcão de ' + L.cidade;
+    // Imagem do retrofit de cada loja; a faixa de cima mostra o letreiro e a tela da cidade.
     var foto = $('[data-balcao-foto]');
-    foto.setAttribute('aria-label', rec ? 'Balcão da Asa no Portão A5 de desembarque do Aeroporto do Recife' : 'Balcão da Asa na área de locadoras do Aeroporto de Fortaleza');
-    $('[data-balcao-legenda]').textContent = '[ foto · ' + (rec ? 'balcão da Asa no Portão A5 do Aeroporto do Recife' : 'balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza') + ', com a sinalização visível ]';
+    var src = rec ? '/site/img/lojas/loja-asa-aeroporto-recife.webp' : '/site/img/lojas/loja-asa-aeroporto-fortaleza.webp';
+    if (window.ASA_URL) src = window.ASA_URL(src);
+    foto.classList.add('site-foto');
+    foto.removeAttribute('role');
+    foto.innerHTML = '<img src="' + src + '" alt="' + (rec ? 'Loja da Asa Rent a Car no Portão A5 de desembarque do Aeroporto do Recife' : 'Loja da Asa Rent a Car na Área de Locadoras do Aeroporto de Fortaleza') +
+      '" width="' + (rec ? 1024 : 1086) + '" height="' + (rec ? 1536 : 1448) + '" style="object-position:50% ' + (rec ? '13%' : '20%') + '" loading="lazy" decoding="async">';
 
     // WhatsApp já com o localizador.
     var wa = 'https://wa.me/5508000800015?text=' + encodeURIComponent('Olá! Minha reserva na Asa é a ' + r.localizador + ' e preciso de ajuda.');

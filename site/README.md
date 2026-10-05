@@ -39,9 +39,20 @@ site/
 │   ├── aeroporto-recife/    do desembarque ao carro, devolução, carros, prova, destinos
 │   ├── recife/              a loja, os bairros, bate-voltas, a trabalho, carros, prova
 │   ├── aeroporto-fortaleza/ voo de madrugada, do desembarque ao carro, devolução, carros, prova
-│   └── fortaleza/           a loja, a capital, o litoral em abas, carros, prova
+│   ├── fortaleza/           a loja, a capital, o litoral em abas, carros, prova
+│   ├── porto-de-galinhas/   destino: retirada no Recife, rota, passeios, estacionar na vila, carros, prova
+│   ├── maragogi/            destino: retirada no Recife, rota pela costa, passeios, carros, prova
+│   ├── olinda/              destino: retirada no Recife, o caminho, ladeiras, passeios, carros, prova
+│   └── jericoacoara/        destino: leia antes de ir, retirada em Fortaleza, rota, carros, prova
+├── lojas/               as duas lojas com o endereço da ficha do Google e o mapa sob demanda (lojas.js) (rascunho)
+├── aluguel-mensal/      para quem é, como funciona, o que entra e a cotação (mensal.js) (rascunho)
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
+├── VALIDACAO.md          relatório de scripts/validar_site.py: cobertura da copy, falhas, avisos e pendências por página
+├── img/fotos/           fotos licenciadas (WebP, 1.600 px), aplicadas no lugar dos placeholders
+├── fotos.json           registro de cada foto aplicada: imagem do briefing, fonte, licença, alt e lugares
+├── BRIEFING-FOTOS.md     as 84 imagens a providenciar (192 lugares de foto), com origem, banco sugerido e páginas
+├── briefing-fotos.csv    a mesma lista em planilha, com colunas de responsável, status e arquivo entregue
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
 ├── contato/             canais, atalhos, lojas com o NAP do Google e o formulário (rascunho)
 ├── empresas/           B2B: casos, terceirização, setor público, formulário de proposta (empresas.js), prova (rascunho)
@@ -88,6 +99,11 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 3. Montar as faixas com as estruturas de 06 Componentes, sem repetir estrutura nem fundo em sequência.
 4. Foto ainda inexistente vira `.asa-photo` com o briefing na legenda e o alt em `aria-label`.
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
+6. Antes de mandar o site para avaliação, rodar `python3 scripts/validar_site.py --relatorio site/VALIDACAO.md`. Ele confere a cobertura das copys 01 a 44, title, description, H1, canonical, robots, JSON-LD, links internos, alt, 15 Composição, as palavras proibidas do guia (00b) e o aviso de rascunho, e sai com erro se houver falha.
+7. Para testar sem servidor, rodar `python3 scripts/site_offline.py`: ele gera em `../asa-design-system-offline/site/` uma cópia com caminhos relativos, que abre com dois cliques no `index.html` (Chrome, Safari ou Edge). Rodar de novo a cada mudança. A cópia offline mostra o site como ficaria no ar: sem o aviso de rascunho, sem os marcadores [CONFIRMAR] e [VERIFICAR], com preços de exemplo nos cards e um painel neutro onde ainda falta foto. As notas ficam só aqui, na versão de desenvolvimento.
+
+`home-carrossel/` é uma versão de teste da home com carrossel no hero (os layouts da Asa: aluguel dentro do aeroporto, pré-cadastro e diária de 27 horas), com `noindex`. A home oficial continua em `index.html`.
+8. Foto nova: registrar em `site/fotos.json` (arquivo em `site/img/fotos/`, fonte, licença, alt e as legendas dos placeholders) e rodar `python3 scripts/aplicar_fotos.py`.
 
 ## O que ainda é protótipo
 

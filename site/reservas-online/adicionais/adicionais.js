@@ -49,8 +49,11 @@
       (s.upgrade ? ' <span class="asa-tag asa-tag--ok">Upgrade escolhido</span>' : '');
     $('[data-escolhido-specs]').textContent = c.lugares + ' lugares · ' + c.malas.replace('–', ' a ') + ' malas · ' + c.cambio + ' · Ar-condicionado · Km livre';
     var foto = $('[data-escolhido-foto]');
-    foto.setAttribute('aria-label', c.modelo + ', ' + c.cat.toLowerCase() + ' da frota Asa');
-    $('.asa-photo__caption', foto).textContent = '[ foto · ' + c.modelo + ' ]';
+    var src = window.ASA_URL ? window.ASA_URL(c.foto) : c.foto;
+    foto.classList.add('site-foto', 'site-foto--inteira');
+    foto.removeAttribute('role');
+    foto.removeAttribute('aria-label');
+    foto.innerHTML = '<img src="' + src + '" alt="' + fmt.esc(c.modelo + ', ' + c.cat.toLowerCase() + ' da frota Asa') + '" width="600" height="375" decoding="async">';
   }
 
   /* ---------- Upgrade ---------- */

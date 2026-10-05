@@ -120,7 +120,7 @@
       if (!val(id)) return ['Informe a data de nascimento.', 'vazio'];
       var d = data(val(id));
       if (!d || d > new Date()) return ['Confira a data de nascimento, no formato dd/mm/aaaa.', 'data'];
-      return anos(d, s.ini) <= 21 ? ['Para alugar na Asa, o condutor precisa ter mais de 21 anos na data da retirada.', 'idade'] : '';
+      return anos(d, s.ini) < 21 ? ['Para alugar na Asa, o condutor precisa ter 21 anos completos na data da retirada.', 'idade'] : '';
     },
     cnh: function (id) {
       if (!val(id)) return ['Informe a data da 1ª habilitação.', 'vazio'];

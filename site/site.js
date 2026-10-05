@@ -18,6 +18,7 @@
     window.dataLayer.push(Object.assign({ event: event }, params || {}));
   }
   window.asaTrack = track;
+  if (page === '404') track('page_not_found', { page_location: location.href, page_referrer: document.referrer });
 
   /* ---------- Aviso curto ---------- */
   var toast;
@@ -197,19 +198,35 @@
     if (!ret.value) ret.value = toLocal(at(4, 10));
     ret.min = pick.value;
 
-    function error(input, msg) {
+    var erros = [];
+    function error(input, msg, tipo, link) {
       var box = document.getElementById(input.getAttribute('aria-describedby').split(' ').pop());
-      $('span', box).textContent = msg || '';
+      var span = $('span', box);
+      span.textContent = msg || '';
+      if (msg && link) {
+        var a = document.createElement('a');
+        a.href = link[0]; a.textContent = link[1];
+        span.appendChild(document.createTextNode(' ')); span.appendChild(a);
+      }
       box.hidden = !msg;
+      if (msg) erros.push({ error_field: input.name, error_type: tipo });
       if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
     }
+    // Limite da reserva diária: acima de 30 diárias (regra das 27 horas), a
+    // busca indica o aluguel mensal. Os termos de hoje pedem novo contrato a
+    // cada 30 dias (cláusula 4.5); o limite do motor espera confirmação.
+    var MAX_DIAS = 30;
     function validate() {
       var p = parse(pick.value), r = parse(ret.value), ok = true;
-      if (!p) { error(pick, 'Escolha o dia da retirada.'); ok = false; }
-      else if (p < new Date(Date.now() - 60000)) { error(pick, 'Escolha uma data e hora a partir de agora.'); ok = false; }
+      erros = [];
+      if (!p) { error(pick, 'Escolha o dia da retirada.', 'vazio'); ok = false; }
+      else if (p < new Date(Date.now() - 60000)) { error(pick, 'Escolha uma data e hora a partir de agora.', 'passado'); ok = false; }
       else error(pick, '');
-      if (!r) { error(ret, 'Escolha o dia da devolução.'); ok = false; }
-      else if (p && r <= p) { error(ret, 'A devolução precisa ser depois da retirada.'); ok = false; }
+      if (!r) { error(ret, 'Escolha o dia da devolução.', 'vazio'); ok = false; }
+      else if (p && r <= p) { error(ret, 'A devolução precisa ser depois da retirada.', 'ordem'); ok = false; }
+      else if (p && Math.ceil((r - p - 3 * 3600 * 1000) / 864e5) > MAX_DIAS) {
+        error(ret, 'Para mais de ' + MAX_DIAS + ' dias, veja o aluguel mensal.', 'acima_maximo', ['/aluguel-mensal', 'Ver aluguel mensal']); ok = false;
+      }
       else error(ret, '');
       return ok;
     }
@@ -291,7 +308,11 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (btn.disabled) return;
-      if (!validate()) { (pick.hasAttribute('aria-invalid') ? pick : ret).focus(); return; }
+      if (!validate()) {
+        erros.forEach(function (er) { track('search_error', er); });
+        (pick.hasAttribute('aria-invalid') ? pick : ret).focus();
+        return;
+      }
       var ini = parse(pick.value), fim = parse(ret.value);
       track('search', {
         local_retirada: local.value, iata: local.value, origem: form.dataset.origem || page, artigo: form.dataset.artigo || '',
