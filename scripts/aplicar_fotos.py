@@ -55,9 +55,11 @@ def main():
             novo = re.sub(r'\s(role="img"|aria-label="[^"]*")', "", attrs)
             novo = novo.replace('class="', 'class="site-foto ', 1)
             novo += ' data-foto="%s"' % f["item"]
-            return ('<%s%s><img src="%s" alt="%s" width="%d" height="%d" loading="lazy" decoding="async">'
+            # A abertura da home é a maior imagem da página (LCP): carrega já.
+            carga = 'loading="eager" fetchpriority="high"' if "hero" in leg else 'loading="lazy"'
+            return ('<%s%s><img src="%s" alt="%s" width="%d" height="%d" %s decoding="async">'
                     '<!-- foto %s: %s (%s). Briefing original: %s --></%s>'
-                    % (tag, novo, f["arquivo"], alt, f["largura"], f["altura"],
+                    % (tag, novo, f["arquivo"], alt, f["largura"], f["altura"], carga,
                        f["item"], f["fonte"], f["licenca"], leg.replace("--", "-"), tag))
 
         novo_src = FOTO.sub(troca, src)

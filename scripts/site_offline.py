@@ -176,7 +176,8 @@ def main():
         "Site da Asa Rent a Car, versão offline\n\n"
         "Abra index.html com dois cliques (Chrome, Safari ou Edge). Não precisa de servidor nem de internet,\n"
         "exceto para o que depende de terceiros: o mapa da página Lojas, os links de WhatsApp e do Google Maps.\n\n"
-        "É o protótipo em rascunho: as pendências aparecem em laranja e as fotos são o briefing de cada uma.\n"
+        "É o protótipo em rascunho: as pendências aparecem em laranja. As fotos de banco são da coleção gratuita\n"
+        "do Adobe Stock, licenciadas pela Asa; onde aparece o briefing no lugar da foto, falta a foto própria.\n"
         "A reserva funciona de ponta a ponta com dados de teste; nada é enviado a lugar nenhum.\n\n"
         "Gerado por scripts/site_offline.py, no repositório asa-design-system. Para atualizar, rode o script de novo.\n")
     print("%d páginas e %d scripts em %s" % (n_html, n_js, DESTINO))

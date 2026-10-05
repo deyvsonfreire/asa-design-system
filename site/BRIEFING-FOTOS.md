@@ -203,6 +203,43 @@ Escolhidas pela Asa entre as opções do Adobe Stock. As 22 são da coleção gr
 
 **Atenção, L24 (Jericoacoara):** a foto escolhida (#222062922) mostra um veículo vermelho rodando na areia da praia. Ela aparece na home, no Aeroporto de Fortaleza e no Réveillon, ao lado de "Retirada no Aeroporto de Fortaleza", e pode ser lida como carro alugado na areia, o que conflita com D12. Alternativas da mesma busca, sem veículo: #507154213 (lagoa e dunas), #614019876 (Pedra Furada) e #515708333 (rede na lagoa de Tatajuba).
 
+## Segunda rodada (05/10/2026)
+
+Para deixar o site completo para a avaliação da direção, os lugares que não dependem do lugar real da Asa receberam fotos da coleção gratuita do Adobe Stock, escolhidas pela Asa. As 21 novas passaram pela mesma conferência da primeira rodada (licença padrão e "Baixar", sem preço, sem teste e sem restrição editorial) e foram licenciadas pela conta Adobe da Asa. Três itens reaproveitam fotos já licenciadas (L07 usa a de Carneiros, C01 a ladeira de Olinda, C11 a mesma estrada da L16).
+
+São **provisórias**: muitas são genéricas ou mostram um lugar vizinho, porque o banco não tem o lugar pedido. O título de cada linha diz o que a foto mostra de fato, e o alt descreve a foto, não o briefing. Ficam até a foto própria chegar.
+
+| # | Imagem (o que a foto mostra) | Adobe Stock | Arquivo | Lugares |
+|---|---|---|---|---:|
+| L04 | Pontal de Maracaípe (no lugar: Porto de Galinhas, mesmo município) | #559858509 | `porto-de-galinhas-orla-559858509.webp` | 1 |
+| L05 | Praia de Muro Alto (no lugar: arrecifes de Porto de Galinhas) | #483200551 | `porto-de-galinhas-arrecifes-483200551.webp` | 1 |
+| L07 | Enseada de Calhetas (no lugar: Praia dos Carneiros) | #525634510 | `praia-dos-carneiros-525634510.webp` | 1 |
+| L13 | Praia do Janga (no lugar: praia genérica do Nordeste) | #421379594 | `praia-barcos-nordeste-421379594.webp` | 1 |
+| L16 | Estrada de serra a caminho de Gravatá (no lugar: estrada genérica) | #544847370 | `estrada-asfaltada-mata-544847370.webp` | 3 |
+| L18 | Praia de Antunes (no lugar: praia de Maragogi) | #382709767 | `maragogi-praia-382709767.webp` | 1 |
+| L22 | Praia de Porto das Dunas (no lugar: Praia Redonda, Icapuí) | #298969762 | `jangada-praia-ceara-298969762.webp` | 1 |
+| L28 | Estrada de serra em Guaramiranga (no lugar: estrada genérica na mata) | #435828045 | `estrada-serra-mata-435828045.webp` | 2 |
+| C11 | Estrada asfaltada rumo a Jericoacoara (no lugar: estrada genérica) | #544847370 | `estrada-asfaltada-mata-544847370.webp` | 1 |
+| C01 | Ladeira de Olinda no Carnaval | #248258677 | `olinda-ladeira-da-misericordia-248258677.webp` | 1 |
+| C03 | Carro em estrada ao entardecer (genérica) | #186348859 | `carro-estrada-nascer-do-sol-186348859.webp` | 2 |
+| C04 | Estrada entre coqueiros (no lugar: coqueiral) | #288116249 | `coqueiral-288116249.webp` | 2 |
+| C05 | Carro em estrada asfaltada, dia claro (genérica) | #279168079 | `carro-estrada-dia-279168079.webp` | 2 |
+| C06 | Rodovia do agreste ao entardecer (no lugar: Caruaru vista do alto) | #515214901 | `caruaru-agreste-515214901.webp` | 1 |
+| C07 | Picape em estrada asfaltada (genérica) | #296378349 | `picape-estrada-296378349.webp` | 1 |
+| C08 | Estrada asfaltada rumo a Jijoca (no lugar: estrada genérica, sem carro) | #202947604 | `estrada-asfaltada-reta-202947604.webp` | 2 |
+| P01 | Abertura da home (provisória: família saindo de viagem) | #603637990 | `familia-malas-porta-malas-603637990.webp` | 2 |
+| P02 | Carros alinhados no pátio (genérica) | #311493284 | `carros-estacionados-fila-311493284.webp` | 3 |
+| P03 | Um carro pronto para a retirada (genérica) | #305944041 | `chave-do-carro-305944041.webp` | 3 |
+| P04 | Família com malas ao lado do carro (genérica) | #281332939 | `familia-ao-lado-do-carro-281332939.webp` | 1 |
+| P05 | Profissional conferindo um carro (genérica) | #617906762 | `profissional-conferindo-carro-617906762.webp` | 1 |
+| B05 | Entrega da chave ao cliente (genérica) | #1187420128 | `entrega-da-chave-1187420128.webp` | 3 |
+| B06 | Atendimento a um cliente (genérica) | #368360241 | `atendimento-locacao-368360241.webp` | 1 |
+| D05 | Câmbio automático (genérica) | #1207028064 | `cambio-automatico-1207028064.webp` | 1 |
+
+**Sem foto nesta rodada (nenhuma opção serviu):** L14 (Forte Orange), L15 (Instituto Ricardo Brennand), C02 (estrada à beira-mar, 3 lugares em Ofertas e Carnaval) e D07 (caçamba com prancha e bicicleta).
+
+**Seguem para produção própria, sem alternativa de banco:** o ensaio dos 15 carros (F01 a F15) e os detalhes D01 a D04 e D06, que também cobrem os cards de oferta que citam o modelo; os balcões (B01 a B04); equipe, retratos e o desembarque (B09 a B13); o painel de chegadas (B14); a frota no pátio em Quem somos; L01; os mapas (I01 e I02).
+
 ## Imagem de compartilhamento (ainda não existe)
 
 Nenhuma página tem hoje a imagem que aparece quando o link é compartilhado no WhatsApp e nas redes (`og:image`, 1.200 × 630 px). Sugestão: uma imagem padrão da marca e, nas páginas de destino e de praça, a foto principal da própria página no mesmo recorte. Dá para fazer a partir das fotos acima, sem foto nova.

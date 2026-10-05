@@ -299,5 +299,328 @@
    "[ foto · família descarregando o carro no estacionamento ]"
   ],
   "alt": "Porta-malas de carro aberto com malas de viagem"
+ },
+ {
+  "item": "L04",
+  "imagem": "Pontal de Maracaípe (no lugar: Porto de Galinhas, mesmo município)",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-orla-559858509.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #559858509",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · pontal de Maracaípe, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia de Porto de Galinhas vista do alto, com a orla em curva, o mar verde-claro e os guarda-sóis na areia"
+ },
+ {
+  "item": "L05",
+  "imagem": "Praia de Muro Alto (no lugar: arrecifes de Porto de Galinhas)",
+  "arquivo": "/site/img/fotos/porto-de-galinhas-arrecifes-483200551.webp",
+  "largura": 1600,
+  "altura": 1066,
+  "fonte": "Adobe Stock #483200551",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia de Muro Alto, mar calmo e arrecifes, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Piscinas naturais e arrecifes de Porto de Galinhas vistos do alto, com jangadas na água rasa"
+ },
+ {
+  "item": "L07",
+  "imagem": "Enseada de Calhetas (no lugar: Praia dos Carneiros)",
+  "arquivo": "/site/img/fotos/praia-dos-carneiros-525634510.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #525634510",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · enseada de Calhetas, no Cabo de Santo Agostinho, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia dos Carneiros, em Tamandaré, vista do alto, com coqueiros e mar verde"
+ },
+ {
+  "item": "L13",
+  "imagem": "Praia do Janga (no lugar: praia genérica do Nordeste)",
+  "arquivo": "/site/img/fotos/praia-barcos-nordeste-421379594.webp",
+  "largura": 1600,
+  "altura": 1200,
+  "fonte": "Adobe Stock #421379594",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia do Janga, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Praia de águas azuis com barcos ancorados ao longe e galhos de árvore no primeiro plano"
+ },
+ {
+  "item": "L16",
+  "imagem": "Estrada de serra a caminho de Gravatá (no lugar: estrada genérica)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-mata-544847370.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #544847370",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada da serra no agreste de PE ]",
+   "[ foto · estrada de serra a caminho de Gravatá ]"
+  ],
+  "alt": "Estrada asfaltada entre a encosta e a mata, com um caminhão ao longe e a placa de 60 km/h"
+ },
+ {
+  "item": "L18",
+  "imagem": "Praia de Antunes (no lugar: praia de Maragogi)",
+  "arquivo": "/site/img/fotos/maragogi-praia-382709767.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #382709767",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Praia de Antunes, em Maragogi, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Cabana de praia com cortinas brancas diante do mar de Maragogi, com barcos ao fundo"
+ },
+ {
+  "item": "L22",
+  "imagem": "Praia de Porto das Dunas (no lugar: Praia Redonda, Icapuí)",
+  "arquivo": "/site/img/fotos/jangada-praia-ceara-298969762.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #298969762",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · praia de Porto das Dunas, em Aquiraz, banco licenciado ou foto própria ]"
+  ],
+  "alt": "Jangada de vela branca na areia da Praia Redonda, em Icapuí, no Ceará"
+ },
+ {
+  "item": "L28",
+  "imagem": "Estrada de serra em Guaramiranga (no lugar: estrada genérica na mata)",
+  "arquivo": "/site/img/fotos/estrada-serra-mata-435828045.webp",
+  "largura": 1600,
+  "altura": 1200,
+  "fonte": "Adobe Stock #435828045",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada de serra com mata em Guaramiranga, banco licenciado ou foto própria ]",
+   "[ foto · estrada na serra de Guaramiranga ]"
+  ],
+  "alt": "Estrada sinuosa atravessando a mata fechada, vista do alto"
+ },
+ {
+  "item": "C11",
+  "imagem": "Estrada asfaltada rumo a Jericoacoara (no lugar: estrada genérica)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-mata-544847370.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #544847370",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · estrada asfaltada entre carnaubais no litoral oeste do Ceará, sem carro em duna ou areia. Arquivo: aluguel-carro-jericoacoara-estrada-ce.jpg ]"
+  ],
+  "alt": "Estrada asfaltada entre a encosta e a mata, com um caminhão ao longe e a placa de 60 km/h"
+ },
+ {
+  "item": "C01",
+  "imagem": "Ladeira de Olinda no Carnaval",
+  "arquivo": "/site/img/fotos/olinda-ladeira-da-misericordia-248258677.webp",
+  "largura": 1067,
+  "altura": 1600,
+  "fonte": "Adobe Stock #248258677",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota em ladeira de Olinda, sem foliões identificáveis ]"
+  ],
+  "alt": "Ladeira da Misericórdia, em Olinda, no Carnaval"
+ },
+ {
+  "item": "C03",
+  "imagem": "Carro em estrada ao entardecer (genérica)",
+  "arquivo": "/site/img/fotos/carro-estrada-nascer-do-sol-186348859.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #186348859",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota em estrada costeira ao entardecer ]",
+   "[ foto · carro da frota em estrada costeira ao entardecer, sem fogos com marca de evento ]"
+  ],
+  "alt": "Carro na estrada asfaltada com o sol baixo refletido na lateral"
+ },
+ {
+  "item": "C04",
+  "imagem": "Estrada entre coqueiros (no lugar: coqueiral)",
+  "arquivo": "/site/img/fotos/coqueiral-288116249.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #288116249",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da Asa na estrada do litoral sul, entre coqueiros ]",
+   "[ foto · carro da Asa na estrada do litoral, entre coqueiros ]"
+  ],
+  "alt": "Coqueiros vistos de baixo contra o céu azul"
+ },
+ {
+  "item": "C05",
+  "imagem": "Carro em estrada asfaltada, dia claro (genérica)",
+  "arquivo": "/site/img/fotos/carro-estrada-dia-279168079.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #279168079",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · SUV da frota em estrada asfaltada a caminho do litoral sul de Pernambuco, foto própria ]",
+   "[ foto · carro da frota na estrada para a praia, dezembro ]"
+  ],
+  "alt": "Carro prata na rodovia asfaltada em dia de sol"
+ },
+ {
+  "item": "C06",
+  "imagem": "Rodovia do agreste ao entardecer (no lugar: Caruaru vista do alto)",
+  "arquivo": "/site/img/fotos/caruaru-agreste-515214901.webp",
+  "largura": 1600,
+  "altura": 900,
+  "fonte": "Adobe Stock #515214901",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · SUV da frota na BR-232, agreste, fim de tarde, sem marca de festa ]"
+  ],
+  "alt": "Caruaru, no agreste de Pernambuco, vista do alto, com a serra ao fundo"
+ },
+ {
+  "item": "C07",
+  "imagem": "Picape em estrada asfaltada (genérica)",
+  "arquivo": "/site/img/fotos/picape-estrada-296378349.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #296378349",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · picape cabine dupla da frota em estrada asfaltada do Nordeste, foto própria ]"
+  ],
+  "alt": "Picape cabine dupla prata em movimento numa estrada asfaltada"
+ },
+ {
+  "item": "C08",
+  "imagem": "Estrada asfaltada rumo a Jijoca (no lugar: estrada genérica, sem carro)",
+  "arquivo": "/site/img/fotos/estrada-asfaltada-reta-202947604.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #202947604",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · picape na estrada asfaltada a caminho de Jijoca, nunca na areia (D12) ]"
+  ],
+  "alt": "Estrada asfaltada reta entre a mata, com o sol no horizonte"
+ },
+ {
+  "item": "P01",
+  "imagem": "Abertura da home (provisória: família saindo de viagem)",
+  "arquivo": "/site/img/fotos/familia-malas-porta-malas-603637990.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #603637990",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota Asa saindo do pátio do Aeroporto do Recife, com pessoas reais e autorização de imagem. Arquivo: asa-aluguel-carros-aeroporto-recife-hero.webp ]",
+   "[ foto · carro da frota Asa saindo do pátio do Aeroporto do Recife, foto própria ]"
+  ],
+  "alt": "Família colocando as malas no porta-malas do carro antes da viagem"
+ },
+ {
+  "item": "P02",
+  "imagem": "Carros alinhados no pátio (genérica)",
+  "arquivo": "/site/img/fotos/carros-estacionados-fila-311493284.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #311493284",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · Spin de 7 lugares e automáticos no pátio de Recife ]",
+   "[ foto · pátio do Aeroporto do Recife, carros prontos para a retirada ]",
+   "[ foto · sedãs e SUVs da frota alinhados no pátio, sem placas legíveis (frota-asa-empresas-patio.jpg) ]"
+  ],
+  "alt": "Picapes e SUVs brancos estacionados em fila"
+ },
+ {
+  "item": "P03",
+  "imagem": "Um carro pronto para a retirada (genérica)",
+  "arquivo": "/site/img/fotos/chave-do-carro-305944041.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #305944041",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · carro da frota (Onix Plus ou Tracker) no pátio do Aeroporto do Recife, luz do fim da tarde, sem pessoas ou com colaborador autorizado entregando a chave. Arquivo: aluguel-mensal-carro-patio-aeroporto-recife.jpg ]",
+   "[ foto · carro da frota no pátio do Aeroporto do Recife ]"
+  ],
+  "alt": "Mão segurando a chave do carro, com o carro ao fundo"
+ },
+ {
+  "item": "P04",
+  "imagem": "Família com malas ao lado do carro (genérica)",
+  "arquivo": "/site/img/fotos/familia-ao-lado-do-carro-281332939.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #281332939",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · família com malas ao lado de uma Spin no pátio do Aeroporto do Recife, com autorização de imagem ]"
+  ],
+  "alt": "Família com crianças correndo na estrada ao lado do carro com o porta-malas cheio de malas"
+ },
+ {
+  "item": "P05",
+  "imagem": "Profissional conferindo um carro (genérica)",
+  "arquivo": "/site/img/fotos/profissional-conferindo-carro-617906762.webp",
+  "largura": 1600,
+  "altura": 655,
+  "fonte": "Adobe Stock #617906762",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · gestor de frota conferindo um sedã no pátio, com autorização de imagem ]"
+  ],
+  "alt": "Profissional de macacão conferindo o motor de um carro com o capô aberto"
+ },
+ {
+  "item": "B05",
+  "imagem": "Entrega da chave ao cliente (genérica)",
+  "arquivo": "/site/img/fotos/entrega-da-chave-1187420128.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #1187420128",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · atendente da Asa entrega a chave ao cliente no balcão, com autorização de imagem da equipe ]",
+   "[ foto · cliente recebe a chave no balcão da Asa, com autorização de uso de imagem ]",
+   "[ foto · cliente recebe a chave no balcão, com autorização de imagem ]"
+  ],
+  "alt": "Cliente sorridente no banco do motorista recebendo a chave do carro"
+ },
+ {
+  "item": "B06",
+  "imagem": "Atendimento a um cliente (genérica)",
+  "arquivo": "/site/img/fotos/atendimento-locacao-368360241.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #368360241",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · balcão da Asa com atendimento a um cliente, com autorização de imagem ]"
+  ],
+  "alt": "Atendente entrega a chave do carro ao cliente"
+ },
+ {
+  "item": "D05",
+  "imagem": "Câmbio automático (genérica)",
+  "arquivo": "/site/img/fotos/cambio-automatico-1207028064.webp",
+  "largura": 1600,
+  "altura": 1067,
+  "fonte": "Adobe Stock #1207028064",
+  "licenca": "Licença padrão do Adobe Stock, coleção gratuita, licenciada pela conta Adobe da Asa em 05/10/2026",
+  "legendas": [
+   "[ foto · câmbio automático de um Chevrolet Tracker da frota, detalhe do painel, foto própria ]"
+  ],
+  "alt": "Alavanca do câmbio automático no console de um carro"
  }
 ]
