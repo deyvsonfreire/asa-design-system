@@ -100,7 +100,9 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 4. Foto ainda inexistente vira `.asa-photo` com o briefing na legenda e o alt em `aria-label`.
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
 6. Antes de mandar o site para avaliação, rodar `python3 scripts/validar_site.py --relatorio site/VALIDACAO.md`. Ele confere a cobertura das copys 01 a 44, title, description, H1, canonical, robots, JSON-LD, links internos, alt, 15 Composição, as palavras proibidas do guia (00b) e o aviso de rascunho, e sai com erro se houver falha.
-7. Para testar sem servidor, rodar `python3 scripts/site_offline.py`: ele gera em `../asa-design-system-offline/site/` uma cópia com caminhos relativos, que abre com dois cliques no `index.html` (Chrome, Safari ou Edge). Rodar de novo a cada mudança.
+7. Para testar sem servidor, rodar `python3 scripts/site_offline.py`: ele gera em `../asa-design-system-offline/site/` uma cópia com caminhos relativos, que abre com dois cliques no `index.html` (Chrome, Safari ou Edge). Rodar de novo a cada mudança. A cópia offline mostra o site como ficaria no ar: sem o aviso de rascunho, sem os marcadores [CONFIRMAR] e [VERIFICAR], com preços de exemplo nos cards e um painel neutro onde ainda falta foto. As notas ficam só aqui, na versão de desenvolvimento.
+
+`home-carrossel/` é uma versão de teste da home com carrossel no hero (os layouts da Asa: aluguel dentro do aeroporto, pré-cadastro e diária de 27 horas), com `noindex`. A home oficial continua em `index.html`.
 8. Foto nova: registrar em `site/fotos.json` (arquivo em `site/img/fotos/`, fonte, licença, alt e as legendas dos placeholders) e rodar `python3 scripts/aplicar_fotos.py`.
 
 ## O que ainda é protótipo

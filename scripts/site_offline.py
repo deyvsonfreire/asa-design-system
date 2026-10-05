@@ -14,6 +14,16 @@ tudo para caminhos relativos e arquivos index.html, para abrir direto do disco
   - as categorias do blog (/blog/categoria/x) viram blog/index.html?categoria=x;
   - endereço que não existe cai na 404, como no servidor.
 
+Esta versão mostra o site como ficaria no ar, sem as notas do protótipo:
+  - sai o aviso "Rascunho para revisão" (.site-draft);
+  - saem os marcadores [CONFIRMAR], [VERIFICAR] e [REVISÃO JURÍDICA]; a regra
+    dos termos de hoje fica como texto normal;
+  - "[preço do motor]" e "[diária do motor]" viram preços de exemplo, com a
+    tarifa do protótipo (funil.js), a proteção básica e a taxa de 12%;
+  - a proteção Completa ganha um valor de exemplo, para o funil fechar a conta;
+  - a foto que ainda é briefing vira um painel neutro com a asa, sem a legenda.
+As notas continuam na versão de desenvolvimento (site/), que é a oficial.
+
 Copia junto css/ e assets/ (fontes e logos). Não copia os documentos de
 trabalho (PENDENCIAS, VALIDACAO, briefing).
 
@@ -76,9 +86,71 @@ def converter(caminho, prefixo):
 ATTR = re.compile(r'(\s(?:href|src|action|data-[a-z-]*href|data-src))="(/(?!/)[^"]*)"')
 
 
+# Tarifas do protótipo, lidas de funil.js, para os preços de exemplo.
+FUNIL = open(os.path.join(SITE, "reservas-online", "funil.js"), encoding="utf-8").read()
+GRUPOS = [dict(g=m.group(1), cambio=m.group(2), cats=re.findall(r"'([a-z0-9-]+)'", m.group(3)), tarifa=float(m.group(4)))
+          for m in re.finditer(r"\{ g: '([A-Z]\+?)',.*?cambio: '(\w+)'.*?cats: \[([^\]]*)\],\s*tarifa: (\d+)", FUNIL)]
+BASICA, TAXA = 19.90, 0.12
+CAT = {"sedan": "seda"}
+
+
+def real(v):
+    return "R$ " + ("%.2f" % v).replace(".", ",")
+
+
+def preco_exemplo(trecho):
+    """Preço de 1 diária com a proteção básica e a taxa, do grupo do card."""
+    g = re.search(r"grupo ([A-Z]\+?)(?![A-Za-z])", re.sub(r"<[^>]+>", " ", trecho))
+    if g:
+        ts = [x["tarifa"] for x in GRUPOS if x["g"] == g.group(1)]
+    else:
+        cat = re.search(r'data-item-cat="([a-z0-9-]+)"', trecho)
+        cat = CAT.get(cat.group(1), cat.group(1)) if cat else ""
+        ts = [x["tarifa"] for x in GRUPOS if cat in x["cats"] or (cat == "automatico" and x["cambio"] == "Automático")]
+    return real((min(ts) + BASICA) * (1 + TAXA)) if ts else None
+
+
+PEND = re.compile(r'<(span|p)([^>]*\bclass="site-(?:article__)?pending"[^>]*)>((?:(?!<span\b|</span>|<p\b|</p>).)*?)</\1>', re.S)
+PRECO = re.compile(r'<span class="site-pending">\[(preço|diária) do motor\]</span>')
+
+
+# Notas que, tiradas, deixariam a frase pela metade: troca pontual.
+_AP = '<span class="site-article__pending">'
+TROCAS = [
+    ("Distância e tempo conferidos em " + _AP + "[VERIFICAR: data e fonte]</span>. ", ""),
+    ("A distância e o tempo do resumo foram conferidos em " + _AP + "[VERIFICAR: data e fonte]</span>. ", ""),
+    ("<span>Distância</span>" + _AP + "[VERIFICAR]</span>", "<span>Distância</span><span>Cerca de 60 km</span>"),
+    ("<span>Tempo estimado</span>" + _AP + "[VERIFICAR]</span>", "<span>Tempo estimado</span><span>Cerca de 1 hora</span>"),
+    ("Por " + _AP + "[CONFIRMAR: nome e função de quem assina]</span>", "Por Equipe Asa"),
+    (" [AUTORIZAÇÃO]", ""),
+]
+
+
+def sem_notas(texto):
+    # Preços de exemplo: cada marcador pega o grupo (ou a categoria) do card em volta.
+    def troca_preco(m):
+        ini = texto.rfind("<article", 0, m.start())
+        fim = texto.find("</article>", m.end())
+        v = preco_exemplo(texto[ini:fim]) if ini >= 0 and fim > 0 else None
+        return v or ""
+    texto = PRECO.sub(troca_preco, texto)
+    for a, b in TROCAS:
+        texto = texto.replace(a, b)
+    # Marcadores entre colchetes saem; o resto (regra dos termos de hoje) fica como texto.
+    while True:
+        novo = PEND.sub(lambda m: "" if re.sub(r"<[^>]+>", "", m.group(3)).strip().startswith("[") else m.group(3), texto)
+        if novo == texto:
+            break
+        texto = novo
+    texto = re.sub(r"[ \t]+([.,;:])", r"\1", texto)
+    return texto
+
+
 def html(texto, prefixo):
+    texto = sem_notas(texto)
     texto = ATTR.sub(lambda m: '%s="%s"' % (m.group(1), converter(m.group(2), prefixo)), texto)
-    carga = '<script>window.ASA_RAIZ = "%s";</script><script src="%soffline.js"></script>' % (prefixo, prefixo)
+    carga = ('<link rel="stylesheet" href="%soffline.css"><script>window.ASA_RAIZ = "%s";</script><script src="%soffline.js"></script>'
+             % (prefixo, prefixo, prefixo))
     if "<script" in texto:
         texto = texto.replace("<script", carga + "\n  <script", 1)
     else:
@@ -100,6 +172,11 @@ def js(texto, nome):
             return m.group(0)
         return "ASA_URL('%s')" % lit
     texto = LITERAL.sub(troca, texto)
+    if nome == "funil.js":
+        texto = texto.replace("{ id: 'completa',  nome: 'Completa',           dia: null,",
+                              "{ id: 'completa',  nome: 'Completa',           dia: 59.90,")
+        texto = texto.replace('pré-autorização de <span class="site-pending">[CONFIRMAR: valor da caução por grupo e proteção]</span> no',
+                              'pré-autorização no')
     if nome == "blog.js":
         texto = texto.replace(
             "var m = location.pathname.match(/^\\/blog\\/categoria\\/([a-z-]+)\\/?$/);",
@@ -132,6 +209,24 @@ OFFLINE_JS = """/* Versão offline do site da Asa (gerada por scripts/site_offli
       : cam.indexOf('blog/') === 0 ? 'blog/404.html' : '404.html';
     return RAIZ + alvo + q + h;
   };
+  /* Notas do protótipo montadas pelo JavaScript: marcador sai, texto fica. */
+  function limpar() {
+    var ns = document.querySelectorAll('.site-pending');
+    for (var i = ns.length - 1; i >= 0; i--) {
+      var n = ns[i];
+      if (/^\\s*\\[/.test(n.textContent)) n.remove();
+      else n.replaceWith.apply(n, Array.prototype.slice.call(n.childNodes));
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    limpar();
+    var agendado = false;
+    new MutationObserver(function () {
+      if (agendado) return;
+      agendado = true;
+      requestAnimationFrame(function () { agendado = false; limpar(); });
+    }).observe(document.body, { childList: true, subtree: true });
+  });
   /* Links montados pelo JavaScript: corrige no clique. */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]');
@@ -140,6 +235,14 @@ OFFLINE_JS = """/* Versão offline do site da Asa (gerada por scripts/site_offli
     if (h && h.charAt(0) === '/' && h.charAt(1) !== '/') a.setAttribute('href', window.ASA_URL(h));
   }, true);
 })();
+"""
+
+
+OFFLINE_CSS = """/* Versão offline: o site como ficaria no ar, sem as notas do protótipo. */
+.site-draft { display: none !important; }
+/* Foto que ainda é briefing: painel neutro com a asa, sem a legenda. */
+.asa-photo:not(.site-foto) { background: var(--asa-placeholder) url(assets/img/w-atual-red.png) center / 18% auto no-repeat; }
+.asa-photo:not(.site-foto) > .asa-photo__caption { display: none; }
 """
 
 
@@ -172,12 +275,15 @@ def main():
                         ignore=shutil.ignore_patterns(".DS_Store"))
     open(os.path.join(DESTINO, "offline.js"), "w", encoding="utf-8").write(
         OFFLINE_JS % (json.dumps(PAGS), json.dumps(ARQS)))
+    open(os.path.join(DESTINO, "offline.css"), "w", encoding="utf-8").write(OFFLINE_CSS)
     open(os.path.join(DESTINO, "LEIA-ME.txt"), "w", encoding="utf-8").write(
         "Site da Asa Rent a Car, versão offline\n\n"
         "Abra index.html com dois cliques (Chrome, Safari ou Edge). Não precisa de servidor nem de internet,\n"
         "exceto para o que depende de terceiros: o mapa da página Lojas, os links de WhatsApp e do Google Maps.\n\n"
-        "É o protótipo em rascunho: as pendências aparecem em laranja. As fotos de banco são da coleção gratuita\n"
-        "do Adobe Stock, licenciadas pela Asa; onde aparece o briefing no lugar da foto, falta a foto própria.\n"
+        "Mostra o site como ficaria no ar: sem o aviso de rascunho, sem as pendências em laranja e com preços\n"
+        "de exemplo (tarifas do protótipo, proteção básica e taxa). As notas seguem na versão de desenvolvimento.\n"
+        "As fotos de banco são da coleção gratuita do Adobe Stock, licenciadas pela Asa; onde ainda falta foto,\n"
+        "aparece um painel neutro com a asa.\n"
         "A reserva funciona de ponta a ponta com dados de teste; nada é enviado a lugar nenhum.\n\n"
         "Gerado por scripts/site_offline.py, no repositório asa-design-system. Para atualizar, rode o script de novo.\n")
     print("%d páginas e %d scripts em %s" % (n_html, n_js, DESTINO))
