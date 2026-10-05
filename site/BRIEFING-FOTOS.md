@@ -170,6 +170,39 @@ As fotos próprias cabem em três diárias:
 | L27 | **Praia do litoral cearense com falésias** | Genérica do litoral leste do Ceará. | Banco de imagens | Adobe Stock | Ceará cliffs beach | 16:10 | `/frota/7-lugares`, `/frota/suv` | Pode ser a mesma de Morro Branco ou Canoa Quebrada. |
 | L28 | **Estrada de serra com mata em Guaramiranga** |   | Banco de imagens | Não achamos no Adobe Stock: Pulsar Imagens ou fotógrafo local | Guaramiranga | 16:9, 4:3 | `/aluguel-de-carros/fortaleza`, `/blog` |   |
 
+## Fotos já aplicadas (05/10/2026)
+
+Escolhidas pela Asa entre as opções do Adobe Stock. As 22 são da coleção gratuita do Adobe Stock: a página de cada uma mostra licença padrão e "Baixar", sem preço nem teste grátis (a imagem paga mostra "Licença padrão (Avaliação gratuita)" e o preço da estendida), e nenhuma tem restrição de uso editorial. Foram licenciadas pela conta Adobe da Asa e entram no site em WebP de 1.600 px, em `site/img/fotos/`. O registro de cada uma (fonte, licença, alt e os lugares que ela ocupa) está em `site/fotos.json`; `scripts/aplicar_fotos.py` faz a troca.
+
+| # | Imagem | Adobe Stock | Arquivo | Lugares |
+|---|---|---|---|---:|
+| L02 | Piscinas naturais de Porto de Galinhas na maré baixa | #483200545 | `porto-de-galinhas-piscinas-naturais-483200545.webp` | 3 |
+| L03 | Praia de Porto de Galinhas no fim da tarde | #500501379 | `porto-de-galinhas-praia-500501379.webp` | 1 |
+| L06 | Praia dos Carneiros e a igrejinha de São Benedito | #525634510 | `praia-dos-carneiros-525634510.webp` | 2 |
+| L08 | Orla de Boa Viagem, Recife | #500510845 | `boa-viagem-recife-500510845.webp` | 1 |
+| L09 | Recife Antigo: Marco Zero e Rua do Bom Jesus | #515087304 | `recife-antigo-marco-zero-515087304.webp` | 3 |
+| L10 | Sítio Histórico de Olinda visto do Alto da Sé | #500510740 | `olinda-alto-da-se-500510740.webp` | 2 |
+| L11 | Ladeira do sítio histórico de Olinda | #248258677 | `olinda-ladeira-da-misericordia-248258677.webp` | 1 |
+| L12 | Mirante do Alto da Sé, Olinda | #570002303 | `olinda-e-recife-vista-aerea-570002303.webp` | 1 |
+| L17 | Piscinas naturais (galés) de Maragogi | #571686137 | `maragogi-barco-571686137.webp` | 4 |
+| L19 | São Miguel dos Milagres na maré baixa | #475155143 | `sao-miguel-dos-milagres-475155143.webp` | 1 |
+| L20 | Beira-Mar de Fortaleza no fim da tarde | #472095985 | `fortaleza-beira-mar-472095985.webp` | 4 |
+| L21 | Avenida de Fortaleza em dia útil | #295940701 | `fortaleza-catedral-295940701.webp` | 1 |
+| L23 | Lagoa e dunas do Cumbuco | #295942222 | `cumbuco-295942222.webp` | 2 |
+| L24 | Dunas e lagoa de Jericoacoara | #222062922 | `jericoacoara-dunas-222062922.webp` | 3 |
+| L25 | Falésias coloridas de Morro Branco, Beberibe | #280296930 | `morro-branco-beberibe-280296930.webp` | 1 |
+| L26 | Falésias de Canoa Quebrada | #332270922 | `canoa-quebrada-332270922.webp` | 1 |
+| L27 | Praia do litoral cearense com falésias | #506935029 | `litoral-ceara-falesias-506935029.webp` | 1 |
+| B07 | Cartão de crédito físico na maquininha | #455695872 | `pagamento-cartao-maquininha-455695872.webp` | 1 |
+| B08 | Cliente com o celular no aeroporto | #348884536 | `celular-no-aeroporto-348884536.webp` | 1 |
+| B15 | Família com malas saindo do desembarque | #442382998 | `familia-no-aeroporto-442382998.webp` | 1 |
+| C09 | Carro parado no acostamento, pisca-alerta e triângulo | #184089969 | `triangulo-de-sinalizacao-184089969.webp` | 1 |
+| C10 | Família descarregando o carro no estacionamento | #168851945 | `porta-malas-com-malas-168851945.webp` | 1 |
+
+**L01** (família nas piscinas naturais) ficou sem foto: nenhuma opção do banco era de Porto de Galinhas. Segue para produção própria.
+
+**Atenção, L24 (Jericoacoara):** a foto escolhida (#222062922) mostra um veículo vermelho rodando na areia da praia. Ela aparece na home, no Aeroporto de Fortaleza e no Réveillon, ao lado de "Retirada no Aeroporto de Fortaleza", e pode ser lida como carro alugado na areia, o que conflita com D12. Alternativas da mesma busca, sem veículo: #507154213 (lagoa e dunas), #614019876 (Pedra Furada) e #515708333 (rede na lagoa de Tatajuba).
+
 ## Imagem de compartilhamento (ainda não existe)
 
 Nenhuma página tem hoje a imagem que aparece quando o link é compartilhado no WhatsApp e nas redes (`og:image`, 1.200 × 630 px). Sugestão: uma imagem padrão da marca e, nas páginas de destino e de praça, a foto principal da própria página no mesmo recorte. Dá para fazer a partir das fotos acima, sem foto nova.

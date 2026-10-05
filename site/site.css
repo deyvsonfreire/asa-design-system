@@ -2439,3 +2439,11 @@ body[data-page-type="lojas"] [hidden], body[data-page-type="aluguel-mensal"] [hi
 .site-map__frame { display: block; width: 100%; aspect-ratio: 4 / 3; margin-top: var(--asa-space-3); border: var(--asa-border-width) solid var(--asa-line); border-radius: var(--asa-radius); }
 
 .site-compare__alert { margin-top: var(--asa-space-7); max-width: 760px; }
+
+/* ==========================================================================
+   FOTO REAL NO LUGAR DO PLACEHOLDER (scripts/aplicar_fotos.py)
+   A caixa do .asa-photo continua (proporção, corte de 8°); a foto cobre a
+   caixa toda e a hachura sai.
+   ========================================================================== */
+.asa-photo.site-foto { background-image: none; background-color: var(--asa-placeholder); }
+.asa-photo.site-foto > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }

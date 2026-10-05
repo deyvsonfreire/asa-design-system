@@ -49,6 +49,8 @@ site/
 ├── 404.html             404 do site
 ├── PENDENCIAS.md         tudo o que falta decidir ou confirmar nas páginas já feitas
 ├── VALIDACAO.md          relatório de scripts/validar_site.py: cobertura da copy, falhas, avisos e pendências por página
+├── img/fotos/           fotos licenciadas (WebP, 1.600 px), aplicadas no lugar dos placeholders
+├── fotos.json           registro de cada foto aplicada: imagem do briefing, fonte, licença, alt e lugares
 ├── BRIEFING-FOTOS.md     as 84 imagens a providenciar (192 lugares de foto), com origem, banco sugerido e páginas
 ├── briefing-fotos.csv    a mesma lista em planilha, com colunas de responsável, status e arquivo entregue
 ├── quem-somos/          marca: hero com foto, equipe, avaliações, missão (rascunho)
@@ -99,6 +101,7 @@ Uma página que declara `<meta name="asa:secao" content="/frota">` ganha o item 
 5. Rodar `python3 scripts/parciais.py` e `python3 scripts/auditar.py site/<pagina>/index.html`, e olhar em 375 e 1440px.
 6. Antes de mandar o site para avaliação, rodar `python3 scripts/validar_site.py --relatorio site/VALIDACAO.md`. Ele confere a cobertura das copys 01 a 44, title, description, H1, canonical, robots, JSON-LD, links internos, alt, 15 Composição, as palavras proibidas do guia (00b) e o aviso de rascunho, e sai com erro se houver falha.
 7. Para testar sem servidor, rodar `python3 scripts/site_offline.py`: ele gera em `../asa-design-system-offline/site/` uma cópia com caminhos relativos, que abre com dois cliques no `index.html` (Chrome, Safari ou Edge). Rodar de novo a cada mudança.
+8. Foto nova: registrar em `site/fotos.json` (arquivo em `site/img/fotos/`, fonte, licença, alt e as legendas dos placeholders) e rodar `python3 scripts/aplicar_fotos.py`.
 
 ## O que ainda é protótipo
 
