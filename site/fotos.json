@@ -622,5 +622,279 @@
    "[ foto · câmbio automático de um Chevrolet Tracker da frota, detalhe do painel, foto própria ]"
   ],
   "alt": "Alavanca do câmbio automático no console de um carro"
+ },
+ {
+  "item": "F01",
+  "imagem": "Fiat Mobi (grupo A), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-a-fiat-mobi.webp",
+  "largura": 551,
+  "altura": 344,
+  "fonte": "Foto da frota no site atual da Asa (grupo-a.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Mobi da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Fiat Mobi da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Fiat Mobi branco com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F02",
+  "imagem": "Hyundai HB20 1.0 (grupo B), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-b-hyundai-hb20.webp",
+  "largura": 593,
+  "altura": 370,
+  "fonte": "Foto da frota no site atual da Asa (grupo-b.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Hyundai HB20 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Hyundai HB20 da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Hyundai HB20 em 3/4 frontal, fundo limpo ]"
+  ],
+  "alt": "Hyundai HB20 vermelho com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F03",
+  "imagem": "Chevrolet Onix 1.0 (grupo B+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-b-mais-chevrolet-onix.webp",
+  "largura": 610,
+  "altura": 381,
+  "fonte": "Foto da frota no site atual da Asa (grupo-b-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix hatch da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix hatch, 3/4 dianteiro no pátio do aeroporto, luz de manhã, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix hatch preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F04",
+  "imagem": "Chevrolet Onix Plus 1.0 (grupo C+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-c-mais-chevrolet-onix-plus.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (gripo-c-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Plus da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Plus em 3/4 frontal, fundo limpo ]",
+   "[ foto · Chevrolet Onix Plus, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix Plus sedã prata com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F05",
+  "imagem": "Citroën C3 Live Pack 1.6 (grupo D), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-d-citroen-c3.webp",
+  "largura": 593,
+  "altura": 371,
+  "fonte": "Foto da frota no site atual da Asa (grupo-d.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Citroën C3 da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Citroën C3 da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Citroën C3 em 3/4 frontal, fundo limpo ]"
+  ],
+  "alt": "Citroën C3 preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F06",
+  "imagem": "Chevrolet Onix 1.0 Turbo (grupo D+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-d-mais-chevrolet-onix-turbo.webp",
+  "largura": 610,
+  "altura": 381,
+  "fonte": "Foto da frota no site atual da Asa (grupo-d-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Turbo da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Turbo da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Chevrolet Onix hatch preto com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F07",
+  "imagem": "Chevrolet Onix Plus 1.0 Turbo (grupo E+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-e-mais-chevrolet-onix-plus-turbo.webp",
+  "largura": 568,
+  "altura": 355,
+  "fonte": "Foto da frota no site atual da Asa (grupo-e-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Onix Plus Turbo da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Onix Plus Turbo da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Onix Plus na orla ]",
+   "[ foto · Onix Plus no pátio ]"
+  ],
+  "alt": "Chevrolet Onix Plus sedã vermelho com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F08",
+  "imagem": "Chevrolet Spin 1.8 (grupo F+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-f-mais-chevrolet-spin.webp",
+  "largura": 641,
+  "altura": 400,
+  "fonte": "Foto da frota no site atual da Asa (grupo-f-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Spin com as portas abertas e a terceira fileira de bancos à mostra, no pátio do aeroporto, foto própria ]",
+   "[ foto · Chevrolet Spin com as portas abertas e a terceira fileira à mostra, foto própria ]",
+   "[ foto · Chevrolet Spin da frota, portas abertas e a 3ª fileira à mostra, foto própria ]",
+   "[ foto · Chevrolet Spin em 3/4 frontal, fundo limpo ]",
+   "[ foto · Spin no pátio ]"
+  ],
+  "alt": "Chevrolet Spin prata, de 7 lugares com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F09",
+  "imagem": "Chevrolet Tracker 1.0 Turbo (grupo G+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-g-mais-chevrolet-tracker.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-g-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet Tracker da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Tracker da frota, 3/4 dianteiro, fundo neutro, foto própria ]",
+   "[ foto · Chevrolet Tracker em 3/4 frontal, fundo limpo ]",
+   "[ foto · Tracker na estrada ]",
+   "[ foto · Tracker à beira-mar ]"
+  ],
+  "alt": "Chevrolet Tracker cinza com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F10",
+  "imagem": "Fiat Strada 1.3 (grupo H), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-h-fiat-strada.webp",
+  "largura": 592,
+  "altura": 370,
+  "fonte": "Foto da frota no site atual da Asa (grupo-h.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Strada da frota, 3/4 dianteiro no pátio do aeroporto, caçamba visível, foto própria ]"
+  ],
+  "alt": "Fiat Strada vermelha com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F11",
+  "imagem": "Jeep Commander 1.3 (grupo I+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-i-mais-jeep-commander.webp",
+  "largura": 604,
+  "altura": 377,
+  "fonte": "Foto da frota no site atual da Asa (grupo-i-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Commander na estrada costeira ]",
+   "[ foto · Commander no pátio ]",
+   "[ foto · Jeep Commander da frota, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]",
+   "[ foto · Jeep Commander da frota, 3/4 dianteiro, fundo neutro, foto própria ]"
+  ],
+  "alt": "Jeep Commander branco, de 7 lugares com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F12",
+  "imagem": "Jeep Compass 1.3 (grupo J+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-j-mais-jeep-compass.webp",
+  "largura": 576,
+  "altura": 360,
+  "fonte": "Foto da frota no site atual da Asa (grupo-j-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Jeep Compass saindo do pátio do aeroporto, vista lateral, céu aberto, foto própria ]",
+   "[ foto · Jeep Compass, 3/4 dianteiro no pátio do aeroporto, fundo neutro, foto própria ]"
+  ],
+  "alt": "Jeep Compass cinza com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F13",
+  "imagem": "Toyota Corolla 2.0 (grupo N+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-n-mais-toyota-corolla.webp",
+  "largura": 571,
+  "altura": 356,
+  "fonte": "Foto da frota no site atual da Asa (grupo-n-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Toyota Corolla com o porta-malas aberto e duas malas dentro, no pátio do aeroporto, foto própria ]"
+  ],
+  "alt": "Toyota Corolla branco com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F14",
+  "imagem": "Fiat Toro 2.0 4x4 (grupo O+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-o-mais-fiat-toro.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-o-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Fiat Toro 4x4, 3/4 traseiro com a caçamba à mostra, foto própria ]",
+   "[ foto · Fiat Toro 4x4, 3/4 traseiro com a caçamba à mostra, no pátio do aeroporto, foto própria ]",
+   "[ foto · Fiat Toro em 3/4 frontal, fundo limpo ]",
+   "[ foto · Toro 4x4 em estrada asfaltada do litoral do Ceará, sem areia até a decisão D12 ]"
+  ],
+  "alt": "Fiat Toro vinho, cabine dupla com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "F15",
+  "imagem": "Chevrolet S10 2.8 4x4 cabine dupla (grupo P+), foto do site atual",
+  "arquivo": "/site/img/frota/grupo-p-mais-chevrolet-s10.webp",
+  "largura": 613,
+  "altura": 383,
+  "fonte": "Foto da frota no site atual da Asa (grupo-p-mais.jpg)",
+  "licenca": "Imagem da própria Asa; provisória até o novo ensaio da frota",
+  "ajuste": "inteira",
+  "legendas": [
+   "[ foto · Chevrolet S10 cabine dupla, vista 3/4 traseira com a caçamba vazia, no pátio do aeroporto, foto própria ]"
+  ],
+  "alt": "Chevrolet S10 cabine dupla azul-escura com o adesivo da Asa na placa, em vista 3/4 dianteira"
+ },
+ {
+  "item": "B01",
+  "imagem": "Loja da Asa no Portão A5, Aeroporto do Recife (imagem do retrofit)",
+  "arquivo": "/site/img/lojas/loja-asa-aeroporto-recife.webp",
+  "largura": 1024,
+  "altura": 1536,
+  "fonte": "Imagem do retrofit da loja de Recife, enviada pela Asa",
+  "licenca": "Imagem da própria Asa",
+  "posicao": "50% 13%",
+  "legendas": [
+   "[ foto · balcão da Asa no Portão A5 de Desembarque, Recife ]",
+   "[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com a sinalização visível ]",
+   "[ foto · balcão da Asa no Portão A5 do Aeroporto do Recife, com autorização de imagem dos colaboradores ]",
+   "[ foto · balcão da Asa no Portão A5, atendente recebendo cliente com mala, luz do saguão, com autorização de imagem do colaborador. Arquivo: balcao-asa-aeroporto-recife-portao-a5.jpg ]",
+   "[ foto · desembarque do Aeroporto do Recife, Portão A5 ]"
+  ],
+  "alt": "Loja da Asa Rent a Car no Aeroporto do Recife, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto do Recife"
+ },
+ {
+  "item": "B03",
+  "imagem": "Loja da Asa na Área de Locadoras, Aeroporto de Fortaleza (imagem do retrofit)",
+  "arquivo": "/site/img/lojas/loja-asa-aeroporto-fortaleza.webp",
+  "largura": 1086,
+  "altura": 1448,
+  "fonte": "Imagem do retrofit da loja de Fortaleza, enviada pela Asa",
+  "licenca": "Imagem da própria Asa",
+  "posicao": "50% 20%",
+  "legendas": [
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza à noite, com a sinalização visível ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com a sinalização visível ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, com autorização de imagem dos colaboradores ]",
+   "[ foto · balcão da Asa na Área de Locadoras do Aeroporto de Fortaleza, à noite, com atendente e cliente com mala, com autorização de imagem. Arquivo: balcao-asa-aeroporto-fortaleza-area-locadoras.jpg ]",
+   "[ foto · balcão da Asa na Área de Locadoras, Fortaleza ]"
+  ],
+  "alt": "Loja da Asa Rent a Car no Aeroporto de Fortaleza, com o letreiro iluminado, totens de autoatendimento, sofá amarelo e uma tela com a foto de Fortaleza"
  }
 ]

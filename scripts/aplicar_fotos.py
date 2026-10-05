@@ -53,10 +53,14 @@ def main():
             # O alt descreve a foto escolhida (site/fotos.json), não o briefing.
             alt = html.escape(f.get("alt") or f["imagem"], quote=True)
             novo = re.sub(r'\s(role="img"|aria-label="[^"]*")', "", attrs)
-            novo = novo.replace('class="', 'class="site-foto ', 1)
+            extra = " site-foto--inteira" if f.get("ajuste") == "inteira" else ""
+            novo = novo.replace('class="', 'class="site-foto%s ' % extra, 1)
             novo += ' data-foto="%s"' % f["item"]
             # A abertura da home é a maior imagem da página (LCP): carrega já.
             carga = 'loading="eager" fetchpriority="high"' if "hero" in leg else 'loading="lazy"'
+            # Foto vertical em caixa deitada: o enquadramento escolhe a faixa que aparece.
+            if f.get("posicao"):
+                carga += ' style="object-position:%s"' % f["posicao"]
             return ('<%s%s><img src="%s" alt="%s" width="%d" height="%d" %s decoding="async">'
                     '<!-- foto %s: %s (%s). Briefing original: %s --></%s>'
                     % (tag, novo, f["arquivo"], alt, f["largura"], f["altura"], carga,

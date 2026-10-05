@@ -2447,3 +2447,7 @@ body[data-page-type="lojas"] [hidden], body[data-page-type="aluguel-mensal"] [hi
    ========================================================================== */
 .asa-photo.site-foto { background-image: none; background-color: var(--asa-placeholder); }
 .asa-photo.site-foto > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Foto de carro em fundo branco (recorte do site atual): o carro inteiro
+   aparece em qualquer proporção de caixa, sem cortar para-choque ou roda. */
+.asa-photo.site-foto--inteira { background-color: var(--asa-white); }
+.asa-photo.site-foto--inteira > img { object-fit: contain; }

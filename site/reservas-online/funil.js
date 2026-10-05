@@ -37,6 +37,17 @@
     { g: 'P+', cat: 'Picape 4x4',       modelo: 'Chevrolet S10 2.8 CD',          cambio: 'Automático', lugares: 5, portas: 4, malas: '3–4', cats: ['picape'],           tarifa: 329, x4: true }
   ];
 
+  /* Foto de cada grupo: a do site atual, recortada só no carro. Provisória até
+     o novo ensaio da frota (F01 a F15 do briefing de fotos). */
+  var FOTOS = {
+    'A': 'grupo-a-fiat-mobi', 'B': 'grupo-b-hyundai-hb20', 'B+': 'grupo-b-mais-chevrolet-onix',
+    'C+': 'grupo-c-mais-chevrolet-onix-plus', 'D': 'grupo-d-citroen-c3', 'D+': 'grupo-d-mais-chevrolet-onix-turbo',
+    'E+': 'grupo-e-mais-chevrolet-onix-plus-turbo', 'F+': 'grupo-f-mais-chevrolet-spin', 'G+': 'grupo-g-mais-chevrolet-tracker',
+    'H': 'grupo-h-fiat-strada', 'I+': 'grupo-i-mais-jeep-commander', 'J+': 'grupo-j-mais-jeep-compass',
+    'N+': 'grupo-n-mais-toyota-corolla', 'O+': 'grupo-o-mais-fiat-toro', 'P+': 'grupo-p-mais-chevrolet-s10'
+  };
+  GRUPOS.forEach(function (c) { c.foto = '/site/img/frota/' + FOTOS[c.g] + '.webp'; });
+
   /* O grupo "acima" de cada um, sempre com um ganho que dê para dizer em
      uma palavra (automático, 7 lugares, mais porta-malas, 4x4). Exemplo:
      quem decide o upgrade e o preço dele é o motor. */

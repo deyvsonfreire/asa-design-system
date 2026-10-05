@@ -240,6 +240,35 @@ São **provisórias**: muitas são genéricas ou mostram um lugar vizinho, porqu
 
 **Seguem para produção própria, sem alternativa de banco:** o ensaio dos 15 carros (F01 a F15) e os detalhes D01 a D04 e D06, que também cobrem os cards de oferta que citam o modelo; os balcões (B01 a B04); equipe, retratos e o desembarque (B09 a B13); o painel de chegadas (B14); a frota no pátio em Quem somos; L01; os mapas (I01 e I02).
 
+## Frota e lojas com imagens da Asa (05/10/2026)
+
+A pedido da Asa, até o novo ensaio:
+
+- **Frota:** as 15 fotos de grupo do site atual (`site-atual/img/`), recortadas só no carro (sem o selo "GRUPO" e sem os ícones da ficha), em `site/img/frota/`. Elas cobrem o ensaio F01 a F15 e também os detalhes D01 a D04 e D06 (Spin com a 3ª fileira, Corolla com malas, Toro e S10 com a caçamba, Compass saindo do pátio) e os cards de oferta que citam o modelo, sempre com a foto do modelo. Aparecem inteiras, em fundo branco (`site-foto--inteira`). A vitrine e os adicionais da reserva usam as mesmas fotos (`reservas-online/funil.js`).
+- **Lojas:** as imagens do retrofit das lojas de Recife e de Fortaleza, em `site/img/lojas/`, nos lugares do balcão de cada aeroporto (B01 a B04), no desembarque do Portão A5 em Quem somos (B13) e na confirmação da reserva. São verticais; nas caixas deitadas aparecem o letreiro e a tela com o nome da cidade.
+
+| # | Imagem | Arquivo | Lugares |
+|---|---|---|---:|
+| F01 | Fiat Mobi (grupo A), foto do site atual | `grupo-a-fiat-mobi.webp` | 3 |
+| F02 | Hyundai HB20 1.0 (grupo B), foto do site atual | `grupo-b-hyundai-hb20.webp` | 4 |
+| F03 | Chevrolet Onix 1.0 (grupo B+), foto do site atual | `grupo-b-mais-chevrolet-onix.webp` | 3 |
+| F04 | Chevrolet Onix Plus 1.0 (grupo C+), foto do site atual | `grupo-c-mais-chevrolet-onix-plus.webp` | 3 |
+| F05 | Citroën C3 Live Pack 1.6 (grupo D), foto do site atual | `grupo-d-citroen-c3.webp` | 4 |
+| F06 | Chevrolet Onix 1.0 Turbo (grupo D+), foto do site atual | `grupo-d-mais-chevrolet-onix-turbo.webp` | 4 |
+| F07 | Chevrolet Onix Plus 1.0 Turbo (grupo E+), foto do site atual | `grupo-e-mais-chevrolet-onix-plus-turbo.webp` | 5 |
+| F08 | Chevrolet Spin 1.8 (grupo F+), foto do site atual | `grupo-f-mais-chevrolet-spin.webp` | 10 |
+| F09 | Chevrolet Tracker 1.0 Turbo (grupo G+), foto do site atual | `grupo-g-mais-chevrolet-tracker.webp` | 12 |
+| F10 | Fiat Strada 1.3 (grupo H), foto do site atual | `grupo-h-fiat-strada.webp` | 1 |
+| F11 | Jeep Commander 1.3 (grupo I+), foto do site atual | `grupo-i-mais-jeep-commander.webp` | 6 |
+| F12 | Jeep Compass 1.3 (grupo J+), foto do site atual | `grupo-j-mais-jeep-compass.webp` | 3 |
+| F13 | Toyota Corolla 2.0 (grupo N+), foto do site atual | `grupo-n-mais-toyota-corolla.webp` | 2 |
+| F14 | Fiat Toro 2.0 4x4 (grupo O+), foto do site atual | `grupo-o-mais-fiat-toro.webp` | 6 |
+| F15 | Chevrolet S10 2.8 4x4 cabine dupla (grupo P+), foto do site atual | `grupo-p-mais-chevrolet-s10.webp` | 2 |
+| B01 | Loja da Asa no Portão A5, Aeroporto do Recife (imagem do retrofit) | `loja-asa-aeroporto-recife.webp` | 8 |
+| B03 | Loja da Asa na Área de Locadoras, Aeroporto de Fortaleza (imagem do retrofit) | `loja-asa-aeroporto-fortaleza.webp` | 9 |
+
+Continuam sem foto: equipe e retratos (B09 a B12), o painel de chegadas (B14), a frota no pátio em Quem somos, L01, L14, L15, C02, D07 e os mapas (I01 e I02).
+
 ## Imagem de compartilhamento (ainda não existe)
 
 Nenhuma página tem hoje a imagem que aparece quando o link é compartilhado no WhatsApp e nas redes (`og:image`, 1.200 × 630 px). Sugestão: uma imagem padrão da marca e, nas páginas de destino e de praça, a foto principal da própria página no mesmo recorte. Dá para fazer a partir das fotos acima, sem foto nova.

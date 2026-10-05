@@ -139,6 +139,8 @@
     if (c.x4) s.push('4x4');
     return s.join(' · ');
   }
+  // Endereço da foto; na versão offline, ASA_URL converte para o arquivo local.
+  function foto(src) { return window.ASA_URL ? window.ASA_URL(src) : src; }
   function card(c, primeiro) {
     var alt = c.modelo + ', ' + c.cat.toLowerCase() + ' da frota Asa';
     // O selo vai sobre a foto, no canto baixo: acima do título ele seria sobretítulo.
@@ -165,8 +167,8 @@
         '</div>';
     }
     return '<li><article class="asa-card asa-card-vehicle site-vcard"' + (c.esgotado ? ' data-esgotado' : '') + ' data-grupo="' + c.g + '">' +
-      '<div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo" style="aspect-ratio:16/9" role="img" aria-label="' + esc(alt) + '">' +
-      '<span class="asa-photo__caption">[ foto · ' + esc(c.modelo) + ', 3/4 frontal, fundo limpo ]</span></div>' + selo + '</div>' +
+      '<div class="asa-cut site-vcard__media"><div class="asa-cut__media asa-photo site-foto site-foto--inteira" style="aspect-ratio:16/9">' +
+      '<img src="' + foto(c.foto) + '" alt="' + esc(alt) + '" width="600" height="375" loading="lazy" decoding="async"></div>' + selo + '</div>' +
       '<div class="asa-card__body">' +
       '<h2 class="asa-card-vehicle__title">' + esc(c.modelo) + ' ou similar</h2>' +
       '<span class="asa-card-vehicle__category">Grupo ' + c.g + ' · ' + c.cat + '</span>' +
