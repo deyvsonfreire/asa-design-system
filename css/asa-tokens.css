@@ -1,11 +1,13 @@
 /* ==========================================================================
-   ASA RENT A CAR: TOKENS
-   Sistema de Identidade v3.2 (B2C, amarelo dominante)
+   ASA LOCADORA: TOKENS (logo com lettering ASA RENT A CAR)
+   Sistema de Identidade v3.2 (visual) · v3.3 (texto, 21/10/2026) · amarelo dominante
 
    Camada 1: primitivos, a escala bruta. NUNCA usar direto em componente.
    Camada 2: semânticos, o papel na interface. É o que componente consome.
 
-   Trocar a v3.2 pela v3.1 (B2B, vermelho dominante) = trocar só a camada 2.
+   A antiga variante v3.1 (B2B, vermelho dominante) foi descontinuada em
+   21/10/2026 (decisão M14): a v3.2/v3.3 vale para tudo. A camada 2 continua
+   sendo o único lugar onde o papel de uma cor muda.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -164,16 +166,16 @@
   --asa-fs-highlight:   20px;   --asa-lh-highlight: 28px;
   --asa-fs-body:        16px;   --asa-lh-body:      26px;
   --asa-fs-label:       12px;   --asa-lh-label:     16px;
-  --asa-fs-mono:        11px;
+  --asa-fs-mono:        12px;   /* M18 (21/10/2026): era 11px; nenhum texto abaixo de 12px */
 
   /* Escala de UI. A escala acima é de CONTEÚDO, "nada entre eles".
      Componente de produto tem densidade que o conteúdo não tem (título de
      card, botão, contagem de filtro); forçar os dois na mesma régua produz
      tamanhos soltos no código. Esta é a escala paralela, nomeada, com o
      MESMO piso de 12px: tag e categoria usam --asa-fs-label, nunca menos.
-     --asa-fs-mono é o único valor abaixo de 12px, e só para o rótulo mono
-     decorativo de seção; texto de produto (tag, contagem, atributo) nunca
-     usa --asa-fs-mono. */
+     --asa-fs-mono também respeita o piso (12px desde a M18) e serve só ao
+     rótulo mono decorativo de seção; texto de produto (tag, contagem,
+     atributo) nunca usa --asa-fs-mono. */
   --asa-fs-subtitle:    17px;   --asa-lh-subtitle:    24px;  /* título de card       */
   --asa-fs-body-dense:  14px;   --asa-lh-body-dense:  20px;  /* botão, choice, denso, rótulo de campo */
   --asa-fs-lead:        18px;   --asa-lh-lead:        28px;  /* lide de seção: a frase sob o H2 */
@@ -195,7 +197,7 @@
   --asa-tracking-title:   -.01em;   /* título de seção, Registro 2 */
   --asa-tracking-number:  -.05em;   /* placa de número           */
   --asa-tracking-price:   -.04em;   /* preço                     */
-  --asa-tracking-label:   .2em;     /* etiqueta caixa alta       */
+  --asa-tracking-label:   .1em;     /* etiqueta caixa alta       */
   --asa-tracking-mono:    .14em;    /* rótulo mono de seção      */
 
   --asa-weight-regular:   400;

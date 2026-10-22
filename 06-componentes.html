@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>06 · Componentes · Sistema de Design Asa</title>
+<title>06 · Componentes · Sistema de Design Asa Locadora</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -60,8 +60,13 @@
           <button class="asa-btn asa-btn--outline"><span class="asa-btn__label">Voltar</span></button>
           <span class="asa-demo__caption">Contorno · saída</span>
         </div>
+        <div class="asa-demo__item">
+          <button class="asa-btn asa-btn--ink"><span class="asa-btn__label">Reservar</span></button>
+          <span class="asa-demo__caption">Preto · o Reservar do cabeçalho</span>
+        </div>
       </div>
       <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">Um único botão vermelho por peça. Se toda ação da tela for um botão sólido vermelho, nenhuma comunica prioridade, e o orçamento de 20% de área vermelha estoura na primeira composição.</p>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:700px"><b>Exceção de lista (M16, 21/10/2026).</b> Numa vitrine de cards, em que cada card é uma ação, o botão de cada card pode usar o contorno vermelho (<code class="asa-doc-code">asa-btn--action-outline</code> no CSS do repositório), que só preenche no hover e no toque. O vermelho cheio continua sendo um só por tela, e a exceção será revista com dado de conversão. A opção marcada (caixa, rádio, card de escolha) é sempre preta: vermelho é só ação.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -116,7 +121,7 @@
         <div class="asa-demo asa-demo--yellow">
           <span class="asa-tag">Retirada em 8 min</span>
           <span class="asa-tag asa-tag--ok">Reserva confirmada</span>
-          <span class="asa-tag asa-tag--ink">Sem taxa de aeroporto</span>
+          <span class="asa-tag asa-tag--ink">Atendimento 24h</span>
           <span class="asa-tag asa-tag--warn">Restam 2 unidades</span>
           <span class="asa-tag asa-tag--outline">Preferido do público</span>
           <span class="asa-tag asa-tag--neutral">SUV</span>
@@ -144,11 +149,11 @@
       <div class="asa-doc-card asa-doc-card--flush">
         <div class="asa-numberplate">
           <span class="asa-numberplate__value">4,7</span>
-          <span class="asa-numberplate__source">no Google, com mais de 4.500 avaliações</span>
+          <span class="asa-numberplate__source">no Google em Recife · 4,9 em Fortaleza</span>
         </div>
         <div style="padding:20px;display:flex;flex-direction:column;gap:14px">
           <span class="asa-doc-block__title" style="margin:0">Placa de número</span>
-          <p class="asa-doc-gloss" style="margin:0">O componente mais usado do sistema. Números canônicos: 4,7 no Google e 9,4 no Reclame Aqui, acima das três maiores. Sempre em vírgula decimal, formato pt-BR, e sempre inteiros de uma vez. Contador animado remete a dashboard de software, não a reputação de gente.</p>
+          <p class="asa-doc-gloss" style="margin:0">O componente mais usado do sistema. Números canônicos: 4,7 em Recife e 4,9 em Fortaleza no Google, e 9,3 no Reclame Aqui. Sempre em vírgula decimal, formato pt-BR, e sempre inteiros de uma vez. Contador animado remete a dashboard de software, não a reputação de gente.</p>
         </div>
       </div>
     </div>
@@ -311,7 +316,7 @@
         <span class="asa-doc-block__title" style="margin:0">Chave · efeito imediato</span>
         <fieldset class="asa-fieldset">
           <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox" checked><span class="asa-choice__text"><span class="asa-choice__title">Avisar quando o carro estiver pronto</span><span class="asa-choice__note">Notificação no WhatsApp, na hora da retirada.</span></span></label>
-          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Lembrete de devolução</span><span class="asa-choice__note">Três horas antes do fim da diária de 27 horas.</span></span></label>
+          <label class="asa-choice"><input class="asa-choice__input asa-switch__input" type="checkbox"><span class="asa-choice__text"><span class="asa-choice__title">Lembrete de devolução</span><span class="asa-choice__note">Três horas antes do horário de devolução.</span></span></label>
         </fieldset>
         <p class="asa-doc-gloss">Só para configuração binária que vale na hora, sem passo de salvar. Usar chave para algo que só é aplicado depois de um "salvar" deixa a pessoa em dúvida sobre se ainda precisa confirmar.</p>
       </div>
@@ -406,8 +411,8 @@
           <div class="asa-alert asa-alert--info">
             <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <div class="asa-alert__body">
-              <span class="asa-alert__title">Caução de R$ 2.000 bloqueada, não cobrada</span>
-              <span class="asa-alert__text">O valor fica reservado no limite do cartão e é liberado em até 5 dias úteis depois da devolução. Sem letra miúda: não há desconto nem tarifa sobre esse valor.</span>
+              <span class="asa-alert__title">Caução a partir de R$ 800, bloqueada e não cobrada</span>
+              <span class="asa-alert__text">A caução fica bloqueada no limite do cartão e é desbloqueada no momento da devolução. O prazo para o limite voltar é do banco do cartão e pode chegar a 30 dias.</span>
             </div>
           </div>
           <div class="asa-alert asa-alert--ok">
@@ -424,7 +429,7 @@
               <span class="asa-alert__text">Nada foi cobrado. Tente outro cartão, ou me chame no WhatsApp que eu resolvo com você.</span>
             </div>
           </div>
-          <p class="asa-doc-gloss">O alerta usa borda de 4px à esquerda e nenhuma sombra. O texto segue o Registro 2: caixa baixa, conversacional, sem exclamação. É onde a promessa de "sem letra miúda" é testada.</p>
+          <p class="asa-doc-gloss">O alerta usa borda de 4px à esquerda e nenhuma sombra. O texto segue o Registro 2: caixa baixa, conversacional, sem exclamação. É onde o compromisso de transparência é testado.</p>
         </div>
       </div>
     </div>
@@ -433,17 +438,17 @@
       <span class="asa-doc-block__title">Total sempre junto do botão</span>
       <div class="asa-demo asa-demo--white asa-demo--stack" style="max-width:460px">
         <div style="display:flex;flex-direction:column;gap:10px;width:100%">
-          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">3 diárias de 27h</span><span style="font-size:14px;font-weight:500">R$ 567,00</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Proteção básica</span><span style="font-size:14px;font-weight:500">R$ 89,00</span></div>
-          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Taxa de aeroporto</span><span style="font-size:14px;font-weight:500;color:var(--asa-ok)">Não cobramos</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">3 diárias</span><span style="font-size:14px;font-weight:500">R$ 567,00</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Proteção básica</span><span style="font-size:14px;font-weight:500">R$ 59,70</span></div>
+          <div style="display:flex;justify-content:space-between"><span style="font-size:14px">Taxa administrativa (12%)</span><span style="font-size:14px;font-weight:500">R$ 75,20</span></div>
           <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--asa-line);padding-top:10px">
             <span style="font-size:14px;font-weight:700">Total</span>
-            <span style="font:italic 900 28px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action)">R$ 656,00</span>
+            <span style="font:italic 900 28px/1 var(--asa-font);letter-spacing:-.04em;color:var(--asa-action)">R$ 701,90</span>
           </div>
           <button class="asa-btn asa-btn--primary asa-btn--block" style="margin-top:6px"><span class="asa-btn__label">Confirmar e pagar</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Mostrar o valor total imediatamente acima do botão reduz a ansiedade de clicar em pagar sem uma confirmação final do que será cobrado. "Não cobramos" em verde transforma uma ausência de taxa em um benefício visível. É o mesmo fato operacional que a marca já usa na comunicação.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Mostrar o valor total imediatamente acima do botão reduz a ansiedade de clicar em pagar sem uma confirmação final do que será cobrado. A taxa administrativa aparece em número, na mesma lista, antes do botão: é o compromisso de transparência posto em prática.</p>
     </div>
   </div>
 </section>
@@ -517,7 +522,7 @@
             <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
           </button>
           <div class="asa-disclosure__panel" style="--asa-disclosure-h:80px">
-            <div class="asa-disclosure__body">Cancelamento grátis até a retirada. Depois disso, cobra-se uma diária.</div>
+            <div class="asa-disclosure__body">Reserva com pagamento na retirada cancela sem custo. Reserva pré-paga segue a regra dos Termos de locação, mostrada antes de pagar.</div>
           </div>
         </div>
         <p class="asa-doc-gloss">Regra dura do sistema (<code class="asa-doc-code">11-movimento.html</code>): nada gira. O indicador troca de glifo, nunca anima rotação.</p>
@@ -542,7 +547,7 @@
             <div class="asa-utilitybar__group">
               <a class="asa-utilitybar__link" href="#">
                 <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                0800 700 7000
+                0800 080 0015
               </a>
               <a class="asa-utilitybar__link" href="#">Recife · Fortaleza</a>
             </div>
@@ -552,11 +557,11 @@
             </div>
           </div>
           <nav class="asa-navbar">
-            <a class="asa-navbar__brand" href="#"><img src="assets/img/lockup.png" alt="Asa Rent a Car"></a>
+            <a class="asa-navbar__brand" href="#"><img src="assets/img/lockup.png" alt="Asa Locadora"></a>
             <ul class="asa-navbar__nav">
               <li><a class="asa-navbar__link" href="#" aria-current="page">Frota</a></li>
               <li><a class="asa-navbar__link" href="#">Tarifas</a></li>
-              <li><a class="asa-navbar__link" href="#">Clube Asa</a></li>
+              <li><a class="asa-navbar__link" href="#">Ofertas</a></li>
               <li><a class="asa-navbar__link" href="#">Dúvidas</a></li>
             </ul>
             <div class="asa-navbar__actions">
@@ -577,7 +582,7 @@
         <div class="asa-navdrawer" data-state="open" style="position:absolute;inset:0">
           <div class="asa-navdrawer__surface" style="position:relative">
             <div class="asa-navdrawer__header">
-              <img src="assets/img/lockup.png" alt="Asa Rent a Car" style="height:22px">
+              <img src="assets/img/lockup.png" alt="Asa Locadora" style="height:22px">
               <button class="asa-btn asa-btn--icon asa-btn--outline" aria-label="Fechar menu">
                 <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
               </button>
@@ -585,7 +590,7 @@
             <ul class="asa-navdrawer__list">
               <li><a class="asa-navdrawer__link" href="#" aria-current="page">Frota</a></li>
               <li><a class="asa-navdrawer__link" href="#">Tarifas</a></li>
-              <li><a class="asa-navdrawer__link" href="#">Clube Asa</a></li>
+              <li><a class="asa-navdrawer__link" href="#">Ofertas</a></li>
               <li><a class="asa-navdrawer__link" href="#">Dúvidas</a></li>
               <li><a class="asa-navdrawer__link" href="#">Minha reserva</a></li>
             </ul>
@@ -708,7 +713,7 @@
             </select>
           </div>
         </div>
-        <p class="asa-doc-gloss">A diária de 27h só é vendável se a hora entrar na busca. Por isso o timeselect nunca aparece sozinho, sempre ao lado da data.</p>
+        <p class="asa-doc-gloss">A tolerância de 3 horas na devolução só faz sentido se a hora entrar na busca. Por isso o timeselect nunca aparece sozinho, sempre ao lado da data.</p>
       </div>
     </div>
 
@@ -826,16 +831,15 @@
                   <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>3 malas</li>
                   <li class="asa-speclist__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v3m0 12v3m9-9h-3M6 12H3"/></svg>Automático</li>
                 </ul>
-                <span class="asa-rating"><span class="asa-rating__value">4,7</span><span class="asa-rating__source">no Google</span><span class="asa-rating__count">· +4.500</span></span>
+                <span class="asa-rating"><span class="asa-rating__value">4,7</span><span class="asa-rating__source">no Google</span><span class="asa-rating__count">· Recife</span></span>
                 <span class="asa-card-vehicle__policy">
                   <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  Cancele grátis até a retirada
+                  Regra de cancelamento na reserva
                 </span>
                 <div class="asa-card-vehicle__footer">
                   <div class="asa-price">
-                    <span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 656</span>
+                    <span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 702</span>
                     <span class="asa-price__daily">R$ 189/diária</span>
-                    <span class="asa-price__pix">Pix · 5% off</span>
                   </div>
                   <div class="asa-card-vehicle__actions">
                     <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Detalhes</button>
@@ -896,8 +900,9 @@
         <span class="asa-doc-card__title">Summary · resumo fixo</span>
         <div class="asa-summary asa-summary--sticky" style="position:static">
           <div class="asa-summary__row"><span>3 diárias · Grupo H</span><span>R$ 567,00</span></div>
-          <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 89,00</span></div>
-          <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 656,00</span></div>
+          <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 59,70</span></div>
+          <div class="asa-summary__row"><span>Taxa administrativa (12%)</span><span>R$ 75,20</span></div>
+          <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 701,90</span></div>
         </div>
         <p class="asa-doc-gloss"><code class="asa-doc-code">--sticky</code> aparece a partir de 1024px, grudado a <code class="asa-doc-code">--asa-header-h</code> mais um respiro; <code class="asa-doc-code">--bar</code> assume sozinho abaixo disso, fixo no rodapé. O mesmo markup serve os dois; a troca é só CSS.</p>
       </div>
@@ -918,30 +923,31 @@
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Comparison · proteções lado a lado</span>
-      <div class="asa-comparison">
+      <div class="asa-comparison" style="--asa-comparison-cols:2">
         <div class="asa-comparison__row asa-comparison__row--head">
           <div class="asa-comparison__col">Cobertura</div>
           <div class="asa-comparison__col">Básica</div>
           <div class="asa-comparison__col">Completa</div>
-          <div class="asa-comparison__col">Total</div>
         </div>
         <div class="asa-comparison__row">
-          <div class="asa-comparison__col">Colisão</div>
-          <div class="asa-comparison__col">Franquia R$2.500</div>
-          <div class="asa-comparison__col asa-comparison__col--selected">Franquia R$800</div>
-          <div class="asa-comparison__col">Sem franquia</div>
+          <div class="asa-comparison__col">Danos</div>
+          <div class="asa-comparison__col">Coparticipação até R$ 3.000</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">Valor a confirmar</div>
         </div>
         <div class="asa-comparison__row">
-          <div class="asa-comparison__col">Vidros e pneus</div>
-          <div class="asa-comparison__col">Não incluso</div>
-          <div class="asa-comparison__col asa-comparison__col--selected">Não incluso</div>
-          <div class="asa-comparison__col">Incluso</div>
+          <div class="asa-comparison__col">Roubo, furto ou perda total</div>
+          <div class="asa-comparison__col">Franquia R$ 6.000</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">Valor a confirmar</div>
+        </div>
+        <div class="asa-comparison__row">
+          <div class="asa-comparison__col">Vidros, pneus e retrovisores</div>
+          <div class="asa-comparison__col">Opcional, R$ 15,90/dia</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">Valor a confirmar</div>
         </div>
         <div class="asa-comparison__row">
           <div class="asa-comparison__col">Preço/diária</div>
-          <div class="asa-comparison__col">Incluso</div>
-          <div class="asa-comparison__col asa-comparison__col--selected">+R$29</div>
-          <div class="asa-comparison__col">+R$49</div>
+          <div class="asa-comparison__col">R$ 19,90</div>
+          <div class="asa-comparison__col asa-comparison__col--selected">Valor a confirmar</div>
         </div>
       </div>
       <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">As proteções aparecem em tabela comparativa, lado a lado, nunca como três blocos de texto em sequência.</p>
@@ -968,7 +974,7 @@
       <div class="asa-doc-card">
         <span class="asa-doc-card__title">Price breakdown · dentro de um disclosure</span>
         <div class="asa-disclosure" data-state="open">
-          <button class="asa-disclosure__trigger" aria-expanded="true">Como chegamos em R$ 656,00?
+          <button class="asa-disclosure__trigger" aria-expanded="true">Como chegamos em R$ 701,90?
             <svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             <svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
           </button>
@@ -976,9 +982,9 @@
             <div class="asa-disclosure__body">
               <div class="asa-pricebreakdown">
                 <div class="asa-summary__row"><span>Diária × 3</span><span>R$ 567,00</span></div>
-                <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 89,00</span></div>
-                <div class="asa-summary__row"><span>Taxa de aeroporto</span><span style="color:var(--asa-ok)">Não cobramos</span></div>
-                <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 656,00</span></div>
+                <div class="asa-summary__row"><span>Proteção básica</span><span>R$ 59,70</span></div>
+                <div class="asa-summary__row"><span>Taxa administrativa (12%)</span><span>R$ 75,20</span></div>
+                <div class="asa-summary__row asa-summary__row--total"><span>Total</span><span>R$ 701,90</span></div>
               </div>
             </div>
           </div>
@@ -996,7 +1002,7 @@
           <span class="asa-paymethod__installments">ou 12x sem juros no cartão</span>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Pix turquesa é a única cor de terceiro isolada no sistema. Não vaza para nenhum outro componente.</p>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Pix turquesa e o verde do WhatsApp são as duas cores de terceiro do sistema, cada uma isolada no seu componente.</p>
     </div>
   </div>
 </section>
@@ -1050,13 +1056,13 @@
       <span class="asa-doc-block__title">Reassurance · a trinca abaixo do motor</span>
       <div class="asa-demo asa-demo--white">
         <div class="asa-reassurance" style="width:100%">
-          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Cancelamento grátis</span>
-          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Sem taxa de aeroporto</span>
+          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Balcão no saguão do desembarque</span>
+          <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Devolução com 3 horas de tolerância</span>
           <span class="asa-reassurance__item"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Suporte 24h</span>
-          <span class="asa-reassurance__proof">+1.200 reservas feitas nas últimas 48 horas</span>
+          <span class="asa-reassurance__proof">4,7 em Recife e 4,9 em Fortaleza no Google</span>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Três fatos operacionais em linha, mais a prova social ao vivo como linha opcional. Nunca contador animado.</p>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Três fatos operacionais em linha, mais a prova social (as notas oficiais do Google) como linha opcional. Nunca contador animado.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -1093,7 +1099,7 @@
       </div>
       <div class="asa-doc-card asa-doc-card--flush">
         <div class="asa-stickybar" style="position:static">
-          <span>5% off na sua primeira locação · código BEMVINDO</span>
+          <span>[desconto] na sua primeira locação · código [CÓDIGO]</span>
           <button class="asa-btn asa-btn--icon asa-stickybar__dismiss" type="button" aria-label="Fechar" style="background:transparent">
             <svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
           </button>
@@ -1113,7 +1119,7 @@
       <span class="asa-doc-block__title">Footer · hub de links por abas</span>
       <footer class="asa-footer" style="border-radius:var(--asa-radius)">
         <div class="asa-footer__inner">
-          <div class="asa-footer__brand"><img src="assets/img/lockup-branco.png" alt="Asa Rent a Car"></div>
+          <div class="asa-footer__brand"><img src="assets/img/lockup-branco.png" alt="Asa Locadora"></div>
           <div>
             <div class="asa-footer__tabs" role="tablist">
               <button class="asa-footer__tab" role="tab" aria-selected="true" type="button">Aeroportos</button>
@@ -1183,12 +1189,22 @@
           <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Aeroportos</button>
           <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Novidades</button>
         </div>
+        <nav aria-label="Categorias" style="width:100%;max-width:420px">
+          <div class="asa-tabs asa-tabs--scroll">
+            <a class="asa-tabs__tab" href="#" aria-current="page">Todos</a>
+            <a class="asa-tabs__tab" href="#">Viagens</a>
+            <a class="asa-tabs__tab" href="#">Aventura</a>
+            <a class="asa-tabs__tab" href="#">Cidades</a>
+            <a class="asa-tabs__tab" href="#">Dicas de viagem</a>
+            <a class="asa-tabs__tab" href="#">Praias e litoral</a>
+          </div>
+        </nav>
         <div class="asa-tabs asa-tabs--segmented" role="tablist">
           <button class="asa-tabs__tab" role="tab" aria-selected="true" type="button">Alugar</button>
           <button class="asa-tabs__tab" role="tab" aria-selected="false" type="button">Comprar</button>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Linha para categoria de conteúdo; segmentado para a alternância binária de linha de negócio. Preenchimento neutro no segmentado, nunca vermelho: dois lados de peso igual não disputam com o CTA.</p>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Linha para categoria de conteúdo; com <code class="asa-doc-code">--scroll</code>, as abas rolam para o lado no celular, e quando cada aba é um endereço (categoria do blog) ela é um link com <code class="asa-doc-code">aria-current</code>. Segmentado para a alternância binária de linha de negócio. Preenchimento neutro no segmentado, nunca vermelho: dois lados de peso igual não disputam com o CTA.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -1288,12 +1304,29 @@
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Card de oferta, loja e artigo</span>
       <div class="asa-doc-cards">
-        <div class="asa-card asa-card-offer">
-          <span class="asa-tag asa-tag--outline">Só esta semana</span>
-          <h3 class="asa-card-offer__title">5% off à vista no Pix</h3>
-          <p class="asa-card-offer__text">Válido para retirada em Recife e Fortaleza até domingo.</p>
-          <button class="asa-btn asa-btn--outline asa-btn--sm" type="button">Ver condições</button>
-        </div>
+        <article class="asa-card asa-card-offer">
+          <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · cliente recebe a chave ]</span></div><span class="asa-tag asa-card-offer__badge">Primeira locação</span></div>
+          <h3 class="asa-card-offer__title">[desconto] na sua primeira reserva</h3>
+          <p class="asa-card-offer__text">Para quem ainda não alugou com a Asa.</p>
+          <div>
+            <div class="asa-coupon">
+              <input class="asa-coupon__code" type="text" value="[CÓDIGO]" readonly aria-label="Código do cupom">
+              <button class="asa-btn asa-btn--outline asa-btn--sm asa-coupon__copy" type="button"><span class="asa-btn__label">Copiar código</span></button>
+            </div>
+          </div>
+          <dl class="asa-card-offer__facts">
+            <div><dt>Como usar</dt><dd>Cupom, em "Tenho um cupom"</dd></div>
+            <div><dt>Validade</dt><dd>até [data]</dd></div>
+            <div><dt>Onde vale</dt><dd>Recife e Fortaleza</dd></div>
+          </dl>
+          <details class="asa-disclosure asa-card-offer__rules">
+            <summary class="asa-disclosure__trigger">Regras<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+            <div class="asa-disclosure__body"><ul><li>Uma vez por cliente.</li><li>Sujeito à disponibilidade de carros.</li></ul></div>
+          </details>
+          <div class="asa-card-offer__actions">
+            <a class="asa-btn asa-btn--outline asa-btn--sm" href="#">Usar cupom</a>
+          </div>
+        </article>
         <div class="asa-card asa-card-store">
           <h3 class="asa-card-store__title">Aeroporto do Recife</h3>
           <p class="asa-card-store__row">
@@ -1308,13 +1341,12 @@
         </div>
         <article class="asa-card asa-card-article">
           <div class="asa-cut"><div class="asa-cut__media asa-photo asa-photo--16x9"><span class="asa-photo__caption">[ foto · pátio de retirada ]</span></div></div>
-          <span class="asa-card-article__category">Aeroporto</span>
-          <h3 class="asa-card-article__title">O que fazer nos 8 minutos entre o desembarque e a retirada</h3>
-          <p class="asa-card-article__excerpt">Sem taxa de aeroporto e sem fila de transfer: o guia rápido de quem chega em Recife.</p>
-          <p class="asa-card-article__meta">10 set 2026 · 4 min de leitura</p>
+          <h3 class="asa-card-article__title"><a class="asa-card-article__link" href="#">Qual carro alugar para ir a Porto de Galinhas</a></h3>
+          <p class="asa-card-article__excerpt">Hatch para o casal, Spin de 7 lugares para a família.</p>
+          <p class="asa-card-article__meta"><span class="asa-card-article__category">Dicas de viagem</span> · 10 set 2026 · 5 min de leitura</p>
         </article>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Um cartão para cada hub: <code class="asa-doc-code">/ofertas</code>, <code class="asa-doc-code">/lojas</code> e <code class="asa-doc-code">/blog</code>. O artigo herda o mesmo corte de 8° do card de veículo; nenhum tipo de card do sistema usa uma moldura de foto diferente.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">O card de oferta tem ficha fixa: como usar, validade e onde vale, nas três linhas de <code class="asa-doc-code">__facts</code>; sem validade confirmada, ele não é publicado. O selo fica sobre a foto (<code class="asa-doc-code">__badge</code>, no canto que o corte não sobe), nunca acima do título. O código do cupom é <code class="asa-doc-code">asa-coupon</code>: campo somente leitura e botão de copiar, que troca para "Código copiado" por 3s. Regras longas vão no <code class="asa-doc-code">__rules</code>, um disclosure. Os valores do exemplo são ilustrativos. Um cartão para cada hub: <code class="asa-doc-code">/ofertas</code>, <code class="asa-doc-code">/lojas</code> e <code class="asa-doc-code">/blog</code>. O artigo herda o mesmo corte de 8° do card de veículo; nenhum tipo de card do sistema usa uma moldura de foto diferente. A categoria vai na linha de dados, abaixo do título (acima ela seria sobretítulo), e o título é o link que cobre o card inteiro.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -1337,14 +1369,38 @@
       <span class="asa-doc-block__title">Prose · bloco de texto corrido</span>
       <div class="asa-demo asa-demo--white">
         <div class="asa-prose">
-          <h2>Diária de 27 horas: o que isso muda na sua viagem</h2>
-          <p>Na Asa, a diária começa na hora da retirada e vale por 27 horas, não 24: devolver com até três horas de atraso não gera cobrança extra. É regra operacional, e por isso vive como texto corrido em vez de selo.</p>
-          <h3>Retirada em 8 minutos</h3>
-          <p>O balcão fica dentro do saguão do aeroporto. Sem transfer, sem taxa de aeroporto embutida na tarifa exibida.</p>
+          <h2>Devolução com 3 horas de tolerância: o que isso muda na sua viagem</h2>
+          <p>Na Asa, a diária começa na hora da retirada e a devolução tem 3 horas de tolerância: devolver até três horas depois do horário não gera outra diária. É regra operacional, e por isso vive como texto corrido em vez de selo.</p>
+          <h3>Retirada no saguão do desembarque</h3>
+          <p>O balcão fica dentro do saguão do desembarque, aberto 24 horas, em Recife e Fortaleza.</p>
           <p>Veja também as <a href="#">regras de locação</a> e a <a href="#">política de combustível</a>.</p>
         </div>
       </div>
       <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">h1/h2/h3/p/small soltos não fazem uma página de texto: <code class="asa-doc-code">asa-prose</code> é o bloco que os agrupa com medida e espaçamento fixos.</p>
+    </div>
+
+    <div class="asa-doc-block">
+      <span class="asa-doc-block__title">Tabela no texto e índice da página</span>
+      <div class="asa-demo asa-demo--white" style="align-items:flex-start;gap:40px;flex-wrap:wrap">
+        <nav class="asa-toc" aria-label="Nesta página" style="position:static;width:220px">
+          <span class="asa-toc__title">Nesta página</span>
+          <ul class="asa-toc__list">
+            <li><a class="asa-toc__link" href="#">1. Quem é o responsável</a></li>
+            <li><a class="asa-toc__link" href="#" aria-current="true">2. Que dados coletamos</a></li>
+            <li><a class="asa-toc__link" href="#">3. Por quanto tempo guardamos</a></li>
+          </ul>
+        </nav>
+        <div class="asa-prose" style="flex:1;min-width:280px">
+          <table>
+            <thead><tr><th scope="col">Categoria</th><th scope="col">Exemplos</th><th scope="col">Quando</th></tr></thead>
+            <tbody>
+              <tr><td>Habilitação</td><td data-label="Exemplos">número, categoria e validade da CNH</td><td data-label="Quando">reserva e balcão</td></tr>
+              <tr><td>Contato</td><td data-label="Exemplos">e-mail, celular, endereço</td><td data-label="Quando">reserva e atendimento</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">Para texto longo (política, termos, regras). A tabela dentro de <code class="asa-doc-code">asa-prose</code> tem fio entre linhas e nenhuma caixa; abaixo de 640px cada linha vira um bloco, com o nome da coluna tirado do <code class="asa-doc-code">data-label</code> da célula. <code class="asa-doc-code">asa-toc</code> é o índice de âncoras: gruda ao lado do texto no desktop e marca a seção em leitura com <code class="asa-doc-code">aria-current="true"</code>, o mesmo traço vermelho do navbar.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -1375,10 +1431,10 @@
       <span class="asa-doc-block__title">Testimonial</span>
       <div class="asa-doc-cards">
         <div class="asa-card asa-testimonial">
-          <p class="asa-testimonial__quote">Retirei o carro em 10 minutos, sem sair da fila do aeroporto para achar um totem de outra locadora.</p>
+          <p class="asa-testimonial__quote">[Trecho de uma avaliação real do Google, copiado sem edição e com autorização do cliente.]</p>
           <div class="asa-testimonial__footer">
             <div>
-              <span class="asa-testimonial__name">Marcela T.</span>
+              <span class="asa-testimonial__name">[Nome e inicial]</span>
               <span class="asa-testimonial__source">Google · Recife</span>
             </div>
           </div>
@@ -1392,7 +1448,7 @@
 <section class="asa-doc-section asa-doc-section--white" id="conta">
   <div class="asa-doc-section__inner">
     <h2>Check-in expresso, código de verificação e o único bloco de comparação de planos.</h2>
-    <p class="asa-doc-section__lead"><code class="asa-doc-code">asa-upload</code> para o check-in "Asa Express", <code class="asa-doc-code">asa-codeinput</code> para o código de verificação (<code class="asa-doc-code">12-app-nativo.html</code>), e <code class="asa-doc-code">asa-card-plan</code> para o Clube Asa.</p>
+    <p class="asa-doc-section__lead"><code class="asa-doc-code">asa-upload</code> para o check-in "Asa Express", <code class="asa-doc-code">asa-codeinput</code> para o código de verificação (<code class="asa-doc-code">12-app-nativo.html</code>), e <code class="asa-doc-code">asa-card-plan</code> para comparar planos (por exemplo, proteções).</p>
 
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Upload de documento</span>
@@ -1431,25 +1487,25 @@
       <span class="asa-doc-block__title">Card de plano</span>
       <div class="asa-doc-cards">
         <div class="asa-card asa-card-plan">
-          <span class="asa-card-plan__name">Avulso</span>
-          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 0</span><span class="asa-price__note">sem mensalidade</span></div>
+          <span class="asa-card-plan__name">Proteção básica</span>
+          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 19,90</span><span class="asa-price__note">/diária</span></div>
           <ul class="asa-card-plan__benefits">
-            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Preço de tabela</li>
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Franquia de R$ 6.000 em roubo, furto ou perda total</li>
           </ul>
-          <button class="asa-btn asa-btn--outline" type="button">Continuar avulso</button>
+          <button class="asa-btn asa-btn--outline" type="button">Continuar com a básica</button>
         </div>
         <div class="asa-card asa-card-plan asa-card-plan--featured">
-          <span class="asa-tag asa-tag--ink" style="align-self:flex-start">Mais escolhido</span>
-          <span class="asa-card-plan__name">Clube Asa</span>
-          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 19</span><span class="asa-price__note">/ano</span></div>
+          <span class="asa-tag asa-tag--ink" style="align-self:flex-start">Opcional</span>
+          <span class="asa-card-plan__name">Proteção ampliada</span>
+          <div class="asa-price"><span class="asa-price__value" style="font-size:var(--asa-fs-price-card)">R$ 00</span><span class="asa-price__note">/diária · valor a confirmar</span></div>
           <ul class="asa-card-plan__benefits">
-            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>10% off em toda reserva</li>
-            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Cancelamento grátis sempre</li>
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Franquia menor, escrita em reais</li>
+            <li><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Regras nos Termos de locação, antes de pagar</li>
           </ul>
-          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Assinar Clube Asa</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
+          <button class="asa-btn asa-btn--primary"><span class="asa-btn__label">Escolher a ampliada</span><span class="asa-btn__loader"><span></span><span></span><span></span></span></button>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Reaproveita <code class="asa-doc-code">asa-card</code> e <code class="asa-doc-code">asa-price</code> (o preço segue vermelho, o mesmo sinal único do sistema) em vez de uma quarta variação de cartão de preço. Sem gamificação: o benefício é desconto e cancelamento, nunca pontos ou selo de nível.</p>
+      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Reaproveita <code class="asa-doc-code">asa-card</code> e <code class="asa-doc-code">asa-price</code> (o preço segue vermelho, o mesmo sinal único do sistema) em vez de uma quarta variação de cartão de preço. Sem gamificação: o benefício é escrito em reais, nunca em pontos ou selo de nível.</p>
     </div>
   </div>
 </section>
@@ -1465,7 +1521,7 @@
         <div class="asa-section-head" style="width:100%;margin-bottom:0">
           <div class="asa-section-head__copy">
             <h2>Qual carro combina com a sua <em>viagem</em>?</h2>
-            <p class="asa-lead">Todos com ar-condicionado e quilometragem livre. Os valores são por diária de 27 horas, já com taxas.</p>
+            <p class="asa-lead">Todos com ar-condicionado e quilometragem livre. Os valores são por diária; a taxa administrativa de 12% aparece no total, antes de pagar.</p>
           </div>
           <div class="asa-shelf__nav">
             <button class="asa-btn asa-btn--outline asa-btn--icon" type="button" disabled aria-label="Anterior"><svg class="asa-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -1484,7 +1540,7 @@
           <div class="asa-container asa-hero__inner">
             <div class="asa-hero__copy">
               <h1 style="font-size:clamp(30px,5cqi,52px)">Aluguel de carros em Recife e Fortaleza, <span class="asa-hero__mark">dentro do aeroporto</span></h1>
-              <p class="asa-lead" style="margin-top:20px">Balcão 24h no desembarque. O carro sai do pátio do próprio aeroporto, sem van e sem taxa de aeroporto.</p>
+              <p class="asa-lead" style="margin-top:20px">Balcão 24h dentro do saguão do desembarque, em Recife e Fortaleza.</p>
             </div>
             <div class="asa-hero__search">
               <form class="asa-search">
@@ -1504,7 +1560,7 @@
                   <button class="asa-btn asa-btn--primary" type="button"><span class="asa-btn__label">Ver carros</span></button>
                 </div>
               </form>
-              <p class="asa-hero__hint">Diária de 27 horas: devolva até 3 horas depois do horário da retirada sem pagar outra diária. O preço da busca já inclui proteção básica e taxas.</p>
+              <p class="asa-hero__hint">Devolução com 3 horas de tolerância: devolva até 3 horas depois do horário da retirada sem pagar outra diária.</p>
             </div>
           </div>
         </div>
@@ -1518,9 +1574,9 @@
         <div class="asa-factstrip" style="width:100%">
           <div class="asa-factstrip__media"><div class="asa-photo"><span class="asa-photo__caption">[ foto · viajante saindo do desembarque com a mala ]</span></div></div>
           <div class="asa-factstrip__facts">
-            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Diária de 27 horas</b><p class="asa-factstrip__text">Retirou às 10h, devolve até as 13h do dia seguinte.</p></div>
-            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Cancele grátis até 24h antes</b><p class="asa-factstrip__text">Se o voo ou o plano mudar, sem custo.</p></div>
-            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Carro em cerca de 8 minutos</b><p class="asa-factstrip__text">Do balcão, no desembarque, direto ao pátio.</p></div>
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Devolução com 3 horas de tolerância</b><p class="asa-factstrip__text">Retirou às 10h, devolve até as 13h do dia seguinte.</p></div>
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Atendimento 24 horas</b><p class="asa-factstrip__text">Em Recife e Fortaleza, com gente no balcão.</p></div>
+            <div class="asa-factstrip__fact"><b class="asa-factstrip__title">Balcão dentro do saguão</b><p class="asa-factstrip__text">No desembarque, em Recife e Fortaleza.</p></div>
           </div>
         </div>
       </div>
@@ -1533,8 +1589,8 @@
         <div class="asa-editorial" style="width:100%">
           <div class="asa-editorial__media asa-cut"><div class="asa-photo asa-cut__media" style="aspect-ratio:4/3"><span class="asa-photo__caption">[ foto · atendente entregando a chave no balcão ]</span></div></div>
           <div>
-            <h2>Do desembarque ao carro em <em>8 minutos</em></h2>
-            <p class="asa-lead" style="margin-top:16px">O balcão fica no terminal de desembarque e o carro sai do pátio do próprio aeroporto. Com estes quatro itens em mãos, a retirada é rápida.</p>
+            <h2>O balcão fica <em>dentro do saguão</em></h2>
+            <p class="asa-lead" style="margin-top:16px">O balcão fica dentro do saguão do desembarque. Com estes quatro itens em mãos, a retirada é rápida.</p>
             <dl class="asa-editorial__facts">
               <div><dt>CNH do condutor</dt><dd>Emitida há pelo menos 2 anos. O condutor precisa ter mais de 21 anos.</dd></div>
               <div><dt>Cartão de crédito físico</dt><dd>No nome de quem paga. É nele que fica a caução, estornada por inteiro após a vistoria.</dd></div>
@@ -1554,41 +1610,41 @@
         <div class="asa-proof" style="width:100%">
           <div class="asa-section-head__copy">
             <h2>Dois aeroportos, um balcão <em>aberto 24 horas</em></h2>
-            <p class="asa-lead" style="margin-top:16px">Chegou de madrugada? Tem alguém no balcão. O atendimento é no terminal de desembarque, sem van e sem transfer.</p>
+            <p class="asa-lead" style="margin-top:16px">Chegou de madrugada? Tem alguém no balcão. O atendimento é dentro do saguão do desembarque.</p>
           </div>
           <div class="asa-proof__places">
             <a class="asa-card-place" href="#">
               <div class="asa-card-place__media"><div class="asa-photo"><span class="asa-photo__caption">[ foto · saguão do aeroporto do Recife ]</span></div><span class="asa-card-place__chip">Recife</span></div>
               <p class="asa-card-place__title">Aeroporto do Recife (REC)</p>
-              <p class="asa-card-place__text">Portão A5 do terminal de desembarque. O carro sai do pátio interno, a poucos passos do saguão.</p>
+              <p class="asa-card-place__text">Balcão dentro do saguão do desembarque, aberto 24 horas.</p>
               <span class="asa-card-place__link">Ver carros em Recife</span>
             </a>
             <a class="asa-card-place" href="#">
               <div class="asa-card-place__media"><div class="asa-photo"><span class="asa-photo__caption">[ foto · saguão do aeroporto de Fortaleza ]</span></div><span class="asa-card-place__chip">Fortaleza</span></div>
               <p class="asa-card-place__title">Aeroporto de Fortaleza (FOR)</p>
-              <p class="asa-card-place__text">Área de locadoras, no terminal de desembarque. Atendimento direto, todos os dias.</p>
+              <p class="asa-card-place__text">Balcão dentro do saguão do desembarque, aberto 24 horas.</p>
               <span class="asa-card-place__link">Ver carros em Fortaleza</span>
             </a>
           </div>
           <div class="asa-proof__bar">
             <div class="asa-proof__plates">
-              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">4,7</span><span class="asa-numberplate__source">no Google</span></div>
-              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">9,4</span><span class="asa-numberplate__source">no Reclame Aqui</span></div>
+              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">4,7</span><span class="asa-numberplate__source">no Google em Recife · 4,9 em Fortaleza</span></div>
+              <div class="asa-numberplate asa-numberplate--bare"><span class="asa-numberplate__value">9,3</span><span class="asa-numberplate__source">no Reclame Aqui</span></div>
             </div>
             <div class="asa-proof__quotes">
               <figure class="asa-testimonial asa-testimonial--bare">
-                <blockquote class="asa-testimonial__quote">Cheguei de madrugada no aeroporto de Fortaleza e fui bem atendido pelo Saulo Viana.</blockquote>
-                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Danilo L.</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
+                <blockquote class="asa-testimonial__quote">[Trecho de uma avaliação real do Google, copiado sem edição e com autorização do cliente.]</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">[Nome e inicial]</span><span class="asa-testimonial__source">Fortaleza, via Google</span></span></figcaption>
               </figure>
               <figure class="asa-testimonial asa-testimonial--bare">
-                <blockquote class="asa-testimonial__quote">Locadora muito boa, preço justo, carro zero. Já sou cliente.</blockquote>
-                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">Jones D.</span><span class="asa-testimonial__source">Recife, via Google</span></span></figcaption>
+                <blockquote class="asa-testimonial__quote">[Trecho de uma avaliação real do Google, copiado sem edição e com autorização do cliente.]</blockquote>
+                <figcaption class="asa-testimonial__footer"><span><span class="asa-testimonial__name">[Nome e inicial]</span><span class="asa-testimonial__source">Recife, via Google</span></span></figcaption>
               </figure>
             </div>
           </div>
         </div>
       </div>
-      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">O preto aparece uma vez por página, no momento da prova. As praças são <code class="asa-doc-code">asa-card-place</code>: foto grande com o nome num chip preto, texto e link em amarelo. Abaixo da régua, as placas 4,7 e 9,4 em <code class="asa-doc-code">asa-numberplate--bare</code> e dois depoimentos em <code class="asa-doc-code">asa-testimonial--bare</code>, sem card e sem avatar. Os números aparecem inteiros, nunca em contador.</p>
+      <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">O preto aparece uma vez por página, no momento da prova. As praças são <code class="asa-doc-code">asa-card-place</code>: foto grande com o nome num chip preto, texto e link em amarelo. Abaixo da régua, as placas 4,7 e 9,3 em <code class="asa-doc-code">asa-numberplate--bare</code> e dois depoimentos em <code class="asa-doc-code">asa-testimonial--bare</code>, sem card e sem avatar. Os números aparecem inteiros, nunca em contador.</p>
     </div>
 
     <div class="asa-doc-block">
@@ -1606,12 +1662,12 @@
               <div class="asa-disclosure__body">Ter mais de 21 anos, CNH há pelo menos 2 anos e um cartão de crédito físico no seu nome ou no nome do responsável financeiro, que precisa estar presente na retirada.</div>
             </details>
             <details class="asa-disclosure asa-disclosure--faq">
-              <summary class="asa-disclosure__trigger">Como funciona a diária de 27 horas?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
+              <summary class="asa-disclosure__trigger">Como funciona a tolerância de 3 horas na devolução?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
               <div class="asa-disclosure__body">Cada diária tem 3 horas de tolerância na devolução. Se você retirar o carro às 10h, pode devolver até as 13h do dia seguinte sem pagar outra diária.</div>
             </details>
             <details class="asa-disclosure asa-disclosure--faq">
               <summary class="asa-disclosure__trigger">Onde fica o balcão da Asa no aeroporto?<svg class="asa-icon asa-disclosure__icon--closed" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg><svg class="asa-icon asa-disclosure__icon--open" viewBox="0 0 24 24" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg></summary>
-              <div class="asa-disclosure__body">Em Recife, no Portão A5 do desembarque. Em Fortaleza, na área de locadoras do terminal de desembarque. Os dois funcionam 24 horas.</div>
+              <div class="asa-disclosure__body">Nos aeroportos de Recife e Fortaleza, o balcão fica dentro do saguão, na saída do desembarque. Os dois funcionam 24 horas.</div>
             </details>
           </div>
         </div>
@@ -1625,7 +1681,7 @@
         <div class="asa-closing" style="width:100%">
           <div class="asa-closing__copy">
             <h2>Seu carro te espera no desembarque.</h2>
-            <p class="asa-lead">Escolha as datas, veja o preço final e reserve. Cancelamento grátis até 24h antes.</p>
+            <p class="asa-lead">Escolha as datas, veja o total e reserve. A regra de cancelamento aparece antes de pagar.</p>
           </div>
           <div class="asa-closing__actions">
             <a class="asa-btn asa-btn--primary" href="#">Ver carros disponíveis</a>
@@ -1665,8 +1721,8 @@
 </div>
 
 <footer class="asa-doc-foot">
-  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+  <img src="assets/img/lockup-branco.png" alt="Asa Locadora">
+  <p>Sistema de Design Asa Locadora · v3.3 · documentação de implementação.</p>
 </footer>
 
 </body>

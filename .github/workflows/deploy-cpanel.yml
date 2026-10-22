@@ -26,3 +26,4 @@ jobs:
             **/.github/**
             **/.impeccable/**
             **/*.pdf
+            **/_versoes-anteriores/**

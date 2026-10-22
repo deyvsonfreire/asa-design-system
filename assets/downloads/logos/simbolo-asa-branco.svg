@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="40 360 1710 1060" width="100%" height="100%">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="40 360 1710 1060" width="1710" height="1060" role="img" aria-labelledby="title-simbolo-asa-branco">
+  <title id="title-simbolo-asa-branco">Asa Locadora: símbolo branco (só avatar e marca d'água)</title>
   <path fill="#FFFFFF" fill-rule="evenodd" clip-rule="evenodd" d="M942.44,1240.98l168.44,141.56l29.79-0.02l-178.56-191.2c-118.14-138.58-130.95-219.33,101.71-326.26
 	c175.96-80.86,537.3-209.5,630.54-406.08c-120.02,74.57-264.27,134.01-403.87,184.86c-206.24,75.12-387.62,135.92-590.13,220.83
 	c-76.13,38.01-92.44,101.41-11.01,167.42L942.44,1240.98z"/>

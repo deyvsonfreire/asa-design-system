@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ASA RENT A CAR: UTILITÁRIOS
+   ASA LOCADORA: UTILITÁRIOS
    O corte de 8°, a hachura de placeholder e a marca d'água.
    Carregar por ÚLTIMO: sem build, a ordem de origem na cascata é o que
    dispensa !important.
@@ -8,7 +8,7 @@
 /* --------------------------------------------------------------------------
    O VÃO: corte a 8°
 
-   O ângulo sai do próprio logo: é a inclinação da asa e do wordmark, sempre
+   O ângulo sai do próprio logo: é a inclinação da asa e do lettering, sempre
    subindo para a direita. É o ÚNICO ângulo do sistema.
 
    Por que cqw e não porcentagem: numa porcentagem, a coordenada Y de um
@@ -117,7 +117,7 @@
 
 /* --------------------------------------------------------------------------
    MARCA D'ÁGUA
-   A asa sozinha, sem wordmark, só existe em dois lugares: marca d'água a 13%
+   A asa sozinha, sem lettering, só existe em dois lugares: marca d'água a 13%
    sobre amarelo, e dentro do recorte circular do ícone de perfil. E UMA VEZ
    por página, no hero. Repetida no CTA final ela vira papel de parede.
    -------------------------------------------------------------------------- */
@@ -202,7 +202,7 @@
   /* Modo foco: motor de busca, vitrine, funil, checkout. O amarelo fica em
      uso estritamente funcional: estado ativo, um único destaque de CTA, a
      marca no header. Composição em --asa-bg-surface fica reservada a, no
-     máximo, um bloco por tela (ex.: faixa do Clube Asa). */
+     máximo, um bloco por tela (ex.: faixa de oferta). */
   --asa-yellow-budget: functional-only;
 }
 

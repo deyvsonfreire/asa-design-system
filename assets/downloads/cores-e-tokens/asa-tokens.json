@@ -1,45 +1,145 @@
 {
+  "$meta": {
+    "nome": "asa-tokens",
+    "versao": "v02",
+    "data": "2026-10-21",
+    "marca": "Asa Locadora (logo com lettering ASA RENT A CAR)",
+    "norma": "Diretrizes de Marca e Sistema de Design v3.3 (21/10/2026)",
+    "decisoes": "M15 (extensões de interface), M18 (piso de 12px), M26 (tokens v02), R09 e R10 (21/10/2026: Pix, fundo desabilitado e Cinza Texto em documento)",
+    "mudancas_desde_v01": [
+      "removido borderRadius.pill (9999px): a norma só tem 0, 8px e 50%",
+      "incluídos raios 0 (etiqueta) e 50% (avatar), borda 1.5px e sombra 'none'",
+      "incluídas tipografia, movimento e logo (respiro e mínimos)",
+      "espaçamento alinhado ao CSS do design system (4 a 90px) e espaço entre faixas (120/72px)",
+      "descrições de Branco e Mist corrigidas conforme a norma",
+      "novo bloco color.extensoes_interface (M15), que nunca é cor de marca em peça",
+      "R09 (21/10/2026): incluídos no bloco extensoes_interface o turquesa do Pix (pix, pixBg) e o fundo de campo desabilitado (disabledBg); placeholder #E4E0DA e seleção (amarelo a 12%) ficam internos de componente, fora dos tokens",
+      "R10 (21/10/2026): Cinza Texto e Cinza Legenda também valem como texto secundário em documentos (apresentação, assinatura, relatório), nunca como fundo ou destaque"
+    ]
+  },
   "color": {
     "brand": {
       "yellow": {
         "value": "#FEC42B",
         "type": "color",
-        "description": "Superfície principal 40%"
-      },
-      "red": {
-        "value": "#E80911",
-        "type": "color",
-        "description": "Ação e conversão 20%"
-      },
-      "redDark": {
-        "value": "#C4070E",
-        "type": "color",
-        "description": "Hover, pressionado e erro"
+        "description": "Amarelo Asa. Superfície dominante, 40%",
+        "rgb": "254, 196, 43",
+        "cmyk": "0, 24, 90, 0",
+        "pantone": "Pantone 123 C"
       },
       "black": {
         "value": "#141517",
         "type": "color",
-        "description": "Texto e densidade 25%"
+        "description": "Preto Asa. Todo o texto e blocos densos, 25%",
+        "rgb": "20, 21, 23",
+        "cmyk": "70, 65, 60, 85",
+        "pantone": "Pantone Black 7 C"
+      },
+      "red": {
+        "value": "#E80911",
+        "type": "color",
+        "description": "Vermelho Asa. Só ação, preço e assinatura; teto de 20%",
+        "rgb": "232, 9, 17",
+        "cmyk": "0, 99, 98, 0",
+        "pantone": "Pantone Warm Red C"
       },
       "mist": {
         "value": "#F4F4F3",
         "type": "color",
-        "description": "Superfície de composição 15%"
+        "description": "Cinza Mist. Composição e camadas, 15%; nunca fundo da página inteira",
+        "rgb": "244, 244, 243",
+        "cmyk": "2, 1, 2, 0",
+        "pantone": "Pantone Cool Gray 1 C"
+      },
+      "redDark": {
+        "value": "#C4070E",
+        "type": "color",
+        "description": "Vermelho Escuro. Hover, foco e erro",
+        "rgb": "196, 7, 14",
+        "cmyk": "15, 100, 100, 10",
+        "pantone": "Pantone 186 C"
       },
       "blackDeep": {
         "value": "#0D0D0E",
         "type": "color",
-        "description": "Fundo escuro e rodapé"
+        "description": "Preto Profundo. Rodapé e peças noturnas",
+        "rgb": "13, 13, 14",
+        "cmyk": "80, 75, 70, 95",
+        "pantone": "Pantone Black 6 C"
       },
       "white": {
         "value": "#FFFFFF",
         "type": "color",
-        "description": "Cards e texto sobre vermelho"
+        "description": "Branco. Fundo padrão e texto sobre vermelho",
+        "rgb": "255, 255, 255",
+        "cmyk": "0, 0, 0, 0",
+        "pantone": "—"
       },
       "green": {
         "value": "#065F46",
         "type": "color",
-        "description": "Confirmação e sucesso"
+        "description": "Verde Confirmação. Só telas de confirmação e sucesso",
+        "rgb": "6, 95, 70",
+        "cmyk": "85, 30, 75, 40",
+        "pantone": "Pantone 3425 C"
+      }
+    },
+    "extensoes_interface": {
+      "$description": "Cores só de interface (site, app, documentação). Nunca cor de marca em peça. A paleta oficial continua com 8 cores (M15). Exceção R10: grayText e grayCaption também servem de texto secundário em documentos (apresentação, assinatura, relatório), nunca como fundo ou destaque. Placeholder (#E4E0DA) e seleção (amarelo a 12%) são internos de componente e não entram aqui (R09).",
+      "grayText": {
+        "value": "#4A4C50",
+        "type": "color",
+        "description": "Cinza Texto. Texto secundário sobre claro (8,6:1 sobre branco; 7,8:1 sobre mist). Também texto secundário em documento: apresentação, assinatura, relatório (R10); nunca fundo nem destaque"
+      },
+      "grayCaption": {
+        "value": "#5A5C60",
+        "type": "color",
+        "description": "Cinza Legenda. Legenda e rótulo de apoio sobre claro (6,7:1 sobre branco)"
+      },
+      "grayDark1": {
+        "value": "#8A8C90",
+        "type": "color",
+        "description": "Apoio sobre fundo escuro e estado desabilitado (5,4:1 sobre Preto Asa)"
+      },
+      "grayDark2": {
+        "value": "#A8AAAE",
+        "type": "color",
+        "description": "Apoio sobre fundo escuro e texto desabilitado (7,9:1 sobre Preto Asa)"
+      },
+      "warn": {
+        "value": "#A35200",
+        "type": "color",
+        "description": "Atenção. Aviso que não é ação nem erro; nunca clicável (5,0:1 sobre warnBg; 5,6:1 sobre branco)"
+      },
+      "warnBg": {
+        "value": "#FDF1E4",
+        "type": "color",
+        "description": "Fundo do aviso de atenção"
+      },
+      "yellowHover": {
+        "value": "#EAB227",
+        "type": "color",
+        "description": "Hover do botão amarelo (secundário); nunca superfície"
+      },
+      "whatsapp": {
+        "value": "#25D366",
+        "type": "color",
+        "description": "Cor de terceiros. Só no botão que abre o WhatsApp, com texto e ícone em Preto Asa (9,2:1)"
+      },
+      "pix": {
+        "value": "#0F7A6E",
+        "type": "color",
+        "description": "Cor de terceiros: turquesa do Pix (R09). Só no selo de Pix do preço e do meio de pagamento, como texto e ícone sobre pixBg (4,8:1); nunca solta no resto do componente"
+      },
+      "pixBg": {
+        "value": "#E6F9F6",
+        "type": "color",
+        "description": "Fundo do selo de Pix (R09)"
+      },
+      "disabledBg": {
+        "value": "#F2F2F0",
+        "type": "color",
+        "description": "Fundo de campo desabilitado (R09), com texto em grayDark2 (#A8AAAE); estado desabilitado não usa opacity. CSS: --asa-disabled-bg"
       }
     }
   },
@@ -47,43 +147,301 @@
     "brand": {
       "value": "8deg",
       "type": "dimension",
-      "description": "Ângulo proprietário Asa"
-    }
-  },
-  "spacing": {
-    "xs": {
-      "value": "4px",
-      "type": "dimension"
-    },
-    "sm": {
-      "value": "8px",
-      "type": "dimension"
-    },
-    "md": {
-      "value": "16px",
-      "type": "dimension"
-    },
-    "lg": {
-      "value": "24px",
-      "type": "dimension"
-    },
-    "xl": {
-      "value": "32px",
-      "type": "dimension"
-    },
-    "xxl": {
-      "value": "64px",
-      "type": "dimension"
+      "description": "Ângulo proprietário, subindo à direita; só em camada decorativa ou máscara de foto"
     }
   },
   "borderRadius": {
-    "card": {
+    "none": {
+      "value": "0px",
+      "type": "dimension",
+      "description": "Só etiqueta de benefício"
+    },
+    "base": {
+      "value": "8px",
+      "type": "dimension",
+      "description": "Raio único de botão, card e campo"
+    },
+    "circle": {
+      "value": "50%",
+      "type": "dimension",
+      "description": "Só foto de perfil e avatar"
+    }
+  },
+  "borderWidth": {
+    "base": {
+      "value": "1.5px",
+      "type": "dimension",
+      "description": "Borda de card e campo; mesma espessura do traço dos ícones"
+    }
+  },
+  "boxShadow": {
+    "none": {
+      "value": "none",
+      "type": "shadow",
+      "description": "Sem sombra. Elevação por borda de 1.5px e contraste de fundo; foco por contorno"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "base": {
+        "value": "'BR Omny', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+        "type": "fontFamily",
+        "description": "Única família; 5 faces: 400, 500, 700, 900 e 900 itálico"
+      }
+    },
+    "fontWeight": {
+      "regular": {
+        "value": 400,
+        "type": "fontWeight"
+      },
+      "medium": {
+        "value": 500,
+        "type": "fontWeight"
+      },
+      "bold": {
+        "value": 700,
+        "type": "fontWeight"
+      },
+      "black": {
+        "value": 900,
+        "type": "fontWeight"
+      }
+    },
+    "scale": {
+      "display": {
+        "type": "typography",
+        "value": {
+          "fontSize": "64px",
+          "lineHeight": "60px",
+          "fontWeight": 900,
+          "fontStyle": "italic",
+          "textTransform": "uppercase",
+          "letterSpacing": "-0.03em"
+        },
+        "description": "Registro 1; uma vez por peça"
+      },
+      "title": {
+        "type": "typography",
+        "value": {
+          "fontSize": "32px",
+          "lineHeight": "36px",
+          "fontWeight": 700,
+          "letterSpacing": "-0.01em"
+        },
+        "description": "Título de seção, caixa baixa"
+      },
+      "highlight": {
+        "type": "typography",
+        "value": {
+          "fontSize": "20px",
+          "lineHeight": "28px",
+          "fontWeight": 700
+        },
+        "description": "Destaque"
+      },
+      "lead": {
+        "type": "typography",
+        "value": {
+          "fontSize": "18px",
+          "lineHeight": "28px",
+          "fontWeight": 400
+        },
+        "description": "Lide"
+      },
+      "body": {
+        "type": "typography",
+        "value": {
+          "fontSize": "16px",
+          "lineHeight": "26px",
+          "fontWeight": 400,
+          "maxWidth": "640px"
+        },
+        "description": "Corpo"
+      },
+      "label": {
+        "type": "typography",
+        "value": {
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": 500,
+          "textTransform": "uppercase",
+          "letterSpacing": "0.1em"
+        },
+        "description": "Etiqueta de benefício"
+      }
+    },
+    "ui": {
+      "$description": "Escala de interface (componentes), com o mesmo piso de 12px",
+      "bodyDense": {
+        "type": "typography",
+        "value": {
+          "fontSize": "14px",
+          "lineHeight": "20px"
+        },
+        "description": "Botão, escolha, rótulo de campo, legenda"
+      },
+      "subtitle": {
+        "type": "typography",
+        "value": {
+          "fontSize": "17px",
+          "lineHeight": "24px"
+        },
+        "description": "Título de card"
+      },
+      "priceCard": {
+        "type": "typography",
+        "value": {
+          "fontSize": "24px"
+        },
+        "description": "Preço na densidade de card"
+      }
+    },
+    "minSize": {
+      "value": "12px",
+      "type": "dimension",
+      "description": "Nenhum texto abaixo de 12px em tela, sem exceção (M18)"
+    },
+    "mono": {
+      "value": "12px",
+      "type": "dimension",
+      "description": "Texto monoespaçado de código e rótulo técnico; subiu de 11px para 12px (M18)"
+    }
+  },
+  "motion": {
+    "duration": {
+      "fast": {
+        "value": "200ms",
+        "type": "duration",
+        "description": "Entrada do logo, só por opacidade"
+      },
+      "default": {
+        "value": "240ms",
+        "type": "duration",
+        "description": "Entrada de texto pelo eixo de 8°"
+      },
+      "scene": {
+        "value": "320ms",
+        "type": "duration",
+        "description": "Troca de cena ou tela"
+      },
+      "max": {
+        "value": "400ms",
+        "type": "duration",
+        "description": "Teto absoluto"
+      }
+    },
+    "easing": {
+      "enter": {
+        "value": "ease-out",
+        "type": "cubicBezier",
+        "description": "Entrada"
+      },
+      "exit": {
+        "value": "ease-in",
+        "type": "cubicBezier",
+        "description": "Saída de overlay, sheet e drawer"
+      }
+    },
+    "$rules": "Nada gira, nada pulsa; número aparece inteiro, sem contador; respeitar prefers-reduced-motion"
+  },
+  "spacing": {
+    "1": {
+      "value": "4px",
+      "type": "dimension"
+    },
+    "2": {
       "value": "8px",
       "type": "dimension"
     },
-    "pill": {
-      "value": "9999px",
+    "3": {
+      "value": "12px",
       "type": "dimension"
+    },
+    "4": {
+      "value": "16px",
+      "type": "dimension"
+    },
+    "5": {
+      "value": "20px",
+      "type": "dimension"
+    },
+    "6": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "7": {
+      "value": "32px",
+      "type": "dimension"
+    },
+    "8": {
+      "value": "40px",
+      "type": "dimension"
+    },
+    "9": {
+      "value": "56px",
+      "type": "dimension"
+    },
+    "10": {
+      "value": "64px",
+      "type": "dimension"
+    },
+    "11": {
+      "value": "90px",
+      "type": "dimension"
+    }
+  },
+  "layout": {
+    "sectionGapDesktop": {
+      "value": "120px",
+      "type": "dimension",
+      "description": "Espaço vertical entre faixas no desktop"
+    },
+    "sectionGapMobile": {
+      "value": "72px",
+      "type": "dimension",
+      "description": "Espaço vertical entre faixas no celular"
+    },
+    "measure": {
+      "value": "640px",
+      "type": "dimension",
+      "description": "Largura máxima de bloco de texto"
+    }
+  },
+  "icon": {
+    "stroke": {
+      "value": "1.5px",
+      "type": "dimension",
+      "description": "Feather, sempre em contorno, cor currentColor"
+    },
+    "inline": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "feature": {
+      "value": "48px",
+      "type": "dimension"
+    }
+  },
+  "logo": {
+    "clearspace": {
+      "value": "1 letra A do lettering ASA",
+      "type": "other",
+      "description": "Área livre em todos os lados (manual de 2024; M17)"
+    },
+    "minHeightPrint": {
+      "value": "20mm",
+      "type": "dimension",
+      "description": "Altura mínima do logo completo impresso"
+    },
+    "minHeightDigital": {
+      "value": "24px",
+      "type": "dimension",
+      "description": "Altura mínima do lockup em tela; abaixo disso só o símbolo, nos casos permitidos"
+    },
+    "symbolWatermarkOpacity": {
+      "value": 0.13,
+      "type": "number",
+      "description": "Marca d'água do símbolo sobre amarelo, uma vez por peça"
     }
   }
 }

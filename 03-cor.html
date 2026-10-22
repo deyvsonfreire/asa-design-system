@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>03 · Cor · Sistema de Design Asa</title>
+<title>03 · Cor · Sistema de Design Asa Locadora</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -79,7 +79,7 @@
         <div class="asa-swatch__info">
           <span class="asa-swatch__name">Vermelho Asa</span>
           <span class="asa-swatch__hex">#E80911 · 20%</span>
-          <span class="asa-swatch__use">Somente ação: botão primário, preço, etiqueta de benefício, assinatura. Área cheia apenas no rodapé e no ícone de perfil.</span>
+          <span class="asa-swatch__use">Somente ação: botão primário, preço, etiqueta de benefício, assinatura. Área cheia só no ícone de perfil; o rodapé é Preto Profundo.</span>
         </div>
       </div>
 
@@ -134,10 +134,10 @@
     <div class="asa-doc-block">
       <span class="asa-doc-block__title">Proporção alvo por peça</span>
       <div style="display:flex;height:56px;border:var(--asa-border-width) solid var(--asa-line)">
-        <div style="flex:40;background:#FEC42B;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">40%</div>
-        <div style="flex:25;background:#141517;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">25%</div>
-        <div style="flex:20;background:#E80911;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">20%</div>
-        <div style="flex:15;background:#F4F4F3;display:grid;place-items:center;font:500 11px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
+        <div style="flex:40;background:#FEC42B;display:grid;place-items:center;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">40%</div>
+        <div style="flex:25;background:#141517;display:grid;place-items:center;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">25%</div>
+        <div style="flex:20;background:#E80911;display:grid;place-items:center;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;color:#fff">20%</div>
+        <div style="flex:15;background:#F4F4F3;display:grid;place-items:center;font:500 12px/1 var(--asa-font-mono);letter-spacing:.1em;color:#141517">15%</div>
       </div>
       <p class="asa-doc-gloss" style="margin-top:16px;max-width:700px">A fatia de 15% é o cinza mist (<code>#F4F4F3</code>): superfície de composição e camada flutuante, neutra, sem viés de matiz amarelo.</p>
     </div>
@@ -173,7 +173,7 @@
             <td><div class="pair" style="background:#E80911;color:#fff">Reservar</div></td>
             <td class="ratio">4,68:1</td>
             <td><span class="verd verd--aa">AA texto normal</span></td>
-            <td>Botão primário, etiqueta de benefício, rodapé</td>
+            <td>Botão primário, etiqueta de benefício</td>
           </tr>
           <tr>
             <td>Preto sobre <code>--asa-yellow</code></td>
@@ -259,6 +259,32 @@
   </div>
 </section>
 
+<section class="asa-doc-section asa-doc-section--mist" id="extensoes">
+  <div class="asa-doc-section__inner">
+    <h2>Extensões de interface: cores do código, nunca da peça.</h2>
+    <p class="asa-doc-section__lead">A paleta oficial continua com 8 cores. As cores abaixo existem só para resolver estados de interface (texto secundário, desabilitado, atenção, hover) e as cores de dois terceiros, WhatsApp e Pix. Não são cores de marca: não entram em anúncio, post, impresso ou qualquer peça de comunicação (decisões M15 e R09, 21/10/2026). Única exceção: o Cinza Texto e a legenda podem ser texto secundário em documentos (R10).</p>
+
+    <div class="asa-doc-block asa-doc-scroll">
+      <table class="asa-doc-table">
+        <thead>
+          <tr><th>Uso</th><th>Amostra</th><th>Hex</th><th>Token</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Texto secundário (Cinza Texto). Em documento (apresentação, assinatura de e-mail, relatório) também vale como texto secundário, com a legenda #5A5C60; nunca como fundo ou destaque (R10)</td><td><span style="display:inline-block;width:40px;height:24px;background:#4A4C50;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#4A4C50</td><td><code>--asa-gray-body</code></td></tr>
+          <tr><td>Legenda e texto de apoio</td><td><span style="display:inline-block;width:40px;height:24px;background:#5A5C60;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#5A5C60</td><td><code>--asa-gray-caption</code></td></tr>
+          <tr><td>Desabilitado</td><td><span style="display:inline-block;width:40px;height:24px;background:#8A8C90;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span> <span style="display:inline-block;width:40px;height:24px;background:#A8AAAE;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#8A8C90 · #A8AAAE</td><td><code>--asa-gray-dark-1 · --asa-disabled-text</code></td></tr>
+          <tr><td>Fundo de campo desabilitado, com texto #A8AAAE; nunca <code>opacity</code> (R09)</td><td><span style="display:inline-block;width:40px;height:24px;background:#F2F2F0;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#F2F2F0</td><td><code>--asa-disabled-bg</code></td></tr>
+          <tr><td>Atenção (texto e ícone sobre o fundo de atenção)</td><td><span style="display:inline-block;width:40px;height:24px;background:#A35200;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span> <span style="display:inline-block;width:40px;height:24px;background:#FDF1E4;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#A35200 sobre #FDF1E4</td><td><code>--asa-warn · --asa-warn-bg</code></td></tr>
+          <tr><td>Hover do amarelo (botão secundário)</td><td><span style="display:inline-block;width:40px;height:24px;background:#EAB227;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#EAB227</td><td><code>--asa-yellow-hover</code></td></tr>
+          <tr><td>Cor de terceiro: WhatsApp, só no botão que abre o WhatsApp, com texto preto</td><td><span style="display:inline-block;width:40px;height:24px;background:#25D366;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#25D366</td><td><code>botão do WhatsApp</code></td></tr>
+          <tr><td>Cor de terceiro: Pix (turquesa), só no selo de Pix do preço e do meio de pagamento, nunca solta no componente (R09)</td><td><span style="display:inline-block;width:40px;height:24px;background:#0F7A6E;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span> <span style="display:inline-block;width:40px;height:24px;background:#E6F9F6;border:1px solid rgba(20,21,23,.14);vertical-align:middle"></span></td><td class="ratio">#0F7A6E sobre #E6F9F6</td><td><code>.asa-price__pix · .asa-paymethod__pix</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="asa-doc-gloss" style="margin-top:12px;max-width:760px">O fundo do placeholder de imagem (#E4E0DA) e a cor de seleção de texto (amarelo a 12%) são internos de componente: não entram nesta tabela nem nos tokens (R09).</p>
+  </div>
+</section>
+
 <section class="asa-doc-section asa-doc-section--dense" id="regras">
   <div class="asa-doc-section__inner">
     <h2>Seis regras. Quebrar qualquer uma reverte a marca ao estado anterior.</h2>
@@ -309,8 +335,8 @@
 </div>
 
 <footer class="asa-doc-foot">
-  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+  <img src="assets/img/lockup-branco.png" alt="Asa Locadora">
+  <p>Sistema de Design Asa Locadora · v3.3 · documentação de implementação.</p>
 </footer>
 
 </body>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ASA RENT A CAR: GRAMÁTICA DA DOCUMENTAÇÃO
+   ASA LOCADORA: GRAMÁTICA DA DOCUMENTAÇÃO
 
    Só o chrome do documento: capa, navegação, seção, card, glosa, vitrine.
    Nada aqui é componente de produto; o produto está em asa-components.css.
@@ -213,7 +213,7 @@
 
 .asa-doc-cover__stamp {
   font-family: var(--asa-font-mono);
-  font-size: 11px;
+  font-size: 12px; /* M18: era 11px */
   line-height: 1.5;
   font-weight: var(--asa-weight-medium);
   letter-spacing: .08em;
@@ -635,7 +635,7 @@
   justify-content: space-between;
   padding: 0 20px;
   font-family: var(--asa-font-mono);
-  font-size: 11px;
+  font-size: 12px; /* M18: era 11px */
   font-weight: var(--asa-weight-medium);
   color: inherit;
 }
@@ -679,7 +679,7 @@
   align-items: center;
   gap: 4px;
   min-height: var(--asa-touch-min);
-  font-size: 10px;
+  font-size: 12px; /* M18: era 10px */
   font-weight: var(--asa-weight-medium);
   color: var(--asa-ink-3);
 }

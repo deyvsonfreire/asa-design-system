@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ASA RENT A CAR: COMPONENTES
+   ASA LOCADORA: COMPONENTES
 
    Nomenclatura: BEM com prefixo asa-.
    Estados de runtime NÃO viram classe modificadora: usam o atributo nativo
@@ -68,6 +68,54 @@
 .asa-btn--outline:hover:not(:disabled) {
   border-color: var(--asa-ink);
   color: var(--asa-ink);
+}
+
+/* Contorno vermelho. A ação repetida em lista (o "Escolher este carro" de
+   cada card da vitrine): a cor diz "é por aqui" em todos os cards, sem
+   que nenhum pareça empurrado; o preenchido continua sendo um só por tela
+   (o "Continuar" das etapas). Preenche no hover e no toque. Vermelho sobre
+   branco dá 4,7:1. Decisão de 05/10/2026 (site/DECISOES-REVISAO-FUNIL.md,
+   Q6 e Q20), mantida pela M16 (21/10/2026) como EXCEÇÃO DE LISTA: só em
+   vitrine de cards em que cada card é uma ação. Rever com dado de
+   conversão. */
+.asa-btn--action-outline {
+  background: transparent;
+  color: var(--asa-action);
+  border: 2px solid var(--asa-action);
+}
+
+.asa-btn--action-outline:hover:not(:disabled),
+.asa-btn--action-outline:active:not(:disabled) {
+  background: var(--asa-action);
+  color: var(--asa-on-action);
+}
+
+/* WhatsApp: o verde oficial com texto e logo em preto (branco sobre esse
+   verde dá 2:1 e reprova; preto dá ~9:1). Cor de terceiro, como a do Pix:
+   só no botão que abre o WhatsApp. Decisão de 05/10/2026 (Q5 e Q19). */
+.asa-btn--whatsapp {
+  background: #25D366;
+  color: var(--asa-black);
+  border: 0;
+}
+
+.asa-btn--whatsapp:hover:not(:disabled) {
+  background: #1EBE5A;
+  color: var(--asa-black);
+}
+
+.asa-btn--whatsapp .asa-icon--wa { width: 20px; height: 20px; fill: currentColor; stroke: none; }
+
+/* Preto. O "Reservar" do cabeçalho: chama para a ação sem gastar o
+   vermelho, que fica com o botão da busca da página. */
+.asa-btn--ink {
+  background: var(--asa-ink);
+  color: var(--asa-ink-inverse);
+}
+
+.asa-btn--ink:hover:not(:disabled) {
+  background: var(--asa-black-deep);
+  color: var(--asa-ink-inverse);
 }
 
 .asa-btn--block { display: flex; width: 100%; }
@@ -266,8 +314,8 @@
 
 /* ==========================================================================
    PLACA DE NÚMERO: prova social
-   O componente mais usado do sistema. Números canônicos: 4,7 (Google) e
-   9,4 (Reclame Aqui). Sempre em vírgula decimal, formato pt-BR, e sempre
+   O componente mais usado do sistema. Números canônicos: 4,7 (Google Recife),
+   4,9 (Google Fortaleza) e 9,3 (Reclame Aqui). Sempre em vírgula decimal, formato pt-BR, e sempre
    inteiros de uma vez, nunca contador animado, que remete a dashboard de
    software e não a reputação de gente.
    ========================================================================== */
@@ -436,7 +484,7 @@
 
 /* ==========================================================================
    ÍCONE DE PERFIL
-   Único uso de vermelho cheio fora da ação, comum à v3.1 (B2B): é o que
+   Único uso de vermelho cheio fora da ação: é o que
    garante reconhecimento no círculo de 40px da busca do Google.
    ========================================================================== */
 
@@ -732,6 +780,17 @@
   border-width: 2px;
 }
 
+/* Escolha de compra no funil (proteção, upgrade, proteção extra,
+   adicionais). M16 (21/10/2026): o marcado volta ao PRETO (#141517,
+   --asa-ink); vermelho é só ação. Em 05/10 (Q6 e Q20) o marcado tinha
+   ficado vermelho. O foco é um contorno preto afastado. O anel do
+   controle desmarcado usa --asa-ink-3 (3:1 ou mais, WCAG 1.4.11). */
+.asa-choice--accent .asa-choice__input { border-color: var(--asa-ink-3); }
+.asa-choice--accent .asa-choice__input:hover:not(:disabled) { border-color: var(--asa-ink); }
+.asa-choice--accent .asa-choice__input[type="checkbox"]:checked { background: var(--asa-ink); border-color: var(--asa-ink); }
+.asa-choice--accent .asa-choice__input[type="radio"]:checked { border-color: var(--asa-ink); }
+.asa-choice--accent .asa-choice__input:focus-visible { outline: 2px solid var(--asa-ink); outline-offset: 2px; }
+
 .asa-choice--card .asa-choice__price {
   margin-left: auto;
   font-family: var(--asa-font);
@@ -976,8 +1035,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   DATEPICKER: calendário de intervalo dentro de um .asa-popover. A diária
-   de 27h só é vendável se a hora entrar na busca; ver .asa-timeselect,
+   DATEPICKER: calendário de intervalo dentro de um .asa-popover. A
+   tolerância de 3 horas na devolução só faz sentido se a hora entrar na
+   busca; ver .asa-timeselect,
    sempre ao lado, nunca sozinho.
    -------------------------------------------------------------------------- */
 .asa-datepicker__header {
@@ -2500,11 +2560,38 @@
   cursor: pointer;
 }
 
-.asa-tabs__tab[aria-selected="true"] {
+.asa-tabs__tab[aria-selected="true"],
+.asa-tabs__tab[aria-current="page"] {
   color: var(--asa-ink);
   font-weight: var(--asa-weight-bold);
   border-bottom-color: var(--asa-action);
 }
+
+/* Quando cada aba é um endereço (categoria do blog, por exemplo), a aba é
+   um <a> dentro de <nav> e o estado é aria-current, não aria-selected: é
+   navegação entre páginas, não troca de painel. */
+a.asa-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--asa-touch-min);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a.asa-tabs__tab:hover { color: var(--asa-ink); }
+
+/* Muitas abas (dez categorias): rolagem horizontal no celular, sem barra
+   visível e sem quebrar linha. A última aba cortada na borda é o sinal de
+   que há mais para o lado. */
+.asa-tabs--scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.asa-tabs--scroll::-webkit-scrollbar { display: none; }
+
+.asa-tabs--scroll .asa-tabs__tab { flex: none; }
 
 /* Segmentado: os dois lados têm peso igual, por isso um traço de fundo
    neutro em vez de um preenchimento vermelho: preenchido leria como um
@@ -2660,9 +2747,15 @@
 
 @media (min-width: 768px) {
   .asa-destgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); gap: var(--asa-space-6); height: 560px; }
-  .asa-destgrid > * { aspect-ratio: auto; }
+  .asa-destgrid > *,
+  .asa-destgrid > .asa-destgrid__lg,
+  .asa-destgrid > .asa-destgrid__wide { aspect-ratio: auto; }
   .asa-destgrid > .asa-destgrid__lg { grid-row: span 2; }
 }
+
+/* O chip do nome fica embaixo; a legenda do placeholder sobe para o alto. */
+.asa-card-destination--overlay .asa-photo__caption,
+.asa-card-place__media .asa-photo__caption { top: var(--asa-space-3); bottom: auto; }
 
 .asa-card-destination__title {
   margin: var(--asa-space-2) 0 2px;
@@ -2702,6 +2795,99 @@
   color: var(--asa-ink-2);
 }
 
+/* Card completo do hub /ofertas: foto com o corte de 8° (a mesma moldura
+   do card de artigo e do de veículo), a ficha da oferta em linhas de
+   rótulo e valor, o código quando houver cupom, as regras atrás de um
+   disclosure e as ações no pé. A ficha é fixa (como usar, validade, onde
+   vale): sem validade confirmada, o card não é publicado. */
+.asa-card-offer > .asa-cut { margin: calc(-1 * var(--asa-space-4)) calc(-1 * var(--asa-space-4)) var(--asa-space-2); }
+
+/* O selo vai sobre a foto, no canto baixo à esquerda (o lado que o corte
+   não sobe), como o selo do card de veículo: acima do título ele seria
+   sobretítulo. Sem foto, ele fica no fluxo, depois do texto. */
+.asa-card-offer__badge { position: absolute; left: var(--asa-space-4); bottom: var(--asa-space-4); z-index: 1; }
+.asa-card-offer > .asa-tag { align-self: flex-start; }
+
+.asa-card-offer__facts {
+  display: grid;
+  gap: var(--asa-space-2);
+  margin: var(--asa-space-2) 0 0;
+  padding-top: var(--asa-space-3);
+  border-top: 1px solid var(--asa-line-soft);
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-card-offer__facts > div {
+  display: grid;
+  grid-template-columns: 7.5em minmax(0, 1fr);
+  gap: var(--asa-space-3);
+}
+
+.asa-card-offer__facts dt { color: var(--asa-ink-3); }
+.asa-card-offer__facts dd { margin: 0; font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+
+.asa-card-offer .asa-coupon { margin-top: var(--asa-space-2); }
+.asa-card-offer .asa-coupon__code { padding-inline: var(--asa-space-3); font-size: var(--asa-fs-body); letter-spacing: .04em; }
+
+.asa-card-offer__rules { border-top: 1px solid var(--asa-line-soft); border-bottom: 0; margin-top: var(--asa-space-2); }
+
+.asa-card-offer__rules ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: var(--asa-space-1);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-card-offer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--asa-space-2) var(--asa-space-5);
+  margin-top: auto;
+  padding-top: var(--asa-space-3);
+}
+
+/* Cupom: o código num campo somente leitura (dá para selecionar à mão se a
+   área de transferência falhar) e o botão de copiar. Sem tracejado de
+   "recorte aqui": o código é texto, não ilustração. O estado "Código
+   copiado" troca o rótulo do botão por 3s e é anunciado por aria-live. */
+.asa-coupon {
+  display: flex;
+  align-items: stretch;
+  max-width: 420px;
+  background: var(--asa-bg-elevated);
+  border: var(--asa-border-width) solid var(--asa-ink);
+  border-radius: var(--asa-radius);
+  overflow: hidden;
+}
+
+.asa-coupon__code {
+  flex: 1;
+  min-width: 0;
+  padding: 0 var(--asa-space-4);
+  background: transparent;
+  border: 0;
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-highlight);
+  font-weight: var(--asa-weight-bold);
+  letter-spacing: .06em;
+  color: var(--asa-ink);
+}
+
+.asa-coupon__code:focus-visible { outline: 2px solid var(--asa-ink); outline-offset: -4px; }
+
+.asa-coupon__copy.asa-btn {
+  flex: none;
+  min-height: var(--asa-control-h);
+  border: 0;
+  border-left: var(--asa-border-width) solid var(--asa-ink);
+  border-radius: 0;
+}
+
 .asa-card-store {
   display: flex;
   flex-direction: column;
@@ -2734,36 +2920,69 @@
 
 .asa-card-store__link { font-weight: var(--asa-weight-medium); color: var(--asa-action-hover); }
 
+/* Card de artigo: foto com o corte de 8°, título, uma linha de resumo e a
+   linha de dados (categoria · data · tempo de leitura). A categoria fica
+   na linha de dados, abaixo do título, nunca acima: acima ela seria um
+   sobretítulo. O título é o link, e o link cobre o card inteiro
+   (__link::after), sem "Leia mais". */
 .asa-card-article {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: var(--asa-space-4);
 }
 
+.asa-card-article > .asa-cut { margin: calc(-1 * var(--asa-space-4)) calc(-1 * var(--asa-space-4)) var(--asa-space-4); }
+
 .asa-card-article__category {
-  font-family: var(--asa-font);
-  font-size: var(--asa-fs-body-dense);
-  line-height: var(--asa-lh-body-dense);
   font-weight: var(--asa-weight-medium);
-  color: var(--asa-ink-3);
+  color: var(--asa-ink-2);
 }
 
 .asa-card-article__title {
-  margin: 6px 0 0;
+  margin: 0;
   font-size: var(--asa-fs-subtitle);
+  line-height: var(--asa-lh-subtitle);
   font-weight: var(--asa-weight-bold);
   color: var(--asa-ink);
 }
+
+.asa-card-article__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.asa-card-article__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--asa-radius);
+}
+
+.asa-card-article__link:hover,
+.asa-card-article__link:focus-visible {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+}
+
+.asa-card-article__link:focus-visible { outline: none; }
+.asa-card-article__link:focus-visible::after { outline: 2px solid var(--asa-action-hover); outline-offset: 2px; }
 
 .asa-card-article__excerpt {
   margin: 4px 0 0;
   font-family: var(--asa-font);
   font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
   color: var(--asa-ink-2);
 }
 
+/* Empurrada para a base: numa grade, a linha de dados de todos os cards
+   fica na mesma altura, qualquer que seja o tamanho do título. */
 .asa-card-article__meta {
-  margin-top: var(--asa-space-2);
+  margin-top: auto;
+  padding-top: var(--asa-space-3);
   font-family: var(--asa-font);
   font-size: var(--asa-fs-label);
   color: var(--asa-ink-3);
@@ -2851,6 +3070,93 @@
 
 .asa-prose a { color: var(--asa-action-hover); text-decoration: underline; }
 .asa-prose strong { color: var(--asa-ink); font-weight: var(--asa-weight-bold); }
+
+/* Tabela no texto corrido (dados coletados, bases legais, prazos). Fio fino
+   entre linhas, cabeçalho em negrito, sem zebra e sem caixa em volta. Abaixo
+   de 640px cada linha vira um bloco, e o rótulo da coluna vem do
+   data-label de cada célula: tabela larga rolando para o lado no celular
+   esconde justamente a coluna que responde a pergunta. */
+.asa-prose table {
+  width: 100%;
+  margin: 0 0 var(--asa-space-6);
+  border-collapse: collapse;
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-prose th,
+.asa-prose td {
+  padding: var(--asa-space-3) var(--asa-space-4) var(--asa-space-3) 0;
+  border-bottom: 1px solid var(--asa-line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.asa-prose th {
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+  border-bottom: var(--asa-border-width) solid var(--asa-line);
+}
+
+.asa-prose td:first-child { font-weight: var(--asa-weight-medium); color: var(--asa-ink); }
+
+@media (max-width: 639px) {
+  .asa-prose thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .asa-prose tr { display: block; padding: var(--asa-space-3) 0; border-bottom: 1px solid var(--asa-line-soft); }
+  .asa-prose td { display: block; padding: 2px 0; border: none; }
+  .asa-prose td[data-label]::before {
+    content: attr(data-label) ": ";
+    font-weight: var(--asa-weight-medium);
+    color: var(--asa-ink-3);
+  }
+  .asa-prose td:first-child::before { content: none; }
+}
+
+/* Índice da página: os títulos de um texto longo (política, termos,
+   regras), em links de âncora. No desktop gruda ao lado do texto e marca a
+   seção em leitura com aria-current="true", o mesmo traço vermelho de
+   "onde eu estou" do navbar; no celular vem antes do texto, recolhido em
+   <details>. */
+.asa-toc {
+  font-family: var(--asa-font);
+  font-size: var(--asa-fs-body-dense);
+  line-height: var(--asa-lh-body-dense);
+}
+
+.asa-toc__title {
+  display: block;
+  margin: 0 0 var(--asa-space-3);
+  font-weight: var(--asa-weight-bold);
+  color: var(--asa-ink);
+}
+
+.asa-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--asa-line-soft);
+}
+
+.asa-toc__link {
+  display: block;
+  padding: 6px 0 6px var(--asa-space-4);
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--asa-ink-3);
+  text-decoration: none;
+}
+
+.asa-toc__link:hover { color: var(--asa-ink); }
+
+.asa-toc__link[aria-current="true"] {
+  color: var(--asa-ink);
+  font-weight: var(--asa-weight-medium);
+  border-left-color: var(--asa-action);
+}
+
+@media (min-width: 1024px) {
+  .asa-toc { position: sticky; top: calc(var(--asa-header-h) + var(--asa-space-6)); }
+}
 
 /* Accordion: agrupador de asa-disclosure para FAQ. O disclosure resolve o
    item individual; isto só fecha a borda superior do grupo. Reuso, não um
@@ -3131,6 +3437,10 @@
   display: block;
 }
 
+/* A régua de fatos sobe sobre a base da foto: a legenda do placeholder
+   fica no alto, onde a régua não cobre. */
+.asa-factstrip__media .asa-photo__caption { top: var(--asa-space-3); bottom: auto; }
+
 .asa-factstrip__facts {
   position: relative;
   display: grid;
@@ -3249,7 +3559,7 @@
 /* --------------------------------------------------------------------------
    PROVA
    A faixa preta, uma vez por página: as duas praças em foto grande com o
-   nome num chip preto, e abaixo as placas 4,7 · 9,4 ao lado de dois
+   nome num chip preto, e abaixo as placas 4,7 · 4,9 · 9,3 ao lado de dois
    depoimentos sem card. Usa .asa-numberplate--bare e .asa-testimonial--bare.
    -------------------------------------------------------------------------- */
 .asa-proof__places {

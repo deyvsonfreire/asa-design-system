@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>10 · Tokens · Sistema de Design Asa</title>
+<title>10 · Tokens · Sistema de Design Asa Locadora</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -52,7 +52,7 @@
       <div class="asa-doc-card asa-doc-card--yellow">
         <span class="asa-doc-block__title" style="margin:0;color:var(--asa-ink)">Por que não bastam os primitivos</span>
         <p style="max-width:none">A marca tem oito cores fixas e nenhum modo escuro previsto. Ainda assim a camada semântica vale, por dois motivos concretos.</p>
-        <p class="asa-doc-gloss"><b>Primeiro:</b> a regra "vermelho é só ação" só é executável se o componente escrever <code class="asa-doc-code">var(--asa-action)</code>. Escrevendo <code class="asa-doc-code">var(--asa-red)</code>, a regra continua sendo folclore que alguém precisa lembrar. <b>Segundo:</b> a v3.1 troca vermelho e amarelo de papel. Isso é literalmente um tema, e sem apelido seria reescrever todo componente para produzir a variante B2B.</p>
+        <p class="asa-doc-gloss"><b>Primeiro:</b> a regra "vermelho é só ação" só é executável se o componente escrever <code class="asa-doc-code">var(--asa-action)</code>. Escrevendo <code class="asa-doc-code">var(--asa-red)</code>, a regra continua sendo folclore que alguém precisa lembrar. <b>Segundo:</b> se o papel de uma cor mudar um dia, a troca acontece num lugar só, sem reescrever componente.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Os quatro arquivos</span>
@@ -133,20 +133,6 @@
         </div>
       </div>
     </div>
-
-    <div class="asa-doc-block">
-      <span class="asa-doc-block__title">A variante B2B em nove linhas</span>
-      <div class="asa-doc-pre"><span class="c">/* asa-tokens-v31.css: carregar DEPOIS de asa-tokens.css.
-   Nenhum componente muda. Nenhuma classe muda. Só o papel das cores. */</span>
-:root {
-  <span class="k">--asa-surface</span>:      var(--asa-red);      <span class="c">/* vermelho vira ambiente  */</span>
-  <span class="k">--asa-bg</span>:           #FFF2F2;             <span class="c">/* fundo claro da v3.1     */</span>
-  <span class="k">--asa-action</span>:       var(--asa-yellow);   <span class="c">/* amarelo vira ação       */</span>
-  <span class="k">--asa-on-action</span>:    var(--asa-black);    <span class="c">/* sobre amarelo, só preto */</span>
-  <span class="k">--asa-action-hover</span>: #EAB227;
-}</div>
-      <p class="asa-doc-gloss" style="margin-top:16px;max-width:760px">Esta é a prova de que a camada semântica não é cerimônia. Com ela, a variante B2B é um arquivo de cinco declarações. Sem ela, seria uma caça manual a cada lugar do produto onde <code class="asa-doc-code">#E80911</code> foi escrito direto.</p>
-    </div>
   </div>
 </section>
 
@@ -164,7 +150,7 @@
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-highlight</code></span><span class="asa-doc-spec__value">20px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-body</code></span><span class="asa-doc-spec__value">16px</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-label</code></span><span class="asa-doc-spec__value">12px · só etiqueta (.asa-tag)</span></div>
-          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-mono</code></span><span class="asa-doc-spec__value">11px · só metadado de produto</span></div>
+          <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-fs-mono</code></span><span class="asa-doc-spec__value">12px · só metadado de produto</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-tracking-display</code></span><span class="asa-doc-spec__value">-0.03em · H1, Registro 1</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-tracking-title</code></span><span class="asa-doc-spec__value">-0.01em · H2, Registro 2</span></div>
           <div class="asa-doc-spec"><span><code class="asa-doc-code">--asa-measure</code></span><span class="asa-doc-spec__value">640px</span></div>
@@ -339,8 +325,8 @@ import <span class="k">'./css/asa-utilities.css'</span>
 </div>
 
 <footer class="asa-doc-foot">
-  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · documentação de implementação.</p>
+  <img src="assets/img/lockup-branco.png" alt="Asa Locadora">
+  <p>Sistema de Design Asa Locadora · v3.3 · documentação de implementação.</p>
 </footer>
 
 </body>

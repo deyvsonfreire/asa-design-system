@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>13 · Roadmap de componentes · Sistema de Design Asa</title>
+<title>13 · Roadmap de componentes · Sistema de Design Asa Locadora</title>
 <link rel="stylesheet" href="css/asa-tokens.css">
 <link rel="stylesheet" href="css/asa-base.css">
 <link rel="stylesheet" href="css/asa-components.css">
@@ -121,7 +121,7 @@
             <tr><td><span class="comp">asa-navbar</span></td><td>Menu visível no desktop e Minha reserva no header</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-navdrawer</span></td><td>Substituto mobile do menu horizontal</td><td>Mobile</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-combobox</span></td><td>Quatro tipos de lugar na busca: aeroporto com IATA, cidade, bairro e destino</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>A diária de 27h só é vendável se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-datepicker</span> <span class="comp">asa-timeselect</span></td><td>A tolerância de 3 horas na devolução só faz sentido se a hora entrar na busca</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-chip</span></td><td>Quatro usos: chips do motor, de intenção, de sazonalidade, de filtro rápido</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-booking-lookup</span></td><td>Localizar reserva pelo código, no header, no widget e em <code>/minha-reserva</code></td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-tabs</span></td><td>Abas de linha de negócio: cada aba troca o formulário do motor</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
@@ -173,7 +173,7 @@
             <tr><td><span class="comp">asa-prose</span></td><td>Cerca de 70 páginas de conteúdo longo, além de h1/h2/h3/p/small</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-accordion</span> <span class="comp">asa-testimonial</span></td><td>FAQ com schema; "HISTÓRIAS REAIS" com nome e cidade</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
             <tr><td><span class="comp">asa-upload</span> <span class="comp">asa-codeinput</span></td><td>Check-in "Asa Express": a maior oportunidade de coerência entre promessa e produto</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
-            <tr><td><span class="comp">asa-card-plan</span></td><td>Clube Asa</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
+            <tr><td><span class="comp">asa-card-plan</span></td><td>Comparação de planos (ex.: proteções)</td><td>Ambos</td><td><span class="fase fase--done">✓ Construído</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -262,7 +262,7 @@
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
           <span class="asa-doc-card__title">Preço nunca sobre amarelo, como restrição estrutural</span>
-          <p class="asa-doc-gloss">Com um preço por peça, a regra se confere no olho. A home tem preço na prateleira, nos cards de destino, no clube e na barra de cupom, então a regra é verificável: nenhum componente com preço pode ser instanciado dentro de <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-bg-surface</code>.</p>
+          <p class="asa-doc-gloss">Com um preço por peça, a regra se confere no olho. A home tem preço na prateleira, nos cards de destino e na barra de cupom, então a regra é verificável: nenhum componente com preço pode ser instanciado dentro de <code class="asa-doc-code" style="color:var(--asa-surface)">.asa-bg-surface</code>.</p>
         </div>
         <div class="asa-doc-card asa-doc-card--dense" style="border:var(--asa-border-width) solid var(--asa-line-inverse)">
           <span class="asa-doc-card__title">Vitrine assíncrona contra "nada pulsa, nada gira"</span>
@@ -321,7 +321,7 @@
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Operação e negócio</span>
-        <p class="asa-doc-gloss">Central 0800, distribuição em OTA, carro reserva pós-sinistro, transfer, afiliados, precificação do clube. A base de dados do autocomplete é dado: o componente é só a casca. O "escolhido por 4 em cada 10" é dado operacional real.</p>
+        <p class="asa-doc-gloss">Central 0800, distribuição em OTA, carro reserva pós-sinistro, transfer, afiliados. A base de dados do autocomplete é dado: o componente é só a casca. O "escolhido por 4 em cada 10" é dado operacional real.</p>
       </div>
       <div class="asa-doc-card">
         <span class="asa-doc-block__title" style="margin:0">Produção visual e jurídico</span>
@@ -376,8 +376,8 @@
 </div>
 
 <footer class="asa-doc-foot">
-  <img src="assets/img/lockup-branco.png" alt="Asa Rent a Car">
-  <p>Sistema de Identidade v3.2 · roadmap de componentes do portal.</p>
+  <img src="assets/img/lockup-branco.png" alt="Asa Locadora">
+  <p>Sistema de Design Asa Locadora · v3.3 · roadmap de componentes do portal.</p>
 </footer>
 
 </body>

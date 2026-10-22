@@ -80,7 +80,9 @@ def main():
     # 3. Assets.
     for pasta in PASTAS_DE_ASSETS:
         base = os.path.join(ROOT, "assets", pasta)
-        for raiz, _, arquivos in os.walk(base):
+        for raiz, dirs, arquivos in os.walk(base):
+            # _versoes-anteriores e outras pastas com "_" nunca são publicadas.
+            dirs[:] = [d for d in dirs if not d.startswith("_")]
             for nome in arquivos:
                 if nome in IGNORAR:
                     continue

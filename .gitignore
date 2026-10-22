@@ -1,2 +1,4 @@
 .DS_Store
 *.pdf
+# histórico dos downloads: fica no disco, nunca no git nem no deploy
+assets/downloads/**/_versoes-anteriores/
