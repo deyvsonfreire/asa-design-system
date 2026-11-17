@@ -9,7 +9,7 @@ as páginas ficam na raiz, ao lado de css/ e assets/. Por isso os caminhos
 Este script copia, para um clone local daquele repositório:
   - guia-parceiros/*.html e guia.css, com os caminhos reescritos;
   - css/*.css (inclusive asa-docs.css, que o guia usa);
-  - assets/img, assets/fonts e assets/downloads.
+  - assets/img, assets/fonts, assets/downloads e assets/js (explorador de ícones).
 Não toca em README.md, .nojekyll nem .github/ do destino. Páginas que deixaram
 de existir aqui são apagadas lá, para o site não servir versão órfã.
 
@@ -28,7 +28,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GUIA = os.path.join(ROOT, "guia-parceiros")
-PASTAS_DE_ASSETS = ("img", "fonts", "downloads")
+PASTAS_DE_ASSETS = ("img", "fonts", "downloads", "js")
 IGNORAR = {".DS_Store"}
 
 # Só atributos href/src e url() com "../" na frente: é a única diferença entre
