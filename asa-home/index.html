@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js scroll-smooth motion-reduce:scroll-auto antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aluguel de Carros em Recife e Fortaleza | Asa Locadora</title>
+  <meta name="description" content="Balcão 24h dentro dos aeroportos de Recife e Fortaleza, diária de 27 horas e cancelamento grátis até 24h antes. Veja o preço final e reserve.">
+  
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- BR Omny (fonte oficial do DS v3.2) — só os 4 pesos usados na página -->
+  <link rel="preload" href="fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
+
+  <style>
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    /* Display nunca pisca em fallback a 64px: block, como no DS */
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-BlackItalic.otf') format('opentype'); font-weight: 900; font-style: italic; font-display: block; }
+
+    :root {
+      --asa-yellow: #FEC42B;
+      --asa-yellow-hover: #EAB227;
+      --asa-black: #141517;
+      --asa-black-deep: #0D0D0E;
+      --asa-red: #E80911;
+      --asa-red-dark: #C4070E;
+      --asa-white: #FFFFFF;
+      --asa-gray-body: #4A4C50;
+      --asa-gray-caption: #5A5C60;
+      --asa-green: #065F46;
+      --asa-cream: #FFFBF0;
+      --asa-warn: #B65C00;
+      --asa-gray-dark-2: #A8AAAE;
+
+      /* Papéis (DS v3.2): amarelo é superfície (40%), preto é tinta e bloco denso (25%),
+         vermelho é SOMENTE ação e preço (teto de 20%), creme é accent de 15%, branco é o fundo da página */
+      --asa-surface: var(--asa-yellow);
+      --asa-ink: var(--asa-black);
+      --asa-action: var(--asa-red);
+      --asa-action-hover: var(--asa-red-dark);
+      --asa-bg: var(--asa-cream);
+      --asa-bg-elevated: var(--asa-white);
+      --asa-ok: var(--asa-green);
+      /* Token único de raio: 8px em botão, card e campo; 0 na etiqueta; nada mais */
+      --asa-radius: 8px;
+
+      --asa-font: 'BR Omny', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --asa-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+      /* Grid DS v3.2: container 1200px, gutter 24px, margem fluida */
+      --asa-container: 1200px;
+      --asa-margin: clamp(20px, 6vw, 90px);
+      --asa-gutter: 24px;
+      /* Ritmo: 90px (--asa-space-11) entre seções grandes, 56px no celular */
+      --asa-section: clamp(56px, 7vw, 90px);
+    }
+
+    body {
+      font-family: var(--asa-font);
+      font-size: 16px;
+      line-height: 26px;
+      background-color: var(--asa-bg-elevated);
+      color: var(--asa-black);
+      overflow-x: hidden;
+    }
+
+    /* ---------- Tipografia: os 5 degraus do DS + tokens auxiliares ---------- */
+    /* Registro 1 (anúncio): caixa alta, itálico Black, tracking negativo */
+    .t-display  { font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;
+                  font-size: clamp(38px, 6.4vw, 64px); line-height: 0.94; text-wrap: balance; }
+    .t-titulo   { font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;
+                  font-size: clamp(24px, 3.2vw, 32px); line-height: 1.125; text-wrap: balance; }
+    .t-preco    { font-weight: 900; font-style: italic; letter-spacing: -0.03em; font-size: 24px; line-height: 1;
+                  font-variant-numeric: tabular-nums; }
+    /* Registro 2 (balcão): caixa baixa */
+    .t-destaque  { font-size: 20px; line-height: 28px; font-weight: 700; }
+    .t-subtitulo { font-size: 17px; line-height: 24px; font-weight: 700; }   /* título de card */
+    .t-corpo     { font-size: 16px; line-height: 26px; font-weight: 400; }
+    .t-denso     { font-size: 14px; line-height: 20px; }                     /* botão, rodapé, metadado */
+    .t-etiqueta  { font-size: 12px; line-height: 16px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; }
+    /* Mono: só rótulo de seção */
+    .t-secao     { font-family: var(--asa-mono); font-size: 11px; line-height: 16px; font-weight: 500;
+                   letter-spacing: 0.14em; text-transform: uppercase; color: var(--asa-gray-caption); }
+    .measure     { max-width: 640px; }
+
+    /* ---------- Layout ---------- */
+    /* Um único container para a página inteira: todas as bordas esquerdas caem no mesmo x */
+    .wrap  { width: min(var(--asa-container), 100vw - 2 * var(--asa-margin)); margin-inline: auto; }
+    .sec   { padding-block: calc(var(--asa-section) / 2); }
+    .sec-m { margin-block: calc(var(--asa-section) / 2); }
+    .island-pad { padding-block: clamp(40px, 6vw, 72px); }
+
+    /* Foco visível em todo lugar; amarelo nas superfícies escuras */
+    :focus-visible { outline: 2px solid var(--asa-black); outline-offset: 3px; }
+    input, select { caret-color: var(--asa-action); accent-color: var(--asa-action); }
+    svg { stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Movimento: teto de 400ms e nada de rotação; quem pede menos movimento não recebe nenhum */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+    .is-dark :focus-visible { outline-color: var(--asa-yellow); }
+
+    /* Corte de 8° subindo à direita. A subida é em cqw (tan 8° = 0.14054 da LARGURA),
+       então o ângulo é 8° real em qualquer proporção — nunca aplicar em container interativo */
+    .asa-cut { container-type: inline-size; }
+    .asa-cut__media { clip-path: polygon(0 0, 100% 0, 100% calc(100% - min(14.05cqw, 45%)), 0 100%); }
+
+    /* Marca d'água: a asa sozinha, 13%, só sobre amarelo */
+    /* Placeholder de fotografia do DS: hachura a 8°, nunca foto de banco de imagem */
+    .asa-photo {
+      background-color: #E4E0DA;
+      background-image: repeating-linear-gradient(-8deg, rgba(20, 21, 23, .12) 0 1px, transparent 1px 11px);
+    }
+    @media (min-resolution: 2dppx) {
+      .asa-photo { background-image: repeating-linear-gradient(-8deg, rgba(20, 21, 23, .12) 0 1.5px, transparent 1.5px 16px); }
+    }
+    .asa-photo__caption {
+      position: absolute; left: 12px; bottom: 22px; right: 12px;
+      font-family: var(--asa-mono); font-size: 12px; line-height: 1.35; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--asa-gray-caption);
+    }
+    .asa-photo__caption--top { top: 12px; bottom: auto; }
+    .asa-cut__media > .asa-photo__caption { right: 40%; }   /* fica onde o corte de 8° ainda está baixo */
+    .asa-photo__caption--mid { top: 50%; bottom: auto; transform: translateY(-50%); text-align: center; }
+
+    /* Placa de número (Registro 1): a nota aparece inteira, sem contador */
+    .asa-plate { font-size: clamp(58px, 8vw, 104px); line-height: .8; font-weight: 900; font-style: italic;
+                 letter-spacing: -0.03em; color: var(--asa-yellow); font-variant-numeric: tabular-nums; }
+
+    /* Só com JS: controles que não fazem nada sem script */
+    .no-js [data-js] { display: none !important; }
+
+    /* details/summary: acordeom e menu que funcionam sem JS */
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details[open] > summary .chev { transform: scaleY(-1); }
+    details[open] > summary .i-open { display: none; }
+    details:not([open]) > summary .i-close { display: none; }
+
+    /* Campo com erro: borda e texto no vermelho de erro do DS */
+    .asa-field.is-invalid { border-color: var(--asa-action-hover) !important; }  /* vence o focus-within de propósito */
+    .asa-field input::-webkit-calendar-picker-indicator { cursor: pointer; opacity: .7; }
+
+    .asa-watermark {
+      position: absolute; pointer-events: none; opacity: .13;
+      background: url('w-atual-red.png') center / contain no-repeat; aspect-ratio: 806 / 511;
+    }
+
+    /* Grid Overlay de Inspeção para Homologação de Design */
+    #gridOverlay {
+      pointer-events: none;
+      display: none;
+    }
+    #gridOverlay.active {
+      display: flex;
+    }
+
+    /* Suporte a rolagem limpa sem scrollbar aparente */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="selection:bg-[#FEC42B] selection:text-[#141517] p-2 sm:p-4 md:p-6 lg:p-8 max-w-[1440px] mx-auto relative">
+
+  <a href="#motor" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] bg-[#141517] text-white px-4 py-3 rounded-[8px] t-denso font-bold">Pular para a busca</a>
+
+  <!-- FERRAMENTA DE HOMOLOGAÇÃO DE UI: GRID DE 12 COLUNAS (Para Designers) -->
+  <div id="gridOverlay" class="fixed inset-y-0 left-0 right-0 z-50 wrap justify-between gap-6 pointer-events-none" aria-hidden="true">
+    <div class="flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-md:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-md:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-md:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-md:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-lg:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-lg:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-lg:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+    <div class="max-lg:hidden flex-1 bg-red-500/10 border-x border-red-500/20 h-full"></div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- HERO CONTAINER EM ILHA FLUTUANTE (Estilo Editorial LawnBuster + DS v3.2)  -->
+  <!-- ========================================================================= -->
+  <section class="relative w-full rounded-[8px] overflow-clip bg-[#FEC42B] text-[#141517]">
+    
+    <!-- Marca d'água da asa a 13% sobre o amarelo (única aplicação permitida da asa isolada) -->
+    <div class="asa-watermark z-0 w-[120%] -right-[45%] top-[4%] sm:w-[78%] sm:-right-[12%] sm:top-[6%] max-w-[1000px]" aria-hidden="true"></div>
+
+    <!-- NAVEGAÇÃO FLUTUANTE SUPERIOR EMBUTIDA NO HERO -->
+    <header class="relative z-20 w-full pt-6 pb-4">
+      <div class="wrap flex items-center justify-between gap-4">
+        
+        <!-- Logo Asa com o símbolo original e corte de precisão -->
+        <a href="/" class="flex items-center min-h-[44px] rounded-[8px]" aria-label="Asa Rent a Car, página inicial">
+          <img src="lockup.png" alt="" width="961" height="371" class="h-10 sm:h-11 w-auto">
+        </a>
+
+        <!-- Links de Navegação com Pill Flutuante -->
+        <nav aria-label="Principal" class="hidden xl:flex items-center whitespace-nowrap bg-[#FFFBF0] px-1.5 py-1 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] t-denso font-medium text-[#141517]">
+          <a href="#motor" class="px-3.5 py-2.5 rounded-[8px] bg-[#141517] text-[#FEC42B] font-bold transition">Início</a>
+          <a href="#frota" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[rgba(20,21,23,.06)] transition">Frota & Grupos</a>
+          <a href="#pracas" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[rgba(20,21,23,.06)] transition">Praças 24h</a>
+          <a href="#destinos" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[rgba(20,21,23,.06)] transition">Destinos</a>
+          <a href="#requisitos" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[rgba(20,21,23,.06)] transition">O que levar</a>
+          <a href="#duvidas" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[rgba(20,21,23,.06)] transition">Dúvidas</a>
+        </nav>
+
+        <!-- Ação Secundária (Telefone / WhatsApp) + Botão de Cotação Rápida -->
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" 
+             class="hidden sm:inline-flex items-center gap-2 t-denso font-semibold px-4 py-2.5 min-h-[44px] rounded-[8px] bg-[#FFFBF0] hover:bg-white border-[1.5px] border-[rgba(20,21,23,.14)] text-[#141517] transition">
+            <svg class="w-3.5 h-3.5 text-[#065F46] stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span class="tabular-nums whitespace-nowrap">0800 080 0015</span><span class="sr-only"> (abre em nova aba)</span>
+          </a>
+          <a href="#frota" class="px-5 py-2.5 min-h-[44px] bg-[#141517] hover:bg-black text-white font-bold t-denso rounded-[8px] transition flex items-center gap-1.5">
+            <span class="whitespace-nowrap">Ver Frota</span>
+            <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <details class="xl:hidden relative" data-menu>
+            <summary class="cursor-pointer w-11 h-11 rounded-[8px] bg-[#FFFBF0] border-[1.5px] border-[rgba(20,21,23,.14)] flex items-center justify-center text-[#141517]" aria-label="Menu">
+              <svg class="i-open w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="i-close w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </summary>
+            <nav aria-label="Principal" class="absolute right-0 top-[calc(100%+8px)] z-30 w-[min(300px,calc(100vw-40px))] bg-white rounded-[8px] border-[1.5px] border-[#141517] p-2 flex flex-col t-corpo font-medium text-[#141517]">
+              <a href="#motor" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Início</a>
+              <a href="#frota" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Frota & Grupos</a>
+              <a href="#pracas" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Praças 24h</a>
+              <a href="#destinos" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Destinos</a>
+              <a href="#requisitos" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">O que levar</a>
+              <a href="#duvidas" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Dúvidas</a>
+              <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="min-h-[44px] px-3 mt-1 pt-1 flex items-center gap-2 rounded-[8px] border-t border-[rgba(20,21,23,.12)] hover:bg-[#FFFBF0] tabular-nums">0800 080 0015 · WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>
+            </nav>
+          </details>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL DO HERO -->
+    <div class="relative z-10 wrap pt-8 pb-16 md:pt-12 md:pb-20">
+      
+      <!-- Top Badges com Prova Social Estilo LawnBuster (Diferencial Competitivo Hiperlocal) -->
+      <div class="flex flex-wrap items-center gap-3 mb-5 sm:mb-6">
+        <!-- Notas oficiais (DS v3.2): 4,7 no Google · 9,4 no Reclame Aqui -->
+        <div class="inline-flex flex-wrap items-center gap-x-2 gap-y-1 px-3 py-1.5 bg-[#FFFBF0] border-[1.5px] border-[rgba(20,21,23,.14)] t-denso">
+          <svg class="w-3.5 h-3.5 text-[#141517] flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span><strong class="font-bold tabular-nums">4,7</strong> <span class="text-[#4A4C50]">no Google</span></span>
+          <span class="text-[#4A4C50]" aria-hidden="true">·</span>
+          <span><strong class="font-bold tabular-nums">9,4</strong> <span class="text-[#4A4C50]">no Reclame Aqui</span></span>
+        </div>
+
+        <!-- Matador de Objeção: Diferencial contra vans de Localiza e Movida -->
+        <div class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 bg-[#FFFBF0] border-[1.5px] border-[rgba(20,21,23,.14)] t-denso text-[#141517] font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#065F46]"></span>
+          Sem van de transfer · Carro no pátio do próprio aeroporto
+        </div>
+      </div>
+
+      <!-- Título de Alto Impacto com Tipografia Editorial BR Omny -->
+      <div class="max-w-[1000px] mb-6 sm:mb-8">
+        <h1 class="t-display text-[#141517]">
+          Aluguel de carros em Recife e Fortaleza, 
+          <span class="block mt-[0.18em]"><span class="bg-[#141517] text-[#FEC42B] px-[0.14em] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">dentro do aeroporto</span></span>
+        </h1>
+        <p class="hidden sm:block mt-6 t-corpo text-[#141517] measure">
+          Balcão 24h no desembarque dos dois aeroportos. Diária de 27 horas e quilometragem livre em todos os carros da frota.
+        </p>
+      </div>
+
+      <!-- MOTOR DE BUSCA EM ILHA FLUTUANTE (BookingSearch Luxury Card) -->
+      <div id="motor" class="bg-white rounded-[8px] p-4 sm:p-5 md:p-6 text-[#141517] border-[1.5px] border-[rgba(20,21,23,.14)]">
+        <form id="searchForm" action="#frota" method="get" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-3 sm:gap-4">
+          <input type="hidden" name="categoria" id="carCategory" value="">
+
+          <!-- Segmento 1: Local de Retirada -->
+          <label for="pickupLocation" class="asa-field block bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer md:col-span-2 xl:col-span-1">
+            <span class="flex items-center justify-between gap-2 mb-1.5">
+              <span class="t-etiqueta text-[#4A4C50]">Local de Retirada</span>
+              <span class="hidden sm:inline t-etiqueta bg-[#065F46] text-white px-2 py-1 whitespace-nowrap">24 Horas</span>
+            </span>
+            <span class="relative flex items-center">
+              <svg class="w-4 h-4 text-[#5A5C60] mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+              </svg>
+              <select id="pickupLocation" name="local" class="w-full min-w-0 min-h-[28px] bg-transparent t-corpo font-bold text-[#141517] focus:outline-none tabular-nums cursor-pointer truncate">
+                <option value="REC">Aeroporto do Recife (REC) · Portão A5</option>
+                <option value="FOR">Aeroporto de Fortaleza (FOR) · Desembarque</option>
+              </select>
+            </span>
+          </label>
+
+          <!-- Segmento 2: Retirada (data e hora nativas; sem JS, o navegador exige o preenchimento) -->
+          <label for="pickupDate" class="asa-field block bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer">
+            <span class="block t-etiqueta text-[#4A4C50] mb-1.5">Retirada</span>
+            <input type="datetime-local" id="pickupDate" name="retirada" required aria-describedby="pickupError" class="w-full min-w-0 min-h-[28px] bg-transparent t-corpo font-bold text-[#141517] focus:outline-none tabular-nums">
+            <span id="pickupError" class="mt-2 t-denso font-bold text-[#C4070E] flex items-start gap-1.5 hidden" data-error><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></span>
+          </label>
+
+          <!-- Segmento 3: Devolução, com a tolerância de 27h explicada no próprio campo -->
+          <label for="returnDate" class="asa-field block bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer">
+            <span class="block t-etiqueta text-[#4A4C50] mb-1.5">Devolução</span>
+            <input type="datetime-local" id="returnDate" name="devolucao" required aria-describedby="returnHint returnError" class="w-full min-w-0 min-h-[28px] bg-transparent t-corpo font-bold text-[#141517] focus:outline-none tabular-nums">
+            <span id="returnHint" class="flex flex-wrap gap-1 mt-2"><span class="t-etiqueta whitespace-nowrap bg-[#FEC42B] text-[#141517] px-2 py-1">+3h Cortesia</span><span class="t-etiqueta whitespace-nowrap bg-[#FEC42B] text-[#141517] px-2 py-1">Diária 27h</span></span>
+            <span id="returnError" class="mt-2 t-denso font-bold text-[#C4070E] flex items-start gap-1.5 hidden" data-error><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span></span></span>
+          </label>
+
+          <!-- Segmento 4: O ÚNICO BOTÃO VERMELHO DA PRIMEIRA DOBRA (#E80911 · DS v3.2) -->
+          <div class="md:col-span-2 xl:col-span-1">
+            <button type="submit" id="searchBtn" class="w-full h-full min-h-[56px] py-4 px-8 bg-[#E80911] hover:bg-[#C4070E] active:bg-[#9B050B] disabled:bg-[#F2F2F0] disabled:text-[#A8AAAE] disabled:cursor-wait text-white font-bold t-denso rounded-[8px] flex items-center justify-center gap-2 transition duration-200">
+              <span data-label>Ver carros</span>
+              <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </form>
+
+        <!-- Feedback da busca: região viva, preenchida por script -->
+        <div id="searchFeedback" role="status" aria-live="polite" class="empty:hidden mt-3 p-3 bg-white border-[1.5px] border-[#065F46] text-[#065F46] t-denso rounded-[8px] flex items-center justify-between gap-4"></div>
+
+      </div>
+
+      <!-- Trinca de Reasseguro (LawnBuster Style Integrada com Glassmorphism) -->
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Reasseguro 1 -->
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-[8px] bg-[#141517] text-[#FEC42B] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <p class="t-subtitulo text-[#141517]">Diária de 27 horas</p>
+            <p class="t-corpo text-[#141517] mt-1">
+              Retirada às 10h, devolução até as 13h do dia seguinte, sem pagar outra diária.
+            </p>
+          </div>
+        </div>
+
+        <!-- Reasseguro 2 -->
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-[8px] bg-[#141517] text-[#FEC42B] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="t-subtitulo text-[#141517]">Cancele grátis até 24h antes</p>
+            <p class="t-corpo text-[#141517] mt-1">
+              Se o voo ou o plano mudar, cancele sem custos até 24 horas antes da retirada.
+            </p>
+          </div>
+        </div>
+
+        <!-- Reasseguro 3 -->
+        <div class="flex items-start gap-4">
+          <div class="w-9 h-9 rounded-[8px] bg-[#141517] text-[#FEC42B] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <div>
+            <p class="t-subtitulo text-[#141517]">Balcão 24h no aeroporto</p>
+            <p class="t-corpo text-[#141517] mt-1">
+              Recife no Portão A5 e Fortaleza na Área de Locadoras. O carro sai do pátio interno.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Diferencial contra a Foco: Transparência Tarifária sem pegadinhas -->
+      <div class="mt-6 text-center">
+        <p class="t-denso text-[#141517] inline-flex items-start gap-2 text-left">
+          <svg class="w-4 h-4 mt-0.5 flex-shrink-0 text-[#065F46] inline" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          O preço da busca é o preço final: sem taxa de aeroporto, com proteção básica e taxa administrativa já somadas.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- HISTÓRIA E AUTORIDADE EDITORIAL (Módulo About · Inspirado na LawnBuster) -->
+  <!-- ========================================================================= -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-8 items-center">
+        
+        <!-- Coluna da Foto com Badge e Social Links -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-[8px] overflow-hidden aspect-[4/3]">
+            <div class="asa-photo absolute inset-0" aria-hidden="true"><span class="asa-photo__caption asa-photo__caption--top">Foto: equipe Asa no pátio do aeroporto</span></div>
+            <div class="absolute bottom-3 left-3 bg-[#141517] px-3 py-2 t-etiqueta text-white">
+              Operação Contínua desde 2004
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mt-4 t-etiqueta text-[#5A5C60]">
+            <span>RECIFE</span>
+            <span aria-hidden="true">·</span>
+            <span>FORTALEZA</span>
+            <span aria-hidden="true">·</span>
+            <span class="text-[#065F46]">22 ANOS DE MERCADO</span>
+          </div>
+        </div>
+
+        <!-- Coluna do Texto Editorial -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <span class="t-secao block mb-3">
+            DESDE 2004 EM AEROPORTOS DO NORDESTE
+          </span>
+          <h2 class="t-titulo text-[#141517] mb-4">
+            Aluguel direto no saguão, sem vans de transfer e sem surpresas no balcão.
+          </h2>
+          <p class="t-corpo text-[#4A4C50] measure mb-8">
+            A Asa nasceu com um compromisso claro: entregar o carro a poucos metros do desembarque para quem chega a trabalho ou lazer no Nordeste. Mais de 22 anos depois, mantemos balcões 24 horas no Aeroporto do Recife (Portão A5) e no Aeroporto de Fortaleza, com diária estendida de 27 horas, nota 4,7 no Google e 9,4 no Reclame Aqui.
+          </p>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="#frota" class="px-5 py-3 min-h-[44px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-denso rounded-[8px] transition flex items-center gap-2">
+              <span>Conhecer os 15 grupos da frota</span>
+              <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="t-denso font-bold text-[#141517] hover:text-[#C4070E] underline underline-offset-4 inline-flex items-center min-h-[44px] transition">
+              Falar com nossa equipe no WhatsApp<span class="sr-only"> (abre em nova aba)</span><svg class="w-4 h-4 ml-1.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 4: ESCOLHA PELO USO (Cards de Veículos Verticais com Scrim WCAG AAA) -->
+  <!-- ========================================================================= -->
+  <section id="frota" class="sec">
+    <div class="wrap">
+      
+      <!-- Cabeçalho da Seção com Controles de Carrossel -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="t-secao block mb-3">
+            ESCOLHA PELO SEU USO
+          </span>
+          <h2 class="t-titulo text-[#141517]">
+            Qual carro combina com a sua viagem?
+          </h2>
+          <p class="t-corpo text-[#4A4C50] mt-3 measure">
+            Todos com ar-condicionado e quilometragem livre. Valores por diária de 27 horas, já com taxas; o preço das suas datas aparece na busca.
+          </p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="t-etiqueta text-[#5A5C60] hidden sm:inline whitespace-nowrap">15 GRUPOS DISPONÍVEIS</span>
+          <div class="flex items-center gap-2 sm:hidden" data-js>
+            <button type="button" onclick="scrollFleet('left')" data-fleet-prev disabled class="disabled:opacity-40 disabled:cursor-not-allowed w-11 h-11 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] hover:border-[#141517] flex items-center justify-center text-[#141517] hover:bg-[#FFFBF0] transition" aria-label="Anterior">
+              <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" onclick="scrollFleet('right')" data-fleet-next class="disabled:opacity-40 disabled:cursor-not-allowed w-11 h-11 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] hover:border-[#141517] flex items-center justify-center text-[#141517] hover:bg-[#FFFBF0] transition" aria-label="Próximo">
+              <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRADE / CARROSSEL DE CARDS VERTICAIS FULL-BLEED (Contraste 7:1) -->
+      <div id="fleetContainer" tabindex="0" aria-label="Categorias da frota" class="focus-visible:outline-offset-4 flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto sm:overflow-x-visible pb-4 no-scrollbar snap-x">
+
+        <!-- CARD 1: Hatch Econômico -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: hatch da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Para rodar na cidade</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Grupo B · Compacto</span>
+            <h3 class="t-destaque text-[#141517]">Hatch econômico</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Fiat Mobi, Hyundai HB20 ou Onix</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>5 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>1-3 malas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Manual</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 139<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="Hatch" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar hatch</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Sedã -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: sedã da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Porta-malas separado</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Grupo C/E · Conforto</span>
+            <h3 class="t-destaque text-[#141517]">Sedã</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Chevrolet Onix Plus ou Corolla</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>5 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>2-3 malas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Manual / Auto</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 158<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="Sedã" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar sedã</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: SUV -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: SUV da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Estrada e litoral</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Grupo G/H · Altura Livre</span>
+            <h3 class="t-destaque text-[#141517]">SUV</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Chevrolet Tracker, Compass ou Commander</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>5 ou 7 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>2-3 malas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Automático</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 192<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="SUV" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar SUV</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: 7 Lugares -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: 7 lugares da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Família grande ou grupo</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Grupo L · Espaço Amplo</span>
+            <h3 class="t-destaque text-[#141517]">7 lugares</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Chevrolet Spin ou Commander</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>7 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>2-4 malas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Automático</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 229<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="7 lugares" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar 7 lugares</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: Picape -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: picape da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Caçamba e tração 4x4</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Grupo P/K · Tração & Carga</span>
+            <h3 class="t-destaque text-[#141517]">Picape</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Fiat Strada, Toro 4x4 ou S10 4x4</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>2-5 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>3-4 malas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Manual / 4x4</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 245<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="Picape" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar picape</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: Automático -->
+        <div class="w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none flex-shrink-0 snap-start relative rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] group flex flex-col">
+          <div class="asa-cut relative aspect-[16/10] bg-white">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: automático da frota Asa</span></div>
+            <span class="absolute top-4 left-4 t-etiqueta bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Sem embreagem</span>
+          </div>
+
+          <div class="p-6 pt-4 flex flex-col flex-1">
+            <span class="t-etiqueta text-[#5A5C60] block mb-2">Em 10 dos 15 grupos</span>
+            <h3 class="t-destaque text-[#141517]">Automático</h3>
+            <p class="t-corpo text-[#4A4C50] mt-1 mb-4">Citroën C3, Corolla e SUVs</p>
+            
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-1 t-etiqueta text-[#4A4C50] py-3 border-t border-[rgba(20,21,23,.12)] mt-auto mb-4">
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>5 ou 7 lug.</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Malas variadas</span>
+              <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-[#5A5C60] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Automático</span>
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <span class="t-etiqueta text-[#5A5C60] block mb-1">A partir de</span>
+                <span class="t-preco text-[#E80911]">R$ 168<span class="t-denso not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+                <span class="t-etiqueta text-[#065F46] block mt-1.5">Preço final com taxas</span>
+              </div>
+              <a href="#motor" data-category="Automático" class="px-4 py-3 min-h-[44px] rounded-[8px] bg-[#FEC42B] text-[#141517] hover:bg-[#EAB227] font-bold t-denso flex items-center gap-1.5 transition duration-200">
+                <span>Cotar automático</span>
+                <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 7: BENTO GRID "O QUE LEVAR" (Destruidor Oficial de Fricção)          -->
+  <!-- ========================================================================= -->
+  <section id="requisitos" class="island-pad sec-m bg-[#FFFBF0] rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+    <div class="wrap">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="t-secao block mb-3">
+            CHECKLIST DE RETIRADA
+          </span>
+          <h2 class="t-titulo text-[#141517]">
+            O que levar para retirar o carro
+          </h2>
+          <p class="t-corpo text-[#4A4C50] mt-3 measure">
+            Com isto em mãos, a retirada no balcão leva cerca de 8 minutos.
+          </p>
+        </div>
+        <a href="#motor" class="t-denso font-bold text-[#141517] hover:text-[#C4070E] underline underline-offset-4 inline-flex items-center min-h-[44px] flex-shrink-0">
+          Adiantar cadastro no Check-in Express<svg class="w-4 h-4 ml-1.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <!-- CHECKLIST 1 a 4 (a ordem visual é a ordem de leitura) + ALERTA DA CAUÇÃO -->
+      <ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+
+        <li class="bg-white rounded-[8px] p-6 border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+          <span class="t-etiqueta text-[#5A5C60] mb-4">Passo 01</span>
+          <h3 class="t-subtitulo text-[#141517] mb-2">CNH do condutor</h3>
+          <p class="t-corpo text-[#4A4C50]">
+            Emitida há pelo menos 2 anos. Quem vai dirigir o veículo precisa ter mais de 21 anos completos.
+          </p>
+        </li>
+
+        <li class="bg-white rounded-[8px] p-6 border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+          <span class="t-etiqueta text-[#5A5C60] mb-4">Passo 02</span>
+          <h3 class="t-subtitulo text-[#141517] mb-2">Cartão de crédito físico</h3>
+          <p class="t-corpo text-[#4A4C50]">
+            No nome de quem paga. É nele que fica a pré-autorização (caução), estornada por inteiro após a vistoria de devolução.
+          </p>
+          <p class="mt-auto pt-4"><span class="block pt-3 border-t border-[rgba(20,21,23,.12)] t-denso font-bold text-[#B65C00] flex items-start gap-2"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Cartão com chip de plástico obrigatório</span></p>
+        </li>
+
+        <li class="bg-white rounded-[8px] p-6 border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+          <span class="t-etiqueta text-[#5A5C60] mb-4">Passo 03</span>
+          <h3 class="t-subtitulo text-[#141517] mb-2">Quem paga no balcão</h3>
+          <p class="t-corpo text-[#4A4C50]">
+            Se o cartão é de outra pessoa (responsável financeiro), ela precisa estar presente no momento da retirada.
+          </p>
+          <p class="mt-auto pt-4"><span class="block pt-3 border-t border-[rgba(20,21,23,.12)] t-denso text-[#5A5C60]">O contrato é assinado no balcão pelo titular do cartão.</span></p>
+        </li>
+
+        <li class="bg-white rounded-[8px] p-6 border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+          <span class="t-etiqueta text-[#5A5C60] mb-4">Passo 04</span>
+          <h3 class="t-subtitulo text-[#141517] mb-2">Localizador da reserva</h3>
+          <p class="t-corpo text-[#4A4C50]">
+            Código emitido no e-mail de confirmação ou salvo no WhatsApp do titular da reserva.
+          </p>
+        </li>
+
+        <!-- CARD DE DESTAQUE ESCURO: ALERTA CRUCIAL DA CAUÇÃO & SELO 100% ESTORNO -->
+        <li class="is-dark md:col-span-2 lg:col-span-4 bg-[#141517] text-white rounded-[8px] p-6 sm:p-8 border border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="flex items-start gap-4 max-w-[720px]">
+            <div class="w-10 h-10 rounded-[8px] bg-[#FEC42B] text-[#141517] flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div>
+              <span class="t-secao block mb-3 text-[#FEC42B]">
+                AVISO ESSENCIAL SOBRE A CAUÇÃO
+              </span>
+              <h3 class="t-destaque text-white mb-2">
+                Carteira digital e cartão virtual não servem para a caução
+              </h3>
+              <p class="t-corpo text-[#A8AAAE]">
+                Apple Pay, Google Wallet e cartão virtual do app do banco não são aceitos pela maquininha física de balcão. <strong>Leve o cartão físico de plástico com chip no nome do titular.</strong>
+              </p>
+            </div>
+          </div>
+
+          <div class="self-stretch lg:self-auto flex-shrink-0 bg-[#FEC42B] px-6 py-4 rounded-[8px] text-center">
+            <span class="block t-titulo text-[#141517]">100%</span>
+            <span class="block mt-1 t-etiqueta text-[#141517]">Estornado após vistoria</span>
+          </div>
+        </li>
+
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 5: PRAÇAS 24H (Cards Amplos dos Aeroportos REC e FOR)              -->
+  <!-- ========================================================================= -->
+  <section id="pracas" class="sec">
+    <div class="wrap">
+      
+      <div class="mb-10">
+        <span class="t-secao block mb-3">
+          BALCÕES 24H
+        </span>
+        <h2 class="t-titulo text-[#141517]">
+          Onde você retira o seu carro
+        </h2>
+        <p class="t-corpo text-[#4A4C50] mt-3 measure">
+          O balcão fica no terminal de desembarque. Sem van e sem transfer externo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- CARD RECIFE -->
+        <div class="bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between group">
+          <div class="relative h-60 w-full overflow-hidden">
+            <div class="asa-photo absolute inset-0" aria-hidden="true"><span class="asa-photo__caption asa-photo__caption--mid">Foto: balcão Asa, Portão A5 (REC)</span></div>
+            
+            <div class="absolute top-4 left-4 bg-[#065F46] text-white t-etiqueta px-3 py-2">
+              ABERTO 24 HORAS
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <span class="t-etiqueta text-[#FEC42B] bg-[#141517] px-2.5 py-2">Portão A5 · Desembarque</span>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h3 class="t-destaque text-[#141517] mb-2">Aeroporto do Recife (REC)</h3>
+            <p class="t-corpo text-[#4A4C50] mb-6">
+              <strong>Localização:</strong> Portão A5 do Terminal de Desembarque.<br>
+              <strong>Pátio:</strong> O carro sai do pátio dentro do próprio aeroporto, a poucos passos do saguão.
+            </p>
+
+            <a href="#motor" data-airport="REC" class="w-full py-3 min-h-[48px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-denso rounded-[8px] flex items-center justify-center gap-2 transition">
+              <span>Ver carros em Recife</span>
+              <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD FORTALEZA -->
+        <div class="bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between group">
+          <div class="relative h-60 w-full overflow-hidden">
+            <div class="asa-photo absolute inset-0" aria-hidden="true"><span class="asa-photo__caption asa-photo__caption--mid">Foto: balcão Asa, desembarque (FOR)</span></div>
+            
+            <div class="absolute top-4 left-4 bg-[#065F46] text-white t-etiqueta px-3 py-2">
+              ABERTO 24 HORAS
+            </div>
+            <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+              <span class="t-etiqueta text-[#FEC42B] bg-[#141517] px-2.5 py-2">Área de Locadoras</span>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h3 class="t-destaque text-[#141517] mb-2">Aeroporto de Fortaleza (FOR)</h3>
+            <p class="t-corpo text-[#4A4C50] mb-6">
+              <strong>Localização:</strong> Área de Locadoras, no Terminal de Desembarque.<br>
+              <strong>Horário:</strong> 24 horas, todos os dias, com atendimento direto no desembarque.
+            </p>
+
+            <a href="#motor" data-airport="FOR" class="w-full py-3 min-h-[48px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-denso rounded-[8px] flex items-center justify-center gap-2 transition">
+              <span>Ver carros em Fortaleza</span>
+              <svg class="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 6: DESTINOS COM CORTE DIAGONAL DE 8°                                 -->
+  <!-- ========================================================================= -->
+  <section id="destinos" class="sec">
+    <div class="wrap">
+      
+      <div class="mb-10">
+        <span class="t-secao block mb-3">
+          ROTEIROS DO NORDESTE
+        </span>
+        <h2 class="t-titulo text-[#141517]">
+          Destinos com retirada no aeroporto
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Destino 1: Porto de Galinhas -->
+        <a href="#motor" data-airport="REC" class="group block bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] transition">
+          <div class="asa-cut h-44 w-full overflow-hidden bg-white relative">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: Porto de Galinhas</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="t-subtitulo text-[#141517] group-hover:text-[#C4070E] transition">Porto de Galinhas</h3>
+            <p class="t-denso text-[#5A5C60] mt-1">Retirada no Aeroporto do Recife</p>
+            <span class="t-denso font-bold text-[#141517] underline underline-offset-4 mt-4 inline-flex items-center gap-1.5">Carro para Porto de Galinhas<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Destino 2: Maragogi -->
+        <a href="#motor" data-airport="REC" class="group block bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] transition">
+          <div class="asa-cut h-44 w-full overflow-hidden bg-white relative">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: Maragogi</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="t-subtitulo text-[#141517] group-hover:text-[#C4070E] transition">Maragogi</h3>
+            <p class="t-denso text-[#5A5C60] mt-1">Retirada no Aeroporto do Recife</p>
+            <span class="t-denso font-bold text-[#141517] underline underline-offset-4 mt-4 inline-flex items-center gap-1.5">Carro para Maragogi<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Destino 3: Olinda -->
+        <a href="#motor" data-airport="REC" class="group block bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] transition">
+          <div class="asa-cut h-44 w-full overflow-hidden bg-white relative">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: Olinda</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="t-subtitulo text-[#141517] group-hover:text-[#C4070E] transition">Olinda</h3>
+            <p class="t-denso text-[#5A5C60] mt-1">Retirada no Aeroporto do Recife</p>
+            <span class="t-denso font-bold text-[#141517] underline underline-offset-4 mt-4 inline-flex items-center gap-1.5">Carro para Olinda<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+
+        <!-- Destino 4: Jericoacoara -->
+        <a href="#motor" data-airport="FOR" class="group block bg-white rounded-[8px] overflow-hidden border-[1.5px] border-[rgba(20,21,23,.14)] transition">
+          <div class="asa-cut h-44 w-full overflow-hidden bg-white relative">
+            <div class="asa-photo asa-cut__media absolute inset-0" aria-hidden="true"><span class="asa-photo__caption">Foto: Jericoacoara</span></div>
+          </div>
+          <div class="p-5">
+            <h3 class="t-subtitulo text-[#141517] group-hover:text-[#C4070E] transition">Jericoacoara</h3>
+            <p class="t-denso text-[#5A5C60] mt-1">Retirada no Aeroporto de Fortaleza</p>
+            <span class="t-denso font-bold text-[#141517] underline underline-offset-4 mt-4 inline-flex items-center gap-1.5">Carro para Jericoacoara<svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 8: AVALIAÇÕES REAIS (Autenticadas pelo Google GBP)                    -->
+  <!-- ========================================================================= -->
+  <section class="sec">
+    <div class="wrap">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="t-secao block mb-3">
+            NOTA DOS CLIENTES
+          </span>
+          <h2 class="t-titulo text-[#141517]">
+            O que dizem os clientes da Asa
+          </h2>
+        </div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Asa+Rent+a+Car+Aeroporto+do+Recife" target="_blank" rel="noopener noreferrer" class="t-denso font-bold text-[#141517] hover:text-[#C4070E] underline underline-offset-4 inline-flex items-center min-h-[44px] flex-shrink-0">
+          Ler todas as avaliações no Google<span class="sr-only"> (abre em nova aba)</span><svg class="w-4 h-4 ml-1.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <!-- Placas de número (DS): as duas notas oficiais, inteiras, de uma vez -->
+      <div class="grid grid-cols-2 gap-4 sm:gap-6 mb-6 lg:max-w-[calc(50%-12px)]">
+        <p class="bg-[#141517] rounded-[8px] p-[clamp(20px,2.6vw,32px)] flex flex-col gap-3">
+          <span class="asa-plate">4,7</span>
+          <span class="t-denso text-white">no Google</span>
+        </p>
+        <p class="bg-[#141517] rounded-[8px] p-[clamp(20px,2.6vw,32px)] flex flex-col gap-3">
+          <span class="asa-plate">9,4</span>
+          <span class="t-denso text-white">no Reclame Aqui</span>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Depoimento 1 -->
+        <div class="bg-white p-6 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between">
+          <div>
+            <div class="text-[#141517] flex gap-0.5 mb-4" role="img" aria-label="5 de 5 estrelas"><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="t-corpo text-[#141517] mb-4">
+              "Excelente atendimento, desde o remoto até o Sandro."
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[rgba(20,21,23,.12)]">
+            <strong class="t-denso font-bold text-[#141517] block">Lais C.</strong>
+            <span class="t-denso text-[#5A5C60] block mt-0.5">Recife · via Google Avaliações</span>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="bg-white p-6 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between">
+          <div>
+            <div class="text-[#141517] flex gap-0.5 mb-4" role="img" aria-label="5 de 5 estrelas"><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="t-corpo text-[#141517] mb-4">
+              "Cheguei de madrugada no aeroporto de Fortaleza e fui bem atendido… pelo funcionário Saulo Viana."
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[rgba(20,21,23,.12)]">
+            <strong class="t-denso font-bold text-[#141517] block">Danilo L.</strong>
+            <span class="t-denso text-[#5A5C60] block mt-0.5">Fortaleza · via Google Avaliações</span>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="bg-white p-6 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between">
+          <div>
+            <div class="text-[#141517] flex gap-0.5 mb-4" role="img" aria-label="5 de 5 estrelas"><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="t-corpo text-[#141517] mb-4">
+              "Locadora muito boa, preço justo, carro zero. Já sou cliente."
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[rgba(20,21,23,.12)]">
+            <strong class="t-denso font-bold text-[#141517] block">Jones D.</strong>
+            <span class="t-denso text-[#5A5C60] block mt-0.5">Recife · via Google Avaliações</span>
+          </div>
+        </div>
+
+        <!-- Depoimento 4 -->
+        <div class="bg-white p-6 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col justify-between">
+          <div>
+            <div class="text-[#141517] flex gap-0.5 mb-4" role="img" aria-label="5 de 5 estrelas"><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="w-4 h-4 flex-shrink-0" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <p class="t-corpo text-[#141517] mb-4">
+              "Empresa maravilhosa, adorei tudo. Principalmente a facilidade para alugarmos."
+            </p>
+          </div>
+          <div class="pt-3 border-t border-[rgba(20,21,23,.12)]">
+            <strong class="t-denso font-bold text-[#141517] block">Raquel A.</strong>
+            <span class="t-denso text-[#5A5C60] block mt-0.5">Fortaleza · via Google Avaliações</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 9: DÚVIDAS FREQUENTES (Acordeom com Cápsulas Independentes)         -->
+  <!-- ========================================================================= -->
+  <section id="duvidas" class="sec">
+    <div class="wrap grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-8 items-start">
+      
+      <div class="lg:col-span-4">
+        <span class="t-secao block mb-3">
+          RESPOSTAS CLARAS
+        </span>
+        <h2 class="t-titulo text-[#141517]">
+          Dúvidas antes de reservar
+        </h2>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3">
+
+        <!-- FAQ 1 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>O que eu preciso para alugar um carro na Asa?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">Ter mais de 21 anos, CNH há pelo menos 2 anos e um cartão de crédito físico no seu nome ou no nome do responsável financeiro da reserva, que precisa estar presente na retirada.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>Como funciona a diária de 27 horas?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">Cada diária tem 3 horas de tolerância na devolução. Se você retirar o carro às 10h, pode devolver até as 13h do dia seguinte sem pagar outra diária.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>Onde fica o balcão da Asa no aeroporto?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">Em Recife, no Portão A5 de Desembarque, e o carro sai do pátio dentro do aeroporto. Em Fortaleza, na Área de Locadoras do Terminal de Desembarque. Os dois funcionam 24 horas.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>O preço que aparece no site é o que vou pagar?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">O preço final já soma a diária, a proteção básica e a taxa administrativa de 12%. Adicionais como cadeira de bebê ou condutor adicional entram só se você escolher.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>Posso pagar com Pix ou débito?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">Sim. A Asa aceita cartão de crédito ou débito, Pix e dinheiro. A caução, porém, é sempre feita num cartão de crédito físico.</p>
+          </div>
+        </details>
+
+        <!-- FAQ 6 -->
+        <details name="faq" class="bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)]">
+          <summary class="cursor-pointer p-5 flex items-center justify-between gap-4 t-subtitulo text-[#141517] hover:bg-[#FFFBF0] rounded-[8px] transition">
+            <span>Posso cancelar a reserva?</span>
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60] stroke-current transform" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </summary>
+          <div class="px-5 pb-5 pt-4 border-t border-[rgba(20,21,23,.12)]">
+            <p class="t-corpo text-[#4A4C50] measure">Sim, sem custo, até 24 horas antes do horário da retirada.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- BLOCO 10: CTA FINAL (Ilha Escura Profunda · #0D0D0E com Corte de 8°)      -->
+  <!-- ========================================================================= -->
+  <section class="sec-m relative bg-[#FEC42B] text-[#141517] rounded-[8px] overflow-clip island-pad px-6 text-center">
+    <!-- Padrão geométrico difuso de fundo -->
+    <div class="asa-watermark z-0 w-[110%] sm:w-[70%] max-w-[900px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-[880px] mx-auto">
+      <span class="t-secao block mb-3 text-[#141517]">
+        PRONTO PARA EMBARCAR?
+      </span>
+      <h2 class="t-display text-[#141517] mb-6">
+        Seu carro espera por você no aeroporto
+      </h2>
+      <p class="t-corpo text-[#141517] mb-10 measure mx-auto">
+        Escolha as datas, veja o preço final e reserve. Se o plano mudar, cancele grátis até 24h antes da retirada.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <!-- O Único Botão Vermelho de Fechamento (#E80911) -->
+        <a href="#motor" class="w-full sm:w-auto px-8 py-4 bg-[#E80911] hover:bg-[#C4070E] active:bg-[#9B050B] text-white font-bold t-denso min-h-[52px] rounded-[8px] transition flex items-center justify-center gap-2">
+          <span>Ver carros disponíveis</span>
+          <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <!-- CTA Secundário WhatsApp -->
+        <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" 
+           class="w-full sm:w-auto px-6 py-4 bg-transparent hover:bg-[#141517] hover:text-white text-[#141517] font-bold t-denso min-h-[52px] rounded-[8px] border-[1.5px] border-[#141517] transition flex items-center justify-center gap-2">
+          <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>Ou fale com a Asa no WhatsApp</span><span class="sr-only"> (abre em nova aba)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- RODAPÉ INSTITUCIONAL (Conforme Dados do GBP e Schema Oficial)              -->
+  <!-- ========================================================================= -->
+  <footer class="is-dark bg-[#0D0D0E] text-[#A8AAAE] rounded-[8px] island-pad">
+    <div class="wrap grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-8 mb-10">
+      
+      <!-- Coluna 1: Marca e História -->
+      <div class="md:col-span-4">
+        <img src="lockup-branco.png" alt="Asa Rent a Car" width="961" height="371" loading="lazy" decoding="async" class="h-10 w-auto mb-5">
+        <p class="t-denso text-[#A8AAAE] mb-4 max-w-[40ch]">
+          Desde 2004 operando balcões 24 horas dentro dos principais aeroportos do Nordeste. Transparência de preço final, diária estendida de 27 horas e frota própria.
+        </p>
+        <span class="t-etiqueta text-[#A8AAAE] tabular-nums">CNPJ: 05.892.428/0001-44</span>
+      </div>
+
+      <!-- Coluna 2: Recife -->
+      <div class="md:col-span-4">
+        <h2 class="t-etiqueta text-white mb-3">Aeroporto do Recife (REC)</h2>
+        <p class="t-denso text-[#A8AAAE]">
+          Praça Ministro Salgado Filho, s/n<br>
+          Aeroporto Internacional do Recife/Guararapes<br>
+          Portão A5 de Desembarque — Imbiribeira, Recife - PE<br>
+          CEP 51210-902 · Atendimento 24 Horas
+        </p>
+      </div>
+
+      <!-- Coluna 3: Fortaleza -->
+      <div class="md:col-span-4">
+        <h2 class="t-etiqueta text-white mb-3">Aeroporto de Fortaleza (FOR)</h2>
+        <p class="t-denso text-[#A8AAAE]">
+          Av. Senador Carlos Jereissati, 3000<br>
+          Aeroporto Internacional Pinto Martins<br>
+          Área de Locadoras / Terminal de Desembarque — Serrinha, Fortaleza - CE<br>
+          CEP 60741-900 · Atendimento 24 Horas
+        </p>
+      </div>
+
+    </div>
+
+    <div class="wrap pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-[#A8AAAE] t-denso">
+      <p>© 2004–2026 Asa Rent a Car (Asa Locadora). Todos os direitos reservados.</p>
+      <div class="flex flex-wrap gap-x-6">
+        <a href="#requisitos" class="inline-flex items-center min-h-[44px] hover:text-white">Requisitos e Caução</a>
+        <!-- TODO: apontar para a página de termos quando existir -->
+        <a href="#duvidas" class="inline-flex items-center min-h-[44px] hover:text-white">Termos de Locação</a>
+        <a href="#duvidas" class="inline-flex items-center min-h-[44px] hover:text-white">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DE AUDITORIA DE DESIGN (Ativa Grade de 12 Colunas) -->
+  <div class="fixed bottom-4 right-4 z-40 hidden md:block" data-js>
+    <button type="button" onclick="toggleGridAudit()" class="px-4 py-2.5 bg-[#141517] hover:bg-[#141517] t-secao text-white rounded-[8px] border border-white/20 flex items-center gap-2 transition">
+      <span class="w-2 h-2 rounded-full bg-[#FEC42B]"></span>
+      <span id="gridBtnText">Auditar Grid 12 Colunas</span>
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS FUNCIONAIS DE INTERAÇÃO & AUDITORIA                               -->
+  <!-- ========================================================================= -->
+  <script>
+    const SMOOTH = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    const $ = (sel, root = document) => root.querySelector(sel);
+
+    // 1. Alternador da Grade de 12 Colunas (inspeção do time de UI)
+    function toggleGridAudit() {
+      const grid = $('#gridOverlay');
+      const on = grid.classList.toggle('active');
+      $('#gridBtnText').textContent = on ? 'Ocultar Grade' : 'Auditar Grid 12 Colunas';
+    }
+
+    // 2. Carrossel da frota: rolagem por card e setas desativadas nas pontas
+    const fleet = $('#fleetContainer');
+    function scrollFleet(direction) {
+      const card = fleet.firstElementChild;
+      const step = card ? card.getBoundingClientRect().width + 24 : 320;
+      fleet.scrollBy({ left: direction === 'left' ? -step : step, behavior: SMOOTH });
+    }
+    function updateFleetArrows() {
+      const max = fleet.scrollWidth - fleet.clientWidth - 2;
+      $('[data-fleet-prev]').disabled = fleet.scrollLeft <= 2;
+      $('[data-fleet-next]').disabled = fleet.scrollLeft >= max;
+    }
+    fleet.addEventListener('scroll', updateFleetArrows, { passive: true });
+    addEventListener('resize', updateFleetArrows);
+    updateFleetArrows();
+
+    // 3. Busca: datas nativas com padrão (amanhã 10h → +3 dias 13h), validação e estado de carregamento
+    const form = $('#searchForm');
+    const pickup = $('#pickupDate');
+    const ret = $('#returnDate');
+    const place = $('#pickupLocation');
+    const btn = $('#searchBtn');
+    const feedback = $('#searchFeedback');
+    form.noValidate = true;
+
+    const pad = n => String(n).padStart(2, '0');
+    const toLocal = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    const at = (days, hour) => { const d = new Date(); d.setDate(d.getDate() + days); d.setHours(hour, 0, 0, 0); return d; };
+    const now = new Date(); now.setSeconds(0, 0);
+    pickup.min = toLocal(now);
+    if (!pickup.value) pickup.value = toLocal(at(1, 10));
+    if (!ret.value) ret.value = toLocal(at(4, 13));
+    ret.min = pickup.value;
+
+    function setError(input, message) {
+      const box = document.getElementById(input.id === 'pickupDate' ? 'pickupError' : 'returnError');
+      box.querySelector('span').textContent = message || '';
+      box.classList.toggle('hidden', !message);
+      if (message) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+      input.closest('.asa-field').classList.toggle('is-invalid', !!message);
+    }
+    function validate() {
+      let ok = true;
+      const p = pickup.value ? new Date(pickup.value) : null;
+      const r = ret.value ? new Date(ret.value) : null;
+      if (!p) { setError(pickup, 'Escolha a data e o horário da retirada.'); ok = false; }
+      else if (p < new Date(Date.now() - 60000)) { setError(pickup, 'A retirada precisa ser a partir de agora. Ajuste a data ou o horário.'); ok = false; }
+      else setError(pickup, '');
+      if (!r) { setError(ret, 'Escolha a data e o horário da devolução.'); ok = false; }
+      else if (p && r <= p) { setError(ret, 'A devolução precisa ser depois da retirada. Ajuste a data ou o horário.'); ok = false; }
+      else setError(ret, '');
+      return ok;
+    }
+    pickup.addEventListener('change', () => {
+      ret.min = pickup.value;
+      if (pickup.getAttribute('aria-invalid') || ret.getAttribute('aria-invalid')) validate();
+    });
+    ret.addEventListener('change', () => { if (ret.getAttribute('aria-invalid')) validate(); });
+
+    function say(html) {
+      feedback.innerHTML = '';
+      const msg = document.createElement('span');
+      msg.className = 'font-medium';
+      msg.textContent = html;
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.className = 't-denso font-bold underline underline-offset-4 min-h-[44px] px-2 flex-shrink-0';
+      close.textContent = 'Fechar';
+      close.addEventListener('click', () => { feedback.innerHTML = ''; });
+      feedback.append(msg, close);
+    }
+    const AIRPORT = { REC: 'no Aeroporto do Recife', FOR: 'no Aeroporto de Fortaleza' };
+    const placeName = () => AIRPORT[place.value];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (btn.disabled) return;                         // sem duplo envio
+      if (!validate()) { (pickup.getAttribute('aria-invalid') ? pickup : ret).focus(); return; }
+      btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
+      const label = btn.querySelector('[data-label]');
+      label.textContent = 'Buscando carros…';
+      setTimeout(() => {                                // simulação: aqui entra a chamada real de disponibilidade
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        label.textContent = 'Ver carros';
+        const cat = $('#carCategory').value;
+        say(cat ? `Mostrando a categoria ${cat} disponível ${placeName()}.` : `Mostrando os carros disponíveis ${placeName()}.`);
+        $('#frota').scrollIntoView({ behavior: SMOOTH });
+      }, 600);
+    });
+
+    // 4. Atalhos que preenchem a busca: categoria (cards de frota) e aeroporto (praças e destinos)
+    function goToSearch() {
+      $('#motor').scrollIntoView({ behavior: SMOOTH, block: 'center' });
+      pickup.focus({ preventScroll: true });
+    }
+    document.querySelectorAll('[data-category]').forEach(a => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      $('#carCategory').value = a.dataset.category;
+      say(`Categoria ${a.dataset.category} selecionada. Confira as datas e toque em Ver carros.`);
+      goToSearch();
+    }));
+    document.querySelectorAll('[data-airport]').forEach(a => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      place.value = a.dataset.airport;
+      say(`Retirada ${placeName()}. Confira as datas e toque em Ver carros.`);
+      goToSearch();
+    }));
+
+    // 5. Menu do celular: fecha ao escolher um link, com Esc e ao tocar fora
+    const menu = $('[data-menu]');
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.removeAttribute('open')));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.open) { menu.removeAttribute('open'); menu.querySelector('summary').focus(); } });
+    addEventListener('click', (e) => { if (menu.open && !menu.contains(e.target)) menu.removeAttribute('open'); });
+  </script>
+</body>
+</html>

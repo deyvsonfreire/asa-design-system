@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js scroll-smooth motion-reduce:scroll-auto antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aluguel de Carros em Recife e Fortaleza | Asa Rent a Car</title>
+  <meta name="description" content="Balcão 24h dentro dos aeroportos de Recife e Fortaleza, diária de 27 horas e cancelamento grátis até 24h antes. Veja o preço final e reserve.">
+  <script>document.documentElement.classList.replace("no-js", "js");</script>
+
+  <!-- Tailwind CSS CDN (protótipo; em produção vira build) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- BR Omny (fonte oficial do DS v3.2) -->
+  <link rel="preload" href="fonts/BROmny-BlackItalic.otf" as="font" type="font/otf" crossorigin>
+
+  <style>
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'BR Omny'; src: url('fonts/BROmny-BlackItalic.otf') format('opentype'); font-weight: 900; font-style: italic; font-display: block; }
+
+    :root {
+      /* Primitivos */
+      --asa-yellow: #FEC42B; --asa-yellow-hover: #EAB227;
+      --asa-black: #141517;  --asa-black-deep: #0D0D0E;
+      --asa-red: #E80911;    --asa-red-dark: #C4070E;
+      --asa-cream: #FFFBF0;  --asa-white: #FFFFFF;
+      --asa-gray-body: #4A4C50; --asa-gray-caption: #5A5C60; --asa-gray-dark-2: #A8AAAE;
+      --asa-green: #065F46;  --asa-warn: #B65C00;
+      --asa-line: rgba(20, 21, 23, .14); --asa-line-soft: rgba(20, 21, 23, .12);
+      /* Papéis (DS v3.2) */
+      --asa-surface: var(--asa-yellow); --asa-ink: var(--asa-black); --asa-action: var(--asa-red);
+      --asa-action-hover: var(--asa-red-dark); --asa-bg: var(--asa-cream); --asa-bg-elevated: var(--asa-white);
+      --asa-radius: 8px;
+      --asa-font: 'BR Omny', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+      /* Grid: 1200px, margem fluida. Ritmo: 120px entre seções no desktop (fora da escala do DS, decisão da home) */
+      --asa-container: 1200px;
+      --asa-margin: clamp(20px, 6vw, 90px);
+      --asa-section: clamp(72px, 9vw, 120px);
+    }
+
+    html { background: var(--asa-bg-elevated); }
+    body { font-family: var(--asa-font); font-size: 16px; line-height: 26px; color: var(--asa-ink); background: var(--asa-bg-elevated); overflow-x: clip; }
+
+    /* ---------- Tipografia ----------
+       Registro 1 (anúncio: caixa alta, itálico, Black) só no H1, no preço e nas placas de número.
+       Tudo o que fala com a pessoa é Registro 2, caixa baixa. */
+    .t-display  { font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;
+                  font-size: clamp(40px, 5.6vw, 64px); line-height: 0.94; text-wrap: balance; }
+    .t-h2       { font-weight: 700; font-size: clamp(28px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+    .t-h3       { font-weight: 700; font-size: 20px; line-height: 28px; }
+    .t-card     { font-weight: 700; font-size: 20px; line-height: 26px; }
+    .t-lead     { font-size: 18px; line-height: 28px; font-weight: 400; }
+    .t-body     { font-size: 16px; line-height: 26px; font-weight: 400; }
+    .t-small    { font-size: 14px; line-height: 20px; }
+    .t-label    { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--asa-gray-caption); }
+    .t-tag      { font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+    .t-price    { font-weight: 900; font-style: italic; letter-spacing: -0.03em; font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .t-plate    { font-weight: 900; font-style: italic; letter-spacing: -0.03em; font-size: clamp(64px, 7vw, 96px); line-height: .85; font-variant-numeric: tabular-nums; }
+    .measure    { max-width: 640px; }
+    .accent     { color: var(--asa-action); }
+
+    /* ---------- Layout ---------- */
+    .wrap    { width: min(var(--asa-container), 100% - 2 * var(--asa-margin)); margin-inline: auto; }
+    .band    { padding-block: var(--asa-section); }
+    .band-sm { padding-block: clamp(48px, 6vw, 80px); }
+
+    /* Foco visível em todo lugar */
+    :focus-visible { outline: 2px solid var(--asa-ink); outline-offset: 3px; }
+    .on-yellow :focus-visible, .on-dark :focus-visible { outline-color: currentColor; }
+    input, select { caret-color: var(--asa-action); accent-color: var(--asa-action); }
+    svg { stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Movimento: teto de 400ms */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+    }
+
+    /* Corte de 8° real (cqw) — só em camadas de mídia, nunca em container interativo */
+    .asa-cut { container-type: inline-size; }
+    .asa-cut__media { clip-path: polygon(0 0, 100% 0, 100% calc(100% - min(14.05cqw, 45%)), 0 100%); }
+    .asa-cut__under { clip-path: polygon(0 min(14.05cqw, 45%), 100% 0, 100% 100%, 0 100%); }
+
+    /* Marca d'água: a asa sozinha, 13%, só sobre amarelo, uma vez na página */
+    .asa-watermark { position: absolute; pointer-events: none; opacity: .13;
+      background: url('w-atual-red.png') center / contain no-repeat; aspect-ratio: 806 / 511; }
+
+    /* Fotos: comp de visualização do Adobe Stock (não licenciadas) */
+    .ph { display: block; width: 100%; height: 100%; object-fit: cover; background: #E4E0DA; }
+
+    /* Só com JS */
+    .no-js [data-js] { display: none !important; }
+
+    /* details/summary nativo: menu e FAQ funcionam sem JS */
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    details[open] > summary .chev { transform: scaleY(-1); }
+    details[open] > summary .i-open { display: none; }
+    details:not([open]) > summary .i-close { display: none; }
+
+    /* Campo com erro */
+    .asa-field.is-invalid { border-color: var(--asa-action-hover) !important; }
+
+    /* Carrossel da frota: 1,15 cards no celular, 2,2 no tablet, 3,25 no desktop (o próximo card aparece) */
+    .rail { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 320px); gap: 16px;
+            overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--asa-margin);
+            padding-inline: var(--asa-margin); scrollbar-width: none; }
+    .rail::-webkit-scrollbar { display: none; }
+    .rail > * { scroll-snap-align: start; }
+    @media (min-width: 768px)  { .rail { grid-auto-columns: calc((100% - 2 * var(--asa-margin) - 24px) / 2.2); gap: 24px; } }
+    @media (min-width: 1024px) { .rail { grid-auto-columns: calc((min(var(--asa-container), 100% - 2 * var(--asa-margin)) - 48px) / 3.25);
+                                         padding-inline: max(var(--asa-margin), calc((100% - var(--asa-container)) / 2)); scroll-padding-inline: max(var(--asa-margin), calc((100% - var(--asa-container)) / 2)); } }
+  </style>
+</head>
+<body>
+
+  <a href="#motor" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] bg-[#141517] text-white px-4 py-3 rounded-[8px] t-small font-bold">Pular para a busca</a>
+
+  <!-- ======================================================================= -->
+  <!-- CABEÇALHO: branco, fora do hero                                          -->
+  <!-- ======================================================================= -->
+  <header class="bg-white border-b border-[rgba(20,21,23,.12)]">
+    <div class="wrap h-[72px] flex items-center justify-between gap-6">
+      <a href="/" class="flex items-center min-h-[44px] rounded-[8px]" aria-label="Asa Rent a Car, página inicial">
+        <img src="lockup.png" alt="" width="961" height="371" class="h-9 sm:h-10 w-auto">
+      </a>
+
+      <nav aria-label="Principal" class="hidden lg:flex items-center gap-1 t-small font-medium text-[#141517]">
+        <a href="#frota" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[#FFFBF0] transition">Carros</a>
+        <a href="#como-funciona" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[#FFFBF0] transition">Como funciona</a>
+        <a href="#pracas" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[#FFFBF0] transition">Aeroportos</a>
+        <a href="#destinos" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[#FFFBF0] transition">Destinos</a>
+        <a href="#duvidas" class="px-3.5 py-2.5 rounded-[8px] hover:bg-[#FFFBF0] transition">Dúvidas</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center min-h-[44px] px-3 t-small font-medium text-[#141517] hover:text-[#C4070E] tabular-nums whitespace-nowrap">
+          0800 080 0015<span class="sr-only"> (abre em nova aba)</span>
+        </a>
+        <a href="#motor" class="hidden sm:inline-flex items-center min-h-[44px] px-5 bg-[#141517] hover:bg-black text-white font-bold t-small rounded-[8px] transition whitespace-nowrap">Reservar</a>
+        <details class="lg:hidden relative" data-menu>
+          <summary class="cursor-pointer w-11 h-11 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] flex items-center justify-center text-[#141517]" aria-label="Menu">
+            <svg class="i-open w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <svg class="i-close w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </summary>
+          <nav aria-label="Principal" class="absolute right-0 top-[calc(100%+8px)] z-30 w-[min(300px,calc(100vw-40px))] bg-white rounded-[8px] border-[1.5px] border-[#141517] p-2 flex flex-col t-body font-medium text-[#141517]">
+            <a href="#frota" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Carros</a>
+            <a href="#como-funciona" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Como funciona</a>
+            <a href="#pracas" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Aeroportos</a>
+            <a href="#destinos" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Destinos</a>
+            <a href="#duvidas" class="min-h-[44px] px-3 flex items-center rounded-[8px] hover:bg-[#FFFBF0]">Dúvidas</a>
+            <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="min-h-[44px] px-3 mt-1 pt-1 flex items-center rounded-[8px] border-t border-[rgba(20,21,23,.12)] hover:bg-[#FFFBF0] tabular-nums">0800 080 0015 · WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>
+          </nav>
+        </details>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- HERO: faixa amarela com a busca. O único lugar de Registro 1 e da marca d'água -->
+  <!-- ======================================================================= -->
+  <section class="on-yellow relative bg-[#FEC42B] text-[#141517] overflow-clip">
+    <div class="asa-watermark z-0 w-[120%] -right-[45%] -top-[2%] sm:w-[62%] sm:-right-[8%] sm:-top-[10%] max-w-[900px]" aria-hidden="true"></div>
+
+    <div class="wrap relative z-10 pt-7 pb-10 sm:pt-14 sm:pb-16 lg:pt-20 lg:pb-20">
+      <div class="max-w-[880px]">
+        <h1 class="t-display">
+          Aluguel de carros em Recife e Fortaleza,
+          <span class="block mt-[0.18em]"><span class="bg-[#141517] text-[#FEC42B] px-[0.14em] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">dentro do aeroporto</span></span>
+        </h1>
+        <p class="mt-5 t-lead measure">Balcão 24h no desembarque. O carro sai do pátio do próprio aeroporto, sem van e sem taxa de aeroporto.</p>
+      </div>
+
+      <!-- Busca -->
+      <div id="motor" class="mt-6 lg:mt-10 bg-white rounded-[8px] p-4 sm:p-5 lg:p-6 border-[1.5px] border-[rgba(20,21,23,.14)]">
+        <form id="searchForm" action="#frota" method="get" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)_auto] gap-3 sm:gap-4">
+          <input type="hidden" name="categoria" id="carCategory" value="">
+
+          <label for="pickupLocation" class="asa-field block md:col-span-2 xl:col-span-1 bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer">
+            <span class="block t-label mb-1">Local de retirada</span>
+            <select id="pickupLocation" name="local" class="w-full min-w-0 min-h-[28px] bg-transparent t-body font-bold text-[#141517] focus:outline-none cursor-pointer truncate">
+              <option value="REC">Aeroporto do Recife (REC) · Portão A5</option>
+              <option value="FOR">Aeroporto de Fortaleza (FOR) · Desembarque</option>
+            </select>
+          </label>
+
+          <label for="pickupDate" class="asa-field block bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer">
+            <span class="block t-label mb-1">Retirada</span>
+            <input type="datetime-local" id="pickupDate" name="retirada" required aria-describedby="pickupError" class="w-full min-w-0 min-h-[28px] bg-transparent t-body font-bold text-[#141517] focus:outline-none tabular-nums">
+            <span id="pickupError" class="mt-2 t-small font-bold text-[#C4070E] hidden" data-error><span></span></span>
+          </label>
+
+          <label for="returnDate" class="asa-field block bg-[#FFFBF0] px-4 py-3 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] focus-within:border-[#141517] transition cursor-pointer">
+            <span class="block t-label mb-1">Devolução</span>
+            <input type="datetime-local" id="returnDate" name="devolucao" required aria-describedby="returnHint returnError" class="w-full min-w-0 min-h-[28px] bg-transparent t-body font-bold text-[#141517] focus:outline-none tabular-nums">
+            <span id="returnError" class="mt-2 t-small font-bold text-[#C4070E] hidden" data-error><span></span></span>
+          </label>
+
+          <div class="md:col-span-2 xl:col-span-1">
+            <button type="submit" id="searchBtn" class="w-full h-full min-h-[56px] py-4 px-8 bg-[#E80911] hover:bg-[#C4070E] active:bg-[#9B050B] disabled:bg-[#F2F2F0] disabled:text-[#A8AAAE] disabled:cursor-wait text-white font-bold t-small rounded-[8px] flex items-center justify-center gap-2 transition duration-200 whitespace-nowrap">
+              <span data-label>Ver carros</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </form>
+        <p id="returnHint" class="mt-3 t-small text-[#5A5C60]">Diária de 27 horas: devolva até 3 horas depois do horário da retirada sem pagar outra diária. O preço da busca já inclui proteção básica e taxas.</p>
+        <div id="searchFeedback" role="status" aria-live="polite" class="empty:hidden mt-3 p-3 bg-white border-[1.5px] border-[#065F46] text-[#065F46] t-small rounded-[8px] flex items-center justify-between gap-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- FOTO DE CHEGADA: a emoção vem da imagem; os 3 fatos ficam curtos          -->
+  <!-- ======================================================================= -->
+  <section class="bg-white">
+    <div class="wrap pt-10 lg:pt-14">
+      <div class="relative rounded-[8px] overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9]">
+        <img src="img/hero.jpg" alt="Viajante com mala saindo do terminal do aeroporto" width="1000" height="667" class="ph" fetchpriority="high">
+      </div>
+      <div class="-mt-6 sm:-mt-10 lg:-mt-14 relative mx-4 sm:mx-8 lg:mx-12 bg-white rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[rgba(20,21,23,.12)]">
+        <div class="p-6 lg:p-8">
+          <p class="t-h3">Diária de 27 horas</p>
+          <p class="mt-1 t-small text-[#4A4C50]">Retirou às 10h, devolve até as 13h do dia seguinte.</p>
+        </div>
+        <div class="p-6 lg:p-8">
+          <p class="t-h3">Cancele grátis até 24h antes</p>
+          <p class="mt-1 t-small text-[#4A4C50]">Se o voo ou o plano mudar, sem custo.</p>
+        </div>
+        <div class="p-6 lg:p-8">
+          <p class="t-h3">Carro em cerca de 8 minutos</p>
+          <p class="mt-1 t-small text-[#4A4C50]">Do balcão, no desembarque, direto ao pátio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- FROTA: carrossel com o próximo card à mostra                              -->
+  <!-- ======================================================================= -->
+  <section id="frota" class="band bg-white">
+    <div class="wrap flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+      <div>
+        <h2 class="t-h2">Qual carro combina com a sua <span class="accent">viagem</span>?</h2>
+        <p class="mt-3 t-lead text-[#4A4C50] measure">Todos com ar-condicionado e quilometragem livre. Os valores são por diária de 27 horas, já com taxas.</p>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0" data-js>
+        <button type="button" onclick="scrollFleet('left')" data-fleet-prev disabled class="disabled:opacity-40 disabled:cursor-not-allowed w-11 h-11 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] hover:border-[#141517] flex items-center justify-center text-[#141517] transition" aria-label="Anterior">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" onclick="scrollFleet('right')" data-fleet-next class="disabled:opacity-40 disabled:cursor-not-allowed w-11 h-11 rounded-[8px] border-[1.5px] border-[rgba(20,21,23,.14)] hover:border-[#141517] flex items-center justify-center text-[#141517] transition" aria-label="Próximo">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="fleetContainer" tabindex="0" aria-label="Categorias da frota" class="rail pb-2 focus-visible:outline-offset-4">
+      <!-- card -->
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-hatch.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Para rodar na cidade</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">Hatch econômico</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Fiat Mobi, Hyundai HB20 ou Onix</p>
+          <p class="t-small text-[#5A5C60] mt-3">5 lugares · 1 a 3 malas · manual</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 139<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="Hatch" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-seda.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Porta-malas separado</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">Sedã</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Chevrolet Onix Plus ou Corolla</p>
+          <p class="t-small text-[#5A5C60] mt-3">5 lugares · 2 a 3 malas · manual ou automático</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 158<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="Sedã" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-suv.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Estrada e litoral</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">SUV</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Chevrolet Tracker, Compass ou Commander</p>
+          <p class="t-small text-[#5A5C60] mt-3">5 ou 7 lugares · 2 a 3 malas · automático</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 192<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="SUV" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-7-lugares.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Família ou grupo</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">7 lugares</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Chevrolet Spin ou Commander</p>
+          <p class="t-small text-[#5A5C60] mt-3">7 lugares · 2 a 4 malas · automático</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 229<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="7 lugares" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-picape.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Caçamba e 4x4</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">Picape</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Fiat Strada, Toro 4x4 ou S10 4x4</p>
+          <p class="t-small text-[#5A5C60] mt-3">2 a 5 lugares · 3 a 4 malas · manual ou 4x4</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 245<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="Picape" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rounded-[8px] overflow-hidden bg-white border-[1.5px] border-[rgba(20,21,23,.14)] flex flex-col">
+        <div class="relative aspect-[16/10]">
+          <img src="img/cat-automatico.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute top-4 left-4 t-tag bg-[#FEC42B] text-[#141517] px-2.5 py-1.5">Sem embreagem</span>
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="t-card">Automático</h3>
+          <p class="t-small text-[#4A4C50] mt-1">Citroën C3, Corolla e SUVs, em 10 dos 15 grupos</p>
+          <p class="t-small text-[#5A5C60] mt-3">5 ou 7 lugares · malas variadas · automático</p>
+          <div class="mt-auto pt-5 flex items-end justify-between gap-3">
+            <div>
+              <span class="block t-small text-[#5A5C60]">A partir de</span>
+              <span class="t-price text-[#E80911]">R$ 168<span class="t-small not-italic font-normal tracking-normal text-[#4A4C50]">/dia</span></span>
+            </div>
+            <a href="#motor" data-category="Automático" class="inline-flex items-center min-h-[44px] px-4 rounded-[8px] bg-[#FEC42B] hover:bg-[#EAB227] text-[#141517] font-bold t-small transition">Cotar</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="wrap mt-6 t-small text-[#5A5C60]">Preço final com taxas. O valor exato das suas datas aparece na busca.</p>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- COMO FUNCIONA: faixa creme, editorial foto + texto                       -->
+  <!-- ======================================================================= -->
+  <section id="como-funciona" class="band bg-[#FFFBF0]">
+    <div class="wrap grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-6 asa-cut">
+        <div class="relative aspect-[4/3] rounded-[8px] overflow-hidden">
+          <img src="img/balcao.jpg" alt="Atendente entregando a chave do carro ao cliente" loading="lazy" decoding="async" width="1000" height="667" class="ph asa-cut__media">
+        </div>
+      </div>
+      <div class="lg:col-span-6">
+        <h2 class="t-h2">Do desembarque ao carro em <span class="accent">8 minutos</span></h2>
+        <p class="mt-4 t-lead text-[#4A4C50] measure">O balcão fica no terminal de desembarque e o carro sai do pátio do próprio aeroporto. Com estes quatro itens em mãos, a retirada é rápida.</p>
+
+        <dl class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+          <div>
+            <dt class="t-h3">CNH do condutor</dt>
+            <dd class="mt-1 t-body text-[#4A4C50]">Emitida há pelo menos 2 anos. O condutor precisa ter mais de 21 anos.</dd>
+          </div>
+          <div>
+            <dt class="t-h3">Cartão de crédito físico</dt>
+            <dd class="mt-1 t-body text-[#4A4C50]">No nome de quem paga. É nele que fica a caução, estornada por inteiro após a vistoria.</dd>
+          </div>
+          <div>
+            <dt class="t-h3">Titular do cartão presente</dt>
+            <dd class="mt-1 t-body text-[#4A4C50]">Se o cartão é de outra pessoa, ela assina o contrato no balcão.</dd>
+          </div>
+          <div>
+            <dt class="t-h3">Localizador da reserva</dt>
+            <dd class="mt-1 t-body text-[#4A4C50]">Chega no e-mail de confirmação e no WhatsApp do titular.</dd>
+          </div>
+        </dl>
+
+        <p class="mt-8 p-4 rounded-[8px] bg-white border-[1.5px] border-[rgba(20,21,23,.14)] t-small text-[#4A4C50]">
+          <strong class="text-[#B65C00]">Atenção à caução:</strong> Apple Pay, Google Wallet e cartão virtual não funcionam na maquininha do balcão. Leve o cartão de plástico com chip.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- AEROPORTOS + PROVA: faixa escura, fotos grandes, placas de número         -->
+  <!-- ======================================================================= -->
+  <section id="pracas" class="on-dark band bg-[#141517] text-white">
+    <div class="wrap">
+      <div class="max-w-[720px]">
+        <h2 class="t-h2">Dois aeroportos, um balcão <span class="text-[#FEC42B]">aberto 24 horas</span></h2>
+        <p class="mt-4 t-lead text-[#A8AAAE] measure">Chegou de madrugada? Tem alguém no balcão. O atendimento é no terminal de desembarque, sem van e sem transfer.</p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <a href="#motor" data-airport="REC" class="group block rounded-[8px] overflow-hidden focus-visible:outline-[#FEC42B]">
+          <div class="relative aspect-[16/10]">
+            <img src="img/recife.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+            <span class="absolute left-4 bottom-4 bg-[#141517] text-white px-3 py-2 t-h3 rounded-[8px]">Recife</span>
+          </div>
+          <div class="pt-5">
+            <p class="t-h3">Aeroporto do Recife (REC)</p>
+            <p class="mt-1 t-body text-[#A8AAAE]">Portão A5 do terminal de desembarque. O carro sai do pátio interno, a poucos passos do saguão.</p>
+            <p class="mt-3 t-small font-bold text-[#FEC42B] group-hover:text-white transition">Ver carros em Recife</p>
+          </div>
+        </a>
+        <a href="#motor" data-airport="FOR" class="group block rounded-[8px] overflow-hidden focus-visible:outline-[#FEC42B]">
+          <div class="relative aspect-[16/10]">
+            <img src="img/fortaleza.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+            <span class="absolute left-4 bottom-4 bg-[#141517] text-white px-3 py-2 t-h3 rounded-[8px]">Fortaleza</span>
+          </div>
+          <div class="pt-5">
+            <p class="t-h3">Aeroporto de Fortaleza (FOR)</p>
+            <p class="mt-1 t-body text-[#A8AAAE]">Área de locadoras, no terminal de desembarque. Atendimento direto, todos os dias.</p>
+            <p class="mt-3 t-small font-bold text-[#FEC42B] group-hover:text-white transition">Ver carros em Fortaleza</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-16 pt-12 border-t border-white/15 grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-5 grid grid-cols-2 gap-6">
+          <p>
+            <span class="block t-plate text-[#FEC42B]">4,7</span>
+            <span class="block mt-3 t-body text-white">no Google</span>
+          </p>
+          <p>
+            <span class="block t-plate text-[#FEC42B]">9,4</span>
+            <span class="block mt-3 t-body text-white">no Reclame Aqui</span>
+          </p>
+        </div>
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <figure>
+            <blockquote class="t-body text-white">"Cheguei de madrugada no aeroporto de Fortaleza e fui bem atendido pelo Saulo Viana."</blockquote>
+            <figcaption class="mt-3 t-small text-[#A8AAAE]"><strong class="text-white font-bold">Danilo L.</strong> · Fortaleza, via Google</figcaption>
+          </figure>
+          <figure>
+            <blockquote class="t-body text-white">"Locadora muito boa, preço justo, carro zero. Já sou cliente."</blockquote>
+            <figcaption class="mt-3 t-small text-[#A8AAAE]"><strong class="text-white font-bold">Jones D.</strong> · Recife, via Google</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- DESTINOS: grade de fotos assimétrica, nome sobre a foto                   -->
+  <!-- ======================================================================= -->
+  <section id="destinos" class="band bg-white">
+    <div class="wrap">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
+        <div>
+          <h2 class="t-h2">Para onde o carro te <span class="accent">leva</span></h2>
+          <p class="mt-3 t-lead text-[#4A4C50] measure">Retire no aeroporto e siga direto para o litoral. Os destinos mais pedidos por quem aluga com a Asa.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 md:grid-rows-2 gap-4 lg:gap-6 md:h-[560px]">
+        <a href="#motor" data-airport="REC" class="group relative col-span-2 md:row-span-2 rounded-[8px] overflow-hidden aspect-[16/10] md:aspect-auto">
+          <img src="img/porto-de-galinhas.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute left-4 bottom-4 bg-white text-[#141517] px-3 py-2 rounded-[8px]"><span class="block t-h3">Porto de Galinhas</span><span class="block t-small text-[#5A5C60]">1h de Recife</span></span>
+        </a>
+        <a href="#motor" data-airport="REC" class="group relative rounded-[8px] overflow-hidden aspect-square md:aspect-auto">
+          <img src="img/olinda.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute left-3 bottom-3 bg-white text-[#141517] px-3 py-1.5 rounded-[8px]"><span class="block t-small font-bold">Olinda</span><span class="block text-[12px] leading-4 text-[#5A5C60]">30 min de Recife</span></span>
+        </a>
+        <a href="#motor" data-airport="REC" class="group relative rounded-[8px] overflow-hidden aspect-square md:aspect-auto">
+          <img src="img/maragogi.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute left-3 bottom-3 bg-white text-[#141517] px-3 py-1.5 rounded-[8px]"><span class="block t-small font-bold">Maragogi</span><span class="block text-[12px] leading-4 text-[#5A5C60]">2h de Recife</span></span>
+        </a>
+        <a href="#motor" data-airport="FOR" class="group relative col-span-2 rounded-[8px] overflow-hidden aspect-[16/7] md:aspect-auto">
+          <img src="img/jericoacoara.jpg" alt="" loading="lazy" decoding="async" width="1000" height="667" class="ph">
+          <span class="absolute left-4 bottom-4 bg-white text-[#141517] px-3 py-2 rounded-[8px]"><span class="block t-h3">Jericoacoara</span><span class="block t-small text-[#5A5C60]">4h de Fortaleza · peça um 4x4</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- DÚVIDAS: lista com divisores, sem cards                                   -->
+  <!-- ======================================================================= -->
+  <section id="duvidas" class="band bg-white border-t border-[rgba(20,21,23,.12)]">
+    <div class="wrap grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="lg:col-span-4">
+        <h2 class="t-h2">Dúvidas antes de <span class="accent">reservar</span></h2>
+        <p class="mt-4 t-body text-[#4A4C50]">Não achou a resposta? A equipe atende no WhatsApp e no telefone, 24 horas.</p>
+        <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="mt-5 inline-flex items-center min-h-[48px] px-5 rounded-[8px] border-[1.5px] border-[#141517] text-[#141517] font-bold t-small hover:bg-[#141517] hover:text-white transition">Falar no WhatsApp<span class="sr-only"> (abre em nova aba)</span></a>
+      </div>
+
+      <div class="lg:col-span-8 divide-y divide-[rgba(20,21,23,.12)] border-y border-[rgba(20,21,23,.12)]">
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            O que eu preciso para alugar um carro na Asa?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Ter mais de 21 anos, CNH há pelo menos 2 anos e um cartão de crédito físico no seu nome ou no nome do responsável financeiro, que precisa estar presente na retirada.</p>
+        </details>
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            Como funciona a diária de 27 horas?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Cada diária tem 3 horas de tolerância na devolução. Se você retirar o carro às 10h, pode devolver até as 13h do dia seguinte sem pagar outra diária.</p>
+        </details>
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            Onde fica o balcão da Asa no aeroporto?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Em Recife, no Portão A5 do desembarque, e o carro sai do pátio dentro do aeroporto. Em Fortaleza, na área de locadoras do terminal de desembarque. Os dois funcionam 24 horas.</p>
+        </details>
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            O preço que aparece no site é o que vou pagar?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Sim. O preço final já soma a diária, a proteção básica e a taxa administrativa de 12%. Não há taxa de aeroporto. Adicionais como cadeira de bebê ou condutor extra entram só se você escolher.</p>
+        </details>
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            Posso pagar com Pix ou débito?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Sim. A Asa aceita cartão de crédito ou débito, Pix e dinheiro. A caução, porém, é sempre feita num cartão de crédito físico.</p>
+        </details>
+        <details name="faq">
+          <summary class="cursor-pointer py-5 flex items-center justify-between gap-6 t-h3 text-[#141517] hover:text-[#C4070E] transition">
+            Posso cancelar a reserva?
+            <svg class="chev w-5 h-5 flex-shrink-0 text-[#5A5C60]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p class="pb-6 t-body text-[#4A4C50] measure">Sim, sem custo, até 24 horas antes do horário da retirada.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- CTA FINAL: curto, amarelo, sem repetir o hero                              -->
+  <!-- ======================================================================= -->
+  <section class="on-yellow band-sm bg-[#FEC42B] text-[#141517]">
+    <div class="wrap flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+      <div class="max-w-[640px]">
+        <h2 class="t-h2">Seu carro te espera no desembarque.</h2>
+        <p class="mt-3 t-lead">Escolha as datas, veja o preço final e reserve. Cancelamento grátis até 24h antes.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 flex-shrink-0">
+        <a href="#motor" class="inline-flex items-center justify-center min-h-[52px] px-8 bg-[#E80911] hover:bg-[#C4070E] text-white font-bold t-small rounded-[8px] transition">Ver carros disponíveis</a>
+        <a href="https://wa.me/5508000800015" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center min-h-[52px] px-6 border-[1.5px] border-[#141517] text-[#141517] hover:bg-[#141517] hover:text-white font-bold t-small rounded-[8px] transition">Falar com a Asa<span class="sr-only"> (abre em nova aba)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- RODAPÉ                                                                    -->
+  <!-- ======================================================================= -->
+  <footer class="on-dark bg-[#0D0D0E] text-[#A8AAAE] band-sm">
+    <div class="wrap grid grid-cols-1 md:grid-cols-12 gap-x-6 gap-y-10">
+      <div class="md:col-span-4">
+        <img src="lockup-branco.png" alt="Asa Rent a Car" width="961" height="371" loading="lazy" decoding="async" class="h-9 w-auto mb-5">
+        <p class="t-small max-w-[40ch]">Desde 2004 operando balcões 24 horas dentro dos principais aeroportos do Nordeste. Preço final, diária de 27 horas e frota própria.</p>
+        <p class="mt-4 t-small tabular-nums">CNPJ 05.892.428/0001-44</p>
+      </div>
+      <div class="md:col-span-4">
+        <h2 class="t-small font-bold text-white mb-3">Aeroporto do Recife (REC)</h2>
+        <p class="t-small">Praça Ministro Salgado Filho, s/n<br>Aeroporto Internacional do Recife/Guararapes<br>Portão A5 de Desembarque, Imbiribeira, Recife, PE<br>CEP 51210-902 · 24 horas</p>
+      </div>
+      <div class="md:col-span-4">
+        <h2 class="t-small font-bold text-white mb-3">Aeroporto de Fortaleza (FOR)</h2>
+        <p class="t-small">Av. Senador Carlos Jereissati, 3000<br>Aeroporto Internacional Pinto Martins<br>Área de Locadoras, Terminal de Desembarque, Serrinha, Fortaleza, CE<br>CEP 60741-900 · 24 horas</p>
+      </div>
+    </div>
+    <div class="wrap mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 t-small">
+      <p>© 2004–2026 Asa Rent a Car. Todos os direitos reservados. Fotos: Adobe Stock, modelos de visualização não licenciados.</p>
+      <div class="flex flex-wrap gap-x-6">
+        <a href="#como-funciona" class="inline-flex items-center min-h-[44px] hover:text-white">Requisitos e caução</a>
+        <!-- TODO: apontar para as páginas quando existirem -->
+        <a href="#duvidas" class="inline-flex items-center min-h-[44px] hover:text-white">Termos de locação</a>
+        <a href="#duvidas" class="inline-flex items-center min-h-[44px] hover:text-white">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const SMOOTH = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    const $ = (sel, root = document) => root.querySelector(sel);
+
+    // 1. Carrossel da frota: rolagem por card e setas desativadas nas pontas
+    const fleet = $('#fleetContainer');
+    function scrollFleet(direction) {
+      const card = fleet.firstElementChild;
+      const step = card ? card.getBoundingClientRect().width + 24 : 320;
+      fleet.scrollBy({ left: direction === 'left' ? -step : step, behavior: SMOOTH });
+    }
+    function updateFleetArrows() {
+      const max = fleet.scrollWidth - fleet.clientWidth - 2;
+      $('[data-fleet-prev]').disabled = fleet.scrollLeft <= 2;
+      $('[data-fleet-next]').disabled = fleet.scrollLeft >= max;
+    }
+    fleet.addEventListener('scroll', updateFleetArrows, { passive: true });
+    addEventListener('resize', updateFleetArrows);
+    updateFleetArrows();
+
+    // 2. Busca: datas nativas com padrão (amanhã 10h → +3 dias 13h), validação e estado de carregamento
+    const form = $('#searchForm');
+    const pickup = $('#pickupDate');
+    const ret = $('#returnDate');
+    const place = $('#pickupLocation');
+    const btn = $('#searchBtn');
+    const feedback = $('#searchFeedback');
+    form.noValidate = true;
+
+    const pad = n => String(n).padStart(2, '0');
+    const toLocal = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    const at = (days, hour) => { const d = new Date(); d.setDate(d.getDate() + days); d.setHours(hour, 0, 0, 0); return d; };
+    const now = new Date(); now.setSeconds(0, 0);
+    pickup.min = toLocal(now);
+    if (!pickup.value) pickup.value = toLocal(at(1, 10));
+    if (!ret.value) ret.value = toLocal(at(4, 13));
+    ret.min = pickup.value;
+
+    function setError(input, message) {
+      const box = document.getElementById(input.id === 'pickupDate' ? 'pickupError' : 'returnError');
+      box.querySelector('span').textContent = message || '';
+      box.classList.toggle('hidden', !message);
+      if (message) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+      input.closest('.asa-field').classList.toggle('is-invalid', !!message);
+    }
+    function validate() {
+      let ok = true;
+      const p = pickup.value ? new Date(pickup.value) : null;
+      const r = ret.value ? new Date(ret.value) : null;
+      if (!p) { setError(pickup, 'Escolha a data e o horário da retirada.'); ok = false; }
+      else if (p < new Date(Date.now() - 60000)) { setError(pickup, 'A retirada precisa ser a partir de agora. Ajuste a data ou o horário.'); ok = false; }
+      else setError(pickup, '');
+      if (!r) { setError(ret, 'Escolha a data e o horário da devolução.'); ok = false; }
+      else if (p && r <= p) { setError(ret, 'A devolução precisa ser depois da retirada. Ajuste a data ou o horário.'); ok = false; }
+      else setError(ret, '');
+      return ok;
+    }
+    pickup.addEventListener('change', () => {
+      ret.min = pickup.value;
+      if (pickup.getAttribute('aria-invalid') || ret.getAttribute('aria-invalid')) validate();
+    });
+    ret.addEventListener('change', () => { if (ret.getAttribute('aria-invalid')) validate(); });
+
+    function say(html) {
+      feedback.innerHTML = '';
+      const msg = document.createElement('span');
+      msg.className = 'font-medium';
+      msg.textContent = html;
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.className = 't-denso font-bold underline underline-offset-4 min-h-[44px] px-2 flex-shrink-0';
+      close.textContent = 'Fechar';
+      close.addEventListener('click', () => { feedback.innerHTML = ''; });
+      feedback.append(msg, close);
+    }
+    const AIRPORT = { REC: 'no Aeroporto do Recife', FOR: 'no Aeroporto de Fortaleza' };
+    const placeName = () => AIRPORT[place.value];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (btn.disabled) return;                         // sem duplo envio
+      if (!validate()) { (pickup.getAttribute('aria-invalid') ? pickup : ret).focus(); return; }
+      btn.disabled = true;
+      btn.setAttribute('aria-busy', 'true');
+      const label = btn.querySelector('[data-label]');
+      label.textContent = 'Buscando carros…';
+      setTimeout(() => {                                // simulação: aqui entra a chamada real de disponibilidade
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+        label.textContent = 'Ver carros';
+        const cat = $('#carCategory').value;
+        say(cat ? `Mostrando a categoria ${cat} disponível ${placeName()}.` : `Mostrando os carros disponíveis ${placeName()}.`);
+        $('#frota').scrollIntoView({ behavior: SMOOTH });
+      }, 600);
+    });
+
+    // 3. Atalhos que preenchem a busca: categoria (cards de frota) e aeroporto (praças e destinos)
+    function goToSearch() {
+      $('#motor').scrollIntoView({ behavior: SMOOTH, block: 'center' });
+      pickup.focus({ preventScroll: true });
+    }
+    document.querySelectorAll('[data-category]').forEach(a => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      $('#carCategory').value = a.dataset.category;
+      say(`Categoria ${a.dataset.category} selecionada. Confira as datas e toque em Ver carros.`);
+      goToSearch();
+    }));
+    document.querySelectorAll('[data-airport]').forEach(a => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      place.value = a.dataset.airport;
+      say(`Retirada ${placeName()}. Confira as datas e toque em Ver carros.`);
+      goToSearch();
+    }));
+
+    // 4. Menu do celular: fecha ao escolher um link, com Esc e ao tocar fora
+    const menu = $('[data-menu]');
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.removeAttribute('open')));
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && menu.open) { menu.removeAttribute('open'); menu.querySelector('summary').focus(); } });
+    addEventListener('click', (e) => { if (menu.open && !menu.contains(e.target)) menu.removeAttribute('open'); });
+  </script>
+</body>
+</html>
